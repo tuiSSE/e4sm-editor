@@ -1,7 +1,8 @@
 # E4SM Editor
 This project contains [Eclipse](https://eclipse.org) plugins required to realize the E4SM Editor. The editor has been realized with [Eclipse Sirius](https://www.eclipse.org/sirius/).
 
-{:toc}
+## Table of Contents
+ [[_TOC_]]
 
 ## Goal
 The Objective of this editor, is to simplify the application of machine learning methods for small and medium-sized enterprises (SMEs).
