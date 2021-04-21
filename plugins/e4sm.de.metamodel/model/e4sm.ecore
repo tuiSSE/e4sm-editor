@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="e4sm" nsURI="http://de.tu-ilmenau/e4sm/1.0.0" nsPrefix="e4sm">
+  <eClassifiers xsi:type="ecore:EClass" name="Component" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
+        eType="#//Component" containment="true" eOpposite="#//Component/containedBy"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="containedBy" eType="#//Component"
+        eOpposite="#//Component/components"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MachineLearningComponent" eSuperTypes="#//SoftwareComponent"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Connector" eSuperTypes="#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//Component"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//Component"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PhysicalConnector" eSuperTypes="#//Connector">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minSpeed" eType="#//Connectionspeed"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxSpeed" eType="#//Connectionspeed"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Connectionspeed" instanceTypeName="newDataType1"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PhysicalComponent" eSuperTypes="#//Component"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SoftwareComponent" eSuperTypes="#//Component">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="OutputUncertanty" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LogicalConnector" eSuperTypes="#//Connector"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Heuristic" eSuperTypes="#//SoftwareComponent"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Function" eSuperTypes="#//SoftwareComponent"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ExternalDependency" eSuperTypes="#//SoftwareComponent"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Package" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
+        eType="#//Component" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="softwareComponents" upperBound="-1"
+        eType="#//SoftwareComponent" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="phisicalComponents" upperBound="-1"
+        eType="#//PhysicalComponent" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connectors" upperBound="-1"
+        eType="#//Connector" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sectors" upperBound="-1"
+        eType="#//Sector" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Model" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="packages" upperBound="-1"
+        eType="#//Package" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true" eSuperTypes="#//Element">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Actor" eSuperTypes="#//NamedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Human" eSuperTypes="#//Actor"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Robot" eSuperTypes="#//Actor"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Sector" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
+        eType="#//PhysicalComponent" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Sensor" eSuperTypes="#//PhysicalComponent"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Actuator" eSuperTypes="#//PhysicalComponent"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Element" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uuid" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>

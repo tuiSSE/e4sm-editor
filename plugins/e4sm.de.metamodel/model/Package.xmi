@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<e4sm:Package xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:e4sm="http://de.tu-ilmenau/e4sm/1.0.0" name="Scenario 2">
+  <components xsi:type="e4sm:PhisicalComponent" name="Computing Cluster">
+    <components xsi:type="e4sm:MachineLearningComponent" name="Skeleton Detection"/>
+    <components xsi:type="e4sm:MachineLearningComponent" name="Actions Detection"/>
+    <components xsi:type="e4sm:MachineLearningComponent" name="Objects Dection"/>
+    <components xsi:type="e4sm:Heuristic" name="Detect Process Phase"/>
+  </components>
+  <components xsi:type="e4sm:MachineLearningComponent" name="ML1"/>
+  <components xsi:type="e4sm:Heuristic" name="Heuristic 1"/>
+  <sectors name="Assembly area and warehouse with sensors"/>
+</e4sm:Package>

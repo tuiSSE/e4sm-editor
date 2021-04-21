@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated e4sm -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="e4sm.de.metamodel.e4sm.presentation.e4smModelWizardID"
+            name="%_UI_e4smModelWizard_label"
+            class="e4sm.de.metamodel.e4sm.presentation.e4smModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/e4smModelFile.gif">
+         <description>%_UI_e4smModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated e4sm -->
+      <editor
+            id="e4sm.de.metamodel.e4sm.presentation.e4smEditorID"
+            name="%_UI_e4smEditor_label"
+            icon="icons/full/obj16/e4smModelFile.gif"
+            extensions="e4sm"
+            class="e4sm.de.metamodel.e4sm.presentation.e4smEditor"
+            contributorClass="e4sm.de.metamodel.e4sm.presentation.e4smActionBarContributor">
+      </editor>
+   </extension>
+</plugin>
