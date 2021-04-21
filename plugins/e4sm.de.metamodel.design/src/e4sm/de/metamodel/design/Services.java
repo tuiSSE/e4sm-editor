@@ -1,4 +1,4 @@
-package e4sm.de.medamodel.design;
+package e4sm.de.metamodel.design;
 
 import org.eclipse.emf.ecore.EObject;
 

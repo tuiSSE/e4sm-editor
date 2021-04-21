@@ -324,6 +324,6 @@
         </customization>
       </additionalLayers>
     </ownedRepresentations>
-    <ownedJavaExtensions qualifiedClassName="e4sm.de.medamodel.design.Services"/>
+    <ownedJavaExtensions qualifiedClassName="e4sm.de.metamodel.design.Services"/>
   </ownedViewpoints>
 </description:Group>

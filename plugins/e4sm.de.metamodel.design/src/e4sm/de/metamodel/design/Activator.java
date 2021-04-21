@@ -1,4 +1,4 @@
-package e4sm.de.medamodel.design;
+package e4sm.de.metamodel.design;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -13,7 +13,7 @@ import org.osgi.framework.BundleContext;
  */
 public class Activator extends AbstractUIPlugin {
     // The plug-in ID
-    public static final String PLUGIN_ID = "e4sm.de.medamodel.design";
+    public static final String PLUGIN_ID = "e4sm.de.metamodel.design";
 
     // The shared instance
     private static Activator plugin;
