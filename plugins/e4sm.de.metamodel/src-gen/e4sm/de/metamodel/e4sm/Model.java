@@ -14,6 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link e4sm.de.metamodel.e4sm.Model#getPackages <em>Packages</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.Model#getActors <em>Actors</em>}</li>
  * </ul>
  *
  * @see e4sm.de.metamodel.e4sm.e4smPackage#getModel()
@@ -32,5 +33,17 @@ public interface Model extends NamedElement {
 	 * @generated
 	 */
 	EList<e4sm.de.metamodel.e4sm.Package> getPackages();
+
+	/**
+	 * Returns the value of the '<em><b>Actors</b></em>' containment reference list.
+	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.Actor}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Actors</em>' containment reference list.
+	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getModel_Actors()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Actor> getActors();
 
 } // Model

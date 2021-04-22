@@ -62,6 +62,7 @@ public class ModelItemProvider extends NamedElementItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(e4smPackage.Literals.MODEL__PACKAGES);
+			childrenFeatures.add(e4smPackage.Literals.MODEL__ACTORS);
 		}
 		return childrenFeatures;
 	}
@@ -126,6 +127,7 @@ public class ModelItemProvider extends NamedElementItemProvider {
 
 		switch (notification.getFeatureID(Model.class)) {
 		case e4smPackage.MODEL__PACKAGES:
+		case e4smPackage.MODEL__ACTORS:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -145,6 +147,15 @@ public class ModelItemProvider extends NamedElementItemProvider {
 
 		newChildDescriptors
 				.add(createChildParameter(e4smPackage.Literals.MODEL__PACKAGES, e4smFactory.eINSTANCE.createPackage()));
+
+		newChildDescriptors
+				.add(createChildParameter(e4smPackage.Literals.MODEL__ACTORS, e4smFactory.eINSTANCE.createActor()));
+
+		newChildDescriptors
+				.add(createChildParameter(e4smPackage.Literals.MODEL__ACTORS, e4smFactory.eINSTANCE.createHuman()));
+
+		newChildDescriptors
+				.add(createChildParameter(e4smPackage.Literals.MODEL__ACTORS, e4smFactory.eINSTANCE.createRobot()));
 	}
 
 }

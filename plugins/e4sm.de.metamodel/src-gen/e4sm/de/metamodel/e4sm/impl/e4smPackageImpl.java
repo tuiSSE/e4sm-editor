@@ -363,7 +363,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSoftwareComponent_OutputUncertanty() {
+	public EAttribute getSoftwareComponent_OutputUncertainty() {
 		return (EAttribute) softwareComponentEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -473,6 +473,15 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 */
 	public EReference getModel_Packages() {
 		return (EReference) modelEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getModel_Actors() {
+		return (EReference) modelEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -629,7 +638,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		physicalComponentEClass = createEClass(PHYSICAL_COMPONENT);
 
 		softwareComponentEClass = createEClass(SOFTWARE_COMPONENT);
-		createEAttribute(softwareComponentEClass, SOFTWARE_COMPONENT__OUTPUT_UNCERTANTY);
+		createEAttribute(softwareComponentEClass, SOFTWARE_COMPONENT__OUTPUT_UNCERTAINTY);
 
 		logicalConnectorEClass = createEClass(LOGICAL_CONNECTOR);
 
@@ -648,6 +657,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 
 		modelEClass = createEClass(MODEL);
 		createEReference(modelEClass, MODEL__PACKAGES);
+		createEReference(modelEClass, MODEL__ACTORS);
 
 		namedElementEClass = createEClass(NAMED_ELEMENT);
 		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
@@ -757,8 +767,8 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 
 		initEClass(softwareComponentEClass, SoftwareComponent.class, "SoftwareComponent", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSoftwareComponent_OutputUncertanty(), ecorePackage.getEDouble(), "OutputUncertanty", null, 0,
-				1, SoftwareComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+		initEAttribute(getSoftwareComponent_OutputUncertainty(), ecorePackage.getEDouble(), "OutputUncertainty", "0.0",
+				0, 1, SoftwareComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(logicalConnectorEClass, LogicalConnector.class, "LogicalConnector", !IS_ABSTRACT, !IS_INTERFACE,
@@ -795,10 +805,13 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		initEReference(getModel_Packages(), this.getPackage(), null, "packages", null, 0, -1, Model.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModel_Actors(), this.getActor(), null, "actors", null, 0, -1, Model.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, NamedElement.class,
+		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 1, 1, NamedElement.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(actorEClass, Actor.class, "Actor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

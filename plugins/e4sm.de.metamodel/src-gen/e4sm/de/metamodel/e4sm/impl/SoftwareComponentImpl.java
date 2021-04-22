@@ -19,31 +19,31 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link e4sm.de.metamodel.e4sm.impl.SoftwareComponentImpl#getOutputUncertanty <em>Output Uncertanty</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.SoftwareComponentImpl#getOutputUncertainty <em>Output Uncertainty</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class SoftwareComponentImpl extends ComponentImpl implements SoftwareComponent {
 	/**
-	 * The default value of the '{@link #getOutputUncertanty() <em>Output Uncertanty</em>}' attribute.
+	 * The default value of the '{@link #getOutputUncertainty() <em>Output Uncertainty</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOutputUncertanty()
+	 * @see #getOutputUncertainty()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double OUTPUT_UNCERTANTY_EDEFAULT = 0.0;
+	protected static final double OUTPUT_UNCERTAINTY_EDEFAULT = 0.0;
 
 	/**
-	 * The cached value of the '{@link #getOutputUncertanty() <em>Output Uncertanty</em>}' attribute.
+	 * The cached value of the '{@link #getOutputUncertainty() <em>Output Uncertainty</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOutputUncertanty()
+	 * @see #getOutputUncertainty()
 	 * @generated
 	 * @ordered
 	 */
-	protected double outputUncertanty = OUTPUT_UNCERTANTY_EDEFAULT;
+	protected double outputUncertainty = OUTPUT_UNCERTAINTY_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -69,8 +69,8 @@ public class SoftwareComponentImpl extends ComponentImpl implements SoftwareComp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getOutputUncertanty() {
-		return outputUncertanty;
+	public double getOutputUncertainty() {
+		return outputUncertainty;
 	}
 
 	/**
@@ -78,12 +78,12 @@ public class SoftwareComponentImpl extends ComponentImpl implements SoftwareComp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOutputUncertanty(double newOutputUncertanty) {
-		double oldOutputUncertanty = outputUncertanty;
-		outputUncertanty = newOutputUncertanty;
+	public void setOutputUncertainty(double newOutputUncertainty) {
+		double oldOutputUncertainty = outputUncertainty;
+		outputUncertainty = newOutputUncertainty;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.SOFTWARE_COMPONENT__OUTPUT_UNCERTANTY,
-					oldOutputUncertanty, outputUncertanty));
+			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.SOFTWARE_COMPONENT__OUTPUT_UNCERTAINTY,
+					oldOutputUncertainty, outputUncertainty));
 	}
 
 	/**
@@ -94,8 +94,8 @@ public class SoftwareComponentImpl extends ComponentImpl implements SoftwareComp
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case e4smPackage.SOFTWARE_COMPONENT__OUTPUT_UNCERTANTY:
-			return getOutputUncertanty();
+		case e4smPackage.SOFTWARE_COMPONENT__OUTPUT_UNCERTAINTY:
+			return getOutputUncertainty();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -108,8 +108,8 @@ public class SoftwareComponentImpl extends ComponentImpl implements SoftwareComp
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case e4smPackage.SOFTWARE_COMPONENT__OUTPUT_UNCERTANTY:
-			setOutputUncertanty((Double) newValue);
+		case e4smPackage.SOFTWARE_COMPONENT__OUTPUT_UNCERTAINTY:
+			setOutputUncertainty((Double) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -123,8 +123,8 @@ public class SoftwareComponentImpl extends ComponentImpl implements SoftwareComp
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case e4smPackage.SOFTWARE_COMPONENT__OUTPUT_UNCERTANTY:
-			setOutputUncertanty(OUTPUT_UNCERTANTY_EDEFAULT);
+		case e4smPackage.SOFTWARE_COMPONENT__OUTPUT_UNCERTAINTY:
+			setOutputUncertainty(OUTPUT_UNCERTAINTY_EDEFAULT);
 			return;
 		}
 		super.eUnset(featureID);
@@ -138,8 +138,8 @@ public class SoftwareComponentImpl extends ComponentImpl implements SoftwareComp
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case e4smPackage.SOFTWARE_COMPONENT__OUTPUT_UNCERTANTY:
-			return outputUncertanty != OUTPUT_UNCERTANTY_EDEFAULT;
+		case e4smPackage.SOFTWARE_COMPONENT__OUTPUT_UNCERTAINTY:
+			return outputUncertainty != OUTPUT_UNCERTAINTY_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -155,8 +155,8 @@ public class SoftwareComponentImpl extends ComponentImpl implements SoftwareComp
 			return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (OutputUncertanty: ");
-		result.append(outputUncertanty);
+		result.append(" (OutputUncertainty: ");
+		result.append(outputUncertainty);
 		result.append(')');
 		return result.toString();
 	}

@@ -44,24 +44,24 @@ public class SoftwareComponentItemProvider extends ComponentItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addOutputUncertantyPropertyDescriptor(object);
+			addOutputUncertaintyPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Output Uncertanty feature.
+	 * This adds a property descriptor for the Output Uncertainty feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addOutputUncertantyPropertyDescriptor(Object object) {
+	protected void addOutputUncertaintyPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_SoftwareComponent_OutputUncertanty_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_SoftwareComponent_OutputUncertanty_feature",
+				getString("_UI_SoftwareComponent_OutputUncertainty_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_SoftwareComponent_OutputUncertainty_feature",
 						"_UI_SoftwareComponent_type"),
-				e4smPackage.Literals.SOFTWARE_COMPONENT__OUTPUT_UNCERTANTY, true, false, false,
+				e4smPackage.Literals.SOFTWARE_COMPONENT__OUTPUT_UNCERTAINTY, true, false, false,
 				ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null));
 	}
 
@@ -111,7 +111,7 @@ public class SoftwareComponentItemProvider extends ComponentItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(SoftwareComponent.class)) {
-		case e4smPackage.SOFTWARE_COMPONENT__OUTPUT_UNCERTANTY:
+		case e4smPackage.SOFTWARE_COMPONENT__OUTPUT_UNCERTAINTY:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}

@@ -251,13 +251,13 @@ public interface e4smPackage extends EPackage {
 	int SOFTWARE_COMPONENT__CONTAINED_BY = COMPONENT__CONTAINED_BY;
 
 	/**
-	 * The feature id for the '<em><b>Output Uncertanty</b></em>' attribute.
+	 * The feature id for the '<em><b>Output Uncertainty</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOFTWARE_COMPONENT__OUTPUT_UNCERTANTY = COMPONENT_FEATURE_COUNT + 0;
+	int SOFTWARE_COMPONENT__OUTPUT_UNCERTAINTY = COMPONENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Software Component</em>' class.
@@ -324,13 +324,13 @@ public interface e4smPackage extends EPackage {
 	int MACHINE_LEARNING_COMPONENT__CONTAINED_BY = SOFTWARE_COMPONENT__CONTAINED_BY;
 
 	/**
-	 * The feature id for the '<em><b>Output Uncertanty</b></em>' attribute.
+	 * The feature id for the '<em><b>Output Uncertainty</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MACHINE_LEARNING_COMPONENT__OUTPUT_UNCERTANTY = SOFTWARE_COMPONENT__OUTPUT_UNCERTANTY;
+	int MACHINE_LEARNING_COMPONENT__OUTPUT_UNCERTAINTY = SOFTWARE_COMPONENT__OUTPUT_UNCERTAINTY;
 
 	/**
 	 * The number of structural features of the '<em>Machine Learning Component</em>' class.
@@ -644,13 +644,13 @@ public interface e4smPackage extends EPackage {
 	int HEURISTIC__CONTAINED_BY = SOFTWARE_COMPONENT__CONTAINED_BY;
 
 	/**
-	 * The feature id for the '<em><b>Output Uncertanty</b></em>' attribute.
+	 * The feature id for the '<em><b>Output Uncertainty</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int HEURISTIC__OUTPUT_UNCERTANTY = SOFTWARE_COMPONENT__OUTPUT_UNCERTANTY;
+	int HEURISTIC__OUTPUT_UNCERTAINTY = SOFTWARE_COMPONENT__OUTPUT_UNCERTAINTY;
 
 	/**
 	 * The number of structural features of the '<em>Heuristic</em>' class.
@@ -717,13 +717,13 @@ public interface e4smPackage extends EPackage {
 	int FUNCTION__CONTAINED_BY = SOFTWARE_COMPONENT__CONTAINED_BY;
 
 	/**
-	 * The feature id for the '<em><b>Output Uncertanty</b></em>' attribute.
+	 * The feature id for the '<em><b>Output Uncertainty</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FUNCTION__OUTPUT_UNCERTANTY = SOFTWARE_COMPONENT__OUTPUT_UNCERTANTY;
+	int FUNCTION__OUTPUT_UNCERTAINTY = SOFTWARE_COMPONENT__OUTPUT_UNCERTAINTY;
 
 	/**
 	 * The number of structural features of the '<em>Function</em>' class.
@@ -790,13 +790,13 @@ public interface e4smPackage extends EPackage {
 	int EXTERNAL_DEPENDENCY__CONTAINED_BY = SOFTWARE_COMPONENT__CONTAINED_BY;
 
 	/**
-	 * The feature id for the '<em><b>Output Uncertanty</b></em>' attribute.
+	 * The feature id for the '<em><b>Output Uncertainty</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTERNAL_DEPENDENCY__OUTPUT_UNCERTANTY = SOFTWARE_COMPONENT__OUTPUT_UNCERTANTY;
+	int EXTERNAL_DEPENDENCY__OUTPUT_UNCERTAINTY = SOFTWARE_COMPONENT__OUTPUT_UNCERTAINTY;
 
 	/**
 	 * The number of structural features of the '<em>External Dependency</em>' class.
@@ -945,13 +945,22 @@ public interface e4smPackage extends EPackage {
 	int MODEL__PACKAGES = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Actors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL__ACTORS = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int MODEL_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Model</em>' class.
@@ -1420,15 +1429,15 @@ public interface e4smPackage extends EPackage {
 	EClass getSoftwareComponent();
 
 	/**
-	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.SoftwareComponent#getOutputUncertanty <em>Output Uncertanty</em>}'.
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.SoftwareComponent#getOutputUncertainty <em>Output Uncertainty</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Output Uncertanty</em>'.
-	 * @see e4sm.de.metamodel.e4sm.SoftwareComponent#getOutputUncertanty()
+	 * @return the meta object for the attribute '<em>Output Uncertainty</em>'.
+	 * @see e4sm.de.metamodel.e4sm.SoftwareComponent#getOutputUncertainty()
 	 * @see #getSoftwareComponent()
 	 * @generated
 	 */
-	EAttribute getSoftwareComponent_OutputUncertanty();
+	EAttribute getSoftwareComponent_OutputUncertainty();
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.LogicalConnector <em>Logical Connector</em>}'.
@@ -1555,6 +1564,17 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getModel_Packages();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link e4sm.de.metamodel.e4sm.Model#getActors <em>Actors</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Actors</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Model#getActors()
+	 * @see #getModel()
+	 * @generated
+	 */
+	EReference getModel_Actors();
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.NamedElement <em>Named Element</em>}'.
@@ -1812,12 +1832,12 @@ public interface e4smPackage extends EPackage {
 		EClass SOFTWARE_COMPONENT = eINSTANCE.getSoftwareComponent();
 
 		/**
-		 * The meta object literal for the '<em><b>Output Uncertanty</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Output Uncertainty</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SOFTWARE_COMPONENT__OUTPUT_UNCERTANTY = eINSTANCE.getSoftwareComponent_OutputUncertanty();
+		EAttribute SOFTWARE_COMPONENT__OUTPUT_UNCERTAINTY = eINSTANCE.getSoftwareComponent_OutputUncertainty();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.LogicalConnectorImpl <em>Logical Connector</em>}' class.
@@ -1926,6 +1946,14 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EReference MODEL__PACKAGES = eINSTANCE.getModel_Packages();
+
+		/**
+		 * The meta object literal for the '<em><b>Actors</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODEL__ACTORS = eINSTANCE.getModel_Actors();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.NamedElementImpl <em>Named Element</em>}' class.

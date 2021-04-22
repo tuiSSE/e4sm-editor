@@ -26,7 +26,7 @@
     </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//PhysicalComponent"/>
     <genClasses ecoreClass="e4sm.ecore#//SoftwareComponent">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//SoftwareComponent/OutputUncertanty"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//SoftwareComponent/OutputUncertainty"/>
     </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//LogicalConnector"/>
     <genClasses ecoreClass="e4sm.ecore#//Heuristic"/>
@@ -41,6 +41,7 @@
     </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//Model">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//Model/packages"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//Model/actors"/>
     </genClasses>
     <genClasses image="false" ecoreClass="e4sm.ecore#//NamedElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//NamedElement/name"/>

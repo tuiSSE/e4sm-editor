@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: e4sm.de.metamodel.edit;singleton:=true
 Automatic-Module-Name: e4sm.de.metamodel.edit
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 0.1.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: e4sm.de.metamodel.e4sm.provider.e4smEditPlugin$Implementation
 Bundle-Vendor: %providerName
