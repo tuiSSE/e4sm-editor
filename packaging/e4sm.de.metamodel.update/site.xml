@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/e4sm.de.metamodel.feature_0.1.0.202104221701.jar" id="e4sm.de.metamodel.feature" version="0.1.0.202104221701">
+      <category name="E4SMModel"/>
+   </feature>
+   <category-def name="E4SMModel" label="E4SM Editor"/>
+</site>
