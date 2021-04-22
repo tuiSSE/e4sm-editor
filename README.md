@@ -31,5 +31,12 @@ It contains a structured, simple editor that conforms to the recommended style f
 ### e4sm.de.metamodel.design
 Contains the Sirius Viewpoint Specification Project of the graphical E4SM editor (diagrams).
 
+## Packaging folder overview
+### e4sm.de.metamodel.feature
+It contains a feature project containing the metamodel projects (metamodel, edit, editor) and the Sirius viewpoint specification project.
+
+### e4sm.de.metamodel.update
+It contains the project needed to build the update site in order to distribute the editor.
+
 ## Acknowledgments
 This work has received funding from the _[Carl Zeiss Foundation](https://www.carl-zeiss-stiftung.de/english)_ as part of the project _"Engineering for Smart Manufacturing"_ (E4SM) under grant agreement no. P2017-01-005.
