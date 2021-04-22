@@ -95,6 +95,7 @@ public class ComponentItemProvider extends NamedElementItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(e4smPackage.Literals.COMPONENT__COMPONENTS);
+			childrenFeatures.add(e4smPackage.Literals.COMPONENT__PINS);
 		}
 		return childrenFeatures;
 	}
@@ -159,6 +160,7 @@ public class ComponentItemProvider extends NamedElementItemProvider {
 
 		switch (notification.getFeatureID(Component.class)) {
 		case e4smPackage.COMPONENT__COMPONENTS:
+		case e4smPackage.COMPONENT__PINS:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -202,6 +204,12 @@ public class ComponentItemProvider extends NamedElementItemProvider {
 
 		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.COMPONENT__COMPONENTS,
 				e4smFactory.eINSTANCE.createActuator()));
+
+		newChildDescriptors.add(
+				createChildParameter(e4smPackage.Literals.COMPONENT__PINS, e4smFactory.eINSTANCE.createInputPin()));
+
+		newChildDescriptors.add(
+				createChildParameter(e4smPackage.Literals.COMPONENT__PINS, e4smFactory.eINSTANCE.createOutputPin()));
 	}
 
 }

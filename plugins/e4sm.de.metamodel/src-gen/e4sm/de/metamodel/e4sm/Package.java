@@ -15,7 +15,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link e4sm.de.metamodel.e4sm.Package#getComponents <em>Components</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Package#getSoftwareComponents <em>Software Components</em>}</li>
- *   <li>{@link e4sm.de.metamodel.e4sm.Package#getPhisicalComponents <em>Phisical Components</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.Package#getPhysicalComponents <em>Physical Components</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Package#getConnectors <em>Connectors</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Package#getSectors <em>Sectors</em>}</li>
  * </ul>
@@ -50,16 +50,16 @@ public interface Package extends NamedElement {
 	EList<SoftwareComponent> getSoftwareComponents();
 
 	/**
-	 * Returns the value of the '<em><b>Phisical Components</b></em>' reference list.
+	 * Returns the value of the '<em><b>Physical Components</b></em>' reference list.
 	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.PhysicalComponent}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Phisical Components</em>' reference list.
-	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getPackage_PhisicalComponents()
+	 * @return the value of the '<em>Physical Components</em>' reference list.
+	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getPackage_PhysicalComponents()
 	 * @model derived="true"
 	 * @generated
 	 */
-	EList<PhysicalComponent> getPhisicalComponents();
+	EList<PhysicalComponent> getPhysicalComponents();
 
 	/**
 	 * Returns the value of the '<em><b>Connectors</b></em>' containment reference list.

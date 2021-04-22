@@ -32,7 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getComponents <em>Components</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getSoftwareComponents <em>Software Components</em>}</li>
- *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getPhisicalComponents <em>Phisical Components</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getPhysicalComponents <em>Physical Components</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getConnectors <em>Connectors</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getSectors <em>Sectors</em>}</li>
  * </ul>
@@ -61,14 +61,14 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	protected EList<SoftwareComponent> softwareComponents;
 
 	/**
-	 * The cached value of the '{@link #getPhisicalComponents() <em>Phisical Components</em>}' reference list.
+	 * The cached value of the '{@link #getPhysicalComponents() <em>Physical Components</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPhisicalComponents()
+	 * @see #getPhysicalComponents()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<PhysicalComponent> phisicalComponents;
+	protected EList<PhysicalComponent> physicalComponents;
 
 	/**
 	 * The cached value of the '{@link #getConnectors() <em>Connectors</em>}' containment reference list.
@@ -139,12 +139,12 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<PhysicalComponent> getPhisicalComponents() {
-		if (phisicalComponents == null) {
-			phisicalComponents = new EObjectResolvingEList<PhysicalComponent>(PhysicalComponent.class, this,
-					e4smPackage.PACKAGE__PHISICAL_COMPONENTS);
+	public EList<PhysicalComponent> getPhysicalComponents() {
+		if (physicalComponents == null) {
+			physicalComponents = new EObjectResolvingEList<PhysicalComponent>(PhysicalComponent.class, this,
+					e4smPackage.PACKAGE__PHYSICAL_COMPONENTS);
 		}
-		return phisicalComponents;
+		return physicalComponents;
 	}
 
 	/**
@@ -201,8 +201,8 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 			return getComponents();
 		case e4smPackage.PACKAGE__SOFTWARE_COMPONENTS:
 			return getSoftwareComponents();
-		case e4smPackage.PACKAGE__PHISICAL_COMPONENTS:
-			return getPhisicalComponents();
+		case e4smPackage.PACKAGE__PHYSICAL_COMPONENTS:
+			return getPhysicalComponents();
 		case e4smPackage.PACKAGE__CONNECTORS:
 			return getConnectors();
 		case e4smPackage.PACKAGE__SECTORS:
@@ -228,9 +228,9 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 			getSoftwareComponents().clear();
 			getSoftwareComponents().addAll((Collection<? extends SoftwareComponent>) newValue);
 			return;
-		case e4smPackage.PACKAGE__PHISICAL_COMPONENTS:
-			getPhisicalComponents().clear();
-			getPhisicalComponents().addAll((Collection<? extends PhysicalComponent>) newValue);
+		case e4smPackage.PACKAGE__PHYSICAL_COMPONENTS:
+			getPhysicalComponents().clear();
+			getPhysicalComponents().addAll((Collection<? extends PhysicalComponent>) newValue);
 			return;
 		case e4smPackage.PACKAGE__CONNECTORS:
 			getConnectors().clear();
@@ -258,8 +258,8 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 		case e4smPackage.PACKAGE__SOFTWARE_COMPONENTS:
 			getSoftwareComponents().clear();
 			return;
-		case e4smPackage.PACKAGE__PHISICAL_COMPONENTS:
-			getPhisicalComponents().clear();
+		case e4smPackage.PACKAGE__PHYSICAL_COMPONENTS:
+			getPhysicalComponents().clear();
 			return;
 		case e4smPackage.PACKAGE__CONNECTORS:
 			getConnectors().clear();
@@ -283,8 +283,8 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 			return components != null && !components.isEmpty();
 		case e4smPackage.PACKAGE__SOFTWARE_COMPONENTS:
 			return softwareComponents != null && !softwareComponents.isEmpty();
-		case e4smPackage.PACKAGE__PHISICAL_COMPONENTS:
-			return phisicalComponents != null && !phisicalComponents.isEmpty();
+		case e4smPackage.PACKAGE__PHYSICAL_COMPONENTS:
+			return physicalComponents != null && !physicalComponents.isEmpty();
 		case e4smPackage.PACKAGE__CONNECTORS:
 			return connectors != null && !connectors.isEmpty();
 		case e4smPackage.PACKAGE__SECTORS:

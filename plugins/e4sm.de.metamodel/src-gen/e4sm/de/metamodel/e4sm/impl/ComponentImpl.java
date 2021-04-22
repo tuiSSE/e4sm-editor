@@ -3,6 +3,7 @@
 package e4sm.de.metamodel.e4sm.impl;
 
 import e4sm.de.metamodel.e4sm.Component;
+import e4sm.de.metamodel.e4sm.Pin;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
 import java.util.Collection;
@@ -17,6 +18,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -31,6 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ComponentImpl#getComponents <em>Components</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ComponentImpl#getContainedBy <em>Contained By</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.ComponentImpl#getPins <em>Pins</em>}</li>
  * </ul>
  *
  * @generated
@@ -45,6 +48,16 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 	 * @ordered
 	 */
 	protected EList<Component> components;
+
+	/**
+	 * The cached value of the '{@link #getPins() <em>Pins</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPins()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Pin> pins;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -128,6 +141,18 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Pin> getPins() {
+		if (pins == null) {
+			pins = new EObjectContainmentEList<Pin>(Pin.class, this, e4smPackage.COMPONENT__PINS);
+		}
+		return pins;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -154,6 +179,8 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 			return ((InternalEList<?>) getComponents()).basicRemove(otherEnd, msgs);
 		case e4smPackage.COMPONENT__CONTAINED_BY:
 			return basicSetContainedBy(null, msgs);
+		case e4smPackage.COMPONENT__PINS:
+			return ((InternalEList<?>) getPins()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -184,6 +211,8 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 			return getComponents();
 		case e4smPackage.COMPONENT__CONTAINED_BY:
 			return getContainedBy();
+		case e4smPackage.COMPONENT__PINS:
+			return getPins();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -204,6 +233,10 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 		case e4smPackage.COMPONENT__CONTAINED_BY:
 			setContainedBy((Component) newValue);
 			return;
+		case e4smPackage.COMPONENT__PINS:
+			getPins().clear();
+			getPins().addAll((Collection<? extends Pin>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -222,6 +255,9 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 		case e4smPackage.COMPONENT__CONTAINED_BY:
 			setContainedBy((Component) null);
 			return;
+		case e4smPackage.COMPONENT__PINS:
+			getPins().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -238,6 +274,8 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 			return components != null && !components.isEmpty();
 		case e4smPackage.COMPONENT__CONTAINED_BY:
 			return getContainedBy() != null;
+		case e4smPackage.COMPONENT__PINS:
+			return pins != null && !pins.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -6,11 +6,15 @@
         eType="#//Component" containment="true" eOpposite="#//Component/containedBy"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="containedBy" eType="#//Component"
         eOpposite="#//Component/components"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pins" upperBound="-1" eType="#//Pin"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MachineLearningComponent" eSuperTypes="#//SoftwareComponent"/>
   <eClassifiers xsi:type="ecore:EClass" name="Connector" eSuperTypes="#//Element">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//Component"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//Component"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
+        eType="#//Pin"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+        eType="#//Pin"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PhysicalConnector" eSuperTypes="#//Connector">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="minSpeed" eType="#//Connectionspeed"/>
@@ -31,7 +35,7 @@
         eType="#//Component" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="softwareComponents" upperBound="-1"
         eType="#//SoftwareComponent" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="phisicalComponents" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="physicalComponents" upperBound="-1"
         eType="#//PhysicalComponent" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="connectors" upperBound="-1"
         eType="#//Connector" containment="true"/>
@@ -59,4 +63,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Element" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uuid" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Pin" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="InputPin" eSuperTypes="#//Pin"/>
+  <eClassifiers xsi:type="ecore:EClass" name="OutputPin" eSuperTypes="#//Pin"/>
 </ecore:EPackage>

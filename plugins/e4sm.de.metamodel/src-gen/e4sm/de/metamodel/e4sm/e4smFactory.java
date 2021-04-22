@@ -184,6 +184,24 @@ public interface e4smFactory extends EFactory {
 	Actuator createActuator();
 
 	/**
+	 * Returns a new object of class '<em>Input Pin</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Input Pin</em>'.
+	 * @generated
+	 */
+	InputPin createInputPin();
+
+	/**
+	 * Returns a new object of class '<em>Output Pin</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Output Pin</em>'.
+	 * @generated
+	 */
+	OutputPin createOutputPin();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

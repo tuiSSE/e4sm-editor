@@ -187,13 +187,22 @@ public interface e4smPackage extends EPackage {
 	int COMPONENT__CONTAINED_BY = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Pins</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT__PINS = NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Component</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int COMPONENT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Component</em>' class.
@@ -249,6 +258,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOFTWARE_COMPONENT__CONTAINED_BY = COMPONENT__CONTAINED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Pins</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOFTWARE_COMPONENT__PINS = COMPONENT__PINS;
 
 	/**
 	 * The feature id for the '<em><b>Output Uncertainty</b></em>' attribute.
@@ -322,6 +340,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int MACHINE_LEARNING_COMPONENT__CONTAINED_BY = SOFTWARE_COMPONENT__CONTAINED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Pins</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MACHINE_LEARNING_COMPONENT__PINS = SOFTWARE_COMPONENT__PINS;
 
 	/**
 	 * The feature id for the '<em><b>Output Uncertainty</b></em>' attribute.
@@ -525,6 +552,15 @@ public interface e4smPackage extends EPackage {
 	int PHYSICAL_COMPONENT__CONTAINED_BY = COMPONENT__CONTAINED_BY;
 
 	/**
+	 * The feature id for the '<em><b>Pins</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PHYSICAL_COMPONENT__PINS = COMPONENT__PINS;
+
+	/**
 	 * The number of structural features of the '<em>Physical Component</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -644,6 +680,15 @@ public interface e4smPackage extends EPackage {
 	int HEURISTIC__CONTAINED_BY = SOFTWARE_COMPONENT__CONTAINED_BY;
 
 	/**
+	 * The feature id for the '<em><b>Pins</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HEURISTIC__PINS = SOFTWARE_COMPONENT__PINS;
+
+	/**
 	 * The feature id for the '<em><b>Output Uncertainty</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -715,6 +760,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int FUNCTION__CONTAINED_BY = SOFTWARE_COMPONENT__CONTAINED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Pins</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION__PINS = SOFTWARE_COMPONENT__PINS;
 
 	/**
 	 * The feature id for the '<em><b>Output Uncertainty</b></em>' attribute.
@@ -790,6 +844,15 @@ public interface e4smPackage extends EPackage {
 	int EXTERNAL_DEPENDENCY__CONTAINED_BY = SOFTWARE_COMPONENT__CONTAINED_BY;
 
 	/**
+	 * The feature id for the '<em><b>Pins</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_DEPENDENCY__PINS = SOFTWARE_COMPONENT__PINS;
+
+	/**
 	 * The feature id for the '<em><b>Output Uncertainty</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -863,13 +926,13 @@ public interface e4smPackage extends EPackage {
 	int PACKAGE__SOFTWARE_COMPONENTS = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Phisical Components</b></em>' reference list.
+	 * The feature id for the '<em><b>Physical Components</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__PHISICAL_COMPONENTS = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int PACKAGE__PHYSICAL_COMPONENTS = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Connectors</b></em>' containment reference list.
@@ -1211,6 +1274,15 @@ public interface e4smPackage extends EPackage {
 	int SENSOR__CONTAINED_BY = PHYSICAL_COMPONENT__CONTAINED_BY;
 
 	/**
+	 * The feature id for the '<em><b>Pins</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENSOR__PINS = PHYSICAL_COMPONENT__PINS;
+
+	/**
 	 * The number of structural features of the '<em>Sensor</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1275,6 +1347,15 @@ public interface e4smPackage extends EPackage {
 	int ACTUATOR__CONTAINED_BY = PHYSICAL_COMPONENT__CONTAINED_BY;
 
 	/**
+	 * The feature id for the '<em><b>Pins</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTUATOR__PINS = PHYSICAL_COMPONENT__PINS;
+
+	/**
 	 * The number of structural features of the '<em>Actuator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1293,6 +1374,90 @@ public interface e4smPackage extends EPackage {
 	int ACTUATOR_OPERATION_COUNT = PHYSICAL_COMPONENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.PinImpl <em>Pin</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.PinImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getPin()
+	 * @generated
+	 */
+	int PIN = 20;
+
+	/**
+	 * The number of structural features of the '<em>Pin</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIN_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Pin</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIN_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.InputPinImpl <em>Input Pin</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.InputPinImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getInputPin()
+	 * @generated
+	 */
+	int INPUT_PIN = 21;
+
+	/**
+	 * The number of structural features of the '<em>Input Pin</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_PIN_FEATURE_COUNT = PIN_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Input Pin</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_PIN_OPERATION_COUNT = PIN_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.OutputPinImpl <em>Output Pin</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.OutputPinImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getOutputPin()
+	 * @generated
+	 */
+	int OUTPUT_PIN = 22;
+
+	/**
+	 * The number of structural features of the '<em>Output Pin</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_PIN_FEATURE_COUNT = PIN_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Output Pin</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_PIN_OPERATION_COUNT = PIN_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '<em>Connectionspeed</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1300,7 +1465,7 @@ public interface e4smPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getConnectionspeed()
 	 * @generated
 	 */
-	int CONNECTIONSPEED = 20;
+	int CONNECTIONSPEED = 23;
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.Component <em>Component</em>}'.
@@ -1333,6 +1498,17 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getComponent_ContainedBy();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link e4sm.de.metamodel.e4sm.Component#getPins <em>Pins</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Pins</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Component#getPins()
+	 * @see #getComponent()
+	 * @generated
+	 */
+	EReference getComponent_Pins();
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.MachineLearningComponent <em>Machine Learning Component</em>}'.
@@ -1512,15 +1688,15 @@ public interface e4smPackage extends EPackage {
 	EReference getPackage_SoftwareComponents();
 
 	/**
-	 * Returns the meta object for the reference list '{@link e4sm.de.metamodel.e4sm.Package#getPhisicalComponents <em>Phisical Components</em>}'.
+	 * Returns the meta object for the reference list '{@link e4sm.de.metamodel.e4sm.Package#getPhysicalComponents <em>Physical Components</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Phisical Components</em>'.
-	 * @see e4sm.de.metamodel.e4sm.Package#getPhisicalComponents()
+	 * @return the meta object for the reference list '<em>Physical Components</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Package#getPhysicalComponents()
 	 * @see #getPackage()
 	 * @generated
 	 */
-	EReference getPackage_PhisicalComponents();
+	EReference getPackage_PhysicalComponents();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link e4sm.de.metamodel.e4sm.Package#getConnectors <em>Connectors</em>}'.
@@ -1690,6 +1866,36 @@ public interface e4smPackage extends EPackage {
 	EAttribute getElement_Uuid();
 
 	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.Pin <em>Pin</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Pin</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Pin
+	 * @generated
+	 */
+	EClass getPin();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.InputPin <em>Input Pin</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Input Pin</em>'.
+	 * @see e4sm.de.metamodel.e4sm.InputPin
+	 * @generated
+	 */
+	EClass getInputPin();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.OutputPin <em>Output Pin</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Output Pin</em>'.
+	 * @see e4sm.de.metamodel.e4sm.OutputPin
+	 * @generated
+	 */
+	EClass getOutputPin();
+
+	/**
 	 * Returns the meta object for data type '{@link java.lang.Object <em>Connectionspeed</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1748,6 +1954,14 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EReference COMPONENT__CONTAINED_BY = eINSTANCE.getComponent_ContainedBy();
+
+		/**
+		 * The meta object literal for the '<em><b>Pins</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPONENT__PINS = eINSTANCE.getComponent_Pins();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.MachineLearningComponentImpl <em>Machine Learning Component</em>}' class.
@@ -1906,12 +2120,12 @@ public interface e4smPackage extends EPackage {
 		EReference PACKAGE__SOFTWARE_COMPONENTS = eINSTANCE.getPackage_SoftwareComponents();
 
 		/**
-		 * The meta object literal for the '<em><b>Phisical Components</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Physical Components</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PACKAGE__PHISICAL_COMPONENTS = eINSTANCE.getPackage_PhisicalComponents();
+		EReference PACKAGE__PHYSICAL_COMPONENTS = eINSTANCE.getPackage_PhysicalComponents();
 
 		/**
 		 * The meta object literal for the '<em><b>Connectors</b></em>' containment reference list feature.
@@ -2058,6 +2272,36 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ELEMENT__UUID = eINSTANCE.getElement_Uuid();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.PinImpl <em>Pin</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.PinImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getPin()
+		 * @generated
+		 */
+		EClass PIN = eINSTANCE.getPin();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.InputPinImpl <em>Input Pin</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.InputPinImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getInputPin()
+		 * @generated
+		 */
+		EClass INPUT_PIN = eINSTANCE.getInputPin();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.OutputPinImpl <em>Output Pin</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.OutputPinImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getOutputPin()
+		 * @generated
+		 */
+		EClass OUTPUT_PIN = eINSTANCE.getOutputPin();
 
 		/**
 		 * The meta object literal for the '<em>Connectionspeed</em>' data type.

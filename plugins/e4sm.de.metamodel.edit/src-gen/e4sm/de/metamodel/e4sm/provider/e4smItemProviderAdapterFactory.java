@@ -487,6 +487,52 @@ public class e4smItemProviderAdapterFactory extends e4smAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.InputPin} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected InputPinItemProvider inputPinItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.InputPin}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createInputPinAdapter() {
+		if (inputPinItemProvider == null) {
+			inputPinItemProvider = new InputPinItemProvider(this);
+		}
+
+		return inputPinItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.OutputPin} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected OutputPinItemProvider outputPinItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.OutputPin}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createOutputPinAdapter() {
+		if (outputPinItemProvider == null) {
+			outputPinItemProvider = new OutputPinItemProvider(this);
+		}
+
+		return outputPinItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -621,6 +667,10 @@ public class e4smItemProviderAdapterFactory extends e4smAdapterFactory
 			sensorItemProvider.dispose();
 		if (actuatorItemProvider != null)
 			actuatorItemProvider.dispose();
+		if (inputPinItemProvider != null)
+			inputPinItemProvider.dispose();
+		if (outputPinItemProvider != null)
+			outputPinItemProvider.dispose();
 	}
 
 }

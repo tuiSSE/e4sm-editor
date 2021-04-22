@@ -25,12 +25,12 @@ public interface Connector extends Element {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Source</em>' reference.
-	 * @see #setSource(Component)
+	 * @see #setSource(Pin)
 	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getConnector_Source()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
-	Component getSource();
+	Pin getSource();
 
 	/**
 	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.Connector#getSource <em>Source</em>}' reference.
@@ -40,19 +40,19 @@ public interface Connector extends Element {
 	 * @see #getSource()
 	 * @generated
 	 */
-	void setSource(Component value);
+	void setSource(Pin value);
 
 	/**
 	 * Returns the value of the '<em><b>Target</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Target</em>' reference.
-	 * @see #setTarget(Component)
+	 * @see #setTarget(Pin)
 	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getConnector_Target()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
-	Component getTarget();
+	Pin getTarget();
 
 	/**
 	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.Connector#getTarget <em>Target</em>}' reference.
@@ -62,6 +62,6 @@ public interface Connector extends Element {
 	 * @see #getTarget()
 	 * @generated
 	 */
-	void setTarget(Component value);
+	void setTarget(Pin value);
 
 } // Connector

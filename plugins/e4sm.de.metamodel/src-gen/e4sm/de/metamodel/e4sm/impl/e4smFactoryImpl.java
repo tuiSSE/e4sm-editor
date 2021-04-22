@@ -10,9 +10,11 @@ import e4sm.de.metamodel.e4sm.ExternalDependency;
 import e4sm.de.metamodel.e4sm.Function;
 import e4sm.de.metamodel.e4sm.Heuristic;
 import e4sm.de.metamodel.e4sm.Human;
+import e4sm.de.metamodel.e4sm.InputPin;
 import e4sm.de.metamodel.e4sm.LogicalConnector;
 import e4sm.de.metamodel.e4sm.MachineLearningComponent;
 import e4sm.de.metamodel.e4sm.Model;
+import e4sm.de.metamodel.e4sm.OutputPin;
 import e4sm.de.metamodel.e4sm.PhysicalComponent;
 import e4sm.de.metamodel.e4sm.PhysicalConnector;
 import e4sm.de.metamodel.e4sm.Robot;
@@ -110,6 +112,10 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 			return createSensor();
 		case e4smPackage.ACTUATOR:
 			return createActuator();
+		case e4smPackage.INPUT_PIN:
+			return createInputPin();
+		case e4smPackage.OUTPUT_PIN:
+			return createOutputPin();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -323,6 +329,26 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 	public Actuator createActuator() {
 		ActuatorImpl actuator = new ActuatorImpl();
 		return actuator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public InputPin createInputPin() {
+		InputPinImpl inputPin = new InputPinImpl();
+		return inputPin;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OutputPin createOutputPin() {
+		OutputPinImpl outputPin = new OutputPinImpl();
+		return outputPin;
 	}
 
 	/**

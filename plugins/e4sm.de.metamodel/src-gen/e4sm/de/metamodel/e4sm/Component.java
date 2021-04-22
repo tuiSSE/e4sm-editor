@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link e4sm.de.metamodel.e4sm.Component#getComponents <em>Components</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Component#getContainedBy <em>Contained By</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.Component#getPins <em>Pins</em>}</li>
  * </ul>
  *
  * @see e4sm.de.metamodel.e4sm.e4smPackage#getComponent()
@@ -59,5 +60,17 @@ public interface Component extends NamedElement {
 	 * @generated
 	 */
 	void setContainedBy(Component value);
+
+	/**
+	 * Returns the value of the '<em><b>Pins</b></em>' containment reference list.
+	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.Pin}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Pins</em>' containment reference list.
+	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getComponent_Pins()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Pin> getPins();
 
 } // Component

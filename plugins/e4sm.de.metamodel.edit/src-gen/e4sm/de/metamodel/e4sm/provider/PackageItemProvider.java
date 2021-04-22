@@ -46,7 +46,7 @@ public class PackageItemProvider extends NamedElementItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addSoftwareComponentsPropertyDescriptor(object);
-			addPhisicalComponentsPropertyDescriptor(object);
+			addPhysicalComponentsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -67,18 +67,18 @@ public class PackageItemProvider extends NamedElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Phisical Components feature.
+	 * This adds a property descriptor for the Physical Components feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addPhisicalComponentsPropertyDescriptor(Object object) {
+	protected void addPhysicalComponentsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Package_phisicalComponents_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Package_phisicalComponents_feature",
+						getResourceLocator(), getString("_UI_Package_physicalComponents_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Package_physicalComponents_feature",
 								"_UI_Package_type"),
-						e4smPackage.Literals.PACKAGE__PHISICAL_COMPONENTS, true, false, true, null, null, null));
+						e4smPackage.Literals.PACKAGE__PHYSICAL_COMPONENTS, true, false, true, null, null, null));
 	}
 
 	/**

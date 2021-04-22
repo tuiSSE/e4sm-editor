@@ -2,8 +2,8 @@
  */
 package e4sm.de.metamodel.e4sm.impl;
 
-import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.Connector;
+import e4sm.de.metamodel.e4sm.Pin;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -36,7 +36,7 @@ public class ConnectorImpl extends ElementImpl implements Connector {
 	 * @generated
 	 * @ordered
 	 */
-	protected Component source;
+	protected Pin source;
 
 	/**
 	 * The cached value of the '{@link #getTarget() <em>Target</em>}' reference.
@@ -46,7 +46,7 @@ public class ConnectorImpl extends ElementImpl implements Connector {
 	 * @generated
 	 * @ordered
 	 */
-	protected Component target;
+	protected Pin target;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -72,10 +72,10 @@ public class ConnectorImpl extends ElementImpl implements Connector {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Component getSource() {
+	public Pin getSource() {
 		if (source != null && source.eIsProxy()) {
 			InternalEObject oldSource = (InternalEObject) source;
-			source = (Component) eResolveProxy(oldSource);
+			source = (Pin) eResolveProxy(oldSource);
 			if (source != oldSource) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, e4smPackage.CONNECTOR__SOURCE, oldSource,
@@ -90,7 +90,7 @@ public class ConnectorImpl extends ElementImpl implements Connector {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Component basicGetSource() {
+	public Pin basicGetSource() {
 		return source;
 	}
 
@@ -99,8 +99,8 @@ public class ConnectorImpl extends ElementImpl implements Connector {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSource(Component newSource) {
-		Component oldSource = source;
+	public void setSource(Pin newSource) {
+		Pin oldSource = source;
 		source = newSource;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.CONNECTOR__SOURCE, oldSource, source));
@@ -111,10 +111,10 @@ public class ConnectorImpl extends ElementImpl implements Connector {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Component getTarget() {
+	public Pin getTarget() {
 		if (target != null && target.eIsProxy()) {
 			InternalEObject oldTarget = (InternalEObject) target;
-			target = (Component) eResolveProxy(oldTarget);
+			target = (Pin) eResolveProxy(oldTarget);
 			if (target != oldTarget) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, e4smPackage.CONNECTOR__TARGET, oldTarget,
@@ -129,7 +129,7 @@ public class ConnectorImpl extends ElementImpl implements Connector {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Component basicGetTarget() {
+	public Pin basicGetTarget() {
 		return target;
 	}
 
@@ -138,8 +138,8 @@ public class ConnectorImpl extends ElementImpl implements Connector {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTarget(Component newTarget) {
-		Component oldTarget = target;
+	public void setTarget(Pin newTarget) {
+		Pin oldTarget = target;
 		target = newTarget;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.CONNECTOR__TARGET, oldTarget, target));
@@ -174,10 +174,10 @@ public class ConnectorImpl extends ElementImpl implements Connector {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 		case e4smPackage.CONNECTOR__SOURCE:
-			setSource((Component) newValue);
+			setSource((Pin) newValue);
 			return;
 		case e4smPackage.CONNECTOR__TARGET:
-			setTarget((Component) newValue);
+			setTarget((Pin) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -192,10 +192,10 @@ public class ConnectorImpl extends ElementImpl implements Connector {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 		case e4smPackage.CONNECTOR__SOURCE:
-			setSource((Component) null);
+			setSource((Pin) null);
 			return;
 		case e4smPackage.CONNECTOR__TARGET:
-			setTarget((Component) null);
+			setTarget((Pin) null);
 			return;
 		}
 		super.eUnset(featureID);
