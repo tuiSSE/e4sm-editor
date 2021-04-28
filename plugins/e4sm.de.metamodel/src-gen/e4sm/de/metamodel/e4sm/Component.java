@@ -111,4 +111,12 @@ public interface Component extends NamedElement {
 	 */
 	void setMainResponsible(Person value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Person computeMainResponsible();
+
 } // Component

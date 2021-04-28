@@ -7,6 +7,7 @@ import e4sm.de.metamodel.e4sm.Person;
 import e4sm.de.metamodel.e4sm.Pin;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -239,6 +240,24 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public Person computeMainResponsible() {
+		Person resp = this.getMainResponsible();
+		if (resp != null) {
+			return resp;
+		}
+		Component c = this.getContainedBy();
+		if (c == null) {
+			return null;
+		}
+		return c.getMainResponsible();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -383,6 +402,20 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 			return mainResponsible != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+		case e4smPackage.COMPONENT___COMPUTE_MAIN_RESPONSIBLE:
+			return computeMainResponsible();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //ComponentImpl

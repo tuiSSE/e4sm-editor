@@ -484,10 +484,10 @@
       </additionalLayers>
       <additionalLayers name="d2_layer_responsibilities" label="Responsibilities">
         <decorationDescriptionsSet>
-          <decorationDescriptions xsi:type="description:SemanticBasedDecoration" name="Main Responsible" position="NORTH_EAST" distributionDirection="HORIZONTAL" preconditionExpression="aql:self.mainResponsible&lt;>null" imageExpression="aql:self.eContainer(e4sm::Model).personsPicturesPath + self.mainResponsible.pictureFileName" tooltipExpression="aql:self.name" domainClass="e4sm::Component"/>
+          <decorationDescriptions xsi:type="description:SemanticBasedDecoration" name="Main Responsible" position="NORTH_EAST" distributionDirection="HORIZONTAL" preconditionExpression="aql:self.computeMainResponsible()&lt;>null" imageExpression="aql:self.eContainer(e4sm::Model).personsPicturesPath + self.computeMainResponsible().pictureFileName" tooltipExpression="aql:self.name" domainClass="e4sm::Component"/>
         </decorationDescriptionsSet>
         <customization>
-          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.oclIsKindOf(e4sm::Component) and self.oclAsType(e4sm::Component).mainResponsible = null">
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.oclIsKindOf(e4sm::Component) and self.oclAsType(e4sm::Component).computeMainResponsible() = null">
             <featureCustomizations xsi:type="description:EReferenceCustomization" appliedOn="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@style" applyOnAll="true" referenceName="foregroundColor">
               <value href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
             </featureCustomizations>
@@ -495,8 +495,8 @@
               <value href="environment:/viewpoint#//@systemColors/@entries[name='dark_red']"/>
             </featureCustomizations>
           </vsmElementCustomizations>
-          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.oclIsKindOf(e4sm::Component) and self.oclAsType(e4sm::Component).mainResponsible &lt;> null">
-            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@style" applyOnAll="true" attributeName="labelExpression" value="aql: self.name + '\n(' + self.mainResponsible.surname + ' ' + self.mainResponsible.name.toString().substring(1,1) + '.)'"/>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.oclIsKindOf(e4sm::Component) and self.oclAsType(e4sm::Component).computeMainResponsible() &lt;> null">
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@style" applyOnAll="true" attributeName="labelExpression" value="aql: self.name + '\n(' + self.computeMainResponsible().surname + ' ' + self.computeMainResponsible().name.toString().substring(1,1) + '.)'"/>
             <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@style" applyOnAll="true" attributeName="labelSize" value="11"/>
             <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@style" applyOnAll="true" attributeName="labelAlignment" value="LEFT"/>
           </vsmElementCustomizations>

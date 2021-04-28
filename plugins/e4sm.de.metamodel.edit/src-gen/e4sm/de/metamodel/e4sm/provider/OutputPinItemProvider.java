@@ -78,8 +78,8 @@ public class OutputPinItemProvider extends PinItemProvider {
 		OutputPin outputPin = (OutputPin) object;
 		Component component = (Component) outputPin.eContainer();
 		String componentName = component.getName();
-		if(componentName != null && componentName.length() > 0) {
-			label = "of " + component.getName();	
+		if (componentName != null && componentName.length() > 0) {
+			label = "of " + component.getName();
 		}
 		return label == null || label.length() == 0 ? getString("_UI_OutputPin_type")
 				: getString("_UI_OutputPin_type") + " " + label;
