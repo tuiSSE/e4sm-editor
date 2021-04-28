@@ -70,6 +70,7 @@ public class PhysicalConnectorImpl extends ConnectorImpl implements PhysicalConn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object getMinSpeed() {
 		return minSpeed;
 	}
@@ -79,6 +80,7 @@ public class PhysicalConnectorImpl extends ConnectorImpl implements PhysicalConn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMinSpeed(Object newMinSpeed) {
 		Object oldMinSpeed = minSpeed;
 		minSpeed = newMinSpeed;
@@ -92,6 +94,7 @@ public class PhysicalConnectorImpl extends ConnectorImpl implements PhysicalConn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object getMaxSpeed() {
 		return maxSpeed;
 	}
@@ -101,6 +104,7 @@ public class PhysicalConnectorImpl extends ConnectorImpl implements PhysicalConn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMaxSpeed(Object newMaxSpeed) {
 		Object oldMaxSpeed = maxSpeed;
 		maxSpeed = newMaxSpeed;

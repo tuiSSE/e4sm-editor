@@ -22,10 +22,10 @@ In order to be executable, all model elements need to have a *precise formal sem
 
 ## Plugins overview
 ### [e4sm.de.metamodel](plugins/e4sm.de.metamodel)
-It contains the ecore metamodel specification for the e4sm data model. It includes Java interfaces and implementation classes for all the classes in the model, plus a factory and package (metadata) implementation class.
+It contains the **ecore metamodel specification** for the E4SM data model. It includes Java interfaces and implementation classes for all the classes in the model, plus a factory and package (metadata) implementation class.
 
 ### [e4sm.de.metamodel.edit](plugins/e4sm.de.metamodel.edit)
-Generated implementation classes (called ItemProviders) that adapt the model classes for editing and display.
+Generated implementation classes (called `ItemProviders`) that adapt the model classes for editing and display. In this project you can find all elements **icons** which are used almost everywhere.
 
 ### [e4sm.de.metamodel.editor](plugins/e4sm.de.metamodel.editor)
 It contains a structured, simple editor that conforms to the recommended style for Eclipse EMF model editors.
@@ -34,16 +34,17 @@ It contains a structured, simple editor that conforms to the recommended style f
 Contains the Sirius Viewpoint Specification Project of the graphical E4SM editor (diagrams).
 
 ## Packaging folder overview
-### [e4sm.de.metamodel.feature](plugins/e4sm.de.metamodel.feature)
+### [e4sm.de.metamodel.feature](packaging/e4sm.de.metamodel.feature)
 It contains a feature project containing the metamodel projects (metamodel, edit, editor) and the Sirius viewpoint specification project.
 
-### [e4sm.de.metamodel.update](plugins/e4sm.de.metamodel.update)
+### [e4sm.de.metamodel.update](packaging/e4sm.de.metamodel.update)
 It contains the project needed to build the update site in order to distribute the editor.
 
 ## Acknowledgments
 This work has received funding from the _[Carl Zeiss Foundation](https://www.carl-zeiss-stiftung.de/english)_ as part of the project _"Engineering for Smart Manufacturing"_ (E4SM) under grant agreement no. P2017-01-005.
 
 ### More information
+- [E4SM Project Website](https://e4sm-projekt.de) (in German only)
 #### Regulations
 - **Safety**: ISO 26262 "Road vehicles – Functional safety", is an international standard for functional safety of electrical and/or electronic systems that are installed in serial production road vehicles.
 - **Security**: ISO/IEC 27001 is an international standard on how to manage information security.

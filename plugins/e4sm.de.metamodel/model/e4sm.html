@@ -1,0 +1,436 @@
+<!-- This file was created using the HTML documentation generator. -->
+<!-- Creation date: Wed Apr 28 10:12:19 CEST 2021-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+      	<title>Metamodel Documentation (platform:/resource/e4sm.de.metamodel/model/e4sm.ecore)</title>
+    	<script type="text/javascript">
+//<![CDATA[				    	
+// TOC script based on code taken from http://www.quirksmode.org/dom/toc.html
+function makeTOC() {
+	
+	var toc = document.createElement('div')				
+	toc.id = "toc";
+	toc.innerHTML = "Table of Contents"				
+	document.body.appendChild(toc);
+				
+	var innertocDiv = createTOC()				
+	toc.appendChild(innertocDiv);
+}
+
+
+function createTOC() {
+	var y = document.createElement('div');
+	y.id = 'innertoc';
+	//var a = y.appendChild(document.createElement('span'));
+	//a.onclick = showhideTOC;
+	//a.id = 'contentheader';
+	//a.innerHTML = 'Show Table of Contents';
+	var z = y.appendChild(document.createElement('div'));
+	//z.onclick = showhideTOC;
+	var toBeTOCced = getElementsByTagNames('h1,h2,h3');
+	if (toBeTOCced.length < 2) return false;
+	var hCount = 0;
+	var hhCount = 0;
+	var hhhCount = 0;
+	for (var i=0;i<toBeTOCced.length;i++) {
+	var tmp = document.createElement('a');
+	tmp.className = 'page';
+	var text;
+	var textPre;
+	if (toBeTOCced[i].nodeName == 'h2'){
+		tmp.className += ' indent';
+		textPre = hCount + "."+ ++hhCount + ". "; 
+	}
+	else if (toBeTOCced[i].nodeName == 'h3'){
+		tmp.className += ' extraindent';
+		textPre = hCount + "."+ hhCount + "."+ ++hhhCount +". "; 
+	}
+	else {
+		textPre = ++hCount + ". "; 
+		hhCount = 0;
+		hhhCount = 0;
+	}
+	text = textPre + toBeTOCced[i].textContent;
+	toBeTOCced[i].innerHTML = textPre + toBeTOCced[i].innerHTML;
+	
+	tmp.innerHTML = text; 
+	z.appendChild(tmp);
+	var headerId = toBeTOCced[i].id || 'link' + i;
+	tmp.href = '#' + headerId;
+	toBeTOCced[i].id = headerId;
+	}
+	return y;
+}
+
+function getElementsByTagNames(list,obj) {
+	if (!obj) var obj = document;
+	var tagNames = list.split(',');
+	var resultArray = new Array();
+	for (var i=0;i<tagNames.length;i++) {
+		var tags = obj.getElementsByTagName(tagNames[i]);
+		for (var j=0;j<tags.length;j++) {
+			resultArray.push(tags[j]);
+		}
+	}
+	var testNode = resultArray[0];
+	if (!testNode) return [];
+	if (testNode.sourceIndex) {
+		resultArray.sort(function (a,b) {
+				return a.sourceIndex - b.sourceIndex;
+		});
+	}
+	else if (testNode.compareDocumentPosition) {
+		resultArray.sort(function (a,b) {
+				return 3 - (a.compareDocumentPosition(b) & 6);
+		});
+	}
+	return resultArray;
+}
+	    	
+//]]>				    	
+	    	</script>
+	    	<link rel="stylesheet" type="text/css" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" /> 
+	    	<style>
+#toc {
+	position: fixed;
+	  right: 0;
+	  top: 0;
+	  background-color:#eee;
+	  overflow: scroll;
+	  border: 1px dashed;
+}
+
+#toc #innertoc { 
+	display: none;
+	height: 500px;
+} /* Hide the full TOC by default */
+
+#toc:hover #innertoc{
+	display: block; /* Show it on hover */
+}
+	td {
+	border: 1px solid;
+	}
+	.page{
+	display:table-row;
+	}
+	.indent {
+	text-indent:12pt;
+	}
+	.extraindent {
+	text-indent:14pt;
+	}
+
+	    	</style>
+	    	<link rel="stylesheet" type="text/css" href="style.css" />
+	</head>
+	<body onload="makeTOC();">
+<h1 id="e4sm"><a href="#e4sm"><span class="packageName">e4sm</span> package</a></h1>
+
+<div class="">EPackage properties:</div>
+<div class="keyValue"><span class="label">Namespace Prefix: </span><span class="teletype">e4sm</span></div>
+<div class="keyValue"><span class="label">Namespace URI: </span><span class="teletype">http://de.tu-ilmenau/e4sm/1.0.0</span></div>
+<h2 id="e4smActor"><a href="#e4smActor"><a href="#e4smActor">Actor</a></a></h2>
+
+<p>An Entity which interfaces with the system</p>
+<h4><b>Supertype:</b><a href="#e4smNamedElement">NamedElement</a></h4><h2 id="e4smActuator"><a href="#e4smActuator"><a href="#e4smActuator">Actuator</a></a></h2>
+
+<p>A physical component which transforms a digital signal into a physical one</p>
+<h4><b>Supertype:</b><a href="#e4smPhysicalComponent">PhysicalComponent</a></h4><h2 id="e4smComponent"><a href="#e4smComponent"><a href="#e4smComponent">Component</a></a></h2>
+
+<p>Generic component, which should be used to temporally specify an element before deciding how it will be realised.</p>
+<h4><b>Supertype:</b><a href="#e4smNamedElement">NamedElement</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">References</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="e4smComponent.components" class="teletype">components</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#e4smComponent">Component</a></span></div>
+<div class="label">Cardinality: [0..*]</div>
+<div class="label">Containment</div>
+<div class="keyValue"><span class="label">Op: </span><span class="teletype">containedBy</span></div>
+</td> 
+<td> <p>A list of components contained by this component</p>
+</td>
+		</tr><tr>	<td><div id="e4smComponent.containedBy" class="teletype">containedBy</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#e4smComponent">Component</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="label">Container</div>
+<div class="keyValue"><span class="label">Op: </span><span class="teletype">components</span></div>
+</td> 
+<td> <p>The parent component which contains this component</p>
+</td>
+		</tr><tr>	<td><div id="e4smComponent.pins" class="teletype">pins</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#e4smPin">Pin</a></span></div>
+<div class="label">Cardinality: [0..*]</div>
+<div class="label">Containment</div>
+</td> 
+<td> <p>A list of pins (input and output pins) which are placed on the border of this component.</p>
+</td>
+		</tr></table>
+<a href="#e4sm.Component.ref"></a>
+<h2 id="e4smConnector"><a href="#e4smConnector"><a href="#e4smConnector">Connector</a></a></h2>
+
+<p>A connector connects one source to one target component.</p>
+<h4><b>Supertype:</b><a href="#e4smElement">Element</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">References</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="e4smConnector.source" class="teletype">source</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#e4smPin">Pin</a></span></div>
+<div class="label">Cardinality: [1..1]</div>
+</td> 
+<td> <p>The source pin of this connector</p>
+</td>
+		</tr><tr>	<td><div id="e4smConnector.target" class="teletype">target</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#e4smPin">Pin</a></span></div>
+<div class="label">Cardinality: [1..1]</div>
+</td> 
+<td> <p>The output pin of this connector</p>
+</td>
+		</tr></table>
+<a href="#e4sm.Connector.ref"></a>
+<h2 id="e4smElement"><a href="#e4smElement"><a href="#e4smElement">Element</a></a></h2>
+
+<p>A model element</p>
+<div class="eclassProps">EClass properties:<div class="eclassPropList"><span class="label">Abstract</span></div></div><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Attributes</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="e4smElement.uuid" class="teletype">uuid</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype">EString</span></div>
+<div class="label">Cardinality: [1..1]</div>
+<div class="label">Non-changeable</div>
+ </td> <td><p>A universally unique identifier (UUID) is a 128-bit number used to identify information in computer systems</p>
+</td>
+		</tr></table>
+<a href="#e4sm.Element.attr"></a>
+<h2 id="e4smExternalDependency"><a href="#e4smExternalDependency"><a href="#e4smExternalDependency">ExternalDependency</a></a></h2>
+
+<p>An external dependency is a function which is offered by a third party and can't be controlled.</p>
+<h4><b>Supertype:</b><a href="#e4smSoftwareComponent">SoftwareComponent</a></h4><h2 id="e4smFunction"><a href="#e4smFunction"><a href="#e4smFunction">Function</a></a></h2>
+
+<p>A function is a in-house programmed software which is considered to be safe (apart from a low output uncertainty due to possible bugs)</p>
+<h4><b>Supertype:</b><a href="#e4smSoftwareComponent">SoftwareComponent</a></h4><h2 id="e4smHeuristic"><a href="#e4smHeuristic"><a href="#e4smHeuristic">Heuristic</a></a></h2>
+
+<p>A heuristic is a software component which may provide a wrong/non-optimal result for certain inputs</p>
+<h4><b>Supertype:</b><a href="#e4smSoftwareComponent">SoftwareComponent</a></h4><h2 id="e4smHuman"><a href="#e4smHuman"><a href="#e4smHuman">Human</a></a></h2>
+
+<p>A human actor</p>
+<h4><b>Supertype:</b><a href="#e4smActor">Actor</a></h4><h2 id="e4smInputPin"><a href="#e4smInputPin"><a href="#e4smInputPin">InputPin</a></a></h2>
+
+<p>An interface which delivers data inside a component</p>
+<h4><b>Supertype:</b><a href="#e4smPin">Pin</a></h4><h2 id="e4smLogicalConnector"><a href="#e4smLogicalConnector"><a href="#e4smLogicalConnector">LogicalConnector</a></a></h2>
+
+<p>A logical connector connects 2 software components or 1 software and one physical component</p>
+<h4><b>Supertype:</b><a href="#e4smConnector">Connector</a></h4><h2 id="e4smMachineLearningComponent"><a href="#e4smMachineLearningComponent"><a href="#e4smMachineLearningComponent">MachineLearningComponent</a></a></h2>
+
+<p>A software component which returns results based on a machine learning method estimate (e.g. classification...)</p>
+<h4><b>Supertype:</b><a href="#e4smSoftwareComponent">SoftwareComponent</a></h4><h2 id="e4smModel"><a href="#e4smModel"><a href="#e4smModel">Model</a></a></h2>
+
+<p>The root element of the E4SM Model</p>
+<h4><b>Supertype:</b><a href="#e4smNamedElement">NamedElement</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">References</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="e4smModel.actors" class="teletype">actors</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#e4smActor">Actor</a></span></div>
+<div class="label">Cardinality: [0..*]</div>
+<div class="label">Containment</div>
+</td> 
+<td> <p>A list of actors contained by this model</p>
+</td>
+		</tr><tr>	<td><div id="e4smModel.packages" class="teletype">packages</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#e4smPackage">Package</a></span></div>
+<div class="label">Cardinality: [0..*]</div>
+<div class="label">Containment</div>
+</td> 
+<td> <p>A list of packages contained by this model</p>
+</td>
+		</tr></table>
+<a href="#e4sm.Model.ref"></a>
+<h2 id="e4smNamedElement"><a href="#e4smNamedElement"><a href="#e4smNamedElement">NamedElement</a></a></h2>
+
+<p>An Element which has a name</p>
+<div class="eclassProps">EClass properties:<div class="eclassPropList"><span class="label">Abstract</span></div></div><h4><b>Supertype:</b><a href="#e4smElement">Element</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Attributes</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="e4smNamedElement.name" class="teletype">name</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype">EString</span></div>
+<div class="label">Cardinality: [1..1]</div>
+ </td> <td><p>The name of the element</p>
+</td>
+		</tr></table>
+<a href="#e4sm.NamedElement.attr"></a>
+<h2 id="e4smOutputPin"><a href="#e4smOutputPin"><a href="#e4smOutputPin">OutputPin</a></a></h2>
+
+<p>An interface which sends data outside of a component</p>
+<h4><b>Supertype:</b><a href="#e4smPin">Pin</a></h4><h2 id="e4smPackage"><a href="#e4smPackage"><a href="#e4smPackage">Package</a></a></h2>
+
+<p>A package contains a set of Components and their connections.</p>
+<h4><b>Supertype:</b><a href="#e4smNamedElement">NamedElement</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">References</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="e4smPackage.components" class="teletype">components</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#e4smComponent">Component</a></span></div>
+<div class="label">Cardinality: [0..*]</div>
+<div class="label">Containment</div>
+</td> 
+<td> <p>A list of components contained in this package</p>
+</td>
+		</tr><tr>	<td><div id="e4smPackage.connectors" class="teletype">connectors</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#e4smConnector">Connector</a></span></div>
+<div class="label">Cardinality: [0..*]</div>
+<div class="label">Containment</div>
+</td> 
+<td> <p>A list of connectors contained in this package</p>
+</td>
+		</tr><tr>	<td><div id="e4smPackage.physicalComponents" class="teletype"><div style="color:blue">physicalComponents</div></div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#e4smPhysicalComponent">PhysicalComponent</a></span></div>
+<div class="label">Cardinality: [0..*]</div>
+<div class="label">Derived</div>
+</td> 
+<td> <p>A subset of components only containing physical components</p>
+</td>
+		</tr><tr>	<td><div id="e4smPackage.sectors" class="teletype">sectors</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#e4smSector">Sector</a></span></div>
+<div class="label">Cardinality: [0..*]</div>
+<div class="label">Containment</div>
+</td> 
+<td> <p>A list of sectors contained in this package</p>
+</td>
+		</tr><tr>	<td><div id="e4smPackage.softwareComponents" class="teletype"><div style="color:blue">softwareComponents</div></div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#e4smSoftwareComponent">SoftwareComponent</a></span></div>
+<div class="label">Cardinality: [0..*]</div>
+<div class="label">Derived</div>
+</td> 
+<td> <p>A subset of components only containing software components</p>
+</td>
+		</tr></table>
+<a href="#e4sm.Package.ref"></a>
+<h2 id="e4smPhysicalComponent"><a href="#e4smPhysicalComponent"><a href="#e4smPhysicalComponent">PhysicalComponent</a></a></h2>
+
+<p>A physical component is a generic tangible component which will be realised/is already available as hardware</p>
+<h4><b>Supertype:</b><a href="#e4smComponent">Component</a></h4><h2 id="e4smPhysicalConnector"><a href="#e4smPhysicalConnector"><a href="#e4smPhysicalConnector">PhysicalConnector</a></a></h2>
+
+<p>A phyisical connector is a connector which links 2 physical components.</p>
+<h4><b>Supertype:</b><a href="#e4smConnector">Connector</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Attributes</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="e4smPhysicalConnector.maxSpeed" class="teletype">maxSpeed</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#e4smConnectionspeed">Connectionspeed</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+ </td> <td></td>
+		</tr><tr>	<td><div id="e4smPhysicalConnector.minSpeed" class="teletype">minSpeed</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#e4smConnectionspeed">Connectionspeed</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+ </td> <td></td>
+		</tr></table>
+<a href="#e4sm.PhysicalConnector.attr"></a>
+<h2 id="e4smPin"><a href="#e4smPin"><a href="#e4smPin">Pin</a></a></h2>
+
+<p>An interface to and from a component</p>
+<div class="eclassProps">EClass properties:<div class="eclassPropList"><span class="label">Abstract</span></div></div><h2 id="e4smRobot"><a href="#e4smRobot"><a href="#e4smRobot">Robot</a></a></h2>
+
+<p>A robot actor</p>
+<h4><b>Supertype:</b><a href="#e4smActor">Actor</a></h4><h2 id="e4smSector"><a href="#e4smSector"><a href="#e4smSector">Sector</a></a></h2>
+
+<p>A collection of physical components that either logically or phisically belongs together</p>
+<h4><b>Supertype:</b><a href="#e4smNamedElement">NamedElement</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">References</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="e4smSector.components" class="teletype">components</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#e4smPhysicalComponent">PhysicalComponent</a></span></div>
+<div class="label">Cardinality: [0..*]</div>
+<div class="label">Containment</div>
+</td> 
+<td> <p>A list of references to components which are contained in this sector</p>
+</td>
+		</tr></table>
+<a href="#e4sm.Sector.ref"></a>
+<h2 id="e4smSensor"><a href="#e4smSensor"><a href="#e4smSensor">Sensor</a></a></h2>
+
+<p>A physical component which transforms a physical signal into a digital one</p>
+<h4><b>Supertype:</b><a href="#e4smPhysicalComponent">PhysicalComponent</a></h4><h2 id="e4smSoftwareComponent"><a href="#e4smSoftwareComponent"><a href="#e4smSoftwareComponent">SoftwareComponent</a></a></h2>
+
+<p>A software component is a generic component which will be realised/is already available digitally</p>
+<h4><b>Supertype:</b><a href="#e4smComponent">Component</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Attributes</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="e4smSoftwareComponent.OutputUncertainty" class="teletype">OutputUncertainty</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype">EDouble</span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="keyValue"><span class="label">Default: </span><span class="teletype">0.0</span></div>
+ </td> <td></td>
+		</tr></table>
+<a href="#e4sm.SoftwareComponent.attr"></a>
+</body>
+</html>

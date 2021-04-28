@@ -70,6 +70,7 @@ public abstract class ElementImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getUuid() {
 		return uuid;
 	}
@@ -79,6 +80,7 @@ public abstract class ElementImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUuid(String newUuid) {
 		String oldUuid = uuid;
 		uuid = newUuid;

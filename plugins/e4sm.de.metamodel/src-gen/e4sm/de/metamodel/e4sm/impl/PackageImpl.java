@@ -114,6 +114,7 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Component> getComponents() {
 		if (components == null) {
 			components = new EObjectContainmentEList<Component>(Component.class, this, e4smPackage.PACKAGE__COMPONENTS);
@@ -126,6 +127,7 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<SoftwareComponent> getSoftwareComponents() {
 		if (softwareComponents == null) {
 			softwareComponents = new EObjectResolvingEList<SoftwareComponent>(SoftwareComponent.class, this,
@@ -139,6 +141,7 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<PhysicalComponent> getPhysicalComponents() {
 		if (physicalComponents == null) {
 			physicalComponents = new EObjectResolvingEList<PhysicalComponent>(PhysicalComponent.class, this,
@@ -152,6 +155,7 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Connector> getConnectors() {
 		if (connectors == null) {
 			connectors = new EObjectContainmentEList<Connector>(Connector.class, this, e4smPackage.PACKAGE__CONNECTORS);
@@ -164,6 +168,7 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Sector> getSectors() {
 		if (sectors == null) {
 			sectors = new EObjectContainmentEList<Sector>(Sector.class, this, e4smPackage.PACKAGE__SECTORS);

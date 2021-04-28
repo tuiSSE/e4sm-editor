@@ -83,6 +83,7 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Component> getComponents() {
 		if (components == null) {
 			components = new EObjectContainmentWithInverseEList<Component>(Component.class, this,
@@ -96,6 +97,7 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Component getContainedBy() {
 		if (eContainerFeatureID() != e4smPackage.COMPONENT__CONTAINED_BY)
 			return null;
@@ -117,6 +119,7 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setContainedBy(Component newContainedBy) {
 		if (newContainedBy != eInternalContainer()
 				|| (eContainerFeatureID() != e4smPackage.COMPONENT__CONTAINED_BY && newContainedBy != null)) {
@@ -141,6 +144,7 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Pin> getPins() {
 		if (pins == null) {
 			pins = new EObjectContainmentEList<Pin>(Pin.class, this, e4smPackage.COMPONENT__PINS);

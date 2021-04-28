@@ -77,6 +77,7 @@ public class ModelImpl extends NamedElementImpl implements Model {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<e4sm.de.metamodel.e4sm.Package> getPackages() {
 		if (packages == null) {
 			packages = new EObjectContainmentEList<e4sm.de.metamodel.e4sm.Package>(e4sm.de.metamodel.e4sm.Package.class,
@@ -90,6 +91,7 @@ public class ModelImpl extends NamedElementImpl implements Model {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Actor> getActors() {
 		if (actors == null) {
 			actors = new EObjectContainmentEList<Actor>(Actor.class, this, e4smPackage.MODEL__ACTORS);

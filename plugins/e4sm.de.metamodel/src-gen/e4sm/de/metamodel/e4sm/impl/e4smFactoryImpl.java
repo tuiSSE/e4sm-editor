@@ -156,6 +156,7 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Component createComponent() {
 		ComponentImpl component = new ComponentImpl();
 		return component;
@@ -166,6 +167,7 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public MachineLearningComponent createMachineLearningComponent() {
 		MachineLearningComponentImpl machineLearningComponent = new MachineLearningComponentImpl();
 		return machineLearningComponent;
@@ -176,6 +178,7 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Connector createConnector() {
 		ConnectorImpl connector = new ConnectorImpl();
 		return connector;
@@ -186,6 +189,7 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PhysicalConnector createPhysicalConnector() {
 		PhysicalConnectorImpl physicalConnector = new PhysicalConnectorImpl();
 		return physicalConnector;
@@ -196,6 +200,7 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PhysicalComponent createPhysicalComponent() {
 		PhysicalComponentImpl physicalComponent = new PhysicalComponentImpl();
 		return physicalComponent;
@@ -206,6 +211,7 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SoftwareComponent createSoftwareComponent() {
 		SoftwareComponentImpl softwareComponent = new SoftwareComponentImpl();
 		return softwareComponent;
@@ -216,6 +222,7 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public LogicalConnector createLogicalConnector() {
 		LogicalConnectorImpl logicalConnector = new LogicalConnectorImpl();
 		return logicalConnector;
@@ -226,6 +233,7 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Heuristic createHeuristic() {
 		HeuristicImpl heuristic = new HeuristicImpl();
 		return heuristic;
@@ -236,6 +244,7 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Function createFunction() {
 		FunctionImpl function = new FunctionImpl();
 		return function;
@@ -246,6 +255,7 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ExternalDependency createExternalDependency() {
 		ExternalDependencyImpl externalDependency = new ExternalDependencyImpl();
 		return externalDependency;
@@ -256,6 +266,7 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public e4sm.de.metamodel.e4sm.Package createPackage() {
 		PackageImpl package_ = new PackageImpl();
 		return package_;
@@ -266,6 +277,7 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Model createModel() {
 		ModelImpl model = new ModelImpl();
 		return model;
@@ -276,6 +288,7 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Actor createActor() {
 		ActorImpl actor = new ActorImpl();
 		return actor;
@@ -286,6 +299,7 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Human createHuman() {
 		HumanImpl human = new HumanImpl();
 		return human;
@@ -296,6 +310,7 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Robot createRobot() {
 		RobotImpl robot = new RobotImpl();
 		return robot;
@@ -306,6 +321,7 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Sector createSector() {
 		SectorImpl sector = new SectorImpl();
 		return sector;
@@ -316,6 +332,7 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Sensor createSensor() {
 		SensorImpl sensor = new SensorImpl();
 		return sensor;
@@ -326,6 +343,7 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Actuator createActuator() {
 		ActuatorImpl actuator = new ActuatorImpl();
 		return actuator;
@@ -336,6 +354,7 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public InputPin createInputPin() {
 		InputPinImpl inputPin = new InputPinImpl();
 		return inputPin;
@@ -346,6 +365,7 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public OutputPin createOutputPin() {
 		OutputPinImpl outputPin = new OutputPinImpl();
 		return outputPin;
@@ -374,6 +394,7 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public e4smPackage gete4smPackage() {
 		return (e4smPackage) getEPackage();
 	}

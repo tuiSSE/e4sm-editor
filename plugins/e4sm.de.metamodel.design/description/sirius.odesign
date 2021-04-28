@@ -158,25 +158,25 @@
       </filters>
       <layout xsi:type="description_1:CompositeLayout"/>
       <defaultLayer name="Default">
-        <edgeMappings name="d2_edge_physical_connector" label="Physical Connector" sourceMapping="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin']" targetMapping="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin']" targetFinderExpression="feature:target" sourceFinderExpression="feature:source" targetExpression="aql:" domainClass="e4sm::PhysicalConnector" useDomainElement="true">
-          <style sizeComputationExpression="2">
+        <edgeMappings name="d2_edge_physical_connector" label="Physical Connector" sourceMapping="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin']" targetMapping="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin']" targetFinderExpression="feature:target" sourceFinderExpression="feature:source" targetExpression="var:self" domainClass="e4sm::PhysicalConnector" useDomainElement="true">
+          <style sizeComputationExpression="3">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <centerLabelStyleDescription labelSize="12">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="d2_edge_logical_connector" label="Logical Connector" sourceMapping="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin']" targetMapping="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin']" targetFinderExpression="feature:target" sourceFinderExpression="feature:source" targetExpression="aql:" domainClass="e4sm::LogicalConnector" useDomainElement="true">
-          <style sizeComputationExpression="2">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+        <edgeMappings name="d2_edge_logical_connector" label="Logical Connector" sourceMapping="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin']" targetMapping="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin']" targetFinderExpression="feature:target" sourceFinderExpression="feature:source" targetExpression="var:self" domainClass="e4sm::LogicalConnector" useDomainElement="true">
+          <style sizeComputationExpression="3">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             <centerLabelStyleDescription labelSize="12">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="d2_edge_connector" label="Connector" preconditionExpression="aql:self.oclIsTypeOf(e4sm::Connector)" sourceMapping="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin']" targetMapping="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin']" targetFinderExpression="feature:target" sourceFinderExpression="feature:source" targetExpression="aql:" domainClass="e4sm::Connector" useDomainElement="true">
-          <style sizeComputationExpression="2">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+        <edgeMappings name="d2_edge_connector" label="Generic Connector" preconditionExpression="aql:self.oclIsTypeOf(e4sm::Connector)" sourceMapping="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin']" targetMapping="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin']" targetFinderExpression="feature:target" sourceFinderExpression="feature:source" targetExpression="var:self" domainClass="e4sm::Connector" useDomainElement="true">
+          <style sizeComputationExpression="3">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription labelSize="12">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
@@ -258,11 +258,11 @@
           <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" tooltipExpression="aql:'Software Component &quot;'+self.name + '&quot; ('+self.uuid+')'">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_yellow']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_yellow']"/>
-            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_yellow']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
           </style>
         </containerMappings>
-        <toolSections name="d2_create_tools" label="Create">
+        <toolSections name="d2_create_tools" label="Create Connectors">
           <ownedTools xsi:type="tool:EdgeCreationDescription" name="d2_create_connector" label="Generic Connector" precondition="aql:preSource.eContainer()&lt;>preTarget.eContainer()" edgeMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_connector']" extraTargetMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_MachineLearningComponent'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_HeuristicComponent'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_SoftwareComponent'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Actuator'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_PhisicalComponent']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
@@ -272,10 +272,7 @@
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:source.eContainer(e4sm::Package)">
                 <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:target.oclIsKindOf(e4sm::Component)">
                   <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:target">
-                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::InputPin" referenceName="pins" variableName="ip">
-                      <subModelOperations xsi:type="tool_1:SetValue" featureName="source" valueExpression="var:source"/>
-                      <subModelOperations xsi:type="tool_1:SetValue" featureName="target" valueExpression="var:target"/>
-                    </subModelOperations>
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::InputPin" referenceName="pins" variableName="ip"/>
                     <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:source.eContainer(e4sm::Package)">
                       <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::Connector" referenceName="connectors">
                         <subModelOperations xsi:type="tool_1:SetValue" featureName="source" valueExpression="var:source"/>
@@ -293,7 +290,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="d2_create_physical_connector" label="Physical Connector" precondition="aql:preSource.eContainer()&lt;>preTarget.eContainer() and preTarget.eContainer().oclIsKindOf(e4sm::PhysicalComponent)" edgeMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_physical_connector']" connectionStartPrecondition="aql:preSource.eContainer().oclIsKindOf(e4sm::PhysicalComponent)">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="d2_create_physical_connector" label="Physical Connector" precondition="aql:preSource.canPhysicalConnectorConnectSourceToTarget(preTarget)" edgeMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_physical_connector']" connectionStartPrecondition="aql:preSource.eContainer().oclIsKindOf(e4sm::PhysicalComponent)">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -321,10 +318,6 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:OperationAction" name="ChangeToHeuristic" label="Change to Heuristic">
-            <view name="views"/>
-            <initialOperation/>
-          </ownedTools>
           <ownedTools xsi:type="tool:NodeCreationDescription" name="create_input_pin" label="Input Pin" precondition="aql:container.oclIsTypeOf(e4sm::Sensor)=false" nodeMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
@@ -342,6 +335,89 @@
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::OutputPin" referenceName="pins"/>
               </firstModelOperations>
             </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="diag2_create_components" label="Create Components">
+          <ownedTools xsi:type="tool:ToolGroup" label="Physical Components">
+            <tools xsi:type="tool:ContainerCreationDescription" name="pd_create_physical_component" label="Physical Component" containerMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_PhisicalComponent']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="self">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::PhysicalComponent" referenceName="components">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="New Physical Component"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:ContainerCreationDescription" name="pd_create_sensor" label="Sensor" containerMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Sensor']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="self">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::Sensor" referenceName="components">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="New Sensor"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:ContainerCreationDescription" name="pd_create_actuator" label="Actuator" containerMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Actuator']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="self">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::Actuator" referenceName="components">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="New Actuator"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:ContainerCreationDescription" name="pd_create_sector" label="Sector" containerMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Sensor']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="self">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::Sector" referenceName="sectors">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="New Sector"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </tools>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ToolGroup" name="diag2_createSoftwareComponents" label="Create Software Components">
+            <tools xsi:type="tool:ContainerCreationDescription" name="pd_create_mlc" label="Software Component" containerMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_SoftwareComponent']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="self">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::SoftwareComponent" referenceName="components">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="New Software Component"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:ContainerCreationDescription" name="ad_create_mld" label="Machine Learning Component" containerMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_MachineLearningComponent']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="self">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::MachineLearningComponent" referenceName="components">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="New ML Component"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:ContainerCreationDescription" name="pd_create_heuristic" label="Heuristic" containerMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_HeuristicComponent']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="self">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::Heuristic" referenceName="components">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="New Heuristic Component"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </tools>
           </ownedTools>
         </toolSections>
       </defaultLayer>
@@ -364,5 +440,6 @@
       </additionalLayers>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="e4sm.de.metamodel.design.Services"/>
+    <ownedJavaExtensions qualifiedClassName="e4sm.de.metamodel.design.ConnectorServices"/>
   </ownedViewpoints>
 </description:Group>

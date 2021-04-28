@@ -2,68 +2,212 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="e4sm" nsURI="http://de.tu-ilmenau/e4sm/1.0.0" nsPrefix="e4sm">
   <eClassifiers xsi:type="ecore:EClass" name="Component" eSuperTypes="#//NamedElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Generic component, which should be used to temporally specify an element before deciding how it will be realised."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
-        eType="#//Component" containment="true" eOpposite="#//Component/containedBy"/>
+        eType="#//Component" containment="true" eOpposite="#//Component/containedBy">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A list of components contained by this component"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="containedBy" eType="#//Component"
-        eOpposite="#//Component/components"/>
+        eOpposite="#//Component/components">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The parent component which contains this component"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="pins" upperBound="-1" eType="#//Pin"
-        containment="true"/>
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A list of pins (input and output pins) which are placed on the border of this component."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MachineLearningComponent" eSuperTypes="#//SoftwareComponent"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MachineLearningComponent" eSuperTypes="#//SoftwareComponent">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A software component which returns results based on a machine learning method estimate (e.g. classification...)"/>
+    </eAnnotations>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Connector" eSuperTypes="#//Element">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A connector connects one source to one target component."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
-        eType="#//Pin"/>
+        eType="#//Pin">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The source pin of this connector"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
-        eType="#//Pin"/>
+        eType="#//Pin">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The output pin of this connector"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PhysicalConnector" eSuperTypes="#//Connector">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A phyisical connector is a connector which links 2 physical components."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="minSpeed" eType="#//Connectionspeed"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxSpeed" eType="#//Connectionspeed"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="Connectionspeed" instanceTypeName="newDataType1"/>
-  <eClassifiers xsi:type="ecore:EClass" name="PhysicalComponent" eSuperTypes="#//Component"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PhysicalComponent" eSuperTypes="#//Component">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A physical component is a generic tangible component which will be realised/is already available as hardware"/>
+    </eAnnotations>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SoftwareComponent" eSuperTypes="#//Component">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A software component is a generic component which will be realised/is already available digitally"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="OutputUncertainty" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="0.0"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LogicalConnector" eSuperTypes="#//Connector"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Heuristic" eSuperTypes="#//SoftwareComponent"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Function" eSuperTypes="#//SoftwareComponent"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ExternalDependency" eSuperTypes="#//SoftwareComponent"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LogicalConnector" eSuperTypes="#//Connector">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A logical connector connects 2 software components or 1 software and one physical component"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Heuristic" eSuperTypes="#//SoftwareComponent">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A heuristic is a software component which may provide a wrong/non-optimal result for certain inputs"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Function" eSuperTypes="#//SoftwareComponent">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A function is a in-house programmed software which is considered to be safe (apart from a low output uncertainty due to possible bugs)"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExternalDependency" eSuperTypes="#//SoftwareComponent">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="An external dependency is a function which is offered by a third party and can't be controlled."/>
+    </eAnnotations>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Package" eSuperTypes="#//NamedElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A package contains a set of Components and their connections."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
-        eType="#//Component" containment="true"/>
+        eType="#//Component" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A list of components contained in this package"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="softwareComponents" upperBound="-1"
-        eType="#//SoftwareComponent" derived="true"/>
+        eType="#//SoftwareComponent" derived="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A subset of components only containing software components"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="physicalComponents" upperBound="-1"
-        eType="#//PhysicalComponent" derived="true"/>
+        eType="#//PhysicalComponent" derived="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A subset of components only containing physical components"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="connectors" upperBound="-1"
-        eType="#//Connector" containment="true"/>
+        eType="#//Connector" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A list of connectors contained in this package"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sectors" upperBound="-1"
-        eType="#//Sector" containment="true"/>
+        eType="#//Sector" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A list of sectors contained in this package"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Model" eSuperTypes="#//NamedElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The root element of the E4SM Model"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="packages" upperBound="-1"
-        eType="#//Package" containment="true"/>
+        eType="#//Package" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A list of packages contained by this model"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="actors" upperBound="-1"
-        eType="#//Actor" containment="true"/>
+        eType="#//Actor" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A list of actors contained by this model"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true" eSuperTypes="#//Element">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="An Element which has a name"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The name of the element"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Actor" eSuperTypes="#//NamedElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Human" eSuperTypes="#//Actor"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Robot" eSuperTypes="#//Actor"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Actor" eSuperTypes="#//NamedElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="An Entity which interfaces with the system"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Human" eSuperTypes="#//Actor">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A human actor"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Robot" eSuperTypes="#//Actor">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A robot actor"/>
+    </eAnnotations>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Sector" eSuperTypes="#//NamedElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A collection of physical components that either logically or phisically belongs together"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
-        eType="#//PhysicalComponent" containment="true"/>
+        eType="#//PhysicalComponent" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A list of references to components which are contained in this sector"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Sensor" eSuperTypes="#//PhysicalComponent"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Actuator" eSuperTypes="#//PhysicalComponent"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Sensor" eSuperTypes="#//PhysicalComponent">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A physical component which transforms a physical signal into a digital one"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Actuator" eSuperTypes="#//PhysicalComponent">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A physical component which transforms a digital signal into a physical one"/>
+    </eAnnotations>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Element" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uuid" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A model element"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uuid" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A universally unique identifier (UUID) is a 128-bit number used to identify information in computer systems"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Pin" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="InputPin" eSuperTypes="#//Pin"/>
-  <eClassifiers xsi:type="ecore:EClass" name="OutputPin" eSuperTypes="#//Pin"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Pin" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="An interface to and from a component"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InputPin" eSuperTypes="#//Pin">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="An interface which delivers data inside a component"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OutputPin" eSuperTypes="#//Pin">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="An interface which sends data outside of a component"/>
+    </eAnnotations>
+  </eClassifiers>
 </ecore:EPackage>

@@ -69,6 +69,7 @@ public class SoftwareComponentImpl extends ComponentImpl implements SoftwareComp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public double getOutputUncertainty() {
 		return outputUncertainty;
 	}
@@ -78,6 +79,7 @@ public class SoftwareComponentImpl extends ComponentImpl implements SoftwareComp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setOutputUncertainty(double newOutputUncertainty) {
 		double oldOutputUncertainty = outputUncertainty;
 		outputUncertainty = newOutputUncertainty;

@@ -279,6 +279,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getComponent() {
 		return componentEClass;
 	}
@@ -288,6 +289,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getComponent_Components() {
 		return (EReference) componentEClass.getEStructuralFeatures().get(0);
 	}
@@ -297,6 +299,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getComponent_ContainedBy() {
 		return (EReference) componentEClass.getEStructuralFeatures().get(1);
 	}
@@ -306,6 +309,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getComponent_Pins() {
 		return (EReference) componentEClass.getEStructuralFeatures().get(2);
 	}
@@ -315,6 +319,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getMachineLearningComponent() {
 		return machineLearningComponentEClass;
 	}
@@ -324,6 +329,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getConnector() {
 		return connectorEClass;
 	}
@@ -333,6 +339,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getConnector_Source() {
 		return (EReference) connectorEClass.getEStructuralFeatures().get(0);
 	}
@@ -342,6 +349,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getConnector_Target() {
 		return (EReference) connectorEClass.getEStructuralFeatures().get(1);
 	}
@@ -351,6 +359,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPhysicalConnector() {
 		return physicalConnectorEClass;
 	}
@@ -360,6 +369,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPhysicalConnector_MinSpeed() {
 		return (EAttribute) physicalConnectorEClass.getEStructuralFeatures().get(0);
 	}
@@ -369,6 +379,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPhysicalConnector_MaxSpeed() {
 		return (EAttribute) physicalConnectorEClass.getEStructuralFeatures().get(1);
 	}
@@ -378,6 +389,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPhysicalComponent() {
 		return physicalComponentEClass;
 	}
@@ -387,6 +399,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSoftwareComponent() {
 		return softwareComponentEClass;
 	}
@@ -396,6 +409,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSoftwareComponent_OutputUncertainty() {
 		return (EAttribute) softwareComponentEClass.getEStructuralFeatures().get(0);
 	}
@@ -405,6 +419,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getLogicalConnector() {
 		return logicalConnectorEClass;
 	}
@@ -414,6 +429,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getHeuristic() {
 		return heuristicEClass;
 	}
@@ -423,6 +439,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getFunction() {
 		return functionEClass;
 	}
@@ -432,6 +449,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getExternalDependency() {
 		return externalDependencyEClass;
 	}
@@ -441,6 +459,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPackage() {
 		return packageEClass;
 	}
@@ -450,6 +469,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getPackage_Components() {
 		return (EReference) packageEClass.getEStructuralFeatures().get(0);
 	}
@@ -459,6 +479,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getPackage_SoftwareComponents() {
 		return (EReference) packageEClass.getEStructuralFeatures().get(1);
 	}
@@ -468,6 +489,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getPackage_PhysicalComponents() {
 		return (EReference) packageEClass.getEStructuralFeatures().get(2);
 	}
@@ -477,6 +499,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getPackage_Connectors() {
 		return (EReference) packageEClass.getEStructuralFeatures().get(3);
 	}
@@ -486,6 +509,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getPackage_Sectors() {
 		return (EReference) packageEClass.getEStructuralFeatures().get(4);
 	}
@@ -495,6 +519,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getModel() {
 		return modelEClass;
 	}
@@ -504,6 +529,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getModel_Packages() {
 		return (EReference) modelEClass.getEStructuralFeatures().get(0);
 	}
@@ -513,6 +539,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getModel_Actors() {
 		return (EReference) modelEClass.getEStructuralFeatures().get(1);
 	}
@@ -522,6 +549,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getNamedElement() {
 		return namedElementEClass;
 	}
@@ -531,6 +559,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getNamedElement_Name() {
 		return (EAttribute) namedElementEClass.getEStructuralFeatures().get(0);
 	}
@@ -540,6 +569,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getActor() {
 		return actorEClass;
 	}
@@ -549,6 +579,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getHuman() {
 		return humanEClass;
 	}
@@ -558,6 +589,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getRobot() {
 		return robotEClass;
 	}
@@ -567,6 +599,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSector() {
 		return sectorEClass;
 	}
@@ -576,6 +609,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getSector_Components() {
 		return (EReference) sectorEClass.getEStructuralFeatures().get(0);
 	}
@@ -585,6 +619,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSensor() {
 		return sensorEClass;
 	}
@@ -594,6 +629,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getActuator() {
 		return actuatorEClass;
 	}
@@ -603,6 +639,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getElement() {
 		return elementEClass;
 	}
@@ -612,6 +649,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getElement_Uuid() {
 		return (EAttribute) elementEClass.getEStructuralFeatures().get(0);
 	}
@@ -621,6 +659,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPin() {
 		return pinEClass;
 	}
@@ -630,6 +669,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getInputPin() {
 		return inputPinEClass;
 	}
@@ -639,6 +679,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getOutputPin() {
 		return outputPinEClass;
 	}
@@ -648,6 +689,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EDataType getConnectionspeed() {
 		return connectionspeedEDataType;
 	}
@@ -657,6 +699,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public e4smFactory gete4smFactory() {
 		return (e4smFactory) getEFactoryInstance();
 	}

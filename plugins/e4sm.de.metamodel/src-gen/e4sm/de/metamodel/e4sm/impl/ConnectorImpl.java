@@ -72,6 +72,7 @@ public class ConnectorImpl extends ElementImpl implements Connector {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Pin getSource() {
 		if (source != null && source.eIsProxy()) {
 			InternalEObject oldSource = (InternalEObject) source;
@@ -99,6 +100,7 @@ public class ConnectorImpl extends ElementImpl implements Connector {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSource(Pin newSource) {
 		Pin oldSource = source;
 		source = newSource;
@@ -111,6 +113,7 @@ public class ConnectorImpl extends ElementImpl implements Connector {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Pin getTarget() {
 		if (target != null && target.eIsProxy()) {
 			InternalEObject oldTarget = (InternalEObject) target;
@@ -138,6 +141,7 @@ public class ConnectorImpl extends ElementImpl implements Connector {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTarget(Pin newTarget) {
 		Pin oldTarget = target;
 		target = newTarget;

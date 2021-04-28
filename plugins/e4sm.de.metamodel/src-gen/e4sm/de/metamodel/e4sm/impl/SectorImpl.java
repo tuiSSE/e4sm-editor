@@ -66,6 +66,7 @@ public class SectorImpl extends NamedElementImpl implements Sector {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<PhysicalComponent> getComponents() {
 		if (components == null) {
 			components = new EObjectContainmentEList<PhysicalComponent>(PhysicalComponent.class, this,
