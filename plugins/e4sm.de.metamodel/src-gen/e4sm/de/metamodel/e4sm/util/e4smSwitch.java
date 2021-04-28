@@ -17,6 +17,7 @@ import e4sm.de.metamodel.e4sm.MachineLearningComponent;
 import e4sm.de.metamodel.e4sm.Model;
 import e4sm.de.metamodel.e4sm.NamedElement;
 import e4sm.de.metamodel.e4sm.OutputPin;
+import e4sm.de.metamodel.e4sm.Person;
 import e4sm.de.metamodel.e4sm.PhysicalComponent;
 import e4sm.de.metamodel.e4sm.PhysicalConnector;
 import e4sm.de.metamodel.e4sm.Pin;
@@ -353,6 +354,21 @@ public class e4smSwitch<T> extends Switch<T> {
 			T result = caseOutputPin(outputPin);
 			if (result == null)
 				result = casePin(outputPin);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case e4smPackage.PERSON: {
+			Person person = (Person) theEObject;
+			T result = casePerson(person);
+			if (result == null)
+				result = caseHuman(person);
+			if (result == null)
+				result = caseActor(person);
+			if (result == null)
+				result = caseNamedElement(person);
+			if (result == null)
+				result = caseElement(person);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -704,6 +720,21 @@ public class e4smSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseOutputPin(OutputPin object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Person</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Person</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePerson(Person object) {
 		return null;
 	}
 

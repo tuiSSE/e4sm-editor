@@ -15,6 +15,7 @@ import e4sm.de.metamodel.e4sm.LogicalConnector;
 import e4sm.de.metamodel.e4sm.MachineLearningComponent;
 import e4sm.de.metamodel.e4sm.Model;
 import e4sm.de.metamodel.e4sm.OutputPin;
+import e4sm.de.metamodel.e4sm.Person;
 import e4sm.de.metamodel.e4sm.PhysicalComponent;
 import e4sm.de.metamodel.e4sm.PhysicalConnector;
 import e4sm.de.metamodel.e4sm.Robot;
@@ -116,6 +117,8 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 			return createInputPin();
 		case e4smPackage.OUTPUT_PIN:
 			return createOutputPin();
+		case e4smPackage.PERSON:
+			return createPerson();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -369,6 +372,17 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 	public OutputPin createOutputPin() {
 		OutputPinImpl outputPin = new OutputPinImpl();
 		return outputPin;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Person createPerson() {
+		PersonImpl person = new PersonImpl();
+		return person;
 	}
 
 	/**

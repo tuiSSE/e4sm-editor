@@ -8,6 +8,7 @@ import e4sm.de.metamodel.e4sm.e4smPackage;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -15,6 +16,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -28,6 +30,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ModelImpl#getPackages <em>Packages</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ModelImpl#getActors <em>Actors</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.ModelImpl#getPersonsPicturesPath <em>Persons Pictures Path</em>}</li>
  * </ul>
  *
  * @generated
@@ -52,6 +55,26 @@ public class ModelImpl extends NamedElementImpl implements Model {
 	 * @ordered
 	 */
 	protected EList<Actor> actors;
+
+	/**
+	 * The default value of the '{@link #getPersonsPicturesPath() <em>Persons Pictures Path</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPersonsPicturesPath()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PERSONS_PICTURES_PATH_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getPersonsPicturesPath() <em>Persons Pictures Path</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPersonsPicturesPath()
+	 * @generated
+	 * @ordered
+	 */
+	protected String personsPicturesPath = PERSONS_PICTURES_PATH_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -105,6 +128,30 @@ public class ModelImpl extends NamedElementImpl implements Model {
 	 * @generated
 	 */
 	@Override
+	public String getPersonsPicturesPath() {
+		return personsPicturesPath;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setPersonsPicturesPath(String newPersonsPicturesPath) {
+		String oldPersonsPicturesPath = personsPicturesPath;
+		personsPicturesPath = newPersonsPicturesPath;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.MODEL__PERSONS_PICTURES_PATH,
+					oldPersonsPicturesPath, personsPicturesPath));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case e4smPackage.MODEL__PACKAGES:
@@ -127,6 +174,8 @@ public class ModelImpl extends NamedElementImpl implements Model {
 			return getPackages();
 		case e4smPackage.MODEL__ACTORS:
 			return getActors();
+		case e4smPackage.MODEL__PERSONS_PICTURES_PATH:
+			return getPersonsPicturesPath();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -148,6 +197,9 @@ public class ModelImpl extends NamedElementImpl implements Model {
 			getActors().clear();
 			getActors().addAll((Collection<? extends Actor>) newValue);
 			return;
+		case e4smPackage.MODEL__PERSONS_PICTURES_PATH:
+			setPersonsPicturesPath((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -166,6 +218,9 @@ public class ModelImpl extends NamedElementImpl implements Model {
 		case e4smPackage.MODEL__ACTORS:
 			getActors().clear();
 			return;
+		case e4smPackage.MODEL__PERSONS_PICTURES_PATH:
+			setPersonsPicturesPath(PERSONS_PICTURES_PATH_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -182,8 +237,28 @@ public class ModelImpl extends NamedElementImpl implements Model {
 			return packages != null && !packages.isEmpty();
 		case e4smPackage.MODEL__ACTORS:
 			return actors != null && !actors.isEmpty();
+		case e4smPackage.MODEL__PERSONS_PICTURES_PATH:
+			return PERSONS_PICTURES_PATH_EDEFAULT == null ? personsPicturesPath != null
+					: !PERSONS_PICTURES_PATH_EDEFAULT.equals(personsPicturesPath);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy())
+			return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (personsPicturesPath: ");
+		result.append(personsPicturesPath);
+		result.append(')');
+		return result.toString();
 	}
 
 } //ModelImpl

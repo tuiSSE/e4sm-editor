@@ -47,6 +47,7 @@ public class PackageItemProvider extends NamedElementItemProvider {
 
 			addSoftwareComponentsPropertyDescriptor(object);
 			addPhysicalComponentsPropertyDescriptor(object);
+			addMainResponsiblePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -79,6 +80,21 @@ public class PackageItemProvider extends NamedElementItemProvider {
 						getString("_UI_PropertyDescriptor_description", "_UI_Package_physicalComponents_feature",
 								"_UI_Package_type"),
 						e4smPackage.Literals.PACKAGE__PHYSICAL_COMPONENTS, true, false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Main Responsible feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMainResponsiblePropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Package_mainResponsible_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Package_mainResponsible_feature",
+								"_UI_Package_type"),
+						e4smPackage.Literals.PACKAGE__MAIN_RESPONSIBLE, true, false, true, null, null, null));
 	}
 
 	/**

@@ -4,6 +4,7 @@ package e4sm.de.metamodel.e4sm.impl;
 
 import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.Connector;
+import e4sm.de.metamodel.e4sm.Person;
 import e4sm.de.metamodel.e4sm.PhysicalComponent;
 import e4sm.de.metamodel.e4sm.Sector;
 import e4sm.de.metamodel.e4sm.SoftwareComponent;
@@ -11,6 +12,7 @@ import e4sm.de.metamodel.e4sm.e4smPackage;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -18,6 +20,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -35,6 +38,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getPhysicalComponents <em>Physical Components</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getConnectors <em>Connectors</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getSectors <em>Sectors</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getMainResponsible <em>Main Responsible</em>}</li>
  * </ul>
  *
  * @generated
@@ -89,6 +93,16 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	 * @ordered
 	 */
 	protected EList<Sector> sectors;
+
+	/**
+	 * The cached value of the '{@link #getMainResponsible() <em>Main Responsible</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMainResponsible()
+	 * @generated
+	 * @ordered
+	 */
+	protected Person mainResponsible;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -182,6 +196,48 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	 * @generated
 	 */
 	@Override
+	public Person getMainResponsible() {
+		if (mainResponsible != null && mainResponsible.eIsProxy()) {
+			InternalEObject oldMainResponsible = (InternalEObject) mainResponsible;
+			mainResponsible = (Person) eResolveProxy(oldMainResponsible);
+			if (mainResponsible != oldMainResponsible) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, e4smPackage.PACKAGE__MAIN_RESPONSIBLE,
+							oldMainResponsible, mainResponsible));
+			}
+		}
+		return mainResponsible;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Person basicGetMainResponsible() {
+		return mainResponsible;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setMainResponsible(Person newMainResponsible) {
+		Person oldMainResponsible = mainResponsible;
+		mainResponsible = newMainResponsible;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.PACKAGE__MAIN_RESPONSIBLE,
+					oldMainResponsible, mainResponsible));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case e4smPackage.PACKAGE__COMPONENTS:
@@ -212,6 +268,10 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 			return getConnectors();
 		case e4smPackage.PACKAGE__SECTORS:
 			return getSectors();
+		case e4smPackage.PACKAGE__MAIN_RESPONSIBLE:
+			if (resolve)
+				return getMainResponsible();
+			return basicGetMainResponsible();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -245,6 +305,9 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 			getSectors().clear();
 			getSectors().addAll((Collection<? extends Sector>) newValue);
 			return;
+		case e4smPackage.PACKAGE__MAIN_RESPONSIBLE:
+			setMainResponsible((Person) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -272,6 +335,9 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 		case e4smPackage.PACKAGE__SECTORS:
 			getSectors().clear();
 			return;
+		case e4smPackage.PACKAGE__MAIN_RESPONSIBLE:
+			setMainResponsible((Person) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -294,6 +360,8 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 			return connectors != null && !connectors.isEmpty();
 		case e4smPackage.PACKAGE__SECTORS:
 			return sectors != null && !sectors.isEmpty();
+		case e4smPackage.PACKAGE__MAIN_RESPONSIBLE:
+			return mainResponsible != null;
 		}
 		return super.eIsSet(featureID);
 	}

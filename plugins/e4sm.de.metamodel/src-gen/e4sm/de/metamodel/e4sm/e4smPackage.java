@@ -196,13 +196,22 @@ public interface e4smPackage extends EPackage {
 	int COMPONENT__PINS = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Main Responsible</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT__MAIN_RESPONSIBLE = NAMED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Component</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int COMPONENT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Component</em>' class.
@@ -267,6 +276,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOFTWARE_COMPONENT__PINS = COMPONENT__PINS;
+
+	/**
+	 * The feature id for the '<em><b>Main Responsible</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOFTWARE_COMPONENT__MAIN_RESPONSIBLE = COMPONENT__MAIN_RESPONSIBLE;
 
 	/**
 	 * The feature id for the '<em><b>Output Uncertainty</b></em>' attribute.
@@ -349,6 +367,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int MACHINE_LEARNING_COMPONENT__PINS = SOFTWARE_COMPONENT__PINS;
+
+	/**
+	 * The feature id for the '<em><b>Main Responsible</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MACHINE_LEARNING_COMPONENT__MAIN_RESPONSIBLE = SOFTWARE_COMPONENT__MAIN_RESPONSIBLE;
 
 	/**
 	 * The feature id for the '<em><b>Output Uncertainty</b></em>' attribute.
@@ -561,6 +588,15 @@ public interface e4smPackage extends EPackage {
 	int PHYSICAL_COMPONENT__PINS = COMPONENT__PINS;
 
 	/**
+	 * The feature id for the '<em><b>Main Responsible</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PHYSICAL_COMPONENT__MAIN_RESPONSIBLE = COMPONENT__MAIN_RESPONSIBLE;
+
+	/**
 	 * The number of structural features of the '<em>Physical Component</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -689,6 +725,15 @@ public interface e4smPackage extends EPackage {
 	int HEURISTIC__PINS = SOFTWARE_COMPONENT__PINS;
 
 	/**
+	 * The feature id for the '<em><b>Main Responsible</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HEURISTIC__MAIN_RESPONSIBLE = SOFTWARE_COMPONENT__MAIN_RESPONSIBLE;
+
+	/**
 	 * The feature id for the '<em><b>Output Uncertainty</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -771,6 +816,15 @@ public interface e4smPackage extends EPackage {
 	int FUNCTION__PINS = SOFTWARE_COMPONENT__PINS;
 
 	/**
+	 * The feature id for the '<em><b>Main Responsible</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION__MAIN_RESPONSIBLE = SOFTWARE_COMPONENT__MAIN_RESPONSIBLE;
+
+	/**
 	 * The feature id for the '<em><b>Output Uncertainty</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -851,6 +905,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXTERNAL_DEPENDENCY__PINS = SOFTWARE_COMPONENT__PINS;
+
+	/**
+	 * The feature id for the '<em><b>Main Responsible</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_DEPENDENCY__MAIN_RESPONSIBLE = SOFTWARE_COMPONENT__MAIN_RESPONSIBLE;
 
 	/**
 	 * The feature id for the '<em><b>Output Uncertainty</b></em>' attribute.
@@ -953,13 +1016,22 @@ public interface e4smPackage extends EPackage {
 	int PACKAGE__SECTORS = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Main Responsible</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__MAIN_RESPONSIBLE = NAMED_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Package</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 5;
+	int PACKAGE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of operations of the '<em>Package</em>' class.
@@ -1017,13 +1089,22 @@ public interface e4smPackage extends EPackage {
 	int MODEL__ACTORS = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Persons Pictures Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL__PERSONS_PICTURES_PATH = NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int MODEL_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Model</em>' class.
@@ -1283,6 +1364,15 @@ public interface e4smPackage extends EPackage {
 	int SENSOR__PINS = PHYSICAL_COMPONENT__PINS;
 
 	/**
+	 * The feature id for the '<em><b>Main Responsible</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENSOR__MAIN_RESPONSIBLE = PHYSICAL_COMPONENT__MAIN_RESPONSIBLE;
+
+	/**
 	 * The number of structural features of the '<em>Sensor</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1354,6 +1444,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTUATOR__PINS = PHYSICAL_COMPONENT__PINS;
+
+	/**
+	 * The feature id for the '<em><b>Main Responsible</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTUATOR__MAIN_RESPONSIBLE = PHYSICAL_COMPONENT__MAIN_RESPONSIBLE;
 
 	/**
 	 * The number of structural features of the '<em>Actuator</em>' class.
@@ -1458,6 +1557,88 @@ public interface e4smPackage extends EPackage {
 	int OUTPUT_PIN_OPERATION_COUNT = PIN_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.PersonImpl <em>Person</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.PersonImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getPerson()
+	 * @generated
+	 */
+	int PERSON = 23;
+
+	/**
+	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSON__UUID = HUMAN__UUID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSON__NAME = HUMAN__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Surname</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSON__SURNAME = HUMAN_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Department</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSON__DEPARTMENT = HUMAN_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Responsible For Components</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSON__RESPONSIBLE_FOR_COMPONENTS = HUMAN_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Picture File Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSON__PICTURE_FILE_NAME = HUMAN_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Person</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSON_FEATURE_COUNT = HUMAN_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of operations of the '<em>Person</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSON_OPERATION_COUNT = HUMAN_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '<em>Connectionspeed</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1465,7 +1646,7 @@ public interface e4smPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getConnectionspeed()
 	 * @generated
 	 */
-	int CONNECTIONSPEED = 23;
+	int CONNECTIONSPEED = 24;
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.Component <em>Component</em>}'.
@@ -1509,6 +1690,17 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getComponent_Pins();
+
+	/**
+	 * Returns the meta object for the reference '{@link e4sm.de.metamodel.e4sm.Component#getMainResponsible <em>Main Responsible</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Main Responsible</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Component#getMainResponsible()
+	 * @see #getComponent()
+	 * @generated
+	 */
+	EReference getComponent_MainResponsible();
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.MachineLearningComponent <em>Machine Learning Component</em>}'.
@@ -1721,6 +1913,17 @@ public interface e4smPackage extends EPackage {
 	EReference getPackage_Sectors();
 
 	/**
+	 * Returns the meta object for the reference '{@link e4sm.de.metamodel.e4sm.Package#getMainResponsible <em>Main Responsible</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Main Responsible</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Package#getMainResponsible()
+	 * @see #getPackage()
+	 * @generated
+	 */
+	EReference getPackage_MainResponsible();
+
+	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.Model <em>Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1751,6 +1954,17 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getModel_Actors();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.Model#getPersonsPicturesPath <em>Persons Pictures Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Persons Pictures Path</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Model#getPersonsPicturesPath()
+	 * @see #getModel()
+	 * @generated
+	 */
+	EAttribute getModel_PersonsPicturesPath();
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.NamedElement <em>Named Element</em>}'.
@@ -1896,6 +2110,60 @@ public interface e4smPackage extends EPackage {
 	EClass getOutputPin();
 
 	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.Person <em>Person</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Person</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Person
+	 * @generated
+	 */
+	EClass getPerson();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.Person#getSurname <em>Surname</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Surname</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Person#getSurname()
+	 * @see #getPerson()
+	 * @generated
+	 */
+	EAttribute getPerson_Surname();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.Person#getDepartment <em>Department</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Department</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Person#getDepartment()
+	 * @see #getPerson()
+	 * @generated
+	 */
+	EAttribute getPerson_Department();
+
+	/**
+	 * Returns the meta object for the reference list '{@link e4sm.de.metamodel.e4sm.Person#getResponsibleForComponents <em>Responsible For Components</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Responsible For Components</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Person#getResponsibleForComponents()
+	 * @see #getPerson()
+	 * @generated
+	 */
+	EReference getPerson_ResponsibleForComponents();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.Person#getPictureFileName <em>Picture File Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Picture File Name</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Person#getPictureFileName()
+	 * @see #getPerson()
+	 * @generated
+	 */
+	EAttribute getPerson_PictureFileName();
+
+	/**
 	 * Returns the meta object for data type '{@link java.lang.Object <em>Connectionspeed</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1962,6 +2230,14 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EReference COMPONENT__PINS = eINSTANCE.getComponent_Pins();
+
+		/**
+		 * The meta object literal for the '<em><b>Main Responsible</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPONENT__MAIN_RESPONSIBLE = eINSTANCE.getComponent_MainResponsible();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.MachineLearningComponentImpl <em>Machine Learning Component</em>}' class.
@@ -2144,6 +2420,14 @@ public interface e4smPackage extends EPackage {
 		EReference PACKAGE__SECTORS = eINSTANCE.getPackage_Sectors();
 
 		/**
+		 * The meta object literal for the '<em><b>Main Responsible</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PACKAGE__MAIN_RESPONSIBLE = eINSTANCE.getPackage_MainResponsible();
+
+		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.ModelImpl <em>Model</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2168,6 +2452,14 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EReference MODEL__ACTORS = eINSTANCE.getModel_Actors();
+
+		/**
+		 * The meta object literal for the '<em><b>Persons Pictures Path</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MODEL__PERSONS_PICTURES_PATH = eINSTANCE.getModel_PersonsPicturesPath();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.NamedElementImpl <em>Named Element</em>}' class.
@@ -2302,6 +2594,48 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EClass OUTPUT_PIN = eINSTANCE.getOutputPin();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.PersonImpl <em>Person</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.PersonImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getPerson()
+		 * @generated
+		 */
+		EClass PERSON = eINSTANCE.getPerson();
+
+		/**
+		 * The meta object literal for the '<em><b>Surname</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PERSON__SURNAME = eINSTANCE.getPerson_Surname();
+
+		/**
+		 * The meta object literal for the '<em><b>Department</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PERSON__DEPARTMENT = eINSTANCE.getPerson_Department();
+
+		/**
+		 * The meta object literal for the '<em><b>Responsible For Components</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PERSON__RESPONSIBLE_FOR_COMPONENTS = eINSTANCE.getPerson_ResponsibleForComponents();
+
+		/**
+		 * The meta object literal for the '<em><b>Picture File Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PERSON__PICTURE_FILE_NAME = eINSTANCE.getPerson_PictureFileName();
 
 		/**
 		 * The meta object literal for the '<em>Connectionspeed</em>' data type.

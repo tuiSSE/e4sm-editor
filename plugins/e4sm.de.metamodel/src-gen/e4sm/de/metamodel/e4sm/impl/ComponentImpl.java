@@ -3,6 +3,7 @@
 package e4sm.de.metamodel.e4sm.impl;
 
 import e4sm.de.metamodel.e4sm.Component;
+import e4sm.de.metamodel.e4sm.Person;
 import e4sm.de.metamodel.e4sm.Pin;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
@@ -34,6 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ComponentImpl#getComponents <em>Components</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ComponentImpl#getContainedBy <em>Contained By</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ComponentImpl#getPins <em>Pins</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.ComponentImpl#getMainResponsible <em>Main Responsible</em>}</li>
  * </ul>
  *
  * @generated
@@ -58,6 +60,16 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 	 * @ordered
 	 */
 	protected EList<Pin> pins;
+
+	/**
+	 * The cached value of the '{@link #getMainResponsible() <em>Main Responsible</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMainResponsible()
+	 * @generated
+	 * @ordered
+	 */
+	protected Person mainResponsible;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -157,6 +169,76 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public Person getMainResponsible() {
+		if (mainResponsible != null && mainResponsible.eIsProxy()) {
+			InternalEObject oldMainResponsible = (InternalEObject) mainResponsible;
+			mainResponsible = (Person) eResolveProxy(oldMainResponsible);
+			if (mainResponsible != oldMainResponsible) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, e4smPackage.COMPONENT__MAIN_RESPONSIBLE,
+							oldMainResponsible, mainResponsible));
+			}
+		}
+		return mainResponsible;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Person basicGetMainResponsible() {
+		return mainResponsible;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetMainResponsible(Person newMainResponsible, NotificationChain msgs) {
+		Person oldMainResponsible = mainResponsible;
+		mainResponsible = newMainResponsible;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					e4smPackage.COMPONENT__MAIN_RESPONSIBLE, oldMainResponsible, newMainResponsible);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setMainResponsible(Person newMainResponsible) {
+		if (newMainResponsible != mainResponsible) {
+			NotificationChain msgs = null;
+			if (mainResponsible != null)
+				msgs = ((InternalEObject) mainResponsible).eInverseRemove(this,
+						e4smPackage.PERSON__RESPONSIBLE_FOR_COMPONENTS, Person.class, msgs);
+			if (newMainResponsible != null)
+				msgs = ((InternalEObject) newMainResponsible).eInverseAdd(this,
+						e4smPackage.PERSON__RESPONSIBLE_FOR_COMPONENTS, Person.class, msgs);
+			msgs = basicSetMainResponsible(newMainResponsible, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.COMPONENT__MAIN_RESPONSIBLE,
+					newMainResponsible, newMainResponsible));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -167,6 +249,11 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			return basicSetContainedBy((Component) otherEnd, msgs);
+		case e4smPackage.COMPONENT__MAIN_RESPONSIBLE:
+			if (mainResponsible != null)
+				msgs = ((InternalEObject) mainResponsible).eInverseRemove(this,
+						e4smPackage.PERSON__RESPONSIBLE_FOR_COMPONENTS, Person.class, msgs);
+			return basicSetMainResponsible((Person) otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -185,6 +272,8 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 			return basicSetContainedBy(null, msgs);
 		case e4smPackage.COMPONENT__PINS:
 			return ((InternalEList<?>) getPins()).basicRemove(otherEnd, msgs);
+		case e4smPackage.COMPONENT__MAIN_RESPONSIBLE:
+			return basicSetMainResponsible(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -217,6 +306,10 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 			return getContainedBy();
 		case e4smPackage.COMPONENT__PINS:
 			return getPins();
+		case e4smPackage.COMPONENT__MAIN_RESPONSIBLE:
+			if (resolve)
+				return getMainResponsible();
+			return basicGetMainResponsible();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -241,6 +334,9 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 			getPins().clear();
 			getPins().addAll((Collection<? extends Pin>) newValue);
 			return;
+		case e4smPackage.COMPONENT__MAIN_RESPONSIBLE:
+			setMainResponsible((Person) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -262,6 +358,9 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 		case e4smPackage.COMPONENT__PINS:
 			getPins().clear();
 			return;
+		case e4smPackage.COMPONENT__MAIN_RESPONSIBLE:
+			setMainResponsible((Person) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -280,6 +379,8 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 			return getContainedBy() != null;
 		case e4smPackage.COMPONENT__PINS:
 			return pins != null && !pins.isEmpty();
+		case e4smPackage.COMPONENT__MAIN_RESPONSIBLE:
+			return mainResponsible != null;
 		}
 		return super.eIsSet(featureID);
 	}

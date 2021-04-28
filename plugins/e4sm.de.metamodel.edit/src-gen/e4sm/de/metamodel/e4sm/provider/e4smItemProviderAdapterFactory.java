@@ -533,6 +533,29 @@ public class e4smItemProviderAdapterFactory extends e4smAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.Person} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PersonItemProvider personItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.Person}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPersonAdapter() {
+		if (personItemProvider == null) {
+			personItemProvider = new PersonItemProvider(this);
+		}
+
+		return personItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -677,6 +700,8 @@ public class e4smItemProviderAdapterFactory extends e4smAdapterFactory
 			inputPinItemProvider.dispose();
 		if (outputPinItemProvider != null)
 			outputPinItemProvider.dispose();
+		if (personItemProvider != null)
+			personItemProvider.dispose();
 	}
 
 }

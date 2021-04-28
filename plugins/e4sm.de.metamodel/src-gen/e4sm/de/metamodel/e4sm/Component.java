@@ -20,6 +20,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link e4sm.de.metamodel.e4sm.Component#getComponents <em>Components</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Component#getContainedBy <em>Contained By</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Component#getPins <em>Pins</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.Component#getMainResponsible <em>Main Responsible</em>}</li>
  * </ul>
  *
  * @see e4sm.de.metamodel.e4sm.e4smPackage#getComponent()
@@ -85,5 +86,29 @@ public interface Component extends NamedElement {
 	 * @generated
 	 */
 	EList<Pin> getPins();
+
+	/**
+	 * Returns the value of the '<em><b>Main Responsible</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link e4sm.de.metamodel.e4sm.Person#getResponsibleForComponents <em>Responsible For Components</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Main Responsible</em>' reference.
+	 * @see #setMainResponsible(Person)
+	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getComponent_MainResponsible()
+	 * @see e4sm.de.metamodel.e4sm.Person#getResponsibleForComponents
+	 * @model opposite="responsibleForComponents"
+	 * @generated
+	 */
+	Person getMainResponsible();
+
+	/**
+	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.Component#getMainResponsible <em>Main Responsible</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Main Responsible</em>' reference.
+	 * @see #getMainResponsible()
+	 * @generated
+	 */
+	void setMainResponsible(Person value);
 
 } // Component

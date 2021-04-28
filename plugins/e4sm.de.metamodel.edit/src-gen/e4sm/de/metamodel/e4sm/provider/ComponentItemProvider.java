@@ -48,6 +48,7 @@ public class ComponentItemProvider extends NamedElementItemProvider {
 
 			addComponentsPropertyDescriptor(object);
 			addContainedByPropertyDescriptor(object);
+			addMainResponsiblePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -80,6 +81,21 @@ public class ComponentItemProvider extends NamedElementItemProvider {
 						getString("_UI_PropertyDescriptor_description", "_UI_Component_containedBy_feature",
 								"_UI_Component_type"),
 						e4smPackage.Literals.COMPONENT__CONTAINED_BY, true, false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Main Responsible feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMainResponsiblePropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Component_mainResponsible_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Component_mainResponsible_feature",
+								"_UI_Component_type"),
+						e4smPackage.Literals.COMPONENT__MAIN_RESPONSIBLE, true, false, true, null, null, null));
 	}
 
 	/**

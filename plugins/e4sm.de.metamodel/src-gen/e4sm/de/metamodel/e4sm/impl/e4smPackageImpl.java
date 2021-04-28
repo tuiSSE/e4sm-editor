@@ -17,6 +17,7 @@ import e4sm.de.metamodel.e4sm.MachineLearningComponent;
 import e4sm.de.metamodel.e4sm.Model;
 import e4sm.de.metamodel.e4sm.NamedElement;
 import e4sm.de.metamodel.e4sm.OutputPin;
+import e4sm.de.metamodel.e4sm.Person;
 import e4sm.de.metamodel.e4sm.PhysicalComponent;
 import e4sm.de.metamodel.e4sm.PhysicalConnector;
 import e4sm.de.metamodel.e4sm.Pin;
@@ -210,6 +211,13 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass personEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EDataType connectionspeedEDataType = null;
 
 	/**
@@ -322,6 +330,16 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	@Override
 	public EReference getComponent_Pins() {
 		return (EReference) componentEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getComponent_MainResponsible() {
+		return (EReference) componentEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -530,6 +548,16 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getPackage_MainResponsible() {
+		return (EReference) packageEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getModel() {
 		return modelEClass;
 	}
@@ -552,6 +580,16 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	@Override
 	public EReference getModel_Actors() {
 		return (EReference) modelEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getModel_PersonsPicturesPath() {
+		return (EAttribute) modelEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -700,6 +738,56 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getPerson() {
+		return personEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getPerson_Surname() {
+		return (EAttribute) personEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getPerson_Department() {
+		return (EAttribute) personEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getPerson_ResponsibleForComponents() {
+		return (EReference) personEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getPerson_PictureFileName() {
+		return (EAttribute) personEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EDataType getConnectionspeed() {
 		return connectionspeedEDataType;
 	}
@@ -738,6 +826,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		createEReference(componentEClass, COMPONENT__COMPONENTS);
 		createEReference(componentEClass, COMPONENT__CONTAINED_BY);
 		createEReference(componentEClass, COMPONENT__PINS);
+		createEReference(componentEClass, COMPONENT__MAIN_RESPONSIBLE);
 
 		machineLearningComponentEClass = createEClass(MACHINE_LEARNING_COMPONENT);
 
@@ -768,10 +857,12 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		createEReference(packageEClass, PACKAGE__PHYSICAL_COMPONENTS);
 		createEReference(packageEClass, PACKAGE__CONNECTORS);
 		createEReference(packageEClass, PACKAGE__SECTORS);
+		createEReference(packageEClass, PACKAGE__MAIN_RESPONSIBLE);
 
 		modelEClass = createEClass(MODEL);
 		createEReference(modelEClass, MODEL__PACKAGES);
 		createEReference(modelEClass, MODEL__ACTORS);
+		createEAttribute(modelEClass, MODEL__PERSONS_PICTURES_PATH);
 
 		namedElementEClass = createEClass(NAMED_ELEMENT);
 		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
@@ -797,6 +888,12 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		inputPinEClass = createEClass(INPUT_PIN);
 
 		outputPinEClass = createEClass(OUTPUT_PIN);
+
+		personEClass = createEClass(PERSON);
+		createEAttribute(personEClass, PERSON__SURNAME);
+		createEAttribute(personEClass, PERSON__DEPARTMENT);
+		createEReference(personEClass, PERSON__RESPONSIBLE_FOR_COMPONENTS);
+		createEAttribute(personEClass, PERSON__PICTURE_FILE_NAME);
 
 		// Create data types
 		connectionspeedEDataType = createEDataType(CONNECTIONSPEED);
@@ -852,6 +949,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		actuatorEClass.getESuperTypes().add(this.getPhysicalComponent());
 		inputPinEClass.getESuperTypes().add(this.getPin());
 		outputPinEClass.getESuperTypes().add(this.getPin());
+		personEClass.getESuperTypes().add(this.getHuman());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(componentEClass, Component.class, "Component", !IS_ABSTRACT, !IS_INTERFACE,
@@ -865,6 +963,9 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		initEReference(getComponent_Pins(), this.getPin(), null, "pins", null, 0, -1, Component.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
+		initEReference(getComponent_MainResponsible(), this.getPerson(), this.getPerson_ResponsibleForComponents(),
+				"mainResponsible", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(machineLearningComponentEClass, MachineLearningComponent.class, "MachineLearningComponent",
 				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -925,6 +1026,9 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		initEReference(getPackage_Sectors(), this.getSector(), null, "sectors", null, 0, -1,
 				e4sm.de.metamodel.e4sm.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPackage_MainResponsible(), this.getPerson(), null, "mainResponsible", null, 0, 1,
+				e4sm.de.metamodel.e4sm.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getModel_Packages(), this.getPackage(), null, "packages", null, 0, -1, Model.class,
@@ -932,6 +1036,9 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getModel_Actors(), this.getActor(), null, "actors", null, 0, -1, Model.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEAttribute(getModel_PersonsPicturesPath(), ecorePackage.getEString(), "personsPicturesPath", null, 0, 1,
+				Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
 
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE,
@@ -956,8 +1063,8 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 				IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(elementEClass, Element.class, "Element", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getElement_Uuid(), ecorePackage.getEString(), "uuid", null, 1, 1, Element.class, !IS_TRANSIENT,
-				!IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getElement_Uuid(), ecorePackage.getEString(), "uuid", "", 1, 1, Element.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(pinEClass, Pin.class, "Pin", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -966,6 +1073,18 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 
 		initEClass(outputPinEClass, OutputPin.class, "OutputPin", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(personEClass, Person.class, "Person", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPerson_Surname(), ecorePackage.getEString(), "surname", null, 1, 1, Person.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPerson_Department(), ecorePackage.getEString(), "department", null, 0, 1, Person.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPerson_ResponsibleForComponents(), this.getComponent(), this.getComponent_MainResponsible(),
+				"responsibleForComponents", null, 0, -1, Person.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPerson_PictureFileName(), ecorePackage.getEString(), "pictureFileName", null, 0, 1,
+				Person.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
 		// Initialize data types
 		initEDataType(connectionspeedEDataType, Object.class, "Connectionspeed", IS_SERIALIZABLE,

@@ -19,6 +19,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link e4sm.de.metamodel.e4sm.Model#getPackages <em>Packages</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Model#getActors <em>Actors</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.Model#getPersonsPicturesPath <em>Persons Pictures Path</em>}</li>
  * </ul>
  *
  * @see e4sm.de.metamodel.e4sm.e4smPackage#getModel()
@@ -55,5 +56,27 @@ public interface Model extends NamedElement {
 	 * @generated
 	 */
 	EList<Actor> getActors();
+
+	/**
+	 * Returns the value of the '<em><b>Persons Pictures Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Persons Pictures Path</em>' attribute.
+	 * @see #setPersonsPicturesPath(String)
+	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getModel_PersonsPicturesPath()
+	 * @model
+	 * @generated
+	 */
+	String getPersonsPicturesPath();
+
+	/**
+	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.Model#getPersonsPicturesPath <em>Persons Pictures Path</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Persons Pictures Path</em>' attribute.
+	 * @see #getPersonsPicturesPath()
+	 * @generated
+	 */
+	void setPersonsPicturesPath(String value);
 
 } // Model

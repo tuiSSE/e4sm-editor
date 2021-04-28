@@ -202,6 +202,15 @@ public interface e4smFactory extends EFactory {
 	OutputPin createOutputPin();
 
 	/**
+	 * Returns a new object of class '<em>Person</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Person</em>'.
+	 * @generated
+	 */
+	Person createPerson();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

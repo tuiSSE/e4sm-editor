@@ -22,6 +22,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link e4sm.de.metamodel.e4sm.Package#getPhysicalComponents <em>Physical Components</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Package#getConnectors <em>Connectors</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Package#getSectors <em>Sectors</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.Package#getMainResponsible <em>Main Responsible</em>}</li>
  * </ul>
  *
  * @see e4sm.de.metamodel.e4sm.e4smPackage#getPackage()
@@ -103,5 +104,30 @@ public interface Package extends NamedElement {
 	 * @generated
 	 */
 	EList<Sector> getSectors();
+
+	/**
+	 * Returns the value of the '<em><b>Main Responsible</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The main responsible for the realisation of this package
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Main Responsible</em>' reference.
+	 * @see #setMainResponsible(Person)
+	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getPackage_MainResponsible()
+	 * @model
+	 * @generated
+	 */
+	Person getMainResponsible();
+
+	/**
+	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.Package#getMainResponsible <em>Main Responsible</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Main Responsible</em>' reference.
+	 * @see #getMainResponsible()
+	 * @generated
+	 */
+	void setMainResponsible(Person value);
 
 } // Package

@@ -15,6 +15,7 @@
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//Component/components"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//Component/containedBy"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//Component/pins"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//Component/mainResponsible"/>
     </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//MachineLearningComponent"/>
     <genClasses ecoreClass="e4sm.ecore#//Connector">
@@ -39,10 +40,12 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//Package/physicalComponents"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//Package/connectors"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//Package/sectors"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//Package/mainResponsible"/>
     </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//Model">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//Model/packages"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//Model/actors"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//Model/personsPicturesPath"/>
     </genClasses>
     <genClasses image="false" ecoreClass="e4sm.ecore#//NamedElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//NamedElement/name"/>
@@ -61,5 +64,11 @@
     <genClasses ecoreClass="e4sm.ecore#//Pin"/>
     <genClasses ecoreClass="e4sm.ecore#//InputPin"/>
     <genClasses ecoreClass="e4sm.ecore#//OutputPin"/>
+    <genClasses ecoreClass="e4sm.ecore#//Person">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//Person/surname"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//Person/department"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//Person/responsibleForComponents"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//Person/pictureFileName"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>
