@@ -25,7 +25,11 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mainResponsible" eType="#//Person"
-        eOpposite="#//Person/responsibleForComponents"/>
+        eOpposite="#//Person/responsibleForComponents">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A person who is responsible for realising and/or designing this component"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MachineLearningComponent" eSuperTypes="#//SoftwareComponent">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -148,7 +152,11 @@
         <details key="documentation" value="A list of actors contained by this model"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="personsPicturesPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="personsPicturesPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A workspace path pointing to a folder containing person's pictures. It must start and and with a /. Example: /My Model/img/"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true" eSuperTypes="#//Element">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -239,7 +247,15 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="responsibleForComponents"
-        upperBound="-1" eType="#//Component" eOpposite="#//Component/mainResponsible"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pictureFileName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        upperBound="-1" eType="#//Component" eOpposite="#//Component/mainResponsible">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A list of elements which lay under this person's responsibility"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pictureFileName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The file name, including the extension of this person's picture. The folder where it is located must be specified in the model element"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
 </ecore:EPackage>

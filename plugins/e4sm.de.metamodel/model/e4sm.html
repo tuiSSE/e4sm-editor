@@ -1,5 +1,5 @@
 <!-- This file was created using the HTML documentation generator. -->
-<!-- Creation date: Wed Apr 28 10:12:19 CEST 2021-->
+<!-- Creation date: Wed Apr 28 23:25:00 CEST 2021-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
@@ -167,6 +167,14 @@ function getElementsByTagNames(list,obj) {
 </td> 
 <td> <p>The parent component which contains this component</p>
 </td>
+		</tr><tr>	<td><div id="e4smComponent.mainResponsible" class="teletype">mainResponsible</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#e4smPerson">Person</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="keyValue"><span class="label">Op: </span><span class="teletype">responsibleForComponents</span></div>
+</td> 
+<td> <p>A person who is responsible for realising and/or designing this component</p>
+</td>
 		</tr><tr>	<td><div id="e4smComponent.pins" class="teletype">pins</div>
 	</td>
 	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#e4smPin">Pin</a></span></div>
@@ -177,6 +185,24 @@ function getElementsByTagNames(list,obj) {
 </td>
 		</tr></table>
 <a href="#e4sm.Component.ref"></a>
+<table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Operations</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="e4smComponent.computeMainResponsible" class="teletype">computeMainResponsible</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#e4smPerson">Person</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="label">Returns:</div>
+<a href="#e4smPerson">Person</a>[0..1]
+ </td><td> </td>
+		</tr></table>
+<a href="#e4sm.Component.op"></a>
 <h2 id="e4smConnector"><a href="#e4smConnector"><a href="#e4smConnector">Connector</a></a></h2>
 
 <p>A connector connects one source to one target component.</p>
@@ -221,7 +247,9 @@ function getElementsByTagNames(list,obj) {
 	</td>
 	<td><div class="keyValue"><span class="label">T: </span><span class="teletype">EString</span></div>
 <div class="label">Cardinality: [1..1]</div>
-<div class="label">Non-changeable</div>
+<div class="label">Unordered</div>
+<div class="keyValue"><span class="label">Default: </span><span class="teletype"></span></div>
+<div class="label">Identifier</div>
  </td> <td><p>A universally unique identifier (UUID) is a 128-bit number used to identify information in computer systems</p>
 </td>
 		</tr></table>
@@ -251,6 +279,23 @@ function getElementsByTagNames(list,obj) {
 
 <p>The root element of the E4SM Model</p>
 <h4><b>Supertype:</b><a href="#e4smNamedElement">NamedElement</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Attributes</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="e4smModel.personsPicturesPath" class="teletype">personsPicturesPath</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype">EString</span></div>
+<div class="label">Cardinality: [0..1]</div>
+ </td> <td><p>A workspace path pointing to a folder containing person's pictures. It must start and and with a /. Example: /My Model/img/</p>
+</td>
+		</tr></table>
+<a href="#e4sm.Model.attr"></a>
+<table>
 <tr>
 	<th colspan="3"><div class="tableHeader">References</div></th>
 </tr>
@@ -328,6 +373,13 @@ function getElementsByTagNames(list,obj) {
 </td> 
 <td> <p>A list of connectors contained in this package</p>
 </td>
+		</tr><tr>	<td><div id="e4smPackage.mainResponsible" class="teletype">mainResponsible</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#e4smPerson">Person</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+</td> 
+<td> <p>The main responsible for the realisation of this package</p>
+</td>
 		</tr><tr>	<td><div id="e4smPackage.physicalComponents" class="teletype"><div style="color:blue">physicalComponents</div></div>
 	</td>
 	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#e4smPhysicalComponent">PhysicalComponent</a></span></div>
@@ -354,6 +406,57 @@ function getElementsByTagNames(list,obj) {
 </td>
 		</tr></table>
 <a href="#e4sm.Package.ref"></a>
+<h2 id="e4smPerson"><a href="#e4smPerson"><a href="#e4smPerson">Person</a></a></h2>
+
+<p>A person, which may be responsible for the realisation of a certain number of components</p>
+<h4><b>Supertype:</b><a href="#e4smHuman">Human</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Attributes</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="e4smPerson.department" class="teletype">department</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype">EString</span></div>
+<div class="label">Cardinality: [0..1]</div>
+ </td> <td><p>The name of the department</p>
+</td>
+		</tr><tr>	<td><div id="e4smPerson.pictureFileName" class="teletype">pictureFileName</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype">EString</span></div>
+<div class="label">Cardinality: [0..1]</div>
+ </td> <td><p>The file name, including the extension of this person's picture. The folder where it is located must be specified in the model element</p>
+</td>
+		</tr><tr>	<td><div id="e4smPerson.surname" class="teletype">surname</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype">EString</span></div>
+<div class="label">Cardinality: [1..1]</div>
+ </td> <td><p>The surname of the person</p>
+</td>
+		</tr></table>
+<a href="#e4sm.Person.attr"></a>
+<table>
+<tr>
+	<th colspan="3"><div class="tableHeader">References</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="e4smPerson.responsibleForComponents" class="teletype">responsibleForComponents</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#e4smComponent">Component</a></span></div>
+<div class="label">Cardinality: [0..*]</div>
+<div class="keyValue"><span class="label">Op: </span><span class="teletype">mainResponsible</span></div>
+</td> 
+<td> <p>A list of elements which lay under this person's responsibility</p>
+</td>
+		</tr></table>
+<a href="#e4sm.Person.ref"></a>
 <h2 id="e4smPhysicalComponent"><a href="#e4smPhysicalComponent"><a href="#e4smPhysicalComponent">PhysicalComponent</a></a></h2>
 
 <p>A physical component is a generic tangible component which will be realised/is already available as hardware</p>
