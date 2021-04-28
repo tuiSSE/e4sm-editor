@@ -51,11 +51,7 @@ public abstract class ElementImpl extends MinimalEObjectImpl.Container implement
 	 */
 	protected ElementImpl() {
 		super();
-		System.out.println(this.uuid);
-		if (this.uuid == null) {
-			System.out.println("Generating a UUID");
-			this.uuid = EcoreUtil.generateUUID();
-		}
+		this.uuid = EcoreUtil.generateUUID();
 	}
 
 	/**

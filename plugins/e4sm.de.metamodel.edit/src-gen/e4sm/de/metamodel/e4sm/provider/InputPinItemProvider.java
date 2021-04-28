@@ -10,6 +10,9 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
+import e4sm.de.metamodel.e4sm.Component;
+import e4sm.de.metamodel.e4sm.InputPin;
+
 /**
  * This is the item provider adapter for a {@link e4sm.de.metamodel.e4sm.InputPin} object.
  * <!-- begin-user-doc -->
@@ -67,11 +70,19 @@ public class InputPinItemProvider extends PinItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_InputPin_type");
+		String label = "";
+		InputPin inputPin = (InputPin) object;
+		Component component = (Component) inputPin.eContainer();
+		String componentName = component.getName();
+		if(componentName != null && componentName.length() > 0) {
+			label = "of " + component.getName();	
+		}
+		return label == null || label.length() == 0 ? getString("_UI_InputPin_type")
+				: getString("_UI_InputPin_type") + " " + label;
 	}
 
 	/**

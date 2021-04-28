@@ -2,8 +2,6 @@ package e4sm.de.metamodel.design;
 
 import org.eclipse.emf.ecore.EObject;
 
-import e4sm.de.metamodel.e4sm.OutputPin;
-import e4sm.de.metamodel.e4sm.PhysicalComponent;
 
 /**
  * The services class used by VSM.

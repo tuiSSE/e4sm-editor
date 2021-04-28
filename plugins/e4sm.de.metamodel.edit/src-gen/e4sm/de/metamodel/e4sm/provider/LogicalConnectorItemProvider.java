@@ -2,7 +2,10 @@
  */
 package e4sm.de.metamodel.e4sm.provider;
 
+import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.LogicalConnector;
+import e4sm.de.metamodel.e4sm.Pin;
+
 import java.util.Collection;
 import java.util.List;
 
@@ -12,16 +15,17 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 /**
- * This is the item provider adapter for a {@link e4sm.de.metamodel.e4sm.LogicalConnector} object.
- * <!-- begin-user-doc -->
- * <!-- end-user-doc -->
+ * This is the item provider adapter for a
+ * {@link e4sm.de.metamodel.e4sm.LogicalConnector} object. <!-- begin-user-doc
+ * --> <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class LogicalConnectorItemProvider extends ConnectorItemProvider {
 	/**
-	 * This constructs an instance from a factory and a notifier.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This constructs an instance from a factory and a notifier. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public LogicalConnectorItemProvider(AdapterFactory adapterFactory) {
@@ -29,9 +33,9 @@ public class LogicalConnectorItemProvider extends ConnectorItemProvider {
 	}
 
 	/**
-	 * This returns the property descriptors for the adapted class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This returns the property descriptors for the adapted class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -44,9 +48,9 @@ public class LogicalConnectorItemProvider extends ConnectorItemProvider {
 	}
 
 	/**
-	 * This returns LogicalConnector.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This returns LogicalConnector.gif. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -55,8 +59,8 @@ public class LogicalConnectorItemProvider extends ConnectorItemProvider {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -65,23 +69,35 @@ public class LogicalConnectorItemProvider extends ConnectorItemProvider {
 	}
 
 	/**
-	 * This returns the label text for the adapted class.
-	 * <!-- begin-user-doc -->
+	 * This returns the label text for the adapted class. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * 
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((LogicalConnector) object).getUuid();
+		LogicalConnector connector = (LogicalConnector) object;
+		Pin sourcePin = connector.getSource();
+		Pin targetPin = connector.getTarget();
+		Component sourceContainer = (Component) sourcePin.eContainer();
+		Component targetContainer = (Component) targetPin.eContainer();
+		String sourceName = sourceContainer.getName();
+		String targetName = targetContainer.getName();
+		String label = "";
+		if (sourceName == null || targetName == null || sourceName.length() == 0 || targetName.length() == 0) {
+			label = connector.getUuid();
+		} else {
+			label = ": " + sourceName + "->" + targetName;
+		}
 		return label == null || label.length() == 0 ? getString("_UI_LogicalConnector_type")
 				: getString("_UI_LogicalConnector_type") + " " + label;
 	}
 
 	/**
-	 * This handles model notifications by calling {@link #updateChildren} to update any cached
-	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This handles model notifications by calling {@link #updateChildren} to update
+	 * any cached children and by creating a viewer notification, which it passes to
+	 * {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -91,10 +107,10 @@ public class LogicalConnectorItemProvider extends ConnectorItemProvider {
 	}
 
 	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing
+	 * the children that can be created under this object. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

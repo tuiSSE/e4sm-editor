@@ -2,7 +2,9 @@
  */
 package e4sm.de.metamodel.e4sm.provider;
 
+import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.PhysicalConnector;
+import e4sm.de.metamodel.e4sm.Pin;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
 import java.util.Collection;
@@ -107,11 +109,23 @@ public class PhysicalConnectorItemProvider extends ConnectorItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((PhysicalConnector) object).getUuid();
+		PhysicalConnector connector = (PhysicalConnector) object;
+		Pin sourcePin = connector.getSource();
+		Pin targetPin = connector.getTarget();
+		Component sourceContainer = (Component) sourcePin.eContainer();
+		Component targetContainer = (Component) targetPin.eContainer();
+		String sourceName = sourceContainer.getName();
+		String targetName = targetContainer.getName();
+		String label = "";
+		if (sourceName == null || targetName == null || sourceName.length() == 0 || targetName.length() == 0) {
+			label = connector.getUuid();
+		} else {
+			label = ": " + sourceName + "->" + targetName;
+		}
 		return label == null || label.length() == 0 ? getString("_UI_PhysicalConnector_type")
 				: getString("_UI_PhysicalConnector_type") + " " + label;
 	}
