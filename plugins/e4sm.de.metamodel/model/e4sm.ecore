@@ -95,6 +95,7 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="An external dependency is a function which is offered by a third party and can't be controlled."/>
     </eAnnotations>
+    <eOperations name="computeMainResponsible" eType="#//Person"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Package" eSuperTypes="#//NamedElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

@@ -61,6 +61,9 @@ public interface Model extends NamedElement {
 	 * Returns the value of the '<em><b>Persons Pictures Path</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A workspace path pointing to a folder containing person's pictures. It must start and and with a /. Example: /My Model/img/
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Persons Pictures Path</em>' attribute.
 	 * @see #setPersonsPicturesPath(String)
 	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getModel_PersonsPicturesPath()

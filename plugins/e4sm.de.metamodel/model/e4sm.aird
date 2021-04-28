@@ -8,7 +8,7 @@
     <semanticResources>Package.xmi</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_02yO8J3EEeuvaYQl6EJVjA">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_0402UJ3EEeuvaYQl6EJVjA" name="e4sm" repPath="#_04DaQJ3EEeuvaYQl6EJVjA" changeId="3e78e7ef-e560-4ee2-a8bb-e64f66fe82bc">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_0402UJ3EEeuvaYQl6EJVjA" name="e4sm" repPath="#_04DaQJ3EEeuvaYQl6EJVjA" changeId="304b24f6-47c9-4960-8370-1dab0bc0e7a1">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="e4sm.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -141,6 +141,10 @@
         <children xmi:type="notation:Node" xmi:id="_5AwDFp3GEeuvaYQl6EJVjA" type="2003" element="_5ArKkJ3GEeuvaYQl6EJVjA">
           <children xmi:type="notation:Node" xmi:id="_5AwqIZ3GEeuvaYQl6EJVjA" type="5007"/>
           <children xmi:type="notation:Node" xmi:id="_5AwqIp3GEeuvaYQl6EJVjA" type="7004">
+            <children xmi:type="notation:Node" xmi:id="_W1jUQKhqEeuY1ZDTtNg4Ug" type="3010" element="_W1JEk6hqEeuY1ZDTtNg4Ug">
+              <styles xmi:type="notation:FontStyle" xmi:id="_W1jUQahqEeuY1ZDTtNg4Ug" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_W1jUQqhqEeuY1ZDTtNg4Ug"/>
+            </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_5AwqI53GEeuvaYQl6EJVjA"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_5AwqJJ3GEeuvaYQl6EJVjA"/>
           </children>
@@ -2305,6 +2309,14 @@
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
       <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_Cw71MKgDEeuHCregVSPaJQ" iconPath="/e4sm.de.metamodel.edit/icons/full/obj16/ExternalDependency.gif" description="_Cw7OI6gDEeuHCregVSPaJQ" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216"/>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_W1JEk6hqEeuY1ZDTtNg4Ug" name="computeMainResponsible() : Person" tooltipText="computeMainResponsible() : Person">
+        <target xmi:type="ecore:EOperation" href="e4sm.ecore#//ExternalDependency/computeMainResponsible"/>
+        <semanticElements xmi:type="ecore:EOperation" href="e4sm.ecore#//ExternalDependency/computeMainResponsible"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_W1JElKhqEeuY1ZDTtNg4Ug" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
+      </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_8eWyhJ3GEeuvaYQl6EJVjA" sourceNode="_5ArKkJ3GEeuvaYQl6EJVjA" targetNode="_MDZDAJ3GEeuvaYQl6EJVjA">
       <target xmi:type="ecore:EClass" href="e4sm.ecore#//ExternalDependency"/>

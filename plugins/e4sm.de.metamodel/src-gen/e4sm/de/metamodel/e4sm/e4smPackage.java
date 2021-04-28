@@ -995,7 +995,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTERNAL_DEPENDENCY___COMPUTE_MAIN_RESPONSIBLE = SOFTWARE_COMPONENT___COMPUTE_MAIN_RESPONSIBLE;
+	int EXTERNAL_DEPENDENCY___COMPUTE_MAIN_RESPONSIBLE = SOFTWARE_COMPONENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>External Dependency</em>' class.
@@ -1004,7 +1004,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTERNAL_DEPENDENCY_OPERATION_COUNT = SOFTWARE_COMPONENT_OPERATION_COUNT + 0;
+	int EXTERNAL_DEPENDENCY_OPERATION_COUNT = SOFTWARE_COMPONENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.PackageImpl <em>Package</em>}' class.
@@ -1940,6 +1940,16 @@ public interface e4smPackage extends EPackage {
 	EClass getExternalDependency();
 
 	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.ExternalDependency#computeMainResponsible() <em>Compute Main Responsible</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Compute Main Responsible</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.ExternalDependency#computeMainResponsible()
+	 * @generated
+	 */
+	EOperation getExternalDependency__ComputeMainResponsible();
+
+	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.Package <em>Package</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2468,6 +2478,15 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EClass EXTERNAL_DEPENDENCY = eINSTANCE.getExternalDependency();
+
+		/**
+		 * The meta object literal for the '<em><b>Compute Main Responsible</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation EXTERNAL_DEPENDENCY___COMPUTE_MAIN_RESPONSIBLE = eINSTANCE
+				.getExternalDependency__ComputeMainResponsible();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.PackageImpl <em>Package</em>}' class.

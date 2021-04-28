@@ -84,6 +84,9 @@ public interface Person extends Human {
 	 * It is bidirectional and its opposite is '{@link e4sm.de.metamodel.e4sm.Component#getMainResponsible <em>Main Responsible</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A list of elements which lay under this person's responsibility
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Responsible For Components</em>' reference list.
 	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getPerson_ResponsibleForComponents()
 	 * @see e4sm.de.metamodel.e4sm.Component#getMainResponsible
@@ -96,6 +99,9 @@ public interface Person extends Human {
 	 * Returns the value of the '<em><b>Picture File Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The file name, including the extension of this person's picture. The folder where it is located must be specified in the model element
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Picture File Name</em>' attribute.
 	 * @see #setPictureFileName(String)
 	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getPerson_PictureFileName()

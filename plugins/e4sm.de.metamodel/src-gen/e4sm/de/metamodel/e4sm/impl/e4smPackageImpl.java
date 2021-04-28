@@ -499,6 +499,16 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
+	public EOperation getExternalDependency__ComputeMainResponsible() {
+		return externalDependencyEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getPackage() {
 		return packageEClass;
 	}
@@ -862,6 +872,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		functionEClass = createEClass(FUNCTION);
 
 		externalDependencyEClass = createEClass(EXTERNAL_DEPENDENCY);
+		createEOperation(externalDependencyEClass, EXTERNAL_DEPENDENCY___COMPUTE_MAIN_RESPONSIBLE);
 
 		packageEClass = createEClass(PACKAGE);
 		createEReference(packageEClass, PACKAGE__COMPONENTS);
@@ -1023,6 +1034,9 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 
 		initEClass(externalDependencyEClass, ExternalDependency.class, "ExternalDependency", !IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEOperation(getExternalDependency__ComputeMainResponsible(), this.getPerson(), "computeMainResponsible", 0,
+				1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(packageEClass, e4sm.de.metamodel.e4sm.Package.class, "Package", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);

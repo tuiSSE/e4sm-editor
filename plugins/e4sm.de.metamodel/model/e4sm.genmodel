@@ -35,7 +35,11 @@
     <genClasses ecoreClass="e4sm.ecore#//LogicalConnector"/>
     <genClasses ecoreClass="e4sm.ecore#//Heuristic"/>
     <genClasses ecoreClass="e4sm.ecore#//Function"/>
-    <genClasses ecoreClass="e4sm.ecore#//ExternalDependency"/>
+    <genClasses ecoreClass="e4sm.ecore#//ExternalDependency">
+      <genOperations documentation="A dummy person is returned as responsible for External Dependencies"
+          ecoreOperation="e4sm.ecore#//ExternalDependency/computeMainResponsible"
+          body="Person p = e4smFactory.eINSTANCE.createPerson();&#xD;&#xA;p.setName(&quot;Provider&quot;);&#xD;&#xA;p.setSurname(&quot;External&quot;);&#xD;&#xA;p.setPictureFileName(&quot;external.png&quot;);&#xD;&#xA;return p;"/>
+    </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//Package">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//Package/components"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//Package/softwareComponents"/>

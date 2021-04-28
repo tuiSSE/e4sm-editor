@@ -17,4 +17,15 @@ package e4sm.de.metamodel.e4sm;
  * @generated
  */
 public interface ExternalDependency extends SoftwareComponent {
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A dummy person is returned as responsible for External Dependencies
+	 * <!-- end-model-doc -->
+	 * @model
+	 * @generated
+	 */
+	Person computeMainResponsible();
 } // ExternalDependency
