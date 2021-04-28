@@ -9,6 +9,10 @@ import org.eclipse.emf.common.util.EList;
  * A representation of the model object '<em><b>Package</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * A package contains a set of Components and their connections.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>
@@ -30,6 +34,9 @@ public interface Package extends NamedElement {
 	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.Component}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A list of components contained in this package
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Components</em>' containment reference list.
 	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getPackage_Components()
 	 * @model containment="true"
@@ -42,6 +49,9 @@ public interface Package extends NamedElement {
 	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.SoftwareComponent}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A subset of components only containing software components
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Software Components</em>' reference list.
 	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getPackage_SoftwareComponents()
 	 * @model derived="true"
@@ -54,6 +64,9 @@ public interface Package extends NamedElement {
 	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.PhysicalComponent}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A subset of components only containing physical components
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Physical Components</em>' reference list.
 	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getPackage_PhysicalComponents()
 	 * @model derived="true"
@@ -66,6 +79,9 @@ public interface Package extends NamedElement {
 	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.Connector}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A list of connectors contained in this package
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Connectors</em>' containment reference list.
 	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getPackage_Connectors()
 	 * @model containment="true"
@@ -78,6 +94,9 @@ public interface Package extends NamedElement {
 	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.Sector}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A list of sectors contained in this package
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Sectors</em>' containment reference list.
 	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getPackage_Sectors()
 	 * @model containment="true"

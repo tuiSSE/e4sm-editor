@@ -50,6 +50,9 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A phyisical connector is a connector which links 2 physical components."/>
     </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="PhysicalConnectorConnectsPhysicalComponents"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="minSpeed" eType="#//Connectionspeed"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxSpeed" eType="#//Connectionspeed"/>
   </eClassifiers>

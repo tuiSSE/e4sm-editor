@@ -7,6 +7,10 @@ package e4sm.de.metamodel.e4sm;
  * A representation of the model object '<em><b>Physical Connector</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * A phyisical connector is a connector which links 2 physical components.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>
@@ -16,7 +20,7 @@ package e4sm.de.metamodel.e4sm;
  * </ul>
  *
  * @see e4sm.de.metamodel.e4sm.e4smPackage#getPhysicalConnector()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='PhysicalConnectorConnectsPhysicalComponents'"
  * @generated
  */
 public interface PhysicalConnector extends Connector {

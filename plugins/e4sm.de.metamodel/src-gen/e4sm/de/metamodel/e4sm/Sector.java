@@ -9,6 +9,10 @@ import org.eclipse.emf.common.util.EList;
  * A representation of the model object '<em><b>Sector</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * A collection of physical components that either logically or phisically belongs together
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>
@@ -26,6 +30,9 @@ public interface Sector extends NamedElement {
 	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.PhysicalComponent}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A list of references to components which are contained in this sector
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Components</em>' containment reference list.
 	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getSector_Components()
 	 * @model containment="true"

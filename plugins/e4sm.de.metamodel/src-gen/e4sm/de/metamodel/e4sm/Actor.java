@@ -7,6 +7,10 @@ package e4sm.de.metamodel.e4sm;
  * A representation of the model object '<em><b>Actor</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * An Entity which interfaces with the system
+ * <!-- end-model-doc -->
+ *
  *
  * @see e4sm.de.metamodel.e4sm.e4smPackage#getActor()
  * @model

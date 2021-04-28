@@ -9,6 +9,10 @@ import org.eclipse.emf.common.util.EList;
  * A representation of the model object '<em><b>Component</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * Generic component, which should be used to temporally specify an element before deciding how it will be realised.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>
@@ -29,6 +33,9 @@ public interface Component extends NamedElement {
 	 * It is bidirectional and its opposite is '{@link e4sm.de.metamodel.e4sm.Component#getContainedBy <em>Contained By</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A list of components contained by this component
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Components</em>' containment reference list.
 	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getComponent_Components()
 	 * @see e4sm.de.metamodel.e4sm.Component#getContainedBy
@@ -42,6 +49,9 @@ public interface Component extends NamedElement {
 	 * It is bidirectional and its opposite is '{@link e4sm.de.metamodel.e4sm.Component#getComponents <em>Components</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The parent component which contains this component
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Contained By</em>' container reference.
 	 * @see #setContainedBy(Component)
 	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getComponent_ContainedBy()
@@ -66,6 +76,9 @@ public interface Component extends NamedElement {
 	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.Pin}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A list of pins (input and output pins) which are placed on the border of this component.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Pins</em>' containment reference list.
 	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getComponent_Pins()
 	 * @model containment="true"

@@ -9,6 +9,10 @@ import org.eclipse.emf.common.util.EList;
  * A representation of the model object '<em><b>Model</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * The root element of the E4SM Model
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>
@@ -27,6 +31,9 @@ public interface Model extends NamedElement {
 	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.Package}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A list of packages contained by this model
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Packages</em>' containment reference list.
 	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getModel_Packages()
 	 * @model containment="true"
@@ -39,6 +46,9 @@ public interface Model extends NamedElement {
 	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.Actor}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A list of actors contained by this model
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Actors</em>' containment reference list.
 	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getModel_Actors()
 	 * @model containment="true"

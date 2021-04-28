@@ -7,6 +7,10 @@ package e4sm.de.metamodel.e4sm;
  * A representation of the model object '<em><b>Connector</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * A connector connects one source to one target component.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>
@@ -24,6 +28,9 @@ public interface Connector extends Element {
 	 * Returns the value of the '<em><b>Source</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The source pin of this connector
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Source</em>' reference.
 	 * @see #setSource(Pin)
 	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getConnector_Source()
@@ -46,6 +53,9 @@ public interface Connector extends Element {
 	 * Returns the value of the '<em><b>Target</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The output pin of this connector
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Target</em>' reference.
 	 * @see #setTarget(Pin)
 	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getConnector_Target()
