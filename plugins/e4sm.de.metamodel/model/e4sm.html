@@ -1,5 +1,5 @@
 <!-- This file was created using the HTML documentation generator. -->
-<!-- Creation date: Wed Apr 28 23:52:00 CEST 2021-->
+<!-- Creation date: Thu Apr 29 11:29:42 CEST 2021-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
@@ -205,7 +205,9 @@ function getElementsByTagNames(list,obj) {
 <a href="#e4sm.Component.op"></a>
 <h2 id="e4smConnector"><a href="#e4smConnector"><a href="#e4smConnector">Connector</a></a></h2>
 
-<p>A connector connects one source to one target component.</p>
+<p>A connector connects one source to one target component.
+Constraints:
+- C1: A connector shall not connect two pins of the same component directly (loop/short circuit)</p>
 <h4><b>Supertype:</b><a href="#e4smElement">Element</a></h4><table>
 <tr>
 	<th colspan="3"><div class="tableHeader">References</div></th>
@@ -480,7 +482,11 @@ function getElementsByTagNames(list,obj) {
 <p>A physical component is a generic tangible component which will be realised/is already available as hardware</p>
 <h4><b>Supertype:</b><a href="#e4smComponent">Component</a></h4><h2 id="e4smPhysicalConnector"><a href="#e4smPhysicalConnector"><a href="#e4smPhysicalConnector">PhysicalConnector</a></a></h2>
 
-<p>A phyisical connector is a connector which links 2 physical components.</p>
+<p>A phyisical connector is a connector which links 2 physical components.
+Constraints:
+- C1: A Physical Connector shall only connect Physical Components.
+- C2: An output pin shall only be connected to an input pin.
+- C3: An input pin shall only be connected to an output pin.</p>
 <h4><b>Supertype:</b><a href="#e4smConnector">Connector</a></h4><table>
 <tr>
 	<th colspan="3"><div class="tableHeader">Attributes</div></th>

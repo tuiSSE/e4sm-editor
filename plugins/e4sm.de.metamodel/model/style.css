@@ -48,3 +48,9 @@ div#toc{
 	overflow-y:auto;
 	padding-right: 5pt;
 }
+
+body>p {
+	white-space: pre; 
+	display: block;
+	unicode-bidi: embed;
+}
