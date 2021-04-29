@@ -7,4 +7,55 @@
 	       name="sirius">
     </component>
   </extension>
+  <extension
+        id="e4sm.de.metamodel.design.menus.addtotabbar"
+        name="Add to Tab Bar"
+        point="org.eclipse.ui.menus">
+        <menuContribution
+          allPopups="false"
+          locationURI="toolbar:org.eclipse.sirius.diagram.ui.tabbar?after=additions">
+        <command
+              commandId="org.eclipse.sirius.diagram.ui.updateDiagram"
+              disabledIcon="icons/external.png"
+              icon="icons/external.png"
+              id="e4sm.de.metamodel.design.tabbar.dataflow.action.on.diagramelement"
+              label="Run Data Flow Analysis"
+              tooltip="Action on DDiagramElement">
+   <visibleWhen checkEnabled="false">
+      <and>
+         <with variable="activeEditorId">
+            <equals value="org.eclipse.sirius.diagram.ui.part.SiriusDiagramEditorID"/>
+         </with>
+         <with variable="activeEditor">
+             <test property="org.eclipse.sirius.sample.tabbar.isConcernedEditor"/>
+         </with>
+         <with variable="selection">
+            <iterate ifEmpty="false" operator="or">
+               <and>
+                  <test property="org.eclipse.sirius.diagram.ui.isDDiagramElement"/>
+                  <test property="org.eclipse.sirius.sample.tabbar.shouldActivateTabbarExtension"/>
+               </and>
+            </iterate>
+         </with>
+      </and>
+   </visibleWhen>
+        </command>
+    </menuContribution>
+  </extension>
+  <extension point="org.eclipse.core.expressions.propertyTesters">
+   <propertyTester
+         class="e4sm.de.metamodel.design.DataFlowTabbarExtensionActivationPropertyTester"
+         id="e4sm.de.metamodel.design.tabbar.ActiveExtensionTester"
+         namespace="e4sm.de.metamodel.design"
+         properties="shouldActivateTabbarExtension"
+         type="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+   </propertyTester>
+   <propertyTester
+         class="e4sm.de.metamodel.design.DataFlowTabbarExtensionActivationPropertyTester"
+         id="e4sm.de.metamodel.design.tabbar.ConcernEditorTester"
+         namespace="e4sm.de.metamodel.design"
+         properties="isConcernedEditor"
+         type="org.eclipse.ui.IEditorPart">
+   </propertyTester>
+</extension>
 </plugin>
