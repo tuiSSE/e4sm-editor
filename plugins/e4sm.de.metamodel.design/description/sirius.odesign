@@ -316,7 +316,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="d2_create_physical_connector" label="Physical Connector" precondition="aql:preSource.canPhysicalConnectorConnectSourceToTarget(preTarget)" edgeMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_physical_connector']" connectionStartPrecondition="aql:preSource.eContainer().oclIsKindOf(e4sm::PhysicalComponent)">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="d2_create_physical_connector" label="Physical Connector" precondition="aql:preSource.canPhysicalConnectorConnectSourceToTarget(preTarget)" edgeMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_physical_connector']" connectionStartPrecondition="aql:preSource.oclIsTypeOf(e4sm::OutputPin) and preSource.eContainer().oclIsKindOf(e4sm::PhysicalComponent)">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -364,7 +364,7 @@
           </ownedTools>
         </toolSections>
         <toolSections name="diag2_create_components" label="Create Components">
-          <ownedTools xsi:type="tool:ToolGroup" label="Physical Components">
+          <ownedTools xsi:type="tool:ToolGroup" name="tool_group_create_physical_components" label="Physical Components">
             <tools xsi:type="tool:ContainerCreationDescription" name="pd_create_physical_component" label="Physical Component" containerMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_PhisicalComponent']">
               <variable name="container"/>
               <viewVariable name="containerView"/>
@@ -496,7 +496,7 @@
             </featureCustomizations>
           </vsmElementCustomizations>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.oclIsKindOf(e4sm::Component) and self.oclAsType(e4sm::Component).computeMainResponsible() &lt;> null">
-            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@style" applyOnAll="true" attributeName="labelExpression" value="aql: self.name + '\n(' + self.computeMainResponsible().surname + ' ' + self.computeMainResponsible().name.toString().substring(1,1) + '.)'"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@style" applyOnAll="true" attributeName="labelExpression" value="aql: let c=self.oclAsType(e4sm::Component) in let responsible = c.computeMainResponsible() in c.name + '\n(' + responsible.surname + ' ' + responsible.name.toString().substring(1,1) + '.)'"/>
             <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@style" applyOnAll="true" attributeName="labelSize" value="11"/>
             <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@style" applyOnAll="true" attributeName="labelAlignment" value="LEFT"/>
           </vsmElementCustomizations>
