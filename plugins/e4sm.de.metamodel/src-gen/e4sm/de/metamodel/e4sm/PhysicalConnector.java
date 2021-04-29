@@ -20,7 +20,7 @@ package e4sm.de.metamodel.e4sm;
  * </ul>
  *
  * @see e4sm.de.metamodel.e4sm.e4smPackage#getPhysicalConnector()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='PhysicalConnectorConnectsPhysicalComponents'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='PhysicalConnectorC1 PhysicalConnectorC2 PhysicalConnectorC3'"
  * @generated
  */
 public interface PhysicalConnector extends Connector {

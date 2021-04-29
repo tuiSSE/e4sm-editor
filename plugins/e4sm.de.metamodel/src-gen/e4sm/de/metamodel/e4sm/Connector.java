@@ -9,6 +9,8 @@ package e4sm.de.metamodel.e4sm;
  *
  * <!-- begin-model-doc -->
  * A connector connects one source to one target component.
+ * Constraints:
+ * - C1: A connector shall not connect two pins of the same component directly (loop/short circuit)
  * <!-- end-model-doc -->
  *
  * <p>
@@ -20,7 +22,7 @@ package e4sm.de.metamodel.e4sm;
  * </ul>
  *
  * @see e4sm.de.metamodel.e4sm.e4smPackage#getConnector()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='ConnectorC1'"
  * @generated
  */
 public interface Connector extends Element {
