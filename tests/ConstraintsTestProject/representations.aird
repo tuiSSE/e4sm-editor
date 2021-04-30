@@ -8,7 +8,7 @@
         <description xmi:type="description_1:DiagramDescription" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']"/>
         <target xmi:type="e4sm:Package" href="Constraints.e4sm#_pi9XcKmPEeubitAespeWQg"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_CDAJUKmREeuedNkwxhSDfg" name="[DTD] PysicalConnector TestCases" repPath="#_CC-UIKmREeuedNkwxhSDfg" changeId="3107f812-59dd-4ae8-9704-4741caefab27">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_CDAJUKmREeuedNkwxhSDfg" name="[DTD] PysicalConnector TestCases" repPath="#_CC-UIKmREeuedNkwxhSDfg" changeId="4f1b5143-953e-4644-b5b0-bbcfb38a8732">
         <description xmi:type="description_1:DiagramDescription" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']"/>
         <target xmi:type="e4sm:Package" href="Constraints.e4sm#_1Fr-UKmQEeuedNkwxhSDfg"/>
       </ownedRepresentationDescriptors>
@@ -312,17 +312,6 @@
             <styles xmi:type="notation:ShapeStyle" xmi:id="_drMNUamREeuedNkwxhSDfg" fontName="Segoe UI" bold="true"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_drMNUqmREeuedNkwxhSDfg" x="-22" y="30" width="30" height="30"/>
           </children>
-          <children xmi:type="notation:Node" xmi:id="_fVhBIKmREeuedNkwxhSDfg" type="3012" element="_fVVa8amREeuedNkwxhSDfg">
-            <children xmi:type="notation:Node" xmi:id="_fVhoMKmREeuedNkwxhSDfg" type="5010">
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_fVhoMamREeuedNkwxhSDfg" y="5"/>
-            </children>
-            <children xmi:type="notation:Node" xmi:id="_fViPQKmREeuedNkwxhSDfg" type="3004" element="_fVVa8qmREeuedNkwxhSDfg">
-              <styles xmi:type="notation:ShapeStyle" xmi:id="_fViPQamREeuedNkwxhSDfg" fontName="Segoe UI"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_fViPQqmREeuedNkwxhSDfg"/>
-            </children>
-            <styles xmi:type="notation:ShapeStyle" xmi:id="_fVhBIamREeuedNkwxhSDfg" fontName="Segoe UI" bold="true"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_fVhBIqmREeuedNkwxhSDfg" x="-22" y="90" width="30" height="30"/>
-          </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="_MsCkkamREeuedNkwxhSDfg" fontName="Segoe UI" fontHeight="12"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_MsCkkqmREeuedNkwxhSDfg" x="450" y="240" width="257" height="153"/>
         </children>
@@ -596,18 +585,6 @@
           <description xmi:type="style:BundledImageDescription" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin']"/>
-      </ownedBorderedNodes>
-      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_fVVa8amREeuedNkwxhSDfg" name="O" width="3" height="3">
-        <target xmi:type="e4sm:OutputPin" href="Constraints.e4sm#_fVVa8KmREeuedNkwxhSDfg"/>
-        <semanticElements xmi:type="e4sm:OutputPin" href="Constraints.e4sm#_fVVa8KmREeuedNkwxhSDfg"/>
-        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
-        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
-        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-        <ownedStyle xmi:type="diagram:BundledImage" uid="_fVVa8qmREeuedNkwxhSDfg" labelSize="9" showIcon="false" labelPosition="node" color="209,209,209">
-          <labelFormat>bold</labelFormat>
-          <description xmi:type="style:BundledImageDescription" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin']/@style"/>
-        </ownedStyle>
-        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin']"/>
       </ownedBorderedNodes>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>

@@ -19,7 +19,6 @@
     </components>
     <components xsi:type="e4sm:SoftwareComponent" uuid="_Mr4zkKmREeuedNkwxhSDfg" name="Software Component">
       <pins xsi:type="e4sm:InputPin" uuid="_drE4kKmREeuedNkwxhSDfg"/>
-      <pins xsi:type="e4sm:OutputPin" uuid="_fVVa8KmREeuedNkwxhSDfg"/>
     </components>
     <components xsi:type="e4sm:PhysicalComponent" uuid="_i1yC4KmREeuedNkwxhSDfg" name="Good Physical Component">
       <pins xsi:type="e4sm:InputPin" uuid="_nr75gKmREeuedNkwxhSDfg"/>
