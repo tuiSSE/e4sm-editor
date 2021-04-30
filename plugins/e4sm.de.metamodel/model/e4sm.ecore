@@ -36,7 +36,7 @@
       <details key="documentation" value="A software component which returns results based on a machine learning method estimate (e.g. classification...)"/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Connector" eSuperTypes="#//NamedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Connector" eSuperTypes="#//OptionallyNamedElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A connector connects one source to one target component.&#xD;&#xA;Constraints:&#xD;&#xA;- C1: A connector shall not connect two pins of the same component directly (loop/short circuit)"/>
     </eAnnotations>
@@ -220,7 +220,7 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Pin" abstract="true" eSuperTypes="#//NamedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Pin" abstract="true" eSuperTypes="#//OptionallyNamedElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="An interface to and from a component"/>
     </eAnnotations>
@@ -261,5 +261,9 @@
         <details key="documentation" value="The file name, including the extension of this person's picture. The folder where it is located must be specified in the model element"/>
       </eAnnotations>
     </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OptionallyNamedElement" abstract="true"
+      eSuperTypes="#//Element">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

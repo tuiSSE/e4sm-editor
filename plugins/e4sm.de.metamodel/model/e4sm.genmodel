@@ -77,5 +77,8 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//Person/responsibleForComponents"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//Person/pictureFileName"/>
     </genClasses>
+    <genClasses image="false" ecoreClass="e4sm.ecore#//OptionallyNamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//OptionallyNamedElement/name"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>
