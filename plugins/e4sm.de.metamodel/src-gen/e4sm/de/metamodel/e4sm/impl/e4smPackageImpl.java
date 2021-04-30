@@ -953,7 +953,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		// Add supertypes to classes
 		componentEClass.getESuperTypes().add(this.getNamedElement());
 		machineLearningComponentEClass.getESuperTypes().add(this.getSoftwareComponent());
-		connectorEClass.getESuperTypes().add(this.getElement());
+		connectorEClass.getESuperTypes().add(this.getNamedElement());
 		physicalConnectorEClass.getESuperTypes().add(this.getConnector());
 		physicalComponentEClass.getESuperTypes().add(this.getComponent());
 		softwareComponentEClass.getESuperTypes().add(this.getComponent());
@@ -970,6 +970,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		sectorEClass.getESuperTypes().add(this.getNamedElement());
 		sensorEClass.getESuperTypes().add(this.getPhysicalComponent());
 		actuatorEClass.getESuperTypes().add(this.getPhysicalComponent());
+		pinEClass.getESuperTypes().add(this.getNamedElement());
 		inputPinEClass.getESuperTypes().add(this.getPin());
 		outputPinEClass.getESuperTypes().add(this.getPin());
 		personEClass.getESuperTypes().add(this.getHuman());

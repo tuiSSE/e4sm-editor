@@ -119,6 +119,8 @@ public class e4smSwitch<T> extends Switch<T> {
 			Connector connector = (Connector) theEObject;
 			T result = caseConnector(connector);
 			if (result == null)
+				result = caseNamedElement(connector);
+			if (result == null)
 				result = caseElement(connector);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -129,6 +131,8 @@ public class e4smSwitch<T> extends Switch<T> {
 			T result = casePhysicalConnector(physicalConnector);
 			if (result == null)
 				result = caseConnector(physicalConnector);
+			if (result == null)
+				result = caseNamedElement(physicalConnector);
 			if (result == null)
 				result = caseElement(physicalConnector);
 			if (result == null)
@@ -166,6 +170,8 @@ public class e4smSwitch<T> extends Switch<T> {
 			T result = caseLogicalConnector(logicalConnector);
 			if (result == null)
 				result = caseConnector(logicalConnector);
+			if (result == null)
+				result = caseNamedElement(logicalConnector);
 			if (result == null)
 				result = caseElement(logicalConnector);
 			if (result == null)
@@ -337,6 +343,10 @@ public class e4smSwitch<T> extends Switch<T> {
 			Pin pin = (Pin) theEObject;
 			T result = casePin(pin);
 			if (result == null)
+				result = caseNamedElement(pin);
+			if (result == null)
+				result = caseElement(pin);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -346,6 +356,10 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = casePin(inputPin);
 			if (result == null)
+				result = caseNamedElement(inputPin);
+			if (result == null)
+				result = caseElement(inputPin);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -354,6 +368,10 @@ public class e4smSwitch<T> extends Switch<T> {
 			T result = caseOutputPin(outputPin);
 			if (result == null)
 				result = casePin(outputPin);
+			if (result == null)
+				result = caseNamedElement(outputPin);
+			if (result == null)
+				result = caseElement(outputPin);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;

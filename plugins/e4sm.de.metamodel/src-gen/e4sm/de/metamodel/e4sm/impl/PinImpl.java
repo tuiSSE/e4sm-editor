@@ -7,8 +7,6 @@ import e4sm.de.metamodel.e4sm.e4smPackage;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Pin</b></em>'.
@@ -16,7 +14,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pin {
+public abstract class PinImpl extends NamedElementImpl implements Pin {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -2,8 +2,6 @@
  */
 package e4sm.de.metamodel.e4sm;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Pin</b></em>'.
@@ -18,5 +16,5 @@ import org.eclipse.emf.ecore.EObject;
  * @model abstract="true"
  * @generated
  */
-public interface Pin extends EObject {
+public interface Pin extends NamedElement {
 } // Pin
