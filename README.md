@@ -19,7 +19,7 @@ In order to be executable, all model elements need to have a *precise formal sem
 - **Errors propagation**: Every component of the system may amplify or reduce errors that generate inside a system. The analysis should simulate how specific errors (caused, for example, from wrong results from machine learning and heuristic-based components) impact the entire system's stability.
 - **Data flow capacity**: The model and the editor should allow specifying the load capacity of all connections and the amount/format of data (for example, pictures resolution) that the other components will send on them. The analysis should check if the available connectors can support the required data flow.
 - **Compute Response time**: In some scenarios, the system needs to react within a given time to a certain event. This reaction may be decided through a series of different components, which all add a different delay. A statistical analysis should check if it is likely that the system will react within a given time or not.
-- **Security**: The editor should consider and analyze safety aspects too, but this currently out of focus due to the lack of a specialized employee.
+- **Security**: The editor should consider and analyze security aspects too, but this currently out of focus due to the lack of a specialized employee.
 
 ## Plugins overview
 ### [e4sm.de.metamodel](plugins/e4sm.de.metamodel)
