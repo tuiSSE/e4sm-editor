@@ -16,13 +16,12 @@ import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 /**
- * This is the item provider adapter for a
- * {@link e4sm.de.metamodel.e4sm.Connector} object. <!-- begin-user-doc --> <!--
+ * This is the item provider adapter for a {@link e4sm.de.metamodel.e4sm.Connector} object.
+ * <!-- begin-user-doc --> <!--
  * end-user-doc -->
- * 
  * @generated
  */
-public class ConnectorItemProvider extends NamedElementItemProvider {
+public class ConnectorItemProvider extends OptionallyNamedElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -51,9 +50,9 @@ public class ConnectorItemProvider extends NamedElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Source feature. <!-- begin-user-doc
+	 * This adds a property descriptor for the Source feature.
+	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected void addSourcePropertyDescriptor(Object object) {
@@ -66,9 +65,9 @@ public class ConnectorItemProvider extends NamedElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Target feature. <!-- begin-user-doc
+	 * This adds a property descriptor for the Target feature.
+	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected void addTargetPropertyDescriptor(Object object) {
@@ -81,8 +80,8 @@ public class ConnectorItemProvider extends NamedElementItemProvider {
 	}
 
 	/**
-	 * This returns Connector.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This returns Connector.gif.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -92,7 +91,6 @@ public class ConnectorItemProvider extends NamedElementItemProvider {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -134,10 +132,9 @@ public class ConnectorItemProvider extends NamedElementItemProvider {
 	}
 
 	/**
-	 * This handles model notifications by calling {@link #updateChildren} to update
-	 * any cached children and by creating a viewer notification, which it passes to
-	 * {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -147,10 +144,10 @@ public class ConnectorItemProvider extends NamedElementItemProvider {
 	}
 
 	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing
-	 * the children that can be created under this object. <!-- begin-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

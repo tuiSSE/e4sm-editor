@@ -16,6 +16,7 @@ import e4sm.de.metamodel.e4sm.LogicalConnector;
 import e4sm.de.metamodel.e4sm.MachineLearningComponent;
 import e4sm.de.metamodel.e4sm.Model;
 import e4sm.de.metamodel.e4sm.NamedElement;
+import e4sm.de.metamodel.e4sm.OptionallyNamedElement;
 import e4sm.de.metamodel.e4sm.OutputPin;
 import e4sm.de.metamodel.e4sm.Person;
 import e4sm.de.metamodel.e4sm.PhysicalComponent;
@@ -156,6 +157,8 @@ public class e4smValidator extends EObjectValidator {
 			return validateOutputPin((OutputPin) value, diagnostics, context);
 		case e4smPackage.PERSON:
 			return validatePerson((Person) value, diagnostics, context);
+		case e4smPackage.OPTIONALLY_NAMED_ELEMENT:
+			return validateOptionallyNamedElement((OptionallyNamedElement) value, diagnostics, context);
 		case e4smPackage.CONNECTIONSPEED:
 			return validateConnectionspeed(value, diagnostics, context);
 		default:
@@ -531,6 +534,16 @@ public class e4smValidator extends EObjectValidator {
 	 */
 	public boolean validatePerson(Person person, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(person, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateOptionallyNamedElement(OptionallyNamedElement optionallyNamedElement,
+			DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(optionallyNamedElement, diagnostics, context);
 	}
 
 	/**

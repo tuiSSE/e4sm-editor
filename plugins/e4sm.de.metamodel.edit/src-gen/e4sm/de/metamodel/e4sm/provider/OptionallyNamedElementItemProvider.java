@@ -2,28 +2,34 @@
  */
 package e4sm.de.metamodel.e4sm.provider;
 
-import e4sm.de.metamodel.e4sm.Pin;
+import e4sm.de.metamodel.e4sm.OptionallyNamedElement;
+import e4sm.de.metamodel.e4sm.e4smPackage;
+
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link e4sm.de.metamodel.e4sm.Pin} object.
+ * This is the item provider adapter for a {@link e4sm.de.metamodel.e4sm.OptionallyNamedElement} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class PinItemProvider extends OptionallyNamedElementItemProvider {
+public class OptionallyNamedElementItemProvider extends ElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PinItemProvider(AdapterFactory adapterFactory) {
+	public OptionallyNamedElementItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -38,19 +44,25 @@ public class PinItemProvider extends OptionallyNamedElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This returns Pin.gif.
+	 * This adds a property descriptor for the Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Pin"));
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_OptionallyNamedElement_name_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_OptionallyNamedElement_name_feature",
+								"_UI_OptionallyNamedElement_type"),
+						e4smPackage.Literals.OPTIONALLY_NAMED_ELEMENT__NAME, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -71,9 +83,9 @@ public class PinItemProvider extends OptionallyNamedElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Pin) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_Pin_type")
-				: getString("_UI_Pin_type") + " " + label;
+		String label = ((OptionallyNamedElement) object).getName();
+		return label == null || label.length() == 0 ? getString("_UI_OptionallyNamedElement_type")
+				: getString("_UI_OptionallyNamedElement_type") + " " + label;
 	}
 
 	/**
@@ -86,6 +98,12 @@ public class PinItemProvider extends OptionallyNamedElementItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(OptionallyNamedElement.class)) {
+		case e4smPackage.OPTIONALLY_NAMED_ELEMENT__NAME:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			return;
+		}
 		super.notifyChanged(notification);
 	}
 

@@ -16,6 +16,7 @@ import e4sm.de.metamodel.e4sm.LogicalConnector;
 import e4sm.de.metamodel.e4sm.MachineLearningComponent;
 import e4sm.de.metamodel.e4sm.Model;
 import e4sm.de.metamodel.e4sm.NamedElement;
+import e4sm.de.metamodel.e4sm.OptionallyNamedElement;
 import e4sm.de.metamodel.e4sm.OutputPin;
 import e4sm.de.metamodel.e4sm.Person;
 import e4sm.de.metamodel.e4sm.PhysicalComponent;
@@ -213,6 +214,13 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	private EClass personEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass optionallyNamedElementEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -809,6 +817,26 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getOptionallyNamedElement() {
+		return optionallyNamedElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getOptionallyNamedElement_Name() {
+		return (EAttribute) optionallyNamedElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EDataType getConnectionspeed() {
 		return connectionspeedEDataType;
 	}
@@ -918,6 +946,9 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		createEReference(personEClass, PERSON__RESPONSIBLE_FOR_COMPONENTS);
 		createEAttribute(personEClass, PERSON__PICTURE_FILE_NAME);
 
+		optionallyNamedElementEClass = createEClass(OPTIONALLY_NAMED_ELEMENT);
+		createEAttribute(optionallyNamedElementEClass, OPTIONALLY_NAMED_ELEMENT__NAME);
+
 		// Create data types
 		connectionspeedEDataType = createEDataType(CONNECTIONSPEED);
 	}
@@ -953,7 +984,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		// Add supertypes to classes
 		componentEClass.getESuperTypes().add(this.getNamedElement());
 		machineLearningComponentEClass.getESuperTypes().add(this.getSoftwareComponent());
-		connectorEClass.getESuperTypes().add(this.getNamedElement());
+		connectorEClass.getESuperTypes().add(this.getOptionallyNamedElement());
 		physicalConnectorEClass.getESuperTypes().add(this.getConnector());
 		physicalComponentEClass.getESuperTypes().add(this.getComponent());
 		softwareComponentEClass.getESuperTypes().add(this.getComponent());
@@ -970,10 +1001,11 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		sectorEClass.getESuperTypes().add(this.getNamedElement());
 		sensorEClass.getESuperTypes().add(this.getPhysicalComponent());
 		actuatorEClass.getESuperTypes().add(this.getPhysicalComponent());
-		pinEClass.getESuperTypes().add(this.getNamedElement());
+		pinEClass.getESuperTypes().add(this.getOptionallyNamedElement());
 		inputPinEClass.getESuperTypes().add(this.getPin());
 		outputPinEClass.getESuperTypes().add(this.getPin());
 		personEClass.getESuperTypes().add(this.getHuman());
+		optionallyNamedElementEClass.getESuperTypes().add(this.getElement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(componentEClass, Component.class, "Component", !IS_ABSTRACT, !IS_INTERFACE,
@@ -1115,6 +1147,12 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		initEAttribute(getPerson_PictureFileName(), ecorePackage.getEString(), "pictureFileName", null, 0, 1,
 				Person.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
+
+		initEClass(optionallyNamedElementEClass, OptionallyNamedElement.class, "OptionallyNamedElement", IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getOptionallyNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1,
+				OptionallyNamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize data types
 		initEDataType(connectionspeedEDataType, Object.class, "Connectionspeed", IS_SERIALIZABLE,

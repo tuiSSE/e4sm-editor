@@ -16,5 +16,5 @@ package e4sm.de.metamodel.e4sm;
  * @model abstract="true"
  * @generated
  */
-public interface Pin extends NamedElement {
+public interface Pin extends OptionallyNamedElement {
 } // Pin

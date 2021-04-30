@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public abstract class PinImpl extends NamedElementImpl implements Pin {
+public abstract class PinImpl extends OptionallyNamedElementImpl implements Pin {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

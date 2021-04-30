@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<e4sm:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:e4sm="http://de.tu-ilmenau/e4sm/1.0.0" uuid="_EpaIIKkTEeuSwIJdvzi-Bw" name="ConstraintsTestModel" personsPicturesPath="/ConstraintsTest/images/">
+  <packages uuid="_pi9XcKmPEeubitAespeWQg" name="Connector TestCases">
+    <components uuid="_vep50KmPEeubitAespeWQg" name="GoodComponent">
+      <pins xsi:type="e4sm:OutputPin" uuid="_9RYC0KmPEeubitAespeWQg"/>
+    </components>
+    <components uuid="_23ER0KmPEeubitAespeWQg" name="BadComponent">
+      <pins xsi:type="e4sm:InputPin" uuid="_7mOvoKmPEeubitAespeWQg"/>
+      <pins xsi:type="e4sm:OutputPin" uuid="_7_vb0KmPEeubitAespeWQg"/>
+      <pins xsi:type="e4sm:InputPin" uuid="_9A4IsKmPEeubitAespeWQg"/>
+    </components>
+    <connectors uuid="_-MSy8KmPEeubitAespeWQg" source="_9RYC0KmPEeubitAespeWQg" target="_7mOvoKmPEeubitAespeWQg"/>
+    <connectors uuid="_ACVHgKmQEeubitAespeWQg" name="Connector_C1" source="_7_vb0KmPEeubitAespeWQg" target="_9A4IsKmPEeubitAespeWQg"/>
+  </packages>
+  <packages uuid="_1Fr-UKmQEeuedNkwxhSDfg" name="PysicalConnector TestCases">
+    <components xsi:type="e4sm:PhysicalComponent" uuid="_MTN04KmREeuedNkwxhSDfg" name="Bad Physical Component">
+      <pins xsi:type="e4sm:OutputPin" uuid="_aDXLAKmREeuedNkwxhSDfg"/>
+      <pins xsi:type="e4sm:InputPin" uuid="_e9b4UKmREeuedNkwxhSDfg"/>
+    </components>
+    <components xsi:type="e4sm:SoftwareComponent" uuid="_Mr4zkKmREeuedNkwxhSDfg" name="Software Component">
+      <pins xsi:type="e4sm:InputPin" uuid="_drE4kKmREeuedNkwxhSDfg"/>
+      <pins xsi:type="e4sm:OutputPin" uuid="_fVVa8KmREeuedNkwxhSDfg"/>
+    </components>
+    <components xsi:type="e4sm:PhysicalComponent" uuid="_i1yC4KmREeuedNkwxhSDfg" name="Good Physical Component">
+      <pins xsi:type="e4sm:InputPin" uuid="_nr75gKmREeuedNkwxhSDfg"/>
+      <pins xsi:type="e4sm:OutputPin" uuid="_pIQGgKmREeuedNkwxhSDfg"/>
+    </components>
+    <components xsi:type="e4sm:PhysicalComponent" uuid="_1Fr-UKmQEeuedNkwxhSDfq" name="A Physical Component">
+      <pins xsi:type="e4sm:OutputPin" uuid="_oBNl8KmREeuedNkwxhSDfg"/>
+      <pins xsi:type="e4sm:InputPin" uuid="_oek3YKmREeuedNkwxhSDfg"/>
+    </components>
+    <connectors xsi:type="e4sm:PhysicalConnector" uuid="_qcNowKmREeuedNkwxhSDfg" source="_pIQGgKmREeuedNkwxhSDfg" target="_oek3YKmREeuedNkwxhSDfg"/>
+    <connectors xsi:type="e4sm:PhysicalConnector" uuid="_q1z0gKmREeuedNkwxhSDfg" source="_oBNl8KmREeuedNkwxhSDfg" target="_nr75gKmREeuedNkwxhSDfg"/>
+    <connectors xsi:type="e4sm:PhysicalConnector" uuid="_1Spm0KmREeuedNkwxhSDfg" name="PhysicalComponent_C1" source="_aDXLAKmREeuedNkwxhSDfg" target="_drE4kKmREeuedNkwxhSDfg"/>
+    <connectors xsi:type="e4sm:PhysicalConnector" uuid="_AgHk0KmSEeuedNkwxhSDfg" name="PhysicalComponent_C2" source="_aDXLAKmREeuedNkwxhSDfg" target="_oBNl8KmREeuedNkwxhSDfg"/>
+    <connectors xsi:type="e4sm:PhysicalConnector" uuid="_Iw-AsKmSEeuedNkwxhSDfg" name="PhysicalComponent_C3" source="_oek3YKmREeuedNkwxhSDfg" target="_e9b4UKmREeuedNkwxhSDfg"/>
+  </packages>
+  <actors uuid="_gnVgQamPEeubitAespeWQg" name="TestActor"/>
+  <actors xsi:type="e4sm:Human" uuid="_ibciMqmPEeubitAespeWQg" name="Test Human"/>
+  <actors xsi:type="e4sm:Robot" uuid="_jfq_U6mPEeubitAespeWQg" name="Test Robot"/>
+  <actors xsi:type="e4sm:Person" uuid="_lMefZKmPEeubitAespeWQg" name="Test" surname="Person" department="DEP"/>
+</e4sm:Model>

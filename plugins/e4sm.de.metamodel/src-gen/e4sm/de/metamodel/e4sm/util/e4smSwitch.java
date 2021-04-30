@@ -16,6 +16,7 @@ import e4sm.de.metamodel.e4sm.LogicalConnector;
 import e4sm.de.metamodel.e4sm.MachineLearningComponent;
 import e4sm.de.metamodel.e4sm.Model;
 import e4sm.de.metamodel.e4sm.NamedElement;
+import e4sm.de.metamodel.e4sm.OptionallyNamedElement;
 import e4sm.de.metamodel.e4sm.OutputPin;
 import e4sm.de.metamodel.e4sm.Person;
 import e4sm.de.metamodel.e4sm.PhysicalComponent;
@@ -119,7 +120,7 @@ public class e4smSwitch<T> extends Switch<T> {
 			Connector connector = (Connector) theEObject;
 			T result = caseConnector(connector);
 			if (result == null)
-				result = caseNamedElement(connector);
+				result = caseOptionallyNamedElement(connector);
 			if (result == null)
 				result = caseElement(connector);
 			if (result == null)
@@ -132,7 +133,7 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseConnector(physicalConnector);
 			if (result == null)
-				result = caseNamedElement(physicalConnector);
+				result = caseOptionallyNamedElement(physicalConnector);
 			if (result == null)
 				result = caseElement(physicalConnector);
 			if (result == null)
@@ -171,7 +172,7 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseConnector(logicalConnector);
 			if (result == null)
-				result = caseNamedElement(logicalConnector);
+				result = caseOptionallyNamedElement(logicalConnector);
 			if (result == null)
 				result = caseElement(logicalConnector);
 			if (result == null)
@@ -343,7 +344,7 @@ public class e4smSwitch<T> extends Switch<T> {
 			Pin pin = (Pin) theEObject;
 			T result = casePin(pin);
 			if (result == null)
-				result = caseNamedElement(pin);
+				result = caseOptionallyNamedElement(pin);
 			if (result == null)
 				result = caseElement(pin);
 			if (result == null)
@@ -356,7 +357,7 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = casePin(inputPin);
 			if (result == null)
-				result = caseNamedElement(inputPin);
+				result = caseOptionallyNamedElement(inputPin);
 			if (result == null)
 				result = caseElement(inputPin);
 			if (result == null)
@@ -369,7 +370,7 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = casePin(outputPin);
 			if (result == null)
-				result = caseNamedElement(outputPin);
+				result = caseOptionallyNamedElement(outputPin);
 			if (result == null)
 				result = caseElement(outputPin);
 			if (result == null)
@@ -387,6 +388,15 @@ public class e4smSwitch<T> extends Switch<T> {
 				result = caseNamedElement(person);
 			if (result == null)
 				result = caseElement(person);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case e4smPackage.OPTIONALLY_NAMED_ELEMENT: {
+			OptionallyNamedElement optionallyNamedElement = (OptionallyNamedElement) theEObject;
+			T result = caseOptionallyNamedElement(optionallyNamedElement);
+			if (result == null)
+				result = caseElement(optionallyNamedElement);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -753,6 +763,21 @@ public class e4smSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T casePerson(Person object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Optionally Named Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Optionally Named Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOptionallyNamedElement(OptionallyNamedElement object) {
 		return null;
 	}
 

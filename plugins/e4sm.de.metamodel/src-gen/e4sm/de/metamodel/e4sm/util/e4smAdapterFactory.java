@@ -16,6 +16,7 @@ import e4sm.de.metamodel.e4sm.LogicalConnector;
 import e4sm.de.metamodel.e4sm.MachineLearningComponent;
 import e4sm.de.metamodel.e4sm.Model;
 import e4sm.de.metamodel.e4sm.NamedElement;
+import e4sm.de.metamodel.e4sm.OptionallyNamedElement;
 import e4sm.de.metamodel.e4sm.OutputPin;
 import e4sm.de.metamodel.e4sm.Person;
 import e4sm.de.metamodel.e4sm.PhysicalComponent;
@@ -207,6 +208,11 @@ public class e4smAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter casePerson(Person object) {
 			return createPersonAdapter();
+		}
+
+		@Override
+		public Adapter caseOptionallyNamedElement(OptionallyNamedElement object) {
+			return createOptionallyNamedElementAdapter();
 		}
 
 		@Override
@@ -561,6 +567,20 @@ public class e4smAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPersonAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.OptionallyNamedElement <em>Optionally Named Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.OptionallyNamedElement
+	 * @generated
+	 */
+	public Adapter createOptionallyNamedElementAdapter() {
 		return null;
 	}
 

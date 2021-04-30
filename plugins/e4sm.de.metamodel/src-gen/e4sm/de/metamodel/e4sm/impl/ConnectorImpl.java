@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class ConnectorImpl extends NamedElementImpl implements Connector {
+public class ConnectorImpl extends OptionallyNamedElementImpl implements Connector {
 	/**
 	 * The cached value of the '{@link #getSource() <em>Source</em>}' reference.
 	 * <!-- begin-user-doc -->

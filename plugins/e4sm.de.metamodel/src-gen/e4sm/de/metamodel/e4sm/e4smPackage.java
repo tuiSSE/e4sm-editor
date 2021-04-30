@@ -433,6 +433,52 @@ public interface e4smPackage extends EPackage {
 	int MACHINE_LEARNING_COMPONENT_OPERATION_COUNT = SOFTWARE_COMPONENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.OptionallyNamedElementImpl <em>Optionally Named Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.OptionallyNamedElementImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getOptionallyNamedElement()
+	 * @generated
+	 */
+	int OPTIONALLY_NAMED_ELEMENT = 24;
+
+	/**
+	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPTIONALLY_NAMED_ELEMENT__UUID = ELEMENT__UUID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPTIONALLY_NAMED_ELEMENT__NAME = ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Optionally Named Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPTIONALLY_NAMED_ELEMENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Optionally Named Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPTIONALLY_NAMED_ELEMENT_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.ConnectorImpl <em>Connector</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -449,7 +495,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__UUID = NAMED_ELEMENT__UUID;
+	int CONNECTOR__UUID = OPTIONALLY_NAMED_ELEMENT__UUID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -458,7 +504,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__NAME = NAMED_ELEMENT__NAME;
+	int CONNECTOR__NAME = OPTIONALLY_NAMED_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -467,7 +513,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__SOURCE = NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int CONNECTOR__SOURCE = OPTIONALLY_NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' reference.
@@ -476,7 +522,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__TARGET = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int CONNECTOR__TARGET = OPTIONALLY_NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Connector</em>' class.
@@ -485,7 +531,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int CONNECTOR_FEATURE_COUNT = OPTIONALLY_NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Connector</em>' class.
@@ -494,7 +540,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
+	int CONNECTOR_OPERATION_COUNT = OPTIONALLY_NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.PhysicalConnectorImpl <em>Physical Connector</em>}' class.
@@ -1598,7 +1644,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PIN__UUID = NAMED_ELEMENT__UUID;
+	int PIN__UUID = OPTIONALLY_NAMED_ELEMENT__UUID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1607,7 +1653,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PIN__NAME = NAMED_ELEMENT__NAME;
+	int PIN__NAME = OPTIONALLY_NAMED_ELEMENT__NAME;
 
 	/**
 	 * The number of structural features of the '<em>Pin</em>' class.
@@ -1616,7 +1662,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PIN_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int PIN_FEATURE_COUNT = OPTIONALLY_NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Pin</em>' class.
@@ -1625,7 +1671,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PIN_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
+	int PIN_OPERATION_COUNT = OPTIONALLY_NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.InputPinImpl <em>Input Pin</em>}' class.
@@ -1809,7 +1855,7 @@ public interface e4smPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getConnectionspeed()
 	 * @generated
 	 */
-	int CONNECTIONSPEED = 24;
+	int CONNECTIONSPEED = 25;
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.Component <em>Component</em>}'.
@@ -2347,6 +2393,27 @@ public interface e4smPackage extends EPackage {
 	EAttribute getPerson_PictureFileName();
 
 	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.OptionallyNamedElement <em>Optionally Named Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Optionally Named Element</em>'.
+	 * @see e4sm.de.metamodel.e4sm.OptionallyNamedElement
+	 * @generated
+	 */
+	EClass getOptionallyNamedElement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.OptionallyNamedElement#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see e4sm.de.metamodel.e4sm.OptionallyNamedElement#getName()
+	 * @see #getOptionallyNamedElement()
+	 * @generated
+	 */
+	EAttribute getOptionallyNamedElement_Name();
+
+	/**
 	 * Returns the meta object for data type '{@link java.lang.Object <em>Connectionspeed</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2836,6 +2903,24 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PERSON__PICTURE_FILE_NAME = eINSTANCE.getPerson_PictureFileName();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.OptionallyNamedElementImpl <em>Optionally Named Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.OptionallyNamedElementImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getOptionallyNamedElement()
+		 * @generated
+		 */
+		EClass OPTIONALLY_NAMED_ELEMENT = eINSTANCE.getOptionallyNamedElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OPTIONALLY_NAMED_ELEMENT__NAME = eINSTANCE.getOptionallyNamedElement_Name();
 
 		/**
 		 * The meta object literal for the '<em>Connectionspeed</em>' data type.
