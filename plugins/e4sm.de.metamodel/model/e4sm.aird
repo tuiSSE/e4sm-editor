@@ -24,7 +24,7 @@
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="e4sm.ecore#/"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_3G4PoKm0Eeuyl-nf__hNBA" name="e4sm CD - Model" repPath="#_3G3okKm0Eeuyl-nf__hNBA" changeId="06d6bf27-b02e-4679-92b4-5e5b7b346c2b">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_3G4PoKm0Eeuyl-nf__hNBA" name="e4sm CD - Model" repPath="#_3G3okKm0Eeuyl-nf__hNBA" changeId="12154835-8ae0-4979-9f72-0f59d0095c55">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="e4sm.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -5702,7 +5702,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_5cli1am0Eeuyl-nf__hNBA" routing="Rectilinear"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_5cli1qm0Eeuyl-nf__hNBA" fontColor="7490599" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_5cli16m0Eeuyl-nf__hNBA" points="[94, 58, -239, -48]$[213, 58, -120, -48]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_5cli16m0Eeuyl-nf__hNBA" points="[94, 98, -239, -8]$[213, 98, -120, -8]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_5cmJ0qm0Eeuyl-nf__hNBA" id="(0.6099585062240664,0.0)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_5cmJ06m0Eeuyl-nf__hNBA" id="(0.502092050209205,0.7205882352941176)"/>
         </edges>
