@@ -76,9 +76,9 @@ public class SoftwareComponentItemProvider extends ComponentItemProvider {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
 						getResourceLocator(), getString("_UI_SoftwareComponent_synchronous_feature"),
-						"If checked, the component will execute and then provide some results.\nIf unchecked, the execution of the system continues while this component executes.",
+						getString("_UI_SoftwareComponent_synchronous_feature_help"),
 						e4smPackage.Literals.SOFTWARE_COMPONENT__SYNCHRONOUS, true, false, false,
-						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, "Execution", null));
+						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString("_UI_EMF_Editor_Category_Execution"), null));
 	}
 
 	/**
