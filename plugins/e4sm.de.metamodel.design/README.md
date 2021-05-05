@@ -25,5 +25,8 @@ A responsible automatically inherits all components contained in his/her compone
 
 External components, by default, do not have a main responsible.
 
+## Person Management Table (PM)
+This table allow to visualize all persons available in the model. The user can also add or delete existing ones.
+
 # Analysis Methods
 Please refer to [the main Readme file](../../README.md#analysis-objectives) for the possible analysis goals.

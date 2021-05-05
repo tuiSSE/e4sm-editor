@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:filter="http://www.eclipse.org/sirius/diagram/description/filter/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="sirius" version="12.0.0.2017041100">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:filter="http://www.eclipse.org/sirius/diagram/description/filter/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="sirius" version="12.0.0.2017041100">
   <ownedViewpoints name="E4SM_Viewpoint" label="E4SM">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="e4sm_diagram_1" label="Allocation Diagram (AD)" titleExpression="aql:'[AD] ' + self.oclAsType(e4sm::Package).name" domainClass="e4sm::Package" enablePopupBars="true">
       <metamodel href="http://de.tu-ilmenau/e4sm/1.0.0#/"/>
@@ -533,6 +533,22 @@
           </vsmElementCustomizations>
         </customization>
       </additionalLayers>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_2:EditionTableDescription" name="table_persons" label="Person Management Table (PM)" initialisation="true" preconditionExpression="aql:'[PM] ' + self.oclAsType(e4sm::Model).name" domainClass="e4sm::Model">
+      <metamodel href="http://de.tu-ilmenau/e4sm/1.0.0#/"/>
+      <ownedLineMappings name="persons_row" label="Person" domainClass="e4sm::Person" semanticCandidatesExpression="feature:actors" headerLabelExpression="aql: ' '"/>
+      <ownedCreateLine name="table_persons_create_person" label="Create Person" mapping="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='table_persons']/@ownedLineMappings[name='persons_row']">
+        <variables name="root" documentation="The semantic root element of the table."/>
+        <variables name="element" documentation="The semantic currently edited element."/>
+        <variables name="container" documentation="The semantic element corresponding to the view container."/>
+        <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+          <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::Person" referenceName="actors"/>
+        </firstModelOperation>
+      </ownedCreateLine>
+      <ownedColumnMappings name="table_persons_name_col" label="Name" headerLabelExpression="Name" featureName="name"/>
+      <ownedColumnMappings name="table_persons_surname_col" label="Surname" headerLabelExpression="Surname" featureName="surname"/>
+      <ownedColumnMappings name="table_persons_department_col" label="Department" headerLabelExpression="Department" featureName="department"/>
+      <ownedColumnMappings name="table_persons_picture_file_col" label="Picture FileName" headerLabelExpression="Picture Filename" featureName="pictureFileName"/>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="e4sm.de.metamodel.design.Services"/>
     <ownedJavaExtensions qualifiedClassName="e4sm.de.metamodel.design.ConnectorServices"/>
