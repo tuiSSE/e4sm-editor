@@ -467,6 +467,16 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getSoftwareComponent_Synchronous() {
+		return (EAttribute) softwareComponentEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getLogicalConnector() {
 		return logicalConnectorEClass;
 	}
@@ -892,6 +902,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 
 		softwareComponentEClass = createEClass(SOFTWARE_COMPONENT);
 		createEAttribute(softwareComponentEClass, SOFTWARE_COMPONENT__OUTPUT_UNCERTAINTY);
+		createEAttribute(softwareComponentEClass, SOFTWARE_COMPONENT__SYNCHRONOUS);
 
 		logicalConnectorEClass = createEClass(LOGICAL_CONNECTOR);
 
@@ -1052,9 +1063,12 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 
 		initEClass(softwareComponentEClass, SoftwareComponent.class, "SoftwareComponent", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSoftwareComponent_OutputUncertainty(), ecorePackage.getEDouble(), "OutputUncertainty", "0.0",
+		initEAttribute(getSoftwareComponent_OutputUncertainty(), ecorePackage.getEDouble(), "outputUncertainty", "0.0",
 				0, 1, SoftwareComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSoftwareComponent_Synchronous(), ecorePackage.getEBoolean(), "synchronous", "true", 0, 1,
+				SoftwareComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
 		initEClass(logicalConnectorEClass, LogicalConnector.class, "LogicalConnector", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);

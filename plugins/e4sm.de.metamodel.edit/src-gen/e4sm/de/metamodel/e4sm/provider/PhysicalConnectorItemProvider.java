@@ -126,7 +126,8 @@ public class PhysicalConnectorItemProvider extends ConnectorItemProvider {
 				label = ": " + sourceName + "->" + targetName;
 			}
 		}
-		return label == null || label.length() == 0 ? getString("_UI_PhysicalConnector_type") + " " + connector.getUuid()
+		return label == null || label.length() == 0
+				? getString("_UI_PhysicalConnector_type") + " " + connector.getUuid()
 				: getString("_UI_PhysicalConnector_type") + " " + label;
 	}
 

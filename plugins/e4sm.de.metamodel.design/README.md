@@ -21,12 +21,14 @@ This layer highlights generic elements and connectors which still need to be spe
 ![A data transfer diagram](pictures/Responsibilities.png)
 This Layer adds a picture and a tooltip to all elements which have a main responsible specified, and highlights elements which currently have no main responsible.
 
-A responsible automatically inherits all components contained in his/her components. It is possible to change this by assigning another responsible to a subcomponent.
+A responsible automatically inherits all components contained in his/her components.
+It is possible to change this by assigning another responsible to a subcomponent.
 
 External components, by default, do not have a main responsible.
 
 ## Person Management Table (PM)
-This table allow to visualize all persons available in the model. The user can also add or delete existing ones.
+This table allow to visualize all persons available in the model.
+The user can also add or delete existing ones.
 
 # Analysis Methods
 Please refer to [the main Readme file](../../README.md#analysis-objectives) for the possible analysis goals.

@@ -45,6 +45,7 @@ public class SoftwareComponentItemProvider extends ComponentItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addOutputUncertaintyPropertyDescriptor(object);
+			addSynchronousPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -58,11 +59,26 @@ public class SoftwareComponentItemProvider extends ComponentItemProvider {
 	protected void addOutputUncertaintyPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_SoftwareComponent_OutputUncertainty_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_SoftwareComponent_OutputUncertainty_feature",
+				getString("_UI_SoftwareComponent_outputUncertainty_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_SoftwareComponent_outputUncertainty_feature",
 						"_UI_SoftwareComponent_type"),
 				e4smPackage.Literals.SOFTWARE_COMPONENT__OUTPUT_UNCERTAINTY, true, false, false,
 				ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Synchronous feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addSynchronousPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_SoftwareComponent_synchronous_feature"),
+						"If checked, the component will execute and then provide some results.\nIf unchecked, the execution of the system continues while this component executes.",
+						e4smPackage.Literals.SOFTWARE_COMPONENT__SYNCHRONOUS, true, false, false,
+						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, "Execution", null));
 	}
 
 	/**
@@ -112,6 +128,7 @@ public class SoftwareComponentItemProvider extends ComponentItemProvider {
 
 		switch (notification.getFeatureID(SoftwareComponent.class)) {
 		case e4smPackage.SOFTWARE_COMPONENT__OUTPUT_UNCERTAINTY:
+		case e4smPackage.SOFTWARE_COMPONENT__SYNCHRONOUS:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}

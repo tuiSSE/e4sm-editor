@@ -16,6 +16,7 @@ package e4sm.de.metamodel.e4sm;
  * </p>
  * <ul>
  *   <li>{@link e4sm.de.metamodel.e4sm.SoftwareComponent#getOutputUncertainty <em>Output Uncertainty</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.SoftwareComponent#isSynchronous <em>Synchronous</em>}</li>
  * </ul>
  *
  * @see e4sm.de.metamodel.e4sm.e4smPackage#getSoftwareComponent()
@@ -45,5 +46,31 @@ public interface SoftwareComponent extends Component {
 	 * @generated
 	 */
 	void setOutputUncertainty(double value);
+
+	/**
+	 * Returns the value of the '<em><b>Synchronous</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * If synchronous, the execution is blocked on the current component until it provides a result. If the component is asynchronous, the execution continues immediatly and the results are provided in other ways (e.g. written out somewhere, with an event system, with promise systems, by polling...)
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Synchronous</em>' attribute.
+	 * @see #setSynchronous(boolean)
+	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getSoftwareComponent_Synchronous()
+	 * @model default="true"
+	 * @generated
+	 */
+	boolean isSynchronous();
+
+	/**
+	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.SoftwareComponent#isSynchronous <em>Synchronous</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Synchronous</em>' attribute.
+	 * @see #isSynchronous()
+	 * @generated
+	 */
+	void setSynchronous(boolean value);
 
 } // SoftwareComponent

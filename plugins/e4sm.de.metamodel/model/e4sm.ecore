@@ -76,8 +76,14 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A software component is a generic component which will be realised/is already available digitally"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="OutputUncertainty" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputUncertainty" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="0.0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="synchronous" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="If synchronous, the execution is blocked on the current component until it provides a result. If the component is asynchronous, the execution continues immediatly and the results are provided in other ways (e.g. written out somewhere, with an event system, with promise systems, by polling...)"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LogicalConnector" eSuperTypes="#//Connector">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

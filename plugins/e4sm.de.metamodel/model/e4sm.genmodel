@@ -31,7 +31,8 @@
     </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//PhysicalComponent"/>
     <genClasses ecoreClass="e4sm.ecore#//SoftwareComponent">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//SoftwareComponent/OutputUncertainty"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//SoftwareComponent/outputUncertainty"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//SoftwareComponent/synchronous"/>
     </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//LogicalConnector"/>
     <genClasses ecoreClass="e4sm.ecore#//Heuristic"/>

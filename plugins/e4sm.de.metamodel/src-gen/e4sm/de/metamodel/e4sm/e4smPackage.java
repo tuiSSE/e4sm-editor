@@ -306,13 +306,22 @@ public interface e4smPackage extends EPackage {
 	int SOFTWARE_COMPONENT__OUTPUT_UNCERTAINTY = COMPONENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Synchronous</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOFTWARE_COMPONENT__SYNCHRONOUS = COMPONENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Software Component</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOFTWARE_COMPONENT_FEATURE_COUNT = COMPONENT_FEATURE_COUNT + 1;
+	int SOFTWARE_COMPONENT_FEATURE_COUNT = COMPONENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Compute Main Responsible</em>' operation.
@@ -404,6 +413,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int MACHINE_LEARNING_COMPONENT__OUTPUT_UNCERTAINTY = SOFTWARE_COMPONENT__OUTPUT_UNCERTAINTY;
+
+	/**
+	 * The feature id for the '<em><b>Synchronous</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MACHINE_LEARNING_COMPONENT__SYNCHRONOUS = SOFTWARE_COMPONENT__SYNCHRONOUS;
 
 	/**
 	 * The number of structural features of the '<em>Machine Learning Component</em>' class.
@@ -853,6 +871,15 @@ public interface e4smPackage extends EPackage {
 	int HEURISTIC__OUTPUT_UNCERTAINTY = SOFTWARE_COMPONENT__OUTPUT_UNCERTAINTY;
 
 	/**
+	 * The feature id for the '<em><b>Synchronous</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HEURISTIC__SYNCHRONOUS = SOFTWARE_COMPONENT__SYNCHRONOUS;
+
+	/**
 	 * The number of structural features of the '<em>Heuristic</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -953,6 +980,15 @@ public interface e4smPackage extends EPackage {
 	int FUNCTION__OUTPUT_UNCERTAINTY = SOFTWARE_COMPONENT__OUTPUT_UNCERTAINTY;
 
 	/**
+	 * The feature id for the '<em><b>Synchronous</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION__SYNCHRONOUS = SOFTWARE_COMPONENT__SYNCHRONOUS;
+
+	/**
 	 * The number of structural features of the '<em>Function</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1051,6 +1087,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXTERNAL_DEPENDENCY__OUTPUT_UNCERTAINTY = SOFTWARE_COMPONENT__OUTPUT_UNCERTAINTY;
+
+	/**
+	 * The feature id for the '<em><b>Synchronous</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_DEPENDENCY__SYNCHRONOUS = SOFTWARE_COMPONENT__SYNCHRONOUS;
 
 	/**
 	 * The number of structural features of the '<em>External Dependency</em>' class.
@@ -2027,6 +2072,17 @@ public interface e4smPackage extends EPackage {
 	EAttribute getSoftwareComponent_OutputUncertainty();
 
 	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.SoftwareComponent#isSynchronous <em>Synchronous</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Synchronous</em>'.
+	 * @see e4sm.de.metamodel.e4sm.SoftwareComponent#isSynchronous()
+	 * @see #getSoftwareComponent()
+	 * @generated
+	 */
+	EAttribute getSoftwareComponent_Synchronous();
+
+	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.LogicalConnector <em>Logical Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2586,6 +2642,14 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SOFTWARE_COMPONENT__OUTPUT_UNCERTAINTY = eINSTANCE.getSoftwareComponent_OutputUncertainty();
+
+		/**
+		 * The meta object literal for the '<em><b>Synchronous</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SOFTWARE_COMPONENT__SYNCHRONOUS = eINSTANCE.getSoftwareComponent_Synchronous();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.LogicalConnectorImpl <em>Logical Connector</em>}' class.
