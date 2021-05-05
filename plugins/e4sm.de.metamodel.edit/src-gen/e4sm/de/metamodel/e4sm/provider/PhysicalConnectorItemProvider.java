@@ -116,17 +116,17 @@ public class PhysicalConnectorItemProvider extends ConnectorItemProvider {
 		PhysicalConnector connector = (PhysicalConnector) object;
 		Pin sourcePin = connector.getSource();
 		Pin targetPin = connector.getTarget();
-		Component sourceContainer = (Component) sourcePin.eContainer();
-		Component targetContainer = (Component) targetPin.eContainer();
-		String sourceName = sourceContainer.getName();
-		String targetName = targetContainer.getName();
-		String label = "";
-		if (sourceName == null || targetName == null || sourceName.length() == 0 || targetName.length() == 0) {
-			label = connector.getUuid();
-		} else {
-			label = ": " + sourceName + "->" + targetName;
+		String label = null;
+		if (sourcePin != null && targetPin != null) {
+			Component sourceContainer = (Component) sourcePin.eContainer();
+			Component targetContainer = (Component) targetPin.eContainer();
+			String sourceName = sourceContainer.getName();
+			String targetName = targetContainer.getName();
+			if (sourceName != null && targetName != null && sourceName.length() > 0 && targetName.length() > 0) {
+				label = ": " + sourceName + "->" + targetName;
+			}
 		}
-		return label == null || label.length() == 0 ? getString("_UI_PhysicalConnector_type")
+		return label == null || label.length() == 0 ? getString("_UI_PhysicalConnector_type") + " " + connector.getUuid()
 				: getString("_UI_PhysicalConnector_type") + " " + label;
 	}
 

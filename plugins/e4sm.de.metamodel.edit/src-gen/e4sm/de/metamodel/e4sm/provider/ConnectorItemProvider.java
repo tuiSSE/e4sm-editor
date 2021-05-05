@@ -16,9 +16,10 @@ import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 /**
- * This is the item provider adapter for a {@link e4sm.de.metamodel.e4sm.Connector} object.
- * <!-- begin-user-doc --> <!--
+ * This is the item provider adapter for a
+ * {@link e4sm.de.metamodel.e4sm.Connector} object. <!-- begin-user-doc --> <!--
  * end-user-doc -->
+ * 
  * @generated
  */
 public class ConnectorItemProvider extends OptionallyNamedElementItemProvider {
@@ -50,9 +51,9 @@ public class ConnectorItemProvider extends OptionallyNamedElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Source feature.
-	 * <!-- begin-user-doc
+	 * This adds a property descriptor for the Source feature. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addSourcePropertyDescriptor(Object object) {
@@ -65,9 +66,9 @@ public class ConnectorItemProvider extends OptionallyNamedElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Target feature.
-	 * <!-- begin-user-doc
+	 * This adds a property descriptor for the Target feature. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addTargetPropertyDescriptor(Object object) {
@@ -80,8 +81,8 @@ public class ConnectorItemProvider extends OptionallyNamedElementItemProvider {
 	}
 
 	/**
-	 * This returns Connector.gif.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This returns Connector.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -91,6 +92,7 @@ public class ConnectorItemProvider extends OptionallyNamedElementItemProvider {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -99,11 +101,10 @@ public class ConnectorItemProvider extends OptionallyNamedElementItemProvider {
 	}
 
 	/**
-	 * This returns the label text for the adapted class. <!-- begin-user-doc -->
-	 * If the connector has a name, use that as label
-	 * else, if the source and target name both have names, return sName->tName
-	 * else, use the UUID
-	 * <!-- end-user-doc -->
+	 * This returns the label text for the adapted class. <!-- begin-user-doc --> If
+	 * the connector has a name, use that as label else, if the source and target
+	 * name both have names, return sName->tName else, use the UUID <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated NOT
 	 */
@@ -111,30 +112,31 @@ public class ConnectorItemProvider extends OptionallyNamedElementItemProvider {
 	public String getText(Object object) {
 		Connector connector = (Connector) object;
 		final String name = connector.getName();
-		String label = "";
+		String label = null;
 		if (name != null && name.length() > 0) {
 			label = name;
 		} else {
 			Pin sourcePin = connector.getSource();
 			Pin targetPin = connector.getTarget();
-			Component sourceContainer = (Component) sourcePin.eContainer();
-			Component targetContainer = (Component) targetPin.eContainer();
-			String sourceName = sourceContainer.getName();
-			String targetName = targetContainer.getName();
-			if (sourceName == null || targetName == null || sourceName.length() == 0 || targetName.length() == 0) {
-				label = connector.getUuid();
-			} else {
-				label = ": " + sourceName + "->" + targetName;
+			if (sourcePin != null && targetPin != null) {
+				Component sourceContainer = (Component) sourcePin.eContainer();
+				Component targetContainer = (Component) targetPin.eContainer();
+				String sourceName = sourceContainer.getName();
+				String targetName = targetContainer.getName();
+				if (sourceName != null && targetName != null && sourceName.length() > 0 && targetName.length() > 0) {
+					label = ": " + sourceName + "->" + targetName;
+				}
 			}
 		}
-		return label == null || label.length() == 0 ? getString("_UI_Connector_type")
+		return label == null || label.length() == 0 ? getString("_UI_Connector_type") + " " + connector.getUuid()
 				: getString("_UI_Connector_type") + " " + label;
 	}
 
 	/**
-	 * This handles model notifications by calling {@link #updateChildren} to update any cached
-	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This handles model notifications by calling {@link #updateChildren} to update
+	 * any cached children and by creating a viewer notification, which it passes to
+	 * {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -144,10 +146,10 @@ public class ConnectorItemProvider extends OptionallyNamedElementItemProvider {
 	}
 
 	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing
+	 * the children that can be created under this object. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

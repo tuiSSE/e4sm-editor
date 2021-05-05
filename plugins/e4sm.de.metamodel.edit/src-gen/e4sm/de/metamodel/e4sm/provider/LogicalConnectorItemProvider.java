@@ -15,9 +15,10 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 /**
- * This is the item provider adapter for a {@link e4sm.de.metamodel.e4sm.LogicalConnector} object.
- * <!-- begin-user-doc
+ * This is the item provider adapter for a
+ * {@link e4sm.de.metamodel.e4sm.LogicalConnector} object. <!-- begin-user-doc
  * --> <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class LogicalConnectorItemProvider extends ConnectorItemProvider {
@@ -59,6 +60,7 @@ public class LogicalConnectorItemProvider extends ConnectorItemProvider {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -77,24 +79,25 @@ public class LogicalConnectorItemProvider extends ConnectorItemProvider {
 		LogicalConnector connector = (LogicalConnector) object;
 		Pin sourcePin = connector.getSource();
 		Pin targetPin = connector.getTarget();
-		Component sourceContainer = (Component) sourcePin.eContainer();
-		Component targetContainer = (Component) targetPin.eContainer();
-		String sourceName = sourceContainer.getName();
-		String targetName = targetContainer.getName();
-		String label = "";
-		if (sourceName == null || targetName == null || sourceName.length() == 0 || targetName.length() == 0) {
-			label = connector.getUuid();
-		} else {
-			label = ": " + sourceName + "->" + targetName;
+		String label = null;
+		if (sourcePin != null && targetPin != null) {
+			Component sourceContainer = (Component) sourcePin.eContainer();
+			Component targetContainer = (Component) targetPin.eContainer();
+			String sourceName = sourceContainer.getName();
+			String targetName = targetContainer.getName();
+			if (sourceName != null && targetName != null && sourceName.length() > 0 && targetName.length() > 0) {
+				label = ": " + sourceName + "->" + targetName;
+			}
 		}
-		return label == null || label.length() == 0 ? getString("_UI_LogicalConnector_type")
+		return label == null || label.length() == 0 ? getString("_UI_LogicalConnector_type") + " " + connector.getUuid()
 				: getString("_UI_LogicalConnector_type") + " " + label;
 	}
 
 	/**
-	 * This handles model notifications by calling {@link #updateChildren} to update any cached
-	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This handles model notifications by calling {@link #updateChildren} to update
+	 * any cached children and by creating a viewer notification, which it passes to
+	 * {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -104,10 +107,10 @@ public class LogicalConnectorItemProvider extends ConnectorItemProvider {
 	}
 
 	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing
+	 * the children that can be created under this object. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
