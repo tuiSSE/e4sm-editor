@@ -1,5 +1,5 @@
 <!-- This file was created using the HTML documentation generator. -->
-<!-- Creation date: Thu Apr 29 11:29:42 CEST 2021-->
+<!-- Creation date: Wed May 05 17:17:57 CEST 2021-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
@@ -140,6 +140,9 @@ function getElementsByTagNames(list,obj) {
 <h4><b>Supertype:</b><a href="#e4smPhysicalComponent">PhysicalComponent</a></h4><h2 id="e4smComponent"><a href="#e4smComponent"><a href="#e4smComponent">Component</a></a></h2>
 
 <p>Generic component, which should be used to temporally specify an element before deciding how it will be realised.</p>
+
+<p>Constraints:
+- C0: no loops allowed between the component container (Package) and component &quot;specifiedInPackage&quot;</p>
 <h4><b>Supertype:</b><a href="#e4smNamedElement">NamedElement</a></h4><table>
 <tr>
 	<th colspan="3"><div class="tableHeader">References</div></th>
@@ -183,6 +186,16 @@ function getElementsByTagNames(list,obj) {
 </td> 
 <td> <p>A list of pins (input and output pins) which are placed on the border of this component.</p>
 </td>
+		</tr><tr>	<td><div id="e4smComponent.specifiedInPackage" class="teletype">specifiedInPackage</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#e4smPackage">Package</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="keyValue"><span class="label">Op: </span><span class="teletype">specifiesComponent</span></div>
+</td> 
+<td> <p>A component may get specified further in a package
+Constraints:
+- C0: no loops allowed (implemented in Component)</p>
+</td>
 		</tr></table>
 <a href="#e4sm.Component.ref"></a>
 <table>
@@ -208,7 +221,7 @@ function getElementsByTagNames(list,obj) {
 <p>A connector connects one source to one target component.
 Constraints:
 - C1: A connector shall not connect two pins of the same component directly (loop/short circuit)</p>
-<h4><b>Supertype:</b><a href="#e4smElement">Element</a></h4><table>
+<h4><b>Supertype:</b><a href="#e4smOptionallyNamedElement">OptionallyNamedElement</a></h4><table>
 <tr>
 	<th colspan="3"><div class="tableHeader">References</div></th>
 </tr>
@@ -362,12 +375,34 @@ Constraints:
 </td>
 		</tr></table>
 <a href="#e4sm.NamedElement.attr"></a>
+<h2 id="e4smOptionallyNamedElement"><a href="#e4smOptionallyNamedElement"><a href="#e4smOptionallyNamedElement">OptionallyNamedElement</a></a></h2>
+
+<p>An element with a name attribute which is not compulsory</p>
+<div class="eclassProps">EClass properties:<div class="eclassPropList"><span class="label">Abstract</span></div></div><h4><b>Supertype:</b><a href="#e4smElement">Element</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Attributes</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="e4smOptionallyNamedElement.name" class="teletype">name</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype">EString</span></div>
+<div class="label">Cardinality: [0..1]</div>
+ </td> <td><p>The name of the element, it may be null</p>
+</td>
+		</tr></table>
+<a href="#e4sm.OptionallyNamedElement.attr"></a>
 <h2 id="e4smOutputPin"><a href="#e4smOutputPin"><a href="#e4smOutputPin">OutputPin</a></a></h2>
 
 <p>An interface which sends data outside of a component</p>
 <h4><b>Supertype:</b><a href="#e4smPin">Pin</a></h4><h2 id="e4smPackage"><a href="#e4smPackage"><a href="#e4smPackage">Package</a></a></h2>
 
-<p>A package contains a set of Components and their connections.</p>
+<p>A package contains a set of Components and their connections.
+Constraints:
+- C1: all owned packages must have &quot;specifiesComponent&quot; set to a component owned by this package.</p>
 <h4><b>Supertype:</b><a href="#e4smNamedElement">NamedElement</a></h4><table>
 <tr>
 	<th colspan="3"><div class="tableHeader">References</div></th>
@@ -393,12 +428,30 @@ Constraints:
 </td> 
 <td> <p>A list of connectors contained in this package</p>
 </td>
+		</tr><tr>	<td><div id="e4smPackage.containedBy" class="teletype">containedBy</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#e4smPackage">Package</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="label">Container</div>
+<div class="keyValue"><span class="label">Op: </span><span class="teletype">packages</span></div>
+</td> 
+<td> <p>A package containing this package (optional)</p>
+</td>
 		</tr><tr>	<td><div id="e4smPackage.mainResponsible" class="teletype">mainResponsible</div>
 	</td>
 	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#e4smPerson">Person</a></span></div>
 <div class="label">Cardinality: [0..1]</div>
 </td> 
 <td> <p>The main responsible for the realisation of this package</p>
+</td>
+		</tr><tr>	<td><div id="e4smPackage.packages" class="teletype">packages</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#e4smPackage">Package</a></span></div>
+<div class="label">Cardinality: [0..*]</div>
+<div class="label">Containment</div>
+<div class="keyValue"><span class="label">Op: </span><span class="teletype">containedBy</span></div>
+</td> 
+<td> <p>A package may contains subpackages, which specify one of the components owned by this package</p>
 </td>
 		</tr><tr>	<td><div id="e4smPackage.physicalComponents" class="teletype"><div style="color:blue">physicalComponents</div></div>
 	</td>
@@ -423,6 +476,14 @@ Constraints:
 <div class="label">Derived</div>
 </td> 
 <td> <p>A subset of components only containing software components</p>
+</td>
+		</tr><tr>	<td><div id="e4smPackage.specifiesComponent" class="teletype">specifiesComponent</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#e4smComponent">Component</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="keyValue"><span class="label">Op: </span><span class="teletype">specifiedInPackage</span></div>
+</td> 
+<td> <p>This package is the detailed representation of another component (optional)</p>
 </td>
 		</tr></table>
 <a href="#e4sm.Package.ref"></a>
@@ -511,7 +572,7 @@ Constraints:
 <h2 id="e4smPin"><a href="#e4smPin"><a href="#e4smPin">Pin</a></a></h2>
 
 <p>An interface to and from a component</p>
-<div class="eclassProps">EClass properties:<div class="eclassPropList"><span class="label">Abstract</span></div></div><h2 id="e4smRobot"><a href="#e4smRobot"><a href="#e4smRobot">Robot</a></a></h2>
+<div class="eclassProps">EClass properties:<div class="eclassPropList"><span class="label">Abstract</span></div></div><h4><b>Supertype:</b><a href="#e4smOptionallyNamedElement">OptionallyNamedElement</a></h4><h2 id="e4smRobot"><a href="#e4smRobot"><a href="#e4smRobot">Robot</a></a></h2>
 
 <p>A robot actor</p>
 <h4><b>Supertype:</b><a href="#e4smActor">Actor</a></h4><h2 id="e4smSector"><a href="#e4smSector"><a href="#e4smSector">Sector</a></a></h2>
@@ -534,6 +595,24 @@ Constraints:
 </td> 
 <td> <p>A list of references to components which are contained in this sector</p>
 </td>
+		</tr><tr>	<td><div id="e4smSector.containedBy" class="teletype">containedBy</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#e4smSector">Sector</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="label">Container</div>
+<div class="keyValue"><span class="label">Op: </span><span class="teletype">sectors</span></div>
+</td> 
+<td> <p>A sector which contains this sector (optional)</p>
+</td>
+		</tr><tr>	<td><div id="e4smSector.sectors" class="teletype">sectors</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#e4smSector">Sector</a></span></div>
+<div class="label">Cardinality: [0..*]</div>
+<div class="label">Containment</div>
+<div class="keyValue"><span class="label">Op: </span><span class="teletype">containedBy</span></div>
+</td> 
+<td> <p>A list of sectors contained by this sector</p>
+</td>
 		</tr></table>
 <a href="#e4sm.Sector.ref"></a>
 <h2 id="e4smSensor"><a href="#e4smSensor"><a href="#e4smSensor">Sensor</a></a></h2>
@@ -551,12 +630,19 @@ Constraints:
 	<th><div class="columnHeader">Properties</div></th>
 	<th><div class="columnHeader">Documentation</div></th>
 </tr>
-<tr>	<td><div id="e4smSoftwareComponent.OutputUncertainty" class="teletype">OutputUncertainty</div>
+<tr>	<td><div id="e4smSoftwareComponent.outputUncertainty" class="teletype">outputUncertainty</div>
 	</td>
 	<td><div class="keyValue"><span class="label">T: </span><span class="teletype">EDouble</span></div>
 <div class="label">Cardinality: [0..1]</div>
 <div class="keyValue"><span class="label">Default: </span><span class="teletype">0.0</span></div>
  </td> <td></td>
+		</tr><tr>	<td><div id="e4smSoftwareComponent.synchronous" class="teletype">synchronous</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype">EBoolean</span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="keyValue"><span class="label">Default: </span><span class="teletype">true</span></div>
+ </td> <td><p>If synchronous, the execution is blocked on the current component until it provides a result. If the component is asynchronous, the execution continues immediatly and the results are provided in other ways (e.g. written out somewhere, with an event system, with promise systems, by polling...)</p>
+</td>
 		</tr></table>
 <a href="#e4sm.SoftwareComponent.attr"></a>
 </body>

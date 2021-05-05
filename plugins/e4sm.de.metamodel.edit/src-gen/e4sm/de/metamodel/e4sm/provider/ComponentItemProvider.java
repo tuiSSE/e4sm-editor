@@ -49,6 +49,7 @@ public class ComponentItemProvider extends NamedElementItemProvider {
 			addComponentsPropertyDescriptor(object);
 			addContainedByPropertyDescriptor(object);
 			addMainResponsiblePropertyDescriptor(object);
+			addSpecifiedInPackagePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -96,6 +97,21 @@ public class ComponentItemProvider extends NamedElementItemProvider {
 						getString("_UI_PropertyDescriptor_description", "_UI_Component_mainResponsible_feature",
 								"_UI_Component_type"),
 						e4smPackage.Literals.COMPONENT__MAIN_RESPONSIBLE, true, false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Specified In Package feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSpecifiedInPackagePropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Component_specifiedInPackage_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Component_specifiedInPackage_feature",
+								"_UI_Component_type"),
+						e4smPackage.Literals.COMPONENT__SPECIFIED_IN_PACKAGE, true, false, true, null, null, null));
 	}
 
 	/**

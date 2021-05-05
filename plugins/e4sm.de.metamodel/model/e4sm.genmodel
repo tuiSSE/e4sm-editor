@@ -11,11 +11,14 @@
   <genPackages prefix="e4sm" basePackage="e4sm.de.metamodel" disposableProviderFactory="true"
       ecorePackage="e4sm.ecore#/">
     <genDataTypes ecoreDataType="e4sm.ecore#//Connectionspeed"/>
-    <genClasses ecoreClass="e4sm.ecore#//Component">
+    <genClasses documentation="Generic component, which should be used to temporally specify an element before deciding how it will be realised.&#xD;&#xA;&#xD;&#xA;Constraints:&#xD;&#xA;- C1: no loops allowed between the component container (Package) and component &quot;specifiedInPackage&quot;"
+        ecoreClass="e4sm.ecore#//Component">
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//Component/components"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//Component/containedBy"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//Component/pins"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//Component/mainResponsible"/>
+      <genFeatures documentation="A component may get specified further in a package&#xD;&#xA;Constraints:&#xD;&#xA;- C1: no loops allowed (implemented in Component)"
+          notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//Component/specifiedInPackage"/>
       <genOperations ecoreOperation="e4sm.ecore#//Component/computeMainResponsible"
           body="&#x9;&#x9;Person resp = this.getMainResponsible();&#xD;&#xA;&#x9;&#x9;if(resp != null) {&#xD;&#xA;&#x9;&#x9;&#x9;return resp;&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;Component c =  this.getContainedBy();&#xD;&#xA;&#x9;&#x9;if(c == null) {&#xD;&#xA;&#x9;&#x9;&#x9;return null;&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;return c.getMainResponsible();"/>
     </genClasses>
@@ -49,6 +52,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//Package/connectors"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//Package/sectors"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//Package/mainResponsible"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//Package/packages"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//Package/containedBy"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//Package/specifiesComponent"/>
     </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//Model">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//Model/packages"/>
@@ -63,6 +69,8 @@
     <genClasses ecoreClass="e4sm.ecore#//Robot"/>
     <genClasses ecoreClass="e4sm.ecore#//Sector">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//Sector/components"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//Sector/sectors"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//Sector/containedBy"/>
     </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//Sensor"/>
     <genClasses ecoreClass="e4sm.ecore#//Actuator"/>

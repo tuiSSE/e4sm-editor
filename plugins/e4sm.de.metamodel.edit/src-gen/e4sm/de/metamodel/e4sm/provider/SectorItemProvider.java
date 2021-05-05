@@ -14,6 +14,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -45,8 +46,40 @@ public class SectorItemProvider extends NamedElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addSectorsPropertyDescriptor(object);
+			addContainedByPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Sectors feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSectorsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Sector_sectors_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Sector_sectors_feature",
+								"_UI_Sector_type"),
+						e4smPackage.Literals.SECTOR__SECTORS, true, false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Contained By feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addContainedByPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Sector_containedBy_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Sector_containedBy_feature",
+								"_UI_Sector_type"),
+						e4smPackage.Literals.SECTOR__CONTAINED_BY, true, false, true, null, null, null));
 	}
 
 	/**
@@ -62,6 +95,7 @@ public class SectorItemProvider extends NamedElementItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(e4smPackage.Literals.SECTOR__COMPONENTS);
+			childrenFeatures.add(e4smPackage.Literals.SECTOR__SECTORS);
 		}
 		return childrenFeatures;
 	}
@@ -126,6 +160,7 @@ public class SectorItemProvider extends NamedElementItemProvider {
 
 		switch (notification.getFeatureID(Sector.class)) {
 		case e4smPackage.SECTOR__COMPONENTS:
+		case e4smPackage.SECTOR__SECTORS:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -151,6 +186,9 @@ public class SectorItemProvider extends NamedElementItemProvider {
 
 		newChildDescriptors.add(
 				createChildParameter(e4smPackage.Literals.SECTOR__COMPONENTS, e4smFactory.eINSTANCE.createActuator()));
+
+		newChildDescriptors
+				.add(createChildParameter(e4smPackage.Literals.SECTOR__SECTORS, e4smFactory.eINSTANCE.createSector()));
 	}
 
 }

@@ -48,6 +48,9 @@ public class PackageItemProvider extends NamedElementItemProvider {
 			addSoftwareComponentsPropertyDescriptor(object);
 			addPhysicalComponentsPropertyDescriptor(object);
 			addMainResponsiblePropertyDescriptor(object);
+			addPackagesPropertyDescriptor(object);
+			addContainedByPropertyDescriptor(object);
+			addSpecifiesComponentPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -98,6 +101,51 @@ public class PackageItemProvider extends NamedElementItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Packages feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPackagesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Package_packages_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Package_packages_feature",
+								"_UI_Package_type"),
+						e4smPackage.Literals.PACKAGE__PACKAGES, true, false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Contained By feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addContainedByPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Package_containedBy_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Package_containedBy_feature",
+								"_UI_Package_type"),
+						e4smPackage.Literals.PACKAGE__CONTAINED_BY, true, false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Specifies Component feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSpecifiesComponentPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Package_specifiesComponent_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Package_specifiesComponent_feature",
+								"_UI_Package_type"),
+						e4smPackage.Literals.PACKAGE__SPECIFIES_COMPONENT, true, false, true, null, null, null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -112,6 +160,7 @@ public class PackageItemProvider extends NamedElementItemProvider {
 			childrenFeatures.add(e4smPackage.Literals.PACKAGE__COMPONENTS);
 			childrenFeatures.add(e4smPackage.Literals.PACKAGE__CONNECTORS);
 			childrenFeatures.add(e4smPackage.Literals.PACKAGE__SECTORS);
+			childrenFeatures.add(e4smPackage.Literals.PACKAGE__PACKAGES);
 		}
 		return childrenFeatures;
 	}
@@ -178,6 +227,7 @@ public class PackageItemProvider extends NamedElementItemProvider {
 		case e4smPackage.PACKAGE__COMPONENTS:
 		case e4smPackage.PACKAGE__CONNECTORS:
 		case e4smPackage.PACKAGE__SECTORS:
+		case e4smPackage.PACKAGE__PACKAGES:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -233,6 +283,9 @@ public class PackageItemProvider extends NamedElementItemProvider {
 
 		newChildDescriptors
 				.add(createChildParameter(e4smPackage.Literals.PACKAGE__SECTORS, e4smFactory.eINSTANCE.createSector()));
+
+		newChildDescriptors.add(
+				createChildParameter(e4smPackage.Literals.PACKAGE__PACKAGES, e4smFactory.eINSTANCE.createPackage()));
 	}
 
 }

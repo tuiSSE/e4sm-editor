@@ -37,6 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ComponentImpl#getContainedBy <em>Contained By</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ComponentImpl#getPins <em>Pins</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ComponentImpl#getMainResponsible <em>Main Responsible</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.ComponentImpl#getSpecifiedInPackage <em>Specified In Package</em>}</li>
  * </ul>
  *
  * @generated
@@ -71,6 +72,16 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 	 * @ordered
 	 */
 	protected Person mainResponsible;
+
+	/**
+	 * The cached value of the '{@link #getSpecifiedInPackage() <em>Specified In Package</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSpecifiedInPackage()
+	 * @generated
+	 * @ordered
+	 */
+	protected e4sm.de.metamodel.e4sm.Package specifiedInPackage;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -241,6 +252,77 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 	 * @generated
 	 */
 	@Override
+	public e4sm.de.metamodel.e4sm.Package getSpecifiedInPackage() {
+		if (specifiedInPackage != null && specifiedInPackage.eIsProxy()) {
+			InternalEObject oldSpecifiedInPackage = (InternalEObject) specifiedInPackage;
+			specifiedInPackage = (e4sm.de.metamodel.e4sm.Package) eResolveProxy(oldSpecifiedInPackage);
+			if (specifiedInPackage != oldSpecifiedInPackage) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+							e4smPackage.COMPONENT__SPECIFIED_IN_PACKAGE, oldSpecifiedInPackage, specifiedInPackage));
+			}
+		}
+		return specifiedInPackage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public e4sm.de.metamodel.e4sm.Package basicGetSpecifiedInPackage() {
+		return specifiedInPackage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSpecifiedInPackage(e4sm.de.metamodel.e4sm.Package newSpecifiedInPackage,
+			NotificationChain msgs) {
+		e4sm.de.metamodel.e4sm.Package oldSpecifiedInPackage = specifiedInPackage;
+		specifiedInPackage = newSpecifiedInPackage;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					e4smPackage.COMPONENT__SPECIFIED_IN_PACKAGE, oldSpecifiedInPackage, newSpecifiedInPackage);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setSpecifiedInPackage(e4sm.de.metamodel.e4sm.Package newSpecifiedInPackage) {
+		if (newSpecifiedInPackage != specifiedInPackage) {
+			NotificationChain msgs = null;
+			if (specifiedInPackage != null)
+				msgs = ((InternalEObject) specifiedInPackage).eInverseRemove(this,
+						e4smPackage.PACKAGE__SPECIFIES_COMPONENT, e4sm.de.metamodel.e4sm.Package.class, msgs);
+			if (newSpecifiedInPackage != null)
+				msgs = ((InternalEObject) newSpecifiedInPackage).eInverseAdd(this,
+						e4smPackage.PACKAGE__SPECIFIES_COMPONENT, e4sm.de.metamodel.e4sm.Package.class, msgs);
+			msgs = basicSetSpecifiedInPackage(newSpecifiedInPackage, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.COMPONENT__SPECIFIED_IN_PACKAGE,
+					newSpecifiedInPackage, newSpecifiedInPackage));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Person computeMainResponsible() {
 		Person resp = this.getMainResponsible();
 		if (resp != null) {
@@ -273,6 +355,11 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 				msgs = ((InternalEObject) mainResponsible).eInverseRemove(this,
 						e4smPackage.PERSON__RESPONSIBLE_FOR_COMPONENTS, Person.class, msgs);
 			return basicSetMainResponsible((Person) otherEnd, msgs);
+		case e4smPackage.COMPONENT__SPECIFIED_IN_PACKAGE:
+			if (specifiedInPackage != null)
+				msgs = ((InternalEObject) specifiedInPackage).eInverseRemove(this,
+						e4smPackage.PACKAGE__SPECIFIES_COMPONENT, e4sm.de.metamodel.e4sm.Package.class, msgs);
+			return basicSetSpecifiedInPackage((e4sm.de.metamodel.e4sm.Package) otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -293,6 +380,8 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 			return ((InternalEList<?>) getPins()).basicRemove(otherEnd, msgs);
 		case e4smPackage.COMPONENT__MAIN_RESPONSIBLE:
 			return basicSetMainResponsible(null, msgs);
+		case e4smPackage.COMPONENT__SPECIFIED_IN_PACKAGE:
+			return basicSetSpecifiedInPackage(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -329,6 +418,10 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 			if (resolve)
 				return getMainResponsible();
 			return basicGetMainResponsible();
+		case e4smPackage.COMPONENT__SPECIFIED_IN_PACKAGE:
+			if (resolve)
+				return getSpecifiedInPackage();
+			return basicGetSpecifiedInPackage();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -356,6 +449,9 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 		case e4smPackage.COMPONENT__MAIN_RESPONSIBLE:
 			setMainResponsible((Person) newValue);
 			return;
+		case e4smPackage.COMPONENT__SPECIFIED_IN_PACKAGE:
+			setSpecifiedInPackage((e4sm.de.metamodel.e4sm.Package) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -380,6 +476,9 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 		case e4smPackage.COMPONENT__MAIN_RESPONSIBLE:
 			setMainResponsible((Person) null);
 			return;
+		case e4smPackage.COMPONENT__SPECIFIED_IN_PACKAGE:
+			setSpecifiedInPackage((e4sm.de.metamodel.e4sm.Package) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -400,6 +499,8 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 			return pins != null && !pins.isEmpty();
 		case e4smPackage.COMPONENT__MAIN_RESPONSIBLE:
 			return mainResponsible != null;
+		case e4smPackage.COMPONENT__SPECIFIED_IN_PACKAGE:
+			return specifiedInPackage != null;
 		}
 		return super.eIsSet(featureID);
 	}

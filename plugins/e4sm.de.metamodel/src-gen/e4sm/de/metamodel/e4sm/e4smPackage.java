@@ -206,13 +206,22 @@ public interface e4smPackage extends EPackage {
 	int COMPONENT__MAIN_RESPONSIBLE = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Specified In Package</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT__SPECIFIED_IN_PACKAGE = NAMED_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Component</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
+	int COMPONENT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Compute Main Responsible</em>' operation.
@@ -295,6 +304,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOFTWARE_COMPONENT__MAIN_RESPONSIBLE = COMPONENT__MAIN_RESPONSIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Specified In Package</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOFTWARE_COMPONENT__SPECIFIED_IN_PACKAGE = COMPONENT__SPECIFIED_IN_PACKAGE;
 
 	/**
 	 * The feature id for the '<em><b>Output Uncertainty</b></em>' attribute.
@@ -404,6 +422,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int MACHINE_LEARNING_COMPONENT__MAIN_RESPONSIBLE = SOFTWARE_COMPONENT__MAIN_RESPONSIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Specified In Package</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MACHINE_LEARNING_COMPONENT__SPECIFIED_IN_PACKAGE = SOFTWARE_COMPONENT__SPECIFIED_IN_PACKAGE;
 
 	/**
 	 * The feature id for the '<em><b>Output Uncertainty</b></em>' attribute.
@@ -707,6 +734,15 @@ public interface e4smPackage extends EPackage {
 	int PHYSICAL_COMPONENT__MAIN_RESPONSIBLE = COMPONENT__MAIN_RESPONSIBLE;
 
 	/**
+	 * The feature id for the '<em><b>Specified In Package</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PHYSICAL_COMPONENT__SPECIFIED_IN_PACKAGE = COMPONENT__SPECIFIED_IN_PACKAGE;
+
+	/**
 	 * The number of structural features of the '<em>Physical Component</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -862,6 +898,15 @@ public interface e4smPackage extends EPackage {
 	int HEURISTIC__MAIN_RESPONSIBLE = SOFTWARE_COMPONENT__MAIN_RESPONSIBLE;
 
 	/**
+	 * The feature id for the '<em><b>Specified In Package</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HEURISTIC__SPECIFIED_IN_PACKAGE = SOFTWARE_COMPONENT__SPECIFIED_IN_PACKAGE;
+
+	/**
 	 * The feature id for the '<em><b>Output Uncertainty</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -971,6 +1016,15 @@ public interface e4smPackage extends EPackage {
 	int FUNCTION__MAIN_RESPONSIBLE = SOFTWARE_COMPONENT__MAIN_RESPONSIBLE;
 
 	/**
+	 * The feature id for the '<em><b>Specified In Package</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION__SPECIFIED_IN_PACKAGE = SOFTWARE_COMPONENT__SPECIFIED_IN_PACKAGE;
+
+	/**
 	 * The feature id for the '<em><b>Output Uncertainty</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1078,6 +1132,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXTERNAL_DEPENDENCY__MAIN_RESPONSIBLE = SOFTWARE_COMPONENT__MAIN_RESPONSIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Specified In Package</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_DEPENDENCY__SPECIFIED_IN_PACKAGE = SOFTWARE_COMPONENT__SPECIFIED_IN_PACKAGE;
 
 	/**
 	 * The feature id for the '<em><b>Output Uncertainty</b></em>' attribute.
@@ -1207,13 +1270,40 @@ public interface e4smPackage extends EPackage {
 	int PACKAGE__MAIN_RESPONSIBLE = NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Packages</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__PACKAGES = NAMED_ELEMENT_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Contained By</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__CONTAINED_BY = NAMED_ELEMENT_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Specifies Component</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__SPECIFIES_COMPONENT = NAMED_ELEMENT_FEATURE_COUNT + 8;
+
+	/**
 	 * The number of structural features of the '<em>Package</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 6;
+	int PACKAGE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 9;
 
 	/**
 	 * The number of operations of the '<em>Package</em>' class.
@@ -1473,13 +1563,31 @@ public interface e4smPackage extends EPackage {
 	int SECTOR__COMPONENTS = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Sectors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECTOR__SECTORS = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Contained By</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECTOR__CONTAINED_BY = NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Sector</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SECTOR_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int SECTOR_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Sector</em>' class.
@@ -1553,6 +1661,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int SENSOR__MAIN_RESPONSIBLE = PHYSICAL_COMPONENT__MAIN_RESPONSIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Specified In Package</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENSOR__SPECIFIED_IN_PACKAGE = PHYSICAL_COMPONENT__SPECIFIED_IN_PACKAGE;
 
 	/**
 	 * The number of structural features of the '<em>Sensor</em>' class.
@@ -1644,6 +1761,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTUATOR__MAIN_RESPONSIBLE = PHYSICAL_COMPONENT__MAIN_RESPONSIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Specified In Package</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTUATOR__SPECIFIED_IN_PACKAGE = PHYSICAL_COMPONENT__SPECIFIED_IN_PACKAGE;
 
 	/**
 	 * The number of structural features of the '<em>Actuator</em>' class.
@@ -1957,6 +2083,17 @@ public interface e4smPackage extends EPackage {
 	EReference getComponent_MainResponsible();
 
 	/**
+	 * Returns the meta object for the reference '{@link e4sm.de.metamodel.e4sm.Component#getSpecifiedInPackage <em>Specified In Package</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Specified In Package</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Component#getSpecifiedInPackage()
+	 * @see #getComponent()
+	 * @generated
+	 */
+	EReference getComponent_SpecifiedInPackage();
+
+	/**
 	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.Component#computeMainResponsible() <em>Compute Main Responsible</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2209,6 +2346,39 @@ public interface e4smPackage extends EPackage {
 	EReference getPackage_MainResponsible();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link e4sm.de.metamodel.e4sm.Package#getPackages <em>Packages</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Packages</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Package#getPackages()
+	 * @see #getPackage()
+	 * @generated
+	 */
+	EReference getPackage_Packages();
+
+	/**
+	 * Returns the meta object for the container reference '{@link e4sm.de.metamodel.e4sm.Package#getContainedBy <em>Contained By</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Contained By</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Package#getContainedBy()
+	 * @see #getPackage()
+	 * @generated
+	 */
+	EReference getPackage_ContainedBy();
+
+	/**
+	 * Returns the meta object for the reference '{@link e4sm.de.metamodel.e4sm.Package#getSpecifiesComponent <em>Specifies Component</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Specifies Component</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Package#getSpecifiesComponent()
+	 * @see #getPackage()
+	 * @generated
+	 */
+	EReference getPackage_SpecifiesComponent();
+
+	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.Model <em>Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2322,6 +2492,28 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getSector_Components();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link e4sm.de.metamodel.e4sm.Sector#getSectors <em>Sectors</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Sectors</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Sector#getSectors()
+	 * @see #getSector()
+	 * @generated
+	 */
+	EReference getSector_Sectors();
+
+	/**
+	 * Returns the meta object for the container reference '{@link e4sm.de.metamodel.e4sm.Sector#getContainedBy <em>Contained By</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Contained By</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Sector#getContainedBy()
+	 * @see #getSector()
+	 * @generated
+	 */
+	EReference getSector_ContainedBy();
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.Sensor <em>Sensor</em>}'.
@@ -2546,6 +2738,14 @@ public interface e4smPackage extends EPackage {
 		EReference COMPONENT__MAIN_RESPONSIBLE = eINSTANCE.getComponent_MainResponsible();
 
 		/**
+		 * The meta object literal for the '<em><b>Specified In Package</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPONENT__SPECIFIED_IN_PACKAGE = eINSTANCE.getComponent_SpecifiedInPackage();
+
+		/**
 		 * The meta object literal for the '<em><b>Compute Main Responsible</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2759,6 +2959,30 @@ public interface e4smPackage extends EPackage {
 		EReference PACKAGE__MAIN_RESPONSIBLE = eINSTANCE.getPackage_MainResponsible();
 
 		/**
+		 * The meta object literal for the '<em><b>Packages</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PACKAGE__PACKAGES = eINSTANCE.getPackage_Packages();
+
+		/**
+		 * The meta object literal for the '<em><b>Contained By</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PACKAGE__CONTAINED_BY = eINSTANCE.getPackage_ContainedBy();
+
+		/**
+		 * The meta object literal for the '<em><b>Specifies Component</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PACKAGE__SPECIFIES_COMPONENT = eINSTANCE.getPackage_SpecifiesComponent();
+
+		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.ModelImpl <em>Model</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2857,6 +3081,22 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SECTOR__COMPONENTS = eINSTANCE.getSector_Components();
+
+		/**
+		 * The meta object literal for the '<em><b>Sectors</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SECTOR__SECTORS = eINSTANCE.getSector_Sectors();
+
+		/**
+		 * The meta object literal for the '<em><b>Contained By</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SECTOR__CONTAINED_BY = eINSTANCE.getSector_ContainedBy();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.SensorImpl <em>Sensor</em>}' class.

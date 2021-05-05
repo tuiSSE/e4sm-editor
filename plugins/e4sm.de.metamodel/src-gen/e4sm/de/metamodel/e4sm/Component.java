@@ -21,6 +21,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link e4sm.de.metamodel.e4sm.Component#getContainedBy <em>Contained By</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Component#getPins <em>Pins</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Component#getMainResponsible <em>Main Responsible</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.Component#getSpecifiedInPackage <em>Specified In Package</em>}</li>
  * </ul>
  *
  * @see e4sm.de.metamodel.e4sm.e4smPackage#getComponent()
@@ -113,6 +114,30 @@ public interface Component extends NamedElement {
 	 * @generated
 	 */
 	void setMainResponsible(Person value);
+
+	/**
+	 * Returns the value of the '<em><b>Specified In Package</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link e4sm.de.metamodel.e4sm.Package#getSpecifiesComponent <em>Specifies Component</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Specified In Package</em>' reference.
+	 * @see #setSpecifiedInPackage(e4sm.de.metamodel.e4sm.Package)
+	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getComponent_SpecifiedInPackage()
+	 * @see e4sm.de.metamodel.e4sm.Package#getSpecifiesComponent
+	 * @model opposite="specifiesComponent"
+	 * @generated
+	 */
+	e4sm.de.metamodel.e4sm.Package getSpecifiedInPackage();
+
+	/**
+	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.Component#getSpecifiedInPackage <em>Specified In Package</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Specified In Package</em>' reference.
+	 * @see #getSpecifiedInPackage()
+	 * @generated
+	 */
+	void setSpecifiedInPackage(e4sm.de.metamodel.e4sm.Package value);
 
 	/**
 	 * <!-- begin-user-doc -->

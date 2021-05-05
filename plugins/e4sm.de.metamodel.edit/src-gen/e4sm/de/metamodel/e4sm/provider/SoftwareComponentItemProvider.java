@@ -73,12 +73,12 @@ public class SoftwareComponentItemProvider extends ComponentItemProvider {
 	 * @generated NOT
 	 */
 	protected void addSynchronousPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_SoftwareComponent_synchronous_feature"),
-						getString("_UI_SoftwareComponent_synchronous_feature_help"),
-						e4smPackage.Literals.SOFTWARE_COMPONENT__SYNCHRONOUS, true, false, false,
-						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString("_UI_EMF_Editor_Category_Execution"), null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_SoftwareComponent_synchronous_feature"),
+				getString("_UI_SoftwareComponent_synchronous_feature_help"),
+				e4smPackage.Literals.SOFTWARE_COMPONENT__SYNCHRONOUS, true, false, false,
+				ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString("_UI_EMF_Editor_Category_Execution"), null));
 	}
 
 	/**
