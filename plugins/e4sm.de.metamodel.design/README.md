@@ -26,9 +26,19 @@ It is possible to change this by assigning another responsible to a subcomponent
 
 External components, by default, do not have a main responsible.
 
+### Top-down components specification
+It is possible to specify a component in a new view (which shows a package), only if the component does not contain any other component.
+
 ## Person Management Table (PM)
 This table allow to visualize all persons available in the model.
 The user can also add or delete existing ones.
 
 # Analysis Methods
 Please refer to [the main Readme file](../../README.md#analysis-objectives) for the possible analysis goals.
+
+# Functionalities
+- *Drag & Drop*:
+  - it is possible to drag & drop *input and output pins* from one component to another. Connected edges will be moved, too.
+  - it is possible to move a Sector (a collection of physical components) inside another sector or back outside.
+- *Changing component types*: (Not yet implemented) it is possible to first define a component either as a generic, software, or physical component. The editor allows to specify each component to a more concrete instance (e.g. Sensor, Actuator, Machine Learning Component) in a second moment.
+- *Renaming components*: Just click on a component and press F2 to rename it without accessing the properties panel.

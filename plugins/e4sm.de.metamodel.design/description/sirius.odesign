@@ -503,7 +503,7 @@
           </ownedTools>
         </toolSections>
         <toolSections name="diag2_invisible_tools" label="Invisible Tools">
-          <ownedTools xsi:type="tool:DiagramCreationDescription" name="create_new_DTD_from_component" label="Component Specification" precondition="aql:self.specifiedInPackage = null" titleExpression="aql:'[DTD] Specify ' + self.oclAsType(e4sm::Component).name" browseExpression="var:newPackage" diagramDescription="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']">
+          <ownedTools xsi:type="tool:DiagramCreationDescription" name="create_new_DTD_from_component" label="Component Specification" precondition="aql:self.specifiedInPackage = null and self.components->size()=0" titleExpression="aql:'[DTD] Specify ' + self.oclAsType(e4sm::Component).name" browseExpression="var:newPackage" diagramDescription="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']">
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
                 <subModelOperations xsi:type="tool_1:Let" variableName="componentPackage" valueExpression="aql:self.eContainer(e4sm::Package)">
