@@ -120,7 +120,7 @@ public interface Component extends NamedElement {
 
 	/**
 	 * Returns the value of the '<em><b>Specified In Package</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link e4sm.de.metamodel.e4sm.Package#getSpecifiesComponent <em>Specifies Component</em>}'.
+	 * It is bidirectional and its opposite is '{@link e4sm.de.metamodel.e4sm.Package#getSpecifiesComponents <em>Specifies Components</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -131,8 +131,8 @@ public interface Component extends NamedElement {
 	 * @return the value of the '<em>Specified In Package</em>' reference.
 	 * @see #setSpecifiedInPackage(e4sm.de.metamodel.e4sm.Package)
 	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getComponent_SpecifiedInPackage()
-	 * @see e4sm.de.metamodel.e4sm.Package#getSpecifiesComponent
-	 * @model opposite="specifiesComponent"
+	 * @see e4sm.de.metamodel.e4sm.Package#getSpecifiesComponents
+	 * @model opposite="specifiesComponents"
 	 * @generated
 	 */
 	e4sm.de.metamodel.e4sm.Package getSpecifiedInPackage();

@@ -9,11 +9,13 @@ package e4sm.de.metamodel.e4sm;
  *
  * <!-- begin-model-doc -->
  * A physical component which transforms a digital signal into a physical one
+ * Constraints:
+ * - C1: An actuator shall not have output pins
  * <!-- end-model-doc -->
  *
  *
  * @see e4sm.de.metamodel.e4sm.e4smPackage#getActuator()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='ActuatorC1'"
  * @generated
  */
 public interface Actuator extends PhysicalComponent {

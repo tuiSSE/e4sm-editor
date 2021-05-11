@@ -23,10 +23,9 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 
 /**
- * This is the item provider adapter for a
- * {@link e4sm.de.metamodel.e4sm.Connector} object. <!-- begin-user-doc --> <!--
+ * This is the item provider adapter for a {@link e4sm.de.metamodel.e4sm.Connector} object.
+ * <!-- begin-user-doc --> <!--
  * end-user-doc -->
- * 
  * @generated
  */
 public class ConnectorItemProvider extends OptionallyNamedElementItemProvider {
@@ -65,29 +64,29 @@ public class ConnectorItemProvider extends OptionallyNamedElementItemProvider {
 	 */
 	protected void addSourcePropertyDescriptor(Object object) {
 		itemPropertyDescriptors
-		.add(new ItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-				getResourceLocator(), getString("_UI_Connector_source_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_Connector_source_feature",
-						"_UI_Connector_type"),
-				e4smPackage.Literals.CONNECTOR__TARGET, true, false, true, null, null, null) {
-			@Override
-			public Collection<?> getChoiceOfValues(Object object) {
-				if (object instanceof Connector) {
-					Connector connector = (Connector) object;
-					Package contaninedInPackage = (Package) connector.eContainer();
-					EGenericType eGenericType = connector.eClass().getFeatureType(feature);
-					Collection<EObject> result = new UniqueEList<EObject>();
-					Collection<EObject> visited = new HashSet<EObject>();
-					collectReachableObjectsOfType(visited, result, contaninedInPackage, eGenericType);
-					if (!feature.isMany() && !result.contains(null)) {
-						// Allow unselecting an element
-						result.add(null);
+				.add(new ItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Connector_source_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Connector_source_feature",
+								"_UI_Connector_type"),
+						e4smPackage.Literals.CONNECTOR__TARGET, true, false, true, null, null, null) {
+					@Override
+					public Collection<?> getChoiceOfValues(Object object) {
+						if (object instanceof Connector) {
+							Connector connector = (Connector) object;
+							Package contaninedInPackage = (Package) connector.eContainer();
+							EGenericType eGenericType = connector.eClass().getFeatureType(feature);
+							Collection<EObject> result = new UniqueEList<EObject>();
+							Collection<EObject> visited = new HashSet<EObject>();
+							collectReachableObjectsOfType(visited, result, contaninedInPackage, eGenericType);
+							if (!feature.isMany() && !result.contains(null)) {
+								// Allow unselecting an element
+								result.add(null);
+							}
+							return result;
+						}
+						return null;
 					}
-					return result;
-				}
-				return null;
-			}
-		});
+				});
 	}
 
 	/**
@@ -139,8 +138,8 @@ public class ConnectorItemProvider extends OptionallyNamedElementItemProvider {
 	}
 
 	/**
-	 * This returns Connector.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This returns Connector.gif.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -150,7 +149,6 @@ public class ConnectorItemProvider extends OptionallyNamedElementItemProvider {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -196,10 +194,9 @@ public class ConnectorItemProvider extends OptionallyNamedElementItemProvider {
 	}
 
 	/**
-	 * This handles model notifications by calling {@link #updateChildren} to update
-	 * any cached children and by creating a viewer notification, which it passes to
-	 * {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -209,10 +206,10 @@ public class ConnectorItemProvider extends OptionallyNamedElementItemProvider {
 	}
 
 	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing
-	 * the children that can be created under this object. <!-- begin-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

@@ -74,7 +74,8 @@ public class LogicalConnectorItemProvider extends ConnectorItemProvider {
 	public String getText(Object object) {
 		LogicalConnector connector = (LogicalConnector) object;
 		String label = getLabelText(connector);
-		return label == null || label.length() == 0 ? getString("_UI_LogicalConnector_type") + " " + EcoreUtil.getID(connector)
+		return label == null || label.length() == 0
+				? getString("_UI_LogicalConnector_type") + " " + EcoreUtil.getID(connector)
 				: getString("_UI_LogicalConnector_type") + " " + label;
 	}
 

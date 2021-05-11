@@ -1162,13 +1162,13 @@ public interface e4smPackage extends EPackage {
 	int PACKAGE__CONTAINED_BY = NAMED_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
-	 * The feature id for the '<em><b>Specifies Component</b></em>' reference.
+	 * The feature id for the '<em><b>Specifies Components</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__SPECIFIES_COMPONENT = NAMED_ELEMENT_FEATURE_COUNT + 8;
+	int PACKAGE__SPECIFIES_COMPONENTS = NAMED_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of structural features of the '<em>Package</em>' class.
@@ -2143,15 +2143,15 @@ public interface e4smPackage extends EPackage {
 	EReference getPackage_ContainedBy();
 
 	/**
-	 * Returns the meta object for the reference '{@link e4sm.de.metamodel.e4sm.Package#getSpecifiesComponent <em>Specifies Component</em>}'.
+	 * Returns the meta object for the reference list '{@link e4sm.de.metamodel.e4sm.Package#getSpecifiesComponents <em>Specifies Components</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Specifies Component</em>'.
-	 * @see e4sm.de.metamodel.e4sm.Package#getSpecifiesComponent()
+	 * @return the meta object for the reference list '<em>Specifies Components</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Package#getSpecifiesComponents()
 	 * @see #getPackage()
 	 * @generated
 	 */
-	EReference getPackage_SpecifiesComponent();
+	EReference getPackage_SpecifiesComponents();
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.Model <em>Model</em>}'.
@@ -2739,12 +2739,12 @@ public interface e4smPackage extends EPackage {
 		EReference PACKAGE__CONTAINED_BY = eINSTANCE.getPackage_ContainedBy();
 
 		/**
-		 * The meta object literal for the '<em><b>Specifies Component</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Specifies Components</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PACKAGE__SPECIFIES_COMPONENT = eINSTANCE.getPackage_SpecifiesComponent();
+		EReference PACKAGE__SPECIFIES_COMPONENTS = eINSTANCE.getPackage_SpecifiesComponents();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.ModelImpl <em>Model</em>}' class.

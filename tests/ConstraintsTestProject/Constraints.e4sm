@@ -34,7 +34,7 @@
     <connectors xsi:type="e4sm:PhysicalConnector" xmi:id="_EzkpoLI7EeuWI7I5oKywHA" name="C2" source="_WuRt_LI2EeuWI7I5oKywHA" target="_WuRuBLI2EeuWI7I5oKywHA"/>
     <connectors xsi:type="e4sm:PhysicalConnector" xmi:id="_Jnd2cLI7EeuWI7I5oKywHA" name="C1" source="_WuRt_LI2EeuWI7I5oKywHA" target="_WuRt_7I2EeuWI7I5oKywHA"/>
   </packages>
-  <packages xmi:id="_6h67ALI3EeuWI7I5oKywHA" name="Component TestCases" specifiesComponent="_Pzv54LI4EeuWI7I5oKywHA">
+  <packages xmi:id="_6h67ALI3EeuWI7I5oKywHA" name="Component TestCases" specifiesComponents="_O7hGMLKMEeuiPoBjhRFFrQ _Pzv54LI4EeuWI7I5oKywHA">
     <components xsi:type="e4sm:PhysicalComponent" xmi:id="_LJiC8LI3EeuWI7I5oKywHA" name="Violates C2" specifiedInPackage="_P5kDcLI3EeuWI7I5oKywHA">
       <components xsi:type="e4sm:PhysicalComponent" xmi:id="_SbGMELI3EeuWI7I5oKywHA" name="SpecifiedInComponent"/>
     </components>
@@ -43,10 +43,15 @@
       <components xsi:type="e4sm:PhysicalComponent" xmi:id="_M45SULI4EeuWI7I5oKywHA" name="New Physical Component"/>
     </components>
     <components xsi:type="e4sm:PhysicalComponent" xmi:id="_Pzv54LI4EeuWI7I5oKywHA" name="Violates C1" specifiedInPackage="_6h67ALI3EeuWI7I5oKywHA"/>
-    <packages xmi:id="_P5kDcLI3EeuWI7I5oKywHA" name="Specify C2" specifiesComponent="_LJiC8LI3EeuWI7I5oKywHA">
+    <components xsi:type="e4sm:PhysicalComponent" xmi:id="_MuAs0LKMEeuiPoBjhRFFrQ" name="Container">
+      <components xsi:type="e4sm:PhysicalComponent" xmi:id="_NcfjcLKMEeuiPoBjhRFFrQ" name="Subcontainer">
+        <components xsi:type="e4sm:PhysicalComponent" xmi:id="_O7hGMLKMEeuiPoBjhRFFrQ" name="Also Violates C1" specifiedInPackage="_6h67ALI3EeuWI7I5oKywHA"/>
+      </components>
+    </components>
+    <packages xmi:id="_P5kDcLI3EeuWI7I5oKywHA" name="Specify C2" specifiesComponents="_LJiC8LI3EeuWI7I5oKywHA">
       <components xsi:type="e4sm:PhysicalComponent" xmi:id="_Q0FyALI3EeuWI7I5oKywHA" name="Specified in Package"/>
     </packages>
-    <packages xmi:id="_ItwuoLI4EeuWI7I5oKywHA" name="Specify Good Component" specifiesComponent="_Gyy2wLI4EeuWI7I5oKywHA"/>
+    <packages xmi:id="_ItwuoLI4EeuWI7I5oKywHA" name="Specify Good Component" specifiesComponents="_Gyy2wLI4EeuWI7I5oKywHA"/>
   </packages>
   <actors xmi:id="_WuRuC7I2EeuWI7I5oKywHA" name="TestActor"/>
   <actors xsi:type="e4sm:Human" xmi:id="_WuRuDLI2EeuWI7I5oKywHA" name="Test Human"/>

@@ -26,6 +26,7 @@ import e4sm.de.metamodel.e4sm.Robot;
 import e4sm.de.metamodel.e4sm.Sector;
 import e4sm.de.metamodel.e4sm.Sensor;
 import e4sm.de.metamodel.e4sm.SoftwareComponent;
+import e4sm.de.metamodel.e4sm.Package;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
 import java.util.Map;
@@ -196,10 +197,11 @@ public class e4smValidator extends EObjectValidator {
 	}
 
 	/**
-	 * Validates the ComponentC1 constraint of '<em>Component</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
+	 * Validates the ComponentC1 constraint of '<em>Component</em>'. <!--
+	 * begin-user-doc --> C1: no loops allowed between the component container
+	 * (Package) and component "specifiedInPackage" <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
 	 */
 	public boolean validateComponent_ComponentC1(Component component, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
@@ -207,36 +209,45 @@ public class e4smValidator extends EObjectValidator {
 		// -> specify the condition that violates the constraint
 		// -> verify the diagnostic details, including severity, code, and message
 		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
-			if (diagnostics != null) {
-				diagnostics.add(
-						createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic",
-								new Object[] { "ComponentC1", getObjectLabel(component, context) },
-								new Object[] { component }, context));
+		final Package specifiedInPackage = component.getSpecifiedInPackage();
+		if (specifiedInPackage != null) {
+			EObject container = component;
+			do {
+				container = container.eContainer();
+			} while (container != null && !(container instanceof Package));
+			if (specifiedInPackage.equals(container)) {
+				if (diagnostics != null) {
+					diagnostics.add(
+							createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic",
+									new Object[] {
+											"C1: This container can not be specified by the package who owns it.",
+											getObjectLabel(component, context) },
+									new Object[] { component }, context));
+				}
+				return false;
 			}
-			return false;
 		}
 		return true;
 	}
 
 	/**
-	 * Validates the ComponentC2 constraint of '<em>Component</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
+	 * Validates the ComponentC2 constraint of '<em>Component</em>'. <!--
+	 * begin-user-doc --> - C2: components->size()>0, then specifiedInPackage=null -
+	 * If the component contains other components, it can't be specified in a
+	 * package. <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
 	 */
 	public boolean validateComponent_ComponentC2(Component component, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
-		// TODO implement the constraint
-		// -> specify the condition that violates the constraint
-		// -> verify the diagnostic details, including severity, code, and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
+		if (component.getComponents().size() > 0 && component.getSpecifiedInPackage() != null) {
 			if (diagnostics != null) {
-				diagnostics.add(
-						createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic",
-								new Object[] { "ComponentC2", getObjectLabel(component, context) },
-								new Object[] { component }, context));
+				diagnostics.add(createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0,
+						"_UI_GenericConstraint_diagnostic",
+						new Object[] {
+								"C2: If the component contains other components, it can't be specified in a package",
+								getObjectLabel(component, context) },
+						new Object[] { component }, context));
 			}
 			return false;
 		}
@@ -647,8 +658,8 @@ public class e4smValidator extends EObjectValidator {
 
 	/**
 	 * Validates the PackageC1 constraint of '<em>Package</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean validatePackage_PackageC1(e4sm.de.metamodel.e4sm.Package package_, DiagnosticChain diagnostics,
@@ -744,7 +755,29 @@ public class e4smValidator extends EObjectValidator {
 			result &= validateComponent_ComponentC1(sensor, diagnostics, context);
 		if (result || diagnostics != null)
 			result &= validateComponent_ComponentC2(sensor, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateSensor_SensorC1(sensor, diagnostics, context);
 		return result;
+	}
+
+	/**
+	 * Validates the SensorC1 constraint of '<em>Sensor</em>'.
+	 * <!-- begin-user-doc -->
+	 * C1: A sensor shall not have input pins
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean validateSensor_SensorC1(Sensor sensor, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (sensor.getPins().stream().anyMatch(p->p instanceof InputPin)) {
+			if (diagnostics != null) {
+				diagnostics.add(
+						createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic",
+								new Object[] { "C1: A sensor shall not have input pins", getObjectLabel(sensor, context) }, new Object[] { sensor },
+								context));
+			}
+			return false;
+		}
+		return true;
 	}
 
 	/**
@@ -773,7 +806,30 @@ public class e4smValidator extends EObjectValidator {
 			result &= validateComponent_ComponentC1(actuator, diagnostics, context);
 		if (result || diagnostics != null)
 			result &= validateComponent_ComponentC2(actuator, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateActuator_ActuatorC1(actuator, diagnostics, context);
 		return result;
+	}
+
+	/**
+	 * Validates the ActuatorC1 constraint of '<em>Actuator</em>'.
+	 * <!-- begin-user-doc -->
+	 * C1: An actuator shall not have output pins
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean validateActuator_ActuatorC1(Actuator actuator, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		if (actuator.getPins().stream().anyMatch(p->p instanceof OutputPin)) {
+			if (diagnostics != null) {
+				diagnostics.add(
+						createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic",
+								new Object[] { "C1: An actuator shall not have output pins", getObjectLabel(actuator, context) },
+								new Object[] { actuator }, context));
+			}
+			return false;
+		}
+		return true;
 	}
 
 	/**
@@ -817,8 +873,7 @@ public class e4smValidator extends EObjectValidator {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean validateOptionallyNamedElement(OptionallyNamedElement optionallyNamedElement,
