@@ -24,7 +24,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -44,7 +43,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getMainResponsible <em>Main Responsible</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getPackages <em>Packages</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getContainedBy <em>Contained By</em>}</li>
- *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getSpecifiesComponents <em>Specifies Components</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getSpecifiesComponent <em>Specifies Component</em>}</li>
  * </ul>
  *
  * @generated
@@ -121,14 +120,14 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	protected EList<e4sm.de.metamodel.e4sm.Package> packages;
 
 	/**
-	 * The cached value of the '{@link #getSpecifiesComponents() <em>Specifies Components</em>}' reference list.
+	 * The cached value of the '{@link #getSpecifiesComponent() <em>Specifies Component</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSpecifiesComponents()
+	 * @see #getSpecifiesComponent()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Component> specifiesComponents;
+	protected Component specifiesComponent;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -327,12 +326,68 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	 * @generated
 	 */
 	@Override
-	public EList<Component> getSpecifiesComponents() {
-		if (specifiesComponents == null) {
-			specifiesComponents = new EObjectWithInverseResolvingEList<Component>(Component.class, this,
-					e4smPackage.PACKAGE__SPECIFIES_COMPONENTS, e4smPackage.COMPONENT__SPECIFIED_IN_PACKAGE);
+	public Component getSpecifiesComponent() {
+		if (specifiesComponent != null && specifiesComponent.eIsProxy()) {
+			InternalEObject oldSpecifiesComponent = (InternalEObject) specifiesComponent;
+			specifiesComponent = (Component) eResolveProxy(oldSpecifiesComponent);
+			if (specifiesComponent != oldSpecifiesComponent) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, e4smPackage.PACKAGE__SPECIFIES_COMPONENT,
+							oldSpecifiesComponent, specifiesComponent));
+			}
 		}
-		return specifiesComponents;
+		return specifiesComponent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Component basicGetSpecifiesComponent() {
+		return specifiesComponent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSpecifiesComponent(Component newSpecifiesComponent, NotificationChain msgs) {
+		Component oldSpecifiesComponent = specifiesComponent;
+		specifiesComponent = newSpecifiesComponent;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					e4smPackage.PACKAGE__SPECIFIES_COMPONENT, oldSpecifiesComponent, newSpecifiesComponent);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setSpecifiesComponent(Component newSpecifiesComponent) {
+		if (newSpecifiesComponent != specifiesComponent) {
+			NotificationChain msgs = null;
+			if (specifiesComponent != null)
+				msgs = ((InternalEObject) specifiesComponent).eInverseRemove(this,
+						e4smPackage.COMPONENT__SPECIFIED_IN_PACKAGE, Component.class, msgs);
+			if (newSpecifiesComponent != null)
+				msgs = ((InternalEObject) newSpecifiesComponent).eInverseAdd(this,
+						e4smPackage.COMPONENT__SPECIFIED_IN_PACKAGE, Component.class, msgs);
+			msgs = basicSetSpecifiesComponent(newSpecifiesComponent, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.PACKAGE__SPECIFIES_COMPONENT,
+					newSpecifiesComponent, newSpecifiesComponent));
 	}
 
 	/**
@@ -350,9 +405,11 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			return basicSetContainedBy((e4sm.de.metamodel.e4sm.Package) otherEnd, msgs);
-		case e4smPackage.PACKAGE__SPECIFIES_COMPONENTS:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getSpecifiesComponents()).basicAdd(otherEnd,
-					msgs);
+		case e4smPackage.PACKAGE__SPECIFIES_COMPONENT:
+			if (specifiesComponent != null)
+				msgs = ((InternalEObject) specifiesComponent).eInverseRemove(this,
+						e4smPackage.COMPONENT__SPECIFIED_IN_PACKAGE, Component.class, msgs);
+			return basicSetSpecifiesComponent((Component) otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -375,8 +432,8 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 			return ((InternalEList<?>) getPackages()).basicRemove(otherEnd, msgs);
 		case e4smPackage.PACKAGE__CONTAINED_BY:
 			return basicSetContainedBy(null, msgs);
-		case e4smPackage.PACKAGE__SPECIFIES_COMPONENTS:
-			return ((InternalEList<?>) getSpecifiesComponents()).basicRemove(otherEnd, msgs);
+		case e4smPackage.PACKAGE__SPECIFIES_COMPONENT:
+			return basicSetSpecifiesComponent(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -422,8 +479,10 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 			return getPackages();
 		case e4smPackage.PACKAGE__CONTAINED_BY:
 			return getContainedBy();
-		case e4smPackage.PACKAGE__SPECIFIES_COMPONENTS:
-			return getSpecifiesComponents();
+		case e4smPackage.PACKAGE__SPECIFIES_COMPONENT:
+			if (resolve)
+				return getSpecifiesComponent();
+			return basicGetSpecifiesComponent();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -467,9 +526,8 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 		case e4smPackage.PACKAGE__CONTAINED_BY:
 			setContainedBy((e4sm.de.metamodel.e4sm.Package) newValue);
 			return;
-		case e4smPackage.PACKAGE__SPECIFIES_COMPONENTS:
-			getSpecifiesComponents().clear();
-			getSpecifiesComponents().addAll((Collection<? extends Component>) newValue);
+		case e4smPackage.PACKAGE__SPECIFIES_COMPONENT:
+			setSpecifiesComponent((Component) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -507,8 +565,8 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 		case e4smPackage.PACKAGE__CONTAINED_BY:
 			setContainedBy((e4sm.de.metamodel.e4sm.Package) null);
 			return;
-		case e4smPackage.PACKAGE__SPECIFIES_COMPONENTS:
-			getSpecifiesComponents().clear();
+		case e4smPackage.PACKAGE__SPECIFIES_COMPONENT:
+			setSpecifiesComponent((Component) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -538,8 +596,8 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 			return packages != null && !packages.isEmpty();
 		case e4smPackage.PACKAGE__CONTAINED_BY:
 			return getContainedBy() != null;
-		case e4smPackage.PACKAGE__SPECIFIES_COMPONENTS:
-			return specifiesComponents != null && !specifiesComponents.isEmpty();
+		case e4smPackage.PACKAGE__SPECIFIES_COMPONENT:
+			return specifiesComponent != null;
 		}
 		return super.eIsSet(featureID);
 	}

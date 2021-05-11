@@ -768,12 +768,12 @@ public class e4smValidator extends EObjectValidator {
 	 * @generated NOT
 	 */
 	public boolean validateSensor_SensorC1(Sensor sensor, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (sensor.getPins().stream().anyMatch(p->p instanceof InputPin)) {
+		if (sensor.getPins().stream().anyMatch(p -> p instanceof InputPin)) {
 			if (diagnostics != null) {
-				diagnostics.add(
-						createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic",
-								new Object[] { "C1: A sensor shall not have input pins", getObjectLabel(sensor, context) }, new Object[] { sensor },
-								context));
+				diagnostics.add(createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0,
+						"_UI_GenericConstraint_diagnostic",
+						new Object[] { "C1: A sensor shall not have input pins", getObjectLabel(sensor, context) },
+						new Object[] { sensor }, context));
 			}
 			return false;
 		}
@@ -820,12 +820,12 @@ public class e4smValidator extends EObjectValidator {
 	 */
 	public boolean validateActuator_ActuatorC1(Actuator actuator, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
-		if (actuator.getPins().stream().anyMatch(p->p instanceof OutputPin)) {
+		if (actuator.getPins().stream().anyMatch(p -> p instanceof OutputPin)) {
 			if (diagnostics != null) {
-				diagnostics.add(
-						createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic",
-								new Object[] { "C1: An actuator shall not have output pins", getObjectLabel(actuator, context) },
-								new Object[] { actuator }, context));
+				diagnostics.add(createDiagnostic(
+						Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic", new Object[] {
+								"C1: An actuator shall not have output pins", getObjectLabel(actuator, context) },
+						new Object[] { actuator }, context));
 			}
 			return false;
 		}

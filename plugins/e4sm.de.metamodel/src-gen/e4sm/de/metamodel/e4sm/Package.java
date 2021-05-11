@@ -27,7 +27,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link e4sm.de.metamodel.e4sm.Package#getMainResponsible <em>Main Responsible</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Package#getPackages <em>Packages</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Package#getContainedBy <em>Contained By</em>}</li>
- *   <li>{@link e4sm.de.metamodel.e4sm.Package#getSpecifiesComponents <em>Specifies Components</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.Package#getSpecifiesComponent <em>Specifies Component</em>}</li>
  * </ul>
  *
  * @see e4sm.de.metamodel.e4sm.e4smPackage#getPackage()
@@ -180,20 +180,30 @@ public interface Package extends NamedElement {
 	void setContainedBy(Package value);
 
 	/**
-	 * Returns the value of the '<em><b>Specifies Components</b></em>' reference list.
-	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.Component}.
+	 * Returns the value of the '<em><b>Specifies Component</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link e4sm.de.metamodel.e4sm.Component#getSpecifiedInPackage <em>Specified In Package</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * This package is the detailed representation of another component (optional)
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Specifies Components</em>' reference list.
-	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getPackage_SpecifiesComponents()
+	 * @return the value of the '<em>Specifies Component</em>' reference.
+	 * @see #setSpecifiesComponent(Component)
+	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getPackage_SpecifiesComponent()
 	 * @see e4sm.de.metamodel.e4sm.Component#getSpecifiedInPackage
 	 * @model opposite="specifiedInPackage"
 	 * @generated
 	 */
-	EList<Component> getSpecifiesComponents();
+	Component getSpecifiesComponent();
+
+	/**
+	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.Package#getSpecifiesComponent <em>Specifies Component</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Specifies Component</em>' reference.
+	 * @see #getSpecifiesComponent()
+	 * @generated
+	 */
+	void setSpecifiesComponent(Component value);
 
 } // Package

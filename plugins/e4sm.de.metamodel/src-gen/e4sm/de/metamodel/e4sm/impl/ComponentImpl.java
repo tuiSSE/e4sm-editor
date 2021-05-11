@@ -305,10 +305,10 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 			NotificationChain msgs = null;
 			if (specifiedInPackage != null)
 				msgs = ((InternalEObject) specifiedInPackage).eInverseRemove(this,
-						e4smPackage.PACKAGE__SPECIFIES_COMPONENTS, e4sm.de.metamodel.e4sm.Package.class, msgs);
+						e4smPackage.PACKAGE__SPECIFIES_COMPONENT, e4sm.de.metamodel.e4sm.Package.class, msgs);
 			if (newSpecifiedInPackage != null)
 				msgs = ((InternalEObject) newSpecifiedInPackage).eInverseAdd(this,
-						e4smPackage.PACKAGE__SPECIFIES_COMPONENTS, e4sm.de.metamodel.e4sm.Package.class, msgs);
+						e4smPackage.PACKAGE__SPECIFIES_COMPONENT, e4sm.de.metamodel.e4sm.Package.class, msgs);
 			msgs = basicSetSpecifiedInPackage(newSpecifiedInPackage, msgs);
 			if (msgs != null)
 				msgs.dispatch();
@@ -358,7 +358,7 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 		case e4smPackage.COMPONENT__SPECIFIED_IN_PACKAGE:
 			if (specifiedInPackage != null)
 				msgs = ((InternalEObject) specifiedInPackage).eInverseRemove(this,
-						e4smPackage.PACKAGE__SPECIFIES_COMPONENTS, e4sm.de.metamodel.e4sm.Package.class, msgs);
+						e4smPackage.PACKAGE__SPECIFIES_COMPONENT, e4sm.de.metamodel.e4sm.Package.class, msgs);
 			return basicSetSpecifiedInPackage((e4sm.de.metamodel.e4sm.Package) otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);

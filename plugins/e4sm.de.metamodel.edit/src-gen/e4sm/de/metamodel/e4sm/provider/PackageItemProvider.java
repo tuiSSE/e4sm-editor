@@ -50,7 +50,7 @@ public class PackageItemProvider extends NamedElementItemProvider {
 			addMainResponsiblePropertyDescriptor(object);
 			addPackagesPropertyDescriptor(object);
 			addContainedByPropertyDescriptor(object);
-			addSpecifiesComponentsPropertyDescriptor(object);
+			addSpecifiesComponentPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -131,18 +131,18 @@ public class PackageItemProvider extends NamedElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Specifies Components feature.
+	 * This adds a property descriptor for the Specifies Component feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addSpecifiesComponentsPropertyDescriptor(Object object) {
+	protected void addSpecifiesComponentPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Package_specifiesComponents_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Package_specifiesComponents_feature",
+						getResourceLocator(), getString("_UI_Package_specifiesComponent_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Package_specifiesComponent_feature",
 								"_UI_Package_type"),
-						e4smPackage.Literals.PACKAGE__SPECIFIES_COMPONENTS, true, false, true, null, null, null));
+						e4smPackage.Literals.PACKAGE__SPECIFIES_COMPONENT, true, false, true, null, null, null));
 	}
 
 	/**

@@ -8,7 +8,7 @@
     <semanticResources>Package.xmi</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_02yO8J3EEeuvaYQl6EJVjA">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_0402UJ3EEeuvaYQl6EJVjA" name="e4sm" repPath="#_04DaQJ3EEeuvaYQl6EJVjA" changeId="976eabd4-6dc7-46e9-9f6a-87e111f40e9a">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_0402UJ3EEeuvaYQl6EJVjA" name="e4sm" repPath="#_04DaQJ3EEeuvaYQl6EJVjA" changeId="ae9f97d4-8c4b-4766-b5bc-509b1693bcba">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="e4sm.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -38,7 +38,7 @@
     </ownedViews>
     <ownedViews xmi:type="viewpoint:DView" uid="_8W6YgKeIEeucJ9gqMnqetg">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="__QWq0KeIEeucJ9gqMnqetg" name="e4sm documentation table" repPath="#__QAskKeIEeucJ9gqMnqetg" changeId="131b2736-9d8f-4690-92e9-04dca337556b">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="__QWq0KeIEeucJ9gqMnqetg" name="e4sm documentation table" repPath="#__QAskKeIEeucJ9gqMnqetg" changeId="81ac5cef-b710-4c89-933a-1a7fc9447ffc">
         <description xmi:type="description_2:CrossTableDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']"/>
         <target xmi:type="ecore:EPackage" href="e4sm.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -3492,10 +3492,10 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_DHra3K2hEeu2OeVf7eyilw" sourceNode="_2iuzYJ3EEeuvaYQl6EJVjA" targetNode="_RQNS0KELEeu2g9Uda9mINg" beginLabel="[0..*] specifiesComponents" endLabel="[0..1] specifiedInPackage">
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_DHra3K2hEeu2OeVf7eyilw" sourceNode="_2iuzYJ3EEeuvaYQl6EJVjA" targetNode="_RQNS0KELEeu2g9Uda9mINg" beginLabel="[0..1] specifiesComponent" endLabel="[0..1] specifiedInPackage">
       <target xmi:type="ecore:EReference" href="e4sm.ecore#//Component/specifiedInPackage"/>
       <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//Component/specifiedInPackage"/>
-      <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//Package/specifiesComponents"/>
+      <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//Package/specifiesComponent"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_DHsB4K2hEeu2OeVf7eyilw" sourceArrow="InputArrow" routingStyle="manhattan" strokeColor="0,0,0">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']/@style"/>
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_DHsB4a2hEeu2OeVf7eyilw" showIcon="false"/>
@@ -4068,13 +4068,13 @@
           <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
         </cells>
       </lines>
-      <lines xmi:type="table:DLine" uid="_h7K4A62zEeu2OeVf7eyilw" label="EReference : specifiesComponents">
-        <target xmi:type="ecore:EReference" href="e4sm.ecore#//Package/specifiesComponents"/>
-        <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//Package/specifiesComponents"/>
+      <lines xmi:type="table:DLine" uid="_h7K4A62zEeu2OeVf7eyilw" label="EReference : specifiesComponent">
+        <target xmi:type="ecore:EReference" href="e4sm.ecore#//Package/specifiesComponent"/>
+        <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//Package/specifiesComponent"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
         <cells xmi:type="table:DCell" uid="_xjDWYK20Eeu2OeVf7eyilw" label="This package is the detailed representation of another component (optional)" column="__QRyUKeIEeucJ9gqMnqetg">
-          <target xmi:type="ecore:EStringToStringMapEntry" href="e4sm.ecore#//Package/specifiesComponents/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
-          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="e4sm.ecore#//Package/specifiesComponents/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <target xmi:type="ecore:EStringToStringMapEntry" href="e4sm.ecore#//Package/specifiesComponent/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="e4sm.ecore#//Package/specifiesComponent/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
           <currentStyle xmi:type="table:DCellStyle" uid="_xjDWYa20Eeu2OeVf7eyilw" defaultBackgroundStyle="true" backgroundColor="220,234,183">
             <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
           </currentStyle>
@@ -6577,7 +6577,7 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_DHyImK2hEeu2OeVf7eyilw" sourceNode="_5cbxwKm0Eeuyl-nf__hNBA" targetNode="_5ccY0am0Eeuyl-nf__hNBA" beginLabel="[0..1] specifiesComponent" endLabel="[0..1] specifiedInPackage">
       <target xmi:type="ecore:EReference" href="e4sm.ecore#//Component/specifiedInPackage"/>
       <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//Component/specifiedInPackage"/>
-      <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//Package/specifiesComponents"/>
+      <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//Package/specifiesComponent"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_DHyIma2hEeu2OeVf7eyilw" sourceArrow="InputArrow" routingStyle="manhattan" strokeColor="0,0,0">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']/@style"/>
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_DHyImq2hEeu2OeVf7eyilw" showIcon="false"/>

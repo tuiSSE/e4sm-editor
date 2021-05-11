@@ -34,7 +34,7 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="specifiedInPackage" eType="#//Package"
-        eOpposite="#//Package/specifiesComponents">
+        eOpposite="#//Package/specifiesComponent">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="A component may get specified further in a package&#xD;&#xA;Constraints:&#xD;&#xA;- C0: no loops allowed (implemented in Component)"/>
       </eAnnotations>
@@ -169,8 +169,8 @@
         <details key="documentation" value="A package containing this package (optional)"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="specifiesComponents" upperBound="-1"
-        eType="#//Component" eOpposite="#//Component/specifiedInPackage">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="specifiesComponent" eType="#//Component"
+        eOpposite="#//Component/specifiedInPackage">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="This package is the detailed representation of another component (optional)"/>
       </eAnnotations>
