@@ -10,13 +10,13 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
-import e4sm.de.metamodel.e4sm.Component;
-import e4sm.de.metamodel.e4sm.InputPin;
+import e4sm.de.metamodel.e4sm.Pin;
 
 /**
- * This is the item provider adapter for a {@link e4sm.de.metamodel.e4sm.InputPin} object.
- * <!-- begin-user-doc --> <!--
+ * This is the item provider adapter for a
+ * {@link e4sm.de.metamodel.e4sm.InputPin} object. <!-- begin-user-doc --> <!--
  * end-user-doc -->
+ * 
  * @generated
  */
 public class InputPinItemProvider extends PinItemProvider {
@@ -46,8 +46,8 @@ public class InputPinItemProvider extends PinItemProvider {
 	}
 
 	/**
-	 * This returns InputPin.gif.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This returns InputPin.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -57,6 +57,7 @@ public class InputPinItemProvider extends PinItemProvider {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -65,35 +66,24 @@ public class InputPinItemProvider extends PinItemProvider {
 	}
 
 	/**
-	 * This returns the label text for the adapted class. <!-- begin-user-doc -->
-	 * If the pin has a name, use that as label.
-	 * else, if the container has a name, use "of cName"
-	 * <!-- end-user-doc -->
+	 * This returns the label text for the adapted class. <!-- begin-user-doc --> If
+	 * the pin has a name, use that as label. else, if the container has a name, use
+	 * "of cName" <!-- end-user-doc -->
 	 * 
 	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = "";
-		InputPin inputPin = (InputPin) object;
-		final String name = inputPin.getName();
-		if (name != null && name.length() > 0) {
-			label = name;
-		} else {
-			Component component = (Component) inputPin.eContainer();
-			String componentName = component.getName();
-			if (componentName != null && componentName.length() > 0) {
-				label = "of " + component.getName();
-			}
-		}
+		String label = getLabelText((Pin)object);
 		return label == null || label.length() == 0 ? getString("_UI_InputPin_type")
 				: getString("_UI_InputPin_type") + " " + label;
 	}
 
 	/**
-	 * This handles model notifications by calling {@link #updateChildren} to update any cached
-	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This handles model notifications by calling {@link #updateChildren} to update
+	 * any cached children and by creating a viewer notification, which it passes to
+	 * {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -103,10 +93,10 @@ public class InputPinItemProvider extends PinItemProvider {
 	}
 
 	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing
+	 * the children that can be created under this object. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

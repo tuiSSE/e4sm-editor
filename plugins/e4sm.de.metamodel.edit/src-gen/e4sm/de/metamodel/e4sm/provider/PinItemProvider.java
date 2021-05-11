@@ -2,6 +2,7 @@
  */
 package e4sm.de.metamodel.e4sm.provider;
 
+import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.Pin;
 import java.util.Collection;
 import java.util.List;
@@ -11,16 +12,16 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 /**
- * This is the item provider adapter for a {@link e4sm.de.metamodel.e4sm.Pin} object.
- * <!-- begin-user-doc -->
- * <!-- end-user-doc -->
+ * This is the item provider adapter for a {@link e4sm.de.metamodel.e4sm.Pin}
+ * object. <!-- begin-user-doc --> <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class PinItemProvider extends OptionallyNamedElementItemProvider {
 	/**
-	 * This constructs an instance from a factory and a notifier.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This constructs an instance from a factory and a notifier. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public PinItemProvider(AdapterFactory adapterFactory) {
@@ -28,9 +29,9 @@ public class PinItemProvider extends OptionallyNamedElementItemProvider {
 	}
 
 	/**
-	 * This returns the property descriptors for the adapted class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This returns the property descriptors for the adapted class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -43,9 +44,8 @@ public class PinItemProvider extends OptionallyNamedElementItemProvider {
 	}
 
 	/**
-	 * This returns Pin.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This returns Pin.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -54,8 +54,8 @@ public class PinItemProvider extends OptionallyNamedElementItemProvider {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -64,9 +64,9 @@ public class PinItemProvider extends OptionallyNamedElementItemProvider {
 	}
 
 	/**
-	 * This returns the label text for the adapted class.
-	 * <!-- begin-user-doc -->
+	 * This returns the label text for the adapted class. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -76,11 +76,27 @@ public class PinItemProvider extends OptionallyNamedElementItemProvider {
 				: getString("_UI_Pin_type") + " " + label;
 	}
 
+	public String getLabelText(Pin pin) {
+		String label = "";
+		final String name = pin.getName();
+		if (name != null && name.length() > 0) {
+			label = name;
+		}
+
+		Component component = (Component) pin.eContainer();
+		String componentName = component.getName();
+		if (componentName != null && componentName.length() > 0) {
+			label += ((label.length() > 0 ? " " : "") + "of " + component.getName());
+		}
+
+		return label;
+	}
+
 	/**
-	 * This handles model notifications by calling {@link #updateChildren} to update any cached
-	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This handles model notifications by calling {@link #updateChildren} to update
+	 * any cached children and by creating a viewer notification, which it passes to
+	 * {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -90,10 +106,10 @@ public class PinItemProvider extends OptionallyNamedElementItemProvider {
 	}
 
 	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing
+	 * the children that can be created under this object. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
