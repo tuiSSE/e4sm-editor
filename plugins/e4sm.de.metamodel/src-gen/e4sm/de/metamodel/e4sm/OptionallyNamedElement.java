@@ -7,6 +7,10 @@ package e4sm.de.metamodel.e4sm;
  * A representation of the model object '<em><b>Optionally Named Element</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * An element with a name attribute which is not compulsory
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>
@@ -23,6 +27,9 @@ public interface OptionallyNamedElement extends Element {
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The name of the element, it may be null
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getOptionallyNamedElement_Name()

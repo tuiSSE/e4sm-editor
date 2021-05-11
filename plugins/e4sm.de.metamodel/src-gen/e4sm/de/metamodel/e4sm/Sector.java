@@ -48,6 +48,9 @@ public interface Sector extends NamedElement {
 	 * It is bidirectional and its opposite is '{@link e4sm.de.metamodel.e4sm.Sector#getContainedBy <em>Contained By</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A list of sectors contained by this sector
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Sectors</em>' containment reference list.
 	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getSector_Sectors()
 	 * @see e4sm.de.metamodel.e4sm.Sector#getContainedBy
@@ -61,6 +64,9 @@ public interface Sector extends NamedElement {
 	 * It is bidirectional and its opposite is '{@link e4sm.de.metamodel.e4sm.Sector#getSectors <em>Sectors</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A sector which contains this sector (optional)
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Contained By</em>' container reference.
 	 * @see #setContainedBy(Sector)
 	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getSector_ContainedBy()

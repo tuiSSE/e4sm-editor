@@ -14,4 +14,11 @@
             genModel="model/e4sm.genmodel"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated e4sm -->
+      <parser
+            type="e4sm"
+            class="e4sm.de.metamodel.e4sm.util.e4smResourceFactoryImpl"/>
+   </extension>
+
 </plugin>

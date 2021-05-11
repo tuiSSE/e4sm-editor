@@ -8,7 +8,7 @@
     copyrightFields="false" operationReflection="true" importOrganizing="true">
   <foreignModel>e4sm.ecore</foreignModel>
   <testsDirectory xsi:nil="true"/>
-  <genPackages prefix="e4sm" basePackage="e4sm.de.metamodel" disposableProviderFactory="true"
+  <genPackages prefix="e4sm" basePackage="e4sm.de.metamodel" resource="XMI" disposableProviderFactory="true"
       ecorePackage="e4sm.ecore#/">
     <genDataTypes ecoreDataType="e4sm.ecore#//Connectionspeed"/>
     <genClasses documentation="Generic component, which should be used to temporally specify an element before deciding how it will be realised.&#xD;&#xA;&#xD;&#xA;Constraints:&#xD;&#xA;- C1: no loops allowed between the component container (Package) and component &quot;specifiedInPackage&quot;"
@@ -74,9 +74,7 @@
     </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//Sensor"/>
     <genClasses ecoreClass="e4sm.ecore#//Actuator"/>
-    <genClasses ecoreClass="e4sm.ecore#//Element">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//Element/uuid"/>
-    </genClasses>
+    <genClasses ecoreClass="e4sm.ecore#//Element"/>
     <genClasses ecoreClass="e4sm.ecore#//Pin"/>
     <genClasses ecoreClass="e4sm.ecore#//InputPin"/>
     <genClasses ecoreClass="e4sm.ecore#//OutputPin"/>

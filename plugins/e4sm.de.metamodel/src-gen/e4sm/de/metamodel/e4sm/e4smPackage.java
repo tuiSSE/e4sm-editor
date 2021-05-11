@@ -69,22 +69,13 @@ public interface e4smPackage extends EPackage {
 	int ELEMENT = 19;
 
 	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT__UUID = 0;
-
-	/**
 	 * The number of structural features of the '<em>Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_FEATURE_COUNT = 1;
+	int ELEMENT_FEATURE_COUNT = 0;
 
 	/**
 	 * The number of operations of the '<em>Element</em>' class.
@@ -104,15 +95,6 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	int NAMED_ELEMENT = 12;
-
-	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NAMED_ELEMENT__UUID = ELEMENT__UUID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -150,15 +132,6 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	int COMPONENT = 0;
-
-	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPONENT__UUID = NAMED_ELEMENT__UUID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -250,15 +223,6 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	int SOFTWARE_COMPONENT = 5;
-
-	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOFTWARE_COMPONENT__UUID = COMPONENT__UUID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -370,15 +334,6 @@ public interface e4smPackage extends EPackage {
 	int MACHINE_LEARNING_COMPONENT = 1;
 
 	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MACHINE_LEARNING_COMPONENT__UUID = SOFTWARE_COMPONENT__UUID;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -488,15 +443,6 @@ public interface e4smPackage extends EPackage {
 	int OPTIONALLY_NAMED_ELEMENT = 24;
 
 	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTIONALLY_NAMED_ELEMENT__UUID = ELEMENT__UUID;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -532,15 +478,6 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	int CONNECTOR = 2;
-
-	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONNECTOR__UUID = OPTIONALLY_NAMED_ELEMENT__UUID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -596,15 +533,6 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	int PHYSICAL_CONNECTOR = 3;
-
-	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PHYSICAL_CONNECTOR__UUID = CONNECTOR__UUID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -678,15 +606,6 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	int PHYSICAL_COMPONENT = 4;
-
-	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PHYSICAL_COMPONENT__UUID = COMPONENT__UUID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -780,15 +699,6 @@ public interface e4smPackage extends EPackage {
 	int LOGICAL_CONNECTOR = 6;
 
 	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LOGICAL_CONNECTOR__UUID = CONNECTOR__UUID;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -842,15 +752,6 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	int HEURISTIC = 7;
-
-	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HEURISTIC__UUID = SOFTWARE_COMPONENT__UUID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -962,15 +863,6 @@ public interface e4smPackage extends EPackage {
 	int FUNCTION = 8;
 
 	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FUNCTION__UUID = SOFTWARE_COMPONENT__UUID;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1080,15 +972,6 @@ public interface e4smPackage extends EPackage {
 	int EXTERNAL_DEPENDENCY = 9;
 
 	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTERNAL_DEPENDENCY__UUID = SOFTWARE_COMPONENT__UUID;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1196,15 +1079,6 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	int PACKAGE = 10;
-
-	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PACKAGE__UUID = NAMED_ELEMENT__UUID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1325,15 +1199,6 @@ public interface e4smPackage extends EPackage {
 	int MODEL = 11;
 
 	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL__UUID = NAMED_ELEMENT__UUID;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1398,15 +1263,6 @@ public interface e4smPackage extends EPackage {
 	int ACTOR = 13;
 
 	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTOR__UUID = NAMED_ELEMENT__UUID;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1442,15 +1298,6 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	int HUMAN = 14;
-
-	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HUMAN__UUID = ACTOR__UUID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1490,15 +1337,6 @@ public interface e4smPackage extends EPackage {
 	int ROBOT = 15;
 
 	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROBOT__UUID = ACTOR__UUID;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1534,15 +1372,6 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	int SECTOR = 16;
-
-	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SECTOR__UUID = NAMED_ELEMENT__UUID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1607,15 +1436,6 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	int SENSOR = 17;
-
-	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SENSOR__UUID = PHYSICAL_COMPONENT__UUID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1709,15 +1529,6 @@ public interface e4smPackage extends EPackage {
 	int ACTUATOR = 18;
 
 	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTUATOR__UUID = PHYSICAL_COMPONENT__UUID;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1809,15 +1620,6 @@ public interface e4smPackage extends EPackage {
 	int PIN = 20;
 
 	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PIN__UUID = OPTIONALLY_NAMED_ELEMENT__UUID;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1853,15 +1655,6 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	int INPUT_PIN = 21;
-
-	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INPUT_PIN__UUID = PIN__UUID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1901,15 +1694,6 @@ public interface e4smPackage extends EPackage {
 	int OUTPUT_PIN = 22;
 
 	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OUTPUT_PIN__UUID = PIN__UUID;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1945,15 +1729,6 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	int PERSON = 23;
-
-	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PERSON__UUID = HUMAN__UUID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2546,17 +2321,6 @@ public interface e4smPackage extends EPackage {
 	EClass getElement();
 
 	/**
-	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.Element#getUuid <em>Uuid</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Uuid</em>'.
-	 * @see e4sm.de.metamodel.e4sm.Element#getUuid()
-	 * @see #getElement()
-	 * @generated
-	 */
-	EAttribute getElement_Uuid();
-
-	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.Pin <em>Pin</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3127,14 +2891,6 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EClass ELEMENT = eINSTANCE.getElement();
-
-		/**
-		 * The meta object literal for the '<em><b>Uuid</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ELEMENT__UUID = eINSTANCE.getElement_Uuid();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.PinImpl <em>Pin</em>}' class.

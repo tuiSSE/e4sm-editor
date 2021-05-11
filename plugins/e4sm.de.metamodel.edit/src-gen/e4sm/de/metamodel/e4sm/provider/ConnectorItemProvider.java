@@ -4,16 +4,24 @@ package e4sm.de.metamodel.e4sm.provider;
 
 import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.Connector;
+import e4sm.de.metamodel.e4sm.LogicalConnector;
+import e4sm.de.metamodel.e4sm.Package;
+import e4sm.de.metamodel.e4sm.PhysicalComponent;
+import e4sm.de.metamodel.e4sm.PhysicalConnector;
 import e4sm.de.metamodel.e4sm.Pin;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 
 /**
  * This is the item provider adapter for a {@link e4sm.de.metamodel.e4sm.Connector} object.
@@ -68,15 +76,42 @@ public class ConnectorItemProvider extends OptionallyNamedElementItemProvider {
 	 * This adds a property descriptor for the Target feature.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addTargetPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				.add(new ItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
 						getResourceLocator(), getString("_UI_Connector_target_feature"),
 						getString("_UI_PropertyDescriptor_description", "_UI_Connector_target_feature",
 								"_UI_Connector_type"),
-						e4smPackage.Literals.CONNECTOR__TARGET, true, false, true, null, null, null));
+						e4smPackage.Literals.CONNECTOR__TARGET, true, false, true, null, null, null) {
+					@Override
+					public Collection<?> getChoiceOfValues(Object object) {
+						Connector connector = (Connector) object;
+						List<Object> result = new ArrayList<Object>();
+
+						//Allow unselecting an element
+						result.add(null);
+
+						Package p = (Package) connector.eContainer();
+						if (p != null) {
+							if (connector instanceof PhysicalConnector) {
+								//Get all pins of other PhysicalComponents of the same level, TODO: include PhysicalComponents contained by sectors.
+								result.addAll(p.getComponents().stream().filter(c -> c instanceof PhysicalComponent)
+										.map(c -> c.getPins()).flatMap(l -> l.stream()).collect(Collectors.toList()));
+							} else if (connector instanceof LogicalConnector) {
+								//Get all pins, including pins contained by containers TODO
+								result.addAll(p.getComponents().stream().map(c -> c.getPins()).flatMap(l -> l.stream())
+										.collect(Collectors.toList()));
+							} else
+								//Generic connector, TODO
+								result.addAll(p.getComponents().stream().map(c -> c.getPins()).flatMap(l -> l.stream())
+										.collect(Collectors.toList()));
+						}
+
+						return result;
+					}
+				});
 	}
 
 	/**
@@ -108,7 +143,12 @@ public class ConnectorItemProvider extends OptionallyNamedElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		Connector connector = (Connector) object;
+		String label = getLabelText((Connector) object);
+		return label == null || label.length() == 0 ? getString("_UI_Connector_type") + " " + EcoreUtil.getID((Connector) object)
+				: getString("_UI_Connector_type") + " " + label;
+	}
+	
+	public String getLabelText(Connector connector) {
 		final String name = connector.getName();
 		String label = null;
 		if (name != null && name.length() > 0) {
@@ -126,8 +166,7 @@ public class ConnectorItemProvider extends OptionallyNamedElementItemProvider {
 				}
 			}
 		}
-		return label == null || label.length() == 0 ? getString("_UI_Connector_type") + " " + connector.getUuid()
-				: getString("_UI_Connector_type") + " " + label;
+		return label;
 	}
 
 	/**

@@ -171,7 +171,76 @@ public class e4smValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateComponent(Component component, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(component, diagnostics, context);
+		if (!validate_NoCircularContainment(component, diagnostics, context))
+			return false;
+		boolean result = validate_EveryMultiplicityConforms(component, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryDataValueConforms(component, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryReferenceIsContained(component, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryBidirectionalReferenceIsPaired(component, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryProxyResolves(component, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_UniqueID(component, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryKeyUnique(component, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryMapEntryUnique(component, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateComponent_ComponentC1(component, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateComponent_ComponentC2(component, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the ComponentC1 constraint of '<em>Component</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateComponent_ComponentC1(Component component, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		// TODO implement the constraint
+		// -> specify the condition that violates the constraint
+		// -> verify the diagnostic details, including severity, code, and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
+			if (diagnostics != null) {
+				diagnostics.add(
+						createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic",
+								new Object[] { "ComponentC1", getObjectLabel(component, context) },
+								new Object[] { component }, context));
+			}
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * Validates the ComponentC2 constraint of '<em>Component</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateComponent_ComponentC2(Component component, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		// TODO implement the constraint
+		// -> specify the condition that violates the constraint
+		// -> verify the diagnostic details, including severity, code, and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
+			if (diagnostics != null) {
+				diagnostics.add(
+						createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic",
+								new Object[] { "ComponentC2", getObjectLabel(component, context) },
+								new Object[] { component }, context));
+			}
+			return false;
+		}
+		return true;
 	}
 
 	/**
@@ -180,7 +249,28 @@ public class e4smValidator extends EObjectValidator {
 	 */
 	public boolean validateMachineLearningComponent(MachineLearningComponent machineLearningComponent,
 			DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(machineLearningComponent, diagnostics, context);
+		if (!validate_NoCircularContainment(machineLearningComponent, diagnostics, context))
+			return false;
+		boolean result = validate_EveryMultiplicityConforms(machineLearningComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryDataValueConforms(machineLearningComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryReferenceIsContained(machineLearningComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryBidirectionalReferenceIsPaired(machineLearningComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryProxyResolves(machineLearningComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_UniqueID(machineLearningComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryKeyUnique(machineLearningComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryMapEntryUnique(machineLearningComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateComponent_ComponentC1(machineLearningComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateComponent_ComponentC2(machineLearningComponent, diagnostics, context);
+		return result;
 	}
 
 	/**
@@ -357,7 +447,28 @@ public class e4smValidator extends EObjectValidator {
 	 */
 	public boolean validatePhysicalComponent(PhysicalComponent physicalComponent, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(physicalComponent, diagnostics, context);
+		if (!validate_NoCircularContainment(physicalComponent, diagnostics, context))
+			return false;
+		boolean result = validate_EveryMultiplicityConforms(physicalComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryDataValueConforms(physicalComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryReferenceIsContained(physicalComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryBidirectionalReferenceIsPaired(physicalComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryProxyResolves(physicalComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_UniqueID(physicalComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryKeyUnique(physicalComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryMapEntryUnique(physicalComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateComponent_ComponentC1(physicalComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateComponent_ComponentC2(physicalComponent, diagnostics, context);
+		return result;
 	}
 
 	/**
@@ -366,7 +477,28 @@ public class e4smValidator extends EObjectValidator {
 	 */
 	public boolean validateSoftwareComponent(SoftwareComponent softwareComponent, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(softwareComponent, diagnostics, context);
+		if (!validate_NoCircularContainment(softwareComponent, diagnostics, context))
+			return false;
+		boolean result = validate_EveryMultiplicityConforms(softwareComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryDataValueConforms(softwareComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryReferenceIsContained(softwareComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryBidirectionalReferenceIsPaired(softwareComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryProxyResolves(softwareComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_UniqueID(softwareComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryKeyUnique(softwareComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryMapEntryUnique(softwareComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateComponent_ComponentC1(softwareComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateComponent_ComponentC2(softwareComponent, diagnostics, context);
+		return result;
 	}
 
 	/**
@@ -402,7 +534,28 @@ public class e4smValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateHeuristic(Heuristic heuristic, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(heuristic, diagnostics, context);
+		if (!validate_NoCircularContainment(heuristic, diagnostics, context))
+			return false;
+		boolean result = validate_EveryMultiplicityConforms(heuristic, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryDataValueConforms(heuristic, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryReferenceIsContained(heuristic, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryBidirectionalReferenceIsPaired(heuristic, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryProxyResolves(heuristic, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_UniqueID(heuristic, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryKeyUnique(heuristic, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryMapEntryUnique(heuristic, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateComponent_ComponentC1(heuristic, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateComponent_ComponentC2(heuristic, diagnostics, context);
+		return result;
 	}
 
 	/**
@@ -410,7 +563,28 @@ public class e4smValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateFunction(Function function, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(function, diagnostics, context);
+		if (!validate_NoCircularContainment(function, diagnostics, context))
+			return false;
+		boolean result = validate_EveryMultiplicityConforms(function, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryDataValueConforms(function, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryReferenceIsContained(function, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryBidirectionalReferenceIsPaired(function, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryProxyResolves(function, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_UniqueID(function, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryKeyUnique(function, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryMapEntryUnique(function, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateComponent_ComponentC1(function, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateComponent_ComponentC2(function, diagnostics, context);
+		return result;
 	}
 
 	/**
@@ -419,7 +593,28 @@ public class e4smValidator extends EObjectValidator {
 	 */
 	public boolean validateExternalDependency(ExternalDependency externalDependency, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(externalDependency, diagnostics, context);
+		if (!validate_NoCircularContainment(externalDependency, diagnostics, context))
+			return false;
+		boolean result = validate_EveryMultiplicityConforms(externalDependency, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryDataValueConforms(externalDependency, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryReferenceIsContained(externalDependency, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryBidirectionalReferenceIsPaired(externalDependency, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryProxyResolves(externalDependency, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_UniqueID(externalDependency, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryKeyUnique(externalDependency, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryMapEntryUnique(externalDependency, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateComponent_ComponentC1(externalDependency, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateComponent_ComponentC2(externalDependency, diagnostics, context);
+		return result;
 	}
 
 	/**
@@ -428,7 +623,50 @@ public class e4smValidator extends EObjectValidator {
 	 */
 	public boolean validatePackage(e4sm.de.metamodel.e4sm.Package package_, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(package_, diagnostics, context);
+		if (!validate_NoCircularContainment(package_, diagnostics, context))
+			return false;
+		boolean result = validate_EveryMultiplicityConforms(package_, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryDataValueConforms(package_, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryReferenceIsContained(package_, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryBidirectionalReferenceIsPaired(package_, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryProxyResolves(package_, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_UniqueID(package_, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryKeyUnique(package_, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryMapEntryUnique(package_, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validatePackage_PackageC1(package_, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the PackageC1 constraint of '<em>Package</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePackage_PackageC1(e4sm.de.metamodel.e4sm.Package package_, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		// TODO implement the constraint
+		// -> specify the condition that violates the constraint
+		// -> verify the diagnostic details, including severity, code, and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
+			if (diagnostics != null) {
+				diagnostics.add(
+						createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic",
+								new Object[] { "PackageC1", getObjectLabel(package_, context) },
+								new Object[] { package_ }, context));
+			}
+			return false;
+		}
+		return true;
 	}
 
 	/**
@@ -485,7 +723,28 @@ public class e4smValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateSensor(Sensor sensor, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(sensor, diagnostics, context);
+		if (!validate_NoCircularContainment(sensor, diagnostics, context))
+			return false;
+		boolean result = validate_EveryMultiplicityConforms(sensor, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryDataValueConforms(sensor, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryReferenceIsContained(sensor, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryBidirectionalReferenceIsPaired(sensor, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryProxyResolves(sensor, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_UniqueID(sensor, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryKeyUnique(sensor, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryMapEntryUnique(sensor, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateComponent_ComponentC1(sensor, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateComponent_ComponentC2(sensor, diagnostics, context);
+		return result;
 	}
 
 	/**
@@ -493,7 +752,28 @@ public class e4smValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateActuator(Actuator actuator, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(actuator, diagnostics, context);
+		if (!validate_NoCircularContainment(actuator, diagnostics, context))
+			return false;
+		boolean result = validate_EveryMultiplicityConforms(actuator, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryDataValueConforms(actuator, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryReferenceIsContained(actuator, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryBidirectionalReferenceIsPaired(actuator, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryProxyResolves(actuator, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_UniqueID(actuator, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryKeyUnique(actuator, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryMapEntryUnique(actuator, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateComponent_ComponentC1(actuator, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateComponent_ComponentC2(actuator, diagnostics, context);
+		return result;
 	}
 
 	/**

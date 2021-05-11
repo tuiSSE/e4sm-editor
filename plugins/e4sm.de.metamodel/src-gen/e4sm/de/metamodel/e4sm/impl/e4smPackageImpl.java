@@ -797,16 +797,6 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getElement_Uuid() {
-		return (EAttribute) elementEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getPin() {
 		return pinEClass;
 	}
@@ -1009,7 +999,6 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		actuatorEClass = createEClass(ACTUATOR);
 
 		elementEClass = createEClass(ELEMENT);
-		createEAttribute(elementEClass, ELEMENT__UUID);
 
 		pinEClass = createEClass(PIN);
 
@@ -1223,8 +1212,6 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 				IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(elementEClass, Element.class, "Element", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getElement_Uuid(), ecorePackage.getEString(), "uuid", "", 1, 1, Element.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(pinEClass, Pin.class, "Pin", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1272,9 +1259,11 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 */
 	protected void createEcoreAnnotations() {
 		String source = "http://www.eclipse.org/emf/2002/Ecore";
+		addAnnotation(componentEClass, source, new String[] { "constraints", "ComponentC1 ComponentC2" });
 		addAnnotation(connectorEClass, source, new String[] { "constraints", "ConnectorC1" });
 		addAnnotation(physicalConnectorEClass, source,
 				new String[] { "constraints", "PhysicalConnectorC1 PhysicalConnectorC2 PhysicalConnectorC3" });
+		addAnnotation(packageEClass, source, new String[] { "constraints", "PackageC1" });
 	}
 
 } //e4smPackageImpl

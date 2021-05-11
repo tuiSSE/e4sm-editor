@@ -11,6 +11,8 @@ import org.eclipse.emf.common.util.EList;
  *
  * <!-- begin-model-doc -->
  * A package contains a set of Components and their connections.
+ * Constraints:
+ * - C1: all owned packages must have "specifiesComponent" set to a component owned by this package.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -29,7 +31,7 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  *
  * @see e4sm.de.metamodel.e4sm.e4smPackage#getPackage()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='PackageC1'"
  * @generated
  */
 public interface Package extends NamedElement {
@@ -139,6 +141,9 @@ public interface Package extends NamedElement {
 	 * It is bidirectional and its opposite is '{@link e4sm.de.metamodel.e4sm.Package#getContainedBy <em>Contained By</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A package may contains subpackages, which specify one of the components owned by this package
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Packages</em>' containment reference list.
 	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getPackage_Packages()
 	 * @see e4sm.de.metamodel.e4sm.Package#getContainedBy
@@ -152,6 +157,9 @@ public interface Package extends NamedElement {
 	 * It is bidirectional and its opposite is '{@link e4sm.de.metamodel.e4sm.Package#getPackages <em>Packages</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A package containing this package (optional)
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Contained By</em>' container reference.
 	 * @see #setContainedBy(Package)
 	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getPackage_ContainedBy()
@@ -176,6 +184,9 @@ public interface Package extends NamedElement {
 	 * It is bidirectional and its opposite is '{@link e4sm.de.metamodel.e4sm.Component#getSpecifiedInPackage <em>Specified In Package</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * This package is the detailed representation of another component (optional)
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Specifies Component</em>' reference.
 	 * @see #setSpecifiesComponent(Component)
 	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getPackage_SpecifiesComponent()

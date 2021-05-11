@@ -11,6 +11,9 @@ import org.eclipse.emf.common.util.EList;
  *
  * <!-- begin-model-doc -->
  * Generic component, which should be used to temporally specify an element before deciding how it will be realised.
+ * 
+ * Constraints:
+ * - C1: no loops allowed between the component container (Package) and component "specifiedInPackage"
  * <!-- end-model-doc -->
  *
  * <p>
@@ -25,7 +28,7 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  *
  * @see e4sm.de.metamodel.e4sm.e4smPackage#getComponent()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='ComponentC1 ComponentC2'"
  * @generated
  */
 public interface Component extends NamedElement {
@@ -120,6 +123,11 @@ public interface Component extends NamedElement {
 	 * It is bidirectional and its opposite is '{@link e4sm.de.metamodel.e4sm.Package#getSpecifiesComponent <em>Specifies Component</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A component may get specified further in a package
+	 * Constraints:
+	 * - C1: no loops allowed (implemented in Component)
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Specified In Package</em>' reference.
 	 * @see #setSpecifiedInPackage(e4sm.de.metamodel.e4sm.Package)
 	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getComponent_SpecifiedInPackage()
