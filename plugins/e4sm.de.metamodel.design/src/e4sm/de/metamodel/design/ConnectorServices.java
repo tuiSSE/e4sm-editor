@@ -2,6 +2,7 @@ package e4sm.de.metamodel.design;
 
 import org.eclipse.emf.ecore.EObject;
 
+import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.OutputPin;
 import e4sm.de.metamodel.e4sm.PhysicalComponent;
 
@@ -25,8 +26,8 @@ public class ConnectorServices {
 			return false;
 		}
 
-		// Not allowed: If the target is not a Physical Component
-		if (!(targetContainer instanceof PhysicalComponent)) {
+		// Not allowed: If the target is not a Physical Component or a container
+		if ((!(targetContainer instanceof PhysicalComponent) /*|| !targetContainer.getClass().equals(Component.class))*/)) {
 			return false;
 		}
 		

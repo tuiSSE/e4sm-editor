@@ -12,7 +12,7 @@
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="e4sm.ecore#/"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_ZvO70KmWEeuyl-nf__hNBA" name="e4sm CD - Connectors" repPath="#_ZvMfkKmWEeuyl-nf__hNBA" changeId="5dcca5bd-cd2e-4f29-8cdf-0b74787a43eb">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_ZvO70KmWEeuyl-nf__hNBA" name="e4sm CD - Connectors" repPath="#_ZvMfkKmWEeuyl-nf__hNBA" changeId="4ab5bd32-0eff-4c21-8456-7e690eb380a4">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="e4sm.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -4451,6 +4451,10 @@
               <styles xmi:type="notation:FontStyle" xmi:id="_bYtbFKmWEeuyl-nf__hNBA" fontName="Segoe UI" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_bYtbFamWEeuyl-nf__hNBA"/>
             </children>
+            <children xmi:type="notation:Node" xmi:id="_KlAbYLbeEeu3Eqc2zxIjvw" type="3010" element="_KkkWgbbeEeu3Eqc2zxIjvw">
+              <styles xmi:type="notation:FontStyle" xmi:id="_KlAbYbbeEeu3Eqc2zxIjvw" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_KlAbYrbeEeu3Eqc2zxIjvw"/>
+            </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_bYsM8qmWEeuyl-nf__hNBA"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_bYsM86mWEeuyl-nf__hNBA"/>
           </children>
@@ -4749,6 +4753,14 @@
         <target xmi:type="ecore:EReference" href="e4sm.ecore#//Component/mainResponsible"/>
         <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//Component/mainResponsible"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_bYpJoamWEeuyl-nf__hNBA" labelAlignment="LEFT" color="114,159,207">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_KkkWgbbeEeu3Eqc2zxIjvw" name=" specifiedInPackage : Package" tooltipText="">
+        <target xmi:type="ecore:EReference" href="e4sm.ecore#//Component/specifiedInPackage"/>
+        <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//Component/specifiedInPackage"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_Kkk9kLbeEeu3Eqc2zxIjvw" labelAlignment="LEFT" color="114,159,207">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
