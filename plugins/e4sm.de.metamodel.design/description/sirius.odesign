@@ -682,6 +682,30 @@
         </customization>
       </additionalLayers>
       <additionalLayers name="d2_layer_responsibilities" label="Responsibilities">
+        <toolSections name="responsibilities_tools" label="Responsibility Tools">
+          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="select_responsibile" label="Select Responsible" precondition="aql:self.oclIsKindOf(e4sm::Component)" candidatesExpression="aql:container.eContainer(e4sm::Model).actors->filter(e4sm::Person)" message="Please select the Main Responsibile" iconPath="/e4sm.de.metamodel.edit/icons/full/obj16/Person.gif" windowTitle="Select Responsible">
+            <element name="element"/>
+            <containerView name="containerView"/>
+            <container name="container"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element.oclAsType(e4sm::Component)">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="mainResponsible" valueExpression="var:element"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:GroupMenu" name="responsibilities_tool_group" label="Manage Responsible People" precondition="aql:self.oclIsKindOf(e4sm::Component)" locationURI="menu:editMenu">
+            <itemDescriptions xsi:type="tool_1:PopupMenu" name="remove_responsible_popup" label="Manage Responsible">
+              <menuItemDescription xsi:type="tool_1:OperationAction" name="remove_responsible_action" label="Remove Responsible" precondition="aql:self.oclAsType(e4sm::Component).mainResponsible&lt;>null" icon="/org.eclipse.sirius.diagram.ui/icons/full/obj16/DeleteElementDescription.gif">
+                <view name="views"/>
+                <initialOperation>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="mainResponsible" valueExpression="aql:null"/>
+                  </firstModelOperations>
+                </initialOperation>
+              </menuItemDescription>
+            </itemDescriptions>
+          </ownedTools>
+        </toolSections>
         <decorationDescriptionsSet>
           <decorationDescriptions xsi:type="description:SemanticBasedDecoration" name="Main Responsible" position="NORTH_EAST" distributionDirection="HORIZONTAL" preconditionExpression="aql:self.computeMainResponsible()&lt;>null" imageExpression="aql:self.eContainer(e4sm::Model).personsPicturesPath + self.computeMainResponsible().pictureFileName" tooltipExpression="aql:self.name" domainClass="e4sm::Component"/>
         </decorationDescriptionsSet>
