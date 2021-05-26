@@ -576,6 +576,78 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool_1:GroupMenu" name="change_elements_type_group" label="Change Type" precondition="aql:self.oclIsKindOf(e4sm::Component)" locationURI="menu:editMenu">
+            <itemDescriptions xsi:type="tool_1:PopupMenu" name="change_specific_component_to_component" label="↑ Make more Generic">
+              <menuItemDescription xsi:type="tool_1:OperationAction" name="change_to_component_action" label="To Component" precondition="aql:container.oclIsTypeOf(e4sm::SoftwareComponent) or container.oclIsTypeOf(e4sm::PhysicalComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/Component.gif">
+                <view name="views"/>
+                <initialOperation>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformToComponent()"/>
+                </initialOperation>
+              </menuItemDescription>
+              <menuItemDescription xsi:type="tool_1:OperationAction" name="change_to_software_component_action" label="To Software Component" precondition="aql:container.oclIsKindOf(e4sm::SoftwareComponent) and not container.oclIsTypeOf(e4sm::SoftwareComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/SoftwareComponent.gif">
+                <view name="views"/>
+                <initialOperation>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformToSoftwareComponent()"/>
+                </initialOperation>
+              </menuItemDescription>
+              <menuItemDescription xsi:type="tool_1:OperationAction" name="change_to_physical_component_action" label="To Physical Component" precondition="aql:container.oclIsKindOf(e4sm::PhysicalComponent) and not container.oclIsTypeOf(e4sm::PhysicalComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/PhysicalComponent.gif">
+                <view name="views"/>
+                <initialOperation>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformToPhysicalComponent()"/>
+                </initialOperation>
+              </menuItemDescription>
+            </itemDescriptions>
+            <itemDescriptions xsi:type="tool_1:PopupMenu" name="change_component_to_software_component" label="↓ Make more Specific">
+              <menuItemDescription xsi:type="tool_1:OperationAction" name="change_to_software_component_action" label="Change to Software Component" precondition="aql:container.oclIsTypeOf(e4sm::Component)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/SoftwareComponent.gif">
+                <view name="views"/>
+                <initialOperation>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformDownToSoftwareComponent()"/>
+                </initialOperation>
+              </menuItemDescription>
+              <menuItemDescription xsi:type="tool_1:OperationAction" name="change_to_physical_component_action" label="Change to Physical Component" precondition="aql:container.oclIsTypeOf(e4sm::Component)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/PhysicalComponent.gif">
+                <view name="views"/>
+                <initialOperation>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformDownToPhysicalComponent()"/>
+                </initialOperation>
+              </menuItemDescription>
+              <menuItemDescription xsi:type="tool_1:OperationAction" name="change_to_sensor_action" label="Change to Sensor" precondition="aql:container.oclIsTypeOf(e4sm::PhysicalComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/Sensor.gif">
+                <view name="views"/>
+                <initialOperation>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformDownToSensor()"/>
+                </initialOperation>
+              </menuItemDescription>
+              <menuItemDescription xsi:type="tool_1:OperationAction" name="change_to_actuator_action" label="Change to Actuator" precondition="aql:container.oclIsTypeOf(e4sm::PhysicalComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/Actuator.gif">
+                <view name="views"/>
+                <initialOperation>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformDownToActuator()"/>
+                </initialOperation>
+              </menuItemDescription>
+              <menuItemDescription xsi:type="tool_1:OperationAction" name="change_to_machine_learning_component_action" label="Change to Machine Learning Component" precondition="aql:container.oclIsTypeOf(e4sm::SoftwareComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/MachineLearningComponent.gif">
+                <view name="views"/>
+                <initialOperation>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformDownToMachineLearningComponent()"/>
+                </initialOperation>
+              </menuItemDescription>
+              <menuItemDescription xsi:type="tool_1:OperationAction" name="change_to_heuristic_action" label="Change to Heuristic" precondition="aql:container.oclIsTypeOf(e4sm::SoftwareComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/Heuristic.gif">
+                <view name="views"/>
+                <initialOperation>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformDownToHeuristic()"/>
+                </initialOperation>
+              </menuItemDescription>
+              <menuItemDescription xsi:type="tool_1:OperationAction" name="change_to_function_action" label="Change to Function" precondition="aql:container.oclIsTypeOf(e4sm::SoftwareComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/Function.gif">
+                <view name="views"/>
+                <initialOperation>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformDownToFunction()"/>
+                </initialOperation>
+              </menuItemDescription>
+              <menuItemDescription xsi:type="tool_1:OperationAction" name="change_to_external_dependency_action" label="Change to External Dependency" precondition="aql:container.oclIsTypeOf(e4sm::SoftwareComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/ExternalDependency.gif">
+                <view name="views"/>
+                <initialOperation>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformDownToExternalDependency()"/>
+                </initialOperation>
+              </menuItemDescription>
+            </itemDescriptions>
+          </ownedTools>
         </toolSections>
         <decorationDescriptionsSet>
           <decorationDescriptions xsi:type="description:SemanticBasedDecoration" name="Arrow on Specified Components" position="SOUTH_EAST" preconditionExpression="feature:specifiedInPackage" imageExpression="/e4sm.de.metamodel.design/icons/specified.gif" tooltipExpression="aql:'This component is refined by the package\n' + self.specifiedInPackage.name" domainClass="e4sm::Component"/>
@@ -664,5 +736,6 @@
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="e4sm.de.metamodel.design.Services"/>
     <ownedJavaExtensions qualifiedClassName="e4sm.de.metamodel.design.ConnectorServices"/>
+    <ownedJavaExtensions qualifiedClassName="e4sm.de.metamodel.design.ElementTransformationServices"/>
   </ownedViewpoints>
 </description:Group>
