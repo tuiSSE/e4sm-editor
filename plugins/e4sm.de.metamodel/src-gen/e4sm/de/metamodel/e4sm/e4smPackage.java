@@ -1180,13 +1180,22 @@ public interface e4smPackage extends EPackage {
 	int PACKAGE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 9;
 
 	/**
+	 * The operation id for the '<em>Get All Components</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE___GET_ALL_COMPONENTS = NAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Package</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
+	int PACKAGE_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.ModelImpl <em>Model</em>}' class.
@@ -1419,13 +1428,22 @@ public interface e4smPackage extends EPackage {
 	int SECTOR_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Get All Components</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECTOR___GET_ALL_COMPONENTS = NAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Sector</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SECTOR_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
+	int SECTOR_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.SensorImpl <em>Sensor</em>}' class.
@@ -2154,6 +2172,16 @@ public interface e4smPackage extends EPackage {
 	EReference getPackage_SpecifiesComponent();
 
 	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.Package#getAllComponents() <em>Get All Components</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Components</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.Package#getAllComponents()
+	 * @generated
+	 */
+	EOperation getPackage__GetAllComponents();
+
+	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.Model <em>Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2289,6 +2317,16 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getSector_ContainedBy();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.Sector#getAllComponents() <em>Get All Components</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Components</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.Sector#getAllComponents()
+	 * @generated
+	 */
+	EOperation getSector__GetAllComponents();
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.Sensor <em>Sensor</em>}'.
@@ -2747,6 +2785,14 @@ public interface e4smPackage extends EPackage {
 		EReference PACKAGE__SPECIFIES_COMPONENT = eINSTANCE.getPackage_SpecifiesComponent();
 
 		/**
+		 * The meta object literal for the '<em><b>Get All Components</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PACKAGE___GET_ALL_COMPONENTS = eINSTANCE.getPackage__GetAllComponents();
+
+		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.ModelImpl <em>Model</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2861,6 +2907,14 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SECTOR__CONTAINED_BY = eINSTANCE.getSector_ContainedBy();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Components</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SECTOR___GET_ALL_COMPONENTS = eINSTANCE.getSector__GetAllComponents();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.SensorImpl <em>Sensor</em>}' class.

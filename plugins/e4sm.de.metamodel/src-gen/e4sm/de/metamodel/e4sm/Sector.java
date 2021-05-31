@@ -86,4 +86,15 @@ public interface Sector extends NamedElement {
 	 */
 	void setContainedBy(Sector value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Returns all components contained by this sector, even if wrapped by other sectors
+	 * <!-- end-model-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	EList<Component> getAllComponents();
+
 } // Sector

@@ -637,6 +637,16 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
+	public EOperation getPackage__GetAllComponents() {
+		return packageEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getModel() {
 		return modelEClass;
 	}
@@ -759,6 +769,16 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	@Override
 	public EReference getSector_ContainedBy() {
 		return (EReference) sectorEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getSector__GetAllComponents() {
+		return sectorEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -974,6 +994,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		createEReference(packageEClass, PACKAGE__PACKAGES);
 		createEReference(packageEClass, PACKAGE__CONTAINED_BY);
 		createEReference(packageEClass, PACKAGE__SPECIFIES_COMPONENT);
+		createEOperation(packageEClass, PACKAGE___GET_ALL_COMPONENTS);
 
 		modelEClass = createEClass(MODEL);
 		createEReference(modelEClass, MODEL__PACKAGES);
@@ -993,6 +1014,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		createEReference(sectorEClass, SECTOR__COMPONENTS);
 		createEReference(sectorEClass, SECTOR__SECTORS);
 		createEReference(sectorEClass, SECTOR__CONTAINED_BY);
+		createEOperation(sectorEClass, SECTOR___GET_ALL_COMPONENTS);
 
 		sensorEClass = createEClass(SENSOR);
 
@@ -1173,6 +1195,9 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 				"specifiesComponent", null, 0, 1, e4sm.de.metamodel.e4sm.Package.class, !IS_TRANSIENT, !IS_VOLATILE,
 				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEOperation(getPackage__GetAllComponents(), this.getComponent(), "getAllComponents", 0, -1, IS_UNIQUE,
+				IS_ORDERED);
+
 		initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getModel_Packages(), this.getPackage(), null, "packages", null, 0, -1, Model.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
@@ -1205,6 +1230,9 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		initEReference(getSector_ContainedBy(), this.getSector(), this.getSector_Sectors(), "containedBy", null, 0, 1,
 				Sector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getSector__GetAllComponents(), this.getComponent(), "getAllComponents", 0, -1, IS_UNIQUE,
+				IS_ORDERED);
 
 		initEClass(sensorEClass, Sensor.class, "Sensor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

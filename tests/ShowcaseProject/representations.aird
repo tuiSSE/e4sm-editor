@@ -8,7 +8,7 @@
         <description xmi:type="description_1:EditionTableDescription" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='table_persons']"/>
         <target xmi:type="e4sm:Model" href="Showcase.e4sm#_CGg_sLfcEeupgN33SxbatQ"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_VM-TMLfcEeupgN33SxbatQ" name="[DTD] Package" repPath="#_VM9FELfcEeupgN33SxbatQ" changeId="2a1ccb55-3596-4122-85de-5cd4c7f8f0ea">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_VM-TMLfcEeupgN33SxbatQ" name="[DTD] Package" repPath="#_VM9FELfcEeupgN33SxbatQ" changeId="9ad3ba5e-8b99-4479-9d20-7187c6cd1c13">
         <description xmi:type="description_2:DiagramDescription" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']"/>
         <target xmi:type="e4sm:Package" href="Showcase.e4sm#_QiXlQLfcEeupgN33SxbatQ"/>
       </ownedRepresentationDescriptors>
@@ -444,86 +444,6 @@
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_h-scwrfdEeupgN33SxbatQ" x="885" y="420"/>
         </children>
         <styles xmi:type="notation:DiagramStyle" xmi:id="_VM-6QrfcEeupgN33SxbatQ"/>
-        <edges xmi:type="notation:Edge" xmi:id="_5LrWMLfcEeupgN33SxbatQ" type="4001" element="_5Lnr0LfcEeupgN33SxbatQ" source="_3-HW4LfcEeupgN33SxbatQ" target="_1iawgLfcEeupgN33SxbatQ">
-          <children xmi:type="notation:Node" xmi:id="_5Lr9QLfcEeupgN33SxbatQ" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5Lr9QbfcEeupgN33SxbatQ" y="-10"/>
-          </children>
-          <children xmi:type="notation:Node" xmi:id="_5Lr9QrfcEeupgN33SxbatQ" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5Lr9Q7fcEeupgN33SxbatQ" y="10"/>
-          </children>
-          <children xmi:type="notation:Node" xmi:id="_5Lr9RLfcEeupgN33SxbatQ" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5Lr9RbfcEeupgN33SxbatQ" y="10"/>
-          </children>
-          <styles xmi:type="notation:ConnectorStyle" xmi:id="_5LrWMbfcEeupgN33SxbatQ"/>
-          <styles xmi:type="notation:FontStyle" xmi:id="_5LrWMrfcEeupgN33SxbatQ" fontName="Segoe UI" fontHeight="12"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_5LrWM7fcEeupgN33SxbatQ" points="[0, 0, -60, 0]$[60, 0, 0, 0]"/>
-          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_5LskULfcEeupgN33SxbatQ" id="(1.0,0.4)"/>
-          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_5LskUbfcEeupgN33SxbatQ" id="(0.0,0.4)"/>
-        </edges>
-        <edges xmi:type="notation:Edge" xmi:id="_5w90kLfcEeupgN33SxbatQ" type="4001" element="_5w48FLfcEeupgN33SxbatQ" source="_4V3IgLfcEeupgN33SxbatQ" target="_2Q8DYLfcEeupgN33SxbatQ">
-          <children xmi:type="notation:Node" xmi:id="_5w-boLfcEeupgN33SxbatQ" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5w-bobfcEeupgN33SxbatQ" y="-10"/>
-          </children>
-          <children xmi:type="notation:Node" xmi:id="_5w-borfcEeupgN33SxbatQ" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5w-bo7fcEeupgN33SxbatQ" y="10"/>
-          </children>
-          <children xmi:type="notation:Node" xmi:id="_5w-bpLfcEeupgN33SxbatQ" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5w-bpbfcEeupgN33SxbatQ" y="10"/>
-          </children>
-          <styles xmi:type="notation:ConnectorStyle" xmi:id="_5w90kbfcEeupgN33SxbatQ"/>
-          <styles xmi:type="notation:FontStyle" xmi:id="_5w90krfcEeupgN33SxbatQ" fontName="Segoe UI" fontHeight="12"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_5w90k7fcEeupgN33SxbatQ" points="[0, 0, -60, 0]$[60, 0, 0, 0]"/>
-          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_5w-bprfcEeupgN33SxbatQ" id="(1.0,0.4)"/>
-          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_5w-bp7fcEeupgN33SxbatQ" id="(0.0,0.4)"/>
-        </edges>
-        <edges xmi:type="notation:Edge" xmi:id="_SBQIoLfdEeupgN33SxbatQ" type="4001" element="_SBL3NLfdEeupgN33SxbatQ" source="__cvEmLfcEeupgN33SxbatQ" target="_PAefQLfdEeupgN33SxbatQ">
-          <children xmi:type="notation:Node" xmi:id="_SBQIpLfdEeupgN33SxbatQ" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SBQIpbfdEeupgN33SxbatQ" x="-15" y="-12"/>
-          </children>
-          <children xmi:type="notation:Node" xmi:id="_SBQIprfdEeupgN33SxbatQ" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SBQIp7fdEeupgN33SxbatQ" x="2" y="7"/>
-          </children>
-          <children xmi:type="notation:Node" xmi:id="_SBQIqLfdEeupgN33SxbatQ" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SBQIqbfdEeupgN33SxbatQ" x="-7" y="8"/>
-          </children>
-          <styles xmi:type="notation:ConnectorStyle" xmi:id="_SBQIobfdEeupgN33SxbatQ"/>
-          <styles xmi:type="notation:FontStyle" xmi:id="_SBQIorfdEeupgN33SxbatQ" fontName="Segoe UI" fontHeight="12"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_SBQIo7fdEeupgN33SxbatQ" points="[4, 0, -33, 0]$[34, 0, -3, 0]"/>
-          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_SBQIqrfdEeupgN33SxbatQ" id="(1.0,0.4)"/>
-          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_SBQIq7fdEeupgN33SxbatQ" id="(0.0,0.4)"/>
-        </edges>
-        <edges xmi:type="notation:Edge" xmi:id="_SaOCQLfdEeupgN33SxbatQ" type="4001" element="_SaIisLfdEeupgN33SxbatQ" source="_PT_4MLfdEeupgN33SxbatQ" target="_PzcNQLfdEeupgN33SxbatQ">
-          <children xmi:type="notation:Node" xmi:id="_SaOpULfdEeupgN33SxbatQ" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SaOpUbfdEeupgN33SxbatQ" x="7" y="-7"/>
-          </children>
-          <children xmi:type="notation:Node" xmi:id="_SaOpUrfdEeupgN33SxbatQ" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SaOpU7fdEeupgN33SxbatQ" x="20" y="-8"/>
-          </children>
-          <children xmi:type="notation:Node" xmi:id="_SaOpVLfdEeupgN33SxbatQ" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SaOpVbfdEeupgN33SxbatQ" x="2" y="1"/>
-          </children>
-          <styles xmi:type="notation:ConnectorStyle" xmi:id="_SaOCQbfdEeupgN33SxbatQ"/>
-          <styles xmi:type="notation:FontStyle" xmi:id="_SaOCQrfdEeupgN33SxbatQ" fontName="Segoe UI" fontHeight="12"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_SaOCQ7fdEeupgN33SxbatQ" points="[4, -1, -34, 0]$[35, -1, -3, 0]"/>
-          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_SaOpVrfdEeupgN33SxbatQ" id="(1.0,0.3333333333333333)"/>
-          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_SaOpV7fdEeupgN33SxbatQ" id="(0.0,0.3333333333333333)"/>
-        </edges>
-        <edges xmi:type="notation:Edge" xmi:id="_SzlkgLfdEeupgN33SxbatQ" type="4001" element="_Szfd8LfdEeupgN33SxbatQ" source="_QIq2YLfdEeupgN33SxbatQ" target="_AQp00LfdEeupgN33SxbatQ">
-          <children xmi:type="notation:Node" xmi:id="_SzlkhLfdEeupgN33SxbatQ" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SzlkhbfdEeupgN33SxbatQ" x="-5" y="-9"/>
-          </children>
-          <children xmi:type="notation:Node" xmi:id="_SzlkhrfdEeupgN33SxbatQ" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Szlkh7fdEeupgN33SxbatQ" x="18" y="3"/>
-          </children>
-          <children xmi:type="notation:Node" xmi:id="_SzlkiLfdEeupgN33SxbatQ" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SzlkibfdEeupgN33SxbatQ" x="-3" y="10"/>
-          </children>
-          <styles xmi:type="notation:ConnectorStyle" xmi:id="_SzlkgbfdEeupgN33SxbatQ"/>
-          <styles xmi:type="notation:FontStyle" xmi:id="_SzlkgrfdEeupgN33SxbatQ" fontName="Segoe UI" fontHeight="12"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Szlkg7fdEeupgN33SxbatQ" points="[4, 2, -20, 1]$[12, 8, -12, 7]$[20, 8, -4, 7]"/>
-          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_SzmLkLfdEeupgN33SxbatQ" id="(1.0,0.26666666666666666)"/>
-          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_SzmLkbfdEeupgN33SxbatQ" id="(0.0,0.23333333333333334)"/>
-        </edges>
         <edges xmi:type="notation:Edge" xmi:id="_j8EvcLfdEeupgN33SxbatQ" type="4001" element="_j7-BwLfdEeupgN33SxbatQ" source="_AQp00LfdEeupgN33SxbatQ" target="_jhS38LfdEeupgN33SxbatQ">
           <children xmi:type="notation:Node" xmi:id="_j8FWgLfdEeupgN33SxbatQ" type="6001">
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_j8FWgbfdEeupgN33SxbatQ" x="-10"/>
@@ -540,21 +460,101 @@
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_j8FWhrfdEeupgN33SxbatQ" id="(1.0,1.0)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_j8FWh7fdEeupgN33SxbatQ" id="(1.0,0.5)"/>
         </edges>
-        <edges xmi:type="notation:Edge" xmi:id="_OkcpQLlLEeupgN33SxbatQ" type="4001" element="_OkWitLlLEeupgN33SxbatQ" source="_LRfqwLlLEeupgN33SxbatQ" target="_HlaakLlLEeupgN33SxbatQ">
-          <children xmi:type="notation:Node" xmi:id="_OkdQULlLEeupgN33SxbatQ" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_OkdQUblLEeupgN33SxbatQ" x="-9" y="-3"/>
+        <edges xmi:type="notation:Edge" xmi:id="_xOrvgL40EeuB8-YlCB2Eiw" type="4001" element="_xNeOkL40EeuB8-YlCB2Eiw" source="_3-HW4LfcEeupgN33SxbatQ" target="_1iawgLfcEeupgN33SxbatQ">
+          <children xmi:type="notation:Node" xmi:id="_xOsWkL40EeuB8-YlCB2Eiw" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xOsWkb40EeuB8-YlCB2Eiw" y="-10"/>
           </children>
-          <children xmi:type="notation:Node" xmi:id="_OkdQUrlLEeupgN33SxbatQ" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_OkdQU7lLEeupgN33SxbatQ" x="6" y="1"/>
+          <children xmi:type="notation:Node" xmi:id="_xOsWkr40EeuB8-YlCB2Eiw" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xOsWk740EeuB8-YlCB2Eiw" y="10"/>
           </children>
-          <children xmi:type="notation:Node" xmi:id="_OkdQVLlLEeupgN33SxbatQ" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_OkdQVblLEeupgN33SxbatQ" x="8" y="1"/>
+          <children xmi:type="notation:Node" xmi:id="_xOs9oL40EeuB8-YlCB2Eiw" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xOs9ob40EeuB8-YlCB2Eiw" y="10"/>
           </children>
-          <styles xmi:type="notation:ConnectorStyle" xmi:id="_OkcpQblLEeupgN33SxbatQ"/>
-          <styles xmi:type="notation:FontStyle" xmi:id="_OkcpQrlLEeupgN33SxbatQ" fontName="Segoe UI" fontHeight="12"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_OkcpQ7lLEeupgN33SxbatQ" points="[4, -3, -35, 0]$[35, -3, -4, 0]"/>
-          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_OkdQVrlLEeupgN33SxbatQ" id="(1.0,0.4666666666666667)"/>
-          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_OkdQV7lLEeupgN33SxbatQ" id="(0.06666666666666667,0.4)"/>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_xOrvgb40EeuB8-YlCB2Eiw"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_xOrvgr40EeuB8-YlCB2Eiw" fontName="Segoe UI" fontHeight="12"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_xOrvg740EeuB8-YlCB2Eiw" points="[15, 0, -75, 0]$[75, 0, -15, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xOs9or40EeuB8-YlCB2Eiw" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xOs9o740EeuB8-YlCB2Eiw" id="(0.5,0.5)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_xOs9pL40EeuB8-YlCB2Eiw" type="4001" element="_xNe1oL40EeuB8-YlCB2Eiw" source="_4V3IgLfcEeupgN33SxbatQ" target="_2Q8DYLfcEeupgN33SxbatQ">
+          <children xmi:type="notation:Node" xmi:id="_xOs9qL40EeuB8-YlCB2Eiw" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xOs9qb40EeuB8-YlCB2Eiw" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_xOs9qr40EeuB8-YlCB2Eiw" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xOs9q740EeuB8-YlCB2Eiw" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_xOtksL40EeuB8-YlCB2Eiw" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xOtksb40EeuB8-YlCB2Eiw" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_xOs9pb40EeuB8-YlCB2Eiw"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_xOs9pr40EeuB8-YlCB2Eiw" fontName="Segoe UI" fontHeight="12"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_xOs9p740EeuB8-YlCB2Eiw" points="[15, 0, -75, 0]$[75, 0, -15, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xOtksr40EeuB8-YlCB2Eiw" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xOtks740EeuB8-YlCB2Eiw" id="(0.5,0.5)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_xOtktL40EeuB8-YlCB2Eiw" type="4001" element="_xNe1pb40EeuB8-YlCB2Eiw" source="__cvEmLfcEeupgN33SxbatQ" target="_PAefQLfdEeupgN33SxbatQ">
+          <children xmi:type="notation:Node" xmi:id="_xOtkuL40EeuB8-YlCB2Eiw" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xOtkub40EeuB8-YlCB2Eiw" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_xOtkur40EeuB8-YlCB2Eiw" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xOtku740EeuB8-YlCB2Eiw" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_xOtkvL40EeuB8-YlCB2Eiw" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xOtkvb40EeuB8-YlCB2Eiw" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_xOtktb40EeuB8-YlCB2Eiw"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_xOtktr40EeuB8-YlCB2Eiw" fontName="Segoe UI" fontHeight="12"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_xOtkt740EeuB8-YlCB2Eiw" points="[15, -13, -40, 32]$[40, -33, -15, 12]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xOtkvr40EeuB8-YlCB2Eiw" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xOtkv740EeuB8-YlCB2Eiw" id="(0.5,0.5)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_xOtkwL40EeuB8-YlCB2Eiw" type="4001" element="_xNe1qr40EeuB8-YlCB2Eiw" source="_PT_4MLfdEeupgN33SxbatQ" target="_PzcNQLfdEeupgN33SxbatQ">
+          <children xmi:type="notation:Node" xmi:id="_xOtkxL40EeuB8-YlCB2Eiw" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xOtkxb40EeuB8-YlCB2Eiw" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_xOtkxr40EeuB8-YlCB2Eiw" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xOtkx740EeuB8-YlCB2Eiw" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_xOtkyL40EeuB8-YlCB2Eiw" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xOtkyb40EeuB8-YlCB2Eiw" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_xOtkwb40EeuB8-YlCB2Eiw"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_xOtkwr40EeuB8-YlCB2Eiw" fontName="Segoe UI" fontHeight="12"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_xOtkw740EeuB8-YlCB2Eiw" points="[15, -1, -46, 0]$[46, -1, -15, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xOuLwL40EeuB8-YlCB2Eiw" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xOuLwb40EeuB8-YlCB2Eiw" id="(0.5,0.5)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_xOuLwr40EeuB8-YlCB2Eiw" type="4001" element="_xNe1r740EeuB8-YlCB2Eiw" source="_QIq2YLfdEeupgN33SxbatQ" target="_AQp00LfdEeupgN33SxbatQ">
+          <children xmi:type="notation:Node" xmi:id="_xOuLxr40EeuB8-YlCB2Eiw" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xOuLx740EeuB8-YlCB2Eiw" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_xOuLyL40EeuB8-YlCB2Eiw" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xOuLyb40EeuB8-YlCB2Eiw" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_xOuLyr40EeuB8-YlCB2Eiw" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xOuLy740EeuB8-YlCB2Eiw" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_xOuLw740EeuB8-YlCB2Eiw"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_xOuLxL40EeuB8-YlCB2Eiw" fontName="Segoe UI" fontHeight="12"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_xOuLxb40EeuB8-YlCB2Eiw" points="[15, 13, -36, -33]$[36, 32, -15, -14]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xOuLzL40EeuB8-YlCB2Eiw" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xOuLzb40EeuB8-YlCB2Eiw" id="(0.5,0.5)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_xOuLzr40EeuB8-YlCB2Eiw" type="4001" element="_xNfctL40EeuB8-YlCB2Eiw" source="_LRfqwLlLEeupgN33SxbatQ" target="_HlaakLlLEeupgN33SxbatQ">
+          <children xmi:type="notation:Node" xmi:id="_xOuL0r40EeuB8-YlCB2Eiw" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xOuL0740EeuB8-YlCB2Eiw" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_xOuL1L40EeuB8-YlCB2Eiw" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xOuL1b40EeuB8-YlCB2Eiw" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_xOuL1r40EeuB8-YlCB2Eiw" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xOuL1740EeuB8-YlCB2Eiw" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_xOuLz740EeuB8-YlCB2Eiw"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_xOuL0L40EeuB8-YlCB2Eiw" fontName="Segoe UI" fontHeight="12"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_xOuL0b40EeuB8-YlCB2Eiw" points="[15, -1, -45, 0]$[45, -1, -15, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xOuL2L40EeuB8-YlCB2Eiw" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xOuL2b40EeuB8-YlCB2Eiw" id="(0.5,0.5)"/>
         </edges>
       </data>
     </ownedAnnotationEntries>
@@ -750,7 +750,7 @@
     <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_hIBv8bfcEeupgN33SxbatQ" name="Generic Software Component" tooltipText="Software Component &quot;Generic Software Component">
       <target xmi:type="e4sm:SoftwareComponent" href="Showcase.e4sm#_hIBv8LfcEeupgN33SxbatQ"/>
       <semanticElements xmi:type="e4sm:SoftwareComponent" href="Showcase.e4sm#_hIBv8LfcEeupgN33SxbatQ"/>
-      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_3-DsgLfcEeupgN33SxbatQ" name="O" outgoingEdges="_5Lnr0LfcEeupgN33SxbatQ" width="3" height="3">
+      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_3-DsgLfcEeupgN33SxbatQ" name="O" outgoingEdges="_xNeOkL40EeuB8-YlCB2Eiw" width="3" height="3">
         <target xmi:type="e4sm:OutputPin" href="Showcase.e4sm#_3-DFcLfcEeupgN33SxbatQ"/>
         <semanticElements xmi:type="e4sm:OutputPin" href="Showcase.e4sm#_3-DFcLfcEeupgN33SxbatQ"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_SnEllLoZEeupgN33SxbatQ" labelSize="9" showIcon="false" description="_SnA7OLoZEeupgN33SxbatQ" labelPosition="node" color="209,209,209">
@@ -777,7 +777,7 @@
     <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_jHMyYbfcEeupgN33SxbatQ" name="Machine Learning Component" tooltipText="Machine Learning Component &quot;Machine Learning Component">
       <target xmi:type="e4sm:MachineLearningComponent" href="Showcase.e4sm#_jHMyYLfcEeupgN33SxbatQ"/>
       <semanticElements xmi:type="e4sm:MachineLearningComponent" href="Showcase.e4sm#_jHMyYLfcEeupgN33SxbatQ"/>
-      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_1iXtMbfcEeupgN33SxbatQ" name="IN" incomingEdges="_5Lnr0LfcEeupgN33SxbatQ" width="3" height="3">
+      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_1iXtMbfcEeupgN33SxbatQ" name="IN" incomingEdges="_xNeOkL40EeuB8-YlCB2Eiw" width="3" height="3">
         <target xmi:type="e4sm:InputPin" href="Showcase.e4sm#_1iXtMLfcEeupgN33SxbatQ"/>
         <semanticElements xmi:type="e4sm:InputPin" href="Showcase.e4sm#_1iXtMLfcEeupgN33SxbatQ"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_SnCwaLoZEeupgN33SxbatQ" labelSize="9" showIcon="false" description="_SnA7NLoZEeupgN33SxbatQ" labelPosition="node" color="255,255,255">
@@ -804,7 +804,7 @@
     <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_mPIMobfcEeupgN33SxbatQ" name="Heuristic Component" tooltipText="Heuristic &quot;Heuristic Component">
       <target xmi:type="e4sm:Heuristic" href="Showcase.e4sm#_mPIMoLfcEeupgN33SxbatQ"/>
       <semanticElements xmi:type="e4sm:Heuristic" href="Showcase.e4sm#_mPIMoLfcEeupgN33SxbatQ"/>
-      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_2Q5AEbfcEeupgN33SxbatQ" name="IN" incomingEdges="_5w48FLfcEeupgN33SxbatQ" width="3" height="3">
+      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_2Q5AEbfcEeupgN33SxbatQ" name="IN" incomingEdges="_xNe1oL40EeuB8-YlCB2Eiw" width="3" height="3">
         <target xmi:type="e4sm:InputPin" href="Showcase.e4sm#_2Q5AELfcEeupgN33SxbatQ"/>
         <semanticElements xmi:type="e4sm:InputPin" href="Showcase.e4sm#_2Q5AELfcEeupgN33SxbatQ"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_SnCwcboZEeupgN33SxbatQ" labelSize="9" showIcon="false" description="_SnA7NLoZEeupgN33SxbatQ" labelPosition="node" color="255,255,255">
@@ -861,7 +861,7 @@
     <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_qv0JkbfcEeupgN33SxbatQ" name="In-House Function" tooltipText="Function &quot;In-House Function">
       <target xmi:type="e4sm:Function" href="Showcase.e4sm#_qv0JkLfcEeupgN33SxbatQ"/>
       <semanticElements xmi:type="e4sm:Function" href="Showcase.e4sm#_qv0JkLfcEeupgN33SxbatQ"/>
-      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_4VzeIbfcEeupgN33SxbatQ" name="O" outgoingEdges="_5w48FLfcEeupgN33SxbatQ" width="3" height="3">
+      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_4VzeIbfcEeupgN33SxbatQ" name="O" outgoingEdges="_xNe1oL40EeuB8-YlCB2Eiw" width="3" height="3">
         <target xmi:type="e4sm:OutputPin" href="Showcase.e4sm#_4VzeILfcEeupgN33SxbatQ"/>
         <semanticElements xmi:type="e4sm:OutputPin" href="Showcase.e4sm#_4VzeILfcEeupgN33SxbatQ"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_SnFMpboZEeupgN33SxbatQ" labelSize="9" showIcon="false" description="_SnA7OLoZEeupgN33SxbatQ" labelPosition="node" color="209,209,209">
@@ -912,28 +912,10 @@
       </ownedStyle>
       <actualMapping xmi:type="description_2:ContainerMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_5Lnr0LfcEeupgN33SxbatQ" sourceNode="_3-DsgLfcEeupgN33SxbatQ" targetNode="_1iXtMbfcEeupgN33SxbatQ">
-      <target xmi:type="e4sm:LogicalConnector" href="Showcase.e4sm#_5LnEwLfcEeupgN33SxbatQ"/>
-      <semanticElements xmi:type="e4sm:LogicalConnector" href="Showcase.e4sm#_5LnEwLfcEeupgN33SxbatQ"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_Sm5xCroaEeupgN33SxbatQ" size="3" strokeColor="255,255,255">
-        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_logical_connector']/@style"/>
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_Sm5xC7oaEeupgN33SxbatQ" labelSize="12"/>
-      </ownedStyle>
-      <actualMapping xmi:type="description_2:EdgeMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_logical_connector']"/>
-    </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_5w48FLfcEeupgN33SxbatQ" sourceNode="_4VzeIbfcEeupgN33SxbatQ" targetNode="_2Q5AEbfcEeupgN33SxbatQ">
-      <target xmi:type="e4sm:LogicalConnector" href="Showcase.e4sm#_5w3t8LfcEeupgN33SxbatQ"/>
-      <semanticElements xmi:type="e4sm:LogicalConnector" href="Showcase.e4sm#_5w3t8LfcEeupgN33SxbatQ"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_Sm5xDroaEeupgN33SxbatQ" size="3" strokeColor="255,255,255">
-        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_logical_connector']/@style"/>
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_Sm5xD7oaEeupgN33SxbatQ" labelSize="12"/>
-      </ownedStyle>
-      <actualMapping xmi:type="description_2:EdgeMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_logical_connector']"/>
-    </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_8BwygbfcEeupgN33SxbatQ" name="Containment Example" tooltipText="Physical Component &quot;Containment Example">
       <target xmi:type="e4sm:PhysicalComponent" href="Showcase.e4sm#_8BwygLfcEeupgN33SxbatQ"/>
       <semanticElements xmi:type="e4sm:PhysicalComponent" href="Showcase.e4sm#_8BwygLfcEeupgN33SxbatQ"/>
-      <ownedBorderedNodes xmi:type="diagram:DNode" uid="__craMbfcEeupgN33SxbatQ" name="IN" outgoingEdges="_SBL3NLfdEeupgN33SxbatQ" width="3" height="3">
+      <ownedBorderedNodes xmi:type="diagram:DNode" uid="__craMbfcEeupgN33SxbatQ" name="IN" outgoingEdges="_xNe1pb40EeuB8-YlCB2Eiw" width="3" height="3">
         <target xmi:type="e4sm:InputPin" href="Showcase.e4sm#__craMLfcEeupgN33SxbatQ"/>
         <semanticElements xmi:type="e4sm:InputPin" href="Showcase.e4sm#__craMLfcEeupgN33SxbatQ"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -944,7 +926,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin']"/>
       </ownedBorderedNodes>
-      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_AQmKcLfdEeupgN33SxbatQ" name="O" outgoingEdges="_j7-BwLfdEeupgN33SxbatQ" incomingEdges="_Szfd8LfdEeupgN33SxbatQ" width="3" height="3">
+      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_AQmKcLfdEeupgN33SxbatQ" name="O" outgoingEdges="_j7-BwLfdEeupgN33SxbatQ" incomingEdges="_xNe1r740EeuB8-YlCB2Eiw" width="3" height="3">
         <target xmi:type="e4sm:OutputPin" href="Showcase.e4sm#_AQljYLfdEeupgN33SxbatQ"/>
         <semanticElements xmi:type="e4sm:OutputPin" href="Showcase.e4sm#_AQljYLfdEeupgN33SxbatQ"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -965,7 +947,7 @@
       <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_B7uPgLfdEeupgN33SxbatQ" name="1" tooltipText="Function &quot;1">
         <target xmi:type="e4sm:Function" href="Showcase.e4sm#_B7tocLfdEeupgN33SxbatQ"/>
         <semanticElements xmi:type="e4sm:Function" href="Showcase.e4sm#_B7tocLfdEeupgN33SxbatQ"/>
-        <ownedBorderedNodes xmi:type="diagram:DNode" uid="_PAaN0bfdEeupgN33SxbatQ" name="IN" incomingEdges="_SBL3NLfdEeupgN33SxbatQ" width="3" height="3">
+        <ownedBorderedNodes xmi:type="diagram:DNode" uid="_PAaN0bfdEeupgN33SxbatQ" name="IN" incomingEdges="_xNe1pb40EeuB8-YlCB2Eiw" width="3" height="3">
           <target xmi:type="e4sm:InputPin" href="Showcase.e4sm#_PAaN0LfdEeupgN33SxbatQ"/>
           <semanticElements xmi:type="e4sm:InputPin" href="Showcase.e4sm#_PAaN0LfdEeupgN33SxbatQ"/>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_SnCJXboZEeupgN33SxbatQ" labelSize="9" showIcon="false" description="_SnA7NLoZEeupgN33SxbatQ" labelPosition="node" color="255,255,255">
@@ -973,7 +955,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin']"/>
         </ownedBorderedNodes>
-        <ownedBorderedNodes xmi:type="diagram:DNode" uid="_PT7mwbfdEeupgN33SxbatQ" name="O" outgoingEdges="_SaIisLfdEeupgN33SxbatQ" width="3" height="3">
+        <ownedBorderedNodes xmi:type="diagram:DNode" uid="_PT7mwbfdEeupgN33SxbatQ" name="O" outgoingEdges="_xNe1qr40EeuB8-YlCB2Eiw" width="3" height="3">
           <target xmi:type="e4sm:OutputPin" href="Showcase.e4sm#_PT7mwLfdEeupgN33SxbatQ"/>
           <semanticElements xmi:type="e4sm:OutputPin" href="Showcase.e4sm#_PT7mwLfdEeupgN33SxbatQ"/>
           <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -995,7 +977,7 @@
       <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_MN9UUbfdEeupgN33SxbatQ" name="2" tooltipText="Heuristic &quot;2">
         <target xmi:type="e4sm:Heuristic" href="Showcase.e4sm#_MN9UULfdEeupgN33SxbatQ"/>
         <semanticElements xmi:type="e4sm:Heuristic" href="Showcase.e4sm#_MN9UULfdEeupgN33SxbatQ"/>
-        <ownedBorderedNodes xmi:type="diagram:DNode" uid="_PzX70bfdEeupgN33SxbatQ" name="IN" incomingEdges="_SaIisLfdEeupgN33SxbatQ" width="3" height="3">
+        <ownedBorderedNodes xmi:type="diagram:DNode" uid="_PzX70bfdEeupgN33SxbatQ" name="IN" incomingEdges="_xNe1qr40EeuB8-YlCB2Eiw" width="3" height="3">
           <target xmi:type="e4sm:InputPin" href="Showcase.e4sm#_PzX70LfdEeupgN33SxbatQ"/>
           <semanticElements xmi:type="e4sm:InputPin" href="Showcase.e4sm#_PzX70LfdEeupgN33SxbatQ"/>
           <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -1006,7 +988,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin']"/>
         </ownedBorderedNodes>
-        <ownedBorderedNodes xmi:type="diagram:DNode" uid="_QIl94bfdEeupgN33SxbatQ" name="O" outgoingEdges="_Szfd8LfdEeupgN33SxbatQ" width="3" height="3">
+        <ownedBorderedNodes xmi:type="diagram:DNode" uid="_QIl94bfdEeupgN33SxbatQ" name="O" outgoingEdges="_xNe1r740EeuB8-YlCB2Eiw" width="3" height="3">
           <target xmi:type="e4sm:OutputPin" href="Showcase.e4sm#_QIl94LfdEeupgN33SxbatQ"/>
           <semanticElements xmi:type="e4sm:OutputPin" href="Showcase.e4sm#_QIl94LfdEeupgN33SxbatQ"/>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_SnBiVboZEeupgN33SxbatQ" labelSize="9" showIcon="false" description="_SnA7OLoZEeupgN33SxbatQ" labelPosition="node" color="209,209,209">
@@ -1014,7 +996,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin']"/>
         </ownedBorderedNodes>
-        <ownedBorderedNodes xmi:type="diagram:DNode" uid="_HP5dkblLEeupgN33SxbatQ" name="IN" incomingEdges="_OkWitLlLEeupgN33SxbatQ" width="3" height="3">
+        <ownedBorderedNodes xmi:type="diagram:DNode" uid="_HP5dkblLEeupgN33SxbatQ" name="IN" incomingEdges="_xNfctL40EeuB8-YlCB2Eiw" width="3" height="3">
           <target xmi:type="e4sm:InputPin" href="Showcase.e4sm#_HP5dkLlLEeupgN33SxbatQ"/>
           <semanticElements xmi:type="e4sm:InputPin" href="Showcase.e4sm#_HP5dkLlLEeupgN33SxbatQ"/>
           <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -1036,7 +1018,7 @@
       <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_KDbVIblLEeupgN33SxbatQ" name="1" tooltipText="Sensor &quot;1">
         <target xmi:type="e4sm:Sensor" href="Showcase.e4sm#_KDbVILlLEeupgN33SxbatQ"/>
         <semanticElements xmi:type="e4sm:Sensor" href="Showcase.e4sm#_KDbVILlLEeupgN33SxbatQ"/>
-        <ownedBorderedNodes xmi:type="diagram:DNode" uid="_LRZkIblLEeupgN33SxbatQ" name="O" outgoingEdges="_OkWitLlLEeupgN33SxbatQ" width="3" height="3">
+        <ownedBorderedNodes xmi:type="diagram:DNode" uid="_LRZkIblLEeupgN33SxbatQ" name="O" outgoingEdges="_xNfctL40EeuB8-YlCB2Eiw" width="3" height="3">
           <target xmi:type="e4sm:OutputPin" href="Showcase.e4sm#_LRZkILlLEeupgN33SxbatQ"/>
           <semanticElements xmi:type="e4sm:OutputPin" href="Showcase.e4sm#_LRZkILlLEeupgN33SxbatQ"/>
           <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -1055,31 +1037,6 @@
         </ownedStyle>
         <actualMapping xmi:type="description_2:ContainerMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Sensor']"/>
       </ownedDiagramElements>
-    </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_SBL3NLfdEeupgN33SxbatQ" sourceNode="__craMbfcEeupgN33SxbatQ" targetNode="_PAaN0bfdEeupgN33SxbatQ">
-      <target xmi:type="e4sm:LogicalConnector" href="Showcase.e4sm#_SBKpELfdEeupgN33SxbatQ"/>
-      <semanticElements xmi:type="e4sm:LogicalConnector" href="Showcase.e4sm#_SBKpELfdEeupgN33SxbatQ"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_WXPkProcEeupgN33SxbatQ" description="_WXPkPLocEeupgN33SxbatQ" targetArrow="NoDecoration" size="3" strokeColor="255,255,255">
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_WXPkP7ocEeupgN33SxbatQ" labelSize="12"/>
-      </ownedStyle>
-      <actualMapping xmi:type="description_2:EdgeMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_logical_connector']"/>
-    </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_SaIisLfdEeupgN33SxbatQ" sourceNode="_PT7mwbfdEeupgN33SxbatQ" targetNode="_PzX70bfdEeupgN33SxbatQ">
-      <target xmi:type="e4sm:LogicalConnector" href="Showcase.e4sm#_SaHUkLfdEeupgN33SxbatQ"/>
-      <semanticElements xmi:type="e4sm:LogicalConnector" href="Showcase.e4sm#_SaHUkLfdEeupgN33SxbatQ"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_Sm5xFroaEeupgN33SxbatQ" size="3" strokeColor="255,255,255">
-        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_logical_connector']/@style"/>
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_Sm5xF7oaEeupgN33SxbatQ" labelSize="12"/>
-      </ownedStyle>
-      <actualMapping xmi:type="description_2:EdgeMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_logical_connector']"/>
-    </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_Szfd8LfdEeupgN33SxbatQ" sourceNode="_QIl94bfdEeupgN33SxbatQ" targetNode="_AQmKcLfdEeupgN33SxbatQ">
-      <target xmi:type="e4sm:LogicalConnector" href="Showcase.e4sm#_SzePwLfdEeupgN33SxbatQ"/>
-      <semanticElements xmi:type="e4sm:LogicalConnector" href="Showcase.e4sm#_SzePwLfdEeupgN33SxbatQ"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_WXQLQrocEeupgN33SxbatQ" description="_WXPkPLocEeupgN33SxbatQ" targetArrow="NoDecoration" size="3" strokeColor="255,255,255">
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_WXQLQ7ocEeupgN33SxbatQ" labelSize="12"/>
-      </ownedStyle>
-      <actualMapping xmi:type="description_2:EdgeMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_logical_connector']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_h-nkQbfdEeupgN33SxbatQ" name="Physical Connection" tooltipText="Physical Component &quot;Physical Connection">
       <target xmi:type="e4sm:PhysicalComponent" href="Showcase.e4sm#_h-nkQLfdEeupgN33SxbatQ"/>
@@ -1112,12 +1069,55 @@
       </ownedStyle>
       <actualMapping xmi:type="description_2:EdgeMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_physical_connector']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_OkWitLlLEeupgN33SxbatQ" sourceNode="_LRZkIblLEeupgN33SxbatQ" targetNode="_HP5dkblLEeupgN33SxbatQ">
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_xNeOkL40EeuB8-YlCB2Eiw" sourceNode="_3-DsgLfcEeupgN33SxbatQ" targetNode="_1iXtMbfcEeupgN33SxbatQ">
+      <target xmi:type="e4sm:LogicalConnector" href="Showcase.e4sm#_5LnEwLfcEeupgN33SxbatQ"/>
+      <semanticElements xmi:type="e4sm:LogicalConnector" href="Showcase.e4sm#_5LnEwLfcEeupgN33SxbatQ"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_xNeOkb40EeuB8-YlCB2Eiw" size="3" strokeColor="255,255,255">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_logical_connector']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_xNeOkr40EeuB8-YlCB2Eiw" labelSize="12"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_2:EdgeMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_logical_connector']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_xNe1oL40EeuB8-YlCB2Eiw" sourceNode="_4VzeIbfcEeupgN33SxbatQ" targetNode="_2Q5AEbfcEeupgN33SxbatQ">
+      <target xmi:type="e4sm:LogicalConnector" href="Showcase.e4sm#_5w3t8LfcEeupgN33SxbatQ"/>
+      <semanticElements xmi:type="e4sm:LogicalConnector" href="Showcase.e4sm#_5w3t8LfcEeupgN33SxbatQ"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_xNe1ob40EeuB8-YlCB2Eiw" size="3" strokeColor="255,255,255">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_logical_connector']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_xNe1or40EeuB8-YlCB2Eiw" labelSize="12"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_2:EdgeMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_logical_connector']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_xNe1pb40EeuB8-YlCB2Eiw" sourceNode="__craMbfcEeupgN33SxbatQ" targetNode="_PAaN0bfdEeupgN33SxbatQ">
+      <target xmi:type="e4sm:LogicalConnector" href="Showcase.e4sm#_SBKpELfdEeupgN33SxbatQ"/>
+      <semanticElements xmi:type="e4sm:LogicalConnector" href="Showcase.e4sm#_SBKpELfdEeupgN33SxbatQ"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_xNe1pr40EeuB8-YlCB2Eiw" description="_WXPkPLocEeupgN33SxbatQ" targetArrow="NoDecoration" size="3" strokeColor="255,255,255">
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_xNe1p740EeuB8-YlCB2Eiw" labelSize="12"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_2:EdgeMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_logical_connector']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_xNe1qr40EeuB8-YlCB2Eiw" sourceNode="_PT7mwbfdEeupgN33SxbatQ" targetNode="_PzX70bfdEeupgN33SxbatQ">
+      <target xmi:type="e4sm:LogicalConnector" href="Showcase.e4sm#_SaHUkLfdEeupgN33SxbatQ"/>
+      <semanticElements xmi:type="e4sm:LogicalConnector" href="Showcase.e4sm#_SaHUkLfdEeupgN33SxbatQ"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_xNe1q740EeuB8-YlCB2Eiw" size="3" strokeColor="255,255,255">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_logical_connector']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_xNe1rL40EeuB8-YlCB2Eiw" labelSize="12"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_2:EdgeMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_logical_connector']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_xNe1r740EeuB8-YlCB2Eiw" sourceNode="_QIl94bfdEeupgN33SxbatQ" targetNode="_AQmKcLfdEeupgN33SxbatQ">
+      <target xmi:type="e4sm:LogicalConnector" href="Showcase.e4sm#_SzePwLfdEeupgN33SxbatQ"/>
+      <semanticElements xmi:type="e4sm:LogicalConnector" href="Showcase.e4sm#_SzePwLfdEeupgN33SxbatQ"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_xNfcsL40EeuB8-YlCB2Eiw" description="_WXPkPLocEeupgN33SxbatQ" targetArrow="NoDecoration" size="3" strokeColor="255,255,255">
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_xNfcsb40EeuB8-YlCB2Eiw" labelSize="12"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_2:EdgeMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_logical_connector']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_xNfctL40EeuB8-YlCB2Eiw" sourceNode="_LRZkIblLEeupgN33SxbatQ" targetNode="_HP5dkblLEeupgN33SxbatQ">
       <target xmi:type="e4sm:LogicalConnector" href="Showcase.e4sm#_OkV7kLlLEeupgN33SxbatQ"/>
       <semanticElements xmi:type="e4sm:LogicalConnector" href="Showcase.e4sm#_OkV7kLlLEeupgN33SxbatQ"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_Sm5xHroaEeupgN33SxbatQ" size="3" strokeColor="255,255,255">
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_xNfctb40EeuB8-YlCB2Eiw" size="3" strokeColor="255,255,255">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_logical_connector']/@style"/>
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_Sm5xH7oaEeupgN33SxbatQ" labelSize="12"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_xNfctr40EeuB8-YlCB2Eiw" labelSize="12"/>
       </ownedStyle>
       <actualMapping xmi:type="description_2:EdgeMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_logical_connector']"/>
     </ownedDiagramElements>

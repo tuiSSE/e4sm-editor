@@ -2,15 +2,17 @@
  */
 package e4sm.de.metamodel.e4sm.impl;
 
+import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.PhysicalComponent;
 import e4sm.de.metamodel.e4sm.Sector;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
+import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -157,6 +159,18 @@ public class SectorImpl extends NamedElementImpl implements Sector {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public EList<Component> getAllComponents() {
+		EList<Component> res = ECollections.newBasicEList(this.getComponents());
+		this.getSectors().forEach(s->{res.addAll(s.getAllComponents());});
+		return res;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -282,6 +296,20 @@ public class SectorImpl extends NamedElementImpl implements Sector {
 			return getContainedBy() != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+		case e4smPackage.SECTOR___GET_ALL_COMPONENTS:
+			return getAllComponents();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //SectorImpl

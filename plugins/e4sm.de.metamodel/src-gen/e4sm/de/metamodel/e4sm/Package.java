@@ -206,4 +206,15 @@ public interface Package extends NamedElement {
 	 */
 	void setSpecifiesComponent(Component value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Returns all components directly contained by this package, including those inside sectors.
+	 * <!-- end-model-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	EList<Component> getAllComponents();
+
 } // Package

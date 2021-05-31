@@ -122,6 +122,11 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="constraints" value="PackageC1"/>
     </eAnnotations>
+    <eOperations name="getAllComponents" upperBound="-1" eType="#//Component">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Returns all components directly contained by this package, including those inside sectors."/>
+      </eAnnotations>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
         eType="#//Component" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -227,6 +232,11 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A collection of physical components that either logically or phisically belongs together"/>
     </eAnnotations>
+    <eOperations name="getAllComponents" upperBound="-1" eType="#//Component">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Returns all components directly contained by this package, including those inside sectors."/>
+      </eAnnotations>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
         eType="#//PhysicalComponent" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

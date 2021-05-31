@@ -55,6 +55,7 @@
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//Package/packages"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//Package/containedBy"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//Package/specifiesComponent"/>
+      <genOperations ecoreOperation="e4sm.ecore#//Package/getAllComponents" body="&#x9;&#x9;// Get all components which are contained directly in this package&#xD;&#xA;&#x9;&#x9;EList&lt;Component> res = ECollections.newBasicEList(this.getComponents());&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;// Look into sectors&#xD;&#xA;&#x9;&#x9;this.getSectors().forEach(s -> {&#xD;&#xA;&#x9;&#x9;&#x9;res.addAll(s.getAllComponents());&#xD;&#xA;&#x9;&#x9;});&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;return res;"/>
     </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//Model">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//Model/packages"/>
@@ -71,6 +72,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//Sector/components"/>
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//Sector/sectors"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//Sector/containedBy"/>
+      <genOperations documentation="Returns all components contained by this sector, even if wrapped by other sectors"
+          ecoreOperation="e4sm.ecore#//Sector/getAllComponents" body="&#x9;&#x9;EList&lt;Component> res = ECollections.newBasicEList(this.getComponents());&#xD;&#xA;&#x9;&#x9;this.getSectors().forEach(s->{res.addAll(s.getAllComponents());});&#xD;&#xA;&#x9;&#x9;return res;"/>
     </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//Sensor"/>
     <genClasses ecoreClass="e4sm.ecore#//Actuator"/>

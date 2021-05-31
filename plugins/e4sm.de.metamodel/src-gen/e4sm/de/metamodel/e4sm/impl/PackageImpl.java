@@ -10,11 +10,12 @@ import e4sm.de.metamodel.e4sm.Sector;
 import e4sm.de.metamodel.e4sm.SoftwareComponent;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
+import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -28,31 +29,39 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Package</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object
+ * '<em><b>Package</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getComponents <em>Components</em>}</li>
- *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getSoftwareComponents <em>Software Components</em>}</li>
- *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getPhysicalComponents <em>Physical Components</em>}</li>
- *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getConnectors <em>Connectors</em>}</li>
- *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getSectors <em>Sectors</em>}</li>
- *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getMainResponsible <em>Main Responsible</em>}</li>
- *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getPackages <em>Packages</em>}</li>
- *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getContainedBy <em>Contained By</em>}</li>
- *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getSpecifiesComponent <em>Specifies Component</em>}</li>
+ * <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getComponents
+ * <em>Components</em>}</li>
+ * <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getSoftwareComponents
+ * <em>Software Components</em>}</li>
+ * <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getPhysicalComponents
+ * <em>Physical Components</em>}</li>
+ * <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getConnectors
+ * <em>Connectors</em>}</li>
+ * <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getSectors
+ * <em>Sectors</em>}</li>
+ * <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getMainResponsible
+ * <em>Main Responsible</em>}</li>
+ * <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getPackages
+ * <em>Packages</em>}</li>
+ * <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getContainedBy
+ * <em>Contained By</em>}</li>
+ * <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getSpecifiesComponent
+ * <em>Specifies Component</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e4sm.Package {
 	/**
-	 * The cached value of the '{@link #getComponents() <em>Components</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getComponents() <em>Components</em>}'
+	 * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getComponents()
 	 * @generated
 	 * @ordered
@@ -60,9 +69,10 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	protected EList<Component> components;
 
 	/**
-	 * The cached value of the '{@link #getSoftwareComponents() <em>Software Components</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getSoftwareComponents() <em>Software
+	 * Components</em>}' reference list. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #getSoftwareComponents()
 	 * @generated
 	 * @ordered
@@ -70,9 +80,10 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	protected EList<SoftwareComponent> softwareComponents;
 
 	/**
-	 * The cached value of the '{@link #getPhysicalComponents() <em>Physical Components</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getPhysicalComponents() <em>Physical
+	 * Components</em>}' reference list. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #getPhysicalComponents()
 	 * @generated
 	 * @ordered
@@ -80,9 +91,9 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	protected EList<PhysicalComponent> physicalComponents;
 
 	/**
-	 * The cached value of the '{@link #getConnectors() <em>Connectors</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getConnectors() <em>Connectors</em>}'
+	 * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getConnectors()
 	 * @generated
 	 * @ordered
@@ -90,9 +101,9 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	protected EList<Connector> connectors;
 
 	/**
-	 * The cached value of the '{@link #getSectors() <em>Sectors</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getSectors() <em>Sectors</em>}' containment
+	 * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getSectors()
 	 * @generated
 	 * @ordered
@@ -100,9 +111,9 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	protected EList<Sector> sectors;
 
 	/**
-	 * The cached value of the '{@link #getMainResponsible() <em>Main Responsible</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getMainResponsible() <em>Main
+	 * Responsible</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getMainResponsible()
 	 * @generated
 	 * @ordered
@@ -110,9 +121,9 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	protected Person mainResponsible;
 
 	/**
-	 * The cached value of the '{@link #getPackages() <em>Packages</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getPackages() <em>Packages</em>}'
+	 * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getPackages()
 	 * @generated
 	 * @ordered
@@ -120,9 +131,9 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	protected EList<e4sm.de.metamodel.e4sm.Package> packages;
 
 	/**
-	 * The cached value of the '{@link #getSpecifiesComponent() <em>Specifies Component</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getSpecifiesComponent() <em>Specifies
+	 * Component</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getSpecifiesComponent()
 	 * @generated
 	 * @ordered
@@ -130,8 +141,8 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	protected Component specifiesComponent;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected PackageImpl() {
@@ -139,8 +150,8 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -149,8 +160,8 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -162,8 +173,8 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -176,8 +187,8 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -190,8 +201,8 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -203,8 +214,8 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -216,8 +227,8 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -235,8 +246,8 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Person basicGetMainResponsible() {
@@ -244,8 +255,8 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -258,8 +269,8 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -273,8 +284,8 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -285,8 +296,8 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetContainedBy(e4sm.de.metamodel.e4sm.Package newContainedBy,
@@ -296,8 +307,8 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -321,8 +332,8 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -340,8 +351,8 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Component basicGetSpecifiesComponent() {
@@ -349,8 +360,8 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetSpecifiesComponent(Component newSpecifiesComponent, NotificationChain msgs) {
@@ -368,8 +379,8 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -391,8 +402,26 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EList<Component> getAllComponents() {
+		// Get all components which are contained directly in this package
+		EList<Component> res = ECollections.newBasicEList(this.getComponents());
+
+		// Look into sectors
+		this.getSectors().forEach(s -> {
+			res.addAll(s.getAllComponents());
+		});
+
+		return res;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -415,8 +444,8 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -439,8 +468,8 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -454,8 +483,8 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -488,8 +517,8 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -534,8 +563,8 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -573,8 +602,8 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -602,4 +631,18 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 		return super.eIsSet(featureID);
 	}
 
-} //PackageImpl
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+		case e4smPackage.PACKAGE___GET_ALL_COMPONENTS:
+			return getAllComponents();
+		}
+		return super.eInvoke(operationID, arguments);
+	}
+
+} // PackageImpl

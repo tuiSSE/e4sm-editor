@@ -17,3 +17,4 @@ Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Bundle-Vendor: %providerName
 Automatic-Module-Name: e4sm.de.metamodel.design
+Import-Package: com.google.common.graph;version="30.1.0"

@@ -648,6 +648,22 @@
               </menuItemDescription>
             </itemDescriptions>
           </ownedTools>
+          <ownedTools xsi:type="tool_1:GroupMenu" name="start_simulation_group" label="Simulations" locationURI="tabbar:selectMenu">
+            <itemDescriptions xsi:type="tool_1:PopupMenu" name="popup_compute_dependency_tree" label="Compute Dependency Graph">
+              <menuItemDescription xsi:type="tool_1:OperationAction" name="compute_package_dependency_graph" label="Package Dependency Graph" icon="/e4sm.de.metamodel.design/icons/specified.gif">
+                <view name="views"/>
+                <initialOperation>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:diagram.target.oclAsType(e4sm::Package).computePackageDependencyGraph()"/>
+                </initialOperation>
+              </menuItemDescription>
+              <menuItemDescription xsi:type="tool_1:OperationAction" name="compute_model_dependency_graph" label="Model Dependency Graph" icon="/e4sm.de.metamodel.design/icons/specified.gif">
+                <view name="views"/>
+                <initialOperation>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:diagram.target.oclAsType(e4sm::Package).eContainer(e4sm::Model).computeModelDependencyGraph()"/>
+                </initialOperation>
+              </menuItemDescription>
+            </itemDescriptions>
+          </ownedTools>
         </toolSections>
         <decorationDescriptionsSet>
           <decorationDescriptions xsi:type="description:SemanticBasedDecoration" name="Arrow on Specified Components" position="SOUTH_EAST" preconditionExpression="feature:specifiedInPackage" imageExpression="/e4sm.de.metamodel.design/icons/specified.gif" tooltipExpression="aql:'This component is refined by the package\n' + self.specifiedInPackage.name" domainClass="e4sm::Component"/>
@@ -761,5 +777,6 @@
     <ownedJavaExtensions qualifiedClassName="e4sm.de.metamodel.design.Services"/>
     <ownedJavaExtensions qualifiedClassName="e4sm.de.metamodel.design.ConnectorServices"/>
     <ownedJavaExtensions qualifiedClassName="e4sm.de.metamodel.design.ElementTransformationServices"/>
+    <ownedJavaExtensions qualifiedClassName="e4sm.de.metamodel.design.analysis.DependencyGraph"/>
   </ownedViewpoints>
 </description:Group>
