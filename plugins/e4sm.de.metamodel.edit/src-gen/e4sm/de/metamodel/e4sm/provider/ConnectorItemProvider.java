@@ -68,7 +68,7 @@ public class ConnectorItemProvider extends OptionallyNamedElementItemProvider {
 						getResourceLocator(), getString("_UI_Connector_source_feature"),
 						getString("_UI_PropertyDescriptor_description", "_UI_Connector_source_feature",
 								"_UI_Connector_type"),
-						e4smPackage.Literals.CONNECTOR__TARGET, true, false, true, null, null, null) {
+						e4smPackage.Literals.CONNECTOR__SOURCE, true, false, true, null, null, null) {
 					@Override
 					public Collection<?> getChoiceOfValues(Object object) {
 						if (object instanceof Connector) {
