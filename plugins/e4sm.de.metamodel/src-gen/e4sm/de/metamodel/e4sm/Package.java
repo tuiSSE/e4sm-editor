@@ -26,7 +26,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link e4sm.de.metamodel.e4sm.Package#getSectors <em>Sectors</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Package#getMainResponsible <em>Main Responsible</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Package#getPackages <em>Packages</em>}</li>
- *   <li>{@link e4sm.de.metamodel.e4sm.Package#getContainedBy <em>Contained By</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Package#getSpecifiesComponent <em>Specifies Component</em>}</li>
  * </ul>
  *
@@ -138,7 +137,6 @@ public interface Package extends NamedElement {
 	/**
 	 * Returns the value of the '<em><b>Packages</b></em>' containment reference list.
 	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.Package}.
-	 * It is bidirectional and its opposite is '{@link e4sm.de.metamodel.e4sm.Package#getContainedBy <em>Contained By</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -146,38 +144,10 @@ public interface Package extends NamedElement {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Packages</em>' containment reference list.
 	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getPackage_Packages()
-	 * @see e4sm.de.metamodel.e4sm.Package#getContainedBy
-	 * @model opposite="containedBy" containment="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Package> getPackages();
-
-	/**
-	 * Returns the value of the '<em><b>Contained By</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link e4sm.de.metamodel.e4sm.Package#getPackages <em>Packages</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * A package containing this package (optional)
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Contained By</em>' container reference.
-	 * @see #setContainedBy(Package)
-	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getPackage_ContainedBy()
-	 * @see e4sm.de.metamodel.e4sm.Package#getPackages
-	 * @model opposite="packages" transient="false"
-	 * @generated
-	 */
-	Package getContainedBy();
-
-	/**
-	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.Package#getContainedBy <em>Contained By</em>}' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Contained By</em>' container reference.
-	 * @see #getContainedBy()
-	 * @generated
-	 */
-	void setContainedBy(Package value);
 
 	/**
 	 * Returns the value of the '<em><b>Specifies Component</b></em>' reference.

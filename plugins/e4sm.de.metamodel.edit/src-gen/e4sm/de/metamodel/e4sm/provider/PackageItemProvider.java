@@ -49,7 +49,6 @@ public class PackageItemProvider extends NamedElementItemProvider {
 			addPhysicalComponentsPropertyDescriptor(object);
 			addMainResponsiblePropertyDescriptor(object);
 			addPackagesPropertyDescriptor(object);
-			addContainedByPropertyDescriptor(object);
 			addSpecifiesComponentPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -113,21 +112,6 @@ public class PackageItemProvider extends NamedElementItemProvider {
 						getString("_UI_PropertyDescriptor_description", "_UI_Package_packages_feature",
 								"_UI_Package_type"),
 						e4smPackage.Literals.PACKAGE__PACKAGES, true, false, true, null, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Contained By feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addContainedByPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Package_containedBy_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Package_containedBy_feature",
-								"_UI_Package_type"),
-						e4smPackage.Literals.PACKAGE__CONTAINED_BY, true, false, true, null, null, null));
 	}
 
 	/**

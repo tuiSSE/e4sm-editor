@@ -14,6 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * 
  * Constraints:
  * - C1: no loops allowed between the component container (Package) and component "specifiedInPackage"
+ * - C2: components->size()>0, then specifiedInPackage=null - If the component contains other components, it can't be specified in a package.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -21,7 +22,6 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link e4sm.de.metamodel.e4sm.Component#getComponents <em>Components</em>}</li>
- *   <li>{@link e4sm.de.metamodel.e4sm.Component#getContainedBy <em>Contained By</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Component#getPins <em>Pins</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Component#getMainResponsible <em>Main Responsible</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Component#getSpecifiedInPackage <em>Specified In Package</em>}</li>
@@ -35,7 +35,6 @@ public interface Component extends NamedElement {
 	/**
 	 * Returns the value of the '<em><b>Components</b></em>' containment reference list.
 	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.Component}.
-	 * It is bidirectional and its opposite is '{@link e4sm.de.metamodel.e4sm.Component#getContainedBy <em>Contained By</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -43,38 +42,10 @@ public interface Component extends NamedElement {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Components</em>' containment reference list.
 	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getComponent_Components()
-	 * @see e4sm.de.metamodel.e4sm.Component#getContainedBy
-	 * @model opposite="containedBy" containment="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Component> getComponents();
-
-	/**
-	 * Returns the value of the '<em><b>Contained By</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link e4sm.de.metamodel.e4sm.Component#getComponents <em>Components</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The parent component which contains this component
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Contained By</em>' container reference.
-	 * @see #setContainedBy(Component)
-	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getComponent_ContainedBy()
-	 * @see e4sm.de.metamodel.e4sm.Component#getComponents
-	 * @model opposite="components" transient="false"
-	 * @generated
-	 */
-	Component getContainedBy();
-
-	/**
-	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.Component#getContainedBy <em>Contained By</em>}' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Contained By</em>' container reference.
-	 * @see #getContainedBy()
-	 * @generated
-	 */
-	void setContainedBy(Component value);
 
 	/**
 	 * Returns the value of the '<em><b>Pins</b></em>' containment reference list.

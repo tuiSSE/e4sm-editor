@@ -47,7 +47,6 @@ public class SectorItemProvider extends NamedElementItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addSectorsPropertyDescriptor(object);
-			addContainedByPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -65,21 +64,6 @@ public class SectorItemProvider extends NamedElementItemProvider {
 						getString("_UI_PropertyDescriptor_description", "_UI_Sector_sectors_feature",
 								"_UI_Sector_type"),
 						e4smPackage.Literals.SECTOR__SECTORS, true, false, true, null, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Contained By feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addContainedByPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Sector_containedBy_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Sector_containedBy_feature",
-								"_UI_Sector_type"),
-						e4smPackage.Literals.SECTOR__CONTAINED_BY, true, false, true, null, null, null));
 	}
 
 	/**

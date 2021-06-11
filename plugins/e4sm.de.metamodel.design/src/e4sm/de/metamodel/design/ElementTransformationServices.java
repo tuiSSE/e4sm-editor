@@ -8,6 +8,7 @@ import e4sm.de.metamodel.e4sm.ExternalDependency;
 import e4sm.de.metamodel.e4sm.Function;
 import e4sm.de.metamodel.e4sm.Heuristic;
 import e4sm.de.metamodel.e4sm.MachineLearningComponent;
+import e4sm.de.metamodel.e4sm.NamedElement;
 import e4sm.de.metamodel.e4sm.Package;
 import e4sm.de.metamodel.e4sm.PhysicalComponent;
 import e4sm.de.metamodel.e4sm.Sector;
@@ -22,18 +23,18 @@ public class ElementTransformationServices {
 	public void transformToComponent(Component c) {
 		final Component newComponent = e4smFactory.eINSTANCE.createComponent();
 		final boolean isPhysicalComponent = c instanceof PhysicalComponent;
-		if(c.getContainedBy() != null) {
+		NamedElement oldComponentContainer = (NamedElement) c.eContainer();
+		if(oldComponentContainer instanceof Component) {
 			//This component is contained by another component
-			newComponent.setContainedBy(c.getContainedBy());
+			((Component) oldComponentContainer).getComponents().add(newComponent);
 		}
-		else if(isPhysicalComponent && c.eContainer() instanceof Sector) {
+		else if(isPhysicalComponent && oldComponentContainer instanceof Sector) {
 			//This component is contained by a sector. A sector can only contain Physical Components.
-			final Package container = Utils.getContainingPackage(c.eContainer());
+			final Package container = Utils.getContainingPackage(oldComponentContainer);
 			container.getComponents().add(newComponent);
-		}else {
+		}else if(oldComponentContainer instanceof Package) {
 			//This component is contained by a package
-			final Package container = (Package) c.eContainer();
-			container.getComponents().add(newComponent);
+			((Package) oldComponentContainer).getComponents().add(newComponent);
 		}
 		
 		//Copy all attributes
@@ -55,14 +56,14 @@ public class ElementTransformationServices {
 	 * */
 	public void transformToSoftwareComponent(SoftwareComponent c) {
 		final SoftwareComponent newComponent = e4smFactory.eINSTANCE.createSoftwareComponent();
-		if(c.getContainedBy() != null) {
+		NamedElement oldComponentContainer = (NamedElement) c.eContainer();
+		if(oldComponentContainer instanceof Component) {
 			//This component is contained by another component
-			newComponent.setContainedBy(c.getContainedBy());
+			((Component) oldComponentContainer).getComponents().add(newComponent);
 		}
-		else {
+		else if(oldComponentContainer instanceof Package) {
 			//This component is contained by a package
-			final Package container = (Package) c.eContainer();
-			container.getComponents().add(newComponent);
+			((Package) oldComponentContainer).getComponents().add(newComponent);
 		}
 		
 		//Copy all attributes
@@ -84,19 +85,19 @@ public class ElementTransformationServices {
 	 * */
 	public void transformToPhysicalComponent(PhysicalComponent c) {
 		final PhysicalComponent newComponent = e4smFactory.eINSTANCE.createPhysicalComponent();
-		if(c.getContainedBy() != null) {
+		NamedElement oldComponentContainer = (NamedElement) c.eContainer();
+		if(oldComponentContainer instanceof Component) {
 			//This component is contained by another component
-			newComponent.setContainedBy(c.getContainedBy());
+			((Component) oldComponentContainer).getComponents().add(newComponent);
 		}
 		else if(c.eContainer() instanceof Sector) {
 			//This component is contained by a Sector
 			final Sector container = (Sector) c.eContainer();
 			container.getComponents().add(newComponent);
 		}
-		else {
+		else if(oldComponentContainer instanceof Package) {
 			//This component is contained by a package
-			final Package container = (Package) c.eContainer();
-			container.getComponents().add(newComponent);
+			((Package) oldComponentContainer).getComponents().add(newComponent);
 		}
 		
 		//Copy all attributes
@@ -118,14 +119,14 @@ public class ElementTransformationServices {
 	 * */
 	public void transformDownToSoftwareComponent(Component c) {
 		final SoftwareComponent newComponent = e4smFactory.eINSTANCE.createSoftwareComponent();
-		if(c.getContainedBy() != null) {
+		NamedElement oldComponentContainer = (NamedElement) c.eContainer();
+		if(oldComponentContainer instanceof Component) {
 			//This component is contained by another component
-			newComponent.setContainedBy(c.getContainedBy());
+			((Component) oldComponentContainer).getComponents().add(newComponent);
 		}
-		else {
+		else if(oldComponentContainer instanceof Package) {
 			//This component is contained by a package
-			final Package container = (Package) c.eContainer();
-			container.getComponents().add(newComponent);
+			((Package) oldComponentContainer).getComponents().add(newComponent);
 		}
 		
 		//Copy all attributes
@@ -147,14 +148,14 @@ public class ElementTransformationServices {
 	 * */
 	public void transformDownToPhysicalComponent(Component c) {
 		final PhysicalComponent newComponent = e4smFactory.eINSTANCE.createPhysicalComponent();
-		if(c.getContainedBy() != null) {
+		NamedElement oldComponentContainer = (NamedElement) c.eContainer();
+		if(oldComponentContainer instanceof Component) {
 			//This component is contained by another component
-			newComponent.setContainedBy(c.getContainedBy());
+			((Component) oldComponentContainer).getComponents().add(newComponent);
 		}
-		else {
+		else if(oldComponentContainer instanceof Package) {
 			//This component is contained by a package
-			final Package container = (Package) c.eContainer();
-			container.getComponents().add(newComponent);
+			((Package) oldComponentContainer).getComponents().add(newComponent);
 		}
 		
 		//Copy all attributes
@@ -176,19 +177,19 @@ public class ElementTransformationServices {
 	 * */
 	public void transformDownToSensor(PhysicalComponent c) {
 		final Sensor newComponent = e4smFactory.eINSTANCE.createSensor();
-		if(c.getContainedBy() != null) {
+		NamedElement oldComponentContainer = (NamedElement) c.eContainer();
+		if(oldComponentContainer instanceof Component) {
 			//This component is contained by another component
-			newComponent.setContainedBy(c.getContainedBy());
+			((Component) oldComponentContainer).getComponents().add(newComponent);
 		}
 		else if(c.eContainer() instanceof Sector) {
 			//This component is contained by a Sector
 			final Sector container = (Sector) c.eContainer();
 			container.getComponents().add(newComponent);
 		}
-		else {
+		else if(oldComponentContainer instanceof Package) {
 			//This component is contained by a package
-			final Package container = (Package) c.eContainer();
-			container.getComponents().add(newComponent);
+			((Package) oldComponentContainer).getComponents().add(newComponent);
 		}
 		
 		//Copy all attributes
@@ -211,19 +212,19 @@ public class ElementTransformationServices {
 	 * */
 	public void transformDownToActuator(PhysicalComponent c) {
 		final Actuator newComponent = e4smFactory.eINSTANCE.createActuator();
-		if(c.getContainedBy() != null) {
+		NamedElement oldComponentContainer = (NamedElement) c.eContainer();
+		if(oldComponentContainer instanceof Component) {
 			//This component is contained by another component
-			newComponent.setContainedBy(c.getContainedBy());
+			((Component) oldComponentContainer).getComponents().add(newComponent);
 		}
 		else if(c.eContainer() instanceof Sector) {
 			//This component is contained by a Sector
 			final Sector container = (Sector) c.eContainer();
 			container.getComponents().add(newComponent);
 		}
-		else {
+		else if(oldComponentContainer instanceof Package) {
 			//This component is contained by a package
-			final Package container = (Package) c.eContainer();
-			container.getComponents().add(newComponent);
+			((Package) oldComponentContainer).getComponents().add(newComponent);
 		}
 		
 		//Copy all attributes
@@ -246,14 +247,14 @@ public class ElementTransformationServices {
 	 * */
 	public void transformDownToMachineLearningComponent(SoftwareComponent c) {
 		final MachineLearningComponent newComponent = e4smFactory.eINSTANCE.createMachineLearningComponent();
-		if(c.getContainedBy() != null) {
+		NamedElement oldComponentContainer = (NamedElement) c.eContainer();
+		if(oldComponentContainer instanceof Component) {
 			//This component is contained by another component
-			newComponent.setContainedBy(c.getContainedBy());
+			((Component) oldComponentContainer).getComponents().add(newComponent);
 		}
-		else {
+		else if(oldComponentContainer instanceof Package) {
 			//This component is contained by a package
-			final Package container = (Package) c.eContainer();
-			container.getComponents().add(newComponent);
+			((Package) oldComponentContainer).getComponents().add(newComponent);
 		}
 		
 		//Copy all attributes
@@ -275,14 +276,14 @@ public class ElementTransformationServices {
 	 * */
 	public void transformDownToHeuristic(SoftwareComponent c) {
 		final Heuristic newComponent = e4smFactory.eINSTANCE.createHeuristic();
-		if(c.getContainedBy() != null) {
+		NamedElement oldComponentContainer = (NamedElement) c.eContainer();
+		if(oldComponentContainer instanceof Component) {
 			//This component is contained by another component
-			newComponent.setContainedBy(c.getContainedBy());
+			((Component) oldComponentContainer).getComponents().add(newComponent);
 		}
-		else {
+		else if(oldComponentContainer instanceof Package) {
 			//This component is contained by a package
-			final Package container = (Package) c.eContainer();
-			container.getComponents().add(newComponent);
+			((Package) oldComponentContainer).getComponents().add(newComponent);
 		}
 		
 		//Copy all attributes
@@ -304,14 +305,14 @@ public class ElementTransformationServices {
 	 * */
 	public void transformDownToFunction(SoftwareComponent c) {
 		final Function newComponent = e4smFactory.eINSTANCE.createFunction();
-		if(c.getContainedBy() != null) {
+		NamedElement oldComponentContainer = (NamedElement) c.eContainer();
+		if(oldComponentContainer instanceof Component) {
 			//This component is contained by another component
-			newComponent.setContainedBy(c.getContainedBy());
+			((Component) oldComponentContainer).getComponents().add(newComponent);
 		}
-		else {
+		else if(oldComponentContainer instanceof Package) {
 			//This component is contained by a package
-			final Package container = (Package) c.eContainer();
-			container.getComponents().add(newComponent);
+			((Package) oldComponentContainer).getComponents().add(newComponent);
 		}
 		
 		//Copy all attributes
@@ -333,14 +334,14 @@ public class ElementTransformationServices {
 	 * */
 	public void transformDownToExternalDependency(SoftwareComponent c) {
 		final ExternalDependency newComponent = e4smFactory.eINSTANCE.createExternalDependency();
-		if(c.getContainedBy() != null) {
+		NamedElement oldComponentContainer = (NamedElement) c.eContainer();
+		if(oldComponentContainer instanceof Component) {
 			//This component is contained by another component
-			newComponent.setContainedBy(c.getContainedBy());
+			((Component) oldComponentContainer).getComponents().add(newComponent);
 		}
-		else {
+		else if(oldComponentContainer instanceof Package) {
 			//This component is contained by a package
-			final Package container = (Package) c.eContainer();
-			container.getComponents().add(newComponent);
+			((Package) oldComponentContainer).getComponents().add(newComponent);
 		}
 		
 		//Copy all attributes

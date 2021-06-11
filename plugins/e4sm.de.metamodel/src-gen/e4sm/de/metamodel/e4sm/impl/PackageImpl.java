@@ -23,9 +23,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -35,33 +33,22 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getComponents
- * <em>Components</em>}</li>
- * <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getSoftwareComponents
- * <em>Software Components</em>}</li>
- * <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getPhysicalComponents
- * <em>Physical Components</em>}</li>
- * <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getConnectors
- * <em>Connectors</em>}</li>
- * <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getSectors
- * <em>Sectors</em>}</li>
- * <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getMainResponsible
- * <em>Main Responsible</em>}</li>
- * <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getPackages
- * <em>Packages</em>}</li>
- * <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getContainedBy
- * <em>Contained By</em>}</li>
- * <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getSpecifiesComponent
- * <em>Specifies Component</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getComponents <em>Components</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getSoftwareComponents <em>Software Components</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getPhysicalComponents <em>Physical Components</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getConnectors <em>Connectors</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getSectors <em>Sectors</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getMainResponsible <em>Main Responsible</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getPackages <em>Packages</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getSpecifiesComponent <em>Specifies Component</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e4sm.Package {
 	/**
-	 * The cached value of the '{@link #getComponents() <em>Components</em>}'
-	 * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getComponents() <em>Components</em>}' containment reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getComponents()
 	 * @generated
 	 * @ordered
@@ -91,9 +78,8 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	protected EList<PhysicalComponent> physicalComponents;
 
 	/**
-	 * The cached value of the '{@link #getConnectors() <em>Connectors</em>}'
-	 * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getConnectors() <em>Connectors</em>}' containment reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getConnectors()
 	 * @generated
 	 * @ordered
@@ -101,9 +87,8 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	protected EList<Connector> connectors;
 
 	/**
-	 * The cached value of the '{@link #getSectors() <em>Sectors</em>}' containment
-	 * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getSectors() <em>Sectors</em>}' containment reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getSectors()
 	 * @generated
 	 * @ordered
@@ -111,9 +96,8 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	protected EList<Sector> sectors;
 
 	/**
-	 * The cached value of the '{@link #getMainResponsible() <em>Main
-	 * Responsible</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getMainResponsible() <em>Main Responsible</em>}' reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getMainResponsible()
 	 * @generated
 	 * @ordered
@@ -121,9 +105,8 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	protected Person mainResponsible;
 
 	/**
-	 * The cached value of the '{@link #getPackages() <em>Packages</em>}'
-	 * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getPackages() <em>Packages</em>}' containment reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getPackages()
 	 * @generated
 	 * @ordered
@@ -131,9 +114,8 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	protected EList<e4sm.de.metamodel.e4sm.Package> packages;
 
 	/**
-	 * The cached value of the '{@link #getSpecifiesComponent() <em>Specifies
-	 * Component</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getSpecifiesComponent() <em>Specifies Component</em>}' reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getSpecifiesComponent()
 	 * @generated
 	 * @ordered
@@ -142,7 +124,6 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected PackageImpl() {
@@ -151,7 +132,6 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -161,7 +141,6 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -174,7 +153,6 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -188,7 +166,6 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -202,7 +179,6 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -215,7 +191,6 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -228,7 +203,6 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -247,7 +221,6 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Person basicGetMainResponsible() {
@@ -256,7 +229,6 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -270,70 +242,19 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public EList<e4sm.de.metamodel.e4sm.Package> getPackages() {
 		if (packages == null) {
-			packages = new EObjectContainmentWithInverseEList<e4sm.de.metamodel.e4sm.Package>(
-					e4sm.de.metamodel.e4sm.Package.class, this, e4smPackage.PACKAGE__PACKAGES,
-					e4smPackage.PACKAGE__CONTAINED_BY);
+			packages = new EObjectContainmentEList<e4sm.de.metamodel.e4sm.Package>(e4sm.de.metamodel.e4sm.Package.class,
+					this, e4smPackage.PACKAGE__PACKAGES);
 		}
 		return packages;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public e4sm.de.metamodel.e4sm.Package getContainedBy() {
-		if (eContainerFeatureID() != e4smPackage.PACKAGE__CONTAINED_BY)
-			return null;
-		return (e4sm.de.metamodel.e4sm.Package) eInternalContainer();
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public NotificationChain basicSetContainedBy(e4sm.de.metamodel.e4sm.Package newContainedBy,
-			NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject) newContainedBy, e4smPackage.PACKAGE__CONTAINED_BY, msgs);
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public void setContainedBy(e4sm.de.metamodel.e4sm.Package newContainedBy) {
-		if (newContainedBy != eInternalContainer()
-				|| (eContainerFeatureID() != e4smPackage.PACKAGE__CONTAINED_BY && newContainedBy != null)) {
-			if (EcoreUtil.isAncestor(this, newContainedBy))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			if (newContainedBy != null)
-				msgs = ((InternalEObject) newContainedBy).eInverseAdd(this, e4smPackage.PACKAGE__PACKAGES,
-						e4sm.de.metamodel.e4sm.Package.class, msgs);
-			msgs = basicSetContainedBy(newContainedBy, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.PACKAGE__CONTAINED_BY, newContainedBy,
-					newContainedBy));
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -352,7 +273,6 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Component basicGetSpecifiesComponent() {
@@ -361,7 +281,6 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetSpecifiesComponent(Component newSpecifiesComponent, NotificationChain msgs) {
@@ -380,7 +299,6 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -403,7 +321,6 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -421,19 +338,12 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case e4smPackage.PACKAGE__PACKAGES:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getPackages()).basicAdd(otherEnd, msgs);
-		case e4smPackage.PACKAGE__CONTAINED_BY:
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			return basicSetContainedBy((e4sm.de.metamodel.e4sm.Package) otherEnd, msgs);
 		case e4smPackage.PACKAGE__SPECIFIES_COMPONENT:
 			if (specifiesComponent != null)
 				msgs = ((InternalEObject) specifiesComponent).eInverseRemove(this,
@@ -445,7 +355,6 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -459,8 +368,6 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 			return ((InternalEList<?>) getSectors()).basicRemove(otherEnd, msgs);
 		case e4smPackage.PACKAGE__PACKAGES:
 			return ((InternalEList<?>) getPackages()).basicRemove(otherEnd, msgs);
-		case e4smPackage.PACKAGE__CONTAINED_BY:
-			return basicSetContainedBy(null, msgs);
 		case e4smPackage.PACKAGE__SPECIFIES_COMPONENT:
 			return basicSetSpecifiesComponent(null, msgs);
 		}
@@ -469,22 +376,6 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID()) {
-		case e4smPackage.PACKAGE__CONTAINED_BY:
-			return eInternalContainer().eInverseRemove(this, e4smPackage.PACKAGE__PACKAGES,
-					e4sm.de.metamodel.e4sm.Package.class, msgs);
-		}
-		return super.eBasicRemoveFromContainerFeature(msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -506,8 +397,6 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 			return basicGetMainResponsible();
 		case e4smPackage.PACKAGE__PACKAGES:
 			return getPackages();
-		case e4smPackage.PACKAGE__CONTAINED_BY:
-			return getContainedBy();
 		case e4smPackage.PACKAGE__SPECIFIES_COMPONENT:
 			if (resolve)
 				return getSpecifiesComponent();
@@ -518,7 +407,6 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -552,9 +440,6 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 			getPackages().clear();
 			getPackages().addAll((Collection<? extends e4sm.de.metamodel.e4sm.Package>) newValue);
 			return;
-		case e4smPackage.PACKAGE__CONTAINED_BY:
-			setContainedBy((e4sm.de.metamodel.e4sm.Package) newValue);
-			return;
 		case e4smPackage.PACKAGE__SPECIFIES_COMPONENT:
 			setSpecifiesComponent((Component) newValue);
 			return;
@@ -564,7 +449,6 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -591,9 +475,6 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 		case e4smPackage.PACKAGE__PACKAGES:
 			getPackages().clear();
 			return;
-		case e4smPackage.PACKAGE__CONTAINED_BY:
-			setContainedBy((e4sm.de.metamodel.e4sm.Package) null);
-			return;
 		case e4smPackage.PACKAGE__SPECIFIES_COMPONENT:
 			setSpecifiesComponent((Component) null);
 			return;
@@ -603,7 +484,6 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -623,8 +503,6 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 			return mainResponsible != null;
 		case e4smPackage.PACKAGE__PACKAGES:
 			return packages != null && !packages.isEmpty();
-		case e4smPackage.PACKAGE__CONTAINED_BY:
-			return getContainedBy() != null;
 		case e4smPackage.PACKAGE__SPECIFIES_COMPONENT:
 			return specifiesComponent != null;
 		}
@@ -633,7 +511,6 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

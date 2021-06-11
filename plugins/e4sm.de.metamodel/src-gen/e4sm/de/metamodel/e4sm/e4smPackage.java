@@ -152,22 +152,13 @@ public interface e4smPackage extends EPackage {
 	int COMPONENT__COMPONENTS = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Contained By</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPONENT__CONTAINED_BY = NAMED_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Pins</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__PINS = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int COMPONENT__PINS = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Main Responsible</b></em>' reference.
@@ -176,7 +167,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__MAIN_RESPONSIBLE = NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int COMPONENT__MAIN_RESPONSIBLE = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Specified In Package</b></em>' reference.
@@ -185,7 +176,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__SPECIFIED_IN_PACKAGE = NAMED_ELEMENT_FEATURE_COUNT + 4;
+	int COMPONENT__SPECIFIED_IN_PACKAGE = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Component</em>' class.
@@ -194,7 +185,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 5;
+	int COMPONENT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Compute Main Responsible</em>' operation.
@@ -241,15 +232,6 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOFTWARE_COMPONENT__COMPONENTS = COMPONENT__COMPONENTS;
-
-	/**
-	 * The feature id for the '<em><b>Contained By</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOFTWARE_COMPONENT__CONTAINED_BY = COMPONENT__CONTAINED_BY;
 
 	/**
 	 * The feature id for the '<em><b>Pins</b></em>' containment reference list.
@@ -350,15 +332,6 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int MACHINE_LEARNING_COMPONENT__COMPONENTS = SOFTWARE_COMPONENT__COMPONENTS;
-
-	/**
-	 * The feature id for the '<em><b>Contained By</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MACHINE_LEARNING_COMPONENT__CONTAINED_BY = SOFTWARE_COMPONENT__CONTAINED_BY;
 
 	/**
 	 * The feature id for the '<em><b>Pins</b></em>' containment reference list.
@@ -626,15 +599,6 @@ public interface e4smPackage extends EPackage {
 	int PHYSICAL_COMPONENT__COMPONENTS = COMPONENT__COMPONENTS;
 
 	/**
-	 * The feature id for the '<em><b>Contained By</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PHYSICAL_COMPONENT__CONTAINED_BY = COMPONENT__CONTAINED_BY;
-
-	/**
 	 * The feature id for the '<em><b>Pins</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -772,15 +736,6 @@ public interface e4smPackage extends EPackage {
 	int HEURISTIC__COMPONENTS = SOFTWARE_COMPONENT__COMPONENTS;
 
 	/**
-	 * The feature id for the '<em><b>Contained By</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HEURISTIC__CONTAINED_BY = SOFTWARE_COMPONENT__CONTAINED_BY;
-
-	/**
 	 * The feature id for the '<em><b>Pins</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -881,15 +836,6 @@ public interface e4smPackage extends EPackage {
 	int FUNCTION__COMPONENTS = SOFTWARE_COMPONENT__COMPONENTS;
 
 	/**
-	 * The feature id for the '<em><b>Contained By</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FUNCTION__CONTAINED_BY = SOFTWARE_COMPONENT__CONTAINED_BY;
-
-	/**
 	 * The feature id for the '<em><b>Pins</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -988,15 +934,6 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXTERNAL_DEPENDENCY__COMPONENTS = SOFTWARE_COMPONENT__COMPONENTS;
-
-	/**
-	 * The feature id for the '<em><b>Contained By</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTERNAL_DEPENDENCY__CONTAINED_BY = SOFTWARE_COMPONENT__CONTAINED_BY;
 
 	/**
 	 * The feature id for the '<em><b>Pins</b></em>' containment reference list.
@@ -1153,22 +1090,13 @@ public interface e4smPackage extends EPackage {
 	int PACKAGE__PACKAGES = NAMED_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
-	 * The feature id for the '<em><b>Contained By</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PACKAGE__CONTAINED_BY = NAMED_ELEMENT_FEATURE_COUNT + 7;
-
-	/**
 	 * The feature id for the '<em><b>Specifies Component</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__SPECIFIES_COMPONENT = NAMED_ELEMENT_FEATURE_COUNT + 8;
+	int PACKAGE__SPECIFIES_COMPONENT = NAMED_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of structural features of the '<em>Package</em>' class.
@@ -1177,7 +1105,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 9;
+	int PACKAGE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Get All Components</em>' operation.
@@ -1410,22 +1338,13 @@ public interface e4smPackage extends EPackage {
 	int SECTOR__SECTORS = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Contained By</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SECTOR__CONTAINED_BY = NAMED_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
 	 * The number of structural features of the '<em>Sector</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SECTOR_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int SECTOR_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Get All Components</em>' operation.
@@ -1472,15 +1391,6 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int SENSOR__COMPONENTS = PHYSICAL_COMPONENT__COMPONENTS;
-
-	/**
-	 * The feature id for the '<em><b>Contained By</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SENSOR__CONTAINED_BY = PHYSICAL_COMPONENT__CONTAINED_BY;
 
 	/**
 	 * The feature id for the '<em><b>Pins</b></em>' containment reference list.
@@ -1563,15 +1473,6 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTUATOR__COMPONENTS = PHYSICAL_COMPONENT__COMPONENTS;
-
-	/**
-	 * The feature id for the '<em><b>Contained By</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTUATOR__CONTAINED_BY = PHYSICAL_COMPONENT__CONTAINED_BY;
 
 	/**
 	 * The feature id for the '<em><b>Pins</b></em>' containment reference list.
@@ -1841,17 +1742,6 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getComponent_Components();
-
-	/**
-	 * Returns the meta object for the container reference '{@link e4sm.de.metamodel.e4sm.Component#getContainedBy <em>Contained By</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Contained By</em>'.
-	 * @see e4sm.de.metamodel.e4sm.Component#getContainedBy()
-	 * @see #getComponent()
-	 * @generated
-	 */
-	EReference getComponent_ContainedBy();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link e4sm.de.metamodel.e4sm.Component#getPins <em>Pins</em>}'.
@@ -2150,17 +2040,6 @@ public interface e4smPackage extends EPackage {
 	EReference getPackage_Packages();
 
 	/**
-	 * Returns the meta object for the container reference '{@link e4sm.de.metamodel.e4sm.Package#getContainedBy <em>Contained By</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Contained By</em>'.
-	 * @see e4sm.de.metamodel.e4sm.Package#getContainedBy()
-	 * @see #getPackage()
-	 * @generated
-	 */
-	EReference getPackage_ContainedBy();
-
-	/**
 	 * Returns the meta object for the reference '{@link e4sm.de.metamodel.e4sm.Package#getSpecifiesComponent <em>Specifies Component</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2306,17 +2185,6 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getSector_Sectors();
-
-	/**
-	 * Returns the meta object for the container reference '{@link e4sm.de.metamodel.e4sm.Sector#getContainedBy <em>Contained By</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Contained By</em>'.
-	 * @see e4sm.de.metamodel.e4sm.Sector#getContainedBy()
-	 * @see #getSector()
-	 * @generated
-	 */
-	EReference getSector_ContainedBy();
 
 	/**
 	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.Sector#getAllComponents() <em>Get All Components</em>}' operation.
@@ -2514,14 +2382,6 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EReference COMPONENT__COMPONENTS = eINSTANCE.getComponent_Components();
-
-		/**
-		 * The meta object literal for the '<em><b>Contained By</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference COMPONENT__CONTAINED_BY = eINSTANCE.getComponent_ContainedBy();
 
 		/**
 		 * The meta object literal for the '<em><b>Pins</b></em>' containment reference list feature.
@@ -2769,14 +2629,6 @@ public interface e4smPackage extends EPackage {
 		EReference PACKAGE__PACKAGES = eINSTANCE.getPackage_Packages();
 
 		/**
-		 * The meta object literal for the '<em><b>Contained By</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PACKAGE__CONTAINED_BY = eINSTANCE.getPackage_ContainedBy();
-
-		/**
 		 * The meta object literal for the '<em><b>Specifies Component</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2899,14 +2751,6 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SECTOR__SECTORS = eINSTANCE.getSector_Sectors();
-
-		/**
-		 * The meta object literal for the '<em><b>Contained By</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SECTOR__CONTAINED_BY = eINSTANCE.getSector_ContainedBy();
 
 		/**
 		 * The meta object literal for the '<em><b>Get All Components</b></em>' operation.

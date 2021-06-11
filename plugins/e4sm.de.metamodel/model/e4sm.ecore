@@ -10,15 +10,9 @@
     </eAnnotations>
     <eOperations name="computeMainResponsible" eType="#//Person"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
-        eType="#//Component" containment="true" eOpposite="#//Component/containedBy">
+        eType="#//Component" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="A list of components contained by this component"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="containedBy" eType="#//Component"
-        eOpposite="#//Component/components">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The parent component which contains this component"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="pins" upperBound="-1" eType="#//Pin"
@@ -163,15 +157,9 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="packages" upperBound="-1"
-        eType="#//Package" containment="true" eOpposite="#//Package/containedBy">
+        eType="#//Package" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="A package may contains subpackages, which specify one of the components owned by this package"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="containedBy" eType="#//Package"
-        eOpposite="#//Package/packages">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="A package containing this package (optional)"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="specifiesComponent" eType="#//Component"
@@ -244,15 +232,9 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sectors" upperBound="-1"
-        eType="#//Sector" containment="true" eOpposite="#//Sector/containedBy">
+        eType="#//Sector" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="A list of sectors contained by this sector"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="containedBy" eType="#//Sector"
-        eOpposite="#//Sector/sectors">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="A sector which contains this sector (optional)"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>

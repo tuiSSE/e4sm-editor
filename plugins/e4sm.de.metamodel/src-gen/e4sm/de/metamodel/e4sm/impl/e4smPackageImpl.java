@@ -327,7 +327,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getComponent_ContainedBy() {
+	public EReference getComponent_Pins() {
 		return (EReference) componentEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -337,7 +337,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getComponent_Pins() {
+	public EReference getComponent_MainResponsible() {
 		return (EReference) componentEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -347,18 +347,8 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getComponent_MainResponsible() {
-		return (EReference) componentEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getComponent_SpecifiedInPackage() {
-		return (EReference) componentEClass.getEStructuralFeatures().get(4);
+		return (EReference) componentEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -617,18 +607,8 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getPackage_ContainedBy() {
-		return (EReference) packageEClass.getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getPackage_SpecifiesComponent() {
-		return (EReference) packageEClass.getEStructuralFeatures().get(8);
+		return (EReference) packageEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -759,16 +739,6 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	@Override
 	public EReference getSector_Sectors() {
 		return (EReference) sectorEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getSector_ContainedBy() {
-		return (EReference) sectorEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -953,7 +923,6 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		// Create classes and their features
 		componentEClass = createEClass(COMPONENT);
 		createEReference(componentEClass, COMPONENT__COMPONENTS);
-		createEReference(componentEClass, COMPONENT__CONTAINED_BY);
 		createEReference(componentEClass, COMPONENT__PINS);
 		createEReference(componentEClass, COMPONENT__MAIN_RESPONSIBLE);
 		createEReference(componentEClass, COMPONENT__SPECIFIED_IN_PACKAGE);
@@ -992,7 +961,6 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		createEReference(packageEClass, PACKAGE__SECTORS);
 		createEReference(packageEClass, PACKAGE__MAIN_RESPONSIBLE);
 		createEReference(packageEClass, PACKAGE__PACKAGES);
-		createEReference(packageEClass, PACKAGE__CONTAINED_BY);
 		createEReference(packageEClass, PACKAGE__SPECIFIES_COMPONENT);
 		createEOperation(packageEClass, PACKAGE___GET_ALL_COMPONENTS);
 
@@ -1013,7 +981,6 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		sectorEClass = createEClass(SECTOR);
 		createEReference(sectorEClass, SECTOR__COMPONENTS);
 		createEReference(sectorEClass, SECTOR__SECTORS);
-		createEReference(sectorEClass, SECTOR__CONTAINED_BY);
 		createEOperation(sectorEClass, SECTOR___GET_ALL_COMPONENTS);
 
 		sensorEClass = createEClass(SENSOR);
@@ -1098,12 +1065,9 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		// Initialize classes, features, and operations; add parameters
 		initEClass(componentEClass, Component.class, "Component", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getComponent_Components(), this.getComponent(), this.getComponent_ContainedBy(), "components",
-				null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getComponent_ContainedBy(), this.getComponent(), this.getComponent_Components(), "containedBy",
-				null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComponent_Components(), this.getComponent(), null, "components", null, 0, -1, Component.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComponent_Pins(), this.getPin(), null, "pins", null, 0, -1, Component.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
@@ -1185,11 +1149,8 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		initEReference(getPackage_MainResponsible(), this.getPerson(), null, "mainResponsible", null, 0, 1,
 				e4sm.de.metamodel.e4sm.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
 				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPackage_Packages(), this.getPackage(), this.getPackage_ContainedBy(), "packages", null, 0, -1,
+		initEReference(getPackage_Packages(), this.getPackage(), null, "packages", null, 0, -1,
 				e4sm.de.metamodel.e4sm.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPackage_ContainedBy(), this.getPackage(), this.getPackage_Packages(), "containedBy", null, 0,
-				1, e4sm.de.metamodel.e4sm.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPackage_SpecifiesComponent(), this.getComponent(), this.getComponent_SpecifiedInPackage(),
 				"specifiesComponent", null, 0, 1, e4sm.de.metamodel.e4sm.Package.class, !IS_TRANSIENT, !IS_VOLATILE,
@@ -1224,12 +1185,9 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		initEReference(getSector_Components(), this.getPhysicalComponent(), null, "components", null, 0, -1,
 				Sector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSector_Sectors(), this.getSector(), this.getSector_ContainedBy(), "sectors", null, 0, -1,
-				Sector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSector_ContainedBy(), this.getSector(), this.getSector_Sectors(), "containedBy", null, 0, 1,
-				Sector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSector_Sectors(), this.getSector(), null, "sectors", null, 0, -1, Sector.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 
 		initEOperation(getSector__GetAllComponents(), this.getComponent(), "getAllComponents", 0, -1, IS_UNIQUE,
 				IS_ORDERED);
