@@ -18,6 +18,10 @@ import e4sm.de.metamodel.e4sm.Model;
 import e4sm.de.metamodel.e4sm.NamedElement;
 import e4sm.de.metamodel.e4sm.OptionallyNamedElement;
 import e4sm.de.metamodel.e4sm.OutputPin;
+import e4sm.de.metamodel.e4sm.Parameter;
+import e4sm.de.metamodel.e4sm.ParameterDefinition;
+import e4sm.de.metamodel.e4sm.ParameterDefinitionLibrary;
+import e4sm.de.metamodel.e4sm.ParametrisableElement;
 import e4sm.de.metamodel.e4sm.Person;
 import e4sm.de.metamodel.e4sm.PhysicalComponent;
 import e4sm.de.metamodel.e4sm.PhysicalConnector;
@@ -96,6 +100,8 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseNamedElement(component);
 			if (result == null)
+				result = caseParametrisableElement(component);
+			if (result == null)
 				result = caseElement(component);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -111,6 +117,8 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseNamedElement(machineLearningComponent);
 			if (result == null)
+				result = caseParametrisableElement(machineLearningComponent);
+			if (result == null)
 				result = caseElement(machineLearningComponent);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -121,6 +129,8 @@ public class e4smSwitch<T> extends Switch<T> {
 			T result = caseConnector(connector);
 			if (result == null)
 				result = caseOptionallyNamedElement(connector);
+			if (result == null)
+				result = caseParametrisableElement(connector);
 			if (result == null)
 				result = caseElement(connector);
 			if (result == null)
@@ -135,6 +145,8 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseOptionallyNamedElement(physicalConnector);
 			if (result == null)
+				result = caseParametrisableElement(physicalConnector);
+			if (result == null)
 				result = caseElement(physicalConnector);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -147,6 +159,8 @@ public class e4smSwitch<T> extends Switch<T> {
 				result = caseComponent(physicalComponent);
 			if (result == null)
 				result = caseNamedElement(physicalComponent);
+			if (result == null)
+				result = caseParametrisableElement(physicalComponent);
 			if (result == null)
 				result = caseElement(physicalComponent);
 			if (result == null)
@@ -161,6 +175,8 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseNamedElement(softwareComponent);
 			if (result == null)
+				result = caseParametrisableElement(softwareComponent);
+			if (result == null)
 				result = caseElement(softwareComponent);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -173,6 +189,8 @@ public class e4smSwitch<T> extends Switch<T> {
 				result = caseConnector(logicalConnector);
 			if (result == null)
 				result = caseOptionallyNamedElement(logicalConnector);
+			if (result == null)
+				result = caseParametrisableElement(logicalConnector);
 			if (result == null)
 				result = caseElement(logicalConnector);
 			if (result == null)
@@ -189,6 +207,8 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseNamedElement(heuristic);
 			if (result == null)
+				result = caseParametrisableElement(heuristic);
+			if (result == null)
 				result = caseElement(heuristic);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -203,6 +223,8 @@ public class e4smSwitch<T> extends Switch<T> {
 				result = caseComponent(function);
 			if (result == null)
 				result = caseNamedElement(function);
+			if (result == null)
+				result = caseParametrisableElement(function);
 			if (result == null)
 				result = caseElement(function);
 			if (result == null)
@@ -219,6 +241,8 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseNamedElement(externalDependency);
 			if (result == null)
+				result = caseParametrisableElement(externalDependency);
+			if (result == null)
 				result = caseElement(externalDependency);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -230,6 +254,8 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseNamedElement(package_);
 			if (result == null)
+				result = caseParametrisableElement(package_);
+			if (result == null)
 				result = caseElement(package_);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -240,6 +266,8 @@ public class e4smSwitch<T> extends Switch<T> {
 			T result = caseModel(model);
 			if (result == null)
 				result = caseNamedElement(model);
+			if (result == null)
+				result = caseParametrisableElement(model);
 			if (result == null)
 				result = caseElement(model);
 			if (result == null)
@@ -313,6 +341,8 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseNamedElement(sensor);
 			if (result == null)
+				result = caseParametrisableElement(sensor);
+			if (result == null)
 				result = caseElement(sensor);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -327,6 +357,8 @@ public class e4smSwitch<T> extends Switch<T> {
 				result = caseComponent(actuator);
 			if (result == null)
 				result = caseNamedElement(actuator);
+			if (result == null)
+				result = caseParametrisableElement(actuator);
 			if (result == null)
 				result = caseElement(actuator);
 			if (result == null)
@@ -397,6 +429,44 @@ public class e4smSwitch<T> extends Switch<T> {
 			T result = caseOptionallyNamedElement(optionallyNamedElement);
 			if (result == null)
 				result = caseElement(optionallyNamedElement);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case e4smPackage.PARAMETER_DEFINITION: {
+			ParameterDefinition parameterDefinition = (ParameterDefinition) theEObject;
+			T result = caseParameterDefinition(parameterDefinition);
+			if (result == null)
+				result = caseNamedElement(parameterDefinition);
+			if (result == null)
+				result = caseElement(parameterDefinition);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case e4smPackage.PARAMETER: {
+			Parameter parameter = (Parameter) theEObject;
+			T result = caseParameter(parameter);
+			if (result == null)
+				result = caseElement(parameter);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case e4smPackage.PARAMETRISABLE_ELEMENT: {
+			ParametrisableElement parametrisableElement = (ParametrisableElement) theEObject;
+			T result = caseParametrisableElement(parametrisableElement);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case e4smPackage.PARAMETER_DEFINITION_LIBRARY: {
+			ParameterDefinitionLibrary parameterDefinitionLibrary = (ParameterDefinitionLibrary) theEObject;
+			T result = caseParameterDefinitionLibrary(parameterDefinitionLibrary);
+			if (result == null)
+				result = caseNamedElement(parameterDefinitionLibrary);
+			if (result == null)
+				result = caseElement(parameterDefinitionLibrary);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -778,6 +848,66 @@ public class e4smSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseOptionallyNamedElement(OptionallyNamedElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Parameter Definition</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Parameter Definition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseParameterDefinition(ParameterDefinition object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Parameter</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Parameter</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseParameter(Parameter object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Parametrisable Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Parametrisable Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseParametrisableElement(ParametrisableElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Parameter Definition Library</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Parameter Definition Library</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseParameterDefinitionLibrary(ParameterDefinitionLibrary object) {
 		return null;
 	}
 

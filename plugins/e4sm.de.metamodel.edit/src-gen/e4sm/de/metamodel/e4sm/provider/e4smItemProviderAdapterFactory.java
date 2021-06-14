@@ -556,6 +556,75 @@ public class e4smItemProviderAdapterFactory extends e4smAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.ParameterDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ParameterDefinitionItemProvider parameterDefinitionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.ParameterDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createParameterDefinitionAdapter() {
+		if (parameterDefinitionItemProvider == null) {
+			parameterDefinitionItemProvider = new ParameterDefinitionItemProvider(this);
+		}
+
+		return parameterDefinitionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.Parameter} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ParameterItemProvider parameterItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.Parameter}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createParameterAdapter() {
+		if (parameterItemProvider == null) {
+			parameterItemProvider = new ParameterItemProvider(this);
+		}
+
+		return parameterItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.ParameterDefinitionLibrary} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ParameterDefinitionLibraryItemProvider parameterDefinitionLibraryItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.ParameterDefinitionLibrary}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createParameterDefinitionLibraryAdapter() {
+		if (parameterDefinitionLibraryItemProvider == null) {
+			parameterDefinitionLibraryItemProvider = new ParameterDefinitionLibraryItemProvider(this);
+		}
+
+		return parameterDefinitionLibraryItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -702,6 +771,12 @@ public class e4smItemProviderAdapterFactory extends e4smAdapterFactory
 			outputPinItemProvider.dispose();
 		if (personItemProvider != null)
 			personItemProvider.dispose();
+		if (parameterDefinitionItemProvider != null)
+			parameterDefinitionItemProvider.dispose();
+		if (parameterItemProvider != null)
+			parameterItemProvider.dispose();
+		if (parameterDefinitionLibraryItemProvider != null)
+			parameterDefinitionLibraryItemProvider.dispose();
 	}
 
 }

@@ -4,6 +4,8 @@ package e4sm.de.metamodel.e4sm.impl;
 
 import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.Connector;
+import e4sm.de.metamodel.e4sm.Parameter;
+import e4sm.de.metamodel.e4sm.ParametrisableElement;
 import e4sm.de.metamodel.e4sm.Person;
 import e4sm.de.metamodel.e4sm.PhysicalComponent;
 import e4sm.de.metamodel.e4sm.Sector;
@@ -33,6 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getComponents <em>Components</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getSoftwareComponents <em>Software Components</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getPhysicalComponents <em>Physical Components</em>}</li>
@@ -46,6 +49,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e4sm.Package {
+	/**
+	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParameters()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Parameter> parameters;
+
 	/**
 	 * The cached value of the '{@link #getComponents() <em>Components</em>}' containment reference list.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -137,6 +150,19 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	@Override
 	protected EClass eStaticClass() {
 		return e4smPackage.Literals.PACKAGE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<Parameter> getParameters() {
+		if (parameters == null) {
+			parameters = new EObjectContainmentEList<Parameter>(Parameter.class, this, e4smPackage.PACKAGE__PARAMETERS);
+		}
+		return parameters;
 	}
 
 	/**
@@ -360,6 +386,8 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+		case e4smPackage.PACKAGE__PARAMETERS:
+			return ((InternalEList<?>) getParameters()).basicRemove(otherEnd, msgs);
 		case e4smPackage.PACKAGE__COMPONENTS:
 			return ((InternalEList<?>) getComponents()).basicRemove(otherEnd, msgs);
 		case e4smPackage.PACKAGE__CONNECTORS:
@@ -381,6 +409,8 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+		case e4smPackage.PACKAGE__PARAMETERS:
+			return getParameters();
 		case e4smPackage.PACKAGE__COMPONENTS:
 			return getComponents();
 		case e4smPackage.PACKAGE__SOFTWARE_COMPONENTS:
@@ -413,6 +443,10 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+		case e4smPackage.PACKAGE__PARAMETERS:
+			getParameters().clear();
+			getParameters().addAll((Collection<? extends Parameter>) newValue);
+			return;
 		case e4smPackage.PACKAGE__COMPONENTS:
 			getComponents().clear();
 			getComponents().addAll((Collection<? extends Component>) newValue);
@@ -454,6 +488,9 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+		case e4smPackage.PACKAGE__PARAMETERS:
+			getParameters().clear();
+			return;
 		case e4smPackage.PACKAGE__COMPONENTS:
 			getComponents().clear();
 			return;
@@ -489,6 +526,8 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+		case e4smPackage.PACKAGE__PARAMETERS:
+			return parameters != null && !parameters.isEmpty();
 		case e4smPackage.PACKAGE__COMPONENTS:
 			return components != null && !components.isEmpty();
 		case e4smPackage.PACKAGE__SOFTWARE_COMPONENTS:
@@ -507,6 +546,42 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 			return specifiesComponent != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == ParametrisableElement.class) {
+			switch (derivedFeatureID) {
+			case e4smPackage.PACKAGE__PARAMETERS:
+				return e4smPackage.PARAMETRISABLE_ELEMENT__PARAMETERS;
+			default:
+				return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == ParametrisableElement.class) {
+			switch (baseFeatureID) {
+			case e4smPackage.PARAMETRISABLE_ELEMENT__PARAMETERS:
+				return e4smPackage.PACKAGE__PARAMETERS;
+			default:
+				return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**

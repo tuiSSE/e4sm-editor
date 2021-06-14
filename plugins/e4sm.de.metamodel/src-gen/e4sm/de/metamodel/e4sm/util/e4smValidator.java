@@ -6,6 +6,7 @@ import e4sm.de.metamodel.e4sm.Actor;
 import e4sm.de.metamodel.e4sm.Actuator;
 import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.Connector;
+import e4sm.de.metamodel.e4sm.E4SMElementType;
 import e4sm.de.metamodel.e4sm.Element;
 import e4sm.de.metamodel.e4sm.ExternalDependency;
 import e4sm.de.metamodel.e4sm.Function;
@@ -18,6 +19,11 @@ import e4sm.de.metamodel.e4sm.Model;
 import e4sm.de.metamodel.e4sm.NamedElement;
 import e4sm.de.metamodel.e4sm.OptionallyNamedElement;
 import e4sm.de.metamodel.e4sm.OutputPin;
+import e4sm.de.metamodel.e4sm.Parameter;
+import e4sm.de.metamodel.e4sm.ParameterDefinition;
+import e4sm.de.metamodel.e4sm.ParameterDefinitionLibrary;
+import e4sm.de.metamodel.e4sm.ParameterType;
+import e4sm.de.metamodel.e4sm.ParametrisableElement;
 import e4sm.de.metamodel.e4sm.Person;
 import e4sm.de.metamodel.e4sm.PhysicalComponent;
 import e4sm.de.metamodel.e4sm.PhysicalConnector;
@@ -26,6 +32,7 @@ import e4sm.de.metamodel.e4sm.Robot;
 import e4sm.de.metamodel.e4sm.Sector;
 import e4sm.de.metamodel.e4sm.Sensor;
 import e4sm.de.metamodel.e4sm.SoftwareComponent;
+import e4sm.de.metamodel.e4sm.UnitOfMeasurement;
 import e4sm.de.metamodel.e4sm.Package;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
@@ -160,8 +167,24 @@ public class e4smValidator extends EObjectValidator {
 			return validatePerson((Person) value, diagnostics, context);
 		case e4smPackage.OPTIONALLY_NAMED_ELEMENT:
 			return validateOptionallyNamedElement((OptionallyNamedElement) value, diagnostics, context);
+		case e4smPackage.PARAMETER_DEFINITION:
+			return validateParameterDefinition((ParameterDefinition) value, diagnostics, context);
+		case e4smPackage.PARAMETER:
+			return validateParameter((Parameter) value, diagnostics, context);
+		case e4smPackage.PARAMETRISABLE_ELEMENT:
+			return validateParametrisableElement((ParametrisableElement) value, diagnostics, context);
+		case e4smPackage.PARAMETER_DEFINITION_LIBRARY:
+			return validateParameterDefinitionLibrary((ParameterDefinitionLibrary) value, diagnostics, context);
+		case e4smPackage.PARAMETER_TYPE:
+			return validateParameterType((ParameterType) value, diagnostics, context);
+		case e4smPackage.UNIT_OF_MEASUREMENT:
+			return validateUnitOfMeasurement((UnitOfMeasurement) value, diagnostics, context);
+		case e4smPackage.E4SM_ELEMENT_TYPE:
+			return validateE4SMElementType((E4SMElementType) value, diagnostics, context);
 		case e4smPackage.CONNECTIONSPEED:
 			return validateConnectionspeed(value, diagnostics, context);
+		case e4smPackage.JSON:
+			return validateJSON((String) value, diagnostics, context);
 		default:
 			return true;
 		}
@@ -882,11 +905,89 @@ public class e4smValidator extends EObjectValidator {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateParameterDefinition(ParameterDefinition parameterDefinition, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(parameterDefinition, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateParameter(Parameter parameter, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(parameter, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateParametrisableElement(ParametrisableElement parametrisableElement,
+			DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(parametrisableElement, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateParameterDefinitionLibrary(ParameterDefinitionLibrary parameterDefinitionLibrary,
+			DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(parameterDefinitionLibrary, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateParameterType(ParameterType parameterType, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateUnitOfMeasurement(UnitOfMeasurement unitOfMeasurement, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateE4SMElementType(E4SMElementType e4SMElementType, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean validateConnectionspeed(Object connectionspeed, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateJSON(String json, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 

@@ -2,7 +2,7 @@
  */
 package e4sm.de.metamodel.e4sm.provider;
 
-import e4sm.de.metamodel.e4sm.Model;
+import e4sm.de.metamodel.e4sm.ParameterDefinitionLibrary;
 import e4sm.de.metamodel.e4sm.e4smFactory;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
@@ -14,25 +14,23 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link e4sm.de.metamodel.e4sm.Model} object.
+ * This is the item provider adapter for a {@link e4sm.de.metamodel.e4sm.ParameterDefinitionLibrary} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ModelItemProvider extends NamedElementItemProvider {
+public class ParameterDefinitionLibraryItemProvider extends NamedElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ModelItemProvider(AdapterFactory adapterFactory) {
+	public ParameterDefinitionLibraryItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -47,25 +45,8 @@ public class ModelItemProvider extends NamedElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addPersonsPicturesPathPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Persons Pictures Path feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addPersonsPicturesPathPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Model_personsPicturesPath_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Model_personsPicturesPath_feature",
-								"_UI_Model_type"),
-						e4smPackage.Literals.MODEL__PERSONS_PICTURES_PATH, true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -80,11 +61,7 @@ public class ModelItemProvider extends NamedElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(e4smPackage.Literals.PARAMETRISABLE_ELEMENT__PARAMETERS);
-			childrenFeatures.add(e4smPackage.Literals.MODEL__PACKAGES);
-			childrenFeatures.add(e4smPackage.Literals.MODEL__ACTORS);
-			childrenFeatures.add(e4smPackage.Literals.MODEL__PARAMETER_DEFINITIONS);
-			childrenFeatures.add(e4smPackage.Literals.MODEL__PARAMETER_DEFINITIONLIBRARIES);
+			childrenFeatures.add(e4smPackage.Literals.PARAMETER_DEFINITION_LIBRARY__PARAMETER_DEFINITIONS);
 		}
 		return childrenFeatures;
 	}
@@ -103,14 +80,14 @@ public class ModelItemProvider extends NamedElementItemProvider {
 	}
 
 	/**
-	 * This returns Model.gif.
+	 * This returns ParameterDefinitionLibrary.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Model"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ParameterDefinitionLibrary"));
 	}
 
 	/**
@@ -131,9 +108,9 @@ public class ModelItemProvider extends NamedElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Model) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_Model_type")
-				: getString("_UI_Model_type") + " " + label;
+		String label = ((ParameterDefinitionLibrary) object).getName();
+		return label == null || label.length() == 0 ? getString("_UI_ParameterDefinitionLibrary_type")
+				: getString("_UI_ParameterDefinitionLibrary_type") + " " + label;
 	}
 
 	/**
@@ -147,15 +124,8 @@ public class ModelItemProvider extends NamedElementItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Model.class)) {
-		case e4smPackage.MODEL__PERSONS_PICTURES_PATH:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-			return;
-		case e4smPackage.MODEL__PARAMETERS:
-		case e4smPackage.MODEL__PACKAGES:
-		case e4smPackage.MODEL__ACTORS:
-		case e4smPackage.MODEL__PARAMETER_DEFINITIONS:
-		case e4smPackage.MODEL__PARAMETER_DEFINITIONLIBRARIES:
+		switch (notification.getFeatureID(ParameterDefinitionLibrary.class)) {
+		case e4smPackage.PARAMETER_DEFINITION_LIBRARY__PARAMETER_DEFINITIONS:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -173,29 +143,9 @@ public class ModelItemProvider extends NamedElementItemProvider {
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.PARAMETRISABLE_ELEMENT__PARAMETERS,
-				e4smFactory.eINSTANCE.createParameter()));
-
 		newChildDescriptors
-				.add(createChildParameter(e4smPackage.Literals.MODEL__PACKAGES, e4smFactory.eINSTANCE.createPackage()));
-
-		newChildDescriptors
-				.add(createChildParameter(e4smPackage.Literals.MODEL__ACTORS, e4smFactory.eINSTANCE.createActor()));
-
-		newChildDescriptors
-				.add(createChildParameter(e4smPackage.Literals.MODEL__ACTORS, e4smFactory.eINSTANCE.createHuman()));
-
-		newChildDescriptors
-				.add(createChildParameter(e4smPackage.Literals.MODEL__ACTORS, e4smFactory.eINSTANCE.createRobot()));
-
-		newChildDescriptors
-				.add(createChildParameter(e4smPackage.Literals.MODEL__ACTORS, e4smFactory.eINSTANCE.createPerson()));
-
-		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.MODEL__PARAMETER_DEFINITIONS,
-				e4smFactory.eINSTANCE.createParameterDefinition()));
-
-		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.MODEL__PARAMETER_DEFINITIONLIBRARIES,
-				e4smFactory.eINSTANCE.createParameterDefinitionLibrary()));
+				.add(createChildParameter(e4smPackage.Literals.PARAMETER_DEFINITION_LIBRARY__PARAMETER_DEFINITIONS,
+						e4smFactory.eINSTANCE.createParameterDefinition()));
 	}
 
 }

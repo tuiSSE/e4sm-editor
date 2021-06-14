@@ -33,7 +33,7 @@ import org.eclipse.emf.common.util.EList;
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='PackageC1'"
  * @generated
  */
-public interface Package extends NamedElement {
+public interface Package extends NamedElement, ParametrisableElement {
 	/**
 	 * Returns the value of the '<em><b>Components</b></em>' containment reference list.
 	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.Component}.

@@ -6,6 +6,7 @@ import e4sm.de.metamodel.e4sm.Actor;
 import e4sm.de.metamodel.e4sm.Actuator;
 import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.Connector;
+import e4sm.de.metamodel.e4sm.E4SMElementType;
 import e4sm.de.metamodel.e4sm.Element;
 import e4sm.de.metamodel.e4sm.ExternalDependency;
 import e4sm.de.metamodel.e4sm.Function;
@@ -18,6 +19,11 @@ import e4sm.de.metamodel.e4sm.Model;
 import e4sm.de.metamodel.e4sm.NamedElement;
 import e4sm.de.metamodel.e4sm.OptionallyNamedElement;
 import e4sm.de.metamodel.e4sm.OutputPin;
+import e4sm.de.metamodel.e4sm.Parameter;
+import e4sm.de.metamodel.e4sm.ParameterDefinition;
+import e4sm.de.metamodel.e4sm.ParameterDefinitionLibrary;
+import e4sm.de.metamodel.e4sm.ParameterType;
+import e4sm.de.metamodel.e4sm.ParametrisableElement;
 import e4sm.de.metamodel.e4sm.Person;
 import e4sm.de.metamodel.e4sm.PhysicalComponent;
 import e4sm.de.metamodel.e4sm.PhysicalConnector;
@@ -26,6 +32,7 @@ import e4sm.de.metamodel.e4sm.Robot;
 import e4sm.de.metamodel.e4sm.Sector;
 import e4sm.de.metamodel.e4sm.Sensor;
 import e4sm.de.metamodel.e4sm.SoftwareComponent;
+import e4sm.de.metamodel.e4sm.UnitOfMeasurement;
 import e4sm.de.metamodel.e4sm.e4smFactory;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
@@ -33,6 +40,7 @@ import e4sm.de.metamodel.e4sm.util.e4smValidator;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -227,7 +235,63 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass parameterDefinitionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass parameterEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass parametrisableElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass parameterDefinitionLibraryEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum parameterTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum unitOfMeasurementEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum e4SMElementTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EDataType connectionspeedEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType jsonEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -667,6 +731,26 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getModel_ParameterDefinitions() {
+		return (EReference) modelEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getModel_ParameterDefinitionlibraries() {
+		return (EReference) modelEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getNamedElement() {
 		return namedElementEClass;
 	}
@@ -887,8 +971,198 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getParameterDefinition() {
+		return parameterDefinitionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getParameterDefinition_Type() {
+		return (EAttribute) parameterDefinitionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getParameterDefinition_Parameters() {
+		return (EReference) parameterDefinitionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getParameterDefinition_Unit() {
+		return (EAttribute) parameterDefinitionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getParameterDefinition_CanBeDefinedOn() {
+		return (EAttribute) parameterDefinitionEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getParameterDefinition_MustBeDefinedOn() {
+		return (EReference) parameterDefinitionEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getParameterDefinition_DefaultValue() {
+		return (EAttribute) parameterDefinitionEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getParameter() {
+		return parameterEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getParameter_Value() {
+		return (EAttribute) parameterEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getParameter_InitialValue() {
+		return (EAttribute) parameterEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getParameter_ParameterDefinition() {
+		return (EReference) parameterEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getParametrisableElement() {
+		return parametrisableElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getParametrisableElement_Parameters() {
+		return (EReference) parametrisableElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getParameterDefinitionLibrary() {
+		return parameterDefinitionLibraryEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getParameterDefinitionLibrary_ParameterDefinitions() {
+		return (EReference) parameterDefinitionLibraryEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EEnum getParameterType() {
+		return parameterTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EEnum getUnitOfMeasurement() {
+		return unitOfMeasurementEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EEnum getE4SMElementType() {
+		return e4SMElementTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EDataType getConnectionspeed() {
 		return connectionspeedEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EDataType getJSON() {
+		return jsonEDataType;
 	}
 
 	/**
@@ -968,6 +1242,8 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		createEReference(modelEClass, MODEL__PACKAGES);
 		createEReference(modelEClass, MODEL__ACTORS);
 		createEAttribute(modelEClass, MODEL__PERSONS_PICTURES_PATH);
+		createEReference(modelEClass, MODEL__PARAMETER_DEFINITIONS);
+		createEReference(modelEClass, MODEL__PARAMETER_DEFINITIONLIBRARIES);
 
 		namedElementEClass = createEClass(NAMED_ELEMENT);
 		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
@@ -1004,8 +1280,33 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		optionallyNamedElementEClass = createEClass(OPTIONALLY_NAMED_ELEMENT);
 		createEAttribute(optionallyNamedElementEClass, OPTIONALLY_NAMED_ELEMENT__NAME);
 
+		parameterDefinitionEClass = createEClass(PARAMETER_DEFINITION);
+		createEAttribute(parameterDefinitionEClass, PARAMETER_DEFINITION__TYPE);
+		createEReference(parameterDefinitionEClass, PARAMETER_DEFINITION__PARAMETERS);
+		createEAttribute(parameterDefinitionEClass, PARAMETER_DEFINITION__UNIT);
+		createEReference(parameterDefinitionEClass, PARAMETER_DEFINITION__MUST_BE_DEFINED_ON);
+		createEAttribute(parameterDefinitionEClass, PARAMETER_DEFINITION__DEFAULT_VALUE);
+		createEAttribute(parameterDefinitionEClass, PARAMETER_DEFINITION__CAN_BE_DEFINED_ON);
+
+		parameterEClass = createEClass(PARAMETER);
+		createEAttribute(parameterEClass, PARAMETER__VALUE);
+		createEAttribute(parameterEClass, PARAMETER__INITIAL_VALUE);
+		createEReference(parameterEClass, PARAMETER__PARAMETER_DEFINITION);
+
+		parametrisableElementEClass = createEClass(PARAMETRISABLE_ELEMENT);
+		createEReference(parametrisableElementEClass, PARAMETRISABLE_ELEMENT__PARAMETERS);
+
+		parameterDefinitionLibraryEClass = createEClass(PARAMETER_DEFINITION_LIBRARY);
+		createEReference(parameterDefinitionLibraryEClass, PARAMETER_DEFINITION_LIBRARY__PARAMETER_DEFINITIONS);
+
+		// Create enums
+		parameterTypeEEnum = createEEnum(PARAMETER_TYPE);
+		unitOfMeasurementEEnum = createEEnum(UNIT_OF_MEASUREMENT);
+		e4SMElementTypeEEnum = createEEnum(E4SM_ELEMENT_TYPE);
+
 		// Create data types
 		connectionspeedEDataType = createEDataType(CONNECTIONSPEED);
+		jsonEDataType = createEDataType(JSON);
 	}
 
 	/**
@@ -1038,8 +1339,10 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 
 		// Add supertypes to classes
 		componentEClass.getESuperTypes().add(this.getNamedElement());
+		componentEClass.getESuperTypes().add(this.getParametrisableElement());
 		machineLearningComponentEClass.getESuperTypes().add(this.getSoftwareComponent());
 		connectorEClass.getESuperTypes().add(this.getOptionallyNamedElement());
+		connectorEClass.getESuperTypes().add(this.getParametrisableElement());
 		physicalConnectorEClass.getESuperTypes().add(this.getConnector());
 		physicalComponentEClass.getESuperTypes().add(this.getComponent());
 		softwareComponentEClass.getESuperTypes().add(this.getComponent());
@@ -1048,7 +1351,9 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		functionEClass.getESuperTypes().add(this.getSoftwareComponent());
 		externalDependencyEClass.getESuperTypes().add(this.getSoftwareComponent());
 		packageEClass.getESuperTypes().add(this.getNamedElement());
+		packageEClass.getESuperTypes().add(this.getParametrisableElement());
 		modelEClass.getESuperTypes().add(this.getNamedElement());
+		modelEClass.getESuperTypes().add(this.getParametrisableElement());
 		namedElementEClass.getESuperTypes().add(this.getElement());
 		actorEClass.getESuperTypes().add(this.getNamedElement());
 		humanEClass.getESuperTypes().add(this.getActor());
@@ -1061,6 +1366,9 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		outputPinEClass.getESuperTypes().add(this.getPin());
 		personEClass.getESuperTypes().add(this.getHuman());
 		optionallyNamedElementEClass.getESuperTypes().add(this.getElement());
+		parameterDefinitionEClass.getESuperTypes().add(this.getNamedElement());
+		parameterEClass.getESuperTypes().add(this.getElement());
+		parameterDefinitionLibraryEClass.getESuperTypes().add(this.getNamedElement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(componentEClass, Component.class, "Component", !IS_ABSTRACT, !IS_INTERFACE,
@@ -1169,6 +1477,12 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		initEAttribute(getModel_PersonsPicturesPath(), ecorePackage.getEString(), "personsPicturesPath", null, 0, 1,
 				Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
+		initEReference(getModel_ParameterDefinitions(), this.getParameterDefinition(), null, "parameterDefinitions",
+				null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModel_ParameterDefinitionlibraries(), this.getParameterDefinitionLibrary(), null,
+				"parameterDefinitionlibraries", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -1225,9 +1539,83 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 				OptionallyNamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(parameterDefinitionEClass, ParameterDefinition.class, "ParameterDefinition", !IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getParameterDefinition_Type(), this.getParameterType(), "type", null, 0, 1,
+				ParameterDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getParameterDefinition_Parameters(), this.getParameter(),
+				this.getParameter_ParameterDefinition(), "parameters", null, 0, -1, ParameterDefinition.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getParameterDefinition_Unit(), this.getUnitOfMeasurement(), "unit", "none", 0, 1,
+				ParameterDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getParameterDefinition_MustBeDefinedOn(), this.getParametrisableElement(), null,
+				"mustBeDefinedOn", null, 0, -1, ParameterDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getParameterDefinition_DefaultValue(), ecorePackage.getEString(), "defaultValue", null, 0, 1,
+				ParameterDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getParameterDefinition_CanBeDefinedOn(), this.getE4SMElementType(), "canBeDefinedOn", null, 0,
+				-1, ParameterDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getParameter_Value(), ecorePackage.getEString(), "value", null, 0, 1, Parameter.class,
+				IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getParameter_InitialValue(), ecorePackage.getEString(), "initialValue", null, 0, 1,
+				Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEReference(getParameter_ParameterDefinition(), this.getParameterDefinition(),
+				this.getParameterDefinition_Parameters(), "parameterDefinition", null, 1, 1, Parameter.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(parametrisableElementEClass, ParametrisableElement.class, "ParametrisableElement", IS_ABSTRACT,
+				IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getParametrisableElement_Parameters(), this.getParameter(), null, "parameters", null, 0, -1,
+				ParametrisableElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(parameterDefinitionLibraryEClass, ParameterDefinitionLibrary.class, "ParameterDefinitionLibrary",
+				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getParameterDefinitionLibrary_ParameterDefinitions(), this.getParameterDefinition(), null,
+				"parameterDefinitions", null, 0, -1, ParameterDefinitionLibrary.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(parameterTypeEEnum, ParameterType.class, "ParameterType");
+		addEEnumLiteral(parameterTypeEEnum, ParameterType.INTEGER);
+		addEEnumLiteral(parameterTypeEEnum, ParameterType.DOUBLE);
+		addEEnumLiteral(parameterTypeEEnum, ParameterType.STRING);
+
+		initEEnum(unitOfMeasurementEEnum, UnitOfMeasurement.class, "UnitOfMeasurement");
+		addEEnumLiteral(unitOfMeasurementEEnum, UnitOfMeasurement.CM);
+		addEEnumLiteral(unitOfMeasurementEEnum, UnitOfMeasurement.M);
+		addEEnumLiteral(unitOfMeasurementEEnum, UnitOfMeasurement.MM);
+		addEEnumLiteral(unitOfMeasurementEEnum, UnitOfMeasurement.PERCENTAGE);
+		addEEnumLiteral(unitOfMeasurementEEnum, UnitOfMeasurement.S);
+		addEEnumLiteral(unitOfMeasurementEEnum, UnitOfMeasurement.MS);
+		addEEnumLiteral(unitOfMeasurementEEnum, UnitOfMeasurement.MINUTES);
+		addEEnumLiteral(unitOfMeasurementEEnum, UnitOfMeasurement.HOURS);
+		addEEnumLiteral(unitOfMeasurementEEnum, UnitOfMeasurement.MBPS);
+		addEEnumLiteral(unitOfMeasurementEEnum, UnitOfMeasurement.NONE);
+
+		initEEnum(e4SMElementTypeEEnum, E4SMElementType.class, "E4SMElementType");
+		addEEnumLiteral(e4SMElementTypeEEnum, E4SMElementType.COMPONENT);
+		addEEnumLiteral(e4SMElementTypeEEnum, E4SMElementType.CONNECTOR);
+		addEEnumLiteral(e4SMElementTypeEEnum, E4SMElementType.PHYSICAL_CONNECTOR);
+		addEEnumLiteral(e4SMElementTypeEEnum, E4SMElementType.SOFTWARE_CONNECTOR);
+		addEEnumLiteral(e4SMElementTypeEEnum, E4SMElementType.PIN);
+		addEEnumLiteral(e4SMElementTypeEEnum, E4SMElementType.INPUT_PIN);
+		addEEnumLiteral(e4SMElementTypeEEnum, E4SMElementType.OUTPUT_PIN);
+
 		// Initialize data types
 		initEDataType(connectionspeedEDataType, Object.class, "Connectionspeed", IS_SERIALIZABLE,
 				!IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(jsonEDataType, String.class, "JSON", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

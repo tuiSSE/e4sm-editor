@@ -6,6 +6,7 @@ import e4sm.de.metamodel.e4sm.Actor;
 import e4sm.de.metamodel.e4sm.Actuator;
 import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.Connector;
+import e4sm.de.metamodel.e4sm.E4SMElementType;
 import e4sm.de.metamodel.e4sm.ExternalDependency;
 import e4sm.de.metamodel.e4sm.Function;
 import e4sm.de.metamodel.e4sm.Heuristic;
@@ -15,6 +16,10 @@ import e4sm.de.metamodel.e4sm.LogicalConnector;
 import e4sm.de.metamodel.e4sm.MachineLearningComponent;
 import e4sm.de.metamodel.e4sm.Model;
 import e4sm.de.metamodel.e4sm.OutputPin;
+import e4sm.de.metamodel.e4sm.Parameter;
+import e4sm.de.metamodel.e4sm.ParameterDefinition;
+import e4sm.de.metamodel.e4sm.ParameterDefinitionLibrary;
+import e4sm.de.metamodel.e4sm.ParameterType;
 import e4sm.de.metamodel.e4sm.Person;
 import e4sm.de.metamodel.e4sm.PhysicalComponent;
 import e4sm.de.metamodel.e4sm.PhysicalConnector;
@@ -22,6 +27,7 @@ import e4sm.de.metamodel.e4sm.Robot;
 import e4sm.de.metamodel.e4sm.Sector;
 import e4sm.de.metamodel.e4sm.Sensor;
 import e4sm.de.metamodel.e4sm.SoftwareComponent;
+import e4sm.de.metamodel.e4sm.UnitOfMeasurement;
 import e4sm.de.metamodel.e4sm.e4smFactory;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
@@ -119,6 +125,12 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 			return createOutputPin();
 		case e4smPackage.PERSON:
 			return createPerson();
+		case e4smPackage.PARAMETER_DEFINITION:
+			return createParameterDefinition();
+		case e4smPackage.PARAMETER:
+			return createParameter();
+		case e4smPackage.PARAMETER_DEFINITION_LIBRARY:
+			return createParameterDefinitionLibrary();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -132,8 +144,16 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
+		case e4smPackage.PARAMETER_TYPE:
+			return createParameterTypeFromString(eDataType, initialValue);
+		case e4smPackage.UNIT_OF_MEASUREMENT:
+			return createUnitOfMeasurementFromString(eDataType, initialValue);
+		case e4smPackage.E4SM_ELEMENT_TYPE:
+			return createE4SMElementTypeFromString(eDataType, initialValue);
 		case e4smPackage.CONNECTIONSPEED:
 			return createConnectionspeedFromString(eDataType, initialValue);
+		case e4smPackage.JSON:
+			return createJSONFromString(eDataType, initialValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -147,8 +167,16 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
+		case e4smPackage.PARAMETER_TYPE:
+			return convertParameterTypeToString(eDataType, instanceValue);
+		case e4smPackage.UNIT_OF_MEASUREMENT:
+			return convertUnitOfMeasurementToString(eDataType, instanceValue);
+		case e4smPackage.E4SM_ELEMENT_TYPE:
+			return convertE4SMElementTypeToString(eDataType, instanceValue);
 		case e4smPackage.CONNECTIONSPEED:
 			return convertConnectionspeedToString(eDataType, instanceValue);
+		case e4smPackage.JSON:
+			return convertJSONToString(eDataType, instanceValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -390,6 +418,105 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public ParameterDefinition createParameterDefinition() {
+		ParameterDefinitionImpl parameterDefinition = new ParameterDefinitionImpl();
+		return parameterDefinition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Parameter createParameter() {
+		ParameterImpl parameter = new ParameterImpl();
+		return parameter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ParameterDefinitionLibrary createParameterDefinitionLibrary() {
+		ParameterDefinitionLibraryImpl parameterDefinitionLibrary = new ParameterDefinitionLibraryImpl();
+		return parameterDefinitionLibrary;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ParameterType createParameterTypeFromString(EDataType eDataType, String initialValue) {
+		ParameterType result = ParameterType.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException(
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertParameterTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UnitOfMeasurement createUnitOfMeasurementFromString(EDataType eDataType, String initialValue) {
+		UnitOfMeasurement result = UnitOfMeasurement.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException(
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertUnitOfMeasurementToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public E4SMElementType createE4SMElementTypeFromString(EDataType eDataType, String initialValue) {
+		E4SMElementType result = E4SMElementType.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException(
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertE4SMElementTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Object createConnectionspeedFromString(EDataType eDataType, String initialValue) {
 		return super.createFromString(eDataType, initialValue);
 	}
@@ -400,6 +527,24 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 	 * @generated
 	 */
 	public String convertConnectionspeedToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String createJSONFromString(EDataType eDataType, String initialValue) {
+		return (String) super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertJSONToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
 

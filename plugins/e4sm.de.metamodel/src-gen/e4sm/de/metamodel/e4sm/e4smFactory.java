@@ -211,6 +211,33 @@ public interface e4smFactory extends EFactory {
 	Person createPerson();
 
 	/**
+	 * Returns a new object of class '<em>Parameter Definition</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Parameter Definition</em>'.
+	 * @generated
+	 */
+	ParameterDefinition createParameterDefinition();
+
+	/**
+	 * Returns a new object of class '<em>Parameter</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Parameter</em>'.
+	 * @generated
+	 */
+	Parameter createParameter();
+
+	/**
+	 * Returns a new object of class '<em>Parameter Definition Library</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Parameter Definition Library</em>'.
+	 * @generated
+	 */
+	ParameterDefinitionLibrary createParameterDefinitionLibrary();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

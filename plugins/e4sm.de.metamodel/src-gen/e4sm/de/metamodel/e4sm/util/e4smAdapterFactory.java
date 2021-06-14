@@ -18,6 +18,10 @@ import e4sm.de.metamodel.e4sm.Model;
 import e4sm.de.metamodel.e4sm.NamedElement;
 import e4sm.de.metamodel.e4sm.OptionallyNamedElement;
 import e4sm.de.metamodel.e4sm.OutputPin;
+import e4sm.de.metamodel.e4sm.Parameter;
+import e4sm.de.metamodel.e4sm.ParameterDefinition;
+import e4sm.de.metamodel.e4sm.ParameterDefinitionLibrary;
+import e4sm.de.metamodel.e4sm.ParametrisableElement;
 import e4sm.de.metamodel.e4sm.Person;
 import e4sm.de.metamodel.e4sm.PhysicalComponent;
 import e4sm.de.metamodel.e4sm.PhysicalConnector;
@@ -213,6 +217,26 @@ public class e4smAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseOptionallyNamedElement(OptionallyNamedElement object) {
 			return createOptionallyNamedElementAdapter();
+		}
+
+		@Override
+		public Adapter caseParameterDefinition(ParameterDefinition object) {
+			return createParameterDefinitionAdapter();
+		}
+
+		@Override
+		public Adapter caseParameter(Parameter object) {
+			return createParameterAdapter();
+		}
+
+		@Override
+		public Adapter caseParametrisableElement(ParametrisableElement object) {
+			return createParametrisableElementAdapter();
+		}
+
+		@Override
+		public Adapter caseParameterDefinitionLibrary(ParameterDefinitionLibrary object) {
+			return createParameterDefinitionLibraryAdapter();
 		}
 
 		@Override
@@ -581,6 +605,62 @@ public class e4smAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createOptionallyNamedElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.ParameterDefinition <em>Parameter Definition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.ParameterDefinition
+	 * @generated
+	 */
+	public Adapter createParameterDefinitionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.Parameter <em>Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.Parameter
+	 * @generated
+	 */
+	public Adapter createParameterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.ParametrisableElement <em>Parametrisable Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.ParametrisableElement
+	 * @generated
+	 */
+	public Adapter createParametrisableElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.ParameterDefinitionLibrary <em>Parameter Definition Library</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.ParameterDefinitionLibrary
+	 * @generated
+	 */
+	public Adapter createParameterDefinitionLibraryAdapter() {
 		return null;
 	}
 

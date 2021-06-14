@@ -141,6 +141,7 @@ public class PackageItemProvider extends NamedElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(e4smPackage.Literals.PARAMETRISABLE_ELEMENT__PARAMETERS);
 			childrenFeatures.add(e4smPackage.Literals.PACKAGE__COMPONENTS);
 			childrenFeatures.add(e4smPackage.Literals.PACKAGE__CONNECTORS);
 			childrenFeatures.add(e4smPackage.Literals.PACKAGE__SECTORS);
@@ -208,6 +209,7 @@ public class PackageItemProvider extends NamedElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(e4sm.de.metamodel.e4sm.Package.class)) {
+		case e4smPackage.PACKAGE__PARAMETERS:
 		case e4smPackage.PACKAGE__COMPONENTS:
 		case e4smPackage.PACKAGE__CONNECTORS:
 		case e4smPackage.PACKAGE__SECTORS:
@@ -228,6 +230,9 @@ public class PackageItemProvider extends NamedElementItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.PARAMETRISABLE_ELEMENT__PARAMETERS,
+				e4smFactory.eINSTANCE.createParameter()));
 
 		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.PACKAGE__COMPONENTS,
 				e4smFactory.eINSTANCE.createComponent()));

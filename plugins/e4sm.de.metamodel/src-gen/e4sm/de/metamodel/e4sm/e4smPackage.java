@@ -5,6 +5,7 @@ package e4sm.de.metamodel.e4sm;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -143,13 +144,22 @@ public interface e4smPackage extends EPackage {
 	int COMPONENT__NAME = NAMED_ELEMENT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT__PARAMETERS = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__COMPONENTS = NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int COMPONENT__COMPONENTS = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Pins</b></em>' containment reference list.
@@ -158,7 +168,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__PINS = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int COMPONENT__PINS = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Main Responsible</b></em>' reference.
@@ -167,7 +177,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__MAIN_RESPONSIBLE = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int COMPONENT__MAIN_RESPONSIBLE = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Specified In Package</b></em>' reference.
@@ -176,7 +186,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__SPECIFIED_IN_PACKAGE = NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int COMPONENT__SPECIFIED_IN_PACKAGE = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Component</em>' class.
@@ -185,7 +195,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
+	int COMPONENT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Compute Main Responsible</em>' operation.
@@ -223,6 +233,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOFTWARE_COMPONENT__NAME = COMPONENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOFTWARE_COMPONENT__PARAMETERS = COMPONENT__PARAMETERS;
 
 	/**
 	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
@@ -323,6 +342,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int MACHINE_LEARNING_COMPONENT__NAME = SOFTWARE_COMPONENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MACHINE_LEARNING_COMPONENT__PARAMETERS = SOFTWARE_COMPONENT__PARAMETERS;
 
 	/**
 	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
@@ -462,13 +490,22 @@ public interface e4smPackage extends EPackage {
 	int CONNECTOR__NAME = OPTIONALLY_NAMED_ELEMENT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__PARAMETERS = OPTIONALLY_NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__SOURCE = OPTIONALLY_NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int CONNECTOR__SOURCE = OPTIONALLY_NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' reference.
@@ -477,7 +514,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__TARGET = OPTIONALLY_NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int CONNECTOR__TARGET = OPTIONALLY_NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Connector</em>' class.
@@ -486,7 +523,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR_FEATURE_COUNT = OPTIONALLY_NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int CONNECTOR_FEATURE_COUNT = OPTIONALLY_NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Connector</em>' class.
@@ -515,6 +552,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int PHYSICAL_CONNECTOR__NAME = CONNECTOR__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PHYSICAL_CONNECTOR__PARAMETERS = CONNECTOR__PARAMETERS;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -588,6 +634,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int PHYSICAL_COMPONENT__NAME = COMPONENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PHYSICAL_COMPONENT__PARAMETERS = COMPONENT__PARAMETERS;
 
 	/**
 	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
@@ -672,6 +727,15 @@ public interface e4smPackage extends EPackage {
 	int LOGICAL_CONNECTOR__NAME = CONNECTOR__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOGICAL_CONNECTOR__PARAMETERS = CONNECTOR__PARAMETERS;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -725,6 +789,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int HEURISTIC__NAME = SOFTWARE_COMPONENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HEURISTIC__PARAMETERS = SOFTWARE_COMPONENT__PARAMETERS;
 
 	/**
 	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
@@ -827,6 +900,15 @@ public interface e4smPackage extends EPackage {
 	int FUNCTION__NAME = SOFTWARE_COMPONENT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION__PARAMETERS = SOFTWARE_COMPONENT__PARAMETERS;
+
+	/**
 	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -925,6 +1007,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXTERNAL_DEPENDENCY__NAME = SOFTWARE_COMPONENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_DEPENDENCY__PARAMETERS = SOFTWARE_COMPONENT__PARAMETERS;
 
 	/**
 	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
@@ -1027,13 +1118,22 @@ public interface e4smPackage extends EPackage {
 	int PACKAGE__NAME = NAMED_ELEMENT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__PARAMETERS = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__COMPONENTS = NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int PACKAGE__COMPONENTS = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Software Components</b></em>' reference list.
@@ -1042,7 +1142,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__SOFTWARE_COMPONENTS = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int PACKAGE__SOFTWARE_COMPONENTS = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Physical Components</b></em>' reference list.
@@ -1051,7 +1151,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__PHYSICAL_COMPONENTS = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int PACKAGE__PHYSICAL_COMPONENTS = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Connectors</b></em>' containment reference list.
@@ -1060,7 +1160,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__CONNECTORS = NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int PACKAGE__CONNECTORS = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Sectors</b></em>' containment reference list.
@@ -1069,7 +1169,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__SECTORS = NAMED_ELEMENT_FEATURE_COUNT + 4;
+	int PACKAGE__SECTORS = NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Main Responsible</b></em>' reference.
@@ -1078,7 +1178,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__MAIN_RESPONSIBLE = NAMED_ELEMENT_FEATURE_COUNT + 5;
+	int PACKAGE__MAIN_RESPONSIBLE = NAMED_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Packages</b></em>' containment reference list.
@@ -1087,7 +1187,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__PACKAGES = NAMED_ELEMENT_FEATURE_COUNT + 6;
+	int PACKAGE__PACKAGES = NAMED_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Specifies Component</b></em>' reference.
@@ -1096,7 +1196,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__SPECIFIES_COMPONENT = NAMED_ELEMENT_FEATURE_COUNT + 7;
+	int PACKAGE__SPECIFIES_COMPONENT = NAMED_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of structural features of the '<em>Package</em>' class.
@@ -1105,7 +1205,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 8;
+	int PACKAGE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 9;
 
 	/**
 	 * The operation id for the '<em>Get All Components</em>' operation.
@@ -1145,13 +1245,22 @@ public interface e4smPackage extends EPackage {
 	int MODEL__NAME = NAMED_ELEMENT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL__PARAMETERS = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Packages</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__PACKAGES = NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int MODEL__PACKAGES = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Actors</b></em>' containment reference list.
@@ -1160,7 +1269,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__ACTORS = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int MODEL__ACTORS = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Persons Pictures Path</b></em>' attribute.
@@ -1169,7 +1278,25 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__PERSONS_PICTURES_PATH = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int MODEL__PERSONS_PICTURES_PATH = NAMED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Parameter Definitions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL__PARAMETER_DEFINITIONS = NAMED_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Parameter Definitionlibraries</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL__PARAMETER_DEFINITIONLIBRARIES = NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Model</em>' class.
@@ -1178,7 +1305,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int MODEL_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of operations of the '<em>Model</em>' class.
@@ -1384,6 +1511,15 @@ public interface e4smPackage extends EPackage {
 	int SENSOR__NAME = PHYSICAL_COMPONENT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENSOR__PARAMETERS = PHYSICAL_COMPONENT__PARAMETERS;
+
+	/**
 	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1464,6 +1600,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTUATOR__NAME = PHYSICAL_COMPONENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTUATOR__PARAMETERS = PHYSICAL_COMPONENT__PARAMETERS;
 
 	/**
 	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
@@ -1713,6 +1858,265 @@ public interface e4smPackage extends EPackage {
 	int PERSON_OPERATION_COUNT = HUMAN_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.ParameterDefinitionImpl <em>Parameter Definition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.ParameterDefinitionImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getParameterDefinition()
+	 * @generated
+	 */
+	int PARAMETER_DEFINITION = 25;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_DEFINITION__NAME = NAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_DEFINITION__TYPE = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_DEFINITION__PARAMETERS = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Unit</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_DEFINITION__UNIT = NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Must Be Defined On</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_DEFINITION__MUST_BE_DEFINED_ON = NAMED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Default Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_DEFINITION__DEFAULT_VALUE = NAMED_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Can Be Defined On</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_DEFINITION__CAN_BE_DEFINED_ON = NAMED_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
+	 * The number of structural features of the '<em>Parameter Definition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_DEFINITION_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 6;
+
+	/**
+	 * The number of operations of the '<em>Parameter Definition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_DEFINITION_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.ParameterImpl <em>Parameter</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.ParameterImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getParameter()
+	 * @generated
+	 */
+	int PARAMETER = 26;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__VALUE = ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Initial Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__INITIAL_VALUE = ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Parameter Definition</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__PARAMETER_DEFINITION = ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Parameter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of operations of the '<em>Parameter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.ParametrisableElement <em>Parametrisable Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.ParametrisableElement
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getParametrisableElement()
+	 * @generated
+	 */
+	int PARAMETRISABLE_ELEMENT = 27;
+
+	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETRISABLE_ELEMENT__PARAMETERS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Parametrisable Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETRISABLE_ELEMENT_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Parametrisable Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETRISABLE_ELEMENT_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.ParameterDefinitionLibraryImpl <em>Parameter Definition Library</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.ParameterDefinitionLibraryImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getParameterDefinitionLibrary()
+	 * @generated
+	 */
+	int PARAMETER_DEFINITION_LIBRARY = 28;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_DEFINITION_LIBRARY__NAME = NAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Parameter Definitions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_DEFINITION_LIBRARY__PARAMETER_DEFINITIONS = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Parameter Definition Library</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_DEFINITION_LIBRARY_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Parameter Definition Library</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_DEFINITION_LIBRARY_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.ParameterType <em>Parameter Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.ParameterType
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getParameterType()
+	 * @generated
+	 */
+	int PARAMETER_TYPE = 29;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.UnitOfMeasurement <em>Unit Of Measurement</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.UnitOfMeasurement
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getUnitOfMeasurement()
+	 * @generated
+	 */
+	int UNIT_OF_MEASUREMENT = 30;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.E4SMElementType <em>E4SM Element Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.E4SMElementType
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getE4SMElementType()
+	 * @generated
+	 */
+	int E4SM_ELEMENT_TYPE = 31;
+
+	/**
 	 * The meta object id for the '<em>Connectionspeed</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1720,7 +2124,17 @@ public interface e4smPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getConnectionspeed()
 	 * @generated
 	 */
-	int CONNECTIONSPEED = 25;
+	int CONNECTIONSPEED = 32;
+
+	/**
+	 * The meta object id for the '<em>JSON</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.lang.String
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getJSON()
+	 * @generated
+	 */
+	int JSON = 33;
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.Component <em>Component</em>}'.
@@ -2104,6 +2518,28 @@ public interface e4smPackage extends EPackage {
 	EAttribute getModel_PersonsPicturesPath();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link e4sm.de.metamodel.e4sm.Model#getParameterDefinitions <em>Parameter Definitions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Parameter Definitions</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Model#getParameterDefinitions()
+	 * @see #getModel()
+	 * @generated
+	 */
+	EReference getModel_ParameterDefinitions();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link e4sm.de.metamodel.e4sm.Model#getParameterDefinitionlibraries <em>Parameter Definitionlibraries</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Parameter Definitionlibraries</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Model#getParameterDefinitionlibraries()
+	 * @see #getModel()
+	 * @generated
+	 */
+	EReference getModel_ParameterDefinitionlibraries();
+
+	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.NamedElement <em>Named Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2332,6 +2768,197 @@ public interface e4smPackage extends EPackage {
 	EAttribute getOptionallyNamedElement_Name();
 
 	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.ParameterDefinition <em>Parameter Definition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Parameter Definition</em>'.
+	 * @see e4sm.de.metamodel.e4sm.ParameterDefinition
+	 * @generated
+	 */
+	EClass getParameterDefinition();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.ParameterDefinition#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see e4sm.de.metamodel.e4sm.ParameterDefinition#getType()
+	 * @see #getParameterDefinition()
+	 * @generated
+	 */
+	EAttribute getParameterDefinition_Type();
+
+	/**
+	 * Returns the meta object for the reference list '{@link e4sm.de.metamodel.e4sm.ParameterDefinition#getParameters <em>Parameters</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Parameters</em>'.
+	 * @see e4sm.de.metamodel.e4sm.ParameterDefinition#getParameters()
+	 * @see #getParameterDefinition()
+	 * @generated
+	 */
+	EReference getParameterDefinition_Parameters();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.ParameterDefinition#getUnit <em>Unit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Unit</em>'.
+	 * @see e4sm.de.metamodel.e4sm.ParameterDefinition#getUnit()
+	 * @see #getParameterDefinition()
+	 * @generated
+	 */
+	EAttribute getParameterDefinition_Unit();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link e4sm.de.metamodel.e4sm.ParameterDefinition#getCanBeDefinedOn <em>Can Be Defined On</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Can Be Defined On</em>'.
+	 * @see e4sm.de.metamodel.e4sm.ParameterDefinition#getCanBeDefinedOn()
+	 * @see #getParameterDefinition()
+	 * @generated
+	 */
+	EAttribute getParameterDefinition_CanBeDefinedOn();
+
+	/**
+	 * Returns the meta object for the reference list '{@link e4sm.de.metamodel.e4sm.ParameterDefinition#getMustBeDefinedOn <em>Must Be Defined On</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Must Be Defined On</em>'.
+	 * @see e4sm.de.metamodel.e4sm.ParameterDefinition#getMustBeDefinedOn()
+	 * @see #getParameterDefinition()
+	 * @generated
+	 */
+	EReference getParameterDefinition_MustBeDefinedOn();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.ParameterDefinition#getDefaultValue <em>Default Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Default Value</em>'.
+	 * @see e4sm.de.metamodel.e4sm.ParameterDefinition#getDefaultValue()
+	 * @see #getParameterDefinition()
+	 * @generated
+	 */
+	EAttribute getParameterDefinition_DefaultValue();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.Parameter <em>Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Parameter</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Parameter
+	 * @generated
+	 */
+	EClass getParameter();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.Parameter#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Parameter#getValue()
+	 * @see #getParameter()
+	 * @generated
+	 */
+	EAttribute getParameter_Value();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.Parameter#getInitialValue <em>Initial Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Initial Value</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Parameter#getInitialValue()
+	 * @see #getParameter()
+	 * @generated
+	 */
+	EAttribute getParameter_InitialValue();
+
+	/**
+	 * Returns the meta object for the reference '{@link e4sm.de.metamodel.e4sm.Parameter#getParameterDefinition <em>Parameter Definition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Parameter Definition</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Parameter#getParameterDefinition()
+	 * @see #getParameter()
+	 * @generated
+	 */
+	EReference getParameter_ParameterDefinition();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.ParametrisableElement <em>Parametrisable Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Parametrisable Element</em>'.
+	 * @see e4sm.de.metamodel.e4sm.ParametrisableElement
+	 * @generated
+	 */
+	EClass getParametrisableElement();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link e4sm.de.metamodel.e4sm.ParametrisableElement#getParameters <em>Parameters</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Parameters</em>'.
+	 * @see e4sm.de.metamodel.e4sm.ParametrisableElement#getParameters()
+	 * @see #getParametrisableElement()
+	 * @generated
+	 */
+	EReference getParametrisableElement_Parameters();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.ParameterDefinitionLibrary <em>Parameter Definition Library</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Parameter Definition Library</em>'.
+	 * @see e4sm.de.metamodel.e4sm.ParameterDefinitionLibrary
+	 * @generated
+	 */
+	EClass getParameterDefinitionLibrary();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link e4sm.de.metamodel.e4sm.ParameterDefinitionLibrary#getParameterDefinitions <em>Parameter Definitions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Parameter Definitions</em>'.
+	 * @see e4sm.de.metamodel.e4sm.ParameterDefinitionLibrary#getParameterDefinitions()
+	 * @see #getParameterDefinitionLibrary()
+	 * @generated
+	 */
+	EReference getParameterDefinitionLibrary_ParameterDefinitions();
+
+	/**
+	 * Returns the meta object for enum '{@link e4sm.de.metamodel.e4sm.ParameterType <em>Parameter Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Parameter Type</em>'.
+	 * @see e4sm.de.metamodel.e4sm.ParameterType
+	 * @generated
+	 */
+	EEnum getParameterType();
+
+	/**
+	 * Returns the meta object for enum '{@link e4sm.de.metamodel.e4sm.UnitOfMeasurement <em>Unit Of Measurement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Unit Of Measurement</em>'.
+	 * @see e4sm.de.metamodel.e4sm.UnitOfMeasurement
+	 * @generated
+	 */
+	EEnum getUnitOfMeasurement();
+
+	/**
+	 * Returns the meta object for enum '{@link e4sm.de.metamodel.e4sm.E4SMElementType <em>E4SM Element Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>E4SM Element Type</em>'.
+	 * @see e4sm.de.metamodel.e4sm.E4SMElementType
+	 * @generated
+	 */
+	EEnum getE4SMElementType();
+
+	/**
 	 * Returns the meta object for data type '{@link java.lang.Object <em>Connectionspeed</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2341,6 +2968,17 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	EDataType getConnectionspeed();
+
+	/**
+	 * Returns the meta object for data type '{@link java.lang.String <em>JSON</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>JSON</em>'.
+	 * @see java.lang.String
+	 * @model instanceClass="java.lang.String"
+	 * @generated
+	 */
+	EDataType getJSON();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -2679,6 +3317,22 @@ public interface e4smPackage extends EPackage {
 		EAttribute MODEL__PERSONS_PICTURES_PATH = eINSTANCE.getModel_PersonsPicturesPath();
 
 		/**
+		 * The meta object literal for the '<em><b>Parameter Definitions</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODEL__PARAMETER_DEFINITIONS = eINSTANCE.getModel_ParameterDefinitions();
+
+		/**
+		 * The meta object literal for the '<em><b>Parameter Definitionlibraries</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODEL__PARAMETER_DEFINITIONLIBRARIES = eINSTANCE.getModel_ParameterDefinitionlibraries();
+
+		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.NamedElementImpl <em>Named Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2881,6 +3535,165 @@ public interface e4smPackage extends EPackage {
 		EAttribute OPTIONALLY_NAMED_ELEMENT__NAME = eINSTANCE.getOptionallyNamedElement_Name();
 
 		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.ParameterDefinitionImpl <em>Parameter Definition</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.ParameterDefinitionImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getParameterDefinition()
+		 * @generated
+		 */
+		EClass PARAMETER_DEFINITION = eINSTANCE.getParameterDefinition();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PARAMETER_DEFINITION__TYPE = eINSTANCE.getParameterDefinition_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Parameters</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARAMETER_DEFINITION__PARAMETERS = eINSTANCE.getParameterDefinition_Parameters();
+
+		/**
+		 * The meta object literal for the '<em><b>Unit</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PARAMETER_DEFINITION__UNIT = eINSTANCE.getParameterDefinition_Unit();
+
+		/**
+		 * The meta object literal for the '<em><b>Can Be Defined On</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PARAMETER_DEFINITION__CAN_BE_DEFINED_ON = eINSTANCE.getParameterDefinition_CanBeDefinedOn();
+
+		/**
+		 * The meta object literal for the '<em><b>Must Be Defined On</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARAMETER_DEFINITION__MUST_BE_DEFINED_ON = eINSTANCE.getParameterDefinition_MustBeDefinedOn();
+
+		/**
+		 * The meta object literal for the '<em><b>Default Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PARAMETER_DEFINITION__DEFAULT_VALUE = eINSTANCE.getParameterDefinition_DefaultValue();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.ParameterImpl <em>Parameter</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.ParameterImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getParameter()
+		 * @generated
+		 */
+		EClass PARAMETER = eINSTANCE.getParameter();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PARAMETER__VALUE = eINSTANCE.getParameter_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Initial Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PARAMETER__INITIAL_VALUE = eINSTANCE.getParameter_InitialValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Parameter Definition</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARAMETER__PARAMETER_DEFINITION = eINSTANCE.getParameter_ParameterDefinition();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.ParametrisableElement <em>Parametrisable Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.ParametrisableElement
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getParametrisableElement()
+		 * @generated
+		 */
+		EClass PARAMETRISABLE_ELEMENT = eINSTANCE.getParametrisableElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARAMETRISABLE_ELEMENT__PARAMETERS = eINSTANCE.getParametrisableElement_Parameters();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.ParameterDefinitionLibraryImpl <em>Parameter Definition Library</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.ParameterDefinitionLibraryImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getParameterDefinitionLibrary()
+		 * @generated
+		 */
+		EClass PARAMETER_DEFINITION_LIBRARY = eINSTANCE.getParameterDefinitionLibrary();
+
+		/**
+		 * The meta object literal for the '<em><b>Parameter Definitions</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARAMETER_DEFINITION_LIBRARY__PARAMETER_DEFINITIONS = eINSTANCE
+				.getParameterDefinitionLibrary_ParameterDefinitions();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.ParameterType <em>Parameter Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.ParameterType
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getParameterType()
+		 * @generated
+		 */
+		EEnum PARAMETER_TYPE = eINSTANCE.getParameterType();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.UnitOfMeasurement <em>Unit Of Measurement</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.UnitOfMeasurement
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getUnitOfMeasurement()
+		 * @generated
+		 */
+		EEnum UNIT_OF_MEASUREMENT = eINSTANCE.getUnitOfMeasurement();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.E4SMElementType <em>E4SM Element Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.E4SMElementType
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getE4SMElementType()
+		 * @generated
+		 */
+		EEnum E4SM_ELEMENT_TYPE = eINSTANCE.getE4SMElementType();
+
+		/**
 		 * The meta object literal for the '<em>Connectionspeed</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2889,6 +3702,16 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType CONNECTIONSPEED = eINSTANCE.getConnectionspeed();
+
+		/**
+		 * The meta object literal for the '<em>JSON</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.lang.String
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getJSON()
+		 * @generated
+		 */
+		EDataType JSON = eINSTANCE.getJSON();
 
 	}
 

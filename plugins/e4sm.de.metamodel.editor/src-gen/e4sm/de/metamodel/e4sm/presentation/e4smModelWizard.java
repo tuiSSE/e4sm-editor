@@ -187,6 +187,7 @@ public class e4smModelWizard extends Wizard implements INewWizard {
 			initialObjectNames = new ArrayList<String>();
 			// Edited manually to limit the elements available as root in the wizard.
 			initialObjectNames.add("Model");
+			initialObjectNames.add("ParameterDefinitionLibrary");
 			// N.B. if this list contains only one element, it will be automatically
 			// selected.
 			// initialObjectNames.add("Package");

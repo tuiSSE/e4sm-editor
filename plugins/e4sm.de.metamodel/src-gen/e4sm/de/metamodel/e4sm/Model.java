@@ -20,13 +20,15 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link e4sm.de.metamodel.e4sm.Model#getPackages <em>Packages</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Model#getActors <em>Actors</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Model#getPersonsPicturesPath <em>Persons Pictures Path</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.Model#getParameterDefinitions <em>Parameter Definitions</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.Model#getParameterDefinitionlibraries <em>Parameter Definitionlibraries</em>}</li>
  * </ul>
  *
  * @see e4sm.de.metamodel.e4sm.e4smPackage#getModel()
  * @model
  * @generated
  */
-public interface Model extends NamedElement {
+public interface Model extends NamedElement, ParametrisableElement {
 	/**
 	 * Returns the value of the '<em><b>Packages</b></em>' containment reference list.
 	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.Package}.
@@ -81,5 +83,29 @@ public interface Model extends NamedElement {
 	 * @generated
 	 */
 	void setPersonsPicturesPath(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Parameter Definitions</b></em>' containment reference list.
+	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.ParameterDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Parameter Definitions</em>' containment reference list.
+	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getModel_ParameterDefinitions()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<ParameterDefinition> getParameterDefinitions();
+
+	/**
+	 * Returns the value of the '<em><b>Parameter Definitionlibraries</b></em>' containment reference list.
+	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.ParameterDefinitionLibrary}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Parameter Definitionlibraries</em>' containment reference list.
+	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getModel_ParameterDefinitionlibraries()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<ParameterDefinitionLibrary> getParameterDefinitionlibraries();
 
 } // Model

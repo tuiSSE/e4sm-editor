@@ -3,15 +3,22 @@
 package e4sm.de.metamodel.e4sm.impl;
 
 import e4sm.de.metamodel.e4sm.Connector;
+import e4sm.de.metamodel.e4sm.Parameter;
+import e4sm.de.metamodel.e4sm.ParametrisableElement;
 import e4sm.de.metamodel.e4sm.Pin;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,6 +28,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.ConnectorImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ConnectorImpl#getSource <em>Source</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ConnectorImpl#getTarget <em>Target</em>}</li>
  * </ul>
@@ -28,6 +36,16 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * @generated
  */
 public class ConnectorImpl extends OptionallyNamedElementImpl implements Connector {
+	/**
+	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParameters()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Parameter> parameters;
+
 	/**
 	 * The cached value of the '{@link #getSource() <em>Source</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -65,6 +83,20 @@ public class ConnectorImpl extends OptionallyNamedElementImpl implements Connect
 	@Override
 	protected EClass eStaticClass() {
 		return e4smPackage.Literals.CONNECTOR;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<Parameter> getParameters() {
+		if (parameters == null) {
+			parameters = new EObjectContainmentEList<Parameter>(Parameter.class, this,
+					e4smPackage.CONNECTOR__PARAMETERS);
+		}
+		return parameters;
 	}
 
 	/**
@@ -155,8 +187,24 @@ public class ConnectorImpl extends OptionallyNamedElementImpl implements Connect
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case e4smPackage.CONNECTOR__PARAMETERS:
+			return ((InternalEList<?>) getParameters()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+		case e4smPackage.CONNECTOR__PARAMETERS:
+			return getParameters();
 		case e4smPackage.CONNECTOR__SOURCE:
 			if (resolve)
 				return getSource();
@@ -174,9 +222,14 @@ public class ConnectorImpl extends OptionallyNamedElementImpl implements Connect
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+		case e4smPackage.CONNECTOR__PARAMETERS:
+			getParameters().clear();
+			getParameters().addAll((Collection<? extends Parameter>) newValue);
+			return;
 		case e4smPackage.CONNECTOR__SOURCE:
 			setSource((Pin) newValue);
 			return;
@@ -195,6 +248,9 @@ public class ConnectorImpl extends OptionallyNamedElementImpl implements Connect
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+		case e4smPackage.CONNECTOR__PARAMETERS:
+			getParameters().clear();
+			return;
 		case e4smPackage.CONNECTOR__SOURCE:
 			setSource((Pin) null);
 			return;
@@ -213,12 +269,50 @@ public class ConnectorImpl extends OptionallyNamedElementImpl implements Connect
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+		case e4smPackage.CONNECTOR__PARAMETERS:
+			return parameters != null && !parameters.isEmpty();
 		case e4smPackage.CONNECTOR__SOURCE:
 			return source != null;
 		case e4smPackage.CONNECTOR__TARGET:
 			return target != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == ParametrisableElement.class) {
+			switch (derivedFeatureID) {
+			case e4smPackage.CONNECTOR__PARAMETERS:
+				return e4smPackage.PARAMETRISABLE_ELEMENT__PARAMETERS;
+			default:
+				return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == ParametrisableElement.class) {
+			switch (baseFeatureID) {
+			case e4smPackage.PARAMETRISABLE_ELEMENT__PARAMETERS:
+				return e4smPackage.CONNECTOR__PARAMETERS;
+			default:
+				return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 } //ConnectorImpl
