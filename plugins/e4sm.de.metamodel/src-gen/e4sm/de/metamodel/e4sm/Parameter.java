@@ -2,6 +2,8 @@
  */
 package e4sm.de.metamodel.e4sm;
 
+import org.eclipse.emf.common.util.EList;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Parameter</b></em>'.
@@ -14,6 +16,8 @@ package e4sm.de.metamodel.e4sm;
  *   <li>{@link e4sm.de.metamodel.e4sm.Parameter#getValue <em>Value</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Parameter#getInitialValue <em>Initial Value</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Parameter#getParameterDefinition <em>Parameter Definition</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.Parameter#getAppliesOnlyOnVariants <em>Applies Only On Variants</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.Parameter#getDoesNotApplyOnVariants <em>Does Not Apply On Variants</em>}</li>
  * </ul>
  *
  * @see e4sm.de.metamodel.e4sm.e4smPackage#getParameter()
@@ -88,5 +92,29 @@ public interface Parameter extends Element {
 	 * @generated
 	 */
 	void setParameterDefinition(ParameterDefinition value);
+
+	/**
+	 * Returns the value of the '<em><b>Applies Only On Variants</b></em>' reference list.
+	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.Variant}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Applies Only On Variants</em>' reference list.
+	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getParameter_AppliesOnlyOnVariants()
+	 * @model
+	 * @generated
+	 */
+	EList<Variant> getAppliesOnlyOnVariants();
+
+	/**
+	 * Returns the value of the '<em><b>Does Not Apply On Variants</b></em>' reference list.
+	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.Variant}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Does Not Apply On Variants</em>' reference list.
+	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getParameter_DoesNotApplyOnVariants()
+	 * @model
+	 * @generated
+	 */
+	EList<Variant> getDoesNotApplyOnVariants();
 
 } // Parameter

@@ -4,15 +4,19 @@ package e4sm.de.metamodel.e4sm.impl;
 
 import e4sm.de.metamodel.e4sm.Parameter;
 import e4sm.de.metamodel.e4sm.ParameterDefinition;
+import e4sm.de.metamodel.e4sm.Variant;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,6 +29,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ParameterImpl#getValue <em>Value</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ParameterImpl#getInitialValue <em>Initial Value</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ParameterImpl#getParameterDefinition <em>Parameter Definition</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.ParameterImpl#getAppliesOnlyOnVariants <em>Applies Only On Variants</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.ParameterImpl#getDoesNotApplyOnVariants <em>Does Not Apply On Variants</em>}</li>
  * </ul>
  *
  * @generated
@@ -79,6 +85,26 @@ public class ParameterImpl extends ElementImpl implements Parameter {
 	 * @ordered
 	 */
 	protected ParameterDefinition parameterDefinition;
+
+	/**
+	 * The cached value of the '{@link #getAppliesOnlyOnVariants() <em>Applies Only On Variants</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAppliesOnlyOnVariants()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Variant> appliesOnlyOnVariants;
+
+	/**
+	 * The cached value of the '{@link #getDoesNotApplyOnVariants() <em>Does Not Apply On Variants</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDoesNotApplyOnVariants()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Variant> doesNotApplyOnVariants;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -223,6 +249,34 @@ public class ParameterImpl extends ElementImpl implements Parameter {
 	 * @generated
 	 */
 	@Override
+	public EList<Variant> getAppliesOnlyOnVariants() {
+		if (appliesOnlyOnVariants == null) {
+			appliesOnlyOnVariants = new EObjectResolvingEList<Variant>(Variant.class, this,
+					e4smPackage.PARAMETER__APPLIES_ONLY_ON_VARIANTS);
+		}
+		return appliesOnlyOnVariants;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<Variant> getDoesNotApplyOnVariants() {
+		if (doesNotApplyOnVariants == null) {
+			doesNotApplyOnVariants = new EObjectResolvingEList<Variant>(Variant.class, this,
+					e4smPackage.PARAMETER__DOES_NOT_APPLY_ON_VARIANTS);
+		}
+		return doesNotApplyOnVariants;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case e4smPackage.PARAMETER__PARAMETER_DEFINITION:
@@ -264,6 +318,10 @@ public class ParameterImpl extends ElementImpl implements Parameter {
 			if (resolve)
 				return getParameterDefinition();
 			return basicGetParameterDefinition();
+		case e4smPackage.PARAMETER__APPLIES_ONLY_ON_VARIANTS:
+			return getAppliesOnlyOnVariants();
+		case e4smPackage.PARAMETER__DOES_NOT_APPLY_ON_VARIANTS:
+			return getDoesNotApplyOnVariants();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -273,6 +331,7 @@ public class ParameterImpl extends ElementImpl implements Parameter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -284,6 +343,14 @@ public class ParameterImpl extends ElementImpl implements Parameter {
 			return;
 		case e4smPackage.PARAMETER__PARAMETER_DEFINITION:
 			setParameterDefinition((ParameterDefinition) newValue);
+			return;
+		case e4smPackage.PARAMETER__APPLIES_ONLY_ON_VARIANTS:
+			getAppliesOnlyOnVariants().clear();
+			getAppliesOnlyOnVariants().addAll((Collection<? extends Variant>) newValue);
+			return;
+		case e4smPackage.PARAMETER__DOES_NOT_APPLY_ON_VARIANTS:
+			getDoesNotApplyOnVariants().clear();
+			getDoesNotApplyOnVariants().addAll((Collection<? extends Variant>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -306,6 +373,12 @@ public class ParameterImpl extends ElementImpl implements Parameter {
 		case e4smPackage.PARAMETER__PARAMETER_DEFINITION:
 			setParameterDefinition((ParameterDefinition) null);
 			return;
+		case e4smPackage.PARAMETER__APPLIES_ONLY_ON_VARIANTS:
+			getAppliesOnlyOnVariants().clear();
+			return;
+		case e4smPackage.PARAMETER__DOES_NOT_APPLY_ON_VARIANTS:
+			getDoesNotApplyOnVariants().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -324,6 +397,10 @@ public class ParameterImpl extends ElementImpl implements Parameter {
 			return INITIAL_VALUE_EDEFAULT == null ? initialValue != null : !INITIAL_VALUE_EDEFAULT.equals(initialValue);
 		case e4smPackage.PARAMETER__PARAMETER_DEFINITION:
 			return parameterDefinition != null;
+		case e4smPackage.PARAMETER__APPLIES_ONLY_ON_VARIANTS:
+			return appliesOnlyOnVariants != null && !appliesOnlyOnVariants.isEmpty();
+		case e4smPackage.PARAMETER__DOES_NOT_APPLY_ON_VARIANTS:
+			return doesNotApplyOnVariants != null && !doesNotApplyOnVariants.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

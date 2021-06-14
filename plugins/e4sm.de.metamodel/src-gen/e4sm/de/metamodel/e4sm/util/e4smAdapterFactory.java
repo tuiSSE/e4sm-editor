@@ -30,6 +30,7 @@ import e4sm.de.metamodel.e4sm.Robot;
 import e4sm.de.metamodel.e4sm.Sector;
 import e4sm.de.metamodel.e4sm.Sensor;
 import e4sm.de.metamodel.e4sm.SoftwareComponent;
+import e4sm.de.metamodel.e4sm.Variant;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -237,6 +238,11 @@ public class e4smAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseParameterDefinitionLibrary(ParameterDefinitionLibrary object) {
 			return createParameterDefinitionLibraryAdapter();
+		}
+
+		@Override
+		public Adapter caseVariant(Variant object) {
+			return createVariantAdapter();
 		}
 
 		@Override
@@ -661,6 +667,20 @@ public class e4smAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createParameterDefinitionLibraryAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.Variant <em>Variant</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.Variant
+	 * @generated
+	 */
+	public Adapter createVariantAdapter() {
 		return null;
 	}
 

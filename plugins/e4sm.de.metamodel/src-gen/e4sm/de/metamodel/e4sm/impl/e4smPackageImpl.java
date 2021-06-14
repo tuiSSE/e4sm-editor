@@ -33,6 +33,7 @@ import e4sm.de.metamodel.e4sm.Sector;
 import e4sm.de.metamodel.e4sm.Sensor;
 import e4sm.de.metamodel.e4sm.SoftwareComponent;
 import e4sm.de.metamodel.e4sm.UnitOfMeasurement;
+import e4sm.de.metamodel.e4sm.Variant;
 import e4sm.de.metamodel.e4sm.e4smFactory;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
@@ -257,6 +258,13 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	private EClass parameterDefinitionLibraryEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass variantEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -731,7 +739,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getModel_ParameterDefinitions() {
+	public EReference getModel_ParameterDefinitionlibraries() {
 		return (EReference) modelEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -741,7 +749,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getModel_ParameterDefinitionlibraries() {
+	public EReference getModel_Variants() {
 		return (EReference) modelEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -1081,6 +1089,26 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getParameter_AppliesOnlyOnVariants() {
+		return (EReference) parameterEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getParameter_DoesNotApplyOnVariants() {
+		return (EReference) parameterEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getParametrisableElement() {
 		return parametrisableElementEClass;
 	}
@@ -1113,6 +1141,16 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	@Override
 	public EReference getParameterDefinitionLibrary_ParameterDefinitions() {
 		return (EReference) parameterDefinitionLibraryEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getVariant() {
+		return variantEClass;
 	}
 
 	/**
@@ -1242,8 +1280,8 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		createEReference(modelEClass, MODEL__PACKAGES);
 		createEReference(modelEClass, MODEL__ACTORS);
 		createEAttribute(modelEClass, MODEL__PERSONS_PICTURES_PATH);
-		createEReference(modelEClass, MODEL__PARAMETER_DEFINITIONS);
 		createEReference(modelEClass, MODEL__PARAMETER_DEFINITIONLIBRARIES);
+		createEReference(modelEClass, MODEL__VARIANTS);
 
 		namedElementEClass = createEClass(NAMED_ELEMENT);
 		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
@@ -1292,12 +1330,16 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		createEAttribute(parameterEClass, PARAMETER__VALUE);
 		createEAttribute(parameterEClass, PARAMETER__INITIAL_VALUE);
 		createEReference(parameterEClass, PARAMETER__PARAMETER_DEFINITION);
+		createEReference(parameterEClass, PARAMETER__APPLIES_ONLY_ON_VARIANTS);
+		createEReference(parameterEClass, PARAMETER__DOES_NOT_APPLY_ON_VARIANTS);
 
 		parametrisableElementEClass = createEClass(PARAMETRISABLE_ELEMENT);
 		createEReference(parametrisableElementEClass, PARAMETRISABLE_ELEMENT__PARAMETERS);
 
 		parameterDefinitionLibraryEClass = createEClass(PARAMETER_DEFINITION_LIBRARY);
 		createEReference(parameterDefinitionLibraryEClass, PARAMETER_DEFINITION_LIBRARY__PARAMETER_DEFINITIONS);
+
+		variantEClass = createEClass(VARIANT);
 
 		// Create enums
 		parameterTypeEEnum = createEEnum(PARAMETER_TYPE);
@@ -1362,6 +1404,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		sensorEClass.getESuperTypes().add(this.getPhysicalComponent());
 		actuatorEClass.getESuperTypes().add(this.getPhysicalComponent());
 		pinEClass.getESuperTypes().add(this.getOptionallyNamedElement());
+		pinEClass.getESuperTypes().add(this.getParametrisableElement());
 		inputPinEClass.getESuperTypes().add(this.getPin());
 		outputPinEClass.getESuperTypes().add(this.getPin());
 		personEClass.getESuperTypes().add(this.getHuman());
@@ -1369,6 +1412,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		parameterDefinitionEClass.getESuperTypes().add(this.getNamedElement());
 		parameterEClass.getESuperTypes().add(this.getElement());
 		parameterDefinitionLibraryEClass.getESuperTypes().add(this.getNamedElement());
+		variantEClass.getESuperTypes().add(this.getNamedElement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(componentEClass, Component.class, "Component", !IS_ABSTRACT, !IS_INTERFACE,
@@ -1477,12 +1521,12 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		initEAttribute(getModel_PersonsPicturesPath(), ecorePackage.getEString(), "personsPicturesPath", null, 0, 1,
 				Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
-		initEReference(getModel_ParameterDefinitions(), this.getParameterDefinition(), null, "parameterDefinitions",
-				null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getModel_ParameterDefinitionlibraries(), this.getParameterDefinitionLibrary(), null,
 				"parameterDefinitionlibraries", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
 				IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModel_Variants(), this.getVariant(), null, "variants", null, 0, -1, Model.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -1572,6 +1616,12 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 				this.getParameterDefinition_Parameters(), "parameterDefinition", null, 1, 1, Parameter.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getParameter_AppliesOnlyOnVariants(), this.getVariant(), null, "appliesOnlyOnVariants", null, 0,
+				-1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getParameter_DoesNotApplyOnVariants(), this.getVariant(), null, "doesNotApplyOnVariants", null,
+				0, -1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(parametrisableElementEClass, ParametrisableElement.class, "ParametrisableElement", IS_ABSTRACT,
 				IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1584,6 +1634,8 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		initEReference(getParameterDefinitionLibrary_ParameterDefinitions(), this.getParameterDefinition(), null,
 				"parameterDefinitions", null, 0, -1, ParameterDefinitionLibrary.class, !IS_TRANSIENT, !IS_VOLATILE,
 				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(variantEClass, Variant.class, "Variant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(parameterTypeEEnum, ParameterType.class, "ParameterType");

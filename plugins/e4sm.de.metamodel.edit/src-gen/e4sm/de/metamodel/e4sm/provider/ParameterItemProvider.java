@@ -48,6 +48,8 @@ public class ParameterItemProvider extends ElementItemProvider {
 			addValuePropertyDescriptor(object);
 			addInitialValuePropertyDescriptor(object);
 			addParameterDefinitionPropertyDescriptor(object);
+			addAppliesOnlyOnVariantsPropertyDescriptor(object);
+			addDoesNotApplyOnVariantsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -97,6 +99,37 @@ public class ParameterItemProvider extends ElementItemProvider {
 						getString("_UI_PropertyDescriptor_description", "_UI_Parameter_parameterDefinition_feature",
 								"_UI_Parameter_type"),
 						e4smPackage.Literals.PARAMETER__PARAMETER_DEFINITION, true, false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Applies Only On Variants feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAppliesOnlyOnVariantsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Parameter_appliesOnlyOnVariants_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Parameter_appliesOnlyOnVariants_feature",
+								"_UI_Parameter_type"),
+						e4smPackage.Literals.PARAMETER__APPLIES_ONLY_ON_VARIANTS, true, false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Does Not Apply On Variants feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDoesNotApplyOnVariantsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Parameter_doesNotApplyOnVariants_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Parameter_doesNotApplyOnVariants_feature",
+								"_UI_Parameter_type"),
+						e4smPackage.Literals.PARAMETER__DOES_NOT_APPLY_ON_VARIANTS, true, false, true, null, null,
+						null));
 	}
 
 	/**

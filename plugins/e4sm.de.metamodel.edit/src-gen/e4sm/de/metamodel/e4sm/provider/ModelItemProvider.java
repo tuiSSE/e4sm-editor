@@ -83,8 +83,8 @@ public class ModelItemProvider extends NamedElementItemProvider {
 			childrenFeatures.add(e4smPackage.Literals.PARAMETRISABLE_ELEMENT__PARAMETERS);
 			childrenFeatures.add(e4smPackage.Literals.MODEL__PACKAGES);
 			childrenFeatures.add(e4smPackage.Literals.MODEL__ACTORS);
-			childrenFeatures.add(e4smPackage.Literals.MODEL__PARAMETER_DEFINITIONS);
 			childrenFeatures.add(e4smPackage.Literals.MODEL__PARAMETER_DEFINITIONLIBRARIES);
+			childrenFeatures.add(e4smPackage.Literals.MODEL__VARIANTS);
 		}
 		return childrenFeatures;
 	}
@@ -154,8 +154,8 @@ public class ModelItemProvider extends NamedElementItemProvider {
 		case e4smPackage.MODEL__PARAMETERS:
 		case e4smPackage.MODEL__PACKAGES:
 		case e4smPackage.MODEL__ACTORS:
-		case e4smPackage.MODEL__PARAMETER_DEFINITIONS:
 		case e4smPackage.MODEL__PARAMETER_DEFINITIONLIBRARIES:
+		case e4smPackage.MODEL__VARIANTS:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -191,11 +191,11 @@ public class ModelItemProvider extends NamedElementItemProvider {
 		newChildDescriptors
 				.add(createChildParameter(e4smPackage.Literals.MODEL__ACTORS, e4smFactory.eINSTANCE.createPerson()));
 
-		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.MODEL__PARAMETER_DEFINITIONS,
-				e4smFactory.eINSTANCE.createParameterDefinition()));
-
 		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.MODEL__PARAMETER_DEFINITIONLIBRARIES,
 				e4smFactory.eINSTANCE.createParameterDefinitionLibrary()));
+
+		newChildDescriptors
+				.add(createChildParameter(e4smPackage.Literals.MODEL__VARIANTS, e4smFactory.eINSTANCE.createVariant()));
 	}
 
 }

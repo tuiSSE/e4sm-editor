@@ -28,6 +28,7 @@ import e4sm.de.metamodel.e4sm.Sector;
 import e4sm.de.metamodel.e4sm.Sensor;
 import e4sm.de.metamodel.e4sm.SoftwareComponent;
 import e4sm.de.metamodel.e4sm.UnitOfMeasurement;
+import e4sm.de.metamodel.e4sm.Variant;
 import e4sm.de.metamodel.e4sm.e4smFactory;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
@@ -131,6 +132,8 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 			return createParameter();
 		case e4smPackage.PARAMETER_DEFINITION_LIBRARY:
 			return createParameterDefinitionLibrary();
+		case e4smPackage.VARIANT:
+			return createVariant();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -444,6 +447,17 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 	public ParameterDefinitionLibrary createParameterDefinitionLibrary() {
 		ParameterDefinitionLibraryImpl parameterDefinitionLibrary = new ParameterDefinitionLibraryImpl();
 		return parameterDefinitionLibrary;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Variant createVariant() {
+		VariantImpl variant = new VariantImpl();
+		return variant;
 	}
 
 	/**

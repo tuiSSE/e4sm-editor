@@ -33,6 +33,7 @@ import e4sm.de.metamodel.e4sm.Sector;
 import e4sm.de.metamodel.e4sm.Sensor;
 import e4sm.de.metamodel.e4sm.SoftwareComponent;
 import e4sm.de.metamodel.e4sm.UnitOfMeasurement;
+import e4sm.de.metamodel.e4sm.Variant;
 import e4sm.de.metamodel.e4sm.Package;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
@@ -175,6 +176,8 @@ public class e4smValidator extends EObjectValidator {
 			return validateParametrisableElement((ParametrisableElement) value, diagnostics, context);
 		case e4smPackage.PARAMETER_DEFINITION_LIBRARY:
 			return validateParameterDefinitionLibrary((ParameterDefinitionLibrary) value, diagnostics, context);
+		case e4smPackage.VARIANT:
+			return validateVariant((Variant) value, diagnostics, context);
 		case e4smPackage.PARAMETER_TYPE:
 			return validateParameterType((ParameterType) value, diagnostics, context);
 		case e4smPackage.UNIT_OF_MEASUREMENT:
@@ -941,6 +944,15 @@ public class e4smValidator extends EObjectValidator {
 	public boolean validateParameterDefinitionLibrary(ParameterDefinitionLibrary parameterDefinitionLibrary,
 			DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(parameterDefinitionLibrary, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateVariant(Variant variant, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(variant, diagnostics, context);
 	}
 
 	/**

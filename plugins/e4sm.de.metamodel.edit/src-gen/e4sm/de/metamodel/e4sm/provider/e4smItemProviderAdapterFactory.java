@@ -625,6 +625,29 @@ public class e4smItemProviderAdapterFactory extends e4smAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.Variant} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected VariantItemProvider variantItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.Variant}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createVariantAdapter() {
+		if (variantItemProvider == null) {
+			variantItemProvider = new VariantItemProvider(this);
+		}
+
+		return variantItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -777,6 +800,8 @@ public class e4smItemProviderAdapterFactory extends e4smAdapterFactory
 			parameterItemProvider.dispose();
 		if (parameterDefinitionLibraryItemProvider != null)
 			parameterDefinitionLibraryItemProvider.dispose();
+		if (variantItemProvider != null)
+			variantItemProvider.dispose();
 	}
 
 }

@@ -30,6 +30,7 @@ import e4sm.de.metamodel.e4sm.Robot;
 import e4sm.de.metamodel.e4sm.Sector;
 import e4sm.de.metamodel.e4sm.Sensor;
 import e4sm.de.metamodel.e4sm.SoftwareComponent;
+import e4sm.de.metamodel.e4sm.Variant;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
 import org.eclipse.emf.ecore.EObject;
@@ -378,6 +379,8 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseOptionallyNamedElement(pin);
 			if (result == null)
+				result = caseParametrisableElement(pin);
+			if (result == null)
 				result = caseElement(pin);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -391,6 +394,8 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseOptionallyNamedElement(inputPin);
 			if (result == null)
+				result = caseParametrisableElement(inputPin);
+			if (result == null)
 				result = caseElement(inputPin);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -403,6 +408,8 @@ public class e4smSwitch<T> extends Switch<T> {
 				result = casePin(outputPin);
 			if (result == null)
 				result = caseOptionallyNamedElement(outputPin);
+			if (result == null)
+				result = caseParametrisableElement(outputPin);
 			if (result == null)
 				result = caseElement(outputPin);
 			if (result == null)
@@ -467,6 +474,17 @@ public class e4smSwitch<T> extends Switch<T> {
 				result = caseNamedElement(parameterDefinitionLibrary);
 			if (result == null)
 				result = caseElement(parameterDefinitionLibrary);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case e4smPackage.VARIANT: {
+			Variant variant = (Variant) theEObject;
+			T result = caseVariant(variant);
+			if (result == null)
+				result = caseNamedElement(variant);
+			if (result == null)
+				result = caseElement(variant);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -908,6 +926,21 @@ public class e4smSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseParameterDefinitionLibrary(ParameterDefinitionLibrary object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Variant</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Variant</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseVariant(Variant object) {
 		return null;
 	}
 

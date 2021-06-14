@@ -238,6 +238,15 @@ public interface e4smFactory extends EFactory {
 	ParameterDefinitionLibrary createParameterDefinitionLibrary();
 
 	/**
+	 * Returns a new object of class '<em>Variant</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Variant</em>'.
+	 * @generated
+	 */
+	Variant createVariant();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

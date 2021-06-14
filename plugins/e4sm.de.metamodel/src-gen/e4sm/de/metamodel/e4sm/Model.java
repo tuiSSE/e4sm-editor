@@ -20,8 +20,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link e4sm.de.metamodel.e4sm.Model#getPackages <em>Packages</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Model#getActors <em>Actors</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Model#getPersonsPicturesPath <em>Persons Pictures Path</em>}</li>
- *   <li>{@link e4sm.de.metamodel.e4sm.Model#getParameterDefinitions <em>Parameter Definitions</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Model#getParameterDefinitionlibraries <em>Parameter Definitionlibraries</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.Model#getVariants <em>Variants</em>}</li>
  * </ul>
  *
  * @see e4sm.de.metamodel.e4sm.e4smPackage#getModel()
@@ -85,18 +85,6 @@ public interface Model extends NamedElement, ParametrisableElement {
 	void setPersonsPicturesPath(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Parameter Definitions</b></em>' containment reference list.
-	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.ParameterDefinition}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Parameter Definitions</em>' containment reference list.
-	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getModel_ParameterDefinitions()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<ParameterDefinition> getParameterDefinitions();
-
-	/**
 	 * Returns the value of the '<em><b>Parameter Definitionlibraries</b></em>' containment reference list.
 	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.ParameterDefinitionLibrary}.
 	 * <!-- begin-user-doc -->
@@ -107,5 +95,17 @@ public interface Model extends NamedElement, ParametrisableElement {
 	 * @generated
 	 */
 	EList<ParameterDefinitionLibrary> getParameterDefinitionlibraries();
+
+	/**
+	 * Returns the value of the '<em><b>Variants</b></em>' containment reference list.
+	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.Variant}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Variants</em>' containment reference list.
+	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getModel_Variants()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Variant> getVariants();
 
 } // Model

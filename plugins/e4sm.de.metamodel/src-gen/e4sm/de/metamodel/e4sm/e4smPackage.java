@@ -1281,22 +1281,22 @@ public interface e4smPackage extends EPackage {
 	int MODEL__PERSONS_PICTURES_PATH = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Parameter Definitions</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL__PARAMETER_DEFINITIONS = NAMED_ELEMENT_FEATURE_COUNT + 4;
-
-	/**
 	 * The feature id for the '<em><b>Parameter Definitionlibraries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__PARAMETER_DEFINITIONLIBRARIES = NAMED_ELEMENT_FEATURE_COUNT + 5;
+	int MODEL__PARAMETER_DEFINITIONLIBRARIES = NAMED_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Variants</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL__VARIANTS = NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Model</em>' class.
@@ -1693,13 +1693,22 @@ public interface e4smPackage extends EPackage {
 	int PIN__NAME = OPTIONALLY_NAMED_ELEMENT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIN__PARAMETERS = OPTIONALLY_NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Pin</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PIN_FEATURE_COUNT = OPTIONALLY_NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int PIN_FEATURE_COUNT = OPTIONALLY_NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Pin</em>' class.
@@ -1728,6 +1737,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int INPUT_PIN__NAME = PIN__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_PIN__PARAMETERS = PIN__PARAMETERS;
 
 	/**
 	 * The number of structural features of the '<em>Input Pin</em>' class.
@@ -1765,6 +1783,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int OUTPUT_PIN__NAME = PIN__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_PIN__PARAMETERS = PIN__PARAMETERS;
 
 	/**
 	 * The number of structural features of the '<em>Output Pin</em>' class.
@@ -1986,13 +2013,31 @@ public interface e4smPackage extends EPackage {
 	int PARAMETER__PARAMETER_DEFINITION = ELEMENT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Applies Only On Variants</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__APPLIES_ONLY_ON_VARIANTS = ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Does Not Apply On Variants</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__DOES_NOT_APPLY_ON_VARIANTS = ELEMENT_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Parameter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 3;
+	int PARAMETER_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Parameter</em>' class.
@@ -2087,6 +2132,43 @@ public interface e4smPackage extends EPackage {
 	int PARAMETER_DEFINITION_LIBRARY_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.VariantImpl <em>Variant</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.VariantImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getVariant()
+	 * @generated
+	 */
+	int VARIANT = 29;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIANT__NAME = NAMED_ELEMENT__NAME;
+
+	/**
+	 * The number of structural features of the '<em>Variant</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIANT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Variant</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIANT_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.ParameterType <em>Parameter Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2094,7 +2176,7 @@ public interface e4smPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getParameterType()
 	 * @generated
 	 */
-	int PARAMETER_TYPE = 29;
+	int PARAMETER_TYPE = 30;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.UnitOfMeasurement <em>Unit Of Measurement</em>}' enum.
@@ -2104,7 +2186,7 @@ public interface e4smPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getUnitOfMeasurement()
 	 * @generated
 	 */
-	int UNIT_OF_MEASUREMENT = 30;
+	int UNIT_OF_MEASUREMENT = 31;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.E4SMElementType <em>E4SM Element Type</em>}' enum.
@@ -2114,7 +2196,7 @@ public interface e4smPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getE4SMElementType()
 	 * @generated
 	 */
-	int E4SM_ELEMENT_TYPE = 31;
+	int E4SM_ELEMENT_TYPE = 32;
 
 	/**
 	 * The meta object id for the '<em>Connectionspeed</em>' data type.
@@ -2124,7 +2206,7 @@ public interface e4smPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getConnectionspeed()
 	 * @generated
 	 */
-	int CONNECTIONSPEED = 32;
+	int CONNECTIONSPEED = 33;
 
 	/**
 	 * The meta object id for the '<em>JSON</em>' data type.
@@ -2134,7 +2216,7 @@ public interface e4smPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getJSON()
 	 * @generated
 	 */
-	int JSON = 33;
+	int JSON = 34;
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.Component <em>Component</em>}'.
@@ -2518,17 +2600,6 @@ public interface e4smPackage extends EPackage {
 	EAttribute getModel_PersonsPicturesPath();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link e4sm.de.metamodel.e4sm.Model#getParameterDefinitions <em>Parameter Definitions</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Parameter Definitions</em>'.
-	 * @see e4sm.de.metamodel.e4sm.Model#getParameterDefinitions()
-	 * @see #getModel()
-	 * @generated
-	 */
-	EReference getModel_ParameterDefinitions();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link e4sm.de.metamodel.e4sm.Model#getParameterDefinitionlibraries <em>Parameter Definitionlibraries</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2538,6 +2609,17 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getModel_ParameterDefinitionlibraries();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link e4sm.de.metamodel.e4sm.Model#getVariants <em>Variants</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Variants</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Model#getVariants()
+	 * @see #getModel()
+	 * @generated
+	 */
+	EReference getModel_Variants();
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.NamedElement <em>Named Element</em>}'.
@@ -2887,6 +2969,28 @@ public interface e4smPackage extends EPackage {
 	EReference getParameter_ParameterDefinition();
 
 	/**
+	 * Returns the meta object for the reference list '{@link e4sm.de.metamodel.e4sm.Parameter#getAppliesOnlyOnVariants <em>Applies Only On Variants</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Applies Only On Variants</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Parameter#getAppliesOnlyOnVariants()
+	 * @see #getParameter()
+	 * @generated
+	 */
+	EReference getParameter_AppliesOnlyOnVariants();
+
+	/**
+	 * Returns the meta object for the reference list '{@link e4sm.de.metamodel.e4sm.Parameter#getDoesNotApplyOnVariants <em>Does Not Apply On Variants</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Does Not Apply On Variants</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Parameter#getDoesNotApplyOnVariants()
+	 * @see #getParameter()
+	 * @generated
+	 */
+	EReference getParameter_DoesNotApplyOnVariants();
+
+	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.ParametrisableElement <em>Parametrisable Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2927,6 +3031,16 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getParameterDefinitionLibrary_ParameterDefinitions();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.Variant <em>Variant</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Variant</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Variant
+	 * @generated
+	 */
+	EClass getVariant();
 
 	/**
 	 * Returns the meta object for enum '{@link e4sm.de.metamodel.e4sm.ParameterType <em>Parameter Type</em>}'.
@@ -3317,20 +3431,20 @@ public interface e4smPackage extends EPackage {
 		EAttribute MODEL__PERSONS_PICTURES_PATH = eINSTANCE.getModel_PersonsPicturesPath();
 
 		/**
-		 * The meta object literal for the '<em><b>Parameter Definitions</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MODEL__PARAMETER_DEFINITIONS = eINSTANCE.getModel_ParameterDefinitions();
-
-		/**
 		 * The meta object literal for the '<em><b>Parameter Definitionlibraries</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference MODEL__PARAMETER_DEFINITIONLIBRARIES = eINSTANCE.getModel_ParameterDefinitionlibraries();
+
+		/**
+		 * The meta object literal for the '<em><b>Variants</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODEL__VARIANTS = eINSTANCE.getModel_Variants();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.NamedElementImpl <em>Named Element</em>}' class.
@@ -3627,6 +3741,22 @@ public interface e4smPackage extends EPackage {
 		EReference PARAMETER__PARAMETER_DEFINITION = eINSTANCE.getParameter_ParameterDefinition();
 
 		/**
+		 * The meta object literal for the '<em><b>Applies Only On Variants</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARAMETER__APPLIES_ONLY_ON_VARIANTS = eINSTANCE.getParameter_AppliesOnlyOnVariants();
+
+		/**
+		 * The meta object literal for the '<em><b>Does Not Apply On Variants</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARAMETER__DOES_NOT_APPLY_ON_VARIANTS = eINSTANCE.getParameter_DoesNotApplyOnVariants();
+
+		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.ParametrisableElement <em>Parametrisable Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3662,6 +3792,16 @@ public interface e4smPackage extends EPackage {
 		 */
 		EReference PARAMETER_DEFINITION_LIBRARY__PARAMETER_DEFINITIONS = eINSTANCE
 				.getParameterDefinitionLibrary_ParameterDefinitions();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.VariantImpl <em>Variant</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.VariantImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getVariant()
+		 * @generated
+		 */
+		EClass VARIANT = eINSTANCE.getVariant();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.ParameterType <em>Parameter Type</em>}' enum.
