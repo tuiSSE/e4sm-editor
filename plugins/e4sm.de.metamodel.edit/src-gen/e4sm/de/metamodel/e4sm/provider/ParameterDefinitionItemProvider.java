@@ -5,29 +5,31 @@ package e4sm.de.metamodel.e4sm.provider;
 import e4sm.de.metamodel.e4sm.ParameterDefinition;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.UniqueEList;
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link e4sm.de.metamodel.e4sm.ParameterDefinition} object.
- * <!-- begin-user-doc -->
- * <!-- end-user-doc -->
+ * This is the item provider adapter for a
+ * {@link e4sm.de.metamodel.e4sm.ParameterDefinition} object. <!--
+ * begin-user-doc --> <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class ParameterDefinitionItemProvider extends NamedElementItemProvider {
 	/**
-	 * This constructs an instance from a factory and a notifier.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This constructs an instance from a factory and a notifier. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public ParameterDefinitionItemProvider(AdapterFactory adapterFactory) {
@@ -35,9 +37,9 @@ public class ParameterDefinitionItemProvider extends NamedElementItemProvider {
 	}
 
 	/**
-	 * This returns the property descriptors for the adapted class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This returns the property descriptors for the adapted class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -51,14 +53,15 @@ public class ParameterDefinitionItemProvider extends NamedElementItemProvider {
 			addMustBeDefinedOnPropertyDescriptor(object);
 			addDefaultValuePropertyDescriptor(object);
 			addCanBeDefinedOnPropertyDescriptor(object);
+			addShallNotBeDefinedOnPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Type feature.
-	 * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Type feature. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addTypePropertyDescriptor(Object object) {
@@ -72,9 +75,9 @@ public class ParameterDefinitionItemProvider extends NamedElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Parameters feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds a property descriptor for the Parameters feature. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addParametersPropertyDescriptor(Object object) {
@@ -87,9 +90,9 @@ public class ParameterDefinitionItemProvider extends NamedElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Unit feature.
-	 * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Unit feature. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addUnitPropertyDescriptor(Object object) {
@@ -103,22 +106,22 @@ public class ParameterDefinitionItemProvider extends NamedElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Can Be Defined On feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
+	 * This adds a property descriptor for the Can Be Defined On feature. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
 	 */
 	protected void addCanBeDefinedOnPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_ParameterDefinition_canBeDefinedOn_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_ParameterDefinition_canBeDefinedOn_feature",
-						"_UI_ParameterDefinition_type"),
-				e4smPackage.Literals.PARAMETER_DEFINITION__CAN_BE_DEFINED_ON, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
+		// itemPropertyDescriptors.add(createItemPropertyDescriptor(
+		// ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+		// getResourceLocator(),
+		// getString("_UI_ParameterDefinition_canBeDefinedOn_feature"),
+		// getString("_UI_PropertyDescriptor_description",
+		// "_UI_ParameterDefinition_canBeDefinedOn_feature",
+		// "_UI_ParameterDefinition_type"),
+		// e4smPackage.Literals.PARAMETER_DEFINITION__CAN_BE_DEFINED_ON, true, false,
+		// true, null, null, null));
 
-	protected void tempTODODeleteMe(Object object) {
 		itemPropertyDescriptors.add(new ItemPropertyDescriptor(
 				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
 				getString("_UI_ParameterDefinition_canBeDefinedOn_feature"),
@@ -127,37 +130,96 @@ public class ParameterDefinitionItemProvider extends NamedElementItemProvider {
 				e4smPackage.Literals.PARAMETER_DEFINITION__CAN_BE_DEFINED_ON, true, false, true, null, null, null) {
 			@Override
 			public Collection<?> getChoiceOfValues(Object object) {
-				Collection<EObject> result = new UniqueEList<EObject>();
-				result.add(null);
-				result.add(e4smPackage.eINSTANCE.getEClassifier("Connector"));
-				result.add(e4smPackage.eINSTANCE.getEClassifier("Component"));
-				result.add(e4smPackage.eINSTANCE.getEClassifier("SoftwareComponent"));
-				result.add(e4smPackage.eINSTANCE.getEClassifier("InputPin"));
-				result.add(e4smPackage.eINSTANCE.getEClassifier("OutputPin"));
-				return result;
+				List<EClass> choiceOfValues = new ArrayList<EClass>();
+				EList<EClassifier> classifiers = e4smPackage.eINSTANCE.getEClassifiers();
+				classifiers.forEach(c -> {
+					if (c instanceof EClass) {
+						// If needed, filter here the options
+						choiceOfValues.add((EClass) c);
+					}
+				});
+				return choiceOfValues;
 			}
 		});
 	}
 
 	/**
-	 * This adds a property descriptor for the Must Be Defined On feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds a property descriptor for the Shall Not Be Defined On feature. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	protected void addMustBeDefinedOnPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_ParameterDefinition_mustBeDefinedOn_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_ParameterDefinition_mustBeDefinedOn_feature",
-						"_UI_ParameterDefinition_type"),
-				e4smPackage.Literals.PARAMETER_DEFINITION__MUST_BE_DEFINED_ON, true, false, true, null, null, null));
+	protected void addShallNotBeDefinedOnPropertyDescriptor(Object object) {
+//		itemPropertyDescriptors
+//				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+//						getResourceLocator(), getString("_UI_ParameterDefinition_shallNotBeDefinedOn_feature"),
+//						getString("_UI_PropertyDescriptor_description",
+//								"_UI_ParameterDefinition_shallNotBeDefinedOn_feature", "_UI_ParameterDefinition_type"),
+//						e4smPackage.Literals.PARAMETER_DEFINITION__SHALL_NOT_BE_DEFINED_ON, true, false, true, null,
+//						null, null));
+
+		itemPropertyDescriptors
+				.add(new ItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_ParameterDefinition_shallNotBeDefinedOn_feature"),
+						getString("_UI_PropertyDescriptor_description",
+								"_UI_ParameterDefinition_shallNotBeDefinedOn_feature", "_UI_ParameterDefinition_type"),
+						e4smPackage.Literals.PARAMETER_DEFINITION__SHALL_NOT_BE_DEFINED_ON, true, false, true, null,
+						null, null) {
+					@Override
+					public Collection<?> getChoiceOfValues(Object object) {
+						List<EClass> choiceOfValues = new ArrayList<EClass>();
+						EList<EClassifier> classifiers = e4smPackage.eINSTANCE.getEClassifiers();
+						classifiers.forEach(c -> {
+							if (c instanceof EClass) {
+								// If needed, filter here the options
+								choiceOfValues.add((EClass) c);
+							}
+						});
+						return choiceOfValues;
+					}
+				});
 	}
 
 	/**
-	 * This adds a property descriptor for the Default Value feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds a property descriptor for the Must Be Defined On feature. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addMustBeDefinedOnPropertyDescriptor(Object object) {
+//		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+//				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+//				getString("_UI_ParameterDefinition_mustBeDefinedOn_feature"),
+//				getString("_UI_PropertyDescriptor_description", "_UI_ParameterDefinition_mustBeDefinedOn_feature",
+//						"_UI_ParameterDefinition_type"),
+//				e4smPackage.Literals.PARAMETER_DEFINITION__MUST_BE_DEFINED_ON, true, false, true, null, null, null));
+		
+		itemPropertyDescriptors
+		.add(new ItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(), getString("_UI_ParameterDefinition_mustBeDefinedOn_feature"),
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_ParameterDefinition_mustBeDefinedOn_feature", "_UI_ParameterDefinition_type"),
+				e4smPackage.Literals.PARAMETER_DEFINITION__MUST_BE_DEFINED_ON, true, false, true, null,
+				null, null) {
+			@Override
+			public Collection<?> getChoiceOfValues(Object object) {
+				List<EClass> choiceOfValues = new ArrayList<EClass>();
+				EList<EClassifier> classifiers = e4smPackage.eINSTANCE.getEClassifiers();
+				classifiers.forEach(c -> {
+					if (c instanceof EClass) {
+						// If needed, filter here the options
+						choiceOfValues.add((EClass) c);
+					}
+				});
+				return choiceOfValues;
+			}
+		});
+	}
+
+	/**
+	 * This adds a property descriptor for the Default Value feature. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addDefaultValuePropertyDescriptor(Object object) {
@@ -171,9 +233,9 @@ public class ParameterDefinitionItemProvider extends NamedElementItemProvider {
 	}
 
 	/**
-	 * This returns ParameterDefinition.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This returns ParameterDefinition.gif. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -182,8 +244,8 @@ public class ParameterDefinitionItemProvider extends NamedElementItemProvider {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -192,9 +254,9 @@ public class ParameterDefinitionItemProvider extends NamedElementItemProvider {
 	}
 
 	/**
-	 * This returns the label text for the adapted class.
-	 * <!-- begin-user-doc -->
+	 * This returns the label text for the adapted class. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -205,10 +267,10 @@ public class ParameterDefinitionItemProvider extends NamedElementItemProvider {
 	}
 
 	/**
-	 * This handles model notifications by calling {@link #updateChildren} to update any cached
-	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This handles model notifications by calling {@link #updateChildren} to update
+	 * any cached children and by creating a viewer notification, which it passes to
+	 * {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -219,7 +281,6 @@ public class ParameterDefinitionItemProvider extends NamedElementItemProvider {
 		case e4smPackage.PARAMETER_DEFINITION__TYPE:
 		case e4smPackage.PARAMETER_DEFINITION__UNIT:
 		case e4smPackage.PARAMETER_DEFINITION__DEFAULT_VALUE:
-		case e4smPackage.PARAMETER_DEFINITION__CAN_BE_DEFINED_ON:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}
@@ -227,10 +288,10 @@ public class ParameterDefinitionItemProvider extends NamedElementItemProvider {
 	}
 
 	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing
+	 * the children that can be created under this object. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

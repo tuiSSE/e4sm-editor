@@ -120,7 +120,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//ParameterDefinition/unit"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//ParameterDefinition/mustBeDefinedOn"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//ParameterDefinition/defaultValue"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//ParameterDefinition/canBeDefinedOn"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//ParameterDefinition/canBeDefinedOn"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//ParameterDefinition/shallNotBeDefinedOn"/>
     </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//Parameter">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//Parameter/value"/>

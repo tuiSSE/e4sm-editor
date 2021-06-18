@@ -2,11 +2,9 @@
  */
 package e4sm.de.metamodel.e4sm.impl;
 
-import e4sm.de.metamodel.e4sm.E4SMElementType;
 import e4sm.de.metamodel.e4sm.Parameter;
 import e4sm.de.metamodel.e4sm.ParameterDefinition;
 import e4sm.de.metamodel.e4sm.ParameterType;
-import e4sm.de.metamodel.e4sm.ParametrisableElement;
 import e4sm.de.metamodel.e4sm.UnitOfMeasurement;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
@@ -21,8 +19,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -41,6 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ParameterDefinitionImpl#getMustBeDefinedOn <em>Must Be Defined On</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ParameterDefinitionImpl#getDefaultValue <em>Default Value</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ParameterDefinitionImpl#getCanBeDefinedOn <em>Can Be Defined On</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.ParameterDefinitionImpl#getShallNotBeDefinedOn <em>Shall Not Be Defined On</em>}</li>
  * </ul>
  *
  * @generated
@@ -104,7 +101,7 @@ public class ParameterDefinitionImpl extends NamedElementImpl implements Paramet
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ParametrisableElement> mustBeDefinedOn;
+	protected EList<EClass> mustBeDefinedOn;
 
 	/**
 	 * The default value of the '{@link #getDefaultValue() <em>Default Value</em>}' attribute.
@@ -127,14 +124,24 @@ public class ParameterDefinitionImpl extends NamedElementImpl implements Paramet
 	protected String defaultValue = DEFAULT_VALUE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getCanBeDefinedOn() <em>Can Be Defined On</em>}' attribute list.
+	 * The cached value of the '{@link #getCanBeDefinedOn() <em>Can Be Defined On</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getCanBeDefinedOn()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<E4SMElementType> canBeDefinedOn;
+	protected EList<EClass> canBeDefinedOn;
+
+	/**
+	 * The cached value of the '{@link #getShallNotBeDefinedOn() <em>Shall Not Be Defined On</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getShallNotBeDefinedOn()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<EClass> shallNotBeDefinedOn;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -223,9 +230,9 @@ public class ParameterDefinitionImpl extends NamedElementImpl implements Paramet
 	 * @generated
 	 */
 	@Override
-	public EList<E4SMElementType> getCanBeDefinedOn() {
+	public EList<EClass> getCanBeDefinedOn() {
 		if (canBeDefinedOn == null) {
-			canBeDefinedOn = new EDataTypeUniqueEList<E4SMElementType>(E4SMElementType.class, this,
+			canBeDefinedOn = new EObjectResolvingEList<EClass>(EClass.class, this,
 					e4smPackage.PARAMETER_DEFINITION__CAN_BE_DEFINED_ON);
 		}
 		return canBeDefinedOn;
@@ -237,9 +244,23 @@ public class ParameterDefinitionImpl extends NamedElementImpl implements Paramet
 	 * @generated
 	 */
 	@Override
-	public EList<ParametrisableElement> getMustBeDefinedOn() {
+	public EList<EClass> getShallNotBeDefinedOn() {
+		if (shallNotBeDefinedOn == null) {
+			shallNotBeDefinedOn = new EObjectResolvingEList<EClass>(EClass.class, this,
+					e4smPackage.PARAMETER_DEFINITION__SHALL_NOT_BE_DEFINED_ON);
+		}
+		return shallNotBeDefinedOn;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<EClass> getMustBeDefinedOn() {
 		if (mustBeDefinedOn == null) {
-			mustBeDefinedOn = new EObjectResolvingEList<ParametrisableElement>(ParametrisableElement.class, this,
+			mustBeDefinedOn = new EObjectResolvingEList<EClass>(EClass.class, this,
 					e4smPackage.PARAMETER_DEFINITION__MUST_BE_DEFINED_ON);
 		}
 		return mustBeDefinedOn;
@@ -318,6 +339,8 @@ public class ParameterDefinitionImpl extends NamedElementImpl implements Paramet
 			return getDefaultValue();
 		case e4smPackage.PARAMETER_DEFINITION__CAN_BE_DEFINED_ON:
 			return getCanBeDefinedOn();
+		case e4smPackage.PARAMETER_DEFINITION__SHALL_NOT_BE_DEFINED_ON:
+			return getShallNotBeDefinedOn();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -343,14 +366,18 @@ public class ParameterDefinitionImpl extends NamedElementImpl implements Paramet
 			return;
 		case e4smPackage.PARAMETER_DEFINITION__MUST_BE_DEFINED_ON:
 			getMustBeDefinedOn().clear();
-			getMustBeDefinedOn().addAll((Collection<? extends ParametrisableElement>) newValue);
+			getMustBeDefinedOn().addAll((Collection<? extends EClass>) newValue);
 			return;
 		case e4smPackage.PARAMETER_DEFINITION__DEFAULT_VALUE:
 			setDefaultValue((String) newValue);
 			return;
 		case e4smPackage.PARAMETER_DEFINITION__CAN_BE_DEFINED_ON:
 			getCanBeDefinedOn().clear();
-			getCanBeDefinedOn().addAll((Collection<? extends E4SMElementType>) newValue);
+			getCanBeDefinedOn().addAll((Collection<? extends EClass>) newValue);
+			return;
+		case e4smPackage.PARAMETER_DEFINITION__SHALL_NOT_BE_DEFINED_ON:
+			getShallNotBeDefinedOn().clear();
+			getShallNotBeDefinedOn().addAll((Collection<? extends EClass>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -382,6 +409,9 @@ public class ParameterDefinitionImpl extends NamedElementImpl implements Paramet
 		case e4smPackage.PARAMETER_DEFINITION__CAN_BE_DEFINED_ON:
 			getCanBeDefinedOn().clear();
 			return;
+		case e4smPackage.PARAMETER_DEFINITION__SHALL_NOT_BE_DEFINED_ON:
+			getShallNotBeDefinedOn().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -406,6 +436,8 @@ public class ParameterDefinitionImpl extends NamedElementImpl implements Paramet
 			return DEFAULT_VALUE_EDEFAULT == null ? defaultValue != null : !DEFAULT_VALUE_EDEFAULT.equals(defaultValue);
 		case e4smPackage.PARAMETER_DEFINITION__CAN_BE_DEFINED_ON:
 			return canBeDefinedOn != null && !canBeDefinedOn.isEmpty();
+		case e4smPackage.PARAMETER_DEFINITION__SHALL_NOT_BE_DEFINED_ON:
+			return shallNotBeDefinedOn != null && !shallNotBeDefinedOn.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -427,8 +459,6 @@ public class ParameterDefinitionImpl extends NamedElementImpl implements Paramet
 		result.append(unit);
 		result.append(", defaultValue: ");
 		result.append(defaultValue);
-		result.append(", canBeDefinedOn: ");
-		result.append(canBeDefinedOn);
 		result.append(')');
 		return result.toString();
 	}

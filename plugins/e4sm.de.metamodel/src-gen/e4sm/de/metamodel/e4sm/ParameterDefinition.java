@@ -3,6 +3,7 @@
 package e4sm.de.metamodel.e4sm;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,6 +20,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link e4sm.de.metamodel.e4sm.ParameterDefinition#getMustBeDefinedOn <em>Must Be Defined On</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.ParameterDefinition#getDefaultValue <em>Default Value</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.ParameterDefinition#getCanBeDefinedOn <em>Can Be Defined On</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.ParameterDefinition#getShallNotBeDefinedOn <em>Shall Not Be Defined On</em>}</li>
  * </ul>
  *
  * @see e4sm.de.metamodel.e4sm.e4smPackage#getParameterDefinition()
@@ -92,22 +94,32 @@ public interface ParameterDefinition extends NamedElement {
 	void setUnit(UnitOfMeasurement value);
 
 	/**
-	 * Returns the value of the '<em><b>Can Be Defined On</b></em>' attribute list.
-	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.E4SMElementType}.
-	 * The literals are from the enumeration {@link e4sm.de.metamodel.e4sm.E4SMElementType}.
+	 * Returns the value of the '<em><b>Can Be Defined On</b></em>' reference list.
+	 * The list contents are of type {@link org.eclipse.emf.ecore.EClass}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Can Be Defined On</em>' attribute list.
-	 * @see e4sm.de.metamodel.e4sm.E4SMElementType
+	 * @return the value of the '<em>Can Be Defined On</em>' reference list.
 	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getParameterDefinition_CanBeDefinedOn()
 	 * @model
 	 * @generated
 	 */
-	EList<E4SMElementType> getCanBeDefinedOn();
+	EList<EClass> getCanBeDefinedOn();
+
+	/**
+	 * Returns the value of the '<em><b>Shall Not Be Defined On</b></em>' reference list.
+	 * The list contents are of type {@link org.eclipse.emf.ecore.EClass}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Shall Not Be Defined On</em>' reference list.
+	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getParameterDefinition_ShallNotBeDefinedOn()
+	 * @model
+	 * @generated
+	 */
+	EList<EClass> getShallNotBeDefinedOn();
 
 	/**
 	 * Returns the value of the '<em><b>Must Be Defined On</b></em>' reference list.
-	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.ParametrisableElement}.
+	 * The list contents are of type {@link org.eclipse.emf.ecore.EClass}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Must Be Defined On</em>' reference list.
@@ -115,7 +127,7 @@ public interface ParameterDefinition extends NamedElement {
 	 * @model
 	 * @generated
 	 */
-	EList<ParametrisableElement> getMustBeDefinedOn();
+	EList<EClass> getMustBeDefinedOn();
 
 	/**
 	 * Returns the value of the '<em><b>Default Value</b></em>' attribute.

@@ -1019,8 +1019,18 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getParameterDefinition_CanBeDefinedOn() {
-		return (EAttribute) parameterDefinitionEClass.getEStructuralFeatures().get(5);
+	public EReference getParameterDefinition_CanBeDefinedOn() {
+		return (EReference) parameterDefinitionEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getParameterDefinition_ShallNotBeDefinedOn() {
+		return (EReference) parameterDefinitionEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -1324,7 +1334,8 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		createEAttribute(parameterDefinitionEClass, PARAMETER_DEFINITION__UNIT);
 		createEReference(parameterDefinitionEClass, PARAMETER_DEFINITION__MUST_BE_DEFINED_ON);
 		createEAttribute(parameterDefinitionEClass, PARAMETER_DEFINITION__DEFAULT_VALUE);
-		createEAttribute(parameterDefinitionEClass, PARAMETER_DEFINITION__CAN_BE_DEFINED_ON);
+		createEReference(parameterDefinitionEClass, PARAMETER_DEFINITION__CAN_BE_DEFINED_ON);
+		createEReference(parameterDefinitionEClass, PARAMETER_DEFINITION__SHALL_NOT_BE_DEFINED_ON);
 
 		parameterEClass = createEClass(PARAMETER);
 		createEAttribute(parameterEClass, PARAMETER__VALUE);
@@ -1595,15 +1606,18 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		initEAttribute(getParameterDefinition_Unit(), this.getUnitOfMeasurement(), "unit", "none", 0, 1,
 				ParameterDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getParameterDefinition_MustBeDefinedOn(), this.getParametrisableElement(), null,
-				"mustBeDefinedOn", null, 0, -1, ParameterDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getParameterDefinition_MustBeDefinedOn(), ecorePackage.getEClass(), null, "mustBeDefinedOn",
+				null, 0, -1, ParameterDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getParameterDefinition_DefaultValue(), ecorePackage.getEString(), "defaultValue", null, 0, 1,
 				ParameterDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getParameterDefinition_CanBeDefinedOn(), this.getE4SMElementType(), "canBeDefinedOn", null, 0,
-				-1, ParameterDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getParameterDefinition_CanBeDefinedOn(), ecorePackage.getEClass(), null, "canBeDefinedOn", null,
+				0, -1, ParameterDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getParameterDefinition_ShallNotBeDefinedOn(), ecorePackage.getEClass(), null,
+				"shallNotBeDefinedOn", null, 0, -1, ParameterDefinition.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);

@@ -1949,7 +1949,7 @@ public interface e4smPackage extends EPackage {
 	int PARAMETER_DEFINITION__DEFAULT_VALUE = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Can Be Defined On</b></em>' attribute list.
+	 * The feature id for the '<em><b>Can Be Defined On</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1958,13 +1958,22 @@ public interface e4smPackage extends EPackage {
 	int PARAMETER_DEFINITION__CAN_BE_DEFINED_ON = NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Shall Not Be Defined On</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_DEFINITION__SHALL_NOT_BE_DEFINED_ON = NAMED_ELEMENT_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>Parameter Definition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_DEFINITION_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 6;
+	int PARAMETER_DEFINITION_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of operations of the '<em>Parameter Definition</em>' class.
@@ -2893,15 +2902,26 @@ public interface e4smPackage extends EPackage {
 	EAttribute getParameterDefinition_Unit();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link e4sm.de.metamodel.e4sm.ParameterDefinition#getCanBeDefinedOn <em>Can Be Defined On</em>}'.
+	 * Returns the meta object for the reference list '{@link e4sm.de.metamodel.e4sm.ParameterDefinition#getCanBeDefinedOn <em>Can Be Defined On</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Can Be Defined On</em>'.
+	 * @return the meta object for the reference list '<em>Can Be Defined On</em>'.
 	 * @see e4sm.de.metamodel.e4sm.ParameterDefinition#getCanBeDefinedOn()
 	 * @see #getParameterDefinition()
 	 * @generated
 	 */
-	EAttribute getParameterDefinition_CanBeDefinedOn();
+	EReference getParameterDefinition_CanBeDefinedOn();
+
+	/**
+	 * Returns the meta object for the reference list '{@link e4sm.de.metamodel.e4sm.ParameterDefinition#getShallNotBeDefinedOn <em>Shall Not Be Defined On</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Shall Not Be Defined On</em>'.
+	 * @see e4sm.de.metamodel.e4sm.ParameterDefinition#getShallNotBeDefinedOn()
+	 * @see #getParameterDefinition()
+	 * @generated
+	 */
+	EReference getParameterDefinition_ShallNotBeDefinedOn();
 
 	/**
 	 * Returns the meta object for the reference list '{@link e4sm.de.metamodel.e4sm.ParameterDefinition#getMustBeDefinedOn <em>Must Be Defined On</em>}'.
@@ -3683,12 +3703,21 @@ public interface e4smPackage extends EPackage {
 		EAttribute PARAMETER_DEFINITION__UNIT = eINSTANCE.getParameterDefinition_Unit();
 
 		/**
-		 * The meta object literal for the '<em><b>Can Be Defined On</b></em>' attribute list feature.
+		 * The meta object literal for the '<em><b>Can Be Defined On</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PARAMETER_DEFINITION__CAN_BE_DEFINED_ON = eINSTANCE.getParameterDefinition_CanBeDefinedOn();
+		EReference PARAMETER_DEFINITION__CAN_BE_DEFINED_ON = eINSTANCE.getParameterDefinition_CanBeDefinedOn();
+
+		/**
+		 * The meta object literal for the '<em><b>Shall Not Be Defined On</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARAMETER_DEFINITION__SHALL_NOT_BE_DEFINED_ON = eINSTANCE
+				.getParameterDefinition_ShallNotBeDefinedOn();
 
 		/**
 		 * The meta object literal for the '<em><b>Must Be Defined On</b></em>' reference list feature.
