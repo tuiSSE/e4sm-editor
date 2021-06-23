@@ -14,6 +14,7 @@ import e4sm.de.metamodel.e4sm.e4smPackage;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -25,7 +26,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -51,8 +51,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e4sm.Package {
 	/**
 	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getParameters()
 	 * @generated
 	 * @ordered
@@ -67,28 +66,6 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	 * @ordered
 	 */
 	protected EList<Component> components;
-
-	/**
-	 * The cached value of the '{@link #getSoftwareComponents() <em>Software
-	 * Components</em>}' reference list. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @see #getSoftwareComponents()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<SoftwareComponent> softwareComponents;
-
-	/**
-	 * The cached value of the '{@link #getPhysicalComponents() <em>Physical
-	 * Components</em>}' reference list. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @see #getPhysicalComponents()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<PhysicalComponent> physicalComponents;
 
 	/**
 	 * The cached value of the '{@link #getConnectors() <em>Connectors</em>}' containment reference list.
@@ -153,8 +130,7 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -178,29 +154,27 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
+	 * <!-- begin-user-doc --> Returns all software components directly contained by
+	 * this package (subsets components) <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
 	 */
 	@Override
 	public EList<SoftwareComponent> getSoftwareComponents() {
-		if (softwareComponents == null) {
-			softwareComponents = new EObjectResolvingEList<SoftwareComponent>(SoftwareComponent.class, this,
-					e4smPackage.PACKAGE__SOFTWARE_COMPONENTS);
-		}
-		return softwareComponents;
+		return ECollections.toEList(this.getComponents().stream().filter(c -> c instanceof SoftwareComponent)
+				.map(e -> (SoftwareComponent) e).collect(Collectors.toList()));
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
+	 * <!-- begin-user-doc --> Returns all physical components directly contained by
+	 * this package (subsets components) <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
 	 */
 	@Override
 	public EList<PhysicalComponent> getPhysicalComponents() {
-		if (physicalComponents == null) {
-			physicalComponents = new EObjectResolvingEList<PhysicalComponent>(PhysicalComponent.class, this,
-					e4smPackage.PACKAGE__PHYSICAL_COMPONENTS);
-		}
-		return physicalComponents;
+		return ECollections.toEList(this.getComponents().stream().filter(c -> c instanceof PhysicalComponent)
+				.map(e -> (PhysicalComponent) e).collect(Collectors.toList()));
 	}
 
 	/**
@@ -455,10 +429,6 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 			getSoftwareComponents().clear();
 			getSoftwareComponents().addAll((Collection<? extends SoftwareComponent>) newValue);
 			return;
-		case e4smPackage.PACKAGE__PHYSICAL_COMPONENTS:
-			getPhysicalComponents().clear();
-			getPhysicalComponents().addAll((Collection<? extends PhysicalComponent>) newValue);
-			return;
 		case e4smPackage.PACKAGE__CONNECTORS:
 			getConnectors().clear();
 			getConnectors().addAll((Collection<? extends Connector>) newValue);
@@ -497,9 +467,6 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 		case e4smPackage.PACKAGE__SOFTWARE_COMPONENTS:
 			getSoftwareComponents().clear();
 			return;
-		case e4smPackage.PACKAGE__PHYSICAL_COMPONENTS:
-			getPhysicalComponents().clear();
-			return;
 		case e4smPackage.PACKAGE__CONNECTORS:
 			getConnectors().clear();
 			return;
@@ -531,9 +498,9 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 		case e4smPackage.PACKAGE__COMPONENTS:
 			return components != null && !components.isEmpty();
 		case e4smPackage.PACKAGE__SOFTWARE_COMPONENTS:
-			return softwareComponents != null && !softwareComponents.isEmpty();
+			return !getSoftwareComponents().isEmpty();
 		case e4smPackage.PACKAGE__PHYSICAL_COMPONENTS:
-			return physicalComponents != null && !physicalComponents.isEmpty();
+			return !getPhysicalComponents().isEmpty();
 		case e4smPackage.PACKAGE__CONNECTORS:
 			return connectors != null && !connectors.isEmpty();
 		case e4smPackage.PACKAGE__SECTORS:
@@ -549,8 +516,7 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -567,8 +533,7 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override

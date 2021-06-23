@@ -128,13 +128,14 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="softwareComponents" upperBound="-1"
-        eType="#//SoftwareComponent" derived="true">
+        eType="#//SoftwareComponent" volatile="true" transient="true" derived="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="A subset of components only containing software components"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="physicalComponents" upperBound="-1"
-        eType="#//PhysicalComponent" derived="true">
+        eType="#//PhysicalComponent" changeable="false" volatile="true" transient="true"
+        derived="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="A subset of components only containing physical components"/>
       </eAnnotations>
