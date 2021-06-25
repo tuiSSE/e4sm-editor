@@ -10,13 +10,22 @@ import e4sm.de.metamodel.e4sm.ParameterizableElement;
 import e4sm.de.metamodel.e4sm.Variant;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
+import e4sm.de.metamodel.e4sm.util.e4smValidator;
+import java.lang.reflect.InvocationTargetException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Collection;
+
+import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.BasicDiagnostic;
+import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
-
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -226,6 +235,31 @@ public class ModelImpl extends NamedElementImpl implements Model {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public boolean isPersonPicturePathValid(DiagnosticChain diagnostics, Map context) {
+		// TODO: implement this method! Remove if(false from the first if and find out why it doesn't work
+		// -> specify the condition that violates the invariant
+		// -> verify the details of the diagnostic, including severity and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		URI uri = URI.createURI(personsPicturesPath);
+		if (false && personsPicturesPath != null && personsPicturesPath.length() > 0
+				&& Files.notExists(Paths.get(uri.toPlatformString(false)))) {
+			if (diagnostics != null) {
+				diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR, e4smValidator.DIAGNOSTIC_SOURCE,
+						e4smValidator.MODEL__IS_PERSON_PICTURE_PATH_VALID,
+						"The given path does not exists in this system or is not accessible",
+						new Object[] { this, this.getPersonsPicturesPath() }));
+			}
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -394,6 +428,21 @@ public class ModelImpl extends NamedElementImpl implements Model {
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	@SuppressWarnings("unchecked")
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+		case e4smPackage.MODEL___IS_PERSON_PICTURE_PATH_VALID__DIAGNOSTICCHAIN_MAP:
+			return isPersonPicturePathValid((DiagnosticChain) arguments.get(0), (Map) arguments.get(1));
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

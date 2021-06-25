@@ -113,7 +113,7 @@ public interface TypesPackage extends EPackage {
 	 * The meta object id for the '<em>String</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see java.lang.Object
+	 * @see java.lang.String
 	 * @see e4sm.de.metamodel.e4sm.types.impl.TypesPackageImpl#getString()
 	 * @generated
 	 */
@@ -208,12 +208,12 @@ public interface TypesPackage extends EPackage {
 	EDataType getBoolean();
 
 	/**
-	 * Returns the meta object for data type '{@link java.lang.Object <em>String</em>}'.
+	 * Returns the meta object for data type '{@link java.lang.String <em>String</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for data type '<em>String</em>'.
-	 * @see java.lang.Object
-	 * @model instanceClass="java.lang.Object"
+	 * @see java.lang.String
+	 * @model instanceClass="java.lang.String"
 	 * @generated
 	 */
 	EDataType getString();
@@ -330,7 +330,7 @@ public interface TypesPackage extends EPackage {
 		 * The meta object literal for the '<em>String</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see java.lang.Object
+		 * @see java.lang.String
 		 * @see e4sm.de.metamodel.e4sm.types.impl.TypesPackageImpl#getString()
 		 * @generated
 		 */

@@ -32,7 +32,6 @@ import e4sm.de.metamodel.e4sm.MachineLearningComponent;
 import e4sm.de.metamodel.e4sm.MeasurementUnit;
 import e4sm.de.metamodel.e4sm.Model;
 import e4sm.de.metamodel.e4sm.NamedElement;
-import e4sm.de.metamodel.e4sm.OptionallyNamedElement;
 import e4sm.de.metamodel.e4sm.OutputPin;
 import e4sm.de.metamodel.e4sm.Parameter;
 import e4sm.de.metamodel.e4sm.ParameterDefinition;
@@ -90,13 +89,21 @@ public class e4smValidator extends EObjectValidator {
 	public static final String DIAGNOSTIC_SOURCE = "e4sm.de.metamodel.e4sm";
 
 	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Is Person Picture Path Valid' of 'Model'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int MODEL__IS_PERSON_PICTURE_PATH_VALID = 1;
+
+	/**
 	 * A constant with a fixed name that can be used as the base value for
 	 * additional hand written constants. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
 	 * 
 	 * @generated
 	 */
-	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 0;
+	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 1;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants in a derived class.
@@ -184,8 +191,6 @@ public class e4smValidator extends EObjectValidator {
 			return validateOutputPin((OutputPin) value, diagnostics, context);
 		case e4smPackage.PERSON:
 			return validatePerson((Person) value, diagnostics, context);
-		case e4smPackage.OPTIONALLY_NAMED_ELEMENT:
-			return validateOptionallyNamedElement((OptionallyNamedElement) value, diagnostics, context);
 		case e4smPackage.PARAMETER_DEFINITION:
 			return validateParameterDefinition((ParameterDefinition) value, diagnostics, context);
 		case e4smPackage.PARAMETER:
@@ -767,7 +772,37 @@ public class e4smValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateModel(Model model, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(model, diagnostics, context);
+		if (!validate_NoCircularContainment(model, diagnostics, context))
+			return false;
+		boolean result = validate_EveryMultiplicityConforms(model, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryDataValueConforms(model, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryReferenceIsContained(model, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryBidirectionalReferenceIsPaired(model, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryProxyResolves(model, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_UniqueID(model, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryKeyUnique(model, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryMapEntryUnique(model, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateModel_isPersonPicturePathValid(model, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the isPersonPicturePathValid constraint of '<em>Model</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateModel_isPersonPicturePathValid(Model model, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return model.isPersonPicturePathValid(diagnostics, context);
 	}
 
 	/**
@@ -952,15 +987,6 @@ public class e4smValidator extends EObjectValidator {
 	 */
 	public boolean validatePerson(Person person, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(person, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateOptionallyNamedElement(OptionallyNamedElement optionallyNamedElement,
-			DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(optionallyNamedElement, diagnostics, context);
 	}
 
 	/**

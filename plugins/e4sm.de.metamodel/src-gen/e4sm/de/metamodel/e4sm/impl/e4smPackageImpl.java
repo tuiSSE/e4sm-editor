@@ -32,7 +32,6 @@ import e4sm.de.metamodel.e4sm.MachineLearningComponent;
 import e4sm.de.metamodel.e4sm.MeasurementUnit;
 import e4sm.de.metamodel.e4sm.Model;
 import e4sm.de.metamodel.e4sm.NamedElement;
-import e4sm.de.metamodel.e4sm.OptionallyNamedElement;
 import e4sm.de.metamodel.e4sm.OutputPin;
 import e4sm.de.metamodel.e4sm.Parameter;
 import e4sm.de.metamodel.e4sm.ParameterDefinition;
@@ -244,13 +243,6 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	private EClass personEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass optionallyNamedElementEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -921,6 +913,16 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
+	public EOperation getModel__IsPersonPicturePathValid__DiagnosticChain_Map() {
+		return modelEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getNamedElement() {
 		return namedElementEClass;
 	}
@@ -1121,26 +1123,6 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
-	public EClass getOptionallyNamedElement() {
-		return optionallyNamedElementEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getOptionallyNamedElement_Name() {
-		return (EAttribute) optionallyNamedElementEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getParameterDefinition() {
 		return parameterDefinitionEClass;
 	}
@@ -1233,6 +1215,16 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	@Override
 	public EReference getParameter_InitialValue() {
 		return (EReference) parameterEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getParameter__IsValid() {
+		return parameterEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1844,6 +1836,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		createEAttribute(modelEClass, MODEL__PERSONS_PICTURES_PATH);
 		createEReference(modelEClass, MODEL__PARAMETER_DEFINITION_LIBRARIES);
 		createEReference(modelEClass, MODEL__VARIANTS);
+		createEOperation(modelEClass, MODEL___IS_PERSON_PICTURE_PATH_VALID__DIAGNOSTICCHAIN_MAP);
 
 		namedElementEClass = createEClass(NAMED_ELEMENT);
 		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
@@ -1877,9 +1870,6 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		createEReference(personEClass, PERSON__RESPONSIBLE_FOR_COMPONENTS);
 		createEAttribute(personEClass, PERSON__PICTURE_FILE_NAME);
 
-		optionallyNamedElementEClass = createEClass(OPTIONALLY_NAMED_ELEMENT);
-		createEAttribute(optionallyNamedElementEClass, OPTIONALLY_NAMED_ELEMENT__NAME);
-
 		parameterDefinitionEClass = createEClass(PARAMETER_DEFINITION);
 		createEReference(parameterDefinitionEClass, PARAMETER_DEFINITION__PARAMETERS);
 		createEAttribute(parameterDefinitionEClass, PARAMETER_DEFINITION__UNIT);
@@ -1894,6 +1884,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		createEReference(parameterEClass, PARAMETER__APPLIES_ONLY_ON_VARIANTS);
 		createEReference(parameterEClass, PARAMETER__DOES_NOT_APPLY_ON_VARIANTS);
 		createEReference(parameterEClass, PARAMETER__INITIAL_VALUE);
+		createEOperation(parameterEClass, PARAMETER___IS_VALID);
 
 		parameterizableElementEClass = createEClass(PARAMETERIZABLE_ELEMENT);
 		createEReference(parameterizableElementEClass, PARAMETERIZABLE_ELEMENT__PARAMETERS);
@@ -2012,8 +2003,8 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		componentEClass.getESuperTypes().add(this.getNamedElement());
 		componentEClass.getESuperTypes().add(this.getParameterizableElement());
 		machineLearningComponentEClass.getESuperTypes().add(this.getSoftwareComponent());
-		connectorEClass.getESuperTypes().add(this.getOptionallyNamedElement());
 		connectorEClass.getESuperTypes().add(this.getParameterizableElement());
+		connectorEClass.getESuperTypes().add(this.getNamedElement());
 		physicalConnectorEClass.getESuperTypes().add(this.getConnector());
 		physicalComponentEClass.getESuperTypes().add(this.getComponent());
 		softwareComponentEClass.getESuperTypes().add(this.getComponent());
@@ -2037,7 +2028,6 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		inputPinEClass.getESuperTypes().add(this.getPin());
 		outputPinEClass.getESuperTypes().add(this.getPin());
 		personEClass.getESuperTypes().add(this.getHuman());
-		optionallyNamedElementEClass.getESuperTypes().add(this.getElement());
 		parameterDefinitionEClass.getESuperTypes().add(this.getTypedElement());
 		parameterEClass.getESuperTypes().add(this.getElement());
 		parameterDefinitionLibraryEClass.getESuperTypes().add(this.getNamedElement());
@@ -2175,9 +2165,14 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		EOperation op = initEOperation(getModel__IsPersonPicturePathValid__DiagnosticChain_Map(),
+				ecorePackage.getEBoolean(), "isPersonPicturePathValid", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEMap(), "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 1, 1, NamedElement.class,
+		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, NamedElement.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(actorEClass, Actor.class, "Actor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2224,12 +2219,6 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 				Person.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
 
-		initEClass(optionallyNamedElementEClass, OptionallyNamedElement.class, "OptionallyNamedElement", IS_ABSTRACT,
-				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getOptionallyNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1,
-				OptionallyNamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(parameterDefinitionEClass, ParameterDefinition.class, "ParameterDefinition", !IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getParameterDefinition_Parameters(), this.getParameter(),
@@ -2269,6 +2258,8 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		initEReference(getParameter_InitialValue(), this.getValueSpecification(), null, "initialValue", null, 0, 1,
 				Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getParameter__IsValid(), ecorePackage.getEBoolean(), "isValid", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(parameterizableElementEClass, ParameterizableElement.class, "ParameterizableElement", IS_ABSTRACT,
 				IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

@@ -8,12 +8,14 @@ import e4sm.de.metamodel.e4sm.ValueSpecification;
 import e4sm.de.metamodel.e4sm.Variant;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -180,6 +182,29 @@ public class ParameterImpl extends ElementImpl implements Parameter {
 		} else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.PARAMETER__INITIAL_VALUE, newInitialValue,
 					newInitialValue));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public boolean isValid() {
+		//Check that it has a type
+		final ParameterDefinition pd = this.getParameterDefinition();
+		if (pd.getType() != null) {
+			EObject container = this.eContainer();
+			boolean shallNotPassed = parameterDefinition.getShallNotBeDefinedOn().stream().allMatch(e -> {
+				return (!e.isSuperTypeOf(container.eClass()));
+			});
+			if (!shallNotPassed) {
+				return false;
+			}
+			//TODO, check other things, that the values and types are Ok.
+			return true;
+		}
+		return false;
 	}
 
 	/**
@@ -415,6 +440,20 @@ public class ParameterImpl extends ElementImpl implements Parameter {
 			return initialValue != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+		case e4smPackage.PARAMETER___IS_VALID:
+			return isValid();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //ParameterImpl

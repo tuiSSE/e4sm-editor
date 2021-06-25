@@ -33,7 +33,7 @@ public interface NamedElement extends Element {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getNamedElement_Name()
-	 * @model required="true"
+	 * @model
 	 * @generated
 	 */
 	String getName();

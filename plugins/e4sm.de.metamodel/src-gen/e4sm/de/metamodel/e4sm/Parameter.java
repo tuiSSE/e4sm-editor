@@ -70,6 +70,14 @@ public interface Parameter extends Element {
 	void setInitialValue(ValueSpecification value);
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	boolean isValid();
+
+	/**
 	 * Returns the value of the '<em><b>Parameter Definition</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link e4sm.de.metamodel.e4sm.ParameterDefinition#getParameters <em>Parameters</em>}'.
 	 * <!-- begin-user-doc -->

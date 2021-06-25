@@ -2,6 +2,8 @@
  */
 package e4sm.de.metamodel.e4sm;
 
+import java.util.Map;
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -107,5 +109,13 @@ public interface Model extends NamedElement, ParameterizableElement {
 	 * @generated
 	 */
 	EList<Variant> getVariants();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean isPersonPicturePathValid(DiagnosticChain diagnostics, Map context);
 
 } // Model

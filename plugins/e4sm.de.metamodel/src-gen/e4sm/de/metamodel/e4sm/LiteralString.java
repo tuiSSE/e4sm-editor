@@ -24,12 +24,12 @@ public interface LiteralString extends LiteralSpecification {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Value</em>' attribute.
-	 * @see #setValue(Object)
+	 * @see #setValue(String)
 	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getLiteralString_Value()
 	 * @model dataType="e4sm.de.metamodel.e4sm.types.String"
 	 * @generated
 	 */
-	Object getValue();
+	String getValue();
 
 	/**
 	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.LiteralString#getValue <em>Value</em>}' attribute.
@@ -39,6 +39,6 @@ public interface LiteralString extends LiteralSpecification {
 	 * @see #getValue()
 	 * @generated
 	 */
-	void setValue(Object value);
+	void setValue(String value);
 
 } // LiteralString

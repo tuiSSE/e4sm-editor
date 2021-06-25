@@ -4,13 +4,19 @@ package e4sm.de.metamodel.e4sm.provider;
 
 import e4sm.de.metamodel.e4sm.TypedElement;
 import e4sm.de.metamodel.e4sm.e4smPackage;
+import e4sm.de.metamodel.e4sm.types.TypesPackage;
+
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 
 /**
  * This is the item provider adapter for a {@link e4sm.de.metamodel.e4sm.TypedElement} object.
@@ -49,16 +55,27 @@ public class TypedElementItemProvider extends NamedElementItemProvider {
 	 * This adds a property descriptor for the Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				.add(new ItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
 						getResourceLocator(), getString("_UI_TypedElement_type_feature"),
 						getString("_UI_PropertyDescriptor_description", "_UI_TypedElement_type_feature",
 								"_UI_TypedElement_type"),
-						e4smPackage.Literals.TYPED_ELEMENT__TYPE, true, false, true, null, null,
-						new String[] { "org.eclipse.ui.views.properties.expert" }));
+						e4smPackage.Literals.TYPED_ELEMENT__TYPE, true, false, true, null, null, null) {
+					@Override
+					public Collection<?> getChoiceOfValues(Object object) {
+						List<EDataType> choiceOfValues = new ArrayList<EDataType>();
+						//Add the possibility to unselect:
+						choiceOfValues.add(null);
+
+						//Add all types contained by the types package
+						choiceOfValues.addAll(TypesPackage.eINSTANCE.getEClassifiers().stream().map(e -> (EDataType) e)
+								.collect(Collectors.toList()));
+						return choiceOfValues;
+					}
+				});
 	}
 
 	/**

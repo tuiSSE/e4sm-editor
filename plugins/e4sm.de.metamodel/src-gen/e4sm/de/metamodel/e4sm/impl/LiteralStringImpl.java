@@ -26,6 +26,15 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class LiteralStringImpl extends LiteralSpecificationImpl implements LiteralString {
 	/**
+	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String VALUE_EDEFAULT = null;
+	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -33,7 +42,7 @@ public class LiteralStringImpl extends LiteralSpecificationImpl implements Liter
 	 * @generated
 	 * @ordered
 	 */
-	protected Object value;
+	protected String value = VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -60,7 +69,7 @@ public class LiteralStringImpl extends LiteralSpecificationImpl implements Liter
 	 * @generated
 	 */
 	@Override
-	public Object getValue() {
+	public String getValue() {
 		return value;
 	}
 
@@ -70,8 +79,8 @@ public class LiteralStringImpl extends LiteralSpecificationImpl implements Liter
 	 * @generated
 	 */
 	@Override
-	public void setValue(Object newValue) {
-		Object oldValue = value;
+	public void setValue(String newValue) {
+		String oldValue = value;
 		value = newValue;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.LITERAL_STRING__VALUE, oldValue, value));
@@ -100,7 +109,7 @@ public class LiteralStringImpl extends LiteralSpecificationImpl implements Liter
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 		case e4smPackage.LITERAL_STRING__VALUE:
-			setValue(newValue);
+			setValue((String) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -115,7 +124,7 @@ public class LiteralStringImpl extends LiteralSpecificationImpl implements Liter
 	public void eUnset(int featureID) {
 		switch (featureID) {
 		case e4smPackage.LITERAL_STRING__VALUE:
-			setValue((Object) null);
+			setValue(VALUE_EDEFAULT);
 			return;
 		}
 		super.eUnset(featureID);
@@ -130,7 +139,7 @@ public class LiteralStringImpl extends LiteralSpecificationImpl implements Liter
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 		case e4smPackage.LITERAL_STRING__VALUE:
-			return value != null;
+			return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 		}
 		return super.eIsSet(featureID);
 	}

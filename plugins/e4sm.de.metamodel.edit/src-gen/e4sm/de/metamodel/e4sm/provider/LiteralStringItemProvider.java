@@ -92,8 +92,7 @@ public class LiteralStringItemProvider extends LiteralSpecificationItemProvider 
 	 */
 	@Override
 	public String getText(Object object) {
-		Object labelValue = ((LiteralString) object).getValue();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((LiteralString) object).getValue();
 		return "<" + getString("_UI_LiteralString_type") + "> " + label;
 	}
 
