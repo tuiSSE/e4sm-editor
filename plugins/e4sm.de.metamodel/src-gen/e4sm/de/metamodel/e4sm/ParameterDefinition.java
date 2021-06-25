@@ -14,45 +14,19 @@ import org.eclipse.emf.ecore.EClass;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link e4sm.de.metamodel.e4sm.ParameterDefinition#getType <em>Type</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.ParameterDefinition#getParameters <em>Parameters</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.ParameterDefinition#getUnit <em>Unit</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.ParameterDefinition#getMustBeDefinedOn <em>Must Be Defined On</em>}</li>
- *   <li>{@link e4sm.de.metamodel.e4sm.ParameterDefinition#getDefaultValue <em>Default Value</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.ParameterDefinition#getCanBeDefinedOn <em>Can Be Defined On</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.ParameterDefinition#getShallNotBeDefinedOn <em>Shall Not Be Defined On</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.ParameterDefinition#getDefaultValue <em>Default Value</em>}</li>
  * </ul>
  *
  * @see e4sm.de.metamodel.e4sm.e4smPackage#getParameterDefinition()
  * @model
  * @generated
  */
-public interface ParameterDefinition extends NamedElement {
-	/**
-	 * Returns the value of the '<em><b>Type</b></em>' attribute.
-	 * The literals are from the enumeration {@link e4sm.de.metamodel.e4sm.ParameterType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Type</em>' attribute.
-	 * @see e4sm.de.metamodel.e4sm.ParameterType
-	 * @see #setType(ParameterType)
-	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getParameterDefinition_Type()
-	 * @model
-	 * @generated
-	 */
-	ParameterType getType();
-
-	/**
-	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.ParameterDefinition#getType <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Type</em>' attribute.
-	 * @see e4sm.de.metamodel.e4sm.ParameterType
-	 * @see #getType()
-	 * @generated
-	 */
-	void setType(ParameterType value);
-
+public interface ParameterDefinition extends TypedElement {
 	/**
 	 * Returns the value of the '<em><b>Parameters</b></em>' reference list.
 	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.Parameter}.
@@ -130,25 +104,25 @@ public interface ParameterDefinition extends NamedElement {
 	EList<EClass> getMustBeDefinedOn();
 
 	/**
-	 * Returns the value of the '<em><b>Default Value</b></em>' attribute.
+	 * Returns the value of the '<em><b>Default Value</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Default Value</em>' attribute.
-	 * @see #setDefaultValue(String)
+	 * @return the value of the '<em>Default Value</em>' containment reference.
+	 * @see #setDefaultValue(ValueSpecification)
 	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getParameterDefinition_DefaultValue()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
-	String getDefaultValue();
+	ValueSpecification getDefaultValue();
 
 	/**
-	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.ParameterDefinition#getDefaultValue <em>Default Value</em>}' attribute.
+	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.ParameterDefinition#getDefaultValue <em>Default Value</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Default Value</em>' attribute.
+	 * @param value the new value of the '<em>Default Value</em>' containment reference.
 	 * @see #getDefaultValue()
 	 * @generated
 	 */
-	void setDefaultValue(String value);
+	void setDefaultValue(ValueSpecification value);
 
 } // ParameterDefinition

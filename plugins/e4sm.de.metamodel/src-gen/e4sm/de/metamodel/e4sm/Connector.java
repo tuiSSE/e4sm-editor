@@ -25,7 +25,7 @@ package e4sm.de.metamodel.e4sm;
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='ConnectorC1'"
  * @generated
  */
-public interface Connector extends OptionallyNamedElement, ParametrisableElement {
+public interface Connector extends OptionallyNamedElement, ParameterizableElement {
 	/**
 	 * Returns the value of the '<em><b>Source</b></em>' reference.
 	 * <!-- begin-user-doc -->

@@ -1281,13 +1281,13 @@ public interface e4smPackage extends EPackage {
 	int MODEL__PERSONS_PICTURES_PATH = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Parameter Definitionlibraries</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Parameter Definition Libraries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__PARAMETER_DEFINITIONLIBRARIES = NAMED_ELEMENT_FEATURE_COUNT + 4;
+	int MODEL__PARAMETER_DEFINITION_LIBRARIES = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Variants</b></em>' containment reference list.
@@ -1674,23 +1674,14 @@ public interface e4smPackage extends EPackage {
 	int ACTUATOR_OPERATION_COUNT = PHYSICAL_COMPONENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.PinImpl <em>Pin</em>}' class.
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.ParameterizableElement <em>Parameterizable Element</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see e4sm.de.metamodel.e4sm.impl.PinImpl
-	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getPin()
+	 * @see e4sm.de.metamodel.e4sm.ParameterizableElement
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getParameterizableElement()
 	 * @generated
 	 */
-	int PIN = 20;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PIN__NAME = OPTIONALLY_NAMED_ELEMENT__NAME;
+	int PARAMETERIZABLE_ELEMENT = 27;
 
 	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
@@ -1699,25 +1690,35 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PIN__PARAMETERS = OPTIONALLY_NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int PARAMETERIZABLE_ELEMENT__PARAMETERS = 0;
 
 	/**
-	 * The number of structural features of the '<em>Pin</em>' class.
+	 * The number of structural features of the '<em>Parameterizable Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PIN_FEATURE_COUNT = OPTIONALLY_NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int PARAMETERIZABLE_ELEMENT_FEATURE_COUNT = 1;
 
 	/**
-	 * The number of operations of the '<em>Pin</em>' class.
+	 * The number of operations of the '<em>Parameterizable Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PIN_OPERATION_COUNT = OPTIONALLY_NAMED_ELEMENT_OPERATION_COUNT + 0;
+	int PARAMETERIZABLE_ELEMENT_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.PinImpl <em>Pin</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.PinImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getPin()
+	 * @generated
+	 */
+	int PIN = 20;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.InputPinImpl <em>Input Pin</em>}' class.
@@ -1730,13 +1731,89 @@ public interface e4smPackage extends EPackage {
 	int INPUT_PIN = 21;
 
 	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.OutputPinImpl <em>Output Pin</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.OutputPinImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getOutputPin()
+	 * @generated
+	 */
+	int OUTPUT_PIN = 22;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.PersonImpl <em>Person</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.PersonImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getPerson()
+	 * @generated
+	 */
+	int PERSON = 23;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.ParameterDefinitionImpl <em>Parameter Definition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.ParameterDefinitionImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getParameterDefinition()
+	 * @generated
+	 */
+	int PARAMETER_DEFINITION = 25;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.ParameterImpl <em>Parameter</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.ParameterImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getParameter()
+	 * @generated
+	 */
+	int PARAMETER = 26;
+
+	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIN__PARAMETERS = PARAMETERIZABLE_ELEMENT__PARAMETERS;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_PIN__NAME = PIN__NAME;
+	int PIN__NAME = PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIN__TYPE = PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Pin</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIN_FEATURE_COUNT = PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Pin</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIN_OPERATION_COUNT = PARAMETERIZABLE_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
@@ -1746,6 +1823,24 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int INPUT_PIN__PARAMETERS = PIN__PARAMETERS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_PIN__NAME = PIN__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_PIN__TYPE = PIN__TYPE;
 
 	/**
 	 * The number of structural features of the '<em>Input Pin</em>' class.
@@ -1766,14 +1861,13 @@ public interface e4smPackage extends EPackage {
 	int INPUT_PIN_OPERATION_COUNT = PIN_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.OutputPinImpl <em>Output Pin</em>}' class.
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see e4sm.de.metamodel.e4sm.impl.OutputPinImpl
-	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getOutputPin()
 	 * @generated
+	 * @ordered
 	 */
-	int OUTPUT_PIN = 22;
+	int OUTPUT_PIN__PARAMETERS = PIN__PARAMETERS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1785,13 +1879,13 @@ public interface e4smPackage extends EPackage {
 	int OUTPUT_PIN__NAME = PIN__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OUTPUT_PIN__PARAMETERS = PIN__PARAMETERS;
+	int OUTPUT_PIN__TYPE = PIN__TYPE;
 
 	/**
 	 * The number of structural features of the '<em>Output Pin</em>' class.
@@ -1810,16 +1904,6 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int OUTPUT_PIN_OPERATION_COUNT = PIN_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.PersonImpl <em>Person</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see e4sm.de.metamodel.e4sm.impl.PersonImpl
-	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getPerson()
-	 * @generated
-	 */
-	int PERSON = 23;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1885,14 +1969,104 @@ public interface e4smPackage extends EPackage {
 	int PERSON_OPERATION_COUNT = HUMAN_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.ParameterDefinitionImpl <em>Parameter Definition</em>}' class.
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.ParameterDefinitionLibraryImpl <em>Parameter Definition Library</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see e4sm.de.metamodel.e4sm.impl.ParameterDefinitionImpl
-	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getParameterDefinition()
+	 * @see e4sm.de.metamodel.e4sm.impl.ParameterDefinitionLibraryImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getParameterDefinitionLibrary()
 	 * @generated
 	 */
-	int PARAMETER_DEFINITION = 25;
+	int PARAMETER_DEFINITION_LIBRARY = 28;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.VariantImpl <em>Variant</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.VariantImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getVariant()
+	 * @generated
+	 */
+	int VARIANT = 29;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.MeasurementUnitImpl <em>Measurement Unit</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.MeasurementUnitImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getMeasurementUnit()
+	 * @generated
+	 */
+	int MEASUREMENT_UNIT = 30;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.SimpleUnitImpl <em>Simple Unit</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.SimpleUnitImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getSimpleUnit()
+	 * @generated
+	 */
+	int SIMPLE_UNIT = 31;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.DerivedUnitImpl <em>Derived Unit</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.DerivedUnitImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getDerivedUnit()
+	 * @generated
+	 */
+	int DERIVED_UNIT = 32;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.UnitConversionImpl <em>Unit Conversion</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.UnitConversionImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getUnitConversion()
+	 * @generated
+	 */
+	int UNIT_CONVERSION = 33;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.ConversionByPrefixImpl <em>Conversion By Prefix</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.ConversionByPrefixImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getConversionByPrefix()
+	 * @generated
+	 */
+	int CONVERSION_BY_PREFIX = 34;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.ConversionByConventionImpl <em>Conversion By Convention</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.ConversionByConventionImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getConversionByConvention()
+	 * @generated
+	 */
+	int CONVERSION_BY_CONVENTION = 35;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.UnitPrefixImpl <em>Unit Prefix</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.UnitPrefixImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getUnitPrefix()
+	 * @generated
+	 */
+	int UNIT_PREFIX = 36;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.TypedElementImpl <em>Typed Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.TypedElementImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getTypedElement()
+	 * @generated
+	 */
+	int TYPED_ELEMENT = 39;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1901,16 +2075,52 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_DEFINITION__NAME = NAMED_ELEMENT__NAME;
+	int TYPED_ELEMENT__NAME = NAMED_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * The feature id for the '<em><b>Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_DEFINITION__TYPE = NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int TYPED_ELEMENT__TYPE = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Typed Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPED_ELEMENT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Typed Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPED_ELEMENT_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_DEFINITION__NAME = TYPED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_DEFINITION__TYPE = TYPED_ELEMENT__TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' reference list.
@@ -1919,7 +2129,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_DEFINITION__PARAMETERS = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int PARAMETER_DEFINITION__PARAMETERS = TYPED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Unit</b></em>' attribute.
@@ -1928,7 +2138,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_DEFINITION__UNIT = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int PARAMETER_DEFINITION__UNIT = TYPED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Must Be Defined On</b></em>' reference list.
@@ -1937,16 +2147,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_DEFINITION__MUST_BE_DEFINED_ON = NAMED_ELEMENT_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Default Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETER_DEFINITION__DEFAULT_VALUE = NAMED_ELEMENT_FEATURE_COUNT + 4;
+	int PARAMETER_DEFINITION__MUST_BE_DEFINED_ON = TYPED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Can Be Defined On</b></em>' reference list.
@@ -1955,7 +2156,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_DEFINITION__CAN_BE_DEFINED_ON = NAMED_ELEMENT_FEATURE_COUNT + 5;
+	int PARAMETER_DEFINITION__CAN_BE_DEFINED_ON = TYPED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Shall Not Be Defined On</b></em>' reference list.
@@ -1964,7 +2165,16 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_DEFINITION__SHALL_NOT_BE_DEFINED_ON = NAMED_ELEMENT_FEATURE_COUNT + 6;
+	int PARAMETER_DEFINITION__SHALL_NOT_BE_DEFINED_ON = TYPED_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Default Value</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_DEFINITION__DEFAULT_VALUE = TYPED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Parameter Definition</em>' class.
@@ -1973,7 +2183,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_DEFINITION_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 7;
+	int PARAMETER_DEFINITION_FEATURE_COUNT = TYPED_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of operations of the '<em>Parameter Definition</em>' class.
@@ -1982,17 +2192,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_DEFINITION_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.ParameterImpl <em>Parameter</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see e4sm.de.metamodel.e4sm.impl.ParameterImpl
-	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getParameter()
-	 * @generated
-	 */
-	int PARAMETER = 26;
+	int PARAMETER_DEFINITION_OPERATION_COUNT = TYPED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -2004,22 +2204,13 @@ public interface e4smPackage extends EPackage {
 	int PARAMETER__VALUE = ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Initial Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETER__INITIAL_VALUE = ELEMENT_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Parameter Definition</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__PARAMETER_DEFINITION = ELEMENT_FEATURE_COUNT + 2;
+	int PARAMETER__PARAMETER_DEFINITION = ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Applies Only On Variants</b></em>' reference list.
@@ -2028,7 +2219,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__APPLIES_ONLY_ON_VARIANTS = ELEMENT_FEATURE_COUNT + 3;
+	int PARAMETER__APPLIES_ONLY_ON_VARIANTS = ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Does Not Apply On Variants</b></em>' reference list.
@@ -2037,7 +2228,16 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__DOES_NOT_APPLY_ON_VARIANTS = ELEMENT_FEATURE_COUNT + 4;
+	int PARAMETER__DOES_NOT_APPLY_ON_VARIANTS = ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Initial Value</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__INITIAL_VALUE = ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Parameter</em>' class.
@@ -2056,53 +2256,6 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARAMETER_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.ParametrisableElement <em>Parametrisable Element</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see e4sm.de.metamodel.e4sm.ParametrisableElement
-	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getParametrisableElement()
-	 * @generated
-	 */
-	int PARAMETRISABLE_ELEMENT = 27;
-
-	/**
-	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETRISABLE_ELEMENT__PARAMETERS = 0;
-
-	/**
-	 * The number of structural features of the '<em>Parametrisable Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETRISABLE_ELEMENT_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>Parametrisable Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETRISABLE_ELEMENT_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.ParameterDefinitionLibraryImpl <em>Parameter Definition Library</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see e4sm.de.metamodel.e4sm.impl.ParameterDefinitionLibraryImpl
-	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getParameterDefinitionLibrary()
-	 * @generated
-	 */
-	int PARAMETER_DEFINITION_LIBRARY = 28;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2141,16 +2294,6 @@ public interface e4smPackage extends EPackage {
 	int PARAMETER_DEFINITION_LIBRARY_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.VariantImpl <em>Variant</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see e4sm.de.metamodel.e4sm.impl.VariantImpl
-	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getVariant()
-	 * @generated
-	 */
-	int VARIANT = 29;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2178,14 +2321,1268 @@ public interface e4smPackage extends EPackage {
 	int VARIANT_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.ParameterType <em>Parameter Type</em>}' enum.
+	 * The feature id for the '<em><b>Unit Conversion</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see e4sm.de.metamodel.e4sm.ParameterType
-	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getParameterType()
+	 * @generated
+	 * @ordered
+	 */
+	int MEASUREMENT_UNIT__UNIT_CONVERSION = 0;
+
+	/**
+	 * The number of structural features of the '<em>Measurement Unit</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEASUREMENT_UNIT_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Measurement Unit</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEASUREMENT_UNIT_OPERATION_COUNT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Unit Conversion</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_UNIT__UNIT_CONVERSION = MEASUREMENT_UNIT__UNIT_CONVERSION;
+
+	/**
+	 * The number of structural features of the '<em>Simple Unit</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_UNIT_FEATURE_COUNT = MEASUREMENT_UNIT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Simple Unit</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_UNIT_OPERATION_COUNT = MEASUREMENT_UNIT_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Unit Conversion</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DERIVED_UNIT__UNIT_CONVERSION = MEASUREMENT_UNIT__UNIT_CONVERSION;
+
+	/**
+	 * The number of structural features of the '<em>Derived Unit</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DERIVED_UNIT_FEATURE_COUNT = MEASUREMENT_UNIT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Derived Unit</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DERIVED_UNIT_OPERATION_COUNT = MEASUREMENT_UNIT_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Reference Unit</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_CONVERSION__REFERENCE_UNIT = 0;
+
+	/**
+	 * The number of structural features of the '<em>Unit Conversion</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_CONVERSION_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Unit Conversion</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_CONVERSION_OPERATION_COUNT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Reference Unit</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONVERSION_BY_PREFIX__REFERENCE_UNIT = UNIT_CONVERSION__REFERENCE_UNIT;
+
+	/**
+	 * The feature id for the '<em><b>Conversion Factor</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONVERSION_BY_PREFIX__CONVERSION_FACTOR = UNIT_CONVERSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Prefix</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONVERSION_BY_PREFIX__PREFIX = UNIT_CONVERSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Conversion By Prefix</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONVERSION_BY_PREFIX_FEATURE_COUNT = UNIT_CONVERSION_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Conversion By Prefix</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONVERSION_BY_PREFIX_OPERATION_COUNT = UNIT_CONVERSION_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Reference Unit</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONVERSION_BY_CONVENTION__REFERENCE_UNIT = UNIT_CONVERSION__REFERENCE_UNIT;
+
+	/**
+	 * The number of structural features of the '<em>Conversion By Convention</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONVERSION_BY_CONVENTION_FEATURE_COUNT = UNIT_CONVERSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Conversion By Convention</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONVERSION_BY_CONVENTION_OPERATION_COUNT = UNIT_CONVERSION_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Symbol</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_PREFIX__SYMBOL = 0;
+
+	/**
+	 * The feature id for the '<em><b>Conversion Factor</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_PREFIX__CONVERSION_FACTOR = 1;
+
+	/**
+	 * The number of structural features of the '<em>Unit Prefix</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_PREFIX_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Unit Prefix</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_PREFIX_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.ValueSpecificationImpl <em>Value Specification</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.ValueSpecificationImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getValueSpecification()
 	 * @generated
 	 */
-	int PARAMETER_TYPE = 30;
+	int VALUE_SPECIFICATION = 37;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_SPECIFICATION__NAME = TYPED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_SPECIFICATION__TYPE = TYPED_ELEMENT__TYPE;
+
+	/**
+	 * The number of structural features of the '<em>Value Specification</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_SPECIFICATION_FEATURE_COUNT = TYPED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Boolean Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_SPECIFICATION___BOOLEAN_VALUE = TYPED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Integer Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_SPECIFICATION___INTEGER_VALUE = TYPED_ELEMENT_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Is Computable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_SPECIFICATION___IS_COMPUTABLE = TYPED_ELEMENT_OPERATION_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Value Specification</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_SPECIFICATION_OPERATION_COUNT = TYPED_ELEMENT_OPERATION_COUNT + 3;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.LiteralSpecificationImpl <em>Literal Specification</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.LiteralSpecificationImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getLiteralSpecification()
+	 * @generated
+	 */
+	int LITERAL_SPECIFICATION = 38;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_SPECIFICATION__NAME = VALUE_SPECIFICATION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_SPECIFICATION__TYPE = VALUE_SPECIFICATION__TYPE;
+
+	/**
+	 * The number of structural features of the '<em>Literal Specification</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_SPECIFICATION_FEATURE_COUNT = VALUE_SPECIFICATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Boolean Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_SPECIFICATION___BOOLEAN_VALUE = VALUE_SPECIFICATION___BOOLEAN_VALUE;
+
+	/**
+	 * The operation id for the '<em>Integer Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_SPECIFICATION___INTEGER_VALUE = VALUE_SPECIFICATION___INTEGER_VALUE;
+
+	/**
+	 * The operation id for the '<em>Is Computable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_SPECIFICATION___IS_COMPUTABLE = VALUE_SPECIFICATION___IS_COMPUTABLE;
+
+	/**
+	 * The number of operations of the '<em>Literal Specification</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_SPECIFICATION_OPERATION_COUNT = VALUE_SPECIFICATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.LiteralNullImpl <em>Literal Null</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.LiteralNullImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getLiteralNull()
+	 * @generated
+	 */
+	int LITERAL_NULL = 40;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_NULL__NAME = LITERAL_SPECIFICATION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_NULL__TYPE = LITERAL_SPECIFICATION__TYPE;
+
+	/**
+	 * The number of structural features of the '<em>Literal Null</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_NULL_FEATURE_COUNT = LITERAL_SPECIFICATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Boolean Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_NULL___BOOLEAN_VALUE = LITERAL_SPECIFICATION___BOOLEAN_VALUE;
+
+	/**
+	 * The operation id for the '<em>Integer Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_NULL___INTEGER_VALUE = LITERAL_SPECIFICATION___INTEGER_VALUE;
+
+	/**
+	 * The operation id for the '<em>Is Computable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_NULL___IS_COMPUTABLE = LITERAL_SPECIFICATION___IS_COMPUTABLE;
+
+	/**
+	 * The number of operations of the '<em>Literal Null</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_NULL_OPERATION_COUNT = LITERAL_SPECIFICATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.LiteralStringImpl <em>Literal String</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.LiteralStringImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getLiteralString()
+	 * @generated
+	 */
+	int LITERAL_STRING = 41;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_STRING__NAME = LITERAL_SPECIFICATION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_STRING__TYPE = LITERAL_SPECIFICATION__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_STRING__VALUE = LITERAL_SPECIFICATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Literal String</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_STRING_FEATURE_COUNT = LITERAL_SPECIFICATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Boolean Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_STRING___BOOLEAN_VALUE = LITERAL_SPECIFICATION___BOOLEAN_VALUE;
+
+	/**
+	 * The operation id for the '<em>Integer Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_STRING___INTEGER_VALUE = LITERAL_SPECIFICATION___INTEGER_VALUE;
+
+	/**
+	 * The operation id for the '<em>Is Computable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_STRING___IS_COMPUTABLE = LITERAL_SPECIFICATION___IS_COMPUTABLE;
+
+	/**
+	 * The number of operations of the '<em>Literal String</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_STRING_OPERATION_COUNT = LITERAL_SPECIFICATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.LiteralIntegerImpl <em>Literal Integer</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.LiteralIntegerImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getLiteralInteger()
+	 * @generated
+	 */
+	int LITERAL_INTEGER = 42;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_INTEGER__NAME = LITERAL_SPECIFICATION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_INTEGER__TYPE = LITERAL_SPECIFICATION__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_INTEGER__VALUE = LITERAL_SPECIFICATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Literal Integer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_INTEGER_FEATURE_COUNT = LITERAL_SPECIFICATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Boolean Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_INTEGER___BOOLEAN_VALUE = LITERAL_SPECIFICATION___BOOLEAN_VALUE;
+
+	/**
+	 * The operation id for the '<em>Integer Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_INTEGER___INTEGER_VALUE = LITERAL_SPECIFICATION___INTEGER_VALUE;
+
+	/**
+	 * The operation id for the '<em>Is Computable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_INTEGER___IS_COMPUTABLE = LITERAL_SPECIFICATION___IS_COMPUTABLE;
+
+	/**
+	 * The number of operations of the '<em>Literal Integer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_INTEGER_OPERATION_COUNT = LITERAL_SPECIFICATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.LiteralBooleanImpl <em>Literal Boolean</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.LiteralBooleanImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getLiteralBoolean()
+	 * @generated
+	 */
+	int LITERAL_BOOLEAN = 43;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_BOOLEAN__NAME = LITERAL_SPECIFICATION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_BOOLEAN__TYPE = LITERAL_SPECIFICATION__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_BOOLEAN__VALUE = LITERAL_SPECIFICATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Literal Boolean</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_BOOLEAN_FEATURE_COUNT = LITERAL_SPECIFICATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Boolean Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_BOOLEAN___BOOLEAN_VALUE = LITERAL_SPECIFICATION___BOOLEAN_VALUE;
+
+	/**
+	 * The operation id for the '<em>Integer Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_BOOLEAN___INTEGER_VALUE = LITERAL_SPECIFICATION___INTEGER_VALUE;
+
+	/**
+	 * The operation id for the '<em>Is Computable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_BOOLEAN___IS_COMPUTABLE = LITERAL_SPECIFICATION___IS_COMPUTABLE;
+
+	/**
+	 * The operation id for the '<em>Get Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_BOOLEAN___GET_VALUE = LITERAL_SPECIFICATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Literal Boolean</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_BOOLEAN_OPERATION_COUNT = LITERAL_SPECIFICATION_OPERATION_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.LiteralFloatImpl <em>Literal Float</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.LiteralFloatImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getLiteralFloat()
+	 * @generated
+	 */
+	int LITERAL_FLOAT = 44;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_FLOAT__NAME = LITERAL_SPECIFICATION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_FLOAT__TYPE = LITERAL_SPECIFICATION__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_FLOAT__VALUE = LITERAL_SPECIFICATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Literal Float</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_FLOAT_FEATURE_COUNT = LITERAL_SPECIFICATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Boolean Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_FLOAT___BOOLEAN_VALUE = LITERAL_SPECIFICATION___BOOLEAN_VALUE;
+
+	/**
+	 * The operation id for the '<em>Integer Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_FLOAT___INTEGER_VALUE = LITERAL_SPECIFICATION___INTEGER_VALUE;
+
+	/**
+	 * The operation id for the '<em>Is Computable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_FLOAT___IS_COMPUTABLE = LITERAL_SPECIFICATION___IS_COMPUTABLE;
+
+	/**
+	 * The number of operations of the '<em>Literal Float</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_FLOAT_OPERATION_COUNT = LITERAL_SPECIFICATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.LiteralDoubleImpl <em>Literal Double</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.LiteralDoubleImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getLiteralDouble()
+	 * @generated
+	 */
+	int LITERAL_DOUBLE = 45;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_DOUBLE__NAME = LITERAL_SPECIFICATION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_DOUBLE__TYPE = LITERAL_SPECIFICATION__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_DOUBLE__VALUE = LITERAL_SPECIFICATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Literal Double</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_DOUBLE_FEATURE_COUNT = LITERAL_SPECIFICATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Boolean Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_DOUBLE___BOOLEAN_VALUE = LITERAL_SPECIFICATION___BOOLEAN_VALUE;
+
+	/**
+	 * The operation id for the '<em>Integer Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_DOUBLE___INTEGER_VALUE = LITERAL_SPECIFICATION___INTEGER_VALUE;
+
+	/**
+	 * The operation id for the '<em>Is Computable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_DOUBLE___IS_COMPUTABLE = LITERAL_SPECIFICATION___IS_COMPUTABLE;
+
+	/**
+	 * The number of operations of the '<em>Literal Double</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_DOUBLE_OPERATION_COUNT = LITERAL_SPECIFICATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.LiteralLongImpl <em>Literal Long</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.LiteralLongImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getLiteralLong()
+	 * @generated
+	 */
+	int LITERAL_LONG = 46;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_LONG__NAME = LITERAL_SPECIFICATION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_LONG__TYPE = LITERAL_SPECIFICATION__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_LONG__VALUE = LITERAL_SPECIFICATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Literal Long</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_LONG_FEATURE_COUNT = LITERAL_SPECIFICATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Boolean Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_LONG___BOOLEAN_VALUE = LITERAL_SPECIFICATION___BOOLEAN_VALUE;
+
+	/**
+	 * The operation id for the '<em>Integer Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_LONG___INTEGER_VALUE = LITERAL_SPECIFICATION___INTEGER_VALUE;
+
+	/**
+	 * The operation id for the '<em>Is Computable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_LONG___IS_COMPUTABLE = LITERAL_SPECIFICATION___IS_COMPUTABLE;
+
+	/**
+	 * The number of operations of the '<em>Literal Long</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_LONG_OPERATION_COUNT = LITERAL_SPECIFICATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.LiteralShortImpl <em>Literal Short</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.LiteralShortImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getLiteralShort()
+	 * @generated
+	 */
+	int LITERAL_SHORT = 47;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_SHORT__NAME = LITERAL_SPECIFICATION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_SHORT__TYPE = LITERAL_SPECIFICATION__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_SHORT__VALUE = LITERAL_SPECIFICATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Literal Short</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_SHORT_FEATURE_COUNT = LITERAL_SPECIFICATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Boolean Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_SHORT___BOOLEAN_VALUE = LITERAL_SPECIFICATION___BOOLEAN_VALUE;
+
+	/**
+	 * The operation id for the '<em>Integer Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_SHORT___INTEGER_VALUE = LITERAL_SPECIFICATION___INTEGER_VALUE;
+
+	/**
+	 * The operation id for the '<em>Is Computable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_SHORT___IS_COMPUTABLE = LITERAL_SPECIFICATION___IS_COMPUTABLE;
+
+	/**
+	 * The number of operations of the '<em>Literal Short</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_SHORT_OPERATION_COUNT = LITERAL_SPECIFICATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.LiteralByteImpl <em>Literal Byte</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.LiteralByteImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getLiteralByte()
+	 * @generated
+	 */
+	int LITERAL_BYTE = 48;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_BYTE__NAME = LITERAL_SPECIFICATION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_BYTE__TYPE = LITERAL_SPECIFICATION__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_BYTE__VALUE = LITERAL_SPECIFICATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Literal Byte</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_BYTE_FEATURE_COUNT = LITERAL_SPECIFICATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Boolean Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_BYTE___BOOLEAN_VALUE = LITERAL_SPECIFICATION___BOOLEAN_VALUE;
+
+	/**
+	 * The operation id for the '<em>Integer Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_BYTE___INTEGER_VALUE = LITERAL_SPECIFICATION___INTEGER_VALUE;
+
+	/**
+	 * The operation id for the '<em>Is Computable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_BYTE___IS_COMPUTABLE = LITERAL_SPECIFICATION___IS_COMPUTABLE;
+
+	/**
+	 * The number of operations of the '<em>Literal Byte</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_BYTE_OPERATION_COUNT = LITERAL_SPECIFICATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.LiteralCharacterImpl <em>Literal Character</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.LiteralCharacterImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getLiteralCharacter()
+	 * @generated
+	 */
+	int LITERAL_CHARACTER = 49;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_CHARACTER__NAME = LITERAL_SPECIFICATION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_CHARACTER__TYPE = LITERAL_SPECIFICATION__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_CHARACTER__VALUE = LITERAL_SPECIFICATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Literal Character</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_CHARACTER_FEATURE_COUNT = LITERAL_SPECIFICATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Boolean Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_CHARACTER___BOOLEAN_VALUE = LITERAL_SPECIFICATION___BOOLEAN_VALUE;
+
+	/**
+	 * The operation id for the '<em>Integer Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_CHARACTER___INTEGER_VALUE = LITERAL_SPECIFICATION___INTEGER_VALUE;
+
+	/**
+	 * The operation id for the '<em>Is Computable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_CHARACTER___IS_COMPUTABLE = LITERAL_SPECIFICATION___IS_COMPUTABLE;
+
+	/**
+	 * The number of operations of the '<em>Literal Character</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_CHARACTER_OPERATION_COUNT = LITERAL_SPECIFICATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.LiteralDateImpl <em>Literal Date</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.LiteralDateImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getLiteralDate()
+	 * @generated
+	 */
+	int LITERAL_DATE = 50;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_DATE__NAME = LITERAL_SPECIFICATION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_DATE__TYPE = LITERAL_SPECIFICATION__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_DATE__VALUE = LITERAL_SPECIFICATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Literal Date</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_DATE_FEATURE_COUNT = LITERAL_SPECIFICATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Boolean Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_DATE___BOOLEAN_VALUE = LITERAL_SPECIFICATION___BOOLEAN_VALUE;
+
+	/**
+	 * The operation id for the '<em>Integer Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_DATE___INTEGER_VALUE = LITERAL_SPECIFICATION___INTEGER_VALUE;
+
+	/**
+	 * The operation id for the '<em>Is Computable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_DATE___IS_COMPUTABLE = LITERAL_SPECIFICATION___IS_COMPUTABLE;
+
+	/**
+	 * The number of operations of the '<em>Literal Date</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_DATE_OPERATION_COUNT = LITERAL_SPECIFICATION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.UnitOfMeasurement <em>Unit Of Measurement</em>}' enum.
@@ -2195,17 +3592,7 @@ public interface e4smPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getUnitOfMeasurement()
 	 * @generated
 	 */
-	int UNIT_OF_MEASUREMENT = 31;
-
-	/**
-	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.E4SMElementType <em>E4SM Element Type</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see e4sm.de.metamodel.e4sm.E4SMElementType
-	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getE4SMElementType()
-	 * @generated
-	 */
-	int E4SM_ELEMENT_TYPE = 32;
+	int UNIT_OF_MEASUREMENT = 51;
 
 	/**
 	 * The meta object id for the '<em>Connectionspeed</em>' data type.
@@ -2215,7 +3602,7 @@ public interface e4smPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getConnectionspeed()
 	 * @generated
 	 */
-	int CONNECTIONSPEED = 33;
+	int CONNECTIONSPEED = 52;
 
 	/**
 	 * The meta object id for the '<em>JSON</em>' data type.
@@ -2225,7 +3612,7 @@ public interface e4smPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getJSON()
 	 * @generated
 	 */
-	int JSON = 34;
+	int JSON = 53;
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.Component <em>Component</em>}'.
@@ -2609,15 +3996,15 @@ public interface e4smPackage extends EPackage {
 	EAttribute getModel_PersonsPicturesPath();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link e4sm.de.metamodel.e4sm.Model#getParameterDefinitionlibraries <em>Parameter Definitionlibraries</em>}'.
+	 * Returns the meta object for the containment reference list '{@link e4sm.de.metamodel.e4sm.Model#getParameterDefinitionLibraries <em>Parameter Definition Libraries</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Parameter Definitionlibraries</em>'.
-	 * @see e4sm.de.metamodel.e4sm.Model#getParameterDefinitionlibraries()
+	 * @return the meta object for the containment reference list '<em>Parameter Definition Libraries</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Model#getParameterDefinitionLibraries()
 	 * @see #getModel()
 	 * @generated
 	 */
-	EReference getModel_ParameterDefinitionlibraries();
+	EReference getModel_ParameterDefinitionLibraries();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link e4sm.de.metamodel.e4sm.Model#getVariants <em>Variants</em>}'.
@@ -2869,17 +4256,6 @@ public interface e4smPackage extends EPackage {
 	EClass getParameterDefinition();
 
 	/**
-	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.ParameterDefinition#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see e4sm.de.metamodel.e4sm.ParameterDefinition#getType()
-	 * @see #getParameterDefinition()
-	 * @generated
-	 */
-	EAttribute getParameterDefinition_Type();
-
-	/**
 	 * Returns the meta object for the reference list '{@link e4sm.de.metamodel.e4sm.ParameterDefinition#getParameters <em>Parameters</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2935,15 +4311,15 @@ public interface e4smPackage extends EPackage {
 	EReference getParameterDefinition_MustBeDefinedOn();
 
 	/**
-	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.ParameterDefinition#getDefaultValue <em>Default Value</em>}'.
+	 * Returns the meta object for the containment reference '{@link e4sm.de.metamodel.e4sm.ParameterDefinition#getDefaultValue <em>Default Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Default Value</em>'.
+	 * @return the meta object for the containment reference '<em>Default Value</em>'.
 	 * @see e4sm.de.metamodel.e4sm.ParameterDefinition#getDefaultValue()
 	 * @see #getParameterDefinition()
 	 * @generated
 	 */
-	EAttribute getParameterDefinition_DefaultValue();
+	EReference getParameterDefinition_DefaultValue();
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.Parameter <em>Parameter</em>}'.
@@ -2967,15 +4343,36 @@ public interface e4smPackage extends EPackage {
 	EAttribute getParameter_Value();
 
 	/**
-	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.Parameter#getInitialValue <em>Initial Value</em>}'.
+	 * Returns the meta object for the containment reference '{@link e4sm.de.metamodel.e4sm.Parameter#getInitialValue <em>Initial Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Initial Value</em>'.
+	 * @return the meta object for the containment reference '<em>Initial Value</em>'.
 	 * @see e4sm.de.metamodel.e4sm.Parameter#getInitialValue()
 	 * @see #getParameter()
 	 * @generated
 	 */
-	EAttribute getParameter_InitialValue();
+	EReference getParameter_InitialValue();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.ParameterizableElement <em>Parameterizable Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Parameterizable Element</em>'.
+	 * @see e4sm.de.metamodel.e4sm.ParameterizableElement
+	 * @generated
+	 */
+	EClass getParameterizableElement();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link e4sm.de.metamodel.e4sm.ParameterizableElement#getParameters <em>Parameters</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Parameters</em>'.
+	 * @see e4sm.de.metamodel.e4sm.ParameterizableElement#getParameters()
+	 * @see #getParameterizableElement()
+	 * @generated
+	 */
+	EReference getParameterizableElement_Parameters();
 
 	/**
 	 * Returns the meta object for the reference '{@link e4sm.de.metamodel.e4sm.Parameter#getParameterDefinition <em>Parameter Definition</em>}'.
@@ -3011,27 +4408,6 @@ public interface e4smPackage extends EPackage {
 	EReference getParameter_DoesNotApplyOnVariants();
 
 	/**
-	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.ParametrisableElement <em>Parametrisable Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Parametrisable Element</em>'.
-	 * @see e4sm.de.metamodel.e4sm.ParametrisableElement
-	 * @generated
-	 */
-	EClass getParametrisableElement();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link e4sm.de.metamodel.e4sm.ParametrisableElement#getParameters <em>Parameters</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Parameters</em>'.
-	 * @see e4sm.de.metamodel.e4sm.ParametrisableElement#getParameters()
-	 * @see #getParametrisableElement()
-	 * @generated
-	 */
-	EReference getParametrisableElement_Parameters();
-
-	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.ParameterDefinitionLibrary <em>Parameter Definition Library</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3063,14 +4439,441 @@ public interface e4smPackage extends EPackage {
 	EClass getVariant();
 
 	/**
-	 * Returns the meta object for enum '{@link e4sm.de.metamodel.e4sm.ParameterType <em>Parameter Type</em>}'.
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.MeasurementUnit <em>Measurement Unit</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Parameter Type</em>'.
-	 * @see e4sm.de.metamodel.e4sm.ParameterType
+	 * @return the meta object for class '<em>Measurement Unit</em>'.
+	 * @see e4sm.de.metamodel.e4sm.MeasurementUnit
 	 * @generated
 	 */
-	EEnum getParameterType();
+	EClass getMeasurementUnit();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link e4sm.de.metamodel.e4sm.MeasurementUnit#getUnitConversion <em>Unit Conversion</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Unit Conversion</em>'.
+	 * @see e4sm.de.metamodel.e4sm.MeasurementUnit#getUnitConversion()
+	 * @see #getMeasurementUnit()
+	 * @generated
+	 */
+	EReference getMeasurementUnit_UnitConversion();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.SimpleUnit <em>Simple Unit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Simple Unit</em>'.
+	 * @see e4sm.de.metamodel.e4sm.SimpleUnit
+	 * @generated
+	 */
+	EClass getSimpleUnit();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.DerivedUnit <em>Derived Unit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Derived Unit</em>'.
+	 * @see e4sm.de.metamodel.e4sm.DerivedUnit
+	 * @generated
+	 */
+	EClass getDerivedUnit();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.UnitConversion <em>Unit Conversion</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Unit Conversion</em>'.
+	 * @see e4sm.de.metamodel.e4sm.UnitConversion
+	 * @generated
+	 */
+	EClass getUnitConversion();
+
+	/**
+	 * Returns the meta object for the reference '{@link e4sm.de.metamodel.e4sm.UnitConversion#getReferenceUnit <em>Reference Unit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Reference Unit</em>'.
+	 * @see e4sm.de.metamodel.e4sm.UnitConversion#getReferenceUnit()
+	 * @see #getUnitConversion()
+	 * @generated
+	 */
+	EReference getUnitConversion_ReferenceUnit();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.ConversionByPrefix <em>Conversion By Prefix</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Conversion By Prefix</em>'.
+	 * @see e4sm.de.metamodel.e4sm.ConversionByPrefix
+	 * @generated
+	 */
+	EClass getConversionByPrefix();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.ConversionByPrefix#getConversionFactor <em>Conversion Factor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Conversion Factor</em>'.
+	 * @see e4sm.de.metamodel.e4sm.ConversionByPrefix#getConversionFactor()
+	 * @see #getConversionByPrefix()
+	 * @generated
+	 */
+	EAttribute getConversionByPrefix_ConversionFactor();
+
+	/**
+	 * Returns the meta object for the reference '{@link e4sm.de.metamodel.e4sm.ConversionByPrefix#getPrefix <em>Prefix</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Prefix</em>'.
+	 * @see e4sm.de.metamodel.e4sm.ConversionByPrefix#getPrefix()
+	 * @see #getConversionByPrefix()
+	 * @generated
+	 */
+	EReference getConversionByPrefix_Prefix();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.ConversionByConvention <em>Conversion By Convention</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Conversion By Convention</em>'.
+	 * @see e4sm.de.metamodel.e4sm.ConversionByConvention
+	 * @generated
+	 */
+	EClass getConversionByConvention();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.UnitPrefix <em>Unit Prefix</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Unit Prefix</em>'.
+	 * @see e4sm.de.metamodel.e4sm.UnitPrefix
+	 * @generated
+	 */
+	EClass getUnitPrefix();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.UnitPrefix#getSymbol <em>Symbol</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Symbol</em>'.
+	 * @see e4sm.de.metamodel.e4sm.UnitPrefix#getSymbol()
+	 * @see #getUnitPrefix()
+	 * @generated
+	 */
+	EAttribute getUnitPrefix_Symbol();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.UnitPrefix#getConversionFactor <em>Conversion Factor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Conversion Factor</em>'.
+	 * @see e4sm.de.metamodel.e4sm.UnitPrefix#getConversionFactor()
+	 * @see #getUnitPrefix()
+	 * @generated
+	 */
+	EAttribute getUnitPrefix_ConversionFactor();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.ValueSpecification <em>Value Specification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Value Specification</em>'.
+	 * @see e4sm.de.metamodel.e4sm.ValueSpecification
+	 * @generated
+	 */
+	EClass getValueSpecification();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.ValueSpecification#booleanValue() <em>Boolean Value</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Boolean Value</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.ValueSpecification#booleanValue()
+	 * @generated
+	 */
+	EOperation getValueSpecification__BooleanValue();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.ValueSpecification#integerValue() <em>Integer Value</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Integer Value</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.ValueSpecification#integerValue()
+	 * @generated
+	 */
+	EOperation getValueSpecification__IntegerValue();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.ValueSpecification#isComputable() <em>Is Computable</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Computable</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.ValueSpecification#isComputable()
+	 * @generated
+	 */
+	EOperation getValueSpecification__IsComputable();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.LiteralSpecification <em>Literal Specification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Literal Specification</em>'.
+	 * @see e4sm.de.metamodel.e4sm.LiteralSpecification
+	 * @generated
+	 */
+	EClass getLiteralSpecification();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.TypedElement <em>Typed Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Typed Element</em>'.
+	 * @see e4sm.de.metamodel.e4sm.TypedElement
+	 * @generated
+	 */
+	EClass getTypedElement();
+
+	/**
+	 * Returns the meta object for the reference '{@link e4sm.de.metamodel.e4sm.TypedElement#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Type</em>'.
+	 * @see e4sm.de.metamodel.e4sm.TypedElement#getType()
+	 * @see #getTypedElement()
+	 * @generated
+	 */
+	EReference getTypedElement_Type();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.LiteralNull <em>Literal Null</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Literal Null</em>'.
+	 * @see e4sm.de.metamodel.e4sm.LiteralNull
+	 * @generated
+	 */
+	EClass getLiteralNull();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.LiteralString <em>Literal String</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Literal String</em>'.
+	 * @see e4sm.de.metamodel.e4sm.LiteralString
+	 * @generated
+	 */
+	EClass getLiteralString();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.LiteralString#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see e4sm.de.metamodel.e4sm.LiteralString#getValue()
+	 * @see #getLiteralString()
+	 * @generated
+	 */
+	EAttribute getLiteralString_Value();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.LiteralInteger <em>Literal Integer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Literal Integer</em>'.
+	 * @see e4sm.de.metamodel.e4sm.LiteralInteger
+	 * @generated
+	 */
+	EClass getLiteralInteger();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.LiteralInteger#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see e4sm.de.metamodel.e4sm.LiteralInteger#getValue()
+	 * @see #getLiteralInteger()
+	 * @generated
+	 */
+	EAttribute getLiteralInteger_Value();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.LiteralBoolean <em>Literal Boolean</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Literal Boolean</em>'.
+	 * @see e4sm.de.metamodel.e4sm.LiteralBoolean
+	 * @generated
+	 */
+	EClass getLiteralBoolean();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.LiteralBoolean#isValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see e4sm.de.metamodel.e4sm.LiteralBoolean#isValue()
+	 * @see #getLiteralBoolean()
+	 * @generated
+	 */
+	EAttribute getLiteralBoolean_Value();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.LiteralBoolean#getValue() <em>Get Value</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Value</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.LiteralBoolean#getValue()
+	 * @generated
+	 */
+	EOperation getLiteralBoolean__GetValue();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.LiteralFloat <em>Literal Float</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Literal Float</em>'.
+	 * @see e4sm.de.metamodel.e4sm.LiteralFloat
+	 * @generated
+	 */
+	EClass getLiteralFloat();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.LiteralFloat#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see e4sm.de.metamodel.e4sm.LiteralFloat#getValue()
+	 * @see #getLiteralFloat()
+	 * @generated
+	 */
+	EAttribute getLiteralFloat_Value();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.LiteralDouble <em>Literal Double</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Literal Double</em>'.
+	 * @see e4sm.de.metamodel.e4sm.LiteralDouble
+	 * @generated
+	 */
+	EClass getLiteralDouble();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.LiteralDouble#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see e4sm.de.metamodel.e4sm.LiteralDouble#getValue()
+	 * @see #getLiteralDouble()
+	 * @generated
+	 */
+	EAttribute getLiteralDouble_Value();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.LiteralLong <em>Literal Long</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Literal Long</em>'.
+	 * @see e4sm.de.metamodel.e4sm.LiteralLong
+	 * @generated
+	 */
+	EClass getLiteralLong();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.LiteralLong#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see e4sm.de.metamodel.e4sm.LiteralLong#getValue()
+	 * @see #getLiteralLong()
+	 * @generated
+	 */
+	EAttribute getLiteralLong_Value();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.LiteralShort <em>Literal Short</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Literal Short</em>'.
+	 * @see e4sm.de.metamodel.e4sm.LiteralShort
+	 * @generated
+	 */
+	EClass getLiteralShort();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.LiteralShort#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see e4sm.de.metamodel.e4sm.LiteralShort#getValue()
+	 * @see #getLiteralShort()
+	 * @generated
+	 */
+	EAttribute getLiteralShort_Value();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.LiteralByte <em>Literal Byte</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Literal Byte</em>'.
+	 * @see e4sm.de.metamodel.e4sm.LiteralByte
+	 * @generated
+	 */
+	EClass getLiteralByte();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.LiteralByte#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see e4sm.de.metamodel.e4sm.LiteralByte#getValue()
+	 * @see #getLiteralByte()
+	 * @generated
+	 */
+	EAttribute getLiteralByte_Value();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.LiteralCharacter <em>Literal Character</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Literal Character</em>'.
+	 * @see e4sm.de.metamodel.e4sm.LiteralCharacter
+	 * @generated
+	 */
+	EClass getLiteralCharacter();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.LiteralCharacter#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see e4sm.de.metamodel.e4sm.LiteralCharacter#getValue()
+	 * @see #getLiteralCharacter()
+	 * @generated
+	 */
+	EAttribute getLiteralCharacter_Value();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.LiteralDate <em>Literal Date</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Literal Date</em>'.
+	 * @see e4sm.de.metamodel.e4sm.LiteralDate
+	 * @generated
+	 */
+	EClass getLiteralDate();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.LiteralDate#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see e4sm.de.metamodel.e4sm.LiteralDate#getValue()
+	 * @see #getLiteralDate()
+	 * @generated
+	 */
+	EAttribute getLiteralDate_Value();
 
 	/**
 	 * Returns the meta object for enum '{@link e4sm.de.metamodel.e4sm.UnitOfMeasurement <em>Unit Of Measurement</em>}'.
@@ -3081,16 +4884,6 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getUnitOfMeasurement();
-
-	/**
-	 * Returns the meta object for enum '{@link e4sm.de.metamodel.e4sm.E4SMElementType <em>E4SM Element Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>E4SM Element Type</em>'.
-	 * @see e4sm.de.metamodel.e4sm.E4SMElementType
-	 * @generated
-	 */
-	EEnum getE4SMElementType();
 
 	/**
 	 * Returns the meta object for data type '{@link java.lang.Object <em>Connectionspeed</em>}'.
@@ -3451,12 +5244,12 @@ public interface e4smPackage extends EPackage {
 		EAttribute MODEL__PERSONS_PICTURES_PATH = eINSTANCE.getModel_PersonsPicturesPath();
 
 		/**
-		 * The meta object literal for the '<em><b>Parameter Definitionlibraries</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Parameter Definition Libraries</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MODEL__PARAMETER_DEFINITIONLIBRARIES = eINSTANCE.getModel_ParameterDefinitionlibraries();
+		EReference MODEL__PARAMETER_DEFINITION_LIBRARIES = eINSTANCE.getModel_ParameterDefinitionLibraries();
 
 		/**
 		 * The meta object literal for the '<em><b>Variants</b></em>' containment reference list feature.
@@ -3679,14 +5472,6 @@ public interface e4smPackage extends EPackage {
 		EClass PARAMETER_DEFINITION = eINSTANCE.getParameterDefinition();
 
 		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PARAMETER_DEFINITION__TYPE = eINSTANCE.getParameterDefinition_Type();
-
-		/**
 		 * The meta object literal for the '<em><b>Parameters</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3728,12 +5513,12 @@ public interface e4smPackage extends EPackage {
 		EReference PARAMETER_DEFINITION__MUST_BE_DEFINED_ON = eINSTANCE.getParameterDefinition_MustBeDefinedOn();
 
 		/**
-		 * The meta object literal for the '<em><b>Default Value</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Default Value</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PARAMETER_DEFINITION__DEFAULT_VALUE = eINSTANCE.getParameterDefinition_DefaultValue();
+		EReference PARAMETER_DEFINITION__DEFAULT_VALUE = eINSTANCE.getParameterDefinition_DefaultValue();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.ParameterImpl <em>Parameter</em>}' class.
@@ -3754,12 +5539,30 @@ public interface e4smPackage extends EPackage {
 		EAttribute PARAMETER__VALUE = eINSTANCE.getParameter_Value();
 
 		/**
-		 * The meta object literal for the '<em><b>Initial Value</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Initial Value</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PARAMETER__INITIAL_VALUE = eINSTANCE.getParameter_InitialValue();
+		EReference PARAMETER__INITIAL_VALUE = eINSTANCE.getParameter_InitialValue();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.ParameterizableElement <em>Parameterizable Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.ParameterizableElement
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getParameterizableElement()
+		 * @generated
+		 */
+		EClass PARAMETERIZABLE_ELEMENT = eINSTANCE.getParameterizableElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARAMETERIZABLE_ELEMENT__PARAMETERS = eINSTANCE.getParameterizableElement_Parameters();
 
 		/**
 		 * The meta object literal for the '<em><b>Parameter Definition</b></em>' reference feature.
@@ -3784,24 +5587,6 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PARAMETER__DOES_NOT_APPLY_ON_VARIANTS = eINSTANCE.getParameter_DoesNotApplyOnVariants();
-
-		/**
-		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.ParametrisableElement <em>Parametrisable Element</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see e4sm.de.metamodel.e4sm.ParametrisableElement
-		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getParametrisableElement()
-		 * @generated
-		 */
-		EClass PARAMETRISABLE_ELEMENT = eINSTANCE.getParametrisableElement();
-
-		/**
-		 * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PARAMETRISABLE_ELEMENT__PARAMETERS = eINSTANCE.getParametrisableElement_Parameters();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.ParameterDefinitionLibraryImpl <em>Parameter Definition Library</em>}' class.
@@ -3833,14 +5618,382 @@ public interface e4smPackage extends EPackage {
 		EClass VARIANT = eINSTANCE.getVariant();
 
 		/**
-		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.ParameterType <em>Parameter Type</em>}' enum.
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.MeasurementUnitImpl <em>Measurement Unit</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see e4sm.de.metamodel.e4sm.ParameterType
-		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getParameterType()
+		 * @see e4sm.de.metamodel.e4sm.impl.MeasurementUnitImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getMeasurementUnit()
 		 * @generated
 		 */
-		EEnum PARAMETER_TYPE = eINSTANCE.getParameterType();
+		EClass MEASUREMENT_UNIT = eINSTANCE.getMeasurementUnit();
+
+		/**
+		 * The meta object literal for the '<em><b>Unit Conversion</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MEASUREMENT_UNIT__UNIT_CONVERSION = eINSTANCE.getMeasurementUnit_UnitConversion();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.SimpleUnitImpl <em>Simple Unit</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.SimpleUnitImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getSimpleUnit()
+		 * @generated
+		 */
+		EClass SIMPLE_UNIT = eINSTANCE.getSimpleUnit();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.DerivedUnitImpl <em>Derived Unit</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.DerivedUnitImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getDerivedUnit()
+		 * @generated
+		 */
+		EClass DERIVED_UNIT = eINSTANCE.getDerivedUnit();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.UnitConversionImpl <em>Unit Conversion</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.UnitConversionImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getUnitConversion()
+		 * @generated
+		 */
+		EClass UNIT_CONVERSION = eINSTANCE.getUnitConversion();
+
+		/**
+		 * The meta object literal for the '<em><b>Reference Unit</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UNIT_CONVERSION__REFERENCE_UNIT = eINSTANCE.getUnitConversion_ReferenceUnit();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.ConversionByPrefixImpl <em>Conversion By Prefix</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.ConversionByPrefixImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getConversionByPrefix()
+		 * @generated
+		 */
+		EClass CONVERSION_BY_PREFIX = eINSTANCE.getConversionByPrefix();
+
+		/**
+		 * The meta object literal for the '<em><b>Conversion Factor</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONVERSION_BY_PREFIX__CONVERSION_FACTOR = eINSTANCE.getConversionByPrefix_ConversionFactor();
+
+		/**
+		 * The meta object literal for the '<em><b>Prefix</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONVERSION_BY_PREFIX__PREFIX = eINSTANCE.getConversionByPrefix_Prefix();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.ConversionByConventionImpl <em>Conversion By Convention</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.ConversionByConventionImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getConversionByConvention()
+		 * @generated
+		 */
+		EClass CONVERSION_BY_CONVENTION = eINSTANCE.getConversionByConvention();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.UnitPrefixImpl <em>Unit Prefix</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.UnitPrefixImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getUnitPrefix()
+		 * @generated
+		 */
+		EClass UNIT_PREFIX = eINSTANCE.getUnitPrefix();
+
+		/**
+		 * The meta object literal for the '<em><b>Symbol</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UNIT_PREFIX__SYMBOL = eINSTANCE.getUnitPrefix_Symbol();
+
+		/**
+		 * The meta object literal for the '<em><b>Conversion Factor</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UNIT_PREFIX__CONVERSION_FACTOR = eINSTANCE.getUnitPrefix_ConversionFactor();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.ValueSpecificationImpl <em>Value Specification</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.ValueSpecificationImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getValueSpecification()
+		 * @generated
+		 */
+		EClass VALUE_SPECIFICATION = eINSTANCE.getValueSpecification();
+
+		/**
+		 * The meta object literal for the '<em><b>Boolean Value</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation VALUE_SPECIFICATION___BOOLEAN_VALUE = eINSTANCE.getValueSpecification__BooleanValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Integer Value</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation VALUE_SPECIFICATION___INTEGER_VALUE = eINSTANCE.getValueSpecification__IntegerValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Computable</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation VALUE_SPECIFICATION___IS_COMPUTABLE = eINSTANCE.getValueSpecification__IsComputable();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.LiteralSpecificationImpl <em>Literal Specification</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.LiteralSpecificationImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getLiteralSpecification()
+		 * @generated
+		 */
+		EClass LITERAL_SPECIFICATION = eINSTANCE.getLiteralSpecification();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.TypedElementImpl <em>Typed Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.TypedElementImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getTypedElement()
+		 * @generated
+		 */
+		EClass TYPED_ELEMENT = eINSTANCE.getTypedElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TYPED_ELEMENT__TYPE = eINSTANCE.getTypedElement_Type();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.LiteralNullImpl <em>Literal Null</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.LiteralNullImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getLiteralNull()
+		 * @generated
+		 */
+		EClass LITERAL_NULL = eINSTANCE.getLiteralNull();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.LiteralStringImpl <em>Literal String</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.LiteralStringImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getLiteralString()
+		 * @generated
+		 */
+		EClass LITERAL_STRING = eINSTANCE.getLiteralString();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LITERAL_STRING__VALUE = eINSTANCE.getLiteralString_Value();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.LiteralIntegerImpl <em>Literal Integer</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.LiteralIntegerImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getLiteralInteger()
+		 * @generated
+		 */
+		EClass LITERAL_INTEGER = eINSTANCE.getLiteralInteger();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LITERAL_INTEGER__VALUE = eINSTANCE.getLiteralInteger_Value();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.LiteralBooleanImpl <em>Literal Boolean</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.LiteralBooleanImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getLiteralBoolean()
+		 * @generated
+		 */
+		EClass LITERAL_BOOLEAN = eINSTANCE.getLiteralBoolean();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LITERAL_BOOLEAN__VALUE = eINSTANCE.getLiteralBoolean_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Value</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation LITERAL_BOOLEAN___GET_VALUE = eINSTANCE.getLiteralBoolean__GetValue();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.LiteralFloatImpl <em>Literal Float</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.LiteralFloatImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getLiteralFloat()
+		 * @generated
+		 */
+		EClass LITERAL_FLOAT = eINSTANCE.getLiteralFloat();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LITERAL_FLOAT__VALUE = eINSTANCE.getLiteralFloat_Value();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.LiteralDoubleImpl <em>Literal Double</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.LiteralDoubleImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getLiteralDouble()
+		 * @generated
+		 */
+		EClass LITERAL_DOUBLE = eINSTANCE.getLiteralDouble();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LITERAL_DOUBLE__VALUE = eINSTANCE.getLiteralDouble_Value();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.LiteralLongImpl <em>Literal Long</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.LiteralLongImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getLiteralLong()
+		 * @generated
+		 */
+		EClass LITERAL_LONG = eINSTANCE.getLiteralLong();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LITERAL_LONG__VALUE = eINSTANCE.getLiteralLong_Value();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.LiteralShortImpl <em>Literal Short</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.LiteralShortImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getLiteralShort()
+		 * @generated
+		 */
+		EClass LITERAL_SHORT = eINSTANCE.getLiteralShort();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LITERAL_SHORT__VALUE = eINSTANCE.getLiteralShort_Value();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.LiteralByteImpl <em>Literal Byte</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.LiteralByteImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getLiteralByte()
+		 * @generated
+		 */
+		EClass LITERAL_BYTE = eINSTANCE.getLiteralByte();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LITERAL_BYTE__VALUE = eINSTANCE.getLiteralByte_Value();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.LiteralCharacterImpl <em>Literal Character</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.LiteralCharacterImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getLiteralCharacter()
+		 * @generated
+		 */
+		EClass LITERAL_CHARACTER = eINSTANCE.getLiteralCharacter();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LITERAL_CHARACTER__VALUE = eINSTANCE.getLiteralCharacter_Value();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.LiteralDateImpl <em>Literal Date</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.LiteralDateImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getLiteralDate()
+		 * @generated
+		 */
+		EClass LITERAL_DATE = eINSTANCE.getLiteralDate();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LITERAL_DATE__VALUE = eINSTANCE.getLiteralDate_Value();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.UnitOfMeasurement <em>Unit Of Measurement</em>}' enum.
@@ -3851,16 +6004,6 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum UNIT_OF_MEASUREMENT = eINSTANCE.getUnitOfMeasurement();
-
-		/**
-		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.E4SMElementType <em>E4SM Element Type</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see e4sm.de.metamodel.e4sm.E4SMElementType
-		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getE4SMElementType()
-		 * @generated
-		 */
-		EEnum E4SM_ELEMENT_TYPE = eINSTANCE.getE4SMElementType();
 
 		/**
 		 * The meta object literal for the '<em>Connectionspeed</em>' data type.

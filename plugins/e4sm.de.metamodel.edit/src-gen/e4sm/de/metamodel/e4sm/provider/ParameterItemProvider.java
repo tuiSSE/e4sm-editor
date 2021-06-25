@@ -4,6 +4,7 @@ package e4sm.de.metamodel.e4sm.provider;
 
 import e4sm.de.metamodel.e4sm.Parameter;
 import e4sm.de.metamodel.e4sm.ParameterDefinition;
+import e4sm.de.metamodel.e4sm.e4smFactory;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
 import java.util.Collection;
@@ -12,6 +13,7 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -46,10 +48,10 @@ public class ParameterItemProvider extends ElementItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addValuePropertyDescriptor(object);
-			addInitialValuePropertyDescriptor(object);
 			addParameterDefinitionPropertyDescriptor(object);
 			addAppliesOnlyOnVariantsPropertyDescriptor(object);
 			addDoesNotApplyOnVariantsPropertyDescriptor(object);
+			addInitialValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -82,8 +84,37 @@ public class ParameterItemProvider extends ElementItemProvider {
 						getResourceLocator(), getString("_UI_Parameter_initialValue_feature"),
 						getString("_UI_PropertyDescriptor_description", "_UI_Parameter_initialValue_feature",
 								"_UI_Parameter_type"),
-						e4smPackage.Literals.PARAMETER__INITIAL_VALUE, true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+						e4smPackage.Literals.PARAMETER__INITIAL_VALUE, true, false, true, null, null, null));
+	}
+
+	/**
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(e4smPackage.Literals.PARAMETER__INITIAL_VALUE);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
 	}
 
 	/**
@@ -186,8 +217,10 @@ public class ParameterItemProvider extends ElementItemProvider {
 
 		switch (notification.getFeatureID(Parameter.class)) {
 		case e4smPackage.PARAMETER__VALUE:
-		case e4smPackage.PARAMETER__INITIAL_VALUE:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			return;
+		case e4smPackage.PARAMETER__INITIAL_VALUE:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
 		super.notifyChanged(notification);
@@ -203,6 +236,39 @@ public class ParameterItemProvider extends ElementItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.PARAMETER__INITIAL_VALUE,
+				e4smFactory.eINSTANCE.createLiteralNull()));
+
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.PARAMETER__INITIAL_VALUE,
+				e4smFactory.eINSTANCE.createLiteralString()));
+
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.PARAMETER__INITIAL_VALUE,
+				e4smFactory.eINSTANCE.createLiteralInteger()));
+
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.PARAMETER__INITIAL_VALUE,
+				e4smFactory.eINSTANCE.createLiteralBoolean()));
+
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.PARAMETER__INITIAL_VALUE,
+				e4smFactory.eINSTANCE.createLiteralFloat()));
+
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.PARAMETER__INITIAL_VALUE,
+				e4smFactory.eINSTANCE.createLiteralDouble()));
+
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.PARAMETER__INITIAL_VALUE,
+				e4smFactory.eINSTANCE.createLiteralLong()));
+
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.PARAMETER__INITIAL_VALUE,
+				e4smFactory.eINSTANCE.createLiteralShort()));
+
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.PARAMETER__INITIAL_VALUE,
+				e4smFactory.eINSTANCE.createLiteralByte()));
+
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.PARAMETER__INITIAL_VALUE,
+				e4smFactory.eINSTANCE.createLiteralCharacter()));
+
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.PARAMETER__INITIAL_VALUE,
+				e4smFactory.eINSTANCE.createLiteralDate()));
 	}
 
 }

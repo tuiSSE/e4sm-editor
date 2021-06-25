@@ -10,11 +10,6 @@
   <testsDirectory xsi:nil="true"/>
   <genPackages prefix="e4sm" basePackage="e4sm.de.metamodel" resource="XMI" disposableProviderFactory="true"
       ecorePackage="e4sm.ecore#/">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="e4sm.ecore#//ParameterType">
-      <genEnumLiterals ecoreEnumLiteral="e4sm.ecore#//ParameterType/INTEGER"/>
-      <genEnumLiterals ecoreEnumLiteral="e4sm.ecore#//ParameterType/DOUBLE"/>
-      <genEnumLiterals ecoreEnumLiteral="e4sm.ecore#//ParameterType/STRING"/>
-    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="e4sm.ecore#//UnitOfMeasurement">
       <genEnumLiterals ecoreEnumLiteral="e4sm.ecore#//UnitOfMeasurement/cm"/>
       <genEnumLiterals ecoreEnumLiteral="e4sm.ecore#//UnitOfMeasurement/m"/>
@@ -26,15 +21,6 @@
       <genEnumLiterals ecoreEnumLiteral="e4sm.ecore#//UnitOfMeasurement/hours"/>
       <genEnumLiterals ecoreEnumLiteral="e4sm.ecore#//UnitOfMeasurement/mbps"/>
       <genEnumLiterals ecoreEnumLiteral="e4sm.ecore#//UnitOfMeasurement/none"/>
-    </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="e4sm.ecore#//E4SMElementType">
-      <genEnumLiterals ecoreEnumLiteral="e4sm.ecore#//E4SMElementType/Component"/>
-      <genEnumLiterals ecoreEnumLiteral="e4sm.ecore#//E4SMElementType/Connector"/>
-      <genEnumLiterals ecoreEnumLiteral="e4sm.ecore#//E4SMElementType/PhysicalConnector"/>
-      <genEnumLiterals ecoreEnumLiteral="e4sm.ecore#//E4SMElementType/SoftwareConnector"/>
-      <genEnumLiterals ecoreEnumLiteral="e4sm.ecore#//E4SMElementType/Pin"/>
-      <genEnumLiterals ecoreEnumLiteral="e4sm.ecore#//E4SMElementType/InputPin"/>
-      <genEnumLiterals ecoreEnumLiteral="e4sm.ecore#//E4SMElementType/OutputPin"/>
     </genEnums>
     <genDataTypes ecoreDataType="e4sm.ecore#//Connectionspeed"/>
     <genDataTypes ecoreDataType="e4sm.ecore#//JSON"/>
@@ -71,8 +57,10 @@
     </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//Package">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//Package/components"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//Package/softwareComponents"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//Package/physicalComponents"/>
+      <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference e4sm.ecore#//Package/softwareComponents"/>
+      <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference e4sm.ecore#//Package/physicalComponents"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//Package/connectors"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//Package/sectors"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//Package/mainResponsible"/>
@@ -84,7 +72,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//Model/packages"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//Model/actors"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//Model/personsPicturesPath"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//Model/parameterDefinitionlibraries"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//Model/parameterDefinitionLibraries"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//Model/variants"/>
     </genClasses>
     <genClasses image="false" ecoreClass="e4sm.ecore#//NamedElement">
@@ -115,27 +103,98 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//OptionallyNamedElement/name"/>
     </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//ParameterDefinition">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//ParameterDefinition/type"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//ParameterDefinition/parameters"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//ParameterDefinition/unit"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//ParameterDefinition/mustBeDefinedOn"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//ParameterDefinition/defaultValue"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//ParameterDefinition/canBeDefinedOn"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//ParameterDefinition/shallNotBeDefinedOn"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//ParameterDefinition/defaultValue"/>
     </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//Parameter">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//Parameter/value"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//Parameter/initialValue"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//Parameter/parameterDefinition"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//Parameter/appliesOnlyOnVariants"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//Parameter/doesNotApplyOnVariants"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//Parameter/initialValue"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="e4sm.ecore#//ParametrisableElement">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//ParametrisableElement/parameters"/>
+    <genClasses image="false" ecoreClass="e4sm.ecore#//ParameterizableElement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//ParameterizableElement/parameters"/>
     </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//ParameterDefinitionLibrary">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//ParameterDefinitionLibrary/parameterDefinitions"/>
     </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//Variant"/>
+    <genClasses ecoreClass="e4sm.ecore#//MeasurementUnit">
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//MeasurementUnit/unitConversion"/>
+    </genClasses>
+    <genClasses ecoreClass="e4sm.ecore#//SimpleUnit"/>
+    <genClasses ecoreClass="e4sm.ecore#//DerivedUnit"/>
+    <genClasses ecoreClass="e4sm.ecore#//UnitConversion">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//UnitConversion/referenceUnit"/>
+    </genClasses>
+    <genClasses ecoreClass="e4sm.ecore#//ConversionByPrefix">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//ConversionByPrefix/conversionFactor"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//ConversionByPrefix/prefix"/>
+    </genClasses>
+    <genClasses ecoreClass="e4sm.ecore#//ConversionByConvention"/>
+    <genClasses ecoreClass="e4sm.ecore#//UnitPrefix">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//UnitPrefix/symbol"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//UnitPrefix/conversionFactor"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="e4sm.ecore#//ValueSpecification">
+      <genOperations ecoreOperation="e4sm.ecore#//ValueSpecification/booleanValue"/>
+      <genOperations ecoreOperation="e4sm.ecore#//ValueSpecification/integerValue"/>
+      <genOperations ecoreOperation="e4sm.ecore#//ValueSpecification/isComputable"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="e4sm.ecore#//LiteralSpecification"/>
+    <genClasses image="false" ecoreClass="e4sm.ecore#//TypedElement">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//TypedElement/type">
+        <propertyFilterFlags>org.eclipse.ui.views.properties.expert</propertyFilterFlags>
+      </genFeatures>
+    </genClasses>
+    <genClasses ecoreClass="e4sm.ecore#//LiteralNull"/>
+    <genClasses ecoreClass="e4sm.ecore#//LiteralString" labelFeature="#//e4sm/LiteralString/value">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//LiteralString/value"/>
+    </genClasses>
+    <genClasses ecoreClass="e4sm.ecore#//LiteralInteger">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//LiteralInteger/value"/>
+    </genClasses>
+    <genClasses ecoreClass="e4sm.ecore#//LiteralBoolean">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//LiteralBoolean/value"/>
+      <genOperations ecoreOperation="e4sm.ecore#//LiteralBoolean/getValue" body="return value;"/>
+    </genClasses>
+    <genClasses ecoreClass="e4sm.ecore#//LiteralFloat">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//LiteralFloat/value"/>
+    </genClasses>
+    <genClasses ecoreClass="e4sm.ecore#//LiteralDouble">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//LiteralDouble/value"/>
+    </genClasses>
+    <genClasses ecoreClass="e4sm.ecore#//LiteralLong">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//LiteralLong/value"/>
+    </genClasses>
+    <genClasses ecoreClass="e4sm.ecore#//LiteralShort">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//LiteralShort/value"/>
+    </genClasses>
+    <genClasses ecoreClass="e4sm.ecore#//LiteralByte">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//LiteralByte/value"/>
+    </genClasses>
+    <genClasses ecoreClass="e4sm.ecore#//LiteralCharacter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//LiteralCharacter/value"/>
+    </genClasses>
+    <genClasses ecoreClass="e4sm.ecore#//LiteralDate">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//LiteralDate/value"/>
+    </genClasses>
+    <nestedGenPackages prefix="Types" disposableProviderFactory="true" ecorePackage="e4sm.ecore#//types">
+      <genDataTypes ecoreDataType="e4sm.ecore#//types/Boolean"/>
+      <genDataTypes ecoreDataType="e4sm.ecore#//types/String"/>
+      <genDataTypes ecoreDataType="e4sm.ecore#//types/Integer"/>
+      <genDataTypes ecoreDataType="e4sm.ecore#//types/Float"/>
+      <genDataTypes ecoreDataType="e4sm.ecore#//types/Double"/>
+      <genDataTypes ecoreDataType="e4sm.ecore#//types/Long"/>
+      <genDataTypes ecoreDataType="e4sm.ecore#//types/Short"/>
+      <genDataTypes ecoreDataType="e4sm.ecore#//types/Character"/>
+      <genDataTypes ecoreDataType="e4sm.ecore#//types/Byte"/>
+      <genDataTypes ecoreDataType="e4sm.ecore#//types/Date"/>
+    </nestedGenPackages>
   </genPackages>
 </genmodel:GenModel>

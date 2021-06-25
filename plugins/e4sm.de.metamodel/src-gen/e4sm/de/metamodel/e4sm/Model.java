@@ -20,7 +20,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link e4sm.de.metamodel.e4sm.Model#getPackages <em>Packages</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Model#getActors <em>Actors</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Model#getPersonsPicturesPath <em>Persons Pictures Path</em>}</li>
- *   <li>{@link e4sm.de.metamodel.e4sm.Model#getParameterDefinitionlibraries <em>Parameter Definitionlibraries</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.Model#getParameterDefinitionLibraries <em>Parameter Definition Libraries</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Model#getVariants <em>Variants</em>}</li>
  * </ul>
  *
@@ -28,7 +28,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Model extends NamedElement, ParametrisableElement {
+public interface Model extends NamedElement, ParameterizableElement {
 	/**
 	 * Returns the value of the '<em><b>Packages</b></em>' containment reference list.
 	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.Package}.
@@ -85,16 +85,16 @@ public interface Model extends NamedElement, ParametrisableElement {
 	void setPersonsPicturesPath(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Parameter Definitionlibraries</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Parameter Definition Libraries</b></em>' containment reference list.
 	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.ParameterDefinitionLibrary}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Parameter Definitionlibraries</em>' containment reference list.
-	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getModel_ParameterDefinitionlibraries()
+	 * @return the value of the '<em>Parameter Definition Libraries</em>' containment reference list.
+	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getModel_ParameterDefinitionLibraries()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<ParameterDefinitionLibrary> getParameterDefinitionlibraries();
+	EList<ParameterDefinitionLibrary> getParameterDefinitionLibraries();
 
 	/**
 	 * Returns the value of the '<em><b>Variants</b></em>' containment reference list.

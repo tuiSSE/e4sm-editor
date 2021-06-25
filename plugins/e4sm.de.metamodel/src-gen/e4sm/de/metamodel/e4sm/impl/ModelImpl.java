@@ -6,7 +6,7 @@ import e4sm.de.metamodel.e4sm.Actor;
 import e4sm.de.metamodel.e4sm.Model;
 import e4sm.de.metamodel.e4sm.Parameter;
 import e4sm.de.metamodel.e4sm.ParameterDefinitionLibrary;
-import e4sm.de.metamodel.e4sm.ParametrisableElement;
+import e4sm.de.metamodel.e4sm.ParameterizableElement;
 import e4sm.de.metamodel.e4sm.Variant;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
@@ -36,7 +36,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ModelImpl#getPackages <em>Packages</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ModelImpl#getActors <em>Actors</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ModelImpl#getPersonsPicturesPath <em>Persons Pictures Path</em>}</li>
- *   <li>{@link e4sm.de.metamodel.e4sm.impl.ModelImpl#getParameterDefinitionlibraries <em>Parameter Definitionlibraries</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.ModelImpl#getParameterDefinitionLibraries <em>Parameter Definition Libraries</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ModelImpl#getVariants <em>Variants</em>}</li>
  * </ul>
  *
@@ -94,14 +94,14 @@ public class ModelImpl extends NamedElementImpl implements Model {
 	protected String personsPicturesPath = PERSONS_PICTURES_PATH_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getParameterDefinitionlibraries() <em>Parameter Definitionlibraries</em>}' containment reference list.
+	 * The cached value of the '{@link #getParameterDefinitionLibraries() <em>Parameter Definition Libraries</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getParameterDefinitionlibraries()
+	 * @see #getParameterDefinitionLibraries()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ParameterDefinitionLibrary> parameterDefinitionlibraries;
+	protected EList<ParameterDefinitionLibrary> parameterDefinitionLibraries;
 
 	/**
 	 * The cached value of the '{@link #getVariants() <em>Variants</em>}' containment reference list.
@@ -202,12 +202,12 @@ public class ModelImpl extends NamedElementImpl implements Model {
 	 * @generated
 	 */
 	@Override
-	public EList<ParameterDefinitionLibrary> getParameterDefinitionlibraries() {
-		if (parameterDefinitionlibraries == null) {
-			parameterDefinitionlibraries = new EObjectContainmentEList<ParameterDefinitionLibrary>(
-					ParameterDefinitionLibrary.class, this, e4smPackage.MODEL__PARAMETER_DEFINITIONLIBRARIES);
+	public EList<ParameterDefinitionLibrary> getParameterDefinitionLibraries() {
+		if (parameterDefinitionLibraries == null) {
+			parameterDefinitionLibraries = new EObjectContainmentEList<ParameterDefinitionLibrary>(
+					ParameterDefinitionLibrary.class, this, e4smPackage.MODEL__PARAMETER_DEFINITION_LIBRARIES);
 		}
-		return parameterDefinitionlibraries;
+		return parameterDefinitionLibraries;
 	}
 
 	/**
@@ -237,8 +237,8 @@ public class ModelImpl extends NamedElementImpl implements Model {
 			return ((InternalEList<?>) getPackages()).basicRemove(otherEnd, msgs);
 		case e4smPackage.MODEL__ACTORS:
 			return ((InternalEList<?>) getActors()).basicRemove(otherEnd, msgs);
-		case e4smPackage.MODEL__PARAMETER_DEFINITIONLIBRARIES:
-			return ((InternalEList<?>) getParameterDefinitionlibraries()).basicRemove(otherEnd, msgs);
+		case e4smPackage.MODEL__PARAMETER_DEFINITION_LIBRARIES:
+			return ((InternalEList<?>) getParameterDefinitionLibraries()).basicRemove(otherEnd, msgs);
 		case e4smPackage.MODEL__VARIANTS:
 			return ((InternalEList<?>) getVariants()).basicRemove(otherEnd, msgs);
 		}
@@ -261,8 +261,8 @@ public class ModelImpl extends NamedElementImpl implements Model {
 			return getActors();
 		case e4smPackage.MODEL__PERSONS_PICTURES_PATH:
 			return getPersonsPicturesPath();
-		case e4smPackage.MODEL__PARAMETER_DEFINITIONLIBRARIES:
-			return getParameterDefinitionlibraries();
+		case e4smPackage.MODEL__PARAMETER_DEFINITION_LIBRARIES:
+			return getParameterDefinitionLibraries();
 		case e4smPackage.MODEL__VARIANTS:
 			return getVariants();
 		}
@@ -293,9 +293,9 @@ public class ModelImpl extends NamedElementImpl implements Model {
 		case e4smPackage.MODEL__PERSONS_PICTURES_PATH:
 			setPersonsPicturesPath((String) newValue);
 			return;
-		case e4smPackage.MODEL__PARAMETER_DEFINITIONLIBRARIES:
-			getParameterDefinitionlibraries().clear();
-			getParameterDefinitionlibraries().addAll((Collection<? extends ParameterDefinitionLibrary>) newValue);
+		case e4smPackage.MODEL__PARAMETER_DEFINITION_LIBRARIES:
+			getParameterDefinitionLibraries().clear();
+			getParameterDefinitionLibraries().addAll((Collection<? extends ParameterDefinitionLibrary>) newValue);
 			return;
 		case e4smPackage.MODEL__VARIANTS:
 			getVariants().clear();
@@ -325,8 +325,8 @@ public class ModelImpl extends NamedElementImpl implements Model {
 		case e4smPackage.MODEL__PERSONS_PICTURES_PATH:
 			setPersonsPicturesPath(PERSONS_PICTURES_PATH_EDEFAULT);
 			return;
-		case e4smPackage.MODEL__PARAMETER_DEFINITIONLIBRARIES:
-			getParameterDefinitionlibraries().clear();
+		case e4smPackage.MODEL__PARAMETER_DEFINITION_LIBRARIES:
+			getParameterDefinitionLibraries().clear();
 			return;
 		case e4smPackage.MODEL__VARIANTS:
 			getVariants().clear();
@@ -352,8 +352,8 @@ public class ModelImpl extends NamedElementImpl implements Model {
 		case e4smPackage.MODEL__PERSONS_PICTURES_PATH:
 			return PERSONS_PICTURES_PATH_EDEFAULT == null ? personsPicturesPath != null
 					: !PERSONS_PICTURES_PATH_EDEFAULT.equals(personsPicturesPath);
-		case e4smPackage.MODEL__PARAMETER_DEFINITIONLIBRARIES:
-			return parameterDefinitionlibraries != null && !parameterDefinitionlibraries.isEmpty();
+		case e4smPackage.MODEL__PARAMETER_DEFINITION_LIBRARIES:
+			return parameterDefinitionLibraries != null && !parameterDefinitionLibraries.isEmpty();
 		case e4smPackage.MODEL__VARIANTS:
 			return variants != null && !variants.isEmpty();
 		}
@@ -367,10 +367,10 @@ public class ModelImpl extends NamedElementImpl implements Model {
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == ParametrisableElement.class) {
+		if (baseClass == ParameterizableElement.class) {
 			switch (derivedFeatureID) {
 			case e4smPackage.MODEL__PARAMETERS:
-				return e4smPackage.PARAMETRISABLE_ELEMENT__PARAMETERS;
+				return e4smPackage.PARAMETERIZABLE_ELEMENT__PARAMETERS;
 			default:
 				return -1;
 			}
@@ -385,9 +385,9 @@ public class ModelImpl extends NamedElementImpl implements Model {
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == ParametrisableElement.class) {
+		if (baseClass == ParameterizableElement.class) {
 			switch (baseFeatureID) {
-			case e4smPackage.PARAMETRISABLE_ELEMENT__PARAMETERS:
+			case e4smPackage.PARAMETERIZABLE_ELEMENT__PARAMETERS:
 				return e4smPackage.MODEL__PARAMETERS;
 			default:
 				return -1;

@@ -3,6 +3,7 @@
 package e4sm.de.metamodel.e4sm.provider;
 
 import e4sm.de.metamodel.e4sm.ParameterDefinition;
+import e4sm.de.metamodel.e4sm.e4smFactory;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -25,7 +27,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * 
  * @generated
  */
-public class ParameterDefinitionItemProvider extends NamedElementItemProvider {
+public class ParameterDefinitionItemProvider extends TypedElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -47,31 +49,14 @@ public class ParameterDefinitionItemProvider extends NamedElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addTypePropertyDescriptor(object);
 			addParametersPropertyDescriptor(object);
 			addUnitPropertyDescriptor(object);
 			addMustBeDefinedOnPropertyDescriptor(object);
-			addDefaultValuePropertyDescriptor(object);
 			addCanBeDefinedOnPropertyDescriptor(object);
 			addShallNotBeDefinedOnPropertyDescriptor(object);
+			addDefaultValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Type feature. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addTypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_ParameterDefinition_type_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_ParameterDefinition_type_feature",
-								"_UI_ParameterDefinition_type"),
-						e4smPackage.Literals.PARAMETER_DEFINITION__TYPE, true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -90,9 +75,9 @@ public class ParameterDefinitionItemProvider extends NamedElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Unit feature. <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Unit feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected void addUnitPropertyDescriptor(Object object) {
@@ -150,34 +135,13 @@ public class ParameterDefinitionItemProvider extends NamedElementItemProvider {
 	 * @generated
 	 */
 	protected void addShallNotBeDefinedOnPropertyDescriptor(Object object) {
-//		itemPropertyDescriptors
-//				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-//						getResourceLocator(), getString("_UI_ParameterDefinition_shallNotBeDefinedOn_feature"),
-//						getString("_UI_PropertyDescriptor_description",
-//								"_UI_ParameterDefinition_shallNotBeDefinedOn_feature", "_UI_ParameterDefinition_type"),
-//						e4smPackage.Literals.PARAMETER_DEFINITION__SHALL_NOT_BE_DEFINED_ON, true, false, true, null,
-//						null, null));
-
 		itemPropertyDescriptors
-				.add(new ItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
 						getResourceLocator(), getString("_UI_ParameterDefinition_shallNotBeDefinedOn_feature"),
 						getString("_UI_PropertyDescriptor_description",
 								"_UI_ParameterDefinition_shallNotBeDefinedOn_feature", "_UI_ParameterDefinition_type"),
 						e4smPackage.Literals.PARAMETER_DEFINITION__SHALL_NOT_BE_DEFINED_ON, true, false, true, null,
-						null, null) {
-					@Override
-					public Collection<?> getChoiceOfValues(Object object) {
-						List<EClass> choiceOfValues = new ArrayList<EClass>();
-						EList<EClassifier> classifiers = e4smPackage.eINSTANCE.getEClassifiers();
-						classifiers.forEach(c -> {
-							if (c instanceof EClass) {
-								// If needed, filter here the options
-								choiceOfValues.add((EClass) c);
-							}
-						});
-						return choiceOfValues;
-					}
-				});
+						null, null));
 	}
 
 	/**
@@ -187,40 +151,19 @@ public class ParameterDefinitionItemProvider extends NamedElementItemProvider {
 	 * @generated
 	 */
 	protected void addMustBeDefinedOnPropertyDescriptor(Object object) {
-//		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-//				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-//				getString("_UI_ParameterDefinition_mustBeDefinedOn_feature"),
-//				getString("_UI_PropertyDescriptor_description", "_UI_ParameterDefinition_mustBeDefinedOn_feature",
-//						"_UI_ParameterDefinition_type"),
-//				e4smPackage.Literals.PARAMETER_DEFINITION__MUST_BE_DEFINED_ON, true, false, true, null, null, null));
-		
-		itemPropertyDescriptors
-		.add(new ItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-				getResourceLocator(), getString("_UI_ParameterDefinition_mustBeDefinedOn_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_ParameterDefinition_mustBeDefinedOn_feature", "_UI_ParameterDefinition_type"),
-				e4smPackage.Literals.PARAMETER_DEFINITION__MUST_BE_DEFINED_ON, true, false, true, null,
-				null, null) {
-			@Override
-			public Collection<?> getChoiceOfValues(Object object) {
-				List<EClass> choiceOfValues = new ArrayList<EClass>();
-				EList<EClassifier> classifiers = e4smPackage.eINSTANCE.getEClassifiers();
-				classifiers.forEach(c -> {
-					if (c instanceof EClass) {
-						// If needed, filter here the options
-						choiceOfValues.add((EClass) c);
-					}
-				});
-				return choiceOfValues;
-			}
-		});
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_ParameterDefinition_mustBeDefinedOn_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_ParameterDefinition_mustBeDefinedOn_feature",
+						"_UI_ParameterDefinition_type"),
+				e4smPackage.Literals.PARAMETER_DEFINITION__MUST_BE_DEFINED_ON, true, false, true, null, null, null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Default Value feature. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addDefaultValuePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
@@ -233,9 +176,39 @@ public class ParameterDefinitionItemProvider extends NamedElementItemProvider {
 	}
 
 	/**
-	 * This returns ParameterDefinition.gif. <!-- begin-user-doc --> <!--
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(e4smPackage.Literals.PARAMETER_DEFINITION__DEFAULT_VALUE);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
+	}
+
+	/**
+	 * This returns ParameterDefinition.gif.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -245,7 +218,6 @@ public class ParameterDefinitionItemProvider extends NamedElementItemProvider {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -254,9 +226,9 @@ public class ParameterDefinitionItemProvider extends NamedElementItemProvider {
 	}
 
 	/**
-	 * This returns the label text for the adapted class. <!-- begin-user-doc -->
+	 * This returns the label text for the adapted class.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -267,10 +239,9 @@ public class ParameterDefinitionItemProvider extends NamedElementItemProvider {
 	}
 
 	/**
-	 * This handles model notifications by calling {@link #updateChildren} to update
-	 * any cached children and by creating a viewer notification, which it passes to
-	 * {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -278,25 +249,59 @@ public class ParameterDefinitionItemProvider extends NamedElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ParameterDefinition.class)) {
-		case e4smPackage.PARAMETER_DEFINITION__TYPE:
 		case e4smPackage.PARAMETER_DEFINITION__UNIT:
-		case e4smPackage.PARAMETER_DEFINITION__DEFAULT_VALUE:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			return;
+		case e4smPackage.PARAMETER_DEFINITION__DEFAULT_VALUE:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
 		super.notifyChanged(notification);
 	}
 
 	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing
-	 * the children that can be created under this object. <!-- begin-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.PARAMETER_DEFINITION__DEFAULT_VALUE,
+				e4smFactory.eINSTANCE.createLiteralNull()));
+
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.PARAMETER_DEFINITION__DEFAULT_VALUE,
+				e4smFactory.eINSTANCE.createLiteralString()));
+
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.PARAMETER_DEFINITION__DEFAULT_VALUE,
+				e4smFactory.eINSTANCE.createLiteralInteger()));
+
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.PARAMETER_DEFINITION__DEFAULT_VALUE,
+				e4smFactory.eINSTANCE.createLiteralBoolean()));
+
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.PARAMETER_DEFINITION__DEFAULT_VALUE,
+				e4smFactory.eINSTANCE.createLiteralFloat()));
+
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.PARAMETER_DEFINITION__DEFAULT_VALUE,
+				e4smFactory.eINSTANCE.createLiteralDouble()));
+
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.PARAMETER_DEFINITION__DEFAULT_VALUE,
+				e4smFactory.eINSTANCE.createLiteralLong()));
+
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.PARAMETER_DEFINITION__DEFAULT_VALUE,
+				e4smFactory.eINSTANCE.createLiteralShort()));
+
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.PARAMETER_DEFINITION__DEFAULT_VALUE,
+				e4smFactory.eINSTANCE.createLiteralByte()));
+
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.PARAMETER_DEFINITION__DEFAULT_VALUE,
+				e4smFactory.eINSTANCE.createLiteralCharacter()));
+
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.PARAMETER_DEFINITION__DEFAULT_VALUE,
+				e4smFactory.eINSTANCE.createLiteralDate()));
 	}
 
 }

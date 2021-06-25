@@ -110,7 +110,7 @@ public class ComponentItemProvider extends NamedElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(e4smPackage.Literals.PARAMETRISABLE_ELEMENT__PARAMETERS);
+			childrenFeatures.add(e4smPackage.Literals.PARAMETERIZABLE_ELEMENT__PARAMETERS);
 			childrenFeatures.add(e4smPackage.Literals.COMPONENT__COMPONENTS);
 			childrenFeatures.add(e4smPackage.Literals.COMPONENT__PINS);
 		}
@@ -196,7 +196,7 @@ public class ComponentItemProvider extends NamedElementItemProvider {
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.PARAMETRISABLE_ELEMENT__PARAMETERS,
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.PARAMETERIZABLE_ELEMENT__PARAMETERS,
 				e4smFactory.eINSTANCE.createParameter()));
 
 		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.COMPONENT__COMPONENTS,

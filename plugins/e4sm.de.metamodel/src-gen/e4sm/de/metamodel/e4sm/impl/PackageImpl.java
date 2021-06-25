@@ -5,7 +5,7 @@ package e4sm.de.metamodel.e4sm.impl;
 import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.Connector;
 import e4sm.de.metamodel.e4sm.Parameter;
-import e4sm.de.metamodel.e4sm.ParametrisableElement;
+import e4sm.de.metamodel.e4sm.ParameterizableElement;
 import e4sm.de.metamodel.e4sm.Person;
 import e4sm.de.metamodel.e4sm.PhysicalComponent;
 import e4sm.de.metamodel.e4sm.Sector;
@@ -521,10 +521,10 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == ParametrisableElement.class) {
+		if (baseClass == ParameterizableElement.class) {
 			switch (derivedFeatureID) {
 			case e4smPackage.PACKAGE__PARAMETERS:
-				return e4smPackage.PARAMETRISABLE_ELEMENT__PARAMETERS;
+				return e4smPackage.PARAMETERIZABLE_ELEMENT__PARAMETERS;
 			default:
 				return -1;
 			}
@@ -538,9 +538,9 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == ParametrisableElement.class) {
+		if (baseClass == ParameterizableElement.class) {
 			switch (baseFeatureID) {
-			case e4smPackage.PARAMETRISABLE_ELEMENT__PARAMETERS:
+			case e4smPackage.PARAMETERIZABLE_ELEMENT__PARAMETERS:
 				return e4smPackage.PACKAGE__PARAMETERS;
 			default:
 				return -1;

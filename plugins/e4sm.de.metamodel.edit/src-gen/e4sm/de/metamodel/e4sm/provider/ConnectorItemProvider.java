@@ -152,7 +152,7 @@ public class ConnectorItemProvider extends OptionallyNamedElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(e4smPackage.Literals.PARAMETRISABLE_ELEMENT__PARAMETERS);
+			childrenFeatures.add(e4smPackage.Literals.PARAMETERIZABLE_ELEMENT__PARAMETERS);
 		}
 		return childrenFeatures;
 	}
@@ -255,7 +255,7 @@ public class ConnectorItemProvider extends OptionallyNamedElementItemProvider {
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.PARAMETRISABLE_ELEMENT__PARAMETERS,
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.PARAMETERIZABLE_ELEMENT__PARAMETERS,
 				e4smFactory.eINSTANCE.createParameter()));
 	}
 

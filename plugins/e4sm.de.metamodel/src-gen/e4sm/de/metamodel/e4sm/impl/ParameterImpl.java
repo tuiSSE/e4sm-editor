@@ -4,6 +4,7 @@ package e4sm.de.metamodel.e4sm.impl;
 
 import e4sm.de.metamodel.e4sm.Parameter;
 import e4sm.de.metamodel.e4sm.ParameterDefinition;
+import e4sm.de.metamodel.e4sm.ValueSpecification;
 import e4sm.de.metamodel.e4sm.Variant;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
@@ -27,10 +28,10 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * </p>
  * <ul>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ParameterImpl#getValue <em>Value</em>}</li>
- *   <li>{@link e4sm.de.metamodel.e4sm.impl.ParameterImpl#getInitialValue <em>Initial Value</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ParameterImpl#getParameterDefinition <em>Parameter Definition</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ParameterImpl#getAppliesOnlyOnVariants <em>Applies Only On Variants</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ParameterImpl#getDoesNotApplyOnVariants <em>Does Not Apply On Variants</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.ParameterImpl#getInitialValue <em>Initial Value</em>}</li>
  * </ul>
  *
  * @generated
@@ -45,36 +46,6 @@ public class ParameterImpl extends ElementImpl implements Parameter {
 	 * @ordered
 	 */
 	protected static final String VALUE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected String value = VALUE_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getInitialValue() <em>Initial Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInitialValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String INITIAL_VALUE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getInitialValue() <em>Initial Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInitialValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected String initialValue = INITIAL_VALUE_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getParameterDefinition() <em>Parameter Definition</em>}' reference.
@@ -107,6 +78,16 @@ public class ParameterImpl extends ElementImpl implements Parameter {
 	protected EList<Variant> doesNotApplyOnVariants;
 
 	/**
+	 * The cached value of the '{@link #getInitialValue() <em>Initial Value</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInitialValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected ValueSpecification initialValue;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -132,7 +113,9 @@ public class ParameterImpl extends ElementImpl implements Parameter {
 	 */
 	@Override
 	public String getValue() {
-		return value;
+		// TODO: implement this method to return the 'Value' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -142,10 +125,9 @@ public class ParameterImpl extends ElementImpl implements Parameter {
 	 */
 	@Override
 	public void setValue(String newValue) {
-		String oldValue = value;
-		value = newValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.PARAMETER__VALUE, oldValue, value));
+		// TODO: implement this method to set the 'Value' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -154,7 +136,7 @@ public class ParameterImpl extends ElementImpl implements Parameter {
 	 * @generated
 	 */
 	@Override
-	public String getInitialValue() {
+	public ValueSpecification getInitialValue() {
 		return initialValue;
 	}
 
@@ -163,13 +145,41 @@ public class ParameterImpl extends ElementImpl implements Parameter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public void setInitialValue(String newInitialValue) {
-		String oldInitialValue = initialValue;
+	public NotificationChain basicSetInitialValue(ValueSpecification newInitialValue, NotificationChain msgs) {
+		ValueSpecification oldInitialValue = initialValue;
 		initialValue = newInitialValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.PARAMETER__INITIAL_VALUE, oldInitialValue,
-					initialValue));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					e4smPackage.PARAMETER__INITIAL_VALUE, oldInitialValue, newInitialValue);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setInitialValue(ValueSpecification newInitialValue) {
+		if (newInitialValue != initialValue) {
+			NotificationChain msgs = null;
+			if (initialValue != null)
+				msgs = ((InternalEObject) initialValue).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - e4smPackage.PARAMETER__INITIAL_VALUE, null, msgs);
+			if (newInitialValue != null)
+				msgs = ((InternalEObject) newInitialValue).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - e4smPackage.PARAMETER__INITIAL_VALUE, null, msgs);
+			msgs = basicSetInitialValue(newInitialValue, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.PARAMETER__INITIAL_VALUE, newInitialValue,
+					newInitialValue));
 	}
 
 	/**
@@ -298,6 +308,8 @@ public class ParameterImpl extends ElementImpl implements Parameter {
 		switch (featureID) {
 		case e4smPackage.PARAMETER__PARAMETER_DEFINITION:
 			return basicSetParameterDefinition(null, msgs);
+		case e4smPackage.PARAMETER__INITIAL_VALUE:
+			return basicSetInitialValue(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -312,8 +324,6 @@ public class ParameterImpl extends ElementImpl implements Parameter {
 		switch (featureID) {
 		case e4smPackage.PARAMETER__VALUE:
 			return getValue();
-		case e4smPackage.PARAMETER__INITIAL_VALUE:
-			return getInitialValue();
 		case e4smPackage.PARAMETER__PARAMETER_DEFINITION:
 			if (resolve)
 				return getParameterDefinition();
@@ -322,6 +332,8 @@ public class ParameterImpl extends ElementImpl implements Parameter {
 			return getAppliesOnlyOnVariants();
 		case e4smPackage.PARAMETER__DOES_NOT_APPLY_ON_VARIANTS:
 			return getDoesNotApplyOnVariants();
+		case e4smPackage.PARAMETER__INITIAL_VALUE:
+			return getInitialValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -338,9 +350,6 @@ public class ParameterImpl extends ElementImpl implements Parameter {
 		case e4smPackage.PARAMETER__VALUE:
 			setValue((String) newValue);
 			return;
-		case e4smPackage.PARAMETER__INITIAL_VALUE:
-			setInitialValue((String) newValue);
-			return;
 		case e4smPackage.PARAMETER__PARAMETER_DEFINITION:
 			setParameterDefinition((ParameterDefinition) newValue);
 			return;
@@ -351,6 +360,9 @@ public class ParameterImpl extends ElementImpl implements Parameter {
 		case e4smPackage.PARAMETER__DOES_NOT_APPLY_ON_VARIANTS:
 			getDoesNotApplyOnVariants().clear();
 			getDoesNotApplyOnVariants().addAll((Collection<? extends Variant>) newValue);
+			return;
+		case e4smPackage.PARAMETER__INITIAL_VALUE:
+			setInitialValue((ValueSpecification) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -367,9 +379,6 @@ public class ParameterImpl extends ElementImpl implements Parameter {
 		case e4smPackage.PARAMETER__VALUE:
 			setValue(VALUE_EDEFAULT);
 			return;
-		case e4smPackage.PARAMETER__INITIAL_VALUE:
-			setInitialValue(INITIAL_VALUE_EDEFAULT);
-			return;
 		case e4smPackage.PARAMETER__PARAMETER_DEFINITION:
 			setParameterDefinition((ParameterDefinition) null);
 			return;
@@ -378,6 +387,9 @@ public class ParameterImpl extends ElementImpl implements Parameter {
 			return;
 		case e4smPackage.PARAMETER__DOES_NOT_APPLY_ON_VARIANTS:
 			getDoesNotApplyOnVariants().clear();
+			return;
+		case e4smPackage.PARAMETER__INITIAL_VALUE:
+			setInitialValue((ValueSpecification) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -392,36 +404,17 @@ public class ParameterImpl extends ElementImpl implements Parameter {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 		case e4smPackage.PARAMETER__VALUE:
-			return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
-		case e4smPackage.PARAMETER__INITIAL_VALUE:
-			return INITIAL_VALUE_EDEFAULT == null ? initialValue != null : !INITIAL_VALUE_EDEFAULT.equals(initialValue);
+			return VALUE_EDEFAULT == null ? getValue() != null : !VALUE_EDEFAULT.equals(getValue());
 		case e4smPackage.PARAMETER__PARAMETER_DEFINITION:
 			return parameterDefinition != null;
 		case e4smPackage.PARAMETER__APPLIES_ONLY_ON_VARIANTS:
 			return appliesOnlyOnVariants != null && !appliesOnlyOnVariants.isEmpty();
 		case e4smPackage.PARAMETER__DOES_NOT_APPLY_ON_VARIANTS:
 			return doesNotApplyOnVariants != null && !doesNotApplyOnVariants.isEmpty();
+		case e4smPackage.PARAMETER__INITIAL_VALUE:
+			return initialValue != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy())
-			return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (value: ");
-		result.append(value);
-		result.append(", initialValue: ");
-		result.append(initialValue);
-		result.append(')');
-		return result.toString();
 	}
 
 } //ParameterImpl

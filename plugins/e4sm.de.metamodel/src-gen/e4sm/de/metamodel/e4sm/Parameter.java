@@ -14,10 +14,10 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link e4sm.de.metamodel.e4sm.Parameter#getValue <em>Value</em>}</li>
- *   <li>{@link e4sm.de.metamodel.e4sm.Parameter#getInitialValue <em>Initial Value</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Parameter#getParameterDefinition <em>Parameter Definition</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Parameter#getAppliesOnlyOnVariants <em>Applies Only On Variants</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Parameter#getDoesNotApplyOnVariants <em>Does Not Apply On Variants</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.Parameter#getInitialValue <em>Initial Value</em>}</li>
  * </ul>
  *
  * @see e4sm.de.metamodel.e4sm.e4smPackage#getParameter()
@@ -32,7 +32,7 @@ public interface Parameter extends Element {
 	 * @return the value of the '<em>Value</em>' attribute.
 	 * @see #setValue(String)
 	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getParameter_Value()
-	 * @model unique="false" transient="true"
+	 * @model unique="false" transient="true" volatile="true"
 	 * @generated
 	 */
 	String getValue();
@@ -48,26 +48,26 @@ public interface Parameter extends Element {
 	void setValue(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Initial Value</b></em>' attribute.
+	 * Returns the value of the '<em><b>Initial Value</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Initial Value</em>' attribute.
-	 * @see #setInitialValue(String)
+	 * @return the value of the '<em>Initial Value</em>' containment reference.
+	 * @see #setInitialValue(ValueSpecification)
 	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getParameter_InitialValue()
-	 * @model unique="false"
+	 * @model containment="true"
 	 * @generated
 	 */
-	String getInitialValue();
+	ValueSpecification getInitialValue();
 
 	/**
-	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.Parameter#getInitialValue <em>Initial Value</em>}' attribute.
+	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.Parameter#getInitialValue <em>Initial Value</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Initial Value</em>' attribute.
+	 * @param value the new value of the '<em>Initial Value</em>' containment reference.
 	 * @see #getInitialValue()
 	 * @generated
 	 */
-	void setInitialValue(String value);
+	void setInitialValue(ValueSpecification value);
 
 	/**
 	 * Returns the value of the '<em><b>Parameter Definition</b></em>' reference.

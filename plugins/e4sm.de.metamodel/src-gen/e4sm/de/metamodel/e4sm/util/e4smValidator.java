@@ -6,15 +6,30 @@ import e4sm.de.metamodel.e4sm.Actor;
 import e4sm.de.metamodel.e4sm.Actuator;
 import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.Connector;
-import e4sm.de.metamodel.e4sm.E4SMElementType;
+import e4sm.de.metamodel.e4sm.ConversionByConvention;
+import e4sm.de.metamodel.e4sm.ConversionByPrefix;
+import e4sm.de.metamodel.e4sm.DerivedUnit;
 import e4sm.de.metamodel.e4sm.Element;
 import e4sm.de.metamodel.e4sm.ExternalDependency;
 import e4sm.de.metamodel.e4sm.Function;
 import e4sm.de.metamodel.e4sm.Heuristic;
 import e4sm.de.metamodel.e4sm.Human;
 import e4sm.de.metamodel.e4sm.InputPin;
+import e4sm.de.metamodel.e4sm.LiteralBoolean;
+import e4sm.de.metamodel.e4sm.LiteralByte;
+import e4sm.de.metamodel.e4sm.LiteralCharacter;
+import e4sm.de.metamodel.e4sm.LiteralDate;
+import e4sm.de.metamodel.e4sm.LiteralDouble;
+import e4sm.de.metamodel.e4sm.LiteralFloat;
+import e4sm.de.metamodel.e4sm.LiteralInteger;
+import e4sm.de.metamodel.e4sm.LiteralLong;
+import e4sm.de.metamodel.e4sm.LiteralNull;
+import e4sm.de.metamodel.e4sm.LiteralShort;
+import e4sm.de.metamodel.e4sm.LiteralSpecification;
+import e4sm.de.metamodel.e4sm.LiteralString;
 import e4sm.de.metamodel.e4sm.LogicalConnector;
 import e4sm.de.metamodel.e4sm.MachineLearningComponent;
+import e4sm.de.metamodel.e4sm.MeasurementUnit;
 import e4sm.de.metamodel.e4sm.Model;
 import e4sm.de.metamodel.e4sm.NamedElement;
 import e4sm.de.metamodel.e4sm.OptionallyNamedElement;
@@ -22,8 +37,7 @@ import e4sm.de.metamodel.e4sm.OutputPin;
 import e4sm.de.metamodel.e4sm.Parameter;
 import e4sm.de.metamodel.e4sm.ParameterDefinition;
 import e4sm.de.metamodel.e4sm.ParameterDefinitionLibrary;
-import e4sm.de.metamodel.e4sm.ParameterType;
-import e4sm.de.metamodel.e4sm.ParametrisableElement;
+import e4sm.de.metamodel.e4sm.ParameterizableElement;
 import e4sm.de.metamodel.e4sm.Person;
 import e4sm.de.metamodel.e4sm.PhysicalComponent;
 import e4sm.de.metamodel.e4sm.PhysicalConnector;
@@ -31,12 +45,16 @@ import e4sm.de.metamodel.e4sm.Pin;
 import e4sm.de.metamodel.e4sm.Robot;
 import e4sm.de.metamodel.e4sm.Sector;
 import e4sm.de.metamodel.e4sm.Sensor;
+import e4sm.de.metamodel.e4sm.SimpleUnit;
 import e4sm.de.metamodel.e4sm.SoftwareComponent;
+import e4sm.de.metamodel.e4sm.TypedElement;
+import e4sm.de.metamodel.e4sm.UnitConversion;
 import e4sm.de.metamodel.e4sm.UnitOfMeasurement;
+import e4sm.de.metamodel.e4sm.UnitPrefix;
+import e4sm.de.metamodel.e4sm.ValueSpecification;
 import e4sm.de.metamodel.e4sm.Variant;
 import e4sm.de.metamodel.e4sm.Package;
 import e4sm.de.metamodel.e4sm.e4smPackage;
-
 import java.util.Map;
 
 import org.eclipse.emf.common.util.Diagnostic;
@@ -172,18 +190,56 @@ public class e4smValidator extends EObjectValidator {
 			return validateParameterDefinition((ParameterDefinition) value, diagnostics, context);
 		case e4smPackage.PARAMETER:
 			return validateParameter((Parameter) value, diagnostics, context);
-		case e4smPackage.PARAMETRISABLE_ELEMENT:
-			return validateParametrisableElement((ParametrisableElement) value, diagnostics, context);
+		case e4smPackage.PARAMETERIZABLE_ELEMENT:
+			return validateParameterizableElement((ParameterizableElement) value, diagnostics, context);
 		case e4smPackage.PARAMETER_DEFINITION_LIBRARY:
 			return validateParameterDefinitionLibrary((ParameterDefinitionLibrary) value, diagnostics, context);
 		case e4smPackage.VARIANT:
 			return validateVariant((Variant) value, diagnostics, context);
-		case e4smPackage.PARAMETER_TYPE:
-			return validateParameterType((ParameterType) value, diagnostics, context);
+		case e4smPackage.MEASUREMENT_UNIT:
+			return validateMeasurementUnit((MeasurementUnit) value, diagnostics, context);
+		case e4smPackage.SIMPLE_UNIT:
+			return validateSimpleUnit((SimpleUnit) value, diagnostics, context);
+		case e4smPackage.DERIVED_UNIT:
+			return validateDerivedUnit((DerivedUnit) value, diagnostics, context);
+		case e4smPackage.UNIT_CONVERSION:
+			return validateUnitConversion((UnitConversion) value, diagnostics, context);
+		case e4smPackage.CONVERSION_BY_PREFIX:
+			return validateConversionByPrefix((ConversionByPrefix) value, diagnostics, context);
+		case e4smPackage.CONVERSION_BY_CONVENTION:
+			return validateConversionByConvention((ConversionByConvention) value, diagnostics, context);
+		case e4smPackage.UNIT_PREFIX:
+			return validateUnitPrefix((UnitPrefix) value, diagnostics, context);
+		case e4smPackage.VALUE_SPECIFICATION:
+			return validateValueSpecification((ValueSpecification) value, diagnostics, context);
+		case e4smPackage.LITERAL_SPECIFICATION:
+			return validateLiteralSpecification((LiteralSpecification) value, diagnostics, context);
+		case e4smPackage.TYPED_ELEMENT:
+			return validateTypedElement((TypedElement) value, diagnostics, context);
+		case e4smPackage.LITERAL_NULL:
+			return validateLiteralNull((LiteralNull) value, diagnostics, context);
+		case e4smPackage.LITERAL_STRING:
+			return validateLiteralString((LiteralString) value, diagnostics, context);
+		case e4smPackage.LITERAL_INTEGER:
+			return validateLiteralInteger((LiteralInteger) value, diagnostics, context);
+		case e4smPackage.LITERAL_BOOLEAN:
+			return validateLiteralBoolean((LiteralBoolean) value, diagnostics, context);
+		case e4smPackage.LITERAL_FLOAT:
+			return validateLiteralFloat((LiteralFloat) value, diagnostics, context);
+		case e4smPackage.LITERAL_DOUBLE:
+			return validateLiteralDouble((LiteralDouble) value, diagnostics, context);
+		case e4smPackage.LITERAL_LONG:
+			return validateLiteralLong((LiteralLong) value, diagnostics, context);
+		case e4smPackage.LITERAL_SHORT:
+			return validateLiteralShort((LiteralShort) value, diagnostics, context);
+		case e4smPackage.LITERAL_BYTE:
+			return validateLiteralByte((LiteralByte) value, diagnostics, context);
+		case e4smPackage.LITERAL_CHARACTER:
+			return validateLiteralCharacter((LiteralCharacter) value, diagnostics, context);
+		case e4smPackage.LITERAL_DATE:
+			return validateLiteralDate((LiteralDate) value, diagnostics, context);
 		case e4smPackage.UNIT_OF_MEASUREMENT:
 			return validateUnitOfMeasurement((UnitOfMeasurement) value, diagnostics, context);
-		case e4smPackage.E4SM_ELEMENT_TYPE:
-			return validateE4SMElementType((E4SMElementType) value, diagnostics, context);
 		case e4smPackage.CONNECTIONSPEED:
 			return validateConnectionspeed(value, diagnostics, context);
 		case e4smPackage.JSON:
@@ -931,9 +987,9 @@ public class e4smValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateParametrisableElement(ParametrisableElement parametrisableElement,
+	public boolean validateParameterizableElement(ParameterizableElement parameterizableElement,
 			DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(parametrisableElement, diagnostics, context);
+		return validate_EveryDefaultConstraint(parameterizableElement, diagnostics, context);
 	}
 
 	/**
@@ -960,9 +1016,207 @@ public class e4smValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateParameterType(ParameterType parameterType, DiagnosticChain diagnostics,
+	public boolean validateMeasurementUnit(MeasurementUnit measurementUnit, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
-		return true;
+		return validate_EveryDefaultConstraint(measurementUnit, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateSimpleUnit(SimpleUnit simpleUnit, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(simpleUnit, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateDerivedUnit(DerivedUnit derivedUnit, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(derivedUnit, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateUnitConversion(UnitConversion unitConversion, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(unitConversion, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateConversionByPrefix(ConversionByPrefix conversionByPrefix, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(conversionByPrefix, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateConversionByConvention(ConversionByConvention conversionByConvention,
+			DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(conversionByConvention, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateUnitPrefix(UnitPrefix unitPrefix, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(unitPrefix, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateValueSpecification(ValueSpecification valueSpecification, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(valueSpecification, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateLiteralSpecification(LiteralSpecification literalSpecification, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(literalSpecification, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateTypedElement(TypedElement typedElement, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(typedElement, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateLiteralNull(LiteralNull literalNull, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(literalNull, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateLiteralString(LiteralString literalString, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(literalString, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateLiteralInteger(LiteralInteger literalInteger, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(literalInteger, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateLiteralBoolean(LiteralBoolean literalBoolean, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(literalBoolean, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateLiteralFloat(LiteralFloat literalFloat, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(literalFloat, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateLiteralDouble(LiteralDouble literalDouble, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(literalDouble, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateLiteralLong(LiteralLong literalLong, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(literalLong, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateLiteralShort(LiteralShort literalShort, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(literalShort, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateLiteralByte(LiteralByte literalByte, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(literalByte, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateLiteralCharacter(LiteralCharacter literalCharacter, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(literalCharacter, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateLiteralDate(LiteralDate literalDate, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(literalDate, diagnostics, context);
 	}
 
 	/**
@@ -971,16 +1225,6 @@ public class e4smValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateUnitOfMeasurement(UnitOfMeasurement unitOfMeasurement, DiagnosticChain diagnostics,
-			Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateE4SMElementType(E4SMElementType e4SMElementType, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
 		return true;
 	}

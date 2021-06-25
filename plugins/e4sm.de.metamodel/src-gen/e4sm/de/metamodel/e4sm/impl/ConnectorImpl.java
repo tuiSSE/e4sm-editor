@@ -4,7 +4,7 @@ package e4sm.de.metamodel.e4sm.impl;
 
 import e4sm.de.metamodel.e4sm.Connector;
 import e4sm.de.metamodel.e4sm.Parameter;
-import e4sm.de.metamodel.e4sm.ParametrisableElement;
+import e4sm.de.metamodel.e4sm.ParameterizableElement;
 import e4sm.de.metamodel.e4sm.Pin;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
@@ -286,10 +286,10 @@ public class ConnectorImpl extends OptionallyNamedElementImpl implements Connect
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == ParametrisableElement.class) {
+		if (baseClass == ParameterizableElement.class) {
 			switch (derivedFeatureID) {
 			case e4smPackage.CONNECTOR__PARAMETERS:
-				return e4smPackage.PARAMETRISABLE_ELEMENT__PARAMETERS;
+				return e4smPackage.PARAMETERIZABLE_ELEMENT__PARAMETERS;
 			default:
 				return -1;
 			}
@@ -304,9 +304,9 @@ public class ConnectorImpl extends OptionallyNamedElementImpl implements Connect
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == ParametrisableElement.class) {
+		if (baseClass == ParameterizableElement.class) {
 			switch (baseFeatureID) {
-			case e4smPackage.PARAMETRISABLE_ELEMENT__PARAMETERS:
+			case e4smPackage.PARAMETERIZABLE_ELEMENT__PARAMETERS:
 				return e4smPackage.CONNECTOR__PARAMETERS;
 			default:
 				return -1;

@@ -21,4 +21,12 @@
             class="e4sm.de.metamodel.e4sm.util.e4smResourceFactoryImpl"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated e4sm -->
+      <package
+            uri="http://de.tu-ilmenau/e4sm/types/1.0.0"
+            class="e4sm.de.metamodel.e4sm.types.TypesPackage"
+            genModel="model/e4sm.genmodel"/>
+   </extension>
+
 </plugin>

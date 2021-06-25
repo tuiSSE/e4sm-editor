@@ -2,16 +2,22 @@
  */
 package e4sm.de.metamodel.e4sm.impl;
 
+import e4sm.de.metamodel.e4sm.Element;
+import e4sm.de.metamodel.e4sm.NamedElement;
 import e4sm.de.metamodel.e4sm.Parameter;
-import e4sm.de.metamodel.e4sm.ParametrisableElement;
 import e4sm.de.metamodel.e4sm.Pin;
+import e4sm.de.metamodel.e4sm.TypedElement;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
 import java.util.Collection;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -24,11 +30,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.PinImpl#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.PinImpl#getName <em>Name</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.PinImpl#getType <em>Type</em>}</li>
  * </ul>
  *
  * @generated
  */
-public abstract class PinImpl extends OptionallyNamedElementImpl implements Pin {
+public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pin {
 	/**
 	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -38,6 +46,36 @@ public abstract class PinImpl extends OptionallyNamedElementImpl implements Pin 
 	 * @ordered
 	 */
 	protected EList<Parameter> parameters;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getType() <em>Type</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected EDataType type;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -77,6 +115,69 @@ public abstract class PinImpl extends OptionallyNamedElementImpl implements Pin 
 	 * @generated
 	 */
 	@Override
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.PIN__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EDataType getType() {
+		if (type != null && type.eIsProxy()) {
+			InternalEObject oldType = (InternalEObject) type;
+			type = (EDataType) eResolveProxy(oldType);
+			if (type != oldType) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, e4smPackage.PIN__TYPE, oldType, type));
+			}
+		}
+		return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EDataType basicGetType() {
+		return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setType(EDataType newType) {
+		EDataType oldType = type;
+		type = newType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.PIN__TYPE, oldType, type));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case e4smPackage.PIN__PARAMETERS:
@@ -95,6 +196,12 @@ public abstract class PinImpl extends OptionallyNamedElementImpl implements Pin 
 		switch (featureID) {
 		case e4smPackage.PIN__PARAMETERS:
 			return getParameters();
+		case e4smPackage.PIN__NAME:
+			return getName();
+		case e4smPackage.PIN__TYPE:
+			if (resolve)
+				return getType();
+			return basicGetType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -112,6 +219,12 @@ public abstract class PinImpl extends OptionallyNamedElementImpl implements Pin 
 			getParameters().clear();
 			getParameters().addAll((Collection<? extends Parameter>) newValue);
 			return;
+		case e4smPackage.PIN__NAME:
+			setName((String) newValue);
+			return;
+		case e4smPackage.PIN__TYPE:
+			setType((EDataType) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -127,6 +240,12 @@ public abstract class PinImpl extends OptionallyNamedElementImpl implements Pin 
 		case e4smPackage.PIN__PARAMETERS:
 			getParameters().clear();
 			return;
+		case e4smPackage.PIN__NAME:
+			setName(NAME_EDEFAULT);
+			return;
+		case e4smPackage.PIN__TYPE:
+			setType((EDataType) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -141,6 +260,10 @@ public abstract class PinImpl extends OptionallyNamedElementImpl implements Pin 
 		switch (featureID) {
 		case e4smPackage.PIN__PARAMETERS:
 			return parameters != null && !parameters.isEmpty();
+		case e4smPackage.PIN__NAME:
+			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+		case e4smPackage.PIN__TYPE:
+			return type != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -152,10 +275,24 @@ public abstract class PinImpl extends OptionallyNamedElementImpl implements Pin 
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == ParametrisableElement.class) {
+		if (baseClass == Element.class) {
 			switch (derivedFeatureID) {
-			case e4smPackage.PIN__PARAMETERS:
-				return e4smPackage.PARAMETRISABLE_ELEMENT__PARAMETERS;
+			default:
+				return -1;
+			}
+		}
+		if (baseClass == NamedElement.class) {
+			switch (derivedFeatureID) {
+			case e4smPackage.PIN__NAME:
+				return e4smPackage.NAMED_ELEMENT__NAME;
+			default:
+				return -1;
+			}
+		}
+		if (baseClass == TypedElement.class) {
+			switch (derivedFeatureID) {
+			case e4smPackage.PIN__TYPE:
+				return e4smPackage.TYPED_ELEMENT__TYPE;
 			default:
 				return -1;
 			}
@@ -170,15 +307,46 @@ public abstract class PinImpl extends OptionallyNamedElementImpl implements Pin 
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == ParametrisableElement.class) {
+		if (baseClass == Element.class) {
 			switch (baseFeatureID) {
-			case e4smPackage.PARAMETRISABLE_ELEMENT__PARAMETERS:
-				return e4smPackage.PIN__PARAMETERS;
+			default:
+				return -1;
+			}
+		}
+		if (baseClass == NamedElement.class) {
+			switch (baseFeatureID) {
+			case e4smPackage.NAMED_ELEMENT__NAME:
+				return e4smPackage.PIN__NAME;
+			default:
+				return -1;
+			}
+		}
+		if (baseClass == TypedElement.class) {
+			switch (baseFeatureID) {
+			case e4smPackage.TYPED_ELEMENT__TYPE:
+				return e4smPackage.PIN__TYPE;
 			default:
 				return -1;
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy())
+			return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (name: ");
+		result.append(name);
+		result.append(')');
+		return result.toString();
 	}
 
 } //PinImpl

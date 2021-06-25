@@ -648,6 +648,420 @@ public class e4smItemProviderAdapterFactory extends e4smAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.MeasurementUnit} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MeasurementUnitItemProvider measurementUnitItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.MeasurementUnit}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMeasurementUnitAdapter() {
+		if (measurementUnitItemProvider == null) {
+			measurementUnitItemProvider = new MeasurementUnitItemProvider(this);
+		}
+
+		return measurementUnitItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.SimpleUnit} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SimpleUnitItemProvider simpleUnitItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.SimpleUnit}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSimpleUnitAdapter() {
+		if (simpleUnitItemProvider == null) {
+			simpleUnitItemProvider = new SimpleUnitItemProvider(this);
+		}
+
+		return simpleUnitItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.DerivedUnit} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DerivedUnitItemProvider derivedUnitItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.DerivedUnit}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDerivedUnitAdapter() {
+		if (derivedUnitItemProvider == null) {
+			derivedUnitItemProvider = new DerivedUnitItemProvider(this);
+		}
+
+		return derivedUnitItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.UnitConversion} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected UnitConversionItemProvider unitConversionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.UnitConversion}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createUnitConversionAdapter() {
+		if (unitConversionItemProvider == null) {
+			unitConversionItemProvider = new UnitConversionItemProvider(this);
+		}
+
+		return unitConversionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.ConversionByPrefix} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ConversionByPrefixItemProvider conversionByPrefixItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.ConversionByPrefix}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createConversionByPrefixAdapter() {
+		if (conversionByPrefixItemProvider == null) {
+			conversionByPrefixItemProvider = new ConversionByPrefixItemProvider(this);
+		}
+
+		return conversionByPrefixItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.ConversionByConvention} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ConversionByConventionItemProvider conversionByConventionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.ConversionByConvention}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createConversionByConventionAdapter() {
+		if (conversionByConventionItemProvider == null) {
+			conversionByConventionItemProvider = new ConversionByConventionItemProvider(this);
+		}
+
+		return conversionByConventionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.UnitPrefix} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected UnitPrefixItemProvider unitPrefixItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.UnitPrefix}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createUnitPrefixAdapter() {
+		if (unitPrefixItemProvider == null) {
+			unitPrefixItemProvider = new UnitPrefixItemProvider(this);
+		}
+
+		return unitPrefixItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.LiteralNull} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LiteralNullItemProvider literalNullItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.LiteralNull}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLiteralNullAdapter() {
+		if (literalNullItemProvider == null) {
+			literalNullItemProvider = new LiteralNullItemProvider(this);
+		}
+
+		return literalNullItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.LiteralString} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LiteralStringItemProvider literalStringItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.LiteralString}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLiteralStringAdapter() {
+		if (literalStringItemProvider == null) {
+			literalStringItemProvider = new LiteralStringItemProvider(this);
+		}
+
+		return literalStringItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.LiteralInteger} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LiteralIntegerItemProvider literalIntegerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.LiteralInteger}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLiteralIntegerAdapter() {
+		if (literalIntegerItemProvider == null) {
+			literalIntegerItemProvider = new LiteralIntegerItemProvider(this);
+		}
+
+		return literalIntegerItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.LiteralBoolean} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LiteralBooleanItemProvider literalBooleanItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.LiteralBoolean}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLiteralBooleanAdapter() {
+		if (literalBooleanItemProvider == null) {
+			literalBooleanItemProvider = new LiteralBooleanItemProvider(this);
+		}
+
+		return literalBooleanItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.LiteralFloat} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LiteralFloatItemProvider literalFloatItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.LiteralFloat}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLiteralFloatAdapter() {
+		if (literalFloatItemProvider == null) {
+			literalFloatItemProvider = new LiteralFloatItemProvider(this);
+		}
+
+		return literalFloatItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.LiteralDouble} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LiteralDoubleItemProvider literalDoubleItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.LiteralDouble}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLiteralDoubleAdapter() {
+		if (literalDoubleItemProvider == null) {
+			literalDoubleItemProvider = new LiteralDoubleItemProvider(this);
+		}
+
+		return literalDoubleItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.LiteralLong} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LiteralLongItemProvider literalLongItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.LiteralLong}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLiteralLongAdapter() {
+		if (literalLongItemProvider == null) {
+			literalLongItemProvider = new LiteralLongItemProvider(this);
+		}
+
+		return literalLongItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.LiteralShort} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LiteralShortItemProvider literalShortItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.LiteralShort}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLiteralShortAdapter() {
+		if (literalShortItemProvider == null) {
+			literalShortItemProvider = new LiteralShortItemProvider(this);
+		}
+
+		return literalShortItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.LiteralByte} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LiteralByteItemProvider literalByteItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.LiteralByte}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLiteralByteAdapter() {
+		if (literalByteItemProvider == null) {
+			literalByteItemProvider = new LiteralByteItemProvider(this);
+		}
+
+		return literalByteItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.LiteralCharacter} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LiteralCharacterItemProvider literalCharacterItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.LiteralCharacter}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLiteralCharacterAdapter() {
+		if (literalCharacterItemProvider == null) {
+			literalCharacterItemProvider = new LiteralCharacterItemProvider(this);
+		}
+
+		return literalCharacterItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.LiteralDate} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LiteralDateItemProvider literalDateItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.LiteralDate}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLiteralDateAdapter() {
+		if (literalDateItemProvider == null) {
+			literalDateItemProvider = new LiteralDateItemProvider(this);
+		}
+
+		return literalDateItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -802,6 +1216,42 @@ public class e4smItemProviderAdapterFactory extends e4smAdapterFactory
 			parameterDefinitionLibraryItemProvider.dispose();
 		if (variantItemProvider != null)
 			variantItemProvider.dispose();
+		if (measurementUnitItemProvider != null)
+			measurementUnitItemProvider.dispose();
+		if (simpleUnitItemProvider != null)
+			simpleUnitItemProvider.dispose();
+		if (derivedUnitItemProvider != null)
+			derivedUnitItemProvider.dispose();
+		if (unitConversionItemProvider != null)
+			unitConversionItemProvider.dispose();
+		if (conversionByPrefixItemProvider != null)
+			conversionByPrefixItemProvider.dispose();
+		if (conversionByConventionItemProvider != null)
+			conversionByConventionItemProvider.dispose();
+		if (unitPrefixItemProvider != null)
+			unitPrefixItemProvider.dispose();
+		if (literalNullItemProvider != null)
+			literalNullItemProvider.dispose();
+		if (literalStringItemProvider != null)
+			literalStringItemProvider.dispose();
+		if (literalIntegerItemProvider != null)
+			literalIntegerItemProvider.dispose();
+		if (literalBooleanItemProvider != null)
+			literalBooleanItemProvider.dispose();
+		if (literalFloatItemProvider != null)
+			literalFloatItemProvider.dispose();
+		if (literalDoubleItemProvider != null)
+			literalDoubleItemProvider.dispose();
+		if (literalLongItemProvider != null)
+			literalLongItemProvider.dispose();
+		if (literalShortItemProvider != null)
+			literalShortItemProvider.dispose();
+		if (literalByteItemProvider != null)
+			literalByteItemProvider.dispose();
+		if (literalCharacterItemProvider != null)
+			literalCharacterItemProvider.dispose();
+		if (literalDateItemProvider != null)
+			literalDateItemProvider.dispose();
 	}
 
 }

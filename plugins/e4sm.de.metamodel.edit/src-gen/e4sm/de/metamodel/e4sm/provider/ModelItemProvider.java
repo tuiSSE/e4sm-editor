@@ -80,10 +80,10 @@ public class ModelItemProvider extends NamedElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(e4smPackage.Literals.PARAMETRISABLE_ELEMENT__PARAMETERS);
+			childrenFeatures.add(e4smPackage.Literals.PARAMETERIZABLE_ELEMENT__PARAMETERS);
 			childrenFeatures.add(e4smPackage.Literals.MODEL__PACKAGES);
 			childrenFeatures.add(e4smPackage.Literals.MODEL__ACTORS);
-			childrenFeatures.add(e4smPackage.Literals.MODEL__PARAMETER_DEFINITIONLIBRARIES);
+			childrenFeatures.add(e4smPackage.Literals.MODEL__PARAMETER_DEFINITION_LIBRARIES);
 			childrenFeatures.add(e4smPackage.Literals.MODEL__VARIANTS);
 		}
 		return childrenFeatures;
@@ -154,7 +154,7 @@ public class ModelItemProvider extends NamedElementItemProvider {
 		case e4smPackage.MODEL__PARAMETERS:
 		case e4smPackage.MODEL__PACKAGES:
 		case e4smPackage.MODEL__ACTORS:
-		case e4smPackage.MODEL__PARAMETER_DEFINITIONLIBRARIES:
+		case e4smPackage.MODEL__PARAMETER_DEFINITION_LIBRARIES:
 		case e4smPackage.MODEL__VARIANTS:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
@@ -173,7 +173,7 @@ public class ModelItemProvider extends NamedElementItemProvider {
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.PARAMETRISABLE_ELEMENT__PARAMETERS,
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.PARAMETERIZABLE_ELEMENT__PARAMETERS,
 				e4smFactory.eINSTANCE.createParameter()));
 
 		newChildDescriptors
@@ -191,7 +191,7 @@ public class ModelItemProvider extends NamedElementItemProvider {
 		newChildDescriptors
 				.add(createChildParameter(e4smPackage.Literals.MODEL__ACTORS, e4smFactory.eINSTANCE.createPerson()));
 
-		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.MODEL__PARAMETER_DEFINITIONLIBRARIES,
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.MODEL__PARAMETER_DEFINITION_LIBRARIES,
 				e4smFactory.eINSTANCE.createParameterDefinitionLibrary()));
 
 		newChildDescriptors

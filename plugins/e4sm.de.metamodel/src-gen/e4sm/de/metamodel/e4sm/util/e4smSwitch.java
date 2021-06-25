@@ -6,14 +6,30 @@ import e4sm.de.metamodel.e4sm.Actor;
 import e4sm.de.metamodel.e4sm.Actuator;
 import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.Connector;
+import e4sm.de.metamodel.e4sm.ConversionByConvention;
+import e4sm.de.metamodel.e4sm.ConversionByPrefix;
+import e4sm.de.metamodel.e4sm.DerivedUnit;
 import e4sm.de.metamodel.e4sm.Element;
 import e4sm.de.metamodel.e4sm.ExternalDependency;
 import e4sm.de.metamodel.e4sm.Function;
 import e4sm.de.metamodel.e4sm.Heuristic;
 import e4sm.de.metamodel.e4sm.Human;
 import e4sm.de.metamodel.e4sm.InputPin;
+import e4sm.de.metamodel.e4sm.LiteralBoolean;
+import e4sm.de.metamodel.e4sm.LiteralByte;
+import e4sm.de.metamodel.e4sm.LiteralCharacter;
+import e4sm.de.metamodel.e4sm.LiteralDate;
+import e4sm.de.metamodel.e4sm.LiteralDouble;
+import e4sm.de.metamodel.e4sm.LiteralFloat;
+import e4sm.de.metamodel.e4sm.LiteralInteger;
+import e4sm.de.metamodel.e4sm.LiteralLong;
+import e4sm.de.metamodel.e4sm.LiteralNull;
+import e4sm.de.metamodel.e4sm.LiteralShort;
+import e4sm.de.metamodel.e4sm.LiteralSpecification;
+import e4sm.de.metamodel.e4sm.LiteralString;
 import e4sm.de.metamodel.e4sm.LogicalConnector;
 import e4sm.de.metamodel.e4sm.MachineLearningComponent;
+import e4sm.de.metamodel.e4sm.MeasurementUnit;
 import e4sm.de.metamodel.e4sm.Model;
 import e4sm.de.metamodel.e4sm.NamedElement;
 import e4sm.de.metamodel.e4sm.OptionallyNamedElement;
@@ -21,7 +37,7 @@ import e4sm.de.metamodel.e4sm.OutputPin;
 import e4sm.de.metamodel.e4sm.Parameter;
 import e4sm.de.metamodel.e4sm.ParameterDefinition;
 import e4sm.de.metamodel.e4sm.ParameterDefinitionLibrary;
-import e4sm.de.metamodel.e4sm.ParametrisableElement;
+import e4sm.de.metamodel.e4sm.ParameterizableElement;
 import e4sm.de.metamodel.e4sm.Person;
 import e4sm.de.metamodel.e4sm.PhysicalComponent;
 import e4sm.de.metamodel.e4sm.PhysicalConnector;
@@ -29,10 +45,14 @@ import e4sm.de.metamodel.e4sm.Pin;
 import e4sm.de.metamodel.e4sm.Robot;
 import e4sm.de.metamodel.e4sm.Sector;
 import e4sm.de.metamodel.e4sm.Sensor;
+import e4sm.de.metamodel.e4sm.SimpleUnit;
 import e4sm.de.metamodel.e4sm.SoftwareComponent;
+import e4sm.de.metamodel.e4sm.TypedElement;
+import e4sm.de.metamodel.e4sm.UnitConversion;
+import e4sm.de.metamodel.e4sm.UnitPrefix;
+import e4sm.de.metamodel.e4sm.ValueSpecification;
 import e4sm.de.metamodel.e4sm.Variant;
 import e4sm.de.metamodel.e4sm.e4smPackage;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -101,7 +121,7 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseNamedElement(component);
 			if (result == null)
-				result = caseParametrisableElement(component);
+				result = caseParameterizableElement(component);
 			if (result == null)
 				result = caseElement(component);
 			if (result == null)
@@ -118,7 +138,7 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseNamedElement(machineLearningComponent);
 			if (result == null)
-				result = caseParametrisableElement(machineLearningComponent);
+				result = caseParameterizableElement(machineLearningComponent);
 			if (result == null)
 				result = caseElement(machineLearningComponent);
 			if (result == null)
@@ -131,7 +151,7 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseOptionallyNamedElement(connector);
 			if (result == null)
-				result = caseParametrisableElement(connector);
+				result = caseParameterizableElement(connector);
 			if (result == null)
 				result = caseElement(connector);
 			if (result == null)
@@ -146,7 +166,7 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseOptionallyNamedElement(physicalConnector);
 			if (result == null)
-				result = caseParametrisableElement(physicalConnector);
+				result = caseParameterizableElement(physicalConnector);
 			if (result == null)
 				result = caseElement(physicalConnector);
 			if (result == null)
@@ -161,7 +181,7 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseNamedElement(physicalComponent);
 			if (result == null)
-				result = caseParametrisableElement(physicalComponent);
+				result = caseParameterizableElement(physicalComponent);
 			if (result == null)
 				result = caseElement(physicalComponent);
 			if (result == null)
@@ -176,7 +196,7 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseNamedElement(softwareComponent);
 			if (result == null)
-				result = caseParametrisableElement(softwareComponent);
+				result = caseParameterizableElement(softwareComponent);
 			if (result == null)
 				result = caseElement(softwareComponent);
 			if (result == null)
@@ -191,7 +211,7 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseOptionallyNamedElement(logicalConnector);
 			if (result == null)
-				result = caseParametrisableElement(logicalConnector);
+				result = caseParameterizableElement(logicalConnector);
 			if (result == null)
 				result = caseElement(logicalConnector);
 			if (result == null)
@@ -208,7 +228,7 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseNamedElement(heuristic);
 			if (result == null)
-				result = caseParametrisableElement(heuristic);
+				result = caseParameterizableElement(heuristic);
 			if (result == null)
 				result = caseElement(heuristic);
 			if (result == null)
@@ -225,7 +245,7 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseNamedElement(function);
 			if (result == null)
-				result = caseParametrisableElement(function);
+				result = caseParameterizableElement(function);
 			if (result == null)
 				result = caseElement(function);
 			if (result == null)
@@ -242,7 +262,7 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseNamedElement(externalDependency);
 			if (result == null)
-				result = caseParametrisableElement(externalDependency);
+				result = caseParameterizableElement(externalDependency);
 			if (result == null)
 				result = caseElement(externalDependency);
 			if (result == null)
@@ -255,7 +275,7 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseNamedElement(package_);
 			if (result == null)
-				result = caseParametrisableElement(package_);
+				result = caseParameterizableElement(package_);
 			if (result == null)
 				result = caseElement(package_);
 			if (result == null)
@@ -268,7 +288,7 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseNamedElement(model);
 			if (result == null)
-				result = caseParametrisableElement(model);
+				result = caseParameterizableElement(model);
 			if (result == null)
 				result = caseElement(model);
 			if (result == null)
@@ -342,7 +362,7 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseNamedElement(sensor);
 			if (result == null)
-				result = caseParametrisableElement(sensor);
+				result = caseParameterizableElement(sensor);
 			if (result == null)
 				result = caseElement(sensor);
 			if (result == null)
@@ -359,7 +379,7 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseNamedElement(actuator);
 			if (result == null)
-				result = caseParametrisableElement(actuator);
+				result = caseParameterizableElement(actuator);
 			if (result == null)
 				result = caseElement(actuator);
 			if (result == null)
@@ -377,9 +397,11 @@ public class e4smSwitch<T> extends Switch<T> {
 			Pin pin = (Pin) theEObject;
 			T result = casePin(pin);
 			if (result == null)
-				result = caseOptionallyNamedElement(pin);
+				result = caseParameterizableElement(pin);
 			if (result == null)
-				result = caseParametrisableElement(pin);
+				result = caseTypedElement(pin);
+			if (result == null)
+				result = caseNamedElement(pin);
 			if (result == null)
 				result = caseElement(pin);
 			if (result == null)
@@ -392,9 +414,11 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = casePin(inputPin);
 			if (result == null)
-				result = caseOptionallyNamedElement(inputPin);
+				result = caseParameterizableElement(inputPin);
 			if (result == null)
-				result = caseParametrisableElement(inputPin);
+				result = caseTypedElement(inputPin);
+			if (result == null)
+				result = caseNamedElement(inputPin);
 			if (result == null)
 				result = caseElement(inputPin);
 			if (result == null)
@@ -407,9 +431,11 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = casePin(outputPin);
 			if (result == null)
-				result = caseOptionallyNamedElement(outputPin);
+				result = caseParameterizableElement(outputPin);
 			if (result == null)
-				result = caseParametrisableElement(outputPin);
+				result = caseTypedElement(outputPin);
+			if (result == null)
+				result = caseNamedElement(outputPin);
 			if (result == null)
 				result = caseElement(outputPin);
 			if (result == null)
@@ -444,6 +470,8 @@ public class e4smSwitch<T> extends Switch<T> {
 			ParameterDefinition parameterDefinition = (ParameterDefinition) theEObject;
 			T result = caseParameterDefinition(parameterDefinition);
 			if (result == null)
+				result = caseTypedElement(parameterDefinition);
+			if (result == null)
 				result = caseNamedElement(parameterDefinition);
 			if (result == null)
 				result = caseElement(parameterDefinition);
@@ -460,9 +488,9 @@ public class e4smSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case e4smPackage.PARAMETRISABLE_ELEMENT: {
-			ParametrisableElement parametrisableElement = (ParametrisableElement) theEObject;
-			T result = caseParametrisableElement(parametrisableElement);
+		case e4smPackage.PARAMETERIZABLE_ELEMENT: {
+			ParameterizableElement parameterizableElement = (ParameterizableElement) theEObject;
+			T result = caseParameterizableElement(parameterizableElement);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -485,6 +513,289 @@ public class e4smSwitch<T> extends Switch<T> {
 				result = caseNamedElement(variant);
 			if (result == null)
 				result = caseElement(variant);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case e4smPackage.MEASUREMENT_UNIT: {
+			MeasurementUnit measurementUnit = (MeasurementUnit) theEObject;
+			T result = caseMeasurementUnit(measurementUnit);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case e4smPackage.SIMPLE_UNIT: {
+			SimpleUnit simpleUnit = (SimpleUnit) theEObject;
+			T result = caseSimpleUnit(simpleUnit);
+			if (result == null)
+				result = caseMeasurementUnit(simpleUnit);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case e4smPackage.DERIVED_UNIT: {
+			DerivedUnit derivedUnit = (DerivedUnit) theEObject;
+			T result = caseDerivedUnit(derivedUnit);
+			if (result == null)
+				result = caseMeasurementUnit(derivedUnit);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case e4smPackage.UNIT_CONVERSION: {
+			UnitConversion unitConversion = (UnitConversion) theEObject;
+			T result = caseUnitConversion(unitConversion);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case e4smPackage.CONVERSION_BY_PREFIX: {
+			ConversionByPrefix conversionByPrefix = (ConversionByPrefix) theEObject;
+			T result = caseConversionByPrefix(conversionByPrefix);
+			if (result == null)
+				result = caseUnitConversion(conversionByPrefix);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case e4smPackage.CONVERSION_BY_CONVENTION: {
+			ConversionByConvention conversionByConvention = (ConversionByConvention) theEObject;
+			T result = caseConversionByConvention(conversionByConvention);
+			if (result == null)
+				result = caseUnitConversion(conversionByConvention);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case e4smPackage.UNIT_PREFIX: {
+			UnitPrefix unitPrefix = (UnitPrefix) theEObject;
+			T result = caseUnitPrefix(unitPrefix);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case e4smPackage.VALUE_SPECIFICATION: {
+			ValueSpecification valueSpecification = (ValueSpecification) theEObject;
+			T result = caseValueSpecification(valueSpecification);
+			if (result == null)
+				result = caseTypedElement(valueSpecification);
+			if (result == null)
+				result = caseNamedElement(valueSpecification);
+			if (result == null)
+				result = caseElement(valueSpecification);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case e4smPackage.LITERAL_SPECIFICATION: {
+			LiteralSpecification literalSpecification = (LiteralSpecification) theEObject;
+			T result = caseLiteralSpecification(literalSpecification);
+			if (result == null)
+				result = caseValueSpecification(literalSpecification);
+			if (result == null)
+				result = caseTypedElement(literalSpecification);
+			if (result == null)
+				result = caseNamedElement(literalSpecification);
+			if (result == null)
+				result = caseElement(literalSpecification);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case e4smPackage.TYPED_ELEMENT: {
+			TypedElement typedElement = (TypedElement) theEObject;
+			T result = caseTypedElement(typedElement);
+			if (result == null)
+				result = caseNamedElement(typedElement);
+			if (result == null)
+				result = caseElement(typedElement);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case e4smPackage.LITERAL_NULL: {
+			LiteralNull literalNull = (LiteralNull) theEObject;
+			T result = caseLiteralNull(literalNull);
+			if (result == null)
+				result = caseLiteralSpecification(literalNull);
+			if (result == null)
+				result = caseValueSpecification(literalNull);
+			if (result == null)
+				result = caseTypedElement(literalNull);
+			if (result == null)
+				result = caseNamedElement(literalNull);
+			if (result == null)
+				result = caseElement(literalNull);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case e4smPackage.LITERAL_STRING: {
+			LiteralString literalString = (LiteralString) theEObject;
+			T result = caseLiteralString(literalString);
+			if (result == null)
+				result = caseLiteralSpecification(literalString);
+			if (result == null)
+				result = caseValueSpecification(literalString);
+			if (result == null)
+				result = caseTypedElement(literalString);
+			if (result == null)
+				result = caseNamedElement(literalString);
+			if (result == null)
+				result = caseElement(literalString);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case e4smPackage.LITERAL_INTEGER: {
+			LiteralInteger literalInteger = (LiteralInteger) theEObject;
+			T result = caseLiteralInteger(literalInteger);
+			if (result == null)
+				result = caseLiteralSpecification(literalInteger);
+			if (result == null)
+				result = caseValueSpecification(literalInteger);
+			if (result == null)
+				result = caseTypedElement(literalInteger);
+			if (result == null)
+				result = caseNamedElement(literalInteger);
+			if (result == null)
+				result = caseElement(literalInteger);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case e4smPackage.LITERAL_BOOLEAN: {
+			LiteralBoolean literalBoolean = (LiteralBoolean) theEObject;
+			T result = caseLiteralBoolean(literalBoolean);
+			if (result == null)
+				result = caseLiteralSpecification(literalBoolean);
+			if (result == null)
+				result = caseValueSpecification(literalBoolean);
+			if (result == null)
+				result = caseTypedElement(literalBoolean);
+			if (result == null)
+				result = caseNamedElement(literalBoolean);
+			if (result == null)
+				result = caseElement(literalBoolean);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case e4smPackage.LITERAL_FLOAT: {
+			LiteralFloat literalFloat = (LiteralFloat) theEObject;
+			T result = caseLiteralFloat(literalFloat);
+			if (result == null)
+				result = caseLiteralSpecification(literalFloat);
+			if (result == null)
+				result = caseValueSpecification(literalFloat);
+			if (result == null)
+				result = caseTypedElement(literalFloat);
+			if (result == null)
+				result = caseNamedElement(literalFloat);
+			if (result == null)
+				result = caseElement(literalFloat);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case e4smPackage.LITERAL_DOUBLE: {
+			LiteralDouble literalDouble = (LiteralDouble) theEObject;
+			T result = caseLiteralDouble(literalDouble);
+			if (result == null)
+				result = caseLiteralSpecification(literalDouble);
+			if (result == null)
+				result = caseValueSpecification(literalDouble);
+			if (result == null)
+				result = caseTypedElement(literalDouble);
+			if (result == null)
+				result = caseNamedElement(literalDouble);
+			if (result == null)
+				result = caseElement(literalDouble);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case e4smPackage.LITERAL_LONG: {
+			LiteralLong literalLong = (LiteralLong) theEObject;
+			T result = caseLiteralLong(literalLong);
+			if (result == null)
+				result = caseLiteralSpecification(literalLong);
+			if (result == null)
+				result = caseValueSpecification(literalLong);
+			if (result == null)
+				result = caseTypedElement(literalLong);
+			if (result == null)
+				result = caseNamedElement(literalLong);
+			if (result == null)
+				result = caseElement(literalLong);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case e4smPackage.LITERAL_SHORT: {
+			LiteralShort literalShort = (LiteralShort) theEObject;
+			T result = caseLiteralShort(literalShort);
+			if (result == null)
+				result = caseLiteralSpecification(literalShort);
+			if (result == null)
+				result = caseValueSpecification(literalShort);
+			if (result == null)
+				result = caseTypedElement(literalShort);
+			if (result == null)
+				result = caseNamedElement(literalShort);
+			if (result == null)
+				result = caseElement(literalShort);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case e4smPackage.LITERAL_BYTE: {
+			LiteralByte literalByte = (LiteralByte) theEObject;
+			T result = caseLiteralByte(literalByte);
+			if (result == null)
+				result = caseLiteralSpecification(literalByte);
+			if (result == null)
+				result = caseValueSpecification(literalByte);
+			if (result == null)
+				result = caseTypedElement(literalByte);
+			if (result == null)
+				result = caseNamedElement(literalByte);
+			if (result == null)
+				result = caseElement(literalByte);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case e4smPackage.LITERAL_CHARACTER: {
+			LiteralCharacter literalCharacter = (LiteralCharacter) theEObject;
+			T result = caseLiteralCharacter(literalCharacter);
+			if (result == null)
+				result = caseLiteralSpecification(literalCharacter);
+			if (result == null)
+				result = caseValueSpecification(literalCharacter);
+			if (result == null)
+				result = caseTypedElement(literalCharacter);
+			if (result == null)
+				result = caseNamedElement(literalCharacter);
+			if (result == null)
+				result = caseElement(literalCharacter);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case e4smPackage.LITERAL_DATE: {
+			LiteralDate literalDate = (LiteralDate) theEObject;
+			T result = caseLiteralDate(literalDate);
+			if (result == null)
+				result = caseLiteralSpecification(literalDate);
+			if (result == null)
+				result = caseValueSpecification(literalDate);
+			if (result == null)
+				result = caseTypedElement(literalDate);
+			if (result == null)
+				result = caseNamedElement(literalDate);
+			if (result == null)
+				result = caseElement(literalDate);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -900,17 +1211,17 @@ public class e4smSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Parametrisable Element</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Parameterizable Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Parametrisable Element</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Parameterizable Element</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseParametrisableElement(ParametrisableElement object) {
+	public T caseParameterizableElement(ParameterizableElement object) {
 		return null;
 	}
 
@@ -941,6 +1252,321 @@ public class e4smSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseVariant(Variant object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Measurement Unit</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Measurement Unit</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMeasurementUnit(MeasurementUnit object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Simple Unit</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Simple Unit</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSimpleUnit(SimpleUnit object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Derived Unit</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Derived Unit</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDerivedUnit(DerivedUnit object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Unit Conversion</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Unit Conversion</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUnitConversion(UnitConversion object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Conversion By Prefix</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Conversion By Prefix</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseConversionByPrefix(ConversionByPrefix object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Conversion By Convention</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Conversion By Convention</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseConversionByConvention(ConversionByConvention object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Unit Prefix</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Unit Prefix</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUnitPrefix(UnitPrefix object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Value Specification</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Value Specification</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseValueSpecification(ValueSpecification object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Literal Specification</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Literal Specification</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLiteralSpecification(LiteralSpecification object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Typed Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Typed Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTypedElement(TypedElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Literal Null</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Literal Null</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLiteralNull(LiteralNull object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Literal String</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Literal String</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLiteralString(LiteralString object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Literal Integer</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Literal Integer</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLiteralInteger(LiteralInteger object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Literal Boolean</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Literal Boolean</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLiteralBoolean(LiteralBoolean object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Literal Float</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Literal Float</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLiteralFloat(LiteralFloat object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Literal Double</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Literal Double</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLiteralDouble(LiteralDouble object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Literal Long</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Literal Long</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLiteralLong(LiteralLong object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Literal Short</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Literal Short</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLiteralShort(LiteralShort object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Literal Byte</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Literal Byte</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLiteralByte(LiteralByte object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Literal Character</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Literal Character</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLiteralCharacter(LiteralCharacter object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Literal Date</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Literal Date</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLiteralDate(LiteralDate object) {
 		return null;
 	}
 

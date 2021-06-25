@@ -33,7 +33,7 @@ import org.eclipse.emf.common.util.EList;
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='PackageC1'"
  * @generated
  */
-public interface Package extends NamedElement, ParametrisableElement {
+public interface Package extends NamedElement, ParameterizableElement {
 	/**
 	 * Returns the value of the '<em><b>Components</b></em>' containment reference list.
 	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.Component}.
@@ -59,7 +59,7 @@ public interface Package extends NamedElement, ParametrisableElement {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Software Components</em>' reference list.
 	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getPackage_SoftwareComponents()
-	 * @model derived="true"
+	 * @model transient="true" volatile="true" derived="true"
 	 * @generated
 	 */
 	EList<SoftwareComponent> getSoftwareComponents();
@@ -74,7 +74,7 @@ public interface Package extends NamedElement, ParametrisableElement {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Physical Components</em>' reference list.
 	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getPackage_PhysicalComponents()
-	 * @model derived="true"
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
 	EList<PhysicalComponent> getPhysicalComponents();
