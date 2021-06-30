@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:filter="http://www.eclipse.org/sirius/diagram/description/filter/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="sirius" version="12.0.0.2017041100">
   <ownedViewpoints name="E4SM_Viewpoint" label="E4SM">
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="e4sm_diagram_1" label="Allocation Diagram (AD)" titleExpression="aql:'[AD] ' + self.oclAsType(e4sm::Package).name" domainClass="e4sm::Package" enablePopupBars="true">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="e4sm_diagram_1" label="Allocation Diagram (AD)" titleExpression="aql:'[AD] ' + self.oclAsType(e4sm::Package).name" domainClass="e4sm::Package" preconditionExpression="false" enablePopupBars="true">
       <metamodel href="http://de.tu-ilmenau/e4sm/1.0.0#/"/>
       <defaultLayer name="Default">
         <containerMappings name="diag1_PhisicalComponent" label="PhysicalComponent" semanticCandidatesExpression="aql:self.components->select(e|e.oclIsTypeOf(e4sm::PhysicalComponent))" domainClass="e4sm::PhysicalComponent" reusedContainerMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_1']/@defaultLayer/@containerMappings[name='diag1_HeuristicComponent'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_1']/@defaultLayer/@containerMappings[name='diag1_MachineLearningComponent'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_1']/@defaultLayer/@containerMappings[name='diag1_PhisicalComponent'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_1']/@defaultLayer/@containerMappings[name='diag1_Component'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_1']/@defaultLayer/@containerMappings[name='diag1_Actuator'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_1']/@defaultLayer/@containerMappings[name='diag1_Sensor'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_1']/@defaultLayer/@containerMappings[name='diag1_SoftwareComponent']" childrenPresentation="VerticalStack">
@@ -222,7 +222,7 @@
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
             </style>
           </borderedNodeMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" tooltipExpression="aql:'Component &quot;'+self.name">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" tooltipExpression="aql:'Component &quot;'+self.name +'&quot;'">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
@@ -231,7 +231,7 @@
           </style>
         </containerMappings>
         <containerMappings name="diag1_PhisicalComponent" label="PhysicalComponent" detailDescriptions="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='create_new_DTD_from_component']" navigationDescriptions="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='navigate_to_diagram']" labelDirectEdit="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='diag_2_label_edition']" semanticCandidatesExpression="aql:self.components->select(e|e.oclIsTypeOf(e4sm::PhysicalComponent))" domainClass="e4sm::PhysicalComponent" reusedBorderedNodeMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin']" dropDescriptions="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='diag2_allow_moving_input_oins'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='diag2_allow_moving_output_pins']" reusedContainerMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_HeuristicComponent'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_MachineLearningComponent'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_PhisicalComponent'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_SoftwareComponent'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Sensor'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Actuator'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag2_ExternalDependency'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag2_Function']">
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" tooltipExpression="aql:'Physical Component &quot;'+self.name">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" tooltipExpression="aql:'Physical Component &quot;'+self.name+'&quot;'">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_orange']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
@@ -240,7 +240,7 @@
           </style>
         </containerMappings>
         <containerMappings name="diag1_MachineLearningComponent" label="Machine Learning Component" detailDescriptions="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='create_new_DTD_from_component']" navigationDescriptions="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='navigate_to_diagram']" labelDirectEdit="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='diag_2_label_edition']" semanticCandidatesExpression="feature:components" domainClass="e4sm::MachineLearningComponent" reusedBorderedNodeMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin']" dropDescriptions="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='diag2_allow_moving_input_oins'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='diag2_allow_moving_output_pins']">
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" tooltipExpression="aql:'Machine Learning Component &quot;'+self.name">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" tooltipExpression="aql:'Machine Learning Component &quot;'+self.name+'&quot;'">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_purple']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
@@ -249,7 +249,7 @@
           </style>
         </containerMappings>
         <containerMappings name="diag1_HeuristicComponent" label="Heuristic" detailDescriptions="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='create_new_DTD_from_component']" navigationDescriptions="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='navigate_to_diagram']" labelDirectEdit="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='diag_2_label_edition']" semanticCandidatesExpression="feature:components" domainClass="e4sm::Heuristic" reusedBorderedNodeMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin']" dropDescriptions="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='diag2_allow_moving_input_oins'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='diag2_allow_moving_output_pins']">
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" tooltipExpression="aql:'Heuristic &quot;'+self.name">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" tooltipExpression="aql:'Heuristic &quot;'+self.name+'&quot;'">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_red']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
@@ -258,7 +258,7 @@
           </style>
         </containerMappings>
         <containerMappings name="diag1_Sector" label="Sector" semanticCandidatesExpression="feature:sectors" domainClass="e4sm::Sector" dropDescriptions="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='diag2_drop_sector_on_sector'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='diag2_drop_physical_component_on_sector']" reusedContainerMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_PhisicalComponent'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Actuator'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Sensor'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Sector']">
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="14" showIcon="false" labelExpression="aql:'Sector &quot;' + self.name+'&quot;'" tooltipExpression="aql:'Sector &quot;'+self.name">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="14" showIcon="false" labelExpression="aql:'Sector &quot;' + self.name+'&quot;'" tooltipExpression="aql:'Sector &quot;'+self.name+'&quot;'">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_orange']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
@@ -267,7 +267,7 @@
           </style>
         </containerMappings>
         <containerMappings name="diag1_Sensor" label="Sensor" navigationDescriptions="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='navigate_to_diagram']" labelDirectEdit="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='diag_2_label_edition']" semanticCandidatesExpression="feature:components" domainClass="e4sm::Sensor" reusedBorderedNodeMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin']" dropDescriptions="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='diag2_allow_moving_output_pins'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='diag2_drop_physical_component_on_sector']" reusedContainerMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_HeuristicComponent'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_MachineLearningComponent'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Sensor'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag2_ExternalDependency'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_SoftwareComponent']">
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" tooltipExpression="aql:'Sensor &quot;'+self.name">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" tooltipExpression="aql:'Sensor &quot;'+self.name+'&quot;'">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_orange']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
@@ -276,7 +276,7 @@
           </style>
         </containerMappings>
         <containerMappings name="diag1_Actuator" label="Actuator" navigationDescriptions="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='navigate_to_diagram']" labelDirectEdit="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='diag_2_label_edition']" semanticCandidatesExpression="feature:components" domainClass="e4sm::Actuator" reusedBorderedNodeMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin']" dropDescriptions="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='diag2_allow_moving_input_oins'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='diag2_allow_moving_output_pins']" reusedContainerMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_HeuristicComponent'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_MachineLearningComponent'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag2_ExternalDependency'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_SoftwareComponent']">
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" tooltipExpression="aql:'Actuator &quot;'+self.name">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" tooltipExpression="aql:'Actuator &quot;'+self.name+'&quot;'">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_orange']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
@@ -284,8 +284,8 @@
             <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.1"/>
           </style>
         </containerMappings>
-        <containerMappings name="diag1_SoftwareComponent" label="Software Component" detailDescriptions="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='create_new_DTD_from_component']" navigationDescriptions="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='navigate_to_diagram']" labelDirectEdit="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='diag_2_label_edition']" semanticCandidatesExpression="aql:self.components->select(e | e.oclIsTypeOf(e4sm::SoftwareComponent))" domainClass="e4sm::SoftwareComponent" reusedBorderedNodeMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin']" dropDescriptions="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='diag2_allow_moving_input_oins'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='diag2_allow_moving_output_pins'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='diag2_drop_physical_component_on_sector']" reusedContainerMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_HeuristicComponent'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_MachineLearningComponent'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_SoftwareComponent'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']">
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" tooltipExpression="aql:'Software Component &quot;'+self.name">
+        <containerMappings name="diag1_SoftwareComponent" label="Software Component" detailDescriptions="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='create_new_DTD_from_component']" navigationDescriptions="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='navigate_to_diagram']" labelDirectEdit="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='diag_2_label_edition']" semanticCandidatesExpression="aql:self.components->select(e | e.oclIsTypeOf(e4sm::SoftwareComponent))" domainClass="e4sm::SoftwareComponent" reusedBorderedNodeMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin']" dropDescriptions="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='diag2_allow_moving_input_oins'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='diag2_allow_moving_output_pins'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='diag2_drop_physical_component_on_sector']" reusedContainerMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_HeuristicComponent'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_MachineLearningComponent'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_SoftwareComponent'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag2_Function']">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" tooltipExpression="aql:'Software Component &quot;'+self.name+'&quot;'">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_yellow']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
@@ -294,7 +294,7 @@
           </style>
         </containerMappings>
         <containerMappings name="diag2_ExternalDependency" label="External Dependency" detailDescriptions="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='create_new_DTD_from_component']" navigationDescriptions="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='navigate_to_diagram']" labelDirectEdit="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='diag_2_label_edition']" semanticCandidatesExpression="feature:components" domainClass="e4sm::ExternalDependency" reusedBorderedNodeMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin']" dropDescriptions="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='diag2_allow_moving_output_pins']" reusedContainerMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_HeuristicComponent'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_MachineLearningComponent'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag2_ExternalDependency'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']">
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" tooltipExpression="aql:'External Dependency &quot;'+self.name">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" tooltipExpression="aql:'External Dependency &quot;'+self.name+'&quot;'">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_purple']"/>
@@ -303,7 +303,7 @@
           </style>
         </containerMappings>
         <containerMappings name="diag2_Function" label="Function" detailDescriptions="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='create_new_DTD_from_component']" navigationDescriptions="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='navigate_to_diagram']" labelDirectEdit="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='diag_2_label_edition']" semanticCandidatesExpression="feature:components" domainClass="e4sm::Function" reusedBorderedNodeMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin']" dropDescriptions="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='diag2_allow_moving_input_oins'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='diag2_allow_moving_output_pins']" reusedContainerMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_HeuristicComponent'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_MachineLearningComponent'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag2_Function'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']">
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" tooltipExpression="aql:'Function &quot;'+self.name">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" tooltipExpression="aql:'Function &quot;'+self.name+'&quot;'">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_green']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
@@ -405,6 +405,10 @@
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="self">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::Component" referenceName="components">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="New Component"/>
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::OutputPin" referenceName="pins" variableName="outputPin"/>
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::InputPin" referenceName="pins" variableName="inputPin"/>
+                  </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -417,6 +421,10 @@
                 <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="self">
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::PhysicalComponent" referenceName="components">
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="New Physical Component"/>
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance">
+                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::OutputPin" referenceName="pins" variableName="outputPin"/>
+                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::InputPin" referenceName="pins" variableName="inputPin"/>
+                    </subModelOperations>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
@@ -428,6 +436,9 @@
                 <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="self">
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::Sensor" referenceName="components">
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="New Sensor"/>
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance">
+                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::OutputPin" referenceName="pins" variableName="outputPin"/>
+                    </subModelOperations>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
@@ -439,6 +450,11 @@
                 <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="self">
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::Actuator" referenceName="components">
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="New Actuator"/>
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance">
+                      <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance">
+                        <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::InputPin" referenceName="pins" variableName="inputPin"/>
+                      </subModelOperations>
+                    </subModelOperations>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
@@ -452,6 +468,10 @@
                 <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="self">
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::SoftwareComponent" referenceName="components">
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="New Software Component"/>
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance">
+                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::OutputPin" referenceName="pins" variableName="outputPin"/>
+                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::InputPin" referenceName="pins" variableName="inputPin"/>
+                    </subModelOperations>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
@@ -463,6 +483,10 @@
                 <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="self">
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::MachineLearningComponent" referenceName="components">
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="New ML Component"/>
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance">
+                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::OutputPin" referenceName="pins" variableName="outputPin"/>
+                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::InputPin" referenceName="pins" variableName="inputPin"/>
+                    </subModelOperations>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
@@ -474,6 +498,10 @@
                 <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="self">
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::Heuristic" referenceName="components">
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="New Heuristic"/>
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance">
+                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::OutputPin" referenceName="pins" variableName="outputPin"/>
+                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::InputPin" referenceName="pins" variableName="inputPin"/>
+                    </subModelOperations>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
@@ -485,6 +513,10 @@
                 <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="self">
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::ExternalDependency" referenceName="components">
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="New External Dependency"/>
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance">
+                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::OutputPin" referenceName="pins" variableName="outputPin"/>
+                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::InputPin" referenceName="pins" variableName="inputPin"/>
+                    </subModelOperations>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
@@ -496,6 +528,10 @@
                 <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="self">
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::Function" referenceName="components">
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="New Function"/>
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance">
+                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::OutputPin" referenceName="pins" variableName="outputPin"/>
+                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::InputPin" referenceName="pins" variableName="inputPin"/>
+                    </subModelOperations>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
@@ -581,13 +617,13 @@
               <menuItemDescription xsi:type="tool_1:OperationAction" name="change_to_component_action" label="To Component" precondition="aql:container.oclIsTypeOf(e4sm::SoftwareComponent) or container.oclIsTypeOf(e4sm::PhysicalComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/Component.gif">
                 <view name="views"/>
                 <initialOperation>
-                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformToComponent()"/>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.oclAsType(e4sm::Component).transformToComponent(views)"/>
                 </initialOperation>
               </menuItemDescription>
               <menuItemDescription xsi:type="tool_1:OperationAction" name="change_to_software_component_action" label="To Software Component" precondition="aql:container.oclIsKindOf(e4sm::SoftwareComponent) and not container.oclIsTypeOf(e4sm::SoftwareComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/SoftwareComponent.gif">
                 <view name="views"/>
                 <initialOperation>
-                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformToSoftwareComponent()"/>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.oclAsType(e4sm::SoftwareComponent).transformToSoftwareComponent(views)"/>
                 </initialOperation>
               </menuItemDescription>
               <menuItemDescription xsi:type="tool_1:OperationAction" name="change_to_physical_component_action" label="To Physical Component" precondition="aql:container.oclIsKindOf(e4sm::PhysicalComponent) and not container.oclIsTypeOf(e4sm::PhysicalComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/PhysicalComponent.gif">
@@ -598,49 +634,49 @@
               </menuItemDescription>
             </itemDescriptions>
             <itemDescriptions xsi:type="tool_1:PopupMenu" name="change_component_to_software_component" label="↓ Make more Specific">
-              <menuItemDescription xsi:type="tool_1:OperationAction" name="change_to_software_component_action" label="Change to Software Component" precondition="aql:container.oclIsTypeOf(e4sm::Component)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/SoftwareComponent.gif">
+              <menuItemDescription xsi:type="tool_1:OperationAction" name="change_to_software_component_action" label="To Software Component" precondition="aql:container.oclIsTypeOf(e4sm::Component)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/SoftwareComponent.gif">
                 <view name="views"/>
                 <initialOperation>
                   <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformDownToSoftwareComponent()"/>
                 </initialOperation>
               </menuItemDescription>
-              <menuItemDescription xsi:type="tool_1:OperationAction" name="change_to_physical_component_action" label="Change to Physical Component" precondition="aql:container.oclIsTypeOf(e4sm::Component)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/PhysicalComponent.gif">
+              <menuItemDescription xsi:type="tool_1:OperationAction" name="change_to_physical_component_action" label="To Physical Component" precondition="aql:container.oclIsTypeOf(e4sm::Component)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/PhysicalComponent.gif">
                 <view name="views"/>
                 <initialOperation>
                   <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformDownToPhysicalComponent()"/>
                 </initialOperation>
               </menuItemDescription>
-              <menuItemDescription xsi:type="tool_1:OperationAction" name="change_to_sensor_action" label="Change to Sensor" precondition="aql:container.oclIsTypeOf(e4sm::PhysicalComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/Sensor.gif">
+              <menuItemDescription xsi:type="tool_1:OperationAction" name="change_to_sensor_action" label="To Sensor" precondition="aql:container.oclIsTypeOf(e4sm::PhysicalComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/Sensor.gif">
                 <view name="views"/>
                 <initialOperation>
                   <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformDownToSensor()"/>
                 </initialOperation>
               </menuItemDescription>
-              <menuItemDescription xsi:type="tool_1:OperationAction" name="change_to_actuator_action" label="Change to Actuator" precondition="aql:container.oclIsTypeOf(e4sm::PhysicalComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/Actuator.gif">
+              <menuItemDescription xsi:type="tool_1:OperationAction" name="change_to_actuator_action" label="To Actuator" precondition="aql:container.oclIsTypeOf(e4sm::PhysicalComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/Actuator.gif">
                 <view name="views"/>
                 <initialOperation>
                   <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformDownToActuator()"/>
                 </initialOperation>
               </menuItemDescription>
-              <menuItemDescription xsi:type="tool_1:OperationAction" name="change_to_machine_learning_component_action" label="Change to Machine Learning Component" precondition="aql:container.oclIsTypeOf(e4sm::SoftwareComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/MachineLearningComponent.gif">
+              <menuItemDescription xsi:type="tool_1:OperationAction" name="change_to_machine_learning_component_action" label="To Machine Learning Component" precondition="aql:container.oclIsTypeOf(e4sm::SoftwareComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/MachineLearningComponent.gif">
                 <view name="views"/>
                 <initialOperation>
                   <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformDownToMachineLearningComponent()"/>
                 </initialOperation>
               </menuItemDescription>
-              <menuItemDescription xsi:type="tool_1:OperationAction" name="change_to_heuristic_action" label="Change to Heuristic" precondition="aql:container.oclIsTypeOf(e4sm::SoftwareComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/Heuristic.gif">
+              <menuItemDescription xsi:type="tool_1:OperationAction" name="change_to_heuristic_action" label="To Heuristic" precondition="aql:container.oclIsTypeOf(e4sm::SoftwareComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/Heuristic.gif">
                 <view name="views"/>
                 <initialOperation>
                   <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformDownToHeuristic()"/>
                 </initialOperation>
               </menuItemDescription>
-              <menuItemDescription xsi:type="tool_1:OperationAction" name="change_to_function_action" label="Change to Function" precondition="aql:container.oclIsTypeOf(e4sm::SoftwareComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/Function.gif">
+              <menuItemDescription xsi:type="tool_1:OperationAction" name="change_to_function_action" label="To Function" precondition="aql:container.oclIsTypeOf(e4sm::SoftwareComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/Function.gif">
                 <view name="views"/>
                 <initialOperation>
                   <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformDownToFunction()"/>
                 </initialOperation>
               </menuItemDescription>
-              <menuItemDescription xsi:type="tool_1:OperationAction" name="change_to_external_dependency_action" label="Change to External Dependency" precondition="aql:container.oclIsTypeOf(e4sm::SoftwareComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/ExternalDependency.gif">
+              <menuItemDescription xsi:type="tool_1:OperationAction" name="change_to_external_dependency_action" label="To External Dependency" precondition="aql:container.oclIsTypeOf(e4sm::SoftwareComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/ExternalDependency.gif">
                 <view name="views"/>
                 <initialOperation>
                   <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformDownToExternalDependency()"/>
@@ -660,6 +696,26 @@
                 <view name="views"/>
                 <initialOperation>
                   <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:diagram.target.oclAsType(e4sm::Package).eContainer(e4sm::Model).computeModelDependencyGraph()"/>
+                </initialOperation>
+              </menuItemDescription>
+            </itemDescriptions>
+            <itemDescriptions xsi:type="tool_1:PopupMenu" name="popup_start_analysis" label="Start Analysis">
+              <menuItemDescription xsi:type="tool_1:OperationAction" name="temp_1" label="▶ Time Analysis" icon="/e4sm.de.metamodel.design/icons/specified.gif">
+                <view name="views"/>
+                <initialOperation>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:diagram.target.oclAsType(e4sm::Package).computePackageDependencyGraph()"/>
+                </initialOperation>
+              </menuItemDescription>
+              <menuItemDescription xsi:type="tool_1:OperationAction" name="temp_2" label="▶ Bandwidth Analysis" icon="/e4sm.de.metamodel.design/icons/specified.gif">
+                <view name="views"/>
+                <initialOperation>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:diagram.target.oclAsType(e4sm::Package).computePackageDependencyGraph()"/>
+                </initialOperation>
+              </menuItemDescription>
+              <menuItemDescription xsi:type="tool_1:OperationAction" name="temp_3" label="▶ Error Propagation Analysis" icon="/e4sm.de.metamodel.design/icons/specified.gif">
+                <view name="views"/>
+                <initialOperation>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:diagram.target.oclAsType(e4sm::Package).computePackageDependencyGraph()"/>
                 </initialOperation>
               </menuItemDescription>
             </itemDescriptions>
