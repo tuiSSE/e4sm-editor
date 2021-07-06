@@ -9,34 +9,16 @@ import e4sm.de.metamodel.e4sm.Connector;
 import e4sm.de.metamodel.e4sm.ConversionByConvention;
 import e4sm.de.metamodel.e4sm.ConversionByPrefix;
 import e4sm.de.metamodel.e4sm.DerivedUnit;
-import e4sm.de.metamodel.e4sm.Element;
 import e4sm.de.metamodel.e4sm.ExternalDependency;
 import e4sm.de.metamodel.e4sm.Function;
 import e4sm.de.metamodel.e4sm.Heuristic;
 import e4sm.de.metamodel.e4sm.Human;
 import e4sm.de.metamodel.e4sm.InputPin;
-import e4sm.de.metamodel.e4sm.LiteralBoolean;
-import e4sm.de.metamodel.e4sm.LiteralByte;
-import e4sm.de.metamodel.e4sm.LiteralCharacter;
-import e4sm.de.metamodel.e4sm.LiteralDate;
-import e4sm.de.metamodel.e4sm.LiteralDouble;
-import e4sm.de.metamodel.e4sm.LiteralFloat;
-import e4sm.de.metamodel.e4sm.LiteralInteger;
-import e4sm.de.metamodel.e4sm.LiteralLong;
-import e4sm.de.metamodel.e4sm.LiteralNull;
-import e4sm.de.metamodel.e4sm.LiteralShort;
-import e4sm.de.metamodel.e4sm.LiteralSpecification;
-import e4sm.de.metamodel.e4sm.LiteralString;
 import e4sm.de.metamodel.e4sm.LogicalConnector;
 import e4sm.de.metamodel.e4sm.MachineLearningComponent;
 import e4sm.de.metamodel.e4sm.MeasurementUnit;
 import e4sm.de.metamodel.e4sm.Model;
-import e4sm.de.metamodel.e4sm.NamedElement;
 import e4sm.de.metamodel.e4sm.OutputPin;
-import e4sm.de.metamodel.e4sm.Parameter;
-import e4sm.de.metamodel.e4sm.ParameterDefinition;
-import e4sm.de.metamodel.e4sm.ParameterDefinitionLibrary;
-import e4sm.de.metamodel.e4sm.ParameterizableElement;
 import e4sm.de.metamodel.e4sm.Person;
 import e4sm.de.metamodel.e4sm.PhysicalComponent;
 import e4sm.de.metamodel.e4sm.PhysicalConnector;
@@ -46,13 +28,14 @@ import e4sm.de.metamodel.e4sm.Sector;
 import e4sm.de.metamodel.e4sm.Sensor;
 import e4sm.de.metamodel.e4sm.SimpleUnit;
 import e4sm.de.metamodel.e4sm.SoftwareComponent;
-import e4sm.de.metamodel.e4sm.TypedElement;
 import e4sm.de.metamodel.e4sm.UnitConversion;
 import e4sm.de.metamodel.e4sm.UnitPrefix;
-import e4sm.de.metamodel.e4sm.ValueSpecification;
-import e4sm.de.metamodel.e4sm.Variant;
+import e4sm.de.metamodel.e4sm.analysis.ParameterizableElement;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
+import e4sm.de.metamodel.e4sm.types.Element;
+import e4sm.de.metamodel.e4sm.types.NamedElement;
+import e4sm.de.metamodel.e4sm.types.TypedElement;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
@@ -175,11 +158,6 @@ public class e4smAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseNamedElement(NamedElement object) {
-			return createNamedElementAdapter();
-		}
-
-		@Override
 		public Adapter caseActor(Actor object) {
 			return createActorAdapter();
 		}
@@ -210,11 +188,6 @@ public class e4smAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseElement(Element object) {
-			return createElementAdapter();
-		}
-
-		@Override
 		public Adapter casePin(Pin object) {
 			return createPinAdapter();
 		}
@@ -232,31 +205,6 @@ public class e4smAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter casePerson(Person object) {
 			return createPersonAdapter();
-		}
-
-		@Override
-		public Adapter caseParameterDefinition(ParameterDefinition object) {
-			return createParameterDefinitionAdapter();
-		}
-
-		@Override
-		public Adapter caseParameter(Parameter object) {
-			return createParameterAdapter();
-		}
-
-		@Override
-		public Adapter caseParameterizableElement(ParameterizableElement object) {
-			return createParameterizableElementAdapter();
-		}
-
-		@Override
-		public Adapter caseParameterDefinitionLibrary(ParameterDefinitionLibrary object) {
-			return createParameterDefinitionLibraryAdapter();
-		}
-
-		@Override
-		public Adapter caseVariant(Variant object) {
-			return createVariantAdapter();
 		}
 
 		@Override
@@ -295,73 +243,23 @@ public class e4smAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseValueSpecification(ValueSpecification object) {
-			return createValueSpecificationAdapter();
+		public Adapter caseElement(Element object) {
+			return createElementAdapter();
 		}
 
 		@Override
-		public Adapter caseLiteralSpecification(LiteralSpecification object) {
-			return createLiteralSpecificationAdapter();
+		public Adapter caseNamedElement(NamedElement object) {
+			return createNamedElementAdapter();
+		}
+
+		@Override
+		public Adapter caseParameterizableElement(ParameterizableElement object) {
+			return createParameterizableElementAdapter();
 		}
 
 		@Override
 		public Adapter caseTypedElement(TypedElement object) {
 			return createTypedElementAdapter();
-		}
-
-		@Override
-		public Adapter caseLiteralNull(LiteralNull object) {
-			return createLiteralNullAdapter();
-		}
-
-		@Override
-		public Adapter caseLiteralString(LiteralString object) {
-			return createLiteralStringAdapter();
-		}
-
-		@Override
-		public Adapter caseLiteralInteger(LiteralInteger object) {
-			return createLiteralIntegerAdapter();
-		}
-
-		@Override
-		public Adapter caseLiteralBoolean(LiteralBoolean object) {
-			return createLiteralBooleanAdapter();
-		}
-
-		@Override
-		public Adapter caseLiteralFloat(LiteralFloat object) {
-			return createLiteralFloatAdapter();
-		}
-
-		@Override
-		public Adapter caseLiteralDouble(LiteralDouble object) {
-			return createLiteralDoubleAdapter();
-		}
-
-		@Override
-		public Adapter caseLiteralLong(LiteralLong object) {
-			return createLiteralLongAdapter();
-		}
-
-		@Override
-		public Adapter caseLiteralShort(LiteralShort object) {
-			return createLiteralShortAdapter();
-		}
-
-		@Override
-		public Adapter caseLiteralByte(LiteralByte object) {
-			return createLiteralByteAdapter();
-		}
-
-		@Override
-		public Adapter caseLiteralCharacter(LiteralCharacter object) {
-			return createLiteralCharacterAdapter();
-		}
-
-		@Override
-		public Adapter caseLiteralDate(LiteralDate object) {
-			return createLiteralDateAdapter();
 		}
 
 		@Override
@@ -552,13 +450,13 @@ public class e4smAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.NamedElement <em>Named Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.types.NamedElement <em>Named Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see e4sm.de.metamodel.e4sm.NamedElement
+	 * @see e4sm.de.metamodel.e4sm.types.NamedElement
 	 * @generated
 	 */
 	public Adapter createNamedElementAdapter() {
@@ -650,13 +548,13 @@ public class e4smAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.Element <em>Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.types.Element <em>Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see e4sm.de.metamodel.e4sm.Element
+	 * @see e4sm.de.metamodel.e4sm.types.Element
 	 * @generated
 	 */
 	public Adapter createElementAdapter() {
@@ -720,72 +618,16 @@ public class e4smAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.ParameterDefinition <em>Parameter Definition</em>}'.
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.analysis.ParameterizableElement <em>Parameterizable Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see e4sm.de.metamodel.e4sm.ParameterDefinition
-	 * @generated
-	 */
-	public Adapter createParameterDefinitionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.Parameter <em>Parameter</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see e4sm.de.metamodel.e4sm.Parameter
-	 * @generated
-	 */
-	public Adapter createParameterAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.ParameterizableElement <em>Parameterizable Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see e4sm.de.metamodel.e4sm.ParameterizableElement
+	 * @see e4sm.de.metamodel.e4sm.analysis.ParameterizableElement
 	 * @generated
 	 */
 	public Adapter createParameterizableElementAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.ParameterDefinitionLibrary <em>Parameter Definition Library</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see e4sm.de.metamodel.e4sm.ParameterDefinitionLibrary
-	 * @generated
-	 */
-	public Adapter createParameterDefinitionLibraryAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.Variant <em>Variant</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see e4sm.de.metamodel.e4sm.Variant
-	 * @generated
-	 */
-	public Adapter createVariantAdapter() {
 		return null;
 	}
 
@@ -888,198 +730,16 @@ public class e4smAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.ValueSpecification <em>Value Specification</em>}'.
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.types.TypedElement <em>Typed Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see e4sm.de.metamodel.e4sm.ValueSpecification
-	 * @generated
-	 */
-	public Adapter createValueSpecificationAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.LiteralSpecification <em>Literal Specification</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see e4sm.de.metamodel.e4sm.LiteralSpecification
-	 * @generated
-	 */
-	public Adapter createLiteralSpecificationAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.TypedElement <em>Typed Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see e4sm.de.metamodel.e4sm.TypedElement
+	 * @see e4sm.de.metamodel.e4sm.types.TypedElement
 	 * @generated
 	 */
 	public Adapter createTypedElementAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.LiteralNull <em>Literal Null</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see e4sm.de.metamodel.e4sm.LiteralNull
-	 * @generated
-	 */
-	public Adapter createLiteralNullAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.LiteralString <em>Literal String</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see e4sm.de.metamodel.e4sm.LiteralString
-	 * @generated
-	 */
-	public Adapter createLiteralStringAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.LiteralInteger <em>Literal Integer</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see e4sm.de.metamodel.e4sm.LiteralInteger
-	 * @generated
-	 */
-	public Adapter createLiteralIntegerAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.LiteralBoolean <em>Literal Boolean</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see e4sm.de.metamodel.e4sm.LiteralBoolean
-	 * @generated
-	 */
-	public Adapter createLiteralBooleanAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.LiteralFloat <em>Literal Float</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see e4sm.de.metamodel.e4sm.LiteralFloat
-	 * @generated
-	 */
-	public Adapter createLiteralFloatAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.LiteralDouble <em>Literal Double</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see e4sm.de.metamodel.e4sm.LiteralDouble
-	 * @generated
-	 */
-	public Adapter createLiteralDoubleAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.LiteralLong <em>Literal Long</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see e4sm.de.metamodel.e4sm.LiteralLong
-	 * @generated
-	 */
-	public Adapter createLiteralLongAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.LiteralShort <em>Literal Short</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see e4sm.de.metamodel.e4sm.LiteralShort
-	 * @generated
-	 */
-	public Adapter createLiteralShortAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.LiteralByte <em>Literal Byte</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see e4sm.de.metamodel.e4sm.LiteralByte
-	 * @generated
-	 */
-	public Adapter createLiteralByteAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.LiteralCharacter <em>Literal Character</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see e4sm.de.metamodel.e4sm.LiteralCharacter
-	 * @generated
-	 */
-	public Adapter createLiteralCharacterAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.LiteralDate <em>Literal Date</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see e4sm.de.metamodel.e4sm.LiteralDate
-	 * @generated
-	 */
-	public Adapter createLiteralDateAdapter() {
 		return null;
 	}
 

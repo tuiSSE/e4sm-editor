@@ -2,13 +2,14 @@
  */
 package e4sm.de.metamodel.e4sm.impl;
 
-import e4sm.de.metamodel.e4sm.Element;
-import e4sm.de.metamodel.e4sm.NamedElement;
-import e4sm.de.metamodel.e4sm.Parameter;
 import e4sm.de.metamodel.e4sm.Pin;
-import e4sm.de.metamodel.e4sm.TypedElement;
+import e4sm.de.metamodel.e4sm.analysis.Parameter;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
+import e4sm.de.metamodel.e4sm.types.Element;
+import e4sm.de.metamodel.e4sm.types.NamedElement;
+import e4sm.de.metamodel.e4sm.types.TypedElement;
+import e4sm.de.metamodel.e4sm.types.TypesPackage;
 import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -284,7 +285,7 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 		if (baseClass == NamedElement.class) {
 			switch (derivedFeatureID) {
 			case e4smPackage.PIN__NAME:
-				return e4smPackage.NAMED_ELEMENT__NAME;
+				return TypesPackage.NAMED_ELEMENT__NAME;
 			default:
 				return -1;
 			}
@@ -292,7 +293,7 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 		if (baseClass == TypedElement.class) {
 			switch (derivedFeatureID) {
 			case e4smPackage.PIN__TYPE:
-				return e4smPackage.TYPED_ELEMENT__TYPE;
+				return TypesPackage.TYPED_ELEMENT__TYPE;
 			default:
 				return -1;
 			}
@@ -315,7 +316,7 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 		}
 		if (baseClass == NamedElement.class) {
 			switch (baseFeatureID) {
-			case e4smPackage.NAMED_ELEMENT__NAME:
+			case TypesPackage.NAMED_ELEMENT__NAME:
 				return e4smPackage.PIN__NAME;
 			default:
 				return -1;
@@ -323,7 +324,7 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 		}
 		if (baseClass == TypedElement.class) {
 			switch (baseFeatureID) {
-			case e4smPackage.TYPED_ELEMENT__TYPE:
+			case TypesPackage.TYPED_ELEMENT__TYPE:
 				return e4smPackage.PIN__TYPE;
 			default:
 				return -1;

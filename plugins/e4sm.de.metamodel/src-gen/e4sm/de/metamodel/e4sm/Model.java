@@ -2,6 +2,9 @@
  */
 package e4sm.de.metamodel.e4sm;
 
+import e4sm.de.metamodel.e4sm.analysis.ParameterizableElement;
+import e4sm.de.metamodel.e4sm.analysis.Variant;
+import e4sm.de.metamodel.e4sm.types.NamedElement;
 import java.util.Map;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
@@ -22,7 +25,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link e4sm.de.metamodel.e4sm.Model#getPackages <em>Packages</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Model#getActors <em>Actors</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Model#getPersonsPicturesPath <em>Persons Pictures Path</em>}</li>
- *   <li>{@link e4sm.de.metamodel.e4sm.Model#getParameterDefinitionLibraries <em>Parameter Definition Libraries</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Model#getVariants <em>Variants</em>}</li>
  * </ul>
  *
@@ -87,20 +89,8 @@ public interface Model extends NamedElement, ParameterizableElement {
 	void setPersonsPicturesPath(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Parameter Definition Libraries</b></em>' containment reference list.
-	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.ParameterDefinitionLibrary}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Parameter Definition Libraries</em>' containment reference list.
-	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getModel_ParameterDefinitionLibraries()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<ParameterDefinitionLibrary> getParameterDefinitionLibraries();
-
-	/**
 	 * Returns the value of the '<em><b>Variants</b></em>' containment reference list.
-	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.Variant}.
+	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.analysis.Variant}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Variants</em>' containment reference list.

@@ -5,8 +5,6 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import org.eclipse.emf.ecore.util.EcoreUtil;
-
 import com.google.common.graph.GraphBuilder;
 import com.google.common.graph.MutableGraph;
 

@@ -14,25 +14,11 @@ import e4sm.de.metamodel.e4sm.Function;
 import e4sm.de.metamodel.e4sm.Heuristic;
 import e4sm.de.metamodel.e4sm.Human;
 import e4sm.de.metamodel.e4sm.InputPin;
-import e4sm.de.metamodel.e4sm.LiteralBoolean;
-import e4sm.de.metamodel.e4sm.LiteralByte;
-import e4sm.de.metamodel.e4sm.LiteralCharacter;
-import e4sm.de.metamodel.e4sm.LiteralDate;
-import e4sm.de.metamodel.e4sm.LiteralDouble;
-import e4sm.de.metamodel.e4sm.LiteralFloat;
-import e4sm.de.metamodel.e4sm.LiteralInteger;
-import e4sm.de.metamodel.e4sm.LiteralLong;
-import e4sm.de.metamodel.e4sm.LiteralNull;
-import e4sm.de.metamodel.e4sm.LiteralShort;
-import e4sm.de.metamodel.e4sm.LiteralString;
 import e4sm.de.metamodel.e4sm.LogicalConnector;
 import e4sm.de.metamodel.e4sm.MachineLearningComponent;
 import e4sm.de.metamodel.e4sm.MeasurementUnit;
 import e4sm.de.metamodel.e4sm.Model;
 import e4sm.de.metamodel.e4sm.OutputPin;
-import e4sm.de.metamodel.e4sm.Parameter;
-import e4sm.de.metamodel.e4sm.ParameterDefinition;
-import e4sm.de.metamodel.e4sm.ParameterDefinitionLibrary;
 import e4sm.de.metamodel.e4sm.Person;
 import e4sm.de.metamodel.e4sm.PhysicalComponent;
 import e4sm.de.metamodel.e4sm.PhysicalConnector;
@@ -42,9 +28,7 @@ import e4sm.de.metamodel.e4sm.Sensor;
 import e4sm.de.metamodel.e4sm.SimpleUnit;
 import e4sm.de.metamodel.e4sm.SoftwareComponent;
 import e4sm.de.metamodel.e4sm.UnitConversion;
-import e4sm.de.metamodel.e4sm.UnitOfMeasurement;
 import e4sm.de.metamodel.e4sm.UnitPrefix;
-import e4sm.de.metamodel.e4sm.Variant;
 import e4sm.de.metamodel.e4sm.e4smFactory;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 import org.eclipse.emf.ecore.EClass;
@@ -141,14 +125,6 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 			return createOutputPin();
 		case e4smPackage.PERSON:
 			return createPerson();
-		case e4smPackage.PARAMETER_DEFINITION:
-			return createParameterDefinition();
-		case e4smPackage.PARAMETER:
-			return createParameter();
-		case e4smPackage.PARAMETER_DEFINITION_LIBRARY:
-			return createParameterDefinitionLibrary();
-		case e4smPackage.VARIANT:
-			return createVariant();
 		case e4smPackage.MEASUREMENT_UNIT:
 			return createMeasurementUnit();
 		case e4smPackage.SIMPLE_UNIT:
@@ -163,28 +139,6 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 			return createConversionByConvention();
 		case e4smPackage.UNIT_PREFIX:
 			return createUnitPrefix();
-		case e4smPackage.LITERAL_NULL:
-			return createLiteralNull();
-		case e4smPackage.LITERAL_STRING:
-			return createLiteralString();
-		case e4smPackage.LITERAL_INTEGER:
-			return createLiteralInteger();
-		case e4smPackage.LITERAL_BOOLEAN:
-			return createLiteralBoolean();
-		case e4smPackage.LITERAL_FLOAT:
-			return createLiteralFloat();
-		case e4smPackage.LITERAL_DOUBLE:
-			return createLiteralDouble();
-		case e4smPackage.LITERAL_LONG:
-			return createLiteralLong();
-		case e4smPackage.LITERAL_SHORT:
-			return createLiteralShort();
-		case e4smPackage.LITERAL_BYTE:
-			return createLiteralByte();
-		case e4smPackage.LITERAL_CHARACTER:
-			return createLiteralCharacter();
-		case e4smPackage.LITERAL_DATE:
-			return createLiteralDate();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -198,8 +152,6 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-		case e4smPackage.UNIT_OF_MEASUREMENT:
-			return createUnitOfMeasurementFromString(eDataType, initialValue);
 		case e4smPackage.CONNECTIONSPEED:
 			return createConnectionspeedFromString(eDataType, initialValue);
 		case e4smPackage.JSON:
@@ -217,8 +169,6 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-		case e4smPackage.UNIT_OF_MEASUREMENT:
-			return convertUnitOfMeasurementToString(eDataType, instanceValue);
 		case e4smPackage.CONNECTIONSPEED:
 			return convertConnectionspeedToString(eDataType, instanceValue);
 		case e4smPackage.JSON:
@@ -465,50 +415,6 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 	 * @generated
 	 */
 	@Override
-	public ParameterDefinition createParameterDefinition() {
-		ParameterDefinitionImpl parameterDefinition = new ParameterDefinitionImpl();
-		return parameterDefinition;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Parameter createParameter() {
-		ParameterImpl parameter = new ParameterImpl();
-		return parameter;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ParameterDefinitionLibrary createParameterDefinitionLibrary() {
-		ParameterDefinitionLibraryImpl parameterDefinitionLibrary = new ParameterDefinitionLibraryImpl();
-		return parameterDefinitionLibrary;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Variant createVariant() {
-		VariantImpl variant = new VariantImpl();
-		return variant;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public MeasurementUnit createMeasurementUnit() {
 		MeasurementUnitImpl measurementUnit = new MeasurementUnitImpl();
 		return measurementUnit;
@@ -578,149 +484,6 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 	public UnitPrefix createUnitPrefix() {
 		UnitPrefixImpl unitPrefix = new UnitPrefixImpl();
 		return unitPrefix;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public LiteralNull createLiteralNull() {
-		LiteralNullImpl literalNull = new LiteralNullImpl();
-		return literalNull;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public LiteralString createLiteralString() {
-		LiteralStringImpl literalString = new LiteralStringImpl();
-		return literalString;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public LiteralInteger createLiteralInteger() {
-		LiteralIntegerImpl literalInteger = new LiteralIntegerImpl();
-		return literalInteger;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public LiteralBoolean createLiteralBoolean() {
-		LiteralBooleanImpl literalBoolean = new LiteralBooleanImpl();
-		return literalBoolean;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public LiteralFloat createLiteralFloat() {
-		LiteralFloatImpl literalFloat = new LiteralFloatImpl();
-		return literalFloat;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public LiteralDouble createLiteralDouble() {
-		LiteralDoubleImpl literalDouble = new LiteralDoubleImpl();
-		return literalDouble;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public LiteralLong createLiteralLong() {
-		LiteralLongImpl literalLong = new LiteralLongImpl();
-		return literalLong;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public LiteralShort createLiteralShort() {
-		LiteralShortImpl literalShort = new LiteralShortImpl();
-		return literalShort;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public LiteralByte createLiteralByte() {
-		LiteralByteImpl literalByte = new LiteralByteImpl();
-		return literalByte;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public LiteralCharacter createLiteralCharacter() {
-		LiteralCharacterImpl literalCharacter = new LiteralCharacterImpl();
-		return literalCharacter;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public LiteralDate createLiteralDate() {
-		LiteralDateImpl literalDate = new LiteralDateImpl();
-		return literalDate;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UnitOfMeasurement createUnitOfMeasurementFromString(EDataType eDataType, String initialValue) {
-		UnitOfMeasurement result = UnitOfMeasurement.get(initialValue);
-		if (result == null)
-			throw new IllegalArgumentException(
-					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertUnitOfMeasurementToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

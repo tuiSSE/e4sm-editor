@@ -4,10 +4,10 @@ package e4sm.de.metamodel.e4sm.types.impl;
 
 import e4sm.de.metamodel.e4sm.types.*;
 
+import java.text.ParseException;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -58,6 +58,28 @@ public class TypesFactoryImpl extends EFactoryImpl implements TypesFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+		case TypesPackage.LITERAL_NULL:
+			return createLiteralNull();
+		case TypesPackage.LITERAL_STRING:
+			return createLiteralString();
+		case TypesPackage.LITERAL_INTEGER:
+			return createLiteralInteger();
+		case TypesPackage.LITERAL_BOOLEAN:
+			return createLiteralBoolean();
+		case TypesPackage.LITERAL_FLOAT:
+			return createLiteralFloat();
+		case TypesPackage.LITERAL_DOUBLE:
+			return createLiteralDouble();
+		case TypesPackage.LITERAL_LONG:
+			return createLiteralLong();
+		case TypesPackage.LITERAL_SHORT:
+			return createLiteralShort();
+		case TypesPackage.LITERAL_BYTE:
+			return createLiteralByte();
+		case TypesPackage.LITERAL_CHARACTER:
+			return createLiteralCharacter();
+		case TypesPackage.LITERAL_DATE:
+			return createLiteralDate();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -70,6 +92,8 @@ public class TypesFactoryImpl extends EFactoryImpl implements TypesFactory {
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
+		case TypesPackage.UNIT_OF_MEASUREMENT:
+			return createUnitOfMeasurementFromString(eDataType, initialValue);
 		case TypesPackage.BOOLEAN:
 			return createBooleanFromString(eDataType, initialValue);
 		case TypesPackage.STRING:
@@ -90,6 +114,10 @@ public class TypesFactoryImpl extends EFactoryImpl implements TypesFactory {
 			return createByteFromString(eDataType, initialValue);
 		case TypesPackage.DATE:
 			return createDateFromString(eDataType, initialValue);
+		case TypesPackage.TIMESTAMP:
+			return createTimestampFromString(eDataType, initialValue);
+		case TypesPackage.TIME:
+			return createTimeFromString(eDataType, initialValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -102,6 +130,8 @@ public class TypesFactoryImpl extends EFactoryImpl implements TypesFactory {
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
+		case TypesPackage.UNIT_OF_MEASUREMENT:
+			return convertUnitOfMeasurementToString(eDataType, instanceValue);
 		case TypesPackage.BOOLEAN:
 			return convertBooleanToString(eDataType, instanceValue);
 		case TypesPackage.STRING:
@@ -122,9 +152,156 @@ public class TypesFactoryImpl extends EFactoryImpl implements TypesFactory {
 			return convertByteToString(eDataType, instanceValue);
 		case TypesPackage.DATE:
 			return convertDateToString(eDataType, instanceValue);
+		case TypesPackage.TIMESTAMP:
+			return convertTimestampToString(eDataType, instanceValue);
+		case TypesPackage.TIME:
+			return convertTimeToString(eDataType, instanceValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public LiteralNull createLiteralNull() {
+		LiteralNullImpl literalNull = new LiteralNullImpl();
+		return literalNull;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public LiteralString createLiteralString() {
+		LiteralStringImpl literalString = new LiteralStringImpl();
+		return literalString;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public LiteralInteger createLiteralInteger() {
+		LiteralIntegerImpl literalInteger = new LiteralIntegerImpl();
+		return literalInteger;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public LiteralBoolean createLiteralBoolean() {
+		LiteralBooleanImpl literalBoolean = new LiteralBooleanImpl();
+		return literalBoolean;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public LiteralFloat createLiteralFloat() {
+		LiteralFloatImpl literalFloat = new LiteralFloatImpl();
+		return literalFloat;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public LiteralDouble createLiteralDouble() {
+		LiteralDoubleImpl literalDouble = new LiteralDoubleImpl();
+		return literalDouble;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public LiteralLong createLiteralLong() {
+		LiteralLongImpl literalLong = new LiteralLongImpl();
+		return literalLong;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public LiteralShort createLiteralShort() {
+		LiteralShortImpl literalShort = new LiteralShortImpl();
+		return literalShort;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public LiteralByte createLiteralByte() {
+		LiteralByteImpl literalByte = new LiteralByteImpl();
+		return literalByte;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public LiteralCharacter createLiteralCharacter() {
+		LiteralCharacterImpl literalCharacter = new LiteralCharacterImpl();
+		return literalCharacter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public LiteralDate createLiteralDate() {
+		LiteralDateImpl literalDate = new LiteralDateImpl();
+		return literalDate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UnitOfMeasurement createUnitOfMeasurementFromString(EDataType eDataType, String initialValue) {
+		UnitOfMeasurement result = UnitOfMeasurement.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException(
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertUnitOfMeasurementToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**
@@ -132,7 +309,7 @@ public class TypesFactoryImpl extends EFactoryImpl implements TypesFactory {
 	 * 
 	 * @generated NOT
 	 */
-	public Integer createIntegerFromString(EDataType eDataType, String initialValue) {
+	public Integer createIntegerFromStringOLD(EDataType eDataType, String initialValue) {
 		if (initialValue == null) {
 			return null;
 		}
@@ -144,7 +321,7 @@ public class TypesFactoryImpl extends EFactoryImpl implements TypesFactory {
 	 * 
 	 * @generated NOT
 	 */
-	public String convertIntegerToString(EDataType eDataType, Object instanceValue) {
+	public String convertIntegerToStringOLD(EDataType eDataType, Object instanceValue) {
 		if (instanceValue == null) {
 			return null;
 		}
@@ -156,7 +333,7 @@ public class TypesFactoryImpl extends EFactoryImpl implements TypesFactory {
 	 * 
 	 * @generated NOT
 	 */
-	public Date createDateFromString(EDataType eDataType, String initialValue) {
+	public Date createDateFromStringOLD(EDataType eDataType, String initialValue) {
 		// return (Date) super.createFromString(eDataType, initialValue);
 		if (initialValue == null) {
 			return null;
@@ -175,7 +352,7 @@ public class TypesFactoryImpl extends EFactoryImpl implements TypesFactory {
 	 * 
 	 * @generated NOT
 	 */
-	public String convertDateToString(EDataType eDataType, Object instanceValue) {
+	public String convertDateToStringOLD(EDataType eDataType, Object instanceValue) {
 		// return super.convertToString(eDataType, instanceValue);
 		if (instanceValue == null) {
 			return null;
@@ -183,6 +360,73 @@ public class TypesFactoryImpl extends EFactoryImpl implements TypesFactory {
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 		return format.format((Date) instanceValue);
 
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public Date createTimestampOLD(final String it) {
+		if (it != null) {
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			try {
+				return sdf.parse(it);
+			} catch (ParseException e) {
+				throw new IllegalArgumentException("Timestamp must be of format " + sdf.toPattern());
+			}
+		}
+		return null;
+
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Date createTimestampFromString(EDataType eDataType, String initialValue) {
+		return (Date) super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public String convertTimestamp(final Date it) {
+		if (it != null) {
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			return sdf.format(it);
+		}
+		return null;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertTimestampToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Date createTimeFromString(EDataType eDataType, String initialValue) {
+		return (Date) super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertTimeToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
 	}
 
 	/**
@@ -288,6 +532,24 @@ public class TypesFactoryImpl extends EFactoryImpl implements TypesFactory {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Date createDateFromString(EDataType eDataType, String initialValue) {
+		return (Date) super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertDateToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated NOT
@@ -327,6 +589,24 @@ public class TypesFactoryImpl extends EFactoryImpl implements TypesFactory {
 	 */
 	public String convertStringToString(EDataType eDataType, Object instanceValue) {
 		return (String) instanceValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Integer createIntegerFromString(EDataType eDataType, String initialValue) {
+		return (Integer) super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertIntegerToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
 	}
 
 	/**

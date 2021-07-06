@@ -2,18 +2,43 @@
  */
 package e4sm.de.metamodel.e4sm.types.impl;
 
+import e4sm.de.metamodel.e4sm.analysis.AnalysisPackage;
+import e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl;
+import e4sm.de.metamodel.e4sm.analysis.results.ResultsPackage;
+import e4sm.de.metamodel.e4sm.analysis.results.impl.ResultsPackageImpl;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
 import e4sm.de.metamodel.e4sm.impl.e4smPackageImpl;
-
+import e4sm.de.metamodel.e4sm.types.Element;
+import e4sm.de.metamodel.e4sm.types.LiteralBoolean;
+import e4sm.de.metamodel.e4sm.types.LiteralByte;
+import e4sm.de.metamodel.e4sm.types.LiteralCharacter;
+import e4sm.de.metamodel.e4sm.types.LiteralDate;
+import e4sm.de.metamodel.e4sm.types.LiteralDouble;
+import e4sm.de.metamodel.e4sm.types.LiteralFloat;
+import e4sm.de.metamodel.e4sm.types.LiteralInteger;
+import e4sm.de.metamodel.e4sm.types.LiteralLong;
+import e4sm.de.metamodel.e4sm.types.LiteralNull;
+import e4sm.de.metamodel.e4sm.types.LiteralShort;
+import e4sm.de.metamodel.e4sm.types.LiteralSpecification;
+import e4sm.de.metamodel.e4sm.types.LiteralString;
+import e4sm.de.metamodel.e4sm.types.NamedElement;
+import e4sm.de.metamodel.e4sm.types.TypedElement;
 import e4sm.de.metamodel.e4sm.types.TypesFactory;
 import e4sm.de.metamodel.e4sm.types.TypesPackage;
 
+import e4sm.de.metamodel.e4sm.types.UnitOfMeasurement;
+import e4sm.de.metamodel.e4sm.types.ValueSpecification;
 import java.util.Date;
 
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -28,7 +53,140 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass namedElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass elementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass literalSpecificationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass literalNullEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass literalStringEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass literalIntegerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass literalBooleanEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass literalFloatEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass literalDoubleEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass literalLongEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass literalShortEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass literalByteEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass literalCharacterEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass literalDateEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass valueSpecificationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass typedElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum unitOfMeasurementEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EDataType dateEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType timestampEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType timeEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -148,14 +306,26 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		e4smPackageImpl thee4smPackage = (e4smPackageImpl) (registeredPackage instanceof e4smPackageImpl
 				? registeredPackage
 				: e4smPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(AnalysisPackage.eNS_URI);
+		AnalysisPackageImpl theAnalysisPackage = (AnalysisPackageImpl) (registeredPackage instanceof AnalysisPackageImpl
+				? registeredPackage
+				: AnalysisPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ResultsPackage.eNS_URI);
+		ResultsPackageImpl theResultsPackage = (ResultsPackageImpl) (registeredPackage instanceof ResultsPackageImpl
+				? registeredPackage
+				: ResultsPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theTypesPackage.createPackageContents();
 		thee4smPackage.createPackageContents();
+		theAnalysisPackage.createPackageContents();
+		theResultsPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theTypesPackage.initializePackageContents();
 		thee4smPackage.initializePackageContents();
+		theAnalysisPackage.initializePackageContents();
+		theResultsPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theTypesPackage.freeze();
@@ -171,8 +341,358 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getNamedElement() {
+		return namedElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getNamedElement_Name() {
+		return (EAttribute) namedElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getElement() {
+		return elementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getLiteralSpecification() {
+		return literalSpecificationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getLiteralNull() {
+		return literalNullEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getLiteralString() {
+		return literalStringEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getLiteralString_Value() {
+		return (EAttribute) literalStringEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getLiteralInteger() {
+		return literalIntegerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getLiteralInteger_Value() {
+		return (EAttribute) literalIntegerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getLiteralBoolean() {
+		return literalBooleanEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getLiteralBoolean_Value() {
+		return (EAttribute) literalBooleanEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getLiteralBoolean__GetValue() {
+		return literalBooleanEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getLiteralFloat() {
+		return literalFloatEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getLiteralFloat_Value() {
+		return (EAttribute) literalFloatEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getLiteralDouble() {
+		return literalDoubleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getLiteralDouble_Value() {
+		return (EAttribute) literalDoubleEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getLiteralLong() {
+		return literalLongEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getLiteralLong_Value() {
+		return (EAttribute) literalLongEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getLiteralShort() {
+		return literalShortEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getLiteralShort_Value() {
+		return (EAttribute) literalShortEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getLiteralByte() {
+		return literalByteEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getLiteralByte_Value() {
+		return (EAttribute) literalByteEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getLiteralCharacter() {
+		return literalCharacterEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getLiteralCharacter_Value() {
+		return (EAttribute) literalCharacterEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getLiteralDate() {
+		return literalDateEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getLiteralDate_Value() {
+		return (EAttribute) literalDateEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getValueSpecification() {
+		return valueSpecificationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getValueSpecification__BooleanValue() {
+		return valueSpecificationEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getValueSpecification__IntegerValue() {
+		return valueSpecificationEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getValueSpecification__IsComputable() {
+		return valueSpecificationEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getTypedElement() {
+		return typedElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getTypedElement_Type() {
+		return (EReference) typedElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EEnum getUnitOfMeasurement() {
+		return unitOfMeasurementEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EDataType getDate() {
 		return dateEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EDataType getTimestamp() {
+		return timestampEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EDataType getTime() {
+		return timeEDataType;
 	}
 
 	/**
@@ -294,6 +814,58 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 			return;
 		isCreated = true;
 
+		// Create classes and their features
+		namedElementEClass = createEClass(NAMED_ELEMENT);
+		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
+
+		elementEClass = createEClass(ELEMENT);
+
+		literalSpecificationEClass = createEClass(LITERAL_SPECIFICATION);
+
+		literalNullEClass = createEClass(LITERAL_NULL);
+
+		literalStringEClass = createEClass(LITERAL_STRING);
+		createEAttribute(literalStringEClass, LITERAL_STRING__VALUE);
+
+		literalIntegerEClass = createEClass(LITERAL_INTEGER);
+		createEAttribute(literalIntegerEClass, LITERAL_INTEGER__VALUE);
+
+		literalBooleanEClass = createEClass(LITERAL_BOOLEAN);
+		createEAttribute(literalBooleanEClass, LITERAL_BOOLEAN__VALUE);
+		createEOperation(literalBooleanEClass, LITERAL_BOOLEAN___GET_VALUE);
+
+		literalFloatEClass = createEClass(LITERAL_FLOAT);
+		createEAttribute(literalFloatEClass, LITERAL_FLOAT__VALUE);
+
+		literalDoubleEClass = createEClass(LITERAL_DOUBLE);
+		createEAttribute(literalDoubleEClass, LITERAL_DOUBLE__VALUE);
+
+		literalLongEClass = createEClass(LITERAL_LONG);
+		createEAttribute(literalLongEClass, LITERAL_LONG__VALUE);
+
+		literalShortEClass = createEClass(LITERAL_SHORT);
+		createEAttribute(literalShortEClass, LITERAL_SHORT__VALUE);
+
+		literalByteEClass = createEClass(LITERAL_BYTE);
+		createEAttribute(literalByteEClass, LITERAL_BYTE__VALUE);
+
+		literalCharacterEClass = createEClass(LITERAL_CHARACTER);
+		createEAttribute(literalCharacterEClass, LITERAL_CHARACTER__VALUE);
+
+		literalDateEClass = createEClass(LITERAL_DATE);
+		createEAttribute(literalDateEClass, LITERAL_DATE__VALUE);
+
+		valueSpecificationEClass = createEClass(VALUE_SPECIFICATION);
+		createEOperation(valueSpecificationEClass, VALUE_SPECIFICATION___BOOLEAN_VALUE);
+		createEOperation(valueSpecificationEClass, VALUE_SPECIFICATION___INTEGER_VALUE);
+		createEOperation(valueSpecificationEClass, VALUE_SPECIFICATION___IS_COMPUTABLE);
+
+		typedElementEClass = createEClass(TYPED_ELEMENT);
+		createEReference(typedElementEClass, TYPED_ELEMENT__TYPE);
+
+		// Create enums
+		unitOfMeasurementEEnum = createEEnum(UNIT_OF_MEASUREMENT);
+
 		// Create data types
 		booleanEDataType = createEDataType(BOOLEAN);
 		stringEDataType = createEDataType(STRING);
@@ -305,6 +877,8 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		characterEDataType = createEDataType(CHARACTER);
 		byteEDataType = createEDataType(BYTE);
 		dateEDataType = createEDataType(DATE);
+		timestampEDataType = createEDataType(TIMESTAMP);
+		timeEDataType = createEDataType(TIME);
 	}
 
 	/**
@@ -331,6 +905,124 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
+		// Create type parameters
+
+		// Set bounds for type parameters
+
+		// Add supertypes to classes
+		namedElementEClass.getESuperTypes().add(this.getElement());
+		literalSpecificationEClass.getESuperTypes().add(this.getValueSpecification());
+		literalNullEClass.getESuperTypes().add(this.getLiteralSpecification());
+		literalStringEClass.getESuperTypes().add(this.getLiteralSpecification());
+		literalIntegerEClass.getESuperTypes().add(this.getLiteralSpecification());
+		literalBooleanEClass.getESuperTypes().add(this.getLiteralSpecification());
+		literalFloatEClass.getESuperTypes().add(this.getLiteralSpecification());
+		literalDoubleEClass.getESuperTypes().add(this.getLiteralSpecification());
+		literalLongEClass.getESuperTypes().add(this.getLiteralSpecification());
+		literalShortEClass.getESuperTypes().add(this.getLiteralSpecification());
+		literalByteEClass.getESuperTypes().add(this.getLiteralSpecification());
+		literalCharacterEClass.getESuperTypes().add(this.getLiteralSpecification());
+		literalDateEClass.getESuperTypes().add(this.getLiteralSpecification());
+		valueSpecificationEClass.getESuperTypes().add(this.getTypedElement());
+		typedElementEClass.getESuperTypes().add(this.getNamedElement());
+
+		// Initialize classes, features, and operations; add parameters
+		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, NamedElement.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(elementEClass, Element.class, "Element", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(literalSpecificationEClass, LiteralSpecification.class, "LiteralSpecification", IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(literalNullEClass, LiteralNull.class, "LiteralNull", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(literalStringEClass, LiteralString.class, "LiteralString", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getLiteralString_Value(), this.getString(), "value", null, 0, 1, LiteralString.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(literalIntegerEClass, LiteralInteger.class, "LiteralInteger", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getLiteralInteger_Value(), this.getInteger(), "value", null, 0, 1, LiteralInteger.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(literalBooleanEClass, LiteralBoolean.class, "LiteralBoolean", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getLiteralBoolean_Value(), this.getBoolean(), "value", null, 0, 1, LiteralBoolean.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getLiteralBoolean__GetValue(), this.getBoolean(), "getValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(literalFloatEClass, LiteralFloat.class, "LiteralFloat", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getLiteralFloat_Value(), this.getFloat(), "value", null, 0, 1, LiteralFloat.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(literalDoubleEClass, LiteralDouble.class, "LiteralDouble", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getLiteralDouble_Value(), this.getDouble(), "value", "0.0", 0, 1, LiteralDouble.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(literalLongEClass, LiteralLong.class, "LiteralLong", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getLiteralLong_Value(), this.getLong(), "value", "0", 0, 1, LiteralLong.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(literalShortEClass, LiteralShort.class, "LiteralShort", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getLiteralShort_Value(), this.getShort(), "value", "0", 0, 1, LiteralShort.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(literalByteEClass, LiteralByte.class, "LiteralByte", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getLiteralByte_Value(), this.getByte(), "value", "0", 0, 1, LiteralByte.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(literalCharacterEClass, LiteralCharacter.class, "LiteralCharacter", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getLiteralCharacter_Value(), this.getCharacter(), "value", null, 0, 1, LiteralCharacter.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(literalDateEClass, LiteralDate.class, "LiteralDate", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getLiteralDate_Value(), this.getDate(), "value", null, 0, 1, LiteralDate.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(valueSpecificationEClass, ValueSpecification.class, "ValueSpecification", IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+
+		initEOperation(getValueSpecification__BooleanValue(), this.getBoolean(), "booleanValue", 0, 1, IS_UNIQUE,
+				IS_ORDERED);
+
+		initEOperation(getValueSpecification__IntegerValue(), this.getInteger(), "integerValue", 0, 1, IS_UNIQUE,
+				IS_ORDERED);
+
+		initEOperation(getValueSpecification__IsComputable(), ecorePackage.getEBoolean(), "isComputable", 0, 1,
+				IS_UNIQUE, IS_ORDERED);
+
+		initEClass(typedElementEClass, TypedElement.class, "TypedElement", IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTypedElement_Type(), ecorePackage.getEDataType(), null, "type", null, 0, 1,
+				TypedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(unitOfMeasurementEEnum, UnitOfMeasurement.class, "UnitOfMeasurement");
+		addEEnumLiteral(unitOfMeasurementEEnum, UnitOfMeasurement.CM);
+		addEEnumLiteral(unitOfMeasurementEEnum, UnitOfMeasurement.M);
+		addEEnumLiteral(unitOfMeasurementEEnum, UnitOfMeasurement.MM);
+		addEEnumLiteral(unitOfMeasurementEEnum, UnitOfMeasurement.PERCENTAGE);
+		addEEnumLiteral(unitOfMeasurementEEnum, UnitOfMeasurement.S);
+		addEEnumLiteral(unitOfMeasurementEEnum, UnitOfMeasurement.MS);
+		addEEnumLiteral(unitOfMeasurementEEnum, UnitOfMeasurement.MINUTES);
+		addEEnumLiteral(unitOfMeasurementEEnum, UnitOfMeasurement.HOURS);
+		addEEnumLiteral(unitOfMeasurementEEnum, UnitOfMeasurement.MBPS);
+		addEEnumLiteral(unitOfMeasurementEEnum, UnitOfMeasurement.NONE);
+
 		// Initialize data types
 		initEDataType(booleanEDataType, boolean.class, "Boolean", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(stringEDataType, String.class, "String", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
@@ -342,6 +1034,40 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		initEDataType(characterEDataType, char.class, "Character", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(byteEDataType, byte.class, "Byte", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(dateEDataType, Date.class, "Date", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(timestampEDataType, Date.class, "Timestamp", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(timeEDataType, Date.class, "Time", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+
+		// Create annotations
+		// http://www.eclipse.org/emf/2002/Ecore
+		createEcoreAnnotations();
+		// http:///org/eclipse/emf/ecore/util/DateConversionDelegate
+		createDateConversionDelegateAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createEcoreAnnotations() {
+		String source = "http://www.eclipse.org/emf/2002/Ecore";
+		addAnnotation(this, source,
+				new String[] { "conversionDelegates", "http:///org/eclipse/emf/ecore/util/DateConversionDelegate" });
+	}
+
+	/**
+	 * Initializes the annotations for <b>http:///org/eclipse/emf/ecore/util/DateConversionDelegate</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createDateConversionDelegateAnnotations() {
+		String source = "http:///org/eclipse/emf/ecore/util/DateConversionDelegate";
+		addAnnotation(dateEDataType, source, new String[] { "format", "//SimpleDateFormat/yyyy-MM-dd" });
+		addAnnotation(timestampEDataType, source,
+				new String[] { "format", "//SimpleDateFormat/yyyy-MM-dd%20HH:mm:ss" });
+		addAnnotation(timeEDataType, source, new String[] { "format", "//SimpleDateFormat/HH:mm:ss" });
 	}
 
 } //TypesPackageImpl

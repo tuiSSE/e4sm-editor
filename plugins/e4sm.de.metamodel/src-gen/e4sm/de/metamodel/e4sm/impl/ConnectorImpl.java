@@ -3,12 +3,13 @@
 package e4sm.de.metamodel.e4sm.impl;
 
 import e4sm.de.metamodel.e4sm.Connector;
-import e4sm.de.metamodel.e4sm.Element;
-import e4sm.de.metamodel.e4sm.NamedElement;
-import e4sm.de.metamodel.e4sm.Parameter;
 import e4sm.de.metamodel.e4sm.Pin;
+import e4sm.de.metamodel.e4sm.analysis.Parameter;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
+import e4sm.de.metamodel.e4sm.types.Element;
+import e4sm.de.metamodel.e4sm.types.NamedElement;
+import e4sm.de.metamodel.e4sm.types.TypesPackage;
 import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -351,7 +352,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 		if (baseClass == NamedElement.class) {
 			switch (derivedFeatureID) {
 			case e4smPackage.CONNECTOR__NAME:
-				return e4smPackage.NAMED_ELEMENT__NAME;
+				return TypesPackage.NAMED_ELEMENT__NAME;
 			default:
 				return -1;
 			}
@@ -374,7 +375,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 		}
 		if (baseClass == NamedElement.class) {
 			switch (baseFeatureID) {
-			case e4smPackage.NAMED_ELEMENT__NAME:
+			case TypesPackage.NAMED_ELEMENT__NAME:
 				return e4smPackage.CONNECTOR__NAME;
 			default:
 				return -1;

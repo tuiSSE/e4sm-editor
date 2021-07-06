@@ -10,18 +10,6 @@
   <testsDirectory xsi:nil="true"/>
   <genPackages prefix="e4sm" basePackage="e4sm.de.metamodel" resource="XMI" disposableProviderFactory="true"
       ecorePackage="e4sm.ecore#/">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="e4sm.ecore#//UnitOfMeasurement">
-      <genEnumLiterals ecoreEnumLiteral="e4sm.ecore#//UnitOfMeasurement/cm"/>
-      <genEnumLiterals ecoreEnumLiteral="e4sm.ecore#//UnitOfMeasurement/m"/>
-      <genEnumLiterals ecoreEnumLiteral="e4sm.ecore#//UnitOfMeasurement/mm"/>
-      <genEnumLiterals ecoreEnumLiteral="e4sm.ecore#//UnitOfMeasurement/percentage"/>
-      <genEnumLiterals ecoreEnumLiteral="e4sm.ecore#//UnitOfMeasurement/s"/>
-      <genEnumLiterals ecoreEnumLiteral="e4sm.ecore#//UnitOfMeasurement/ms"/>
-      <genEnumLiterals ecoreEnumLiteral="e4sm.ecore#//UnitOfMeasurement/minutes"/>
-      <genEnumLiterals ecoreEnumLiteral="e4sm.ecore#//UnitOfMeasurement/hours"/>
-      <genEnumLiterals ecoreEnumLiteral="e4sm.ecore#//UnitOfMeasurement/mbps"/>
-      <genEnumLiterals ecoreEnumLiteral="e4sm.ecore#//UnitOfMeasurement/none"/>
-    </genEnums>
     <genDataTypes ecoreDataType="e4sm.ecore#//Connectionspeed"/>
     <genDataTypes ecoreDataType="e4sm.ecore#//JSON"/>
     <genClasses ecoreClass="e4sm.ecore#//Component">
@@ -72,15 +60,11 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//Model/packages"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//Model/actors"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//Model/personsPicturesPath"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//Model/parameterDefinitionLibraries"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//Model/variants"/>
       <genOperations ecoreOperation="e4sm.ecore#//Model/isPersonPicturePathValid">
         <genParameters ecoreParameter="e4sm.ecore#//Model/isPersonPicturePathValid/diagnostics"/>
         <genParameters ecoreParameter="e4sm.ecore#//Model/isPersonPicturePathValid/context"/>
       </genOperations>
-    </genClasses>
-    <genClasses image="false" ecoreClass="e4sm.ecore#//NamedElement">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//NamedElement/name"/>
     </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//Actor"/>
     <genClasses ecoreClass="e4sm.ecore#//Human"/>
@@ -93,7 +77,6 @@
     </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//Sensor"/>
     <genClasses ecoreClass="e4sm.ecore#//Actuator"/>
-    <genClasses ecoreClass="e4sm.ecore#//Element"/>
     <genClasses ecoreClass="e4sm.ecore#//Pin"/>
     <genClasses ecoreClass="e4sm.ecore#//InputPin"/>
     <genClasses ecoreClass="e4sm.ecore#//OutputPin"/>
@@ -103,29 +86,6 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//Person/responsibleForComponents"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//Person/pictureFileName"/>
     </genClasses>
-    <genClasses ecoreClass="e4sm.ecore#//ParameterDefinition">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//ParameterDefinition/parameters"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//ParameterDefinition/unit"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//ParameterDefinition/mustBeDefinedOn"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//ParameterDefinition/canBeDefinedOn"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//ParameterDefinition/shallNotBeDefinedOn"/>
-      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//ParameterDefinition/defaultValue"/>
-    </genClasses>
-    <genClasses ecoreClass="e4sm.ecore#//Parameter">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//Parameter/value"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//Parameter/parameterDefinition"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//Parameter/appliesOnlyOnVariants"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//Parameter/doesNotApplyOnVariants"/>
-      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//Parameter/initialValue"/>
-      <genOperations ecoreOperation="e4sm.ecore#//Parameter/isValid"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="e4sm.ecore#//ParameterizableElement">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//ParameterizableElement/parameters"/>
-    </genClasses>
-    <genClasses ecoreClass="e4sm.ecore#//ParameterDefinitionLibrary">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//ParameterDefinitionLibrary/parameterDefinitions"/>
-    </genClasses>
-    <genClasses ecoreClass="e4sm.ecore#//Variant"/>
     <genClasses ecoreClass="e4sm.ecore#//MeasurementUnit">
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//MeasurementUnit/unitConversion"/>
     </genClasses>
@@ -143,50 +103,20 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//UnitPrefix/symbol"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//UnitPrefix/conversionFactor"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="e4sm.ecore#//ValueSpecification">
-      <genOperations ecoreOperation="e4sm.ecore#//ValueSpecification/booleanValue"/>
-      <genOperations ecoreOperation="e4sm.ecore#//ValueSpecification/integerValue"/>
-      <genOperations ecoreOperation="e4sm.ecore#//ValueSpecification/isComputable"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="e4sm.ecore#//LiteralSpecification"/>
-    <genClasses image="false" ecoreClass="e4sm.ecore#//TypedElement">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//TypedElement/type">
-        <propertyFilterFlags>org.eclipse.ui.views.properties.expert</propertyFilterFlags>
-      </genFeatures>
-    </genClasses>
-    <genClasses ecoreClass="e4sm.ecore#//LiteralNull"/>
-    <genClasses ecoreClass="e4sm.ecore#//LiteralString" labelFeature="#//e4sm/LiteralString/value">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//LiteralString/value"/>
-    </genClasses>
-    <genClasses ecoreClass="e4sm.ecore#//LiteralInteger">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//LiteralInteger/value"/>
-    </genClasses>
-    <genClasses ecoreClass="e4sm.ecore#//LiteralBoolean">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//LiteralBoolean/value"/>
-      <genOperations ecoreOperation="e4sm.ecore#//LiteralBoolean/getValue" body="return value;"/>
-    </genClasses>
-    <genClasses ecoreClass="e4sm.ecore#//LiteralFloat">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//LiteralFloat/value"/>
-    </genClasses>
-    <genClasses ecoreClass="e4sm.ecore#//LiteralDouble">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//LiteralDouble/value"/>
-    </genClasses>
-    <genClasses ecoreClass="e4sm.ecore#//LiteralLong">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//LiteralLong/value"/>
-    </genClasses>
-    <genClasses ecoreClass="e4sm.ecore#//LiteralShort">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//LiteralShort/value"/>
-    </genClasses>
-    <genClasses ecoreClass="e4sm.ecore#//LiteralByte">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//LiteralByte/value"/>
-    </genClasses>
-    <genClasses ecoreClass="e4sm.ecore#//LiteralCharacter">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//LiteralCharacter/value"/>
-    </genClasses>
-    <genClasses ecoreClass="e4sm.ecore#//LiteralDate">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//LiteralDate/value"/>
-    </genClasses>
-    <nestedGenPackages prefix="Types" disposableProviderFactory="true" ecorePackage="e4sm.ecore#//types">
+    <nestedGenPackages prefix="Types" basePackage="e4sm.de.metamodel.e4sm" disposableProviderFactory="true"
+        generateModelWizard="false" ecorePackage="e4sm.ecore#//types">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="e4sm.ecore#//types/UnitOfMeasurement">
+        <genEnumLiterals ecoreEnumLiteral="e4sm.ecore#//types/UnitOfMeasurement/cm"/>
+        <genEnumLiterals ecoreEnumLiteral="e4sm.ecore#//types/UnitOfMeasurement/m"/>
+        <genEnumLiterals ecoreEnumLiteral="e4sm.ecore#//types/UnitOfMeasurement/mm"/>
+        <genEnumLiterals ecoreEnumLiteral="e4sm.ecore#//types/UnitOfMeasurement/percentage"/>
+        <genEnumLiterals ecoreEnumLiteral="e4sm.ecore#//types/UnitOfMeasurement/s"/>
+        <genEnumLiterals ecoreEnumLiteral="e4sm.ecore#//types/UnitOfMeasurement/ms"/>
+        <genEnumLiterals ecoreEnumLiteral="e4sm.ecore#//types/UnitOfMeasurement/minutes"/>
+        <genEnumLiterals ecoreEnumLiteral="e4sm.ecore#//types/UnitOfMeasurement/hours"/>
+        <genEnumLiterals ecoreEnumLiteral="e4sm.ecore#//types/UnitOfMeasurement/mbps"/>
+        <genEnumLiterals ecoreEnumLiteral="e4sm.ecore#//types/UnitOfMeasurement/none"/>
+      </genEnums>
       <genDataTypes ecoreDataType="e4sm.ecore#//types/Boolean"/>
       <genDataTypes ecoreDataType="e4sm.ecore#//types/String"/>
       <genDataTypes ecoreDataType="e4sm.ecore#//types/Integer"/>
@@ -197,6 +127,141 @@
       <genDataTypes ecoreDataType="e4sm.ecore#//types/Character"/>
       <genDataTypes ecoreDataType="e4sm.ecore#//types/Byte"/>
       <genDataTypes ecoreDataType="e4sm.ecore#//types/Date"/>
+      <genDataTypes documentation="Format: yyyy-MM-dd HH:mm:ss" ecoreDataType="e4sm.ecore#//types/Timestamp"/>
+      <genDataTypes ecoreDataType="e4sm.ecore#//types/Time"/>
+      <genClasses image="false" ecoreClass="e4sm.ecore#//types/NamedElement">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//types/NamedElement/name"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="e4sm.ecore#//types/Element"/>
+      <genClasses image="false" ecoreClass="e4sm.ecore#//types/LiteralSpecification"/>
+      <genClasses ecoreClass="e4sm.ecore#//types/LiteralNull"/>
+      <genClasses ecoreClass="e4sm.ecore#//types/LiteralString">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//types/LiteralString/value"/>
+      </genClasses>
+      <genClasses ecoreClass="e4sm.ecore#//types/LiteralInteger">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//types/LiteralInteger/value"/>
+      </genClasses>
+      <genClasses ecoreClass="e4sm.ecore#//types/LiteralBoolean">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//types/LiteralBoolean/value"/>
+        <genOperations ecoreOperation="e4sm.ecore#//types/LiteralBoolean/getValue"/>
+      </genClasses>
+      <genClasses ecoreClass="e4sm.ecore#//types/LiteralFloat">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//types/LiteralFloat/value"/>
+      </genClasses>
+      <genClasses ecoreClass="e4sm.ecore#//types/LiteralDouble">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//types/LiteralDouble/value"/>
+      </genClasses>
+      <genClasses ecoreClass="e4sm.ecore#//types/LiteralLong">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//types/LiteralLong/value"/>
+      </genClasses>
+      <genClasses ecoreClass="e4sm.ecore#//types/LiteralShort">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//types/LiteralShort/value"/>
+      </genClasses>
+      <genClasses ecoreClass="e4sm.ecore#//types/LiteralByte">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//types/LiteralByte/value"/>
+      </genClasses>
+      <genClasses ecoreClass="e4sm.ecore#//types/LiteralCharacter">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//types/LiteralCharacter/value"/>
+      </genClasses>
+      <genClasses ecoreClass="e4sm.ecore#//types/LiteralDate">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//types/LiteralDate/value"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="e4sm.ecore#//types/ValueSpecification">
+        <genOperations ecoreOperation="e4sm.ecore#//types/ValueSpecification/booleanValue"/>
+        <genOperations ecoreOperation="e4sm.ecore#//types/ValueSpecification/integerValue"/>
+        <genOperations ecoreOperation="e4sm.ecore#//types/ValueSpecification/isComputable"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="e4sm.ecore#//types/TypedElement">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference e4sm.ecore#//types/TypedElement/type"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Analysis" basePackage="e4sm.de.metamodel.e4sm" resource="XMI"
+        disposableProviderFactory="true" ecorePackage="e4sm.ecore#//analysis">
+      <genDataTypes ecoreDataType="e4sm.ecore#//analysis/Graph"/>
+      <genClasses ecoreClass="e4sm.ecore#//analysis/AnalysisManager">
+        <genOperations ecoreOperation="e4sm.ecore#//analysis/AnalysisManager/start">
+          <genParameters ecoreParameter="e4sm.ecore#//analysis/AnalysisManager/start/a"/>
+        </genOperations>
+        <genOperations ecoreOperation="e4sm.ecore#//analysis/AnalysisManager/storeResult">
+          <genParameters ecoreParameter="e4sm.ecore#//analysis/AnalysisManager/storeResult/res"/>
+        </genOperations>
+      </genClasses>
+      <genClasses ecoreClass="e4sm.ecore#//analysis/AnalysisDefinition">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//analysis/AnalysisDefinition/parameterDefinitions"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//analysis/AnalysisDefinition/analysis"/>
+      </genClasses>
+      <genClasses ecoreClass="e4sm.ecore#//analysis/ParameterDefinition">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference e4sm.ecore#//analysis/ParameterDefinition/parameters"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//analysis/ParameterDefinition/unit"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference e4sm.ecore#//analysis/ParameterDefinition/mustBeDefinedOn"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference e4sm.ecore#//analysis/ParameterDefinition/canBeDefinedOn"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference e4sm.ecore#//analysis/ParameterDefinition/shallNotBeDefinedOn"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//analysis/ParameterDefinition/defaultValue"/>
+      </genClasses>
+      <genClasses ecoreClass="e4sm.ecore#//analysis/Parameter">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//analysis/Parameter/value"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference e4sm.ecore#//analysis/Parameter/parameterDefinition"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference e4sm.ecore#//analysis/Parameter/appliesOnlyOnVariants"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference e4sm.ecore#//analysis/Parameter/doesNotApplyOnVariants"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//analysis/Parameter/initialValue"/>
+        <genOperations ecoreOperation="e4sm.ecore#//analysis/Parameter/isValid"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="e4sm.ecore#//analysis/ParameterizableElement">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//analysis/ParameterizableElement/parameters"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="e4sm.ecore#//analysis/Analysis">
+        <genOperations ecoreOperation="e4sm.ecore#//analysis/Analysis/exec" body=""/>
+        <genOperations ecoreOperation="e4sm.ecore#//analysis/Analysis/init"/>
+        <genOperations ecoreOperation="e4sm.ecore#//analysis/Analysis/postExecution"/>
+        <genOperations ecoreOperation="e4sm.ecore#//analysis/Analysis/run"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="e4sm.ecore#//analysis/ModelAnalysis"/>
+      <genClasses image="false" ecoreClass="e4sm.ecore#//analysis/AnalysisParameter"/>
+      <genClasses image="false" ecoreClass="e4sm.ecore#//analysis/GraphAnalysis">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//analysis/GraphAnalysis/graph"/>
+        <genOperations ecoreOperation="e4sm.ecore#//analysis/GraphAnalysis/initGraph"/>
+        <genOperations ecoreOperation="e4sm.ecore#//analysis/GraphAnalysis/init" body="this.initGraph();&#xD;&#xA;return true;"/>
+      </genClasses>
+      <genClasses ecoreClass="e4sm.ecore#//analysis/MemoryLessGraphAnalysis"/>
+      <genClasses ecoreClass="e4sm.ecore#//analysis/EntireGraphAnalysis"/>
+      <genClasses ecoreClass="e4sm.ecore#//analysis/PackageAnalysis"/>
+      <genClasses ecoreClass="e4sm.ecore#//analysis/PreviousNodeGraphAnalysis"/>
+      <genClasses ecoreClass="e4sm.ecore#//analysis/Variant"/>
+      <nestedGenPackages prefix="Results" basePackage="e4sm.de.metamodel.e4sm.analysis"
+          resource="XMI" disposableProviderFactory="true" generateModelWizard="false"
+          ecorePackage="e4sm.ecore#//analysis/results">
+        <genClasses image="false" ecoreClass="e4sm.ecore#//analysis/results/AnalysisResult"/>
+        <genClasses image="false" ecoreClass="e4sm.ecore#//analysis/results/Diagram"/>
+        <genClasses image="false" ecoreClass="e4sm.ecore#//analysis/results/Plot"/>
+        <genClasses ecoreClass="e4sm.ecore#//analysis/results/TwoDimensionalPlot">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//analysis/results/TwoDimensionalPlot/xLabel"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//analysis/results/TwoDimensionalPlot/yLabel"/>
+        </genClasses>
+        <genClasses ecoreClass="e4sm.ecore#//analysis/results/ThreeDimensionalPlot">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//analysis/results/ThreeDimensionalPlot/zLabel"/>
+        </genClasses>
+        <genClasses ecoreClass="e4sm.ecore#//analysis/results/ScalarValue">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//analysis/results/ScalarValue/value"/>
+        </genClasses>
+        <genClasses image="false" ecoreClass="e4sm.ecore#//analysis/results/Data"/>
+        <genClasses ecoreClass="e4sm.ecore#//analysis/results/AnalysisExecution">
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//analysis/results/AnalysisExecution/analysisResults"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//analysis/results/AnalysisExecution/started"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//analysis/results/AnalysisExecution/finished"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference e4sm.ecore#//analysis/results/AnalysisExecution/analysis"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference e4sm.ecore#//analysis/results/AnalysisExecution/runOnModel"/>
+        </genClasses>
+      </nestedGenPackages>
     </nestedGenPackages>
   </genPackages>
 </genmodel:GenModel>

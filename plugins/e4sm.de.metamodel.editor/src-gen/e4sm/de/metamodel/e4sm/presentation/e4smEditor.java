@@ -155,6 +155,9 @@ import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 
 import e4sm.de.metamodel.e4sm.provider.e4smItemProviderAdapterFactory;
 
+import e4sm.de.metamodel.e4sm.analysis.provider.AnalysisItemProviderAdapterFactory;
+import e4sm.de.metamodel.e4sm.analysis.results.provider.ResultsItemProviderAdapterFactory;
+import e4sm.de.metamodel.e4sm.types.provider.TypesItemProviderAdapterFactory;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
 /**
@@ -686,6 +689,9 @@ public class e4smEditor extends MultiPageEditorPart
 
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new e4smItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new TypesItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new AnalysisItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new ResultsItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.

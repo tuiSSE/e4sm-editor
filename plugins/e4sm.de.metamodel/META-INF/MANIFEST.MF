@@ -2,18 +2,26 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: e4sm.de.metamodel;singleton:=true
-Bundle-Version: 0.1.0.qualifier
+Automatic-Module-Name: e4sm.de.metamodel
+Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-11
 Export-Package: e4sm.de.metamodel.e4sm,
+ e4sm.de.metamodel.e4sm.analysis,
+ e4sm.de.metamodel.e4sm.analysis.impl,
+ e4sm.de.metamodel.e4sm.analysis.results,
+ e4sm.de.metamodel.e4sm.analysis.results.impl,
+ e4sm.de.metamodel.e4sm.analysis.results.util,
+ e4sm.de.metamodel.e4sm.analysis.util,
  e4sm.de.metamodel.e4sm.impl,
  e4sm.de.metamodel.e4sm.types,
  e4sm.de.metamodel.e4sm.types.impl,
+ e4sm.de.metamodel.e4sm.types.util,
  e4sm.de.metamodel.e4sm.util
-Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
- org.eclipse.core.runtime
+ e4sm.de.metamodel;visibility:=reexport,
+ com.google.guava
 Bundle-ActivationPolicy: lazy
-Automatic-Module-Name: e4sm.de.metamodel

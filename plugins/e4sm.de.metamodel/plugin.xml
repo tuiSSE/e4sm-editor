@@ -29,4 +29,34 @@
             genModel="model/e4sm.genmodel"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated e4sm -->
+      <package
+            uri="http://de.tu-ilmenau/e4sm/analysis/1.0.0"
+            class="e4sm.de.metamodel.e4sm.analysis.AnalysisPackage"
+            genModel="model/e4sm.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated e4sm -->
+      <parser
+            type="analysis"
+            class="e4sm.de.metamodel.e4sm.analysis.util.AnalysisResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated e4sm -->
+      <package
+            uri="http://de.tu-ilmenau/e4sm/analysis/results/1.0.0"
+            class="e4sm.de.metamodel.e4sm.analysis.results.ResultsPackage"
+            genModel="model/e4sm.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated e4sm -->
+      <parser
+            type="results"
+            class="e4sm.de.metamodel.e4sm.analysis.results.util.ResultsResourceFactoryImpl"/>
+   </extension>
+
 </plugin>

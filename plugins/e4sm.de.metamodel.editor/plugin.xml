@@ -33,4 +33,57 @@
             contributorClass="e4sm.de.metamodel.e4sm.presentation.e4smActionBarContributor">
       </editor>
    </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated e4sm -->
+      <editor
+            id="e4sm.de.metamodel.e4sm.types.presentation.TypesEditorID"
+            name="%_UI_TypesEditor_label"
+            icon="icons/full/obj16/TypesModelFile.gif"
+            extensions="types"
+            class="e4sm.de.metamodel.e4sm.types.presentation.TypesEditor"
+            contributorClass="e4sm.de.metamodel.e4sm.types.presentation.TypesActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated e4sm -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="e4sm.de.metamodel.e4sm.analysis.presentation.AnalysisModelWizardID"
+            name="%_UI_AnalysisModelWizard_label"
+            class="e4sm.de.metamodel.e4sm.analysis.presentation.AnalysisModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/AnalysisModelFile.gif">
+         <description>%_UI_AnalysisModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated e4sm -->
+      <editor
+            id="e4sm.de.metamodel.e4sm.analysis.presentation.AnalysisEditorID"
+            name="%_UI_AnalysisEditor_label"
+            icon="icons/full/obj16/AnalysisModelFile.gif"
+            extensions="analysis"
+            class="e4sm.de.metamodel.e4sm.analysis.presentation.AnalysisEditor"
+            contributorClass="e4sm.de.metamodel.e4sm.analysis.presentation.AnalysisActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated e4sm -->
+      <editor
+            id="e4sm.de.metamodel.e4sm.analysis.results.presentation.ResultsEditorID"
+            name="%_UI_ResultsEditor_label"
+            icon="icons/full/obj16/ResultsModelFile.gif"
+            extensions="results"
+            class="e4sm.de.metamodel.e4sm.analysis.results.presentation.ResultsEditor"
+            contributorClass="e4sm.de.metamodel.e4sm.analysis.results.presentation.ResultsActionBarContributor">
+      </editor>
+   </extension>
+
 </plugin>

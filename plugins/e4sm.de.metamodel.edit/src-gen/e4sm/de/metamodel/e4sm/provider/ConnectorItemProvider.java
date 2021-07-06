@@ -6,9 +6,11 @@ import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.Connector;
 import e4sm.de.metamodel.e4sm.Package;
 import e4sm.de.metamodel.e4sm.Pin;
-import e4sm.de.metamodel.e4sm.e4smFactory;
+import e4sm.de.metamodel.e4sm.analysis.AnalysisFactory;
+import e4sm.de.metamodel.e4sm.analysis.AnalysisPackage;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
+import e4sm.de.metamodel.e4sm.types.TypesPackage;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
@@ -80,7 +82,7 @@ public class ConnectorItemProvider extends ItemProviderAdapter implements IEditi
 						getResourceLocator(), getString("_UI_NamedElement_name_feature"),
 						getString("_UI_PropertyDescriptor_description", "_UI_NamedElement_name_feature",
 								"_UI_NamedElement_type"),
-						e4smPackage.Literals.NAMED_ELEMENT__NAME, true, false, false,
+						TypesPackage.Literals.NAMED_ELEMENT__NAME, true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -177,7 +179,7 @@ public class ConnectorItemProvider extends ItemProviderAdapter implements IEditi
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(e4smPackage.Literals.PARAMETERIZABLE_ELEMENT__PARAMETERS);
+			childrenFeatures.add(AnalysisPackage.Literals.PARAMETERIZABLE_ELEMENT__PARAMETERS);
 		}
 		return childrenFeatures;
 	}
@@ -283,8 +285,8 @@ public class ConnectorItemProvider extends ItemProviderAdapter implements IEditi
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.PARAMETERIZABLE_ELEMENT__PARAMETERS,
-				e4smFactory.eINSTANCE.createParameter()));
+		newChildDescriptors.add(createChildParameter(AnalysisPackage.Literals.PARAMETERIZABLE_ELEMENT__PARAMETERS,
+				AnalysisFactory.eINSTANCE.createParameter()));
 	}
 
 	/**
