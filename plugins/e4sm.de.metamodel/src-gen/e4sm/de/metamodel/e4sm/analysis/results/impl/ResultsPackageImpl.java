@@ -483,7 +483,7 @@ public class ResultsPackageImpl extends EPackageImpl implements ResultsPackage {
 		initEReference(getAnalysisExecution_AnalysisResults(), this.getAnalysisResult(), null, "analysisResults", null,
 				0, -1, AnalysisExecution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAnalysisExecution_Started(), theTypesPackage.getTimestamp(), "started", null, 0, 1,
+		initEAttribute(getAnalysisExecution_Started(), theTypesPackage.getDate(), "started", null, 0, 1,
 				AnalysisExecution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAnalysisExecution_Finished(), theTypesPackage.getTimestamp(), "finished", null, 0, 1,

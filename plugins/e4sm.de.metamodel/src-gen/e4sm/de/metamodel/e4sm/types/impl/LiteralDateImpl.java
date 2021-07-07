@@ -5,8 +5,7 @@ package e4sm.de.metamodel.e4sm.types.impl;
 import e4sm.de.metamodel.e4sm.types.LiteralDate;
 import e4sm.de.metamodel.e4sm.types.TypesPackage;
 
-import java.util.Date;
-
+import java.time.LocalDate;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -35,7 +34,7 @@ public class LiteralDateImpl extends LiteralSpecificationImpl implements Literal
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Date VALUE_EDEFAULT = null;
+	protected static final LocalDate VALUE_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -45,7 +44,7 @@ public class LiteralDateImpl extends LiteralSpecificationImpl implements Literal
 	 * @generated
 	 * @ordered
 	 */
-	protected Date value = VALUE_EDEFAULT;
+	protected LocalDate value = VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -72,7 +71,7 @@ public class LiteralDateImpl extends LiteralSpecificationImpl implements Literal
 	 * @generated
 	 */
 	@Override
-	public Date getValue() {
+	public LocalDate getValue() {
 		return value;
 	}
 
@@ -82,8 +81,8 @@ public class LiteralDateImpl extends LiteralSpecificationImpl implements Literal
 	 * @generated
 	 */
 	@Override
-	public void setValue(Date newValue) {
-		Date oldValue = value;
+	public void setValue(LocalDate newValue) {
+		LocalDate oldValue = value;
 		value = newValue;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.LITERAL_DATE__VALUE, oldValue, value));
@@ -112,7 +111,7 @@ public class LiteralDateImpl extends LiteralSpecificationImpl implements Literal
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 		case TypesPackage.LITERAL_DATE__VALUE:
-			setValue((Date) newValue);
+			setValue((LocalDate) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);

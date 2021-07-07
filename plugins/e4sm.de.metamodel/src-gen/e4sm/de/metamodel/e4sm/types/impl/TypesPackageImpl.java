@@ -29,8 +29,9 @@ import e4sm.de.metamodel.e4sm.types.TypesPackage;
 
 import e4sm.de.metamodel.e4sm.types.UnitOfMeasurement;
 import e4sm.de.metamodel.e4sm.types.ValueSpecification;
-import java.util.Date;
-
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -641,6 +642,16 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 * @generated
 	 */
 	@Override
+	public EOperation getValueSpecification__ToString() {
+		return valueSpecificationEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getTypedElement() {
 		return typedElementEClass;
 	}
@@ -859,6 +870,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		createEOperation(valueSpecificationEClass, VALUE_SPECIFICATION___BOOLEAN_VALUE);
 		createEOperation(valueSpecificationEClass, VALUE_SPECIFICATION___INTEGER_VALUE);
 		createEOperation(valueSpecificationEClass, VALUE_SPECIFICATION___IS_COMPUTABLE);
+		createEOperation(valueSpecificationEClass, VALUE_SPECIFICATION___TO_STRING);
 
 		typedElementEClass = createEClass(TYPED_ELEMENT);
 		createEReference(typedElementEClass, TYPED_ELEMENT__TYPE);
@@ -1004,6 +1016,9 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		initEOperation(getValueSpecification__IsComputable(), ecorePackage.getEBoolean(), "isComputable", 0, 1,
 				IS_UNIQUE, IS_ORDERED);
 
+		initEOperation(getValueSpecification__ToString(), ecorePackage.getEString(), "toString", 0, 1, IS_UNIQUE,
+				IS_ORDERED);
+
 		initEClass(typedElementEClass, TypedElement.class, "TypedElement", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTypedElement_Type(), ecorePackage.getEDataType(), null, "type", null, 0, 1,
@@ -1033,15 +1048,14 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		initEDataType(shortEDataType, short.class, "Short", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(characterEDataType, char.class, "Character", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(byteEDataType, byte.class, "Byte", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(dateEDataType, Date.class, "Date", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(timestampEDataType, Date.class, "Timestamp", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(timeEDataType, Date.class, "Time", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(dateEDataType, LocalDate.class, "Date", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(timestampEDataType, LocalDateTime.class, "Timestamp", IS_SERIALIZABLE,
+				!IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(timeEDataType, LocalTime.class, "Time", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create annotations
 		// http://www.eclipse.org/emf/2002/Ecore
 		createEcoreAnnotations();
-		// http:///org/eclipse/emf/ecore/util/DateConversionDelegate
-		createDateConversionDelegateAnnotations();
 	}
 
 	/**
@@ -1052,22 +1066,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 */
 	protected void createEcoreAnnotations() {
 		String source = "http://www.eclipse.org/emf/2002/Ecore";
-		addAnnotation(this, source,
-				new String[] { "conversionDelegates", "http:///org/eclipse/emf/ecore/util/DateConversionDelegate" });
-	}
-
-	/**
-	 * Initializes the annotations for <b>http:///org/eclipse/emf/ecore/util/DateConversionDelegate</b>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void createDateConversionDelegateAnnotations() {
-		String source = "http:///org/eclipse/emf/ecore/util/DateConversionDelegate";
-		addAnnotation(dateEDataType, source, new String[] { "format", "//SimpleDateFormat/yyyy-MM-dd" });
-		addAnnotation(timestampEDataType, source,
-				new String[] { "format", "//SimpleDateFormat/yyyy-MM-dd%20HH:mm:ss" });
-		addAnnotation(timeEDataType, source, new String[] { "format", "//SimpleDateFormat/HH:mm:ss" });
+		addAnnotation(this, source, new String[] {});
 	}
 
 } //TypesPackageImpl

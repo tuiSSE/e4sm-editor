@@ -3,11 +3,10 @@
 package e4sm.de.metamodel.e4sm.types.impl;
 
 import e4sm.de.metamodel.e4sm.types.*;
-
-import java.text.ParseException;
-import java.text.ParsePosition;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -305,110 +304,27 @@ public class TypesFactoryImpl extends EFactoryImpl implements TypesFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public Integer createIntegerFromStringOLD(EDataType eDataType, String initialValue) {
+	public LocalDateTime createTimestampFromString(EDataType eDataType, String initialValue) {
 		if (initialValue == null) {
 			return null;
 		}
-		return Integer.parseInt(initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	public String convertIntegerToStringOLD(EDataType eDataType, Object instanceValue) {
-		if (instanceValue == null) {
-			return null;
-		}
-		return Integer.toString((int) instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	public Date createDateFromStringOLD(EDataType eDataType, String initialValue) {
-		// return (Date) super.createFromString(eDataType, initialValue);
-		if (initialValue == null) {
-			return null;
-		}
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-		ParsePosition position = new ParsePosition(0);
-		Date result = format.parse(initialValue, position);
-		if (position.getIndex() == 0) {
-			throw new IllegalArgumentException("Date must be of format " + format.toPattern());
-		}
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	public String convertDateToStringOLD(EDataType eDataType, Object instanceValue) {
-		// return super.convertToString(eDataType, instanceValue);
-		if (instanceValue == null) {
-			return null;
-		}
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-		return format.format((Date) instanceValue);
-
+		return LocalDateTime.parse(initialValue, DateTimeFormatter.ISO_LOCAL_DATE_TIME);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
-	 */
-	public Date createTimestampOLD(final String it) {
-		if (it != null) {
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-			try {
-				return sdf.parse(it);
-			} catch (ParseException e) {
-				throw new IllegalArgumentException("Timestamp must be of format " + sdf.toPattern());
-			}
-		}
-		return null;
-
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Date createTimestampFromString(EDataType eDataType, String initialValue) {
-		return (Date) super.createFromString(eDataType, initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public String convertTimestamp(final Date it) {
-		if (it != null) {
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-			return sdf.format(it);
-		}
-		return null;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public String convertTimestampToString(EDataType eDataType, Object instanceValue) {
-		return super.convertToString(eDataType, instanceValue);
+		if (instanceValue == null) {
+			return null;
+		}
+		return ((LocalDateTime) instanceValue).format(DateTimeFormatter.ISO_LOCAL_DATE_TIME);
 	}
 
 	/**
@@ -416,8 +332,8 @@ public class TypesFactoryImpl extends EFactoryImpl implements TypesFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Date createTimeFromString(EDataType eDataType, String initialValue) {
-		return (Date) super.createFromString(eDataType, initialValue);
+	public LocalTime createTimeFromString(EDataType eDataType, String initialValue) {
+		return (LocalTime) super.createFromString(eDataType, initialValue);
 	}
 
 	/**
@@ -534,19 +450,25 @@ public class TypesFactoryImpl extends EFactoryImpl implements TypesFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT 
 	 */
-	public Date createDateFromString(EDataType eDataType, String initialValue) {
-		return (Date) super.createFromString(eDataType, initialValue);
+	public LocalDate createDateFromString(EDataType eDataType, String initialValue) {
+		if (initialValue == null) {
+			return null;
+		}
+		return LocalDate.parse(initialValue, DateTimeFormatter.ISO_DATE);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public String convertDateToString(EDataType eDataType, Object instanceValue) {
-		return super.convertToString(eDataType, instanceValue);
+		if (instanceValue == null) {
+			return null;
+		}
+		return ((LocalDate) instanceValue).format(DateTimeFormatter.ISO_DATE);
 	}
 
 	/**
@@ -594,10 +516,10 @@ public class TypesFactoryImpl extends EFactoryImpl implements TypesFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public Integer createIntegerFromString(EDataType eDataType, String initialValue) {
-		return (Integer) super.createFromString(eDataType, initialValue);
+		return Integer.parseInt(initialValue);
 	}
 
 	/**

@@ -378,18 +378,8 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getParameter_Value() {
-		return (EAttribute) parameterEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getParameter_ParameterDefinition() {
-		return (EReference) parameterEClass.getEStructuralFeatures().get(1);
+		return (EReference) parameterEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -399,7 +389,7 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 */
 	@Override
 	public EReference getParameter_AppliesOnlyOnVariants() {
-		return (EReference) parameterEClass.getEStructuralFeatures().get(2);
+		return (EReference) parameterEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -409,7 +399,7 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 */
 	@Override
 	public EReference getParameter_DoesNotApplyOnVariants() {
-		return (EReference) parameterEClass.getEStructuralFeatures().get(3);
+		return (EReference) parameterEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -419,6 +409,16 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 */
 	@Override
 	public EReference getParameter_InitialValue() {
+		return (EReference) parameterEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getParameter_CurrentValue() {
 		return (EReference) parameterEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -669,11 +669,11 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		createEReference(parameterDefinitionEClass, PARAMETER_DEFINITION__DEFAULT_VALUE);
 
 		parameterEClass = createEClass(PARAMETER);
-		createEAttribute(parameterEClass, PARAMETER__VALUE);
 		createEReference(parameterEClass, PARAMETER__PARAMETER_DEFINITION);
 		createEReference(parameterEClass, PARAMETER__APPLIES_ONLY_ON_VARIANTS);
 		createEReference(parameterEClass, PARAMETER__DOES_NOT_APPLY_ON_VARIANTS);
 		createEReference(parameterEClass, PARAMETER__INITIAL_VALUE);
+		createEReference(parameterEClass, PARAMETER__CURRENT_VALUE);
 		createEOperation(parameterEClass, PARAMETER___IS_VALID);
 
 		parameterizableElementEClass = createEClass(PARAMETERIZABLE_ELEMENT);
@@ -801,8 +801,6 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 
 		initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getParameter_Value(), ecorePackage.getEString(), "value", null, 0, 1, Parameter.class,
-				IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getParameter_ParameterDefinition(), this.getParameterDefinition(),
 				this.getParameterDefinition_Parameters(), "parameterDefinition", null, 1, 1, Parameter.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
@@ -814,6 +812,9 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 				0, -1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getParameter_InitialValue(), theTypesPackage.getValueSpecification(), null, "initialValue", null,
+				0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getParameter_CurrentValue(), theTypesPackage.getValueSpecification(), null, "currentValue", null,
 				0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

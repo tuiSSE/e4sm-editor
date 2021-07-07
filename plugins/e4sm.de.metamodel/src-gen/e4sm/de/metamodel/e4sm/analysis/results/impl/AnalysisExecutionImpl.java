@@ -10,9 +10,9 @@ import e4sm.de.metamodel.e4sm.analysis.results.AnalysisExecution;
 import e4sm.de.metamodel.e4sm.analysis.results.AnalysisResult;
 import e4sm.de.metamodel.e4sm.analysis.results.ResultsPackage;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Collection;
-import java.util.Date;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -63,7 +63,7 @@ public class AnalysisExecutionImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Date STARTED_EDEFAULT = null;
+	protected static final LocalDate STARTED_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getStarted() <em>Started</em>}' attribute.
@@ -73,7 +73,7 @@ public class AnalysisExecutionImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 * @ordered
 	 */
-	protected Date started = STARTED_EDEFAULT;
+	protected LocalDate started = STARTED_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getFinished() <em>Finished</em>}' attribute.
@@ -83,7 +83,7 @@ public class AnalysisExecutionImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Date FINISHED_EDEFAULT = null;
+	protected static final LocalDateTime FINISHED_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getFinished() <em>Finished</em>}' attribute.
@@ -93,7 +93,7 @@ public class AnalysisExecutionImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 * @ordered
 	 */
-	protected Date finished = FINISHED_EDEFAULT;
+	protected LocalDateTime finished = FINISHED_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getAnalysis() <em>Analysis</em>}' reference.
@@ -154,7 +154,7 @@ public class AnalysisExecutionImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	@Override
-	public Date getStarted() {
+	public LocalDate getStarted() {
 		return started;
 	}
 
@@ -164,8 +164,8 @@ public class AnalysisExecutionImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	@Override
-	public void setStarted(Date newStarted) {
-		Date oldStarted = started;
+	public void setStarted(LocalDate newStarted) {
+		LocalDate oldStarted = started;
 		started = newStarted;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ResultsPackage.ANALYSIS_EXECUTION__STARTED,
@@ -178,7 +178,7 @@ public class AnalysisExecutionImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	@Override
-	public Date getFinished() {
+	public LocalDateTime getFinished() {
 		return finished;
 	}
 
@@ -188,8 +188,8 @@ public class AnalysisExecutionImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	@Override
-	public void setFinished(Date newFinished) {
-		Date oldFinished = finished;
+	public void setFinished(LocalDateTime newFinished) {
+		LocalDateTime oldFinished = finished;
 		finished = newFinished;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ResultsPackage.ANALYSIS_EXECUTION__FINISHED,
@@ -334,10 +334,10 @@ public class AnalysisExecutionImpl extends MinimalEObjectImpl.Container implemen
 			getAnalysisResults().addAll((Collection<? extends AnalysisResult>) newValue);
 			return;
 		case ResultsPackage.ANALYSIS_EXECUTION__STARTED:
-			setStarted((Date) newValue);
+			setStarted((LocalDate) newValue);
 			return;
 		case ResultsPackage.ANALYSIS_EXECUTION__FINISHED:
-			setFinished((Date) newValue);
+			setFinished((LocalDateTime) newValue);
 			return;
 		case ResultsPackage.ANALYSIS_EXECUTION__ANALYSIS:
 			setAnalysis((Analysis) newValue);

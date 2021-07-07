@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.EReference;
  * <!-- end-user-doc -->
  * @see e4sm.de.metamodel.e4sm.types.TypesFactory
  * @model kind="package"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore conversionDelegates='http:///org/eclipse/emf/ecore/util/DateConversionDelegate'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore"
  * @generated
  */
 public interface TypesPackage extends EPackage {
@@ -236,13 +236,22 @@ public interface TypesPackage extends EPackage {
 	int VALUE_SPECIFICATION___IS_COMPUTABLE = TYPED_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
+	 * The operation id for the '<em>To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_SPECIFICATION___TO_STRING = TYPED_ELEMENT_OPERATION_COUNT + 3;
+
+	/**
 	 * The number of operations of the '<em>Value Specification</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_SPECIFICATION_OPERATION_COUNT = TYPED_ELEMENT_OPERATION_COUNT + 3;
+	int VALUE_SPECIFICATION_OPERATION_COUNT = TYPED_ELEMENT_OPERATION_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.types.impl.LiteralSpecificationImpl <em>Literal Specification</em>}' class.
@@ -307,6 +316,15 @@ public interface TypesPackage extends EPackage {
 	 * @ordered
 	 */
 	int LITERAL_SPECIFICATION___IS_COMPUTABLE = VALUE_SPECIFICATION___IS_COMPUTABLE;
+
+	/**
+	 * The operation id for the '<em>To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_SPECIFICATION___TO_STRING = VALUE_SPECIFICATION___TO_STRING;
 
 	/**
 	 * The number of operations of the '<em>Literal Specification</em>' class.
@@ -380,6 +398,15 @@ public interface TypesPackage extends EPackage {
 	 * @ordered
 	 */
 	int LITERAL_NULL___IS_COMPUTABLE = LITERAL_SPECIFICATION___IS_COMPUTABLE;
+
+	/**
+	 * The operation id for the '<em>To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_NULL___TO_STRING = LITERAL_SPECIFICATION___TO_STRING;
 
 	/**
 	 * The number of operations of the '<em>Literal Null</em>' class.
@@ -464,6 +491,15 @@ public interface TypesPackage extends EPackage {
 	int LITERAL_STRING___IS_COMPUTABLE = LITERAL_SPECIFICATION___IS_COMPUTABLE;
 
 	/**
+	 * The operation id for the '<em>To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_STRING___TO_STRING = LITERAL_SPECIFICATION___TO_STRING;
+
+	/**
 	 * The number of operations of the '<em>Literal String</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -546,6 +582,15 @@ public interface TypesPackage extends EPackage {
 	int LITERAL_INTEGER___IS_COMPUTABLE = LITERAL_SPECIFICATION___IS_COMPUTABLE;
 
 	/**
+	 * The operation id for the '<em>To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_INTEGER___TO_STRING = LITERAL_SPECIFICATION___TO_STRING;
+
+	/**
 	 * The number of operations of the '<em>Literal Integer</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -626,6 +671,15 @@ public interface TypesPackage extends EPackage {
 	 * @ordered
 	 */
 	int LITERAL_BOOLEAN___IS_COMPUTABLE = LITERAL_SPECIFICATION___IS_COMPUTABLE;
+
+	/**
+	 * The operation id for the '<em>To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_BOOLEAN___TO_STRING = LITERAL_SPECIFICATION___TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Get Value</em>' operation.
@@ -719,6 +773,15 @@ public interface TypesPackage extends EPackage {
 	int LITERAL_FLOAT___IS_COMPUTABLE = LITERAL_SPECIFICATION___IS_COMPUTABLE;
 
 	/**
+	 * The operation id for the '<em>To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_FLOAT___TO_STRING = LITERAL_SPECIFICATION___TO_STRING;
+
+	/**
 	 * The number of operations of the '<em>Literal Float</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -799,6 +862,15 @@ public interface TypesPackage extends EPackage {
 	 * @ordered
 	 */
 	int LITERAL_DOUBLE___IS_COMPUTABLE = LITERAL_SPECIFICATION___IS_COMPUTABLE;
+
+	/**
+	 * The operation id for the '<em>To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_DOUBLE___TO_STRING = LITERAL_SPECIFICATION___TO_STRING;
 
 	/**
 	 * The number of operations of the '<em>Literal Double</em>' class.
@@ -883,6 +955,15 @@ public interface TypesPackage extends EPackage {
 	int LITERAL_LONG___IS_COMPUTABLE = LITERAL_SPECIFICATION___IS_COMPUTABLE;
 
 	/**
+	 * The operation id for the '<em>To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_LONG___TO_STRING = LITERAL_SPECIFICATION___TO_STRING;
+
+	/**
 	 * The number of operations of the '<em>Literal Long</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -963,6 +1044,15 @@ public interface TypesPackage extends EPackage {
 	 * @ordered
 	 */
 	int LITERAL_SHORT___IS_COMPUTABLE = LITERAL_SPECIFICATION___IS_COMPUTABLE;
+
+	/**
+	 * The operation id for the '<em>To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_SHORT___TO_STRING = LITERAL_SPECIFICATION___TO_STRING;
 
 	/**
 	 * The number of operations of the '<em>Literal Short</em>' class.
@@ -1047,6 +1137,15 @@ public interface TypesPackage extends EPackage {
 	int LITERAL_BYTE___IS_COMPUTABLE = LITERAL_SPECIFICATION___IS_COMPUTABLE;
 
 	/**
+	 * The operation id for the '<em>To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_BYTE___TO_STRING = LITERAL_SPECIFICATION___TO_STRING;
+
+	/**
 	 * The number of operations of the '<em>Literal Byte</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1127,6 +1226,15 @@ public interface TypesPackage extends EPackage {
 	 * @ordered
 	 */
 	int LITERAL_CHARACTER___IS_COMPUTABLE = LITERAL_SPECIFICATION___IS_COMPUTABLE;
+
+	/**
+	 * The operation id for the '<em>To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_CHARACTER___TO_STRING = LITERAL_SPECIFICATION___TO_STRING;
 
 	/**
 	 * The number of operations of the '<em>Literal Character</em>' class.
@@ -1211,6 +1319,15 @@ public interface TypesPackage extends EPackage {
 	int LITERAL_DATE___IS_COMPUTABLE = LITERAL_SPECIFICATION___IS_COMPUTABLE;
 
 	/**
+	 * The operation id for the '<em>To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_DATE___TO_STRING = LITERAL_SPECIFICATION___TO_STRING;
+
+	/**
 	 * The number of operations of the '<em>Literal Date</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1233,7 +1350,7 @@ public interface TypesPackage extends EPackage {
 	 * The meta object id for the '<em>Date</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see java.util.Date
+	 * @see java.time.LocalDate
 	 * @see e4sm.de.metamodel.e4sm.types.impl.TypesPackageImpl#getDate()
 	 * @generated
 	 */
@@ -1243,7 +1360,7 @@ public interface TypesPackage extends EPackage {
 	 * The meta object id for the '<em>Timestamp</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see java.util.Date
+	 * @see java.time.LocalDateTime
 	 * @see e4sm.de.metamodel.e4sm.types.impl.TypesPackageImpl#getTimestamp()
 	 * @generated
 	 */
@@ -1253,7 +1370,7 @@ public interface TypesPackage extends EPackage {
 	 * The meta object id for the '<em>Time</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see java.util.Date
+	 * @see java.time.LocalTime
 	 * @see e4sm.de.metamodel.e4sm.types.impl.TypesPackageImpl#getTime()
 	 * @generated
 	 */
@@ -1571,6 +1688,16 @@ public interface TypesPackage extends EPackage {
 	EOperation getValueSpecification__IsComputable();
 
 	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.types.ValueSpecification#toString() <em>To String</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>To String</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.types.ValueSpecification#toString()
+	 * @generated
+	 */
+	EOperation getValueSpecification__ToString();
+
+	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.types.TypedElement <em>Typed Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1684,40 +1811,37 @@ public interface TypesPackage extends EPackage {
 	int DOUBLE = 21;
 
 	/**
-	 * Returns the meta object for data type '{@link java.util.Date <em>Date</em>}'.
+	 * Returns the meta object for data type '{@link java.time.LocalDate <em>Date</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for data type '<em>Date</em>'.
-	 * @see java.util.Date
-	 * @model instanceClass="java.util.Date"
-	 *        annotation="http:///org/eclipse/emf/ecore/util/DateConversionDelegate format='//SimpleDateFormat/yyyy-MM-dd'"
+	 * @see java.time.LocalDate
+	 * @model instanceClass="java.time.LocalDate"
 	 * @generated
 	 */
 	EDataType getDate();
 
 	/**
-	 * Returns the meta object for data type '{@link java.util.Date <em>Timestamp</em>}'.
+	 * Returns the meta object for data type '{@link java.time.LocalDateTime <em>Timestamp</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Format: yyyy-MM-dd HH:mm:ss
 	 * <!-- end-model-doc -->
 	 * @return the meta object for data type '<em>Timestamp</em>'.
-	 * @see java.util.Date
-	 * @model instanceClass="java.util.Date"
-	 *        annotation="http:///org/eclipse/emf/ecore/util/DateConversionDelegate format='//SimpleDateFormat/yyyy-MM-dd%20HH:mm:ss'"
+	 * @see java.time.LocalDateTime
+	 * @model instanceClass="java.time.LocalDateTime"
 	 * @generated
 	 */
 	EDataType getTimestamp();
 
 	/**
-	 * Returns the meta object for data type '{@link java.util.Date <em>Time</em>}'.
+	 * Returns the meta object for data type '{@link java.time.LocalTime <em>Time</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for data type '<em>Time</em>'.
-	 * @see java.util.Date
-	 * @model instanceClass="java.util.Date"
-	 *        annotation="http:///org/eclipse/emf/ecore/util/DateConversionDelegate format='//SimpleDateFormat/HH:mm:ss'"
+	 * @see java.time.LocalTime
+	 * @model instanceClass="java.time.LocalTime"
 	 * @generated
 	 */
 	EDataType getTime();
@@ -2107,6 +2231,14 @@ public interface TypesPackage extends EPackage {
 		EOperation VALUE_SPECIFICATION___IS_COMPUTABLE = eINSTANCE.getValueSpecification__IsComputable();
 
 		/**
+		 * The meta object literal for the '<em><b>To String</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation VALUE_SPECIFICATION___TO_STRING = eINSTANCE.getValueSpecification__ToString();
+
+		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.types.impl.TypedElementImpl <em>Typed Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2138,7 +2270,7 @@ public interface TypesPackage extends EPackage {
 		 * The meta object literal for the '<em>Date</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see java.util.Date
+		 * @see java.time.LocalDate
 		 * @see e4sm.de.metamodel.e4sm.types.impl.TypesPackageImpl#getDate()
 		 * @generated
 		 */
@@ -2148,7 +2280,7 @@ public interface TypesPackage extends EPackage {
 		 * The meta object literal for the '<em>Timestamp</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see java.util.Date
+		 * @see java.time.LocalDateTime
 		 * @see e4sm.de.metamodel.e4sm.types.impl.TypesPackageImpl#getTimestamp()
 		 * @generated
 		 */
@@ -2158,7 +2290,7 @@ public interface TypesPackage extends EPackage {
 		 * The meta object literal for the '<em>Time</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see java.util.Date
+		 * @see java.time.LocalTime
 		 * @see e4sm.de.metamodel.e4sm.types.impl.TypesPackageImpl#getTime()
 		 * @generated
 		 */

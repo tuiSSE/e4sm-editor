@@ -158,7 +158,7 @@ import e4sm.de.metamodel.e4sm.types.provider.TypesItemProviderAdapterFactory;
 import e4sm.de.metamodel.e4sm.analysis.provider.AnalysisItemProviderAdapterFactory;
 
 import e4sm.de.metamodel.e4sm.analysis.results.provider.ResultsItemProviderAdapterFactory;
-
+import e4sm.de.metamodel.e4sm.common.E4SMAdapterFactoryContentProvider;
 import e4sm.de.metamodel.e4sm.presentation.e4smEditorPlugin;
 
 import e4sm.de.metamodel.e4sm.provider.e4smItemProviderAdapterFactory;
@@ -1381,7 +1381,7 @@ public class TypesEditor extends MultiPageEditorPart
 	 * This accesses a cached version of the property sheet.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public IPropertySheetPage getPropertySheetPage() {
 		PropertySheetPage propertySheetPage = new ExtendedPropertySheetPage(editingDomain,
@@ -1398,7 +1398,7 @@ public class TypesEditor extends MultiPageEditorPart
 				getActionBarContributor().shareGlobalActions(this, actionBars);
 			}
 		};
-		propertySheetPage.setPropertySourceProvider(new AdapterFactoryContentProvider(adapterFactory));
+		propertySheetPage.setPropertySourceProvider(new E4SMAdapterFactoryContentProvider(adapterFactory)); //<--
 		propertySheetPages.add(propertySheetPage);
 
 		return propertySheetPage;

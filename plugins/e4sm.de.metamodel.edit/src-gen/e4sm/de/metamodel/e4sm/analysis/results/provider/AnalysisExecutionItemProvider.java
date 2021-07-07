@@ -8,8 +8,8 @@ import e4sm.de.metamodel.e4sm.analysis.results.ResultsPackage;
 
 import e4sm.de.metamodel.e4sm.provider.e4smEditPlugin;
 
+import java.time.LocalDate;
 import java.util.Collection;
-import java.util.Date;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -188,7 +188,7 @@ public class AnalysisExecutionItemProvider extends ItemProviderAdapter implement
 	 */
 	@Override
 	public String getText(Object object) {
-		Date labelValue = ((AnalysisExecution) object).getStarted();
+		LocalDate labelValue = ((AnalysisExecution) object).getStarted();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ? getString("_UI_AnalysisExecution_type")
 				: getString("_UI_AnalysisExecution_type") + " " + label;

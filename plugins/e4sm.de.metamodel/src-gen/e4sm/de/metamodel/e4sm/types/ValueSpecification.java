@@ -37,4 +37,12 @@ public interface ValueSpecification extends TypedElement {
 	 */
 	boolean isComputable();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	String toString();
+
 } // ValueSpecification

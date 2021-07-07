@@ -2,7 +2,7 @@
  */
 package e4sm.de.metamodel.e4sm.types;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,12 +26,12 @@ public interface LiteralDate extends LiteralSpecification {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Value</em>' attribute.
-	 * @see #setValue(Date)
+	 * @see #setValue(LocalDate)
 	 * @see e4sm.de.metamodel.e4sm.types.TypesPackage#getLiteralDate_Value()
 	 * @model dataType="e4sm.de.metamodel.e4sm.types.Date"
 	 * @generated
 	 */
-	Date getValue();
+	LocalDate getValue();
 
 	/**
 	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.types.LiteralDate#getValue <em>Value</em>}' attribute.
@@ -41,6 +41,6 @@ public interface LiteralDate extends LiteralSpecification {
 	 * @see #getValue()
 	 * @generated
 	 */
-	void setValue(Date value);
+	void setValue(LocalDate value);
 
 } // LiteralDate

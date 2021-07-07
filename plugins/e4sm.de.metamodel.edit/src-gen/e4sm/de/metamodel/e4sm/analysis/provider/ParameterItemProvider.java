@@ -21,7 +21,6 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -52,28 +51,12 @@ public class ParameterItemProvider extends ElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addValuePropertyDescriptor(object);
 			addParameterDefinitionPropertyDescriptor(object);
 			addAppliesOnlyOnVariantsPropertyDescriptor(object);
 			addDoesNotApplyOnVariantsPropertyDescriptor(object);
+			addInitialValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Value feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addValuePropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Parameter_value_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Parameter_value_feature",
-								"_UI_Parameter_type"),
-						AnalysisPackage.Literals.PARAMETER__VALUE, true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -124,6 +107,21 @@ public class ParameterItemProvider extends ElementItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Initial Value feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addInitialValuePropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Parameter_initialValue_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Parameter_initialValue_feature",
+								"_UI_Parameter_type"),
+						AnalysisPackage.Literals.PARAMETER__INITIAL_VALUE, false, false, false, null, null, null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -136,6 +134,7 @@ public class ParameterItemProvider extends ElementItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(AnalysisPackage.Literals.PARAMETER__INITIAL_VALUE);
+			childrenFeatures.add(AnalysisPackage.Literals.PARAMETER__CURRENT_VALUE);
 		}
 		return childrenFeatures;
 	}
@@ -206,10 +205,8 @@ public class ParameterItemProvider extends ElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Parameter.class)) {
-		case AnalysisPackage.PARAMETER__VALUE:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-			return;
 		case AnalysisPackage.PARAMETER__INITIAL_VALUE:
+		case AnalysisPackage.PARAMETER__CURRENT_VALUE:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}

@@ -1,7 +1,6 @@
 package e4sm.de.metamodel.design;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Map;
 
 import org.eclipse.emf.ecore.EObject;
@@ -13,14 +12,11 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.sirius.business.api.query.EObjectQuery;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.common.ui.tools.api.util.EclipseUIUtil;
-import org.eclipse.sirius.diagram.ContainerLayout;
 import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.sirius.diagram.DNodeContainer;
 import org.eclipse.sirius.diagram.ui.business.api.view.SiriusGMFHelper;
 import org.eclipse.sirius.diagram.ui.business.api.view.SiriusLayoutDataManager;
 import org.eclipse.sirius.diagram.ui.business.internal.view.RootLayoutData;
-import org.eclipse.sirius.viewpoint.DSemanticDecorator;
-import org.eclipse.sirius.viewpoint.ViewpointPackage;
 import org.eclipse.ui.IEditorPart;
 
 import e4sm.de.metamodel.e4sm.Actuator;

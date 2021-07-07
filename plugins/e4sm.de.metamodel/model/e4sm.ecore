@@ -315,9 +315,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="conversionFactor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eSubpackages name="types" nsURI="http://de.tu-ilmenau/e4sm/types/1.0.0" nsPrefix="types">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="conversionDelegates" value="http:///org/eclipse/emf/ecore/util/DateConversionDelegate"/>
-    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore"/>
     <eClassifiers xsi:type="ecore:EDataType" name="Boolean" instanceClassName="boolean"/>
     <eClassifiers xsi:type="ecore:EDataType" name="String" instanceClassName="java.lang.String"/>
     <eClassifiers xsi:type="ecore:EDataType" name="Integer" instanceClassName="int"/>
@@ -327,21 +325,9 @@
     <eClassifiers xsi:type="ecore:EDataType" name="Short" instanceClassName="short"/>
     <eClassifiers xsi:type="ecore:EDataType" name="Character" instanceClassName="char"/>
     <eClassifiers xsi:type="ecore:EDataType" name="Byte" instanceClassName="byte"/>
-    <eClassifiers xsi:type="ecore:EDataType" name="Date" instanceClassName="java.util.Date">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/DateConversionDelegate">
-        <details key="format" value="//SimpleDateFormat/yyyy-MM-dd"/>
-      </eAnnotations>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EDataType" name="Timestamp" instanceClassName="java.util.Date">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/DateConversionDelegate">
-        <details key="format" value="//SimpleDateFormat/yyyy-MM-dd%20HH:mm:ss"/>
-      </eAnnotations>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EDataType" name="Time" instanceClassName="java.util.Date">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/DateConversionDelegate">
-        <details key="format" value="//SimpleDateFormat/HH:mm:ss"/>
-      </eAnnotations>
-    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EDataType" name="Date" instanceClassName="java.time.LocalDate"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="Timestamp" instanceClassName="java.time.LocalDateTime"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="Time" instanceClassName="java.time.LocalTime"/>
     <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true" eSuperTypes="#//types/Element">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="An Element which has a name"/>
@@ -400,6 +386,7 @@
       <eOperations name="booleanValue" eType="#//types/Boolean"/>
       <eOperations name="integerValue" eType="#//types/Integer"/>
       <eOperations name="isComputable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eOperations name="toString" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TypedElement" abstract="true" eSuperTypes="#//types/NamedElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EDataType"/>
@@ -448,9 +435,6 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="#//types/Element">
       <eOperations name="isValid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" unique="false"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-          volatile="true" transient="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameterDefinition"
           lowerBound="1" eType="#//analysis/ParameterDefinition" eOpposite="#//analysis/ParameterDefinition/parameters"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="appliesOnlyOnVariants"
@@ -458,6 +442,8 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="doesNotApplyOnVariants"
           upperBound="-1" eType="#//analysis/Variant"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="initialValue" eType="#//types/ValueSpecification"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="currentValue" eType="#//types/ValueSpecification"
           containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ParameterizableElement" abstract="true"
@@ -506,7 +492,7 @@
       <eClassifiers xsi:type="ecore:EClass" name="AnalysisExecution">
         <eStructuralFeatures xsi:type="ecore:EReference" name="analysisResults" upperBound="-1"
             eType="#//analysis/results/AnalysisResult" containment="true"/>
-        <eStructuralFeatures xsi:type="ecore:EAttribute" name="started" eType="#//types/Timestamp"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="started" eType="#//types/Date"/>
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="finished" eType="#//types/Timestamp"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="analysis" eType="#//analysis/Analysis"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="runOnModel" eType="#//Model"/>

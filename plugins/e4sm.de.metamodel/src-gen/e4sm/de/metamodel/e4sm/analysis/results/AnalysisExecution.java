@@ -6,8 +6,8 @@ import e4sm.de.metamodel.e4sm.Model;
 
 import e4sm.de.metamodel.e4sm.analysis.Analysis;
 
-import java.util.Date;
-
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -50,12 +50,12 @@ public interface AnalysisExecution extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Started</em>' attribute.
-	 * @see #setStarted(Date)
+	 * @see #setStarted(LocalDate)
 	 * @see e4sm.de.metamodel.e4sm.analysis.results.ResultsPackage#getAnalysisExecution_Started()
-	 * @model dataType="e4sm.de.metamodel.e4sm.types.Timestamp"
+	 * @model dataType="e4sm.de.metamodel.e4sm.types.Date"
 	 * @generated
 	 */
-	Date getStarted();
+	LocalDate getStarted();
 
 	/**
 	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.analysis.results.AnalysisExecution#getStarted <em>Started</em>}' attribute.
@@ -65,19 +65,19 @@ public interface AnalysisExecution extends EObject {
 	 * @see #getStarted()
 	 * @generated
 	 */
-	void setStarted(Date value);
+	void setStarted(LocalDate value);
 
 	/**
 	 * Returns the value of the '<em><b>Finished</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Finished</em>' attribute.
-	 * @see #setFinished(Date)
+	 * @see #setFinished(LocalDateTime)
 	 * @see e4sm.de.metamodel.e4sm.analysis.results.ResultsPackage#getAnalysisExecution_Finished()
 	 * @model dataType="e4sm.de.metamodel.e4sm.types.Timestamp"
 	 * @generated
 	 */
-	Date getFinished();
+	LocalDateTime getFinished();
 
 	/**
 	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.analysis.results.AnalysisExecution#getFinished <em>Finished</em>}' attribute.
@@ -87,7 +87,7 @@ public interface AnalysisExecution extends EObject {
 	 * @see #getFinished()
 	 * @generated
 	 */
-	void setFinished(Date value);
+	void setFinished(LocalDateTime value);
 
 	/**
 	 * Returns the value of the '<em><b>Analysis</b></em>' reference.

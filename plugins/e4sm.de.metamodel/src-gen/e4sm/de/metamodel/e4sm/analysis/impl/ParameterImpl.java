@@ -33,26 +33,16 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link e4sm.de.metamodel.e4sm.analysis.impl.ParameterImpl#getValue <em>Value</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.analysis.impl.ParameterImpl#getParameterDefinition <em>Parameter Definition</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.analysis.impl.ParameterImpl#getAppliesOnlyOnVariants <em>Applies Only On Variants</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.analysis.impl.ParameterImpl#getDoesNotApplyOnVariants <em>Does Not Apply On Variants</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.analysis.impl.ParameterImpl#getInitialValue <em>Initial Value</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.analysis.impl.ParameterImpl#getCurrentValue <em>Current Value</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ParameterImpl extends ElementImpl implements Parameter {
-	/**
-	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String VALUE_EDEFAULT = null;
-
 	/**
 	 * The cached value of the '{@link #getParameterDefinition() <em>Parameter Definition</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -94,6 +84,16 @@ public class ParameterImpl extends ElementImpl implements Parameter {
 	protected ValueSpecification initialValue;
 
 	/**
+	 * The cached value of the '{@link #getCurrentValue() <em>Current Value</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCurrentValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected ValueSpecification currentValue;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -110,30 +110,6 @@ public class ParameterImpl extends ElementImpl implements Parameter {
 	@Override
 	protected EClass eStaticClass() {
 		return AnalysisPackage.Literals.PARAMETER;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getValue() {
-		// TODO: implement this method to return the 'Value' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setValue(String newValue) {
-		// TODO: implement this method to set the 'Value' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -291,6 +267,58 @@ public class ParameterImpl extends ElementImpl implements Parameter {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ValueSpecification getCurrentValue() {
+		return currentValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetCurrentValue(ValueSpecification newCurrentValue, NotificationChain msgs) {
+		ValueSpecification oldCurrentValue = currentValue;
+		currentValue = newCurrentValue;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					AnalysisPackage.PARAMETER__CURRENT_VALUE, oldCurrentValue, newCurrentValue);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setCurrentValue(ValueSpecification newCurrentValue) {
+		if (newCurrentValue != currentValue) {
+			NotificationChain msgs = null;
+			if (currentValue != null)
+				msgs = ((InternalEObject) currentValue).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - AnalysisPackage.PARAMETER__CURRENT_VALUE, null, msgs);
+			if (newCurrentValue != null)
+				msgs = ((InternalEObject) newCurrentValue).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - AnalysisPackage.PARAMETER__CURRENT_VALUE, null, msgs);
+			msgs = basicSetCurrentValue(newCurrentValue, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AnalysisPackage.PARAMETER__CURRENT_VALUE,
+					newCurrentValue, newCurrentValue));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
@@ -340,6 +368,8 @@ public class ParameterImpl extends ElementImpl implements Parameter {
 			return basicSetParameterDefinition(null, msgs);
 		case AnalysisPackage.PARAMETER__INITIAL_VALUE:
 			return basicSetInitialValue(null, msgs);
+		case AnalysisPackage.PARAMETER__CURRENT_VALUE:
+			return basicSetCurrentValue(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -352,8 +382,6 @@ public class ParameterImpl extends ElementImpl implements Parameter {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case AnalysisPackage.PARAMETER__VALUE:
-			return getValue();
 		case AnalysisPackage.PARAMETER__PARAMETER_DEFINITION:
 			if (resolve)
 				return getParameterDefinition();
@@ -364,6 +392,8 @@ public class ParameterImpl extends ElementImpl implements Parameter {
 			return getDoesNotApplyOnVariants();
 		case AnalysisPackage.PARAMETER__INITIAL_VALUE:
 			return getInitialValue();
+		case AnalysisPackage.PARAMETER__CURRENT_VALUE:
+			return getCurrentValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -377,9 +407,6 @@ public class ParameterImpl extends ElementImpl implements Parameter {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case AnalysisPackage.PARAMETER__VALUE:
-			setValue((String) newValue);
-			return;
 		case AnalysisPackage.PARAMETER__PARAMETER_DEFINITION:
 			setParameterDefinition((ParameterDefinition) newValue);
 			return;
@@ -394,6 +421,9 @@ public class ParameterImpl extends ElementImpl implements Parameter {
 		case AnalysisPackage.PARAMETER__INITIAL_VALUE:
 			setInitialValue((ValueSpecification) newValue);
 			return;
+		case AnalysisPackage.PARAMETER__CURRENT_VALUE:
+			setCurrentValue((ValueSpecification) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -406,9 +436,6 @@ public class ParameterImpl extends ElementImpl implements Parameter {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case AnalysisPackage.PARAMETER__VALUE:
-			setValue(VALUE_EDEFAULT);
-			return;
 		case AnalysisPackage.PARAMETER__PARAMETER_DEFINITION:
 			setParameterDefinition((ParameterDefinition) null);
 			return;
@@ -420,6 +447,9 @@ public class ParameterImpl extends ElementImpl implements Parameter {
 			return;
 		case AnalysisPackage.PARAMETER__INITIAL_VALUE:
 			setInitialValue((ValueSpecification) null);
+			return;
+		case AnalysisPackage.PARAMETER__CURRENT_VALUE:
+			setCurrentValue((ValueSpecification) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -433,8 +463,6 @@ public class ParameterImpl extends ElementImpl implements Parameter {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case AnalysisPackage.PARAMETER__VALUE:
-			return VALUE_EDEFAULT == null ? getValue() != null : !VALUE_EDEFAULT.equals(getValue());
 		case AnalysisPackage.PARAMETER__PARAMETER_DEFINITION:
 			return parameterDefinition != null;
 		case AnalysisPackage.PARAMETER__APPLIES_ONLY_ON_VARIANTS:
@@ -443,6 +471,8 @@ public class ParameterImpl extends ElementImpl implements Parameter {
 			return doesNotApplyOnVariants != null && !doesNotApplyOnVariants.isEmpty();
 		case AnalysisPackage.PARAMETER__INITIAL_VALUE:
 			return initialValue != null;
+		case AnalysisPackage.PARAMETER__CURRENT_VALUE:
+			return currentValue != null;
 		}
 		return super.eIsSet(featureID);
 	}
