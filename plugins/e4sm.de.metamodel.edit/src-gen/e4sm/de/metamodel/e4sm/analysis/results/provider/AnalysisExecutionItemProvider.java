@@ -7,8 +7,7 @@ import e4sm.de.metamodel.e4sm.analysis.results.ResultsFactory;
 import e4sm.de.metamodel.e4sm.analysis.results.ResultsPackage;
 
 import e4sm.de.metamodel.e4sm.provider.e4smEditPlugin;
-
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
 
@@ -188,7 +187,7 @@ public class AnalysisExecutionItemProvider extends ItemProviderAdapter implement
 	 */
 	@Override
 	public String getText(Object object) {
-		LocalDate labelValue = ((AnalysisExecution) object).getStarted();
+		LocalDateTime labelValue = ((AnalysisExecution) object).getStarted();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ? getString("_UI_AnalysisExecution_type")
 				: getString("_UI_AnalysisExecution_type") + " " + label;

@@ -5,8 +5,6 @@ package e4sm.de.metamodel.e4sm.analysis.results;
 import e4sm.de.metamodel.e4sm.Model;
 
 import e4sm.de.metamodel.e4sm.analysis.Analysis;
-
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import org.eclipse.emf.common.util.EList;
 
@@ -50,12 +48,12 @@ public interface AnalysisExecution extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Started</em>' attribute.
-	 * @see #setStarted(LocalDate)
+	 * @see #setStarted(LocalDateTime)
 	 * @see e4sm.de.metamodel.e4sm.analysis.results.ResultsPackage#getAnalysisExecution_Started()
-	 * @model dataType="e4sm.de.metamodel.e4sm.types.Date"
+	 * @model dataType="e4sm.de.metamodel.e4sm.types.Timestamp"
 	 * @generated
 	 */
-	LocalDate getStarted();
+	LocalDateTime getStarted();
 
 	/**
 	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.analysis.results.AnalysisExecution#getStarted <em>Started</em>}' attribute.
@@ -65,7 +63,7 @@ public interface AnalysisExecution extends EObject {
 	 * @see #getStarted()
 	 * @generated
 	 */
-	void setStarted(LocalDate value);
+	void setStarted(LocalDateTime value);
 
 	/**
 	 * Returns the value of the '<em><b>Finished</b></em>' attribute.

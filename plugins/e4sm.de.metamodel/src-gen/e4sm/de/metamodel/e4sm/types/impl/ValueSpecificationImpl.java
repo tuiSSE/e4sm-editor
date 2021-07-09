@@ -2,8 +2,6 @@
  */
 package e4sm.de.metamodel.e4sm.types.impl;
 
-import e4sm.de.metamodel.e4sm.types.LiteralInteger;
-import e4sm.de.metamodel.e4sm.types.TypesFactory;
 import e4sm.de.metamodel.e4sm.types.TypesPackage;
 import e4sm.de.metamodel.e4sm.types.ValueSpecification;
 
@@ -22,7 +20,6 @@ import org.eclipse.emf.ecore.EClass;
 public abstract class ValueSpecificationImpl extends TypedElementImpl implements ValueSpecification {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected ValueSpecificationImpl() {
@@ -31,7 +28,6 @@ public abstract class ValueSpecificationImpl extends TypedElementImpl implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -41,7 +37,6 @@ public abstract class ValueSpecificationImpl extends TypedElementImpl implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -53,7 +48,6 @@ public abstract class ValueSpecificationImpl extends TypedElementImpl implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -65,7 +59,6 @@ public abstract class ValueSpecificationImpl extends TypedElementImpl implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -91,7 +84,6 @@ public abstract class ValueSpecificationImpl extends TypedElementImpl implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

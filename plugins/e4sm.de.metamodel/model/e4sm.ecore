@@ -492,7 +492,7 @@
       <eClassifiers xsi:type="ecore:EClass" name="AnalysisExecution">
         <eStructuralFeatures xsi:type="ecore:EReference" name="analysisResults" upperBound="-1"
             eType="#//analysis/results/AnalysisResult" containment="true"/>
-        <eStructuralFeatures xsi:type="ecore:EAttribute" name="started" eType="#//types/Date"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="started" eType="#//types/Timestamp"/>
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="finished" eType="#//types/Timestamp"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="analysis" eType="#//analysis/Analysis"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="runOnModel" eType="#//Model"/>

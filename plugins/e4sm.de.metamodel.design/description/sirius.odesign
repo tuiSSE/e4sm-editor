@@ -700,19 +700,19 @@
               </menuItemDescription>
             </itemDescriptions>
             <itemDescriptions xsi:type="tool_1:PopupMenu" name="popup_start_analysis" label="Start Analysis">
-              <menuItemDescription xsi:type="tool_1:OperationAction" name="temp_1" label="▶ Time Analysis" icon="/e4sm.de.metamodel.design/icons/specified.gif">
+              <menuItemDescription xsi:type="tool_1:OperationAction" name="analysis_time_analysis_start" label="▶ Time Analysis" icon="/e4sm.de.metamodel.design/icons/specified.gif">
+                <view name="views"/>
+                <initialOperation>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:diagram.target.oclAsType(e4sm::Package).startAnalyisOnPackage('/E4SM_Editor_Example/Results','TimeAnalysis')"/>
+                </initialOperation>
+              </menuItemDescription>
+              <menuItemDescription xsi:type="tool_1:OperationAction" name="analysis_bandwidth_analysis_start" label="▶ Bandwidth Analysis" icon="/e4sm.de.metamodel.design/icons/specified.gif">
                 <view name="views"/>
                 <initialOperation>
                   <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:diagram.target.oclAsType(e4sm::Package).computePackageDependencyGraph()"/>
                 </initialOperation>
               </menuItemDescription>
-              <menuItemDescription xsi:type="tool_1:OperationAction" name="temp_2" label="▶ Bandwidth Analysis" icon="/e4sm.de.metamodel.design/icons/specified.gif">
-                <view name="views"/>
-                <initialOperation>
-                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:diagram.target.oclAsType(e4sm::Package).computePackageDependencyGraph()"/>
-                </initialOperation>
-              </menuItemDescription>
-              <menuItemDescription xsi:type="tool_1:OperationAction" name="temp_3" label="▶ Error Propagation Analysis" icon="/e4sm.de.metamodel.design/icons/specified.gif">
+              <menuItemDescription xsi:type="tool_1:OperationAction" name="analysis_error_propagation_analysis_start" label="▶ Error Propagation Analysis" icon="/e4sm.de.metamodel.design/icons/specified.gif">
                 <view name="views"/>
                 <initialOperation>
                   <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:diagram.target.oclAsType(e4sm::Package).computePackageDependencyGraph()"/>
@@ -834,5 +834,6 @@
     <ownedJavaExtensions qualifiedClassName="e4sm.de.metamodel.design.ConnectorServices"/>
     <ownedJavaExtensions qualifiedClassName="e4sm.de.metamodel.design.ElementTransformationServices"/>
     <ownedJavaExtensions qualifiedClassName="e4sm.de.metamodel.design.analysis.DependencyGraph"/>
+    <ownedJavaExtensions qualifiedClassName="e4sm.de.metamodel.design.analysis.AnalysisService"/>
   </ownedViewpoints>
 </description:Group>

@@ -9,8 +9,6 @@ import e4sm.de.metamodel.e4sm.analysis.Analysis;
 import e4sm.de.metamodel.e4sm.analysis.results.AnalysisExecution;
 import e4sm.de.metamodel.e4sm.analysis.results.AnalysisResult;
 import e4sm.de.metamodel.e4sm.analysis.results.ResultsPackage;
-
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
@@ -63,7 +61,7 @@ public class AnalysisExecutionImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 * @ordered
 	 */
-	protected static final LocalDate STARTED_EDEFAULT = null;
+	protected static final LocalDateTime STARTED_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getStarted() <em>Started</em>}' attribute.
@@ -73,7 +71,7 @@ public class AnalysisExecutionImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 * @ordered
 	 */
-	protected LocalDate started = STARTED_EDEFAULT;
+	protected LocalDateTime started = STARTED_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getFinished() <em>Finished</em>}' attribute.
@@ -154,7 +152,7 @@ public class AnalysisExecutionImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	@Override
-	public LocalDate getStarted() {
+	public LocalDateTime getStarted() {
 		return started;
 	}
 
@@ -164,8 +162,8 @@ public class AnalysisExecutionImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	@Override
-	public void setStarted(LocalDate newStarted) {
-		LocalDate oldStarted = started;
+	public void setStarted(LocalDateTime newStarted) {
+		LocalDateTime oldStarted = started;
 		started = newStarted;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ResultsPackage.ANALYSIS_EXECUTION__STARTED,
@@ -334,7 +332,7 @@ public class AnalysisExecutionImpl extends MinimalEObjectImpl.Container implemen
 			getAnalysisResults().addAll((Collection<? extends AnalysisResult>) newValue);
 			return;
 		case ResultsPackage.ANALYSIS_EXECUTION__STARTED:
-			setStarted((LocalDate) newValue);
+			setStarted((LocalDateTime) newValue);
 			return;
 		case ResultsPackage.ANALYSIS_EXECUTION__FINISHED:
 			setFinished((LocalDateTime) newValue);
