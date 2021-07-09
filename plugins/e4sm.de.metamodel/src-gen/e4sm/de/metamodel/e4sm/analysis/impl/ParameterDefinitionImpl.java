@@ -5,9 +5,9 @@ package e4sm.de.metamodel.e4sm.analysis.impl;
 import e4sm.de.metamodel.e4sm.analysis.AnalysisPackage;
 import e4sm.de.metamodel.e4sm.analysis.Parameter;
 import e4sm.de.metamodel.e4sm.analysis.ParameterDefinition;
-import e4sm.de.metamodel.e4sm.types.UnitOfMeasurement;
-import e4sm.de.metamodel.e4sm.types.ValueSpecification;
-import e4sm.de.metamodel.e4sm.types.impl.TypedElementImpl;
+import e4sm.de.metamodel.e4sm.core.UnitOfMeasurement;
+import e4sm.de.metamodel.e4sm.core.ValueSpecification;
+import e4sm.de.metamodel.e4sm.core.impl.TypedElementImpl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;

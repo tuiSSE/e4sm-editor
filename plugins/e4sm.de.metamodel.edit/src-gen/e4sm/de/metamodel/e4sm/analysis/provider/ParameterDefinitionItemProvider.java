@@ -6,8 +6,8 @@ import e4sm.de.metamodel.e4sm.analysis.AnalysisPackage;
 import e4sm.de.metamodel.e4sm.analysis.ParameterDefinition;
 import e4sm.de.metamodel.e4sm.provider.e4smEditPlugin;
 
-import e4sm.de.metamodel.e4sm.types.TypesFactory;
-import e4sm.de.metamodel.e4sm.types.provider.TypedElementItemProvider;
+import e4sm.de.metamodel.e4sm.core.CoreFactory;
+import e4sm.de.metamodel.e4sm.core.provider.TypedElementItemProvider;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -283,37 +283,37 @@ public class ParameterDefinitionItemProvider extends TypedElementItemProvider {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
 		newChildDescriptors.add(createChildParameter(AnalysisPackage.Literals.PARAMETER_DEFINITION__DEFAULT_VALUE,
-				TypesFactory.eINSTANCE.createLiteralNull()));
+				CoreFactory.eINSTANCE.createLiteralNull()));
 
 		newChildDescriptors.add(createChildParameter(AnalysisPackage.Literals.PARAMETER_DEFINITION__DEFAULT_VALUE,
-				TypesFactory.eINSTANCE.createLiteralString()));
+				CoreFactory.eINSTANCE.createLiteralString()));
 
 		newChildDescriptors.add(createChildParameter(AnalysisPackage.Literals.PARAMETER_DEFINITION__DEFAULT_VALUE,
-				TypesFactory.eINSTANCE.createLiteralInteger()));
+				CoreFactory.eINSTANCE.createLiteralInteger()));
 
 		newChildDescriptors.add(createChildParameter(AnalysisPackage.Literals.PARAMETER_DEFINITION__DEFAULT_VALUE,
-				TypesFactory.eINSTANCE.createLiteralBoolean()));
+				CoreFactory.eINSTANCE.createLiteralBoolean()));
 
 		newChildDescriptors.add(createChildParameter(AnalysisPackage.Literals.PARAMETER_DEFINITION__DEFAULT_VALUE,
-				TypesFactory.eINSTANCE.createLiteralFloat()));
+				CoreFactory.eINSTANCE.createLiteralFloat()));
 
 		newChildDescriptors.add(createChildParameter(AnalysisPackage.Literals.PARAMETER_DEFINITION__DEFAULT_VALUE,
-				TypesFactory.eINSTANCE.createLiteralDouble()));
+				CoreFactory.eINSTANCE.createLiteralDouble()));
 
 		newChildDescriptors.add(createChildParameter(AnalysisPackage.Literals.PARAMETER_DEFINITION__DEFAULT_VALUE,
-				TypesFactory.eINSTANCE.createLiteralLong()));
+				CoreFactory.eINSTANCE.createLiteralLong()));
 
 		newChildDescriptors.add(createChildParameter(AnalysisPackage.Literals.PARAMETER_DEFINITION__DEFAULT_VALUE,
-				TypesFactory.eINSTANCE.createLiteralShort()));
+				CoreFactory.eINSTANCE.createLiteralShort()));
 
 		newChildDescriptors.add(createChildParameter(AnalysisPackage.Literals.PARAMETER_DEFINITION__DEFAULT_VALUE,
-				TypesFactory.eINSTANCE.createLiteralByte()));
+				CoreFactory.eINSTANCE.createLiteralByte()));
 
 		newChildDescriptors.add(createChildParameter(AnalysisPackage.Literals.PARAMETER_DEFINITION__DEFAULT_VALUE,
-				TypesFactory.eINSTANCE.createLiteralCharacter()));
+				CoreFactory.eINSTANCE.createLiteralCharacter()));
 
 		newChildDescriptors.add(createChildParameter(AnalysisPackage.Literals.PARAMETER_DEFINITION__DEFAULT_VALUE,
-				TypesFactory.eINSTANCE.createLiteralDate()));
+				CoreFactory.eINSTANCE.createLiteralDate()));
 	}
 
 	/**

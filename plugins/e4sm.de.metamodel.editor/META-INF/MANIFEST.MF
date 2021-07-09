@@ -11,7 +11,7 @@ Bundle-Localization: plugin
 Export-Package: e4sm.de.metamodel.e4sm.analysis.presentation,
  e4sm.de.metamodel.e4sm.analysis.results.presentation,
  e4sm.de.metamodel.e4sm.presentation,
- e4sm.de.metamodel.e4sm.types.presentation,
+ e4sm.de.metamodel.e4sm.core.presentation,
  e4sm.de.metamodel.e4sm.common
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,

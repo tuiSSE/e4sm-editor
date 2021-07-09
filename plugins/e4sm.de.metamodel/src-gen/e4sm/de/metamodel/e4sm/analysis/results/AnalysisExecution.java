@@ -50,7 +50,7 @@ public interface AnalysisExecution extends EObject {
 	 * @return the value of the '<em>Started</em>' attribute.
 	 * @see #setStarted(LocalDateTime)
 	 * @see e4sm.de.metamodel.e4sm.analysis.results.ResultsPackage#getAnalysisExecution_Started()
-	 * @model dataType="e4sm.de.metamodel.e4sm.types.Timestamp"
+	 * @model dataType="e4sm.de.metamodel.e4sm.core.Timestamp"
 	 * @generated
 	 */
 	LocalDateTime getStarted();
@@ -72,7 +72,7 @@ public interface AnalysisExecution extends EObject {
 	 * @return the value of the '<em>Finished</em>' attribute.
 	 * @see #setFinished(LocalDateTime)
 	 * @see e4sm.de.metamodel.e4sm.analysis.results.ResultsPackage#getAnalysisExecution_Finished()
-	 * @model dataType="e4sm.de.metamodel.e4sm.types.Timestamp"
+	 * @model dataType="e4sm.de.metamodel.e4sm.core.Timestamp"
 	 * @generated
 	 */
 	LocalDateTime getFinished();

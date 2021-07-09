@@ -2,7 +2,7 @@
  */
 package e4sm.de.metamodel.e4sm.analysis.results;
 
-import e4sm.de.metamodel.e4sm.types.TypesPackage;
+import e4sm.de.metamodel.e4sm.core.CorePackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -74,7 +74,7 @@ public interface ResultsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_RESULT__NAME = TypesPackage.NAMED_ELEMENT__NAME;
+	int ANALYSIS_RESULT__NAME = CorePackage.NAMED_ELEMENT__NAME;
 
 	/**
 	 * The number of structural features of the '<em>Analysis Result</em>' class.
@@ -83,7 +83,7 @@ public interface ResultsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_RESULT_FEATURE_COUNT = TypesPackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int ANALYSIS_RESULT_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Analysis Result</em>' class.
@@ -92,7 +92,7 @@ public interface ResultsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_RESULT_OPERATION_COUNT = TypesPackage.NAMED_ELEMENT_OPERATION_COUNT + 0;
+	int ANALYSIS_RESULT_OPERATION_COUNT = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.analysis.results.impl.DiagramImpl <em>Diagram</em>}' class.

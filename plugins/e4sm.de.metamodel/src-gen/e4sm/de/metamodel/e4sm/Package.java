@@ -3,7 +3,7 @@
 package e4sm.de.metamodel.e4sm;
 
 import e4sm.de.metamodel.e4sm.analysis.ParameterizableElement;
-import e4sm.de.metamodel.e4sm.types.NamedElement;
+import e4sm.de.metamodel.e4sm.core.NamedElement;
 import org.eclipse.emf.common.util.EList;
 
 /**

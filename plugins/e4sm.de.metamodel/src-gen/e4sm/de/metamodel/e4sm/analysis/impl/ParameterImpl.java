@@ -6,8 +6,8 @@ import e4sm.de.metamodel.e4sm.analysis.AnalysisPackage;
 import e4sm.de.metamodel.e4sm.analysis.Parameter;
 import e4sm.de.metamodel.e4sm.analysis.ParameterDefinition;
 import e4sm.de.metamodel.e4sm.analysis.Variant;
-import e4sm.de.metamodel.e4sm.types.ValueSpecification;
-import e4sm.de.metamodel.e4sm.types.impl.ElementImpl;
+import e4sm.de.metamodel.e4sm.core.ValueSpecification;
+import e4sm.de.metamodel.e4sm.core.impl.ElementImpl;
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;

@@ -2,7 +2,7 @@
  */
 package e4sm.de.metamodel.e4sm.analysis;
 
-import e4sm.de.metamodel.e4sm.types.NamedElement;
+import e4sm.de.metamodel.e4sm.core.NamedElement;
 
 /**
  * <!-- begin-user-doc -->

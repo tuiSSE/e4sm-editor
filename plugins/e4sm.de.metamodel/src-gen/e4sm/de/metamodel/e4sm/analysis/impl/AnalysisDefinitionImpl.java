@@ -6,7 +6,7 @@ import e4sm.de.metamodel.e4sm.analysis.Analysis;
 import e4sm.de.metamodel.e4sm.analysis.AnalysisDefinition;
 import e4sm.de.metamodel.e4sm.analysis.AnalysisPackage;
 import e4sm.de.metamodel.e4sm.analysis.ParameterDefinition;
-import e4sm.de.metamodel.e4sm.types.impl.NamedElementImpl;
+import e4sm.de.metamodel.e4sm.core.impl.NamedElementImpl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;

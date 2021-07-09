@@ -2,7 +2,7 @@
  */
 package e4sm.de.metamodel.e4sm.analysis;
 
-import e4sm.de.metamodel.e4sm.types.TypesPackage;
+import e4sm.de.metamodel.e4sm.core.CorePackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -122,7 +122,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_DEFINITION__NAME = TypesPackage.NAMED_ELEMENT__NAME;
+	int ANALYSIS_DEFINITION__NAME = CorePackage.NAMED_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Parameter Definitions</b></em>' containment reference list.
@@ -131,7 +131,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_DEFINITION__PARAMETER_DEFINITIONS = TypesPackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int ANALYSIS_DEFINITION__PARAMETER_DEFINITIONS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Analysis</b></em>' containment reference.
@@ -140,7 +140,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_DEFINITION__ANALYSIS = TypesPackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int ANALYSIS_DEFINITION__ANALYSIS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Definition</em>' class.
@@ -149,7 +149,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_DEFINITION_FEATURE_COUNT = TypesPackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int ANALYSIS_DEFINITION_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Definition</em>' class.
@@ -158,7 +158,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_DEFINITION_OPERATION_COUNT = TypesPackage.NAMED_ELEMENT_OPERATION_COUNT + 0;
+	int ANALYSIS_DEFINITION_OPERATION_COUNT = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.analysis.impl.ParameterDefinitionImpl <em>Parameter Definition</em>}' class.
@@ -177,7 +177,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_DEFINITION__NAME = TypesPackage.TYPED_ELEMENT__NAME;
+	int PARAMETER_DEFINITION__NAME = CorePackage.TYPED_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
@@ -186,7 +186,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_DEFINITION__TYPE = TypesPackage.TYPED_ELEMENT__TYPE;
+	int PARAMETER_DEFINITION__TYPE = CorePackage.TYPED_ELEMENT__TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' reference list.
@@ -195,7 +195,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_DEFINITION__PARAMETERS = TypesPackage.TYPED_ELEMENT_FEATURE_COUNT + 0;
+	int PARAMETER_DEFINITION__PARAMETERS = CorePackage.TYPED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Unit</b></em>' attribute.
@@ -204,7 +204,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_DEFINITION__UNIT = TypesPackage.TYPED_ELEMENT_FEATURE_COUNT + 1;
+	int PARAMETER_DEFINITION__UNIT = CorePackage.TYPED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Must Be Defined On</b></em>' reference list.
@@ -213,7 +213,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_DEFINITION__MUST_BE_DEFINED_ON = TypesPackage.TYPED_ELEMENT_FEATURE_COUNT + 2;
+	int PARAMETER_DEFINITION__MUST_BE_DEFINED_ON = CorePackage.TYPED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Can Be Defined On</b></em>' reference list.
@@ -222,7 +222,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_DEFINITION__CAN_BE_DEFINED_ON = TypesPackage.TYPED_ELEMENT_FEATURE_COUNT + 3;
+	int PARAMETER_DEFINITION__CAN_BE_DEFINED_ON = CorePackage.TYPED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Shall Not Be Defined On</b></em>' reference list.
@@ -231,7 +231,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_DEFINITION__SHALL_NOT_BE_DEFINED_ON = TypesPackage.TYPED_ELEMENT_FEATURE_COUNT + 4;
+	int PARAMETER_DEFINITION__SHALL_NOT_BE_DEFINED_ON = CorePackage.TYPED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Default Value</b></em>' containment reference.
@@ -240,7 +240,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_DEFINITION__DEFAULT_VALUE = TypesPackage.TYPED_ELEMENT_FEATURE_COUNT + 5;
+	int PARAMETER_DEFINITION__DEFAULT_VALUE = CorePackage.TYPED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Parameter Definition</em>' class.
@@ -249,7 +249,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_DEFINITION_FEATURE_COUNT = TypesPackage.TYPED_ELEMENT_FEATURE_COUNT + 6;
+	int PARAMETER_DEFINITION_FEATURE_COUNT = CorePackage.TYPED_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of operations of the '<em>Parameter Definition</em>' class.
@@ -258,7 +258,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_DEFINITION_OPERATION_COUNT = TypesPackage.TYPED_ELEMENT_OPERATION_COUNT + 0;
+	int PARAMETER_DEFINITION_OPERATION_COUNT = CorePackage.TYPED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.analysis.impl.ParameterImpl <em>Parameter</em>}' class.
@@ -277,7 +277,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__PARAMETER_DEFINITION = TypesPackage.ELEMENT_FEATURE_COUNT + 0;
+	int PARAMETER__PARAMETER_DEFINITION = CorePackage.ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Applies Only On Variants</b></em>' reference list.
@@ -286,7 +286,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__APPLIES_ONLY_ON_VARIANTS = TypesPackage.ELEMENT_FEATURE_COUNT + 1;
+	int PARAMETER__APPLIES_ONLY_ON_VARIANTS = CorePackage.ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Does Not Apply On Variants</b></em>' reference list.
@@ -295,7 +295,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__DOES_NOT_APPLY_ON_VARIANTS = TypesPackage.ELEMENT_FEATURE_COUNT + 2;
+	int PARAMETER__DOES_NOT_APPLY_ON_VARIANTS = CorePackage.ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Initial Value</b></em>' containment reference.
@@ -304,7 +304,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__INITIAL_VALUE = TypesPackage.ELEMENT_FEATURE_COUNT + 3;
+	int PARAMETER__INITIAL_VALUE = CorePackage.ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Current Value</b></em>' containment reference.
@@ -313,7 +313,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__CURRENT_VALUE = TypesPackage.ELEMENT_FEATURE_COUNT + 4;
+	int PARAMETER__CURRENT_VALUE = CorePackage.ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Parameter</em>' class.
@@ -322,7 +322,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_FEATURE_COUNT = TypesPackage.ELEMENT_FEATURE_COUNT + 5;
+	int PARAMETER_FEATURE_COUNT = CorePackage.ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -331,7 +331,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER___IS_VALID = TypesPackage.ELEMENT_OPERATION_COUNT + 0;
+	int PARAMETER___IS_VALID = CorePackage.ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Parameter</em>' class.
@@ -340,7 +340,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_OPERATION_COUNT = TypesPackage.ELEMENT_OPERATION_COUNT + 1;
+	int PARAMETER_OPERATION_COUNT = CorePackage.ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.analysis.ParameterizableElement <em>Parameterizable Element</em>}' class.
@@ -944,7 +944,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VARIANT__NAME = TypesPackage.NAMED_ELEMENT__NAME;
+	int VARIANT__NAME = CorePackage.NAMED_ELEMENT__NAME;
 
 	/**
 	 * The number of structural features of the '<em>Variant</em>' class.
@@ -953,7 +953,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VARIANT_FEATURE_COUNT = TypesPackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int VARIANT_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Variant</em>' class.
@@ -962,7 +962,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VARIANT_OPERATION_COUNT = TypesPackage.NAMED_ELEMENT_OPERATION_COUNT + 0;
+	int VARIANT_OPERATION_COUNT = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '<em>Graph</em>' data type.

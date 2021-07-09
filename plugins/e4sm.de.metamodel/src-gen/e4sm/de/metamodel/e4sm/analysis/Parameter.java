@@ -2,8 +2,8 @@
  */
 package e4sm.de.metamodel.e4sm.analysis;
 
-import e4sm.de.metamodel.e4sm.types.Element;
-import e4sm.de.metamodel.e4sm.types.ValueSpecification;
+import e4sm.de.metamodel.e4sm.core.Element;
+import e4sm.de.metamodel.e4sm.core.ValueSpecification;
 import org.eclipse.emf.common.util.EList;
 
 /**

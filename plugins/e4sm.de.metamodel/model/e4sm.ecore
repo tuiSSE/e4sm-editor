@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="e4sm" nsURI="http://de.tu-ilmenau/e4sm/1.0.0" nsPrefix="e4sm">
-  <eClassifiers xsi:type="ecore:EClass" name="Component" eSuperTypes="#//types/NamedElement #//analysis/ParameterizableElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Component" eSuperTypes="#//core/NamedElement #//analysis/ParameterizableElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Generic component, which should be used to temporally specify an element before deciding how it will be realised.&#xD;&#xA;&#xD;&#xA;Constraints:&#xD;&#xA;- C1: no loops allowed between the component container (Package) and component &quot;specifiedInPackage&quot;&#xD;&#xA;- C2: components->size()>0, then specifiedInPackage=null - If the component contains other components, it can't be specified in a package."/>
     </eAnnotations>
@@ -39,7 +39,7 @@
       <details key="documentation" value="A software component which returns results based on a machine learning method estimate (e.g. classification...)"/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Connector" eSuperTypes="#//analysis/ParameterizableElement #//types/NamedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Connector" eSuperTypes="#//analysis/ParameterizableElement #//core/NamedElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A connector connects one source to one target component.&#xD;&#xA;Constraints:&#xD;&#xA;- C1: A connector shall not connect two pins of the same component directly (loop/short circuit)"/>
     </eAnnotations>
@@ -109,7 +109,7 @@
     </eAnnotations>
     <eOperations name="computeMainResponsible" eType="#//Person"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Package" eSuperTypes="#//types/NamedElement #//analysis/ParameterizableElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Package" eSuperTypes="#//core/NamedElement #//analysis/ParameterizableElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A package contains a set of Components and their connections.&#xD;&#xA;Constraints:&#xD;&#xA;- C1: all owned packages must have &quot;specifiesComponent&quot; set to a component owned by this package."/>
     </eAnnotations>
@@ -170,7 +170,7 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Model" eSuperTypes="#//types/NamedElement #//analysis/ParameterizableElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Model" eSuperTypes="#//core/NamedElement #//analysis/ParameterizableElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="The root element of the E4SM Model"/>
     </eAnnotations>
@@ -198,7 +198,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="variants" upperBound="-1"
         eType="#//analysis/Variant" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Actor" eSuperTypes="#//types/NamedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Actor" eSuperTypes="#//core/NamedElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="An Entity which interfaces with the system"/>
     </eAnnotations>
@@ -213,7 +213,7 @@
       <details key="documentation" value="A robot actor"/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Sector" eSuperTypes="#//types/NamedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Sector" eSuperTypes="#//core/NamedElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A collection of physical components that either logically or phisically belongs together"/>
     </eAnnotations>
@@ -251,7 +251,7 @@
       <details key="constraints" value="ActuatorC1"/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Pin" abstract="true" eSuperTypes="#//analysis/ParameterizableElement #//types/TypedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Pin" abstract="true" eSuperTypes="#//analysis/ParameterizableElement #//core/TypedElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="An interface to and from a component"/>
     </eAnnotations>
@@ -314,7 +314,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="symbol" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="conversionFactor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eSubpackages name="types" nsURI="http://de.tu-ilmenau/e4sm/types/1.0.0" nsPrefix="types">
+  <eSubpackages name="core" nsURI="http://de.tu-ilmenau/e4sm/core/1.0.0" nsPrefix="core">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore"/>
     <eClassifiers xsi:type="ecore:EDataType" name="Boolean" instanceClassName="boolean"/>
     <eClassifiers xsi:type="ecore:EDataType" name="String" instanceClassName="java.lang.String"/>
@@ -328,7 +328,7 @@
     <eClassifiers xsi:type="ecore:EDataType" name="Date" instanceClassName="java.time.LocalDate"/>
     <eClassifiers xsi:type="ecore:EDataType" name="Timestamp" instanceClassName="java.time.LocalDateTime"/>
     <eClassifiers xsi:type="ecore:EDataType" name="Time" instanceClassName="java.time.LocalTime"/>
-    <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true" eSuperTypes="#//types/Element">
+    <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true" eSuperTypes="#//core/Element">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="An Element which has a name"/>
       </eAnnotations>
@@ -344,51 +344,51 @@
       </eAnnotations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="LiteralSpecification" abstract="true"
-        eSuperTypes="#//types/ValueSpecification"/>
-    <eClassifiers xsi:type="ecore:EClass" name="LiteralNull" eSuperTypes="#//types/LiteralSpecification"/>
-    <eClassifiers xsi:type="ecore:EClass" name="LiteralString" eSuperTypes="#//types/LiteralSpecification">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//types/String"/>
+        eSuperTypes="#//core/ValueSpecification"/>
+    <eClassifiers xsi:type="ecore:EClass" name="LiteralNull" eSuperTypes="#//core/LiteralSpecification"/>
+    <eClassifiers xsi:type="ecore:EClass" name="LiteralString" eSuperTypes="#//core/LiteralSpecification">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//core/String"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="LiteralInteger" eSuperTypes="#//types/LiteralSpecification">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//types/Integer"/>
+    <eClassifiers xsi:type="ecore:EClass" name="LiteralInteger" eSuperTypes="#//core/LiteralSpecification">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//core/Integer"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="LiteralBoolean" eSuperTypes="#//types/LiteralSpecification">
-      <eOperations name="getValue" eType="#//types/Boolean"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//types/Boolean"/>
+    <eClassifiers xsi:type="ecore:EClass" name="LiteralBoolean" eSuperTypes="#//core/LiteralSpecification">
+      <eOperations name="getValue" eType="#//core/Boolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//core/Boolean"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="LiteralFloat" eSuperTypes="#//types/LiteralSpecification">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//types/Float"/>
+    <eClassifiers xsi:type="ecore:EClass" name="LiteralFloat" eSuperTypes="#//core/LiteralSpecification">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//core/Float"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="LiteralDouble" eSuperTypes="#//types/LiteralSpecification">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//types/Double"
+    <eClassifiers xsi:type="ecore:EClass" name="LiteralDouble" eSuperTypes="#//core/LiteralSpecification">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//core/Double"
           defaultValueLiteral="0.0"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="LiteralLong" eSuperTypes="#//types/LiteralSpecification">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//types/Long"
+    <eClassifiers xsi:type="ecore:EClass" name="LiteralLong" eSuperTypes="#//core/LiteralSpecification">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//core/Long"
           defaultValueLiteral="0"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="LiteralShort" eSuperTypes="#//types/LiteralSpecification">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//types/Short"
+    <eClassifiers xsi:type="ecore:EClass" name="LiteralShort" eSuperTypes="#//core/LiteralSpecification">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//core/Short"
           defaultValueLiteral="0"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="LiteralByte" eSuperTypes="#//types/LiteralSpecification">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//types/Byte"
+    <eClassifiers xsi:type="ecore:EClass" name="LiteralByte" eSuperTypes="#//core/LiteralSpecification">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//core/Byte"
           defaultValueLiteral="0"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="LiteralCharacter" eSuperTypes="#//types/LiteralSpecification">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//types/Character"/>
+    <eClassifiers xsi:type="ecore:EClass" name="LiteralCharacter" eSuperTypes="#//core/LiteralSpecification">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//core/Character"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="LiteralDate" eSuperTypes="#//types/LiteralSpecification">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//types/Date"/>
+    <eClassifiers xsi:type="ecore:EClass" name="LiteralDate" eSuperTypes="#//core/LiteralSpecification">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//core/Date"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ValueSpecification" abstract="true"
-        eSuperTypes="#//types/TypedElement">
-      <eOperations name="booleanValue" eType="#//types/Boolean"/>
-      <eOperations name="integerValue" eType="#//types/Integer"/>
+        eSuperTypes="#//core/TypedElement">
+      <eOperations name="booleanValue" eType="#//core/Boolean"/>
+      <eOperations name="integerValue" eType="#//core/Integer"/>
       <eOperations name="isComputable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eOperations name="toString" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="TypedElement" abstract="true" eSuperTypes="#//types/NamedElement">
+    <eClassifiers xsi:type="ecore:EClass" name="TypedElement" abstract="true" eSuperTypes="#//core/NamedElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EDataType"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="UnitOfMeasurement">
@@ -413,16 +413,16 @@
         <eParameters name="res" eType="#//analysis/results/AnalysisExecution"/>
       </eOperations>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="AnalysisDefinition" eSuperTypes="#//types/NamedElement">
+    <eClassifiers xsi:type="ecore:EClass" name="AnalysisDefinition" eSuperTypes="#//core/NamedElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameterDefinitions"
           upperBound="-1" eType="#//analysis/ParameterDefinition" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="analysis" lowerBound="1"
           eType="#//analysis/Analysis" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ParameterDefinition" eSuperTypes="#//types/TypedElement">
+    <eClassifiers xsi:type="ecore:EClass" name="ParameterDefinition" eSuperTypes="#//core/TypedElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
           eType="#//analysis/Parameter" eOpposite="#//analysis/Parameter/parameterDefinition"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="unit" eType="#//types/UnitOfMeasurement"
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="unit" eType="#//core/UnitOfMeasurement"
           defaultValueLiteral="none"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="mustBeDefinedOn" upperBound="-1"
           eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
@@ -430,10 +430,10 @@
           eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="shallNotBeDefinedOn"
           upperBound="-1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="defaultValue" eType="#//types/ValueSpecification"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="defaultValue" eType="#//core/ValueSpecification"
           containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="#//types/Element">
+    <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="#//core/Element">
       <eOperations name="isValid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameterDefinition"
           lowerBound="1" eType="#//analysis/ParameterDefinition" eOpposite="#//analysis/ParameterDefinition/parameters"/>
@@ -441,9 +441,9 @@
           upperBound="-1" eType="#//analysis/Variant"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="doesNotApplyOnVariants"
           upperBound="-1" eType="#//analysis/Variant"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="initialValue" eType="#//types/ValueSpecification"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="initialValue" eType="#//core/ValueSpecification"
           containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="currentValue" eType="#//types/ValueSpecification"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="currentValue" eType="#//core/ValueSpecification"
           containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ParameterizableElement" abstract="true"
@@ -471,11 +471,11 @@
     <eClassifiers xsi:type="ecore:EClass" name="PreviousNodeGraphAnalysis" eSuperTypes="#//analysis/GraphAnalysis"/>
     <eClassifiers xsi:type="ecore:EDataType" name="Graph" instanceClassName="int"
         serializable="false"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Variant" eSuperTypes="#//types/NamedElement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Variant" eSuperTypes="#//core/NamedElement"/>
     <eSubpackages name="results" nsURI="http://de.tu-ilmenau/e4sm/analysis/results/1.0.0"
         nsPrefix="results">
       <eClassifiers xsi:type="ecore:EClass" name="AnalysisResult" abstract="true"
-          eSuperTypes="#//types/NamedElement"/>
+          eSuperTypes="#//core/NamedElement"/>
       <eClassifiers xsi:type="ecore:EClass" name="Diagram" abstract="true" eSuperTypes="#//analysis/results/AnalysisResult"/>
       <eClassifiers xsi:type="ecore:EClass" name="Plot" abstract="true" eSuperTypes="#//analysis/results/Diagram"/>
       <eClassifiers xsi:type="ecore:EClass" name="TwoDimensionalPlot" eSuperTypes="#//analysis/results/Plot">
@@ -492,8 +492,8 @@
       <eClassifiers xsi:type="ecore:EClass" name="AnalysisExecution">
         <eStructuralFeatures xsi:type="ecore:EReference" name="analysisResults" upperBound="-1"
             eType="#//analysis/results/AnalysisResult" containment="true"/>
-        <eStructuralFeatures xsi:type="ecore:EAttribute" name="started" eType="#//types/Timestamp"/>
-        <eStructuralFeatures xsi:type="ecore:EAttribute" name="finished" eType="#//types/Timestamp"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="started" eType="#//core/Timestamp"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="finished" eType="#//core/Timestamp"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="analysis" eType="#//analysis/Analysis"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="runOnModel" eType="#//Model"/>
       </eClassifiers>

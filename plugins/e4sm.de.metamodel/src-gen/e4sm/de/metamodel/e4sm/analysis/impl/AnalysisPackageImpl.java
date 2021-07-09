@@ -24,9 +24,9 @@ import e4sm.de.metamodel.e4sm.analysis.results.impl.ResultsPackageImpl;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
 import e4sm.de.metamodel.e4sm.impl.e4smPackageImpl;
-import e4sm.de.metamodel.e4sm.types.TypesPackage;
+import e4sm.de.metamodel.e4sm.core.CorePackage;
 
-import e4sm.de.metamodel.e4sm.types.impl.TypesPackageImpl;
+import e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -203,10 +203,10 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		e4smPackageImpl thee4smPackage = (e4smPackageImpl) (registeredPackage instanceof e4smPackageImpl
 				? registeredPackage
 				: e4smPackage.eINSTANCE);
-		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI);
-		TypesPackageImpl theTypesPackage = (TypesPackageImpl) (registeredPackage instanceof TypesPackageImpl
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
+		CorePackageImpl theTypesPackage = (CorePackageImpl) (registeredPackage instanceof CorePackageImpl
 				? registeredPackage
-				: TypesPackage.eINSTANCE);
+				: CorePackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ResultsPackage.eNS_URI);
 		ResultsPackageImpl theResultsPackage = (ResultsPackageImpl) (registeredPackage instanceof ResultsPackageImpl
 				? registeredPackage
@@ -735,7 +735,7 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		// Obtain other dependent packages
 		ResultsPackage theResultsPackage = (ResultsPackage) EPackage.Registry.INSTANCE
 				.getEPackage(ResultsPackage.eNS_URI);
-		TypesPackage theTypesPackage = (TypesPackage) EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI);
+		CorePackage theTypesPackage = (CorePackage) EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
 
 		// Add subpackages
 		getESubpackages().add(theResultsPackage);

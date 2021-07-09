@@ -7,7 +7,7 @@ import e4sm.de.metamodel.e4sm.analysis.AnalysisFactory;
 import e4sm.de.metamodel.e4sm.analysis.AnalysisPackage;
 import e4sm.de.metamodel.e4sm.e4smFactory;
 import e4sm.de.metamodel.e4sm.e4smPackage;
-import e4sm.de.metamodel.e4sm.types.provider.NamedElementItemProvider;
+import e4sm.de.metamodel.e4sm.core.provider.NamedElementItemProvider;
 import java.util.Collection;
 import java.util.List;
 

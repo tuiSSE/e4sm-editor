@@ -3,7 +3,7 @@
 package e4sm.de.metamodel.e4sm;
 
 import e4sm.de.metamodel.e4sm.analysis.AnalysisPackage;
-import e4sm.de.metamodel.e4sm.types.TypesPackage;
+import e4sm.de.metamodel.e4sm.core.CorePackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -77,7 +77,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__NAME = TypesPackage.NAMED_ELEMENT__NAME;
+	int COMPONENT__NAME = CorePackage.NAMED_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
@@ -86,7 +86,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__PARAMETERS = TypesPackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int COMPONENT__PARAMETERS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
@@ -95,7 +95,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__COMPONENTS = TypesPackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int COMPONENT__COMPONENTS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Pins</b></em>' containment reference list.
@@ -104,7 +104,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__PINS = TypesPackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int COMPONENT__PINS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Main Responsible</b></em>' reference.
@@ -113,7 +113,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__MAIN_RESPONSIBLE = TypesPackage.NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int COMPONENT__MAIN_RESPONSIBLE = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Specified In Package</b></em>' reference.
@@ -122,7 +122,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__SPECIFIED_IN_PACKAGE = TypesPackage.NAMED_ELEMENT_FEATURE_COUNT + 4;
+	int COMPONENT__SPECIFIED_IN_PACKAGE = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Component</em>' class.
@@ -131,7 +131,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_FEATURE_COUNT = TypesPackage.NAMED_ELEMENT_FEATURE_COUNT + 5;
+	int COMPONENT_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Compute Main Responsible</em>' operation.
@@ -140,7 +140,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT___COMPUTE_MAIN_RESPONSIBLE = TypesPackage.NAMED_ELEMENT_OPERATION_COUNT + 0;
+	int COMPONENT___COMPUTE_MAIN_RESPONSIBLE = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Component</em>' class.
@@ -149,7 +149,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_OPERATION_COUNT = TypesPackage.NAMED_ELEMENT_OPERATION_COUNT + 1;
+	int COMPONENT_OPERATION_COUNT = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.SoftwareComponentImpl <em>Software Component</em>}' class.
@@ -1084,7 +1084,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__NAME = TypesPackage.NAMED_ELEMENT__NAME;
+	int PACKAGE__NAME = CorePackage.NAMED_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
@@ -1093,7 +1093,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__PARAMETERS = TypesPackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int PACKAGE__PARAMETERS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
@@ -1102,7 +1102,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__COMPONENTS = TypesPackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int PACKAGE__COMPONENTS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Software Components</b></em>' reference list.
@@ -1111,7 +1111,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__SOFTWARE_COMPONENTS = TypesPackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int PACKAGE__SOFTWARE_COMPONENTS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Physical Components</b></em>' reference list.
@@ -1120,7 +1120,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__PHYSICAL_COMPONENTS = TypesPackage.NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int PACKAGE__PHYSICAL_COMPONENTS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Connectors</b></em>' containment reference list.
@@ -1129,7 +1129,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__CONNECTORS = TypesPackage.NAMED_ELEMENT_FEATURE_COUNT + 4;
+	int PACKAGE__CONNECTORS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Sectors</b></em>' containment reference list.
@@ -1138,7 +1138,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__SECTORS = TypesPackage.NAMED_ELEMENT_FEATURE_COUNT + 5;
+	int PACKAGE__SECTORS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Main Responsible</b></em>' reference.
@@ -1147,7 +1147,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__MAIN_RESPONSIBLE = TypesPackage.NAMED_ELEMENT_FEATURE_COUNT + 6;
+	int PACKAGE__MAIN_RESPONSIBLE = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Packages</b></em>' containment reference list.
@@ -1156,7 +1156,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__PACKAGES = TypesPackage.NAMED_ELEMENT_FEATURE_COUNT + 7;
+	int PACKAGE__PACKAGES = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Specifies Component</b></em>' reference.
@@ -1165,7 +1165,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__SPECIFIES_COMPONENT = TypesPackage.NAMED_ELEMENT_FEATURE_COUNT + 8;
+	int PACKAGE__SPECIFIES_COMPONENT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of structural features of the '<em>Package</em>' class.
@@ -1174,7 +1174,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE_FEATURE_COUNT = TypesPackage.NAMED_ELEMENT_FEATURE_COUNT + 9;
+	int PACKAGE_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 9;
 
 	/**
 	 * The operation id for the '<em>Get All Components</em>' operation.
@@ -1183,7 +1183,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE___GET_ALL_COMPONENTS = TypesPackage.NAMED_ELEMENT_OPERATION_COUNT + 0;
+	int PACKAGE___GET_ALL_COMPONENTS = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Package</em>' class.
@@ -1192,7 +1192,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE_OPERATION_COUNT = TypesPackage.NAMED_ELEMENT_OPERATION_COUNT + 1;
+	int PACKAGE_OPERATION_COUNT = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1201,7 +1201,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__NAME = TypesPackage.NAMED_ELEMENT__NAME;
+	int MODEL__NAME = CorePackage.NAMED_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
@@ -1210,7 +1210,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__PARAMETERS = TypesPackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int MODEL__PARAMETERS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Packages</b></em>' containment reference list.
@@ -1219,7 +1219,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__PACKAGES = TypesPackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int MODEL__PACKAGES = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Actors</b></em>' containment reference list.
@@ -1228,7 +1228,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__ACTORS = TypesPackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int MODEL__ACTORS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Persons Pictures Path</b></em>' attribute.
@@ -1237,7 +1237,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__PERSONS_PICTURES_PATH = TypesPackage.NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int MODEL__PERSONS_PICTURES_PATH = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Variants</b></em>' containment reference list.
@@ -1246,7 +1246,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__VARIANTS = TypesPackage.NAMED_ELEMENT_FEATURE_COUNT + 4;
+	int MODEL__VARIANTS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Model</em>' class.
@@ -1255,7 +1255,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_FEATURE_COUNT = TypesPackage.NAMED_ELEMENT_FEATURE_COUNT + 5;
+	int MODEL_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Is Person Picture Path Valid</em>' operation.
@@ -1264,7 +1264,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL___IS_PERSON_PICTURE_PATH_VALID__DIAGNOSTICCHAIN_MAP = TypesPackage.NAMED_ELEMENT_OPERATION_COUNT + 0;
+	int MODEL___IS_PERSON_PICTURE_PATH_VALID__DIAGNOSTICCHAIN_MAP = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Model</em>' class.
@@ -1273,7 +1273,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_OPERATION_COUNT = TypesPackage.NAMED_ELEMENT_OPERATION_COUNT + 1;
+	int MODEL_OPERATION_COUNT = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1282,7 +1282,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTOR__NAME = TypesPackage.NAMED_ELEMENT__NAME;
+	int ACTOR__NAME = CorePackage.NAMED_ELEMENT__NAME;
 
 	/**
 	 * The number of structural features of the '<em>Actor</em>' class.
@@ -1291,7 +1291,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTOR_FEATURE_COUNT = TypesPackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int ACTOR_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Actor</em>' class.
@@ -1300,7 +1300,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTOR_OPERATION_COUNT = TypesPackage.NAMED_ELEMENT_OPERATION_COUNT + 0;
+	int ACTOR_OPERATION_COUNT = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1363,7 +1363,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SECTOR__NAME = TypesPackage.NAMED_ELEMENT__NAME;
+	int SECTOR__NAME = CorePackage.NAMED_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
@@ -1372,7 +1372,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SECTOR__COMPONENTS = TypesPackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int SECTOR__COMPONENTS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Sectors</b></em>' containment reference list.
@@ -1381,7 +1381,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SECTOR__SECTORS = TypesPackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int SECTOR__SECTORS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Sector</em>' class.
@@ -1390,7 +1390,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SECTOR_FEATURE_COUNT = TypesPackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int SECTOR_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Get All Components</em>' operation.
@@ -1399,7 +1399,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SECTOR___GET_ALL_COMPONENTS = TypesPackage.NAMED_ELEMENT_OPERATION_COUNT + 0;
+	int SECTOR___GET_ALL_COMPONENTS = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Sector</em>' class.
@@ -1408,7 +1408,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SECTOR_OPERATION_COUNT = TypesPackage.NAMED_ELEMENT_OPERATION_COUNT + 1;
+	int SECTOR_OPERATION_COUNT = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.

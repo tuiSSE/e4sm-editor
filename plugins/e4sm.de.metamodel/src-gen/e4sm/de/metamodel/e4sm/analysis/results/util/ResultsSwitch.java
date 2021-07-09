@@ -4,8 +4,8 @@ package e4sm.de.metamodel.e4sm.analysis.results.util;
 
 import e4sm.de.metamodel.e4sm.analysis.results.*;
 
-import e4sm.de.metamodel.e4sm.types.Element;
-import e4sm.de.metamodel.e4sm.types.NamedElement;
+import e4sm.de.metamodel.e4sm.core.Element;
+import e4sm.de.metamodel.e4sm.core.NamedElement;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 

@@ -9,7 +9,7 @@ import e4sm.de.metamodel.e4sm.analysis.Parameter;
 import e4sm.de.metamodel.e4sm.analysis.ParameterizableElement;
 import e4sm.de.metamodel.e4sm.analysis.Variant;
 import e4sm.de.metamodel.e4sm.e4smPackage;
-import e4sm.de.metamodel.e4sm.types.impl.NamedElementImpl;
+import e4sm.de.metamodel.e4sm.core.impl.NamedElementImpl;
 import e4sm.de.metamodel.e4sm.util.e4smValidator;
 import java.lang.reflect.InvocationTargetException;
 import java.nio.file.Files;

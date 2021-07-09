@@ -2,9 +2,9 @@
  */
 package e4sm.de.metamodel.e4sm.analysis;
 
-import e4sm.de.metamodel.e4sm.types.TypedElement;
-import e4sm.de.metamodel.e4sm.types.UnitOfMeasurement;
-import e4sm.de.metamodel.e4sm.types.ValueSpecification;
+import e4sm.de.metamodel.e4sm.core.TypedElement;
+import e4sm.de.metamodel.e4sm.core.UnitOfMeasurement;
+import e4sm.de.metamodel.e4sm.core.ValueSpecification;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -48,11 +48,11 @@ public interface ParameterDefinition extends TypedElement {
 	/**
 	 * Returns the value of the '<em><b>Unit</b></em>' attribute.
 	 * The default value is <code>"none"</code>.
-	 * The literals are from the enumeration {@link e4sm.de.metamodel.e4sm.types.UnitOfMeasurement}.
+	 * The literals are from the enumeration {@link e4sm.de.metamodel.e4sm.core.UnitOfMeasurement}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Unit</em>' attribute.
-	 * @see e4sm.de.metamodel.e4sm.types.UnitOfMeasurement
+	 * @see e4sm.de.metamodel.e4sm.core.UnitOfMeasurement
 	 * @see #setUnit(UnitOfMeasurement)
 	 * @see e4sm.de.metamodel.e4sm.analysis.AnalysisPackage#getParameterDefinition_Unit()
 	 * @model default="none"
@@ -65,7 +65,7 @@ public interface ParameterDefinition extends TypedElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Unit</em>' attribute.
-	 * @see e4sm.de.metamodel.e4sm.types.UnitOfMeasurement
+	 * @see e4sm.de.metamodel.e4sm.core.UnitOfMeasurement
 	 * @see #getUnit()
 	 * @generated
 	 */

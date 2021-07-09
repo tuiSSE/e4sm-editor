@@ -15,9 +15,9 @@ Export-Package: e4sm.de.metamodel.e4sm,
  e4sm.de.metamodel.e4sm.analysis.results.util,
  e4sm.de.metamodel.e4sm.analysis.util,
  e4sm.de.metamodel.e4sm.impl,
- e4sm.de.metamodel.e4sm.types,
- e4sm.de.metamodel.e4sm.types.impl,
- e4sm.de.metamodel.e4sm.types.util,
+ e4sm.de.metamodel.e4sm.core,
+ e4sm.de.metamodel.e4sm.core.impl,
+ e4sm.de.metamodel.e4sm.core.util,
  e4sm.de.metamodel.e4sm.util
 Bundle-RequiredExecutionEnvironment: JavaSE-15
 Require-Bundle: org.eclipse.core.runtime,

@@ -37,12 +37,12 @@
    <extension point="org.eclipse.ui.editors">
       <!-- @generated e4sm -->
       <editor
-            id="e4sm.de.metamodel.e4sm.types.presentation.TypesEditorID"
-            name="%_UI_TypesEditor_label"
-            icon="icons/full/obj16/TypesModelFile.gif"
-            extensions="types"
-            class="e4sm.de.metamodel.e4sm.types.presentation.TypesEditor"
-            contributorClass="e4sm.de.metamodel.e4sm.types.presentation.TypesActionBarContributor">
+            id="e4sm.de.metamodel.e4sm.core.presentation.TypesEditorID"
+            name="%_UI_CoreEditor_label"
+            icon="icons/full/obj16/CoreModelFile.gif"
+            extensions="core"
+            class="e4sm.de.metamodel.e4sm.core.presentation.TypesEditor"
+            contributorClass="e4sm.de.metamodel.e4sm.core.presentation.TypesActionBarContributor">
       </editor>
    </extension>
 

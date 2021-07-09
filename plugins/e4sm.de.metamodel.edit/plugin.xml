@@ -22,8 +22,8 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <!-- @generated e4sm -->
       <factory
-            uri="http://de.tu-ilmenau/e4sm/types/1.0.0"
-            class="e4sm.de.metamodel.e4sm.types.provider.TypesItemProviderAdapterFactory"
+            uri="http://de.tu-ilmenau/e4sm/core/1.0.0"
+            class="e4sm.de.metamodel.e4sm.core.provider.CoreItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider

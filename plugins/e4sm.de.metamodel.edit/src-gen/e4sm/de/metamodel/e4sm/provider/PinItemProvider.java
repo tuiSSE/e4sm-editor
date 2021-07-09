@@ -7,7 +7,7 @@ import e4sm.de.metamodel.e4sm.Pin;
 import e4sm.de.metamodel.e4sm.analysis.AnalysisFactory;
 import e4sm.de.metamodel.e4sm.analysis.AnalysisPackage;
 import e4sm.de.metamodel.e4sm.e4smPackage;
-import e4sm.de.metamodel.e4sm.types.TypesPackage;
+import e4sm.de.metamodel.e4sm.core.CorePackage;
 import java.util.Collection;
 import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -71,7 +71,7 @@ public class PinItemProvider extends ItemProviderAdapter implements IEditingDoma
 						getResourceLocator(), getString("_UI_NamedElement_name_feature"),
 						getString("_UI_PropertyDescriptor_description", "_UI_NamedElement_name_feature",
 								"_UI_NamedElement_type"),
-						TypesPackage.Literals.NAMED_ELEMENT__NAME, true, false, false,
+						CorePackage.Literals.NAMED_ELEMENT__NAME, true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -87,7 +87,7 @@ public class PinItemProvider extends ItemProviderAdapter implements IEditingDoma
 						getResourceLocator(), getString("_UI_TypedElement_type_feature"),
 						getString("_UI_PropertyDescriptor_description", "_UI_TypedElement_type_feature",
 								"_UI_TypedElement_type"),
-						TypesPackage.Literals.TYPED_ELEMENT__TYPE, true, false, true, null, null, null));
+						CorePackage.Literals.TYPED_ELEMENT__TYPE, true, false, true, null, null, null));
 	}
 
 	/**

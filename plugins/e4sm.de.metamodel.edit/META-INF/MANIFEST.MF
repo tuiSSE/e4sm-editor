@@ -11,7 +11,7 @@ Bundle-Localization: plugin
 Export-Package: e4sm.de.metamodel.e4sm.analysis.provider,
  e4sm.de.metamodel.e4sm.analysis.results.provider,
  e4sm.de.metamodel.e4sm.provider,
- e4sm.de.metamodel.e4sm.types.provider
+ e4sm.de.metamodel.e4sm.core.provider
 Require-Bundle: org.eclipse.core.runtime,
  e4sm.de.metamodel;visibility:=reexport,
  org.eclipse.emf.edit;visibility:=reexport,

@@ -1749,8 +1749,8 @@
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_wHI_Y95DEeuJK5q0YQWRAQ" name=" type : EDataType" tooltipText="">
-        <target xmi:type="ecore:EReference" href="e4sm.ecore#//types/TypedElement/type"/>
-        <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//types/TypedElement/type"/>
+        <target xmi:type="ecore:EReference" href="e4sm.ecore#//core/TypedElement/type"/>
+        <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//core/TypedElement/type"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_wHJmcN5DEeuJK5q0YQWRAQ" labelColor="125,125,125" labelAlignment="LEFT">
           <labelFormat>italic</labelFormat>
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@conditionnalStyles.0/@style"/>
@@ -1776,8 +1776,8 @@
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_wHJmc95DEeuJK5q0YQWRAQ" name=" type : EDataType" tooltipText="">
-        <target xmi:type="ecore:EReference" href="e4sm.ecore#//types/TypedElement/type"/>
-        <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//types/TypedElement/type"/>
+        <target xmi:type="ecore:EReference" href="e4sm.ecore#//core/TypedElement/type"/>
+        <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//core/TypedElement/type"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_wHKNgN5DEeuJK5q0YQWRAQ" labelColor="125,125,125" labelAlignment="LEFT">
           <labelFormat>italic</labelFormat>
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@conditionnalStyles.0/@style"/>
@@ -1803,8 +1803,8 @@
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_wHK0kd5DEeuJK5q0YQWRAQ" name=" type : EDataType" tooltipText="">
-        <target xmi:type="ecore:EReference" href="e4sm.ecore#//types/TypedElement/type"/>
-        <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//types/TypedElement/type"/>
+        <target xmi:type="ecore:EReference" href="e4sm.ecore#//core/TypedElement/type"/>
+        <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//core/TypedElement/type"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_wHK0kt5DEeuJK5q0YQWRAQ" labelColor="125,125,125" labelAlignment="LEFT">
           <labelFormat>italic</labelFormat>
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@conditionnalStyles.0/@style"/>
@@ -3472,8 +3472,8 @@
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_wHouot5DEeuJK5q0YQWRAQ" name=" type : EDataType" tooltipText="">
-        <target xmi:type="ecore:EReference" href="e4sm.ecore#//types/TypedElement/type"/>
-        <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//types/TypedElement/type"/>
+        <target xmi:type="ecore:EReference" href="e4sm.ecore#//core/TypedElement/type"/>
+        <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//core/TypedElement/type"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_wHouo95DEeuJK5q0YQWRAQ" labelColor="125,125,125" labelAlignment="LEFT">
           <labelFormat>italic</labelFormat>
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@conditionnalStyles.0/@style"/>
@@ -3501,8 +3501,8 @@
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_wHpVst5DEeuJK5q0YQWRAQ" name=" type : EDataType" tooltipText="">
-        <target xmi:type="ecore:EReference" href="e4sm.ecore#//types/TypedElement/type"/>
-        <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//types/TypedElement/type"/>
+        <target xmi:type="ecore:EReference" href="e4sm.ecore#//core/TypedElement/type"/>
+        <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//core/TypedElement/type"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_wHpVs95DEeuJK5q0YQWRAQ" labelColor="125,125,125" labelAlignment="LEFT">
           <labelFormat>italic</labelFormat>
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@conditionnalStyles.0/@style"/>
@@ -3530,8 +3530,8 @@
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_wHp8wt5DEeuJK5q0YQWRAQ" name=" type : EDataType" tooltipText="">
-        <target xmi:type="ecore:EReference" href="e4sm.ecore#//types/TypedElement/type"/>
-        <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//types/TypedElement/type"/>
+        <target xmi:type="ecore:EReference" href="e4sm.ecore#//core/TypedElement/type"/>
+        <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//core/TypedElement/type"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_wHp8w95DEeuJK5q0YQWRAQ" labelColor="125,125,125" labelAlignment="LEFT">
           <labelFormat>italic</labelFormat>
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@conditionnalStyles.0/@style"/>
@@ -6130,8 +6130,8 @@
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_mAWhEN79Eeu2gd7at3-KGw" name="TypedElement" tooltipText="" incomingEdges="_mAhgMN79Eeu2gd7at3-KGw _mAiHQN79Eeu2gd7at3-KGw" width="12" height="10">
-      <target xmi:type="ecore:EClass" href="e4sm.ecore#//types/TypedElement"/>
-      <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//types/TypedElement"/>
+      <target xmi:type="ecore:EClass" href="e4sm.ecore#//core/TypedElement"/>
+      <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//core/TypedElement"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_mAXIId79Eeu2gd7at3-KGw">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -6144,8 +6144,8 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_mAdOwd79Eeu2gd7at3-KGw" name=" type : EDataType" tooltipText="">
-        <target xmi:type="ecore:EReference" href="e4sm.ecore#//types/TypedElement/type"/>
-        <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//types/TypedElement/type"/>
+        <target xmi:type="ecore:EReference" href="e4sm.ecore#//core/TypedElement/type"/>
+        <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//core/TypedElement/type"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_mAdOwt79Eeu2gd7at3-KGw" labelAlignment="LEFT" color="114,159,207">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@style"/>
         </ownedStyle>
@@ -7423,8 +7423,8 @@
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_wI7vId5DEeuJK5q0YQWRAQ" name=" type : EDataType" tooltipText="">
-        <target xmi:type="ecore:EReference" href="e4sm.ecore#//types/TypedElement/type"/>
-        <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//types/TypedElement/type"/>
+        <target xmi:type="ecore:EReference" href="e4sm.ecore#//core/TypedElement/type"/>
+        <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//core/TypedElement/type"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_wI8WMN5DEeuJK5q0YQWRAQ" labelColor="125,125,125" labelAlignment="LEFT">
           <labelFormat>italic</labelFormat>
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@conditionnalStyles.0/@style"/>
@@ -7948,7 +7948,7 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOngaN5DEeuJK5q0YQWRAQ" name="AnalysisDefinition (3)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/types/1.0.0: &#xA; - EClassAnalysisDefinition extends type Element in package types&#xA; - EClassAnalysisDefinition extends type NamedElement in package types">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOngaN5DEeuJK5q0YQWRAQ" name="AnalysisDefinition (3)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassAnalysisDefinition extends type Element in package types&#xA; - EClassAnalysisDefinition extends type NamedElement in package types">
         <target xmi:type="ecore:EClass" href="e4sm.ecore#//analysis/AnalysisDefinition"/>
         <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//analysis/AnalysisDefinition"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_wOngad5DEeuJK5q0YQWRAQ" labelAlignment="LEFT" labelPosition="node">
@@ -7956,7 +7956,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOoHcN5DEeuJK5q0YQWRAQ" name="ParameterDefinition (3)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/types/1.0.0: &#xA; - EAttribute unit refers to type UnitOfMeasurement in package types&#xA; - EReference defaultValue refers to type ValueSpecification in package types&#xA; - EClassParameterDefinition extends type Element in package types&#xA; - EClassParameterDefinition extends type NamedElement in package types&#xA; - EClassParameterDefinition extends type TypedElement in package types">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOoHcN5DEeuJK5q0YQWRAQ" name="ParameterDefinition (3)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EAttribute unit refers to type UnitOfMeasurement in package types&#xA; - EReference defaultValue refers to type ValueSpecification in package types&#xA; - EClassParameterDefinition extends type Element in package types&#xA; - EClassParameterDefinition extends type NamedElement in package types&#xA; - EClassParameterDefinition extends type TypedElement in package types">
         <target xmi:type="ecore:EClass" href="e4sm.ecore#//analysis/ParameterDefinition"/>
         <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//analysis/ParameterDefinition"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_wOoHcd5DEeuJK5q0YQWRAQ" labelAlignment="LEFT" labelPosition="node">
@@ -7964,7 +7964,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOoHct5DEeuJK5q0YQWRAQ" name="Parameter (3)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/types/1.0.0: &#xA; - EReference initialValue refers to type ValueSpecification in package types&#xA; - EClassParameter extends type Element in package types">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOoHct5DEeuJK5q0YQWRAQ" name="Parameter (3)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EReference initialValue refers to type ValueSpecification in package types&#xA; - EClassParameter extends type Element in package types">
         <target xmi:type="ecore:EClass" href="e4sm.ecore#//analysis/Parameter"/>
         <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//analysis/Parameter"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_wOoHc95DEeuJK5q0YQWRAQ" labelAlignment="LEFT" labelPosition="node">
@@ -7972,7 +7972,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOoHdN5DEeuJK5q0YQWRAQ" name="Variant (2)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/types/1.0.0: &#xA; - EClassVariant extends type Element in package types&#xA; - EClassVariant extends type NamedElement in package types">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOoHdN5DEeuJK5q0YQWRAQ" name="Variant (2)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassVariant extends type Element in package types&#xA; - EClassVariant extends type NamedElement in package types">
         <target xmi:type="ecore:EClass" href="e4sm.ecore#//analysis/Variant"/>
         <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//analysis/Variant"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_wOoHdd5DEeuJK5q0YQWRAQ" labelAlignment="LEFT" labelPosition="node">
@@ -7999,7 +7999,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOougt5DEeuJK5q0YQWRAQ" name="Component (4)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA; - EClassComponent extends type ParameterizableElement in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/types/1.0.0: &#xA; - EClassComponent extends type Element in package types&#xA; - EClassComponent extends type NamedElement in package types">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOougt5DEeuJK5q0YQWRAQ" name="Component (4)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA; - EClassComponent extends type ParameterizableElement in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassComponent extends type Element in package types&#xA; - EClassComponent extends type NamedElement in package types">
         <target xmi:type="ecore:EClass" href="e4sm.ecore#//Component"/>
         <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//Component"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_wOoug95DEeuJK5q0YQWRAQ" labelAlignment="LEFT" labelPosition="node">
@@ -8007,7 +8007,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOouhN5DEeuJK5q0YQWRAQ" name="MachineLearningComponent (4)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA; - EClassMachineLearningComponent extends type ParameterizableElement in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/types/1.0.0: &#xA; - EClassMachineLearningComponent extends type Element in package types&#xA; - EClassMachineLearningComponent extends type NamedElement in package types">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOouhN5DEeuJK5q0YQWRAQ" name="MachineLearningComponent (4)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA; - EClassMachineLearningComponent extends type ParameterizableElement in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassMachineLearningComponent extends type Element in package types&#xA; - EClassMachineLearningComponent extends type NamedElement in package types">
         <target xmi:type="ecore:EClass" href="e4sm.ecore#//MachineLearningComponent"/>
         <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//MachineLearningComponent"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_wOouhd5DEeuJK5q0YQWRAQ" labelAlignment="LEFT" labelPosition="node">
@@ -8015,7 +8015,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOouht5DEeuJK5q0YQWRAQ" name="Connector (4)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA; - EClassConnector extends type ParameterizableElement in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/types/1.0.0: &#xA; - EClassConnector extends type Element in package types&#xA; - EClassConnector extends type NamedElement in package types">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOouht5DEeuJK5q0YQWRAQ" name="Connector (4)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA; - EClassConnector extends type ParameterizableElement in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassConnector extends type Element in package types&#xA; - EClassConnector extends type NamedElement in package types">
         <target xmi:type="ecore:EClass" href="e4sm.ecore#//Connector"/>
         <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//Connector"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_wOouh95DEeuJK5q0YQWRAQ" labelAlignment="LEFT" labelPosition="node">
@@ -8023,7 +8023,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOouiN5DEeuJK5q0YQWRAQ" name="PhysicalConnector (4)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA; - EClassPhysicalConnector extends type ParameterizableElement in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/types/1.0.0: &#xA; - EClassPhysicalConnector extends type Element in package types&#xA; - EClassPhysicalConnector extends type NamedElement in package types">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOouiN5DEeuJK5q0YQWRAQ" name="PhysicalConnector (4)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA; - EClassPhysicalConnector extends type ParameterizableElement in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassPhysicalConnector extends type Element in package types&#xA; - EClassPhysicalConnector extends type NamedElement in package types">
         <target xmi:type="ecore:EClass" href="e4sm.ecore#//PhysicalConnector"/>
         <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//PhysicalConnector"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_wOpVkN5DEeuJK5q0YQWRAQ" labelAlignment="LEFT" labelPosition="node">
@@ -8031,7 +8031,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOpVkd5DEeuJK5q0YQWRAQ" name="PhysicalComponent (4)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA; - EClassPhysicalComponent extends type ParameterizableElement in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/types/1.0.0: &#xA; - EClassPhysicalComponent extends type Element in package types&#xA; - EClassPhysicalComponent extends type NamedElement in package types">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOpVkd5DEeuJK5q0YQWRAQ" name="PhysicalComponent (4)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA; - EClassPhysicalComponent extends type ParameterizableElement in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassPhysicalComponent extends type Element in package types&#xA; - EClassPhysicalComponent extends type NamedElement in package types">
         <target xmi:type="ecore:EClass" href="e4sm.ecore#//PhysicalComponent"/>
         <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//PhysicalComponent"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_wOpVkt5DEeuJK5q0YQWRAQ" labelAlignment="LEFT" labelPosition="node">
@@ -8039,7 +8039,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOpVk95DEeuJK5q0YQWRAQ" name="SoftwareComponent (4)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA; - EClassSoftwareComponent extends type ParameterizableElement in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/types/1.0.0: &#xA; - EClassSoftwareComponent extends type Element in package types&#xA; - EClassSoftwareComponent extends type NamedElement in package types">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOpVk95DEeuJK5q0YQWRAQ" name="SoftwareComponent (4)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA; - EClassSoftwareComponent extends type ParameterizableElement in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassSoftwareComponent extends type Element in package types&#xA; - EClassSoftwareComponent extends type NamedElement in package types">
         <target xmi:type="ecore:EClass" href="e4sm.ecore#//SoftwareComponent"/>
         <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//SoftwareComponent"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_wOpVlN5DEeuJK5q0YQWRAQ" labelAlignment="LEFT" labelPosition="node">
@@ -8047,7 +8047,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOpVld5DEeuJK5q0YQWRAQ" name="LogicalConnector (4)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA; - EClassLogicalConnector extends type ParameterizableElement in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/types/1.0.0: &#xA; - EClassLogicalConnector extends type Element in package types&#xA; - EClassLogicalConnector extends type NamedElement in package types">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOpVld5DEeuJK5q0YQWRAQ" name="LogicalConnector (4)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA; - EClassLogicalConnector extends type ParameterizableElement in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassLogicalConnector extends type Element in package types&#xA; - EClassLogicalConnector extends type NamedElement in package types">
         <target xmi:type="ecore:EClass" href="e4sm.ecore#//LogicalConnector"/>
         <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//LogicalConnector"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_wOpVlt5DEeuJK5q0YQWRAQ" labelAlignment="LEFT" labelPosition="node">
@@ -8055,7 +8055,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOpVl95DEeuJK5q0YQWRAQ" name="Heuristic (4)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA; - EClassHeuristic extends type ParameterizableElement in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/types/1.0.0: &#xA; - EClassHeuristic extends type Element in package types&#xA; - EClassHeuristic extends type NamedElement in package types">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOpVl95DEeuJK5q0YQWRAQ" name="Heuristic (4)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA; - EClassHeuristic extends type ParameterizableElement in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassHeuristic extends type Element in package types&#xA; - EClassHeuristic extends type NamedElement in package types">
         <target xmi:type="ecore:EClass" href="e4sm.ecore#//Heuristic"/>
         <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//Heuristic"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_wOpVmN5DEeuJK5q0YQWRAQ" labelAlignment="LEFT" labelPosition="node">
@@ -8063,7 +8063,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOp8oN5DEeuJK5q0YQWRAQ" name="Function (4)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA; - EClassFunction extends type ParameterizableElement in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/types/1.0.0: &#xA; - EClassFunction extends type Element in package types&#xA; - EClassFunction extends type NamedElement in package types">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOp8oN5DEeuJK5q0YQWRAQ" name="Function (4)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA; - EClassFunction extends type ParameterizableElement in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassFunction extends type Element in package types&#xA; - EClassFunction extends type NamedElement in package types">
         <target xmi:type="ecore:EClass" href="e4sm.ecore#//Function"/>
         <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//Function"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_wOp8od5DEeuJK5q0YQWRAQ" labelAlignment="LEFT" labelPosition="node">
@@ -8071,7 +8071,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOp8ot5DEeuJK5q0YQWRAQ" name="ExternalDependency (4)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA; - EClassExternalDependency extends type ParameterizableElement in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/types/1.0.0: &#xA; - EClassExternalDependency extends type Element in package types&#xA; - EClassExternalDependency extends type NamedElement in package types">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOp8ot5DEeuJK5q0YQWRAQ" name="ExternalDependency (4)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA; - EClassExternalDependency extends type ParameterizableElement in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassExternalDependency extends type Element in package types&#xA; - EClassExternalDependency extends type NamedElement in package types">
         <target xmi:type="ecore:EClass" href="e4sm.ecore#//ExternalDependency"/>
         <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//ExternalDependency"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_wOp8o95DEeuJK5q0YQWRAQ" labelAlignment="LEFT" labelPosition="node">
@@ -8079,7 +8079,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOp8pN5DEeuJK5q0YQWRAQ" name="Package (4)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA; - EClassPackage extends type ParameterizableElement in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/types/1.0.0: &#xA; - EClassPackage extends type Element in package types&#xA; - EClassPackage extends type NamedElement in package types">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOp8pN5DEeuJK5q0YQWRAQ" name="Package (4)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA; - EClassPackage extends type ParameterizableElement in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassPackage extends type Element in package types&#xA; - EClassPackage extends type NamedElement in package types">
         <target xmi:type="ecore:EClass" href="e4sm.ecore#//Package"/>
         <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//Package"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_wOrKwN5DEeuJK5q0YQWRAQ" labelAlignment="LEFT" labelPosition="node">
@@ -8087,7 +8087,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOrKwd5DEeuJK5q0YQWRAQ" name="Model (4)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA; - EReference variants refers to type Variant in package analysis&#xA; - EClassModel extends type ParameterizableElement in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/types/1.0.0: &#xA; - EClassModel extends type Element in package types&#xA; - EClassModel extends type NamedElement in package types">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOrKwd5DEeuJK5q0YQWRAQ" name="Model (4)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA; - EReference variants refers to type Variant in package analysis&#xA; - EClassModel extends type ParameterizableElement in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassModel extends type Element in package types&#xA; - EClassModel extends type NamedElement in package types">
         <target xmi:type="ecore:EClass" href="e4sm.ecore#//Model"/>
         <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//Model"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_wOrKwt5DEeuJK5q0YQWRAQ" labelAlignment="LEFT" labelPosition="node">
@@ -8095,7 +8095,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOrKw95DEeuJK5q0YQWRAQ" name="Actor (2)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/types/1.0.0: &#xA; - EClassActor extends type Element in package types&#xA; - EClassActor extends type NamedElement in package types">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOrKw95DEeuJK5q0YQWRAQ" name="Actor (2)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassActor extends type Element in package types&#xA; - EClassActor extends type NamedElement in package types">
         <target xmi:type="ecore:EClass" href="e4sm.ecore#//Actor"/>
         <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//Actor"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_wOrKxN5DEeuJK5q0YQWRAQ" labelAlignment="LEFT" labelPosition="node">
@@ -8103,7 +8103,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOrx0N5DEeuJK5q0YQWRAQ" name="Human (3)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/types/1.0.0: &#xA; - EClassHuman extends type Element in package types&#xA; - EClassHuman extends type NamedElement in package types">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOrx0N5DEeuJK5q0YQWRAQ" name="Human (3)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassHuman extends type Element in package types&#xA; - EClassHuman extends type NamedElement in package types">
         <target xmi:type="ecore:EClass" href="e4sm.ecore#//Human"/>
         <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//Human"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_wOrx0d5DEeuJK5q0YQWRAQ" labelAlignment="LEFT" labelPosition="node">
@@ -8111,7 +8111,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOrx0t5DEeuJK5q0YQWRAQ" name="Robot (3)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/types/1.0.0: &#xA; - EClassRobot extends type Element in package types&#xA; - EClassRobot extends type NamedElement in package types">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOrx0t5DEeuJK5q0YQWRAQ" name="Robot (3)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassRobot extends type Element in package types&#xA; - EClassRobot extends type NamedElement in package types">
         <target xmi:type="ecore:EClass" href="e4sm.ecore#//Robot"/>
         <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//Robot"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_wOrx095DEeuJK5q0YQWRAQ" labelAlignment="LEFT" labelPosition="node">
@@ -8119,7 +8119,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOrx1N5DEeuJK5q0YQWRAQ" name="Sector (3)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/types/1.0.0: &#xA; - EClassSector extends type Element in package types&#xA; - EClassSector extends type NamedElement in package types">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOrx1N5DEeuJK5q0YQWRAQ" name="Sector (3)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassSector extends type Element in package types&#xA; - EClassSector extends type NamedElement in package types">
         <target xmi:type="ecore:EClass" href="e4sm.ecore#//Sector"/>
         <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//Sector"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_wOrx1d5DEeuJK5q0YQWRAQ" labelAlignment="LEFT" labelPosition="node">
@@ -8127,7 +8127,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOrx1t5DEeuJK5q0YQWRAQ" name="Sensor (4)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA; - EClassSensor extends type ParameterizableElement in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/types/1.0.0: &#xA; - EClassSensor extends type Element in package types&#xA; - EClassSensor extends type NamedElement in package types">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOrx1t5DEeuJK5q0YQWRAQ" name="Sensor (4)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA; - EClassSensor extends type ParameterizableElement in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassSensor extends type Element in package types&#xA; - EClassSensor extends type NamedElement in package types">
         <target xmi:type="ecore:EClass" href="e4sm.ecore#//Sensor"/>
         <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//Sensor"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_wOrx195DEeuJK5q0YQWRAQ" labelAlignment="LEFT" labelPosition="node">
@@ -8135,7 +8135,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOsY4N5DEeuJK5q0YQWRAQ" name="Actuator (4)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA; - EClassActuator extends type ParameterizableElement in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/types/1.0.0: &#xA; - EClassActuator extends type Element in package types&#xA; - EClassActuator extends type NamedElement in package types">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOsY4N5DEeuJK5q0YQWRAQ" name="Actuator (4)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA; - EClassActuator extends type ParameterizableElement in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassActuator extends type Element in package types&#xA; - EClassActuator extends type NamedElement in package types">
         <target xmi:type="ecore:EClass" href="e4sm.ecore#//Actuator"/>
         <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//Actuator"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_wOsY4d5DEeuJK5q0YQWRAQ" labelAlignment="LEFT" labelPosition="node">
@@ -8143,7 +8143,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOsY4t5DEeuJK5q0YQWRAQ" name="Pin (3)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA; - EClassPin extends type ParameterizableElement in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/types/1.0.0: &#xA; - EClassPin extends type Element in package types&#xA; - EClassPin extends type NamedElement in package types&#xA; - EClassPin extends type TypedElement in package types">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOsY4t5DEeuJK5q0YQWRAQ" name="Pin (3)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA; - EClassPin extends type ParameterizableElement in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassPin extends type Element in package types&#xA; - EClassPin extends type NamedElement in package types&#xA; - EClassPin extends type TypedElement in package types">
         <target xmi:type="ecore:EClass" href="e4sm.ecore#//Pin"/>
         <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//Pin"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_wOsY495DEeuJK5q0YQWRAQ" labelAlignment="LEFT" labelPosition="node">
@@ -8151,7 +8151,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOsY5N5DEeuJK5q0YQWRAQ" name="InputPin (4)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA; - EClassInputPin extends type ParameterizableElement in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/types/1.0.0: &#xA; - EClassInputPin extends type Element in package types&#xA; - EClassInputPin extends type NamedElement in package types&#xA; - EClassInputPin extends type TypedElement in package types">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOsY5N5DEeuJK5q0YQWRAQ" name="InputPin (4)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA; - EClassInputPin extends type ParameterizableElement in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassInputPin extends type Element in package types&#xA; - EClassInputPin extends type NamedElement in package types&#xA; - EClassInputPin extends type TypedElement in package types">
         <target xmi:type="ecore:EClass" href="e4sm.ecore#//InputPin"/>
         <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//InputPin"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_wOsY5d5DEeuJK5q0YQWRAQ" labelAlignment="LEFT" labelPosition="node">
@@ -8159,7 +8159,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOsY5t5DEeuJK5q0YQWRAQ" name="OutputPin (4)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA; - EClassOutputPin extends type ParameterizableElement in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/types/1.0.0: &#xA; - EClassOutputPin extends type Element in package types&#xA; - EClassOutputPin extends type NamedElement in package types&#xA; - EClassOutputPin extends type TypedElement in package types">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOsY5t5DEeuJK5q0YQWRAQ" name="OutputPin (4)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA; - EClassOutputPin extends type ParameterizableElement in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassOutputPin extends type Element in package types&#xA; - EClassOutputPin extends type NamedElement in package types&#xA; - EClassOutputPin extends type TypedElement in package types">
         <target xmi:type="ecore:EClass" href="e4sm.ecore#//OutputPin"/>
         <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//OutputPin"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_wOsY595DEeuJK5q0YQWRAQ" labelAlignment="LEFT" labelPosition="node">
@@ -8167,7 +8167,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOsY6N5DEeuJK5q0YQWRAQ" name="Person (3)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/types/1.0.0: &#xA; - EClassPerson extends type Element in package types&#xA; - EClassPerson extends type NamedElement in package types">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOsY6N5DEeuJK5q0YQWRAQ" name="Person (3)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassPerson extends type Element in package types&#xA; - EClassPerson extends type NamedElement in package types">
         <target xmi:type="ecore:EClass" href="e4sm.ecore#//Person"/>
         <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//Person"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_wOs_8N5DEeuJK5q0YQWRAQ" labelAlignment="LEFT" labelPosition="node">
@@ -8176,9 +8176,9 @@
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
       </ownedElements>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_vw49c92REeub94TrfsycXQ" name="http://de.tu-ilmenau/e4sm/types/1.0.0" incomingEdges="_wOuOEt5DEeuJK5q0YQWRAQ _wOu1J95DEeuJK5q0YQWRAQ _wOu1LN5DEeuJK5q0YQWRAQ">
-      <target xmi:type="ecore:EPackage" href="e4sm.ecore#//types"/>
-      <semanticElements xmi:type="ecore:EPackage" href="e4sm.ecore#//types"/>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_vw49c92REeub94TrfsycXQ" name="http://de.tu-ilmenau/e4sm/core/1.0.0" incomingEdges="_wOuOEt5DEeuJK5q0YQWRAQ _wOu1J95DEeuJK5q0YQWRAQ _wOu1LN5DEeuJK5q0YQWRAQ">
+      <target xmi:type="ecore:EPackage" href="e4sm.ecore#//core"/>
+      <semanticElements xmi:type="ecore:EPackage" href="e4sm.ecore#//core"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
@@ -8197,7 +8197,7 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOs_8d5DEeuJK5q0YQWRAQ" name="AnalysisResult (2)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/types/1.0.0: &#xA; - EClassAnalysisResult extends type Element in package types&#xA; - EClassAnalysisResult extends type NamedElement in package types">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOs_8d5DEeuJK5q0YQWRAQ" name="AnalysisResult (2)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassAnalysisResult extends type Element in package types&#xA; - EClassAnalysisResult extends type NamedElement in package types">
         <target xmi:type="ecore:EClass" href="e4sm.ecore#//analysis/results/AnalysisResult"/>
         <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//analysis/results/AnalysisResult"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_wOs_8t5DEeuJK5q0YQWRAQ" labelAlignment="LEFT" labelPosition="node">
@@ -8205,7 +8205,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOs_895DEeuJK5q0YQWRAQ" name="Diagram (3)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/types/1.0.0: &#xA; - EClassDiagram extends type Element in package types&#xA; - EClassDiagram extends type NamedElement in package types">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOs_895DEeuJK5q0YQWRAQ" name="Diagram (3)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassDiagram extends type Element in package types&#xA; - EClassDiagram extends type NamedElement in package types">
         <target xmi:type="ecore:EClass" href="e4sm.ecore#//analysis/results/Diagram"/>
         <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//analysis/results/Diagram"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_wOs_9N5DEeuJK5q0YQWRAQ" labelAlignment="LEFT" labelPosition="node">
@@ -8213,7 +8213,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOs_9d5DEeuJK5q0YQWRAQ" name="Plot (3)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/types/1.0.0: &#xA; - EClassPlot extends type Element in package types&#xA; - EClassPlot extends type NamedElement in package types">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOs_9d5DEeuJK5q0YQWRAQ" name="Plot (3)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassPlot extends type Element in package types&#xA; - EClassPlot extends type NamedElement in package types">
         <target xmi:type="ecore:EClass" href="e4sm.ecore#//analysis/results/Plot"/>
         <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//analysis/results/Plot"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_wOtnAN5DEeuJK5q0YQWRAQ" labelAlignment="LEFT" labelPosition="node">
@@ -8221,7 +8221,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOtnAd5DEeuJK5q0YQWRAQ" name="TwoDimensionalPlot (3)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/types/1.0.0: &#xA; - EClassTwoDimensionalPlot extends type Element in package types&#xA; - EClassTwoDimensionalPlot extends type NamedElement in package types">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOtnAd5DEeuJK5q0YQWRAQ" name="TwoDimensionalPlot (3)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassTwoDimensionalPlot extends type Element in package types&#xA; - EClassTwoDimensionalPlot extends type NamedElement in package types">
         <target xmi:type="ecore:EClass" href="e4sm.ecore#//analysis/results/TwoDimensionalPlot"/>
         <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//analysis/results/TwoDimensionalPlot"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_wOtnAt5DEeuJK5q0YQWRAQ" labelAlignment="LEFT" labelPosition="node">
@@ -8229,7 +8229,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOtnA95DEeuJK5q0YQWRAQ" name="ThreeDimensionalPlot (3)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/types/1.0.0: &#xA; - EClassThreeDimensionalPlot extends type Element in package types&#xA; - EClassThreeDimensionalPlot extends type NamedElement in package types">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOtnA95DEeuJK5q0YQWRAQ" name="ThreeDimensionalPlot (3)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassThreeDimensionalPlot extends type Element in package types&#xA; - EClassThreeDimensionalPlot extends type NamedElement in package types">
         <target xmi:type="ecore:EClass" href="e4sm.ecore#//analysis/results/ThreeDimensionalPlot"/>
         <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//analysis/results/ThreeDimensionalPlot"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_wOtnBN5DEeuJK5q0YQWRAQ" labelAlignment="LEFT" labelPosition="node">
@@ -8237,7 +8237,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOtnBd5DEeuJK5q0YQWRAQ" name="ScalarValue (3)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/types/1.0.0: &#xA; - EClassScalarValue extends type Element in package types&#xA; - EClassScalarValue extends type NamedElement in package types">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOtnBd5DEeuJK5q0YQWRAQ" name="ScalarValue (3)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassScalarValue extends type Element in package types&#xA; - EClassScalarValue extends type NamedElement in package types">
         <target xmi:type="ecore:EClass" href="e4sm.ecore#//analysis/results/ScalarValue"/>
         <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//analysis/results/ScalarValue"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_wOtnBt5DEeuJK5q0YQWRAQ" labelAlignment="LEFT" labelPosition="node">
@@ -8245,7 +8245,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOtnB95DEeuJK5q0YQWRAQ" name="Data (3)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/types/1.0.0: &#xA; - EClassData extends type Element in package types&#xA; - EClassData extends type NamedElement in package types">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOtnB95DEeuJK5q0YQWRAQ" name="Data (3)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassData extends type Element in package types&#xA; - EClassData extends type NamedElement in package types">
         <target xmi:type="ecore:EClass" href="e4sm.ecore#//analysis/results/Data"/>
         <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//analysis/results/Data"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_wOtnCN5DEeuJK5q0YQWRAQ" labelAlignment="LEFT" labelPosition="node">
@@ -8253,7 +8253,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOuOEN5DEeuJK5q0YQWRAQ" name="AnalysisExecution (4)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/types/1.0.0: &#xA; - EAttribute started refers to type Timestamp in package types&#xA; - EAttribute finished refers to type Timestamp in package types&#xA;Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference analysis refers to type Analysis in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/1.0.0: &#xA; - EReference runOnModel refers to type Model in package e4sm">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wOuOEN5DEeuJK5q0YQWRAQ" name="AnalysisExecution (4)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EAttribute started refers to type Timestamp in package types&#xA; - EAttribute finished refers to type Timestamp in package types&#xA;Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference analysis refers to type Analysis in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/1.0.0: &#xA; - EReference runOnModel refers to type Model in package e4sm">
         <target xmi:type="ecore:EClass" href="e4sm.ecore#//analysis/results/AnalysisExecution"/>
         <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//analysis/results/AnalysisExecution"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_wOuOEd5DEeuJK5q0YQWRAQ" labelAlignment="LEFT" labelPosition="node">
@@ -10848,8 +10848,8 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_061NMN_KEeuulr_rs9nI6w" name=" type : EDataType" tooltipText="">
-        <target xmi:type="ecore:EReference" href="e4sm.ecore#//types/TypedElement/type"/>
-        <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//types/TypedElement/type"/>
+        <target xmi:type="ecore:EReference" href="e4sm.ecore#//core/TypedElement/type"/>
+        <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//core/TypedElement/type"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_061NMd_KEeuulr_rs9nI6w" labelColor="125,125,125" labelAlignment="LEFT">
           <labelFormat>italic</labelFormat>
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@conditionnalStyles.0/@style"/>
@@ -10944,8 +10944,8 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_0610Qt_KEeuulr_rs9nI6w" name=" type : EDataType" tooltipText="">
-        <target xmi:type="ecore:EReference" href="e4sm.ecore#//types/TypedElement/type"/>
-        <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//types/TypedElement/type"/>
+        <target xmi:type="ecore:EReference" href="e4sm.ecore#//core/TypedElement/type"/>
+        <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//core/TypedElement/type"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_0610Q9_KEeuulr_rs9nI6w" labelColor="125,125,125" labelAlignment="LEFT">
           <labelFormat>italic</labelFormat>
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@conditionnalStyles.0/@style"/>
@@ -11054,8 +11054,8 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_062bVt_KEeuulr_rs9nI6w" name=" type : EDataType" tooltipText="">
-        <target xmi:type="ecore:EReference" href="e4sm.ecore#//types/TypedElement/type"/>
-        <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//types/TypedElement/type"/>
+        <target xmi:type="ecore:EReference" href="e4sm.ecore#//core/TypedElement/type"/>
+        <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//core/TypedElement/type"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_063CYN_KEeuulr_rs9nI6w" labelColor="125,125,125" labelAlignment="LEFT">
           <labelFormat>italic</labelFormat>
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@conditionnalStyles.0/@style"/>
@@ -11661,8 +11661,8 @@
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_idjPAN_JEeuulr_rs9nI6w" name="Boolean" tooltipText="" width="14" height="5">
-      <target xmi:type="ecore:EDataType" href="e4sm.ecore#//types/Boolean"/>
-      <semanticElements xmi:type="ecore:EDataType" href="e4sm.ecore#//types/Boolean"/>
+      <target xmi:type="ecore:EDataType" href="e4sm.ecore#//core/Boolean"/>
+      <semanticElements xmi:type="ecore:EDataType" href="e4sm.ecore#//core/Boolean"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_idj2Ed_JEeuulr_rs9nI6w">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -11671,8 +11671,8 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EDataType']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_ieb_09_JEeuulr_rs9nI6w" name="boolean" tooltipText="">
-        <target xmi:type="ecore:EDataType" href="e4sm.ecore#//types/Boolean"/>
-        <semanticElements xmi:type="ecore:EDataType" href="e4sm.ecore#//types/Boolean"/>
+        <target xmi:type="ecore:EDataType" href="e4sm.ecore#//core/Boolean"/>
+        <semanticElements xmi:type="ecore:EDataType" href="e4sm.ecore#//core/Boolean"/>
         <decorations xmi:type="viewpoint:Decoration" uid="_ieb_1N_JEeuulr_rs9nI6w">
           <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
         </decorations>
@@ -11684,8 +11684,8 @@
       </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_idkdIN_JEeuulr_rs9nI6w" name="Byte" tooltipText="" width="14" height="5">
-      <target xmi:type="ecore:EDataType" href="e4sm.ecore#//types/Byte"/>
-      <semanticElements xmi:type="ecore:EDataType" href="e4sm.ecore#//types/Byte"/>
+      <target xmi:type="ecore:EDataType" href="e4sm.ecore#//core/Byte"/>
+      <semanticElements xmi:type="ecore:EDataType" href="e4sm.ecore#//core/Byte"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_idkdIt_JEeuulr_rs9nI6w">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -11694,8 +11694,8 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EDataType']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_iecm4d_JEeuulr_rs9nI6w" name="byte" tooltipText="">
-        <target xmi:type="ecore:EDataType" href="e4sm.ecore#//types/Byte"/>
-        <semanticElements xmi:type="ecore:EDataType" href="e4sm.ecore#//types/Byte"/>
+        <target xmi:type="ecore:EDataType" href="e4sm.ecore#//core/Byte"/>
+        <semanticElements xmi:type="ecore:EDataType" href="e4sm.ecore#//core/Byte"/>
         <decorations xmi:type="viewpoint:Decoration" uid="_iecm4t_JEeuulr_rs9nI6w">
           <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
         </decorations>
@@ -11707,8 +11707,8 @@
       </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_idlEMN_JEeuulr_rs9nI6w" name="Character" tooltipText="" width="14" height="5">
-      <target xmi:type="ecore:EDataType" href="e4sm.ecore#//types/Character"/>
-      <semanticElements xmi:type="ecore:EDataType" href="e4sm.ecore#//types/Character"/>
+      <target xmi:type="ecore:EDataType" href="e4sm.ecore#//core/Character"/>
+      <semanticElements xmi:type="ecore:EDataType" href="e4sm.ecore#//core/Character"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_idlEMt_JEeuulr_rs9nI6w">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -11717,8 +11717,8 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EDataType']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_iecm5N_JEeuulr_rs9nI6w" name="char" tooltipText="">
-        <target xmi:type="ecore:EDataType" href="e4sm.ecore#//types/Character"/>
-        <semanticElements xmi:type="ecore:EDataType" href="e4sm.ecore#//types/Character"/>
+        <target xmi:type="ecore:EDataType" href="e4sm.ecore#//core/Character"/>
+        <semanticElements xmi:type="ecore:EDataType" href="e4sm.ecore#//core/Character"/>
         <decorations xmi:type="viewpoint:Decoration" uid="_iecm5d_JEeuulr_rs9nI6w">
           <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
         </decorations>
@@ -11730,8 +11730,8 @@
       </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_idlrQN_JEeuulr_rs9nI6w" name="Date" tooltipText="" width="14" height="5">
-      <target xmi:type="ecore:EDataType" href="e4sm.ecore#//types/Date"/>
-      <semanticElements xmi:type="ecore:EDataType" href="e4sm.ecore#//types/Date"/>
+      <target xmi:type="ecore:EDataType" href="e4sm.ecore#//core/Date"/>
+      <semanticElements xmi:type="ecore:EDataType" href="e4sm.ecore#//core/Date"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_idlrQt_JEeuulr_rs9nI6w">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -11740,8 +11740,8 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EDataType']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_iedN8N_JEeuulr_rs9nI6w" name="java.time.LocalDate" tooltipText="">
-        <target xmi:type="ecore:EDataType" href="e4sm.ecore#//types/Date"/>
-        <semanticElements xmi:type="ecore:EDataType" href="e4sm.ecore#//types/Date"/>
+        <target xmi:type="ecore:EDataType" href="e4sm.ecore#//core/Date"/>
+        <semanticElements xmi:type="ecore:EDataType" href="e4sm.ecore#//core/Date"/>
         <decorations xmi:type="viewpoint:Decoration" uid="_iedN8d_JEeuulr_rs9nI6w">
           <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
         </decorations>
@@ -11753,8 +11753,8 @@
       </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_idmSUN_JEeuulr_rs9nI6w" name="Double" tooltipText="" width="14" height="5">
-      <target xmi:type="ecore:EDataType" href="e4sm.ecore#//types/Double"/>
-      <semanticElements xmi:type="ecore:EDataType" href="e4sm.ecore#//types/Double"/>
+      <target xmi:type="ecore:EDataType" href="e4sm.ecore#//core/Double"/>
+      <semanticElements xmi:type="ecore:EDataType" href="e4sm.ecore#//core/Double"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_idmSUt_JEeuulr_rs9nI6w">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -11763,8 +11763,8 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EDataType']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_iedN89_JEeuulr_rs9nI6w" name="double" tooltipText="">
-        <target xmi:type="ecore:EDataType" href="e4sm.ecore#//types/Double"/>
-        <semanticElements xmi:type="ecore:EDataType" href="e4sm.ecore#//types/Double"/>
+        <target xmi:type="ecore:EDataType" href="e4sm.ecore#//core/Double"/>
+        <semanticElements xmi:type="ecore:EDataType" href="e4sm.ecore#//core/Double"/>
         <decorations xmi:type="viewpoint:Decoration" uid="_iedN9N_JEeuulr_rs9nI6w">
           <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
         </decorations>
@@ -11776,8 +11776,8 @@
       </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_idngct_JEeuulr_rs9nI6w" name="Float" tooltipText="" width="14" height="5">
-      <target xmi:type="ecore:EDataType" href="e4sm.ecore#//types/Float"/>
-      <semanticElements xmi:type="ecore:EDataType" href="e4sm.ecore#//types/Float"/>
+      <target xmi:type="ecore:EDataType" href="e4sm.ecore#//core/Float"/>
+      <semanticElements xmi:type="ecore:EDataType" href="e4sm.ecore#//core/Float"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_idoHgd_JEeuulr_rs9nI6w">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -11786,8 +11786,8 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EDataType']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_iedN9t_JEeuulr_rs9nI6w" name="float" tooltipText="">
-        <target xmi:type="ecore:EDataType" href="e4sm.ecore#//types/Float"/>
-        <semanticElements xmi:type="ecore:EDataType" href="e4sm.ecore#//types/Float"/>
+        <target xmi:type="ecore:EDataType" href="e4sm.ecore#//core/Float"/>
+        <semanticElements xmi:type="ecore:EDataType" href="e4sm.ecore#//core/Float"/>
         <decorations xmi:type="viewpoint:Decoration" uid="_iedN99_JEeuulr_rs9nI6w">
           <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
         </decorations>
@@ -11799,8 +11799,8 @@
       </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_idoHg9_JEeuulr_rs9nI6w" name="Integer" tooltipText="" width="14" height="5">
-      <target xmi:type="ecore:EDataType" href="e4sm.ecore#//types/Integer"/>
-      <semanticElements xmi:type="ecore:EDataType" href="e4sm.ecore#//types/Integer"/>
+      <target xmi:type="ecore:EDataType" href="e4sm.ecore#//core/Integer"/>
+      <semanticElements xmi:type="ecore:EDataType" href="e4sm.ecore#//core/Integer"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_idoHhd_JEeuulr_rs9nI6w">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -11809,8 +11809,8 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EDataType']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_ied1Ad_JEeuulr_rs9nI6w" name="int" tooltipText="">
-        <target xmi:type="ecore:EDataType" href="e4sm.ecore#//types/Integer"/>
-        <semanticElements xmi:type="ecore:EDataType" href="e4sm.ecore#//types/Integer"/>
+        <target xmi:type="ecore:EDataType" href="e4sm.ecore#//core/Integer"/>
+        <semanticElements xmi:type="ecore:EDataType" href="e4sm.ecore#//core/Integer"/>
         <decorations xmi:type="viewpoint:Decoration" uid="_ied1At_JEeuulr_rs9nI6w">
           <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
         </decorations>
@@ -11822,8 +11822,8 @@
       </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_idoukd_JEeuulr_rs9nI6w" name="LiteralBoolean" tooltipText="" outgoingEdges="_ietFkN_JEeuulr_rs9nI6w" width="12" height="10">
-      <target xmi:type="ecore:EClass" href="e4sm.ecore#//types/LiteralBoolean"/>
-      <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//types/LiteralBoolean"/>
+      <target xmi:type="ecore:EClass" href="e4sm.ecore#//core/LiteralBoolean"/>
+      <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//core/LiteralBoolean"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_idpVod_JEeuulr_rs9nI6w">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -11832,24 +11832,24 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_ieOkct_JEeuulr_rs9nI6w" name="value : Boolean = false" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="e4sm.ecore#//types/LiteralBoolean/value"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="e4sm.ecore#//types/LiteralBoolean/value"/>
+        <target xmi:type="ecore:EAttribute" href="e4sm.ecore#//core/LiteralBoolean/value"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="e4sm.ecore#//core/LiteralBoolean/value"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_iePLgN_JEeuulr_rs9nI6w" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_iePLgd_JEeuulr_rs9nI6w" name="getValue() : Boolean" tooltipText="getValue() : Boolean">
-        <target xmi:type="ecore:EOperation" href="e4sm.ecore#//types/LiteralBoolean/getValue"/>
-        <semanticElements xmi:type="ecore:EOperation" href="e4sm.ecore#//types/LiteralBoolean/getValue"/>
+        <target xmi:type="ecore:EOperation" href="e4sm.ecore#//core/LiteralBoolean/getValue"/>
+        <semanticElements xmi:type="ecore:EOperation" href="e4sm.ecore#//core/LiteralBoolean/getValue"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_iePykN_JEeuulr_rs9nI6w" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_063pdt_KEeuulr_rs9nI6w" name=" type : EDataType" tooltipText="">
-        <target xmi:type="ecore:EReference" href="e4sm.ecore#//types/TypedElement/type"/>
-        <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//types/TypedElement/type"/>
+        <target xmi:type="ecore:EReference" href="e4sm.ecore#//core/TypedElement/type"/>
+        <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//core/TypedElement/type"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_064QgN_KEeuulr_rs9nI6w" labelColor="125,125,125" labelAlignment="LEFT">
           <labelFormat>italic</labelFormat>
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@conditionnalStyles.0/@style"/>
@@ -11858,8 +11858,8 @@
       </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_idpVo9_JEeuulr_rs9nI6w" name="LiteralByte" tooltipText="" outgoingEdges="_ietFmN_JEeuulr_rs9nI6w" width="12" height="10">
-      <target xmi:type="ecore:EClass" href="e4sm.ecore#//types/LiteralByte"/>
-      <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//types/LiteralByte"/>
+      <target xmi:type="ecore:EClass" href="e4sm.ecore#//core/LiteralByte"/>
+      <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//core/LiteralByte"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_idp8sd_JEeuulr_rs9nI6w">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -11871,16 +11871,16 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_ieQZoN_JEeuulr_rs9nI6w" name="value : Byte = 0" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="e4sm.ecore#//types/LiteralByte/value"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="e4sm.ecore#//types/LiteralByte/value"/>
+        <target xmi:type="ecore:EAttribute" href="e4sm.ecore#//core/LiteralByte/value"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="e4sm.ecore#//core/LiteralByte/value"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_ieQZod_JEeuulr_rs9nI6w" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_064Qgt_KEeuulr_rs9nI6w" name=" type : EDataType" tooltipText="">
-        <target xmi:type="ecore:EReference" href="e4sm.ecore#//types/TypedElement/type"/>
-        <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//types/TypedElement/type"/>
+        <target xmi:type="ecore:EReference" href="e4sm.ecore#//core/TypedElement/type"/>
+        <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//core/TypedElement/type"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_064Qg9_KEeuulr_rs9nI6w" labelColor="125,125,125" labelAlignment="LEFT">
           <labelFormat>italic</labelFormat>
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@conditionnalStyles.0/@style"/>
@@ -11889,8 +11889,8 @@
       </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_idp8s9_JEeuulr_rs9nI6w" name="LiteralCharacter" tooltipText="" outgoingEdges="_ietspN_JEeuulr_rs9nI6w" width="12" height="10">
-      <target xmi:type="ecore:EClass" href="e4sm.ecore#//types/LiteralCharacter"/>
-      <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//types/LiteralCharacter"/>
+      <target xmi:type="ecore:EClass" href="e4sm.ecore#//core/LiteralCharacter"/>
+      <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//core/LiteralCharacter"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_idqjwd_JEeuulr_rs9nI6w">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -11899,16 +11899,16 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_ieRAsN_JEeuulr_rs9nI6w" name="value : Character" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="e4sm.ecore#//types/LiteralCharacter/value"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="e4sm.ecore#//types/LiteralCharacter/value"/>
+        <target xmi:type="ecore:EAttribute" href="e4sm.ecore#//core/LiteralCharacter/value"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="e4sm.ecore#//core/LiteralCharacter/value"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_ieRAsd_JEeuulr_rs9nI6w" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_0643kd_KEeuulr_rs9nI6w" name=" type : EDataType" tooltipText="">
-        <target xmi:type="ecore:EReference" href="e4sm.ecore#//types/TypedElement/type"/>
-        <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//types/TypedElement/type"/>
+        <target xmi:type="ecore:EReference" href="e4sm.ecore#//core/TypedElement/type"/>
+        <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//core/TypedElement/type"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_0643kt_KEeuulr_rs9nI6w" labelColor="125,125,125" labelAlignment="LEFT">
           <labelFormat>italic</labelFormat>
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@conditionnalStyles.0/@style"/>
@@ -11917,8 +11917,8 @@
       </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_idrK0N_JEeuulr_rs9nI6w" name="LiteralDate" tooltipText="" outgoingEdges="_ietsrN_JEeuulr_rs9nI6w" width="12" height="10">
-      <target xmi:type="ecore:EClass" href="e4sm.ecore#//types/LiteralDate"/>
-      <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//types/LiteralDate"/>
+      <target xmi:type="ecore:EClass" href="e4sm.ecore#//core/LiteralDate"/>
+      <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//core/LiteralDate"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_idrK0t_JEeuulr_rs9nI6w">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -11930,16 +11930,16 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_ieRnwN_JEeuulr_rs9nI6w" name="value : Date" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="e4sm.ecore#//types/LiteralDate/value"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="e4sm.ecore#//types/LiteralDate/value"/>
+        <target xmi:type="ecore:EAttribute" href="e4sm.ecore#//core/LiteralDate/value"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="e4sm.ecore#//core/LiteralDate/value"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_ieRnwd_JEeuulr_rs9nI6w" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_0643lN_KEeuulr_rs9nI6w" name=" type : EDataType" tooltipText="">
-        <target xmi:type="ecore:EReference" href="e4sm.ecore#//types/TypedElement/type"/>
-        <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//types/TypedElement/type"/>
+        <target xmi:type="ecore:EReference" href="e4sm.ecore#//core/TypedElement/type"/>
+        <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//core/TypedElement/type"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_0643ld_KEeuulr_rs9nI6w" labelColor="125,125,125" labelAlignment="LEFT">
           <labelFormat>italic</labelFormat>
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@conditionnalStyles.0/@style"/>
@@ -11948,8 +11948,8 @@
       </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_idrx4d_JEeuulr_rs9nI6w" name="LiteralDouble" tooltipText="" outgoingEdges="_ieuTsd_JEeuulr_rs9nI6w" width="12" height="10">
-      <target xmi:type="ecore:EClass" href="e4sm.ecore#//types/LiteralDouble"/>
-      <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//types/LiteralDouble"/>
+      <target xmi:type="ecore:EClass" href="e4sm.ecore#//core/LiteralDouble"/>
+      <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//core/LiteralDouble"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_idsY8N_JEeuulr_rs9nI6w">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -11958,16 +11958,16 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_ieRnwt_JEeuulr_rs9nI6w" name="value : Double = 0.0" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="e4sm.ecore#//types/LiteralDouble/value"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="e4sm.ecore#//types/LiteralDouble/value"/>
+        <target xmi:type="ecore:EAttribute" href="e4sm.ecore#//core/LiteralDouble/value"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="e4sm.ecore#//core/LiteralDouble/value"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_ieSO0N_JEeuulr_rs9nI6w" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_065eod_KEeuulr_rs9nI6w" name=" type : EDataType" tooltipText="">
-        <target xmi:type="ecore:EReference" href="e4sm.ecore#//types/TypedElement/type"/>
-        <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//types/TypedElement/type"/>
+        <target xmi:type="ecore:EReference" href="e4sm.ecore#//core/TypedElement/type"/>
+        <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//core/TypedElement/type"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_065eot_KEeuulr_rs9nI6w" labelColor="125,125,125" labelAlignment="LEFT">
           <labelFormat>italic</labelFormat>
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@conditionnalStyles.0/@style"/>
@@ -11976,8 +11976,8 @@
       </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_idsY8t_JEeuulr_rs9nI6w" name="LiteralFloat" tooltipText="" outgoingEdges="_ieuTud_JEeuulr_rs9nI6w" width="12" height="10">
-      <target xmi:type="ecore:EClass" href="e4sm.ecore#//types/LiteralFloat"/>
-      <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//types/LiteralFloat"/>
+      <target xmi:type="ecore:EClass" href="e4sm.ecore#//core/LiteralFloat"/>
+      <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//core/LiteralFloat"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_idtAAN_JEeuulr_rs9nI6w">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -11986,16 +11986,16 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_ieSO0d_JEeuulr_rs9nI6w" name="value : Float = 0.0" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="e4sm.ecore#//types/LiteralFloat/value"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="e4sm.ecore#//types/LiteralFloat/value"/>
+        <target xmi:type="ecore:EAttribute" href="e4sm.ecore#//core/LiteralFloat/value"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="e4sm.ecore#//core/LiteralFloat/value"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_ieS14N_JEeuulr_rs9nI6w" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_065epN_KEeuulr_rs9nI6w" name=" type : EDataType" tooltipText="">
-        <target xmi:type="ecore:EReference" href="e4sm.ecore#//types/TypedElement/type"/>
-        <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//types/TypedElement/type"/>
+        <target xmi:type="ecore:EReference" href="e4sm.ecore#//core/TypedElement/type"/>
+        <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//core/TypedElement/type"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_065epd_KEeuulr_rs9nI6w" labelColor="125,125,125" labelAlignment="LEFT">
           <labelFormat>italic</labelFormat>
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@conditionnalStyles.0/@style"/>
@@ -12004,8 +12004,8 @@
       </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_idtAAt_JEeuulr_rs9nI6w" name="LiteralInteger" tooltipText="" outgoingEdges="_ieu6xN_JEeuulr_rs9nI6w" width="12" height="10">
-      <target xmi:type="ecore:EClass" href="e4sm.ecore#//types/LiteralInteger"/>
-      <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//types/LiteralInteger"/>
+      <target xmi:type="ecore:EClass" href="e4sm.ecore#//core/LiteralInteger"/>
+      <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//core/LiteralInteger"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_idtnEN_JEeuulr_rs9nI6w">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -12014,16 +12014,16 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_ieS14d_JEeuulr_rs9nI6w" name="value : Integer" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="e4sm.ecore#//types/LiteralInteger/value"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="e4sm.ecore#//types/LiteralInteger/value"/>
+        <target xmi:type="ecore:EAttribute" href="e4sm.ecore#//core/LiteralInteger/value"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="e4sm.ecore#//core/LiteralInteger/value"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_ieTc8N_JEeuulr_rs9nI6w" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_066Fsd_KEeuulr_rs9nI6w" name=" type : EDataType" tooltipText="">
-        <target xmi:type="ecore:EReference" href="e4sm.ecore#//types/TypedElement/type"/>
-        <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//types/TypedElement/type"/>
+        <target xmi:type="ecore:EReference" href="e4sm.ecore#//core/TypedElement/type"/>
+        <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//core/TypedElement/type"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_066Fst_KEeuulr_rs9nI6w" labelColor="125,125,125" labelAlignment="LEFT">
           <labelFormat>italic</labelFormat>
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@conditionnalStyles.0/@style"/>
@@ -12032,8 +12032,8 @@
       </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_idtnEt_JEeuulr_rs9nI6w" name="LiteralLong" tooltipText="" outgoingEdges="_ievh0N_JEeuulr_rs9nI6w" width="12" height="10">
-      <target xmi:type="ecore:EClass" href="e4sm.ecore#//types/LiteralLong"/>
-      <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//types/LiteralLong"/>
+      <target xmi:type="ecore:EClass" href="e4sm.ecore#//core/LiteralLong"/>
+      <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//core/LiteralLong"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_iduOIN_JEeuulr_rs9nI6w">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -12042,16 +12042,16 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_ieTc8d_JEeuulr_rs9nI6w" name="value : Long = 0" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="e4sm.ecore#//types/LiteralLong/value"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="e4sm.ecore#//types/LiteralLong/value"/>
+        <target xmi:type="ecore:EAttribute" href="e4sm.ecore#//core/LiteralLong/value"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="e4sm.ecore#//core/LiteralLong/value"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_ieTc8t_JEeuulr_rs9nI6w" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_066FtN_KEeuulr_rs9nI6w" name=" type : EDataType" tooltipText="">
-        <target xmi:type="ecore:EReference" href="e4sm.ecore#//types/TypedElement/type"/>
-        <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//types/TypedElement/type"/>
+        <target xmi:type="ecore:EReference" href="e4sm.ecore#//core/TypedElement/type"/>
+        <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//core/TypedElement/type"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_066Ftd_KEeuulr_rs9nI6w" labelColor="125,125,125" labelAlignment="LEFT">
           <labelFormat>italic</labelFormat>
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@conditionnalStyles.0/@style"/>
@@ -12060,8 +12060,8 @@
       </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_iduOIt_JEeuulr_rs9nI6w" name="LiteralNull" tooltipText="" outgoingEdges="_ievh2N_JEeuulr_rs9nI6w" width="12" height="10">
-      <target xmi:type="ecore:EClass" href="e4sm.ecore#//types/LiteralNull"/>
-      <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//types/LiteralNull"/>
+      <target xmi:type="ecore:EClass" href="e4sm.ecore#//core/LiteralNull"/>
+      <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//core/LiteralNull"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_idu1MN_JEeuulr_rs9nI6w">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -12070,8 +12070,8 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_066Ftt_KEeuulr_rs9nI6w" name=" type : EDataType" tooltipText="">
-        <target xmi:type="ecore:EReference" href="e4sm.ecore#//types/TypedElement/type"/>
-        <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//types/TypedElement/type"/>
+        <target xmi:type="ecore:EReference" href="e4sm.ecore#//core/TypedElement/type"/>
+        <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//core/TypedElement/type"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_066swN_KEeuulr_rs9nI6w" labelColor="125,125,125" labelAlignment="LEFT">
           <labelFormat>italic</labelFormat>
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@conditionnalStyles.0/@style"/>
@@ -12080,8 +12080,8 @@
       </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_idu1Mt_JEeuulr_rs9nI6w" name="LiteralShort" tooltipText="" outgoingEdges="_iewI59_JEeuulr_rs9nI6w" width="12" height="10">
-      <target xmi:type="ecore:EClass" href="e4sm.ecore#//types/LiteralShort"/>
-      <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//types/LiteralShort"/>
+      <target xmi:type="ecore:EClass" href="e4sm.ecore#//core/LiteralShort"/>
+      <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//core/LiteralShort"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_idvcQd_JEeuulr_rs9nI6w">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -12090,16 +12090,16 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_ieUEAN_JEeuulr_rs9nI6w" name="value : Short = 0" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="e4sm.ecore#//types/LiteralShort/value"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="e4sm.ecore#//types/LiteralShort/value"/>
+        <target xmi:type="ecore:EAttribute" href="e4sm.ecore#//core/LiteralShort/value"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="e4sm.ecore#//core/LiteralShort/value"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_ieUEAd_JEeuulr_rs9nI6w" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_066swt_KEeuulr_rs9nI6w" name=" type : EDataType" tooltipText="">
-        <target xmi:type="ecore:EReference" href="e4sm.ecore#//types/TypedElement/type"/>
-        <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//types/TypedElement/type"/>
+        <target xmi:type="ecore:EReference" href="e4sm.ecore#//core/TypedElement/type"/>
+        <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//core/TypedElement/type"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_066sw9_KEeuulr_rs9nI6w" labelColor="125,125,125" labelAlignment="LEFT">
           <labelFormat>italic</labelFormat>
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@conditionnalStyles.0/@style"/>
@@ -12108,8 +12108,8 @@
       </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_idvcQ9_JEeuulr_rs9nI6w" name="LiteralSpecification" tooltipText="" incomingEdges="_ietFkN_JEeuulr_rs9nI6w _ietFmN_JEeuulr_rs9nI6w _ietspN_JEeuulr_rs9nI6w _ietsrN_JEeuulr_rs9nI6w _ieuTsd_JEeuulr_rs9nI6w _ieuTud_JEeuulr_rs9nI6w _ieu6xN_JEeuulr_rs9nI6w _ievh0N_JEeuulr_rs9nI6w _ievh2N_JEeuulr_rs9nI6w _iewI59_JEeuulr_rs9nI6w _iewv99_JEeuulr_rs9nI6w" width="12" height="10">
-      <target xmi:type="ecore:EClass" href="e4sm.ecore#//types/LiteralSpecification"/>
-      <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//types/LiteralSpecification"/>
+      <target xmi:type="ecore:EClass" href="e4sm.ecore#//core/LiteralSpecification"/>
+      <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//core/LiteralSpecification"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_idwDUd_JEeuulr_rs9nI6w">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -12122,8 +12122,8 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_066sxN_KEeuulr_rs9nI6w" name=" type : EDataType" tooltipText="">
-        <target xmi:type="ecore:EReference" href="e4sm.ecore#//types/TypedElement/type"/>
-        <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//types/TypedElement/type"/>
+        <target xmi:type="ecore:EReference" href="e4sm.ecore#//core/TypedElement/type"/>
+        <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//core/TypedElement/type"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_066sxd_KEeuulr_rs9nI6w" labelColor="125,125,125" labelAlignment="LEFT">
           <labelFormat>italic</labelFormat>
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@conditionnalStyles.0/@style"/>
@@ -12132,8 +12132,8 @@
       </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_idwDU9_JEeuulr_rs9nI6w" name="LiteralString" tooltipText="" outgoingEdges="_iewv99_JEeuulr_rs9nI6w" width="12" height="10">
-      <target xmi:type="ecore:EClass" href="e4sm.ecore#//types/LiteralString"/>
-      <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//types/LiteralString"/>
+      <target xmi:type="ecore:EClass" href="e4sm.ecore#//core/LiteralString"/>
+      <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//core/LiteralString"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_idwqYd_JEeuulr_rs9nI6w">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -12142,16 +12142,16 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_ieUrEN_JEeuulr_rs9nI6w" name="value : String" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="e4sm.ecore#//types/LiteralString/value"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="e4sm.ecore#//types/LiteralString/value"/>
+        <target xmi:type="ecore:EAttribute" href="e4sm.ecore#//core/LiteralString/value"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="e4sm.ecore#//core/LiteralString/value"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_ieUrEd_JEeuulr_rs9nI6w" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_067T0d_KEeuulr_rs9nI6w" name=" type : EDataType" tooltipText="">
-        <target xmi:type="ecore:EReference" href="e4sm.ecore#//types/TypedElement/type"/>
-        <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//types/TypedElement/type"/>
+        <target xmi:type="ecore:EReference" href="e4sm.ecore#//core/TypedElement/type"/>
+        <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//core/TypedElement/type"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_067T0t_KEeuulr_rs9nI6w" labelColor="125,125,125" labelAlignment="LEFT">
           <labelFormat>italic</labelFormat>
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@conditionnalStyles.0/@style"/>
@@ -12160,8 +12160,8 @@
       </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_idwqY9_JEeuulr_rs9nI6w" name="Long" tooltipText="" width="14" height="5">
-      <target xmi:type="ecore:EDataType" href="e4sm.ecore#//types/Long"/>
-      <semanticElements xmi:type="ecore:EDataType" href="e4sm.ecore#//types/Long"/>
+      <target xmi:type="ecore:EDataType" href="e4sm.ecore#//core/Long"/>
+      <semanticElements xmi:type="ecore:EDataType" href="e4sm.ecore#//core/Long"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_idwqZd_JEeuulr_rs9nI6w">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -12170,8 +12170,8 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EDataType']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_ied1BN_JEeuulr_rs9nI6w" name="long" tooltipText="">
-        <target xmi:type="ecore:EDataType" href="e4sm.ecore#//types/Long"/>
-        <semanticElements xmi:type="ecore:EDataType" href="e4sm.ecore#//types/Long"/>
+        <target xmi:type="ecore:EDataType" href="e4sm.ecore#//core/Long"/>
+        <semanticElements xmi:type="ecore:EDataType" href="e4sm.ecore#//core/Long"/>
         <decorations xmi:type="viewpoint:Decoration" uid="_ied1Bd_JEeuulr_rs9nI6w">
           <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
         </decorations>
@@ -12183,8 +12183,8 @@
       </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_idyfkN_JEeuulr_rs9nI6w" name="Short" tooltipText="" width="14" height="5">
-      <target xmi:type="ecore:EDataType" href="e4sm.ecore#//types/Short"/>
-      <semanticElements xmi:type="ecore:EDataType" href="e4sm.ecore#//types/Short"/>
+      <target xmi:type="ecore:EDataType" href="e4sm.ecore#//core/Short"/>
+      <semanticElements xmi:type="ecore:EDataType" href="e4sm.ecore#//core/Short"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_idyfkt_JEeuulr_rs9nI6w">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -12193,8 +12193,8 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EDataType']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_ieecEN_JEeuulr_rs9nI6w" name="short" tooltipText="">
-        <target xmi:type="ecore:EDataType" href="e4sm.ecore#//types/Short"/>
-        <semanticElements xmi:type="ecore:EDataType" href="e4sm.ecore#//types/Short"/>
+        <target xmi:type="ecore:EDataType" href="e4sm.ecore#//core/Short"/>
+        <semanticElements xmi:type="ecore:EDataType" href="e4sm.ecore#//core/Short"/>
         <decorations xmi:type="viewpoint:Decoration" uid="_ieecEd_JEeuulr_rs9nI6w">
           <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
         </decorations>
@@ -12206,8 +12206,8 @@
       </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_idyflN_JEeuulr_rs9nI6w" name="String" tooltipText="" width="14" height="5">
-      <target xmi:type="ecore:EDataType" href="e4sm.ecore#//types/String"/>
-      <semanticElements xmi:type="ecore:EDataType" href="e4sm.ecore#//types/String"/>
+      <target xmi:type="ecore:EDataType" href="e4sm.ecore#//core/String"/>
+      <semanticElements xmi:type="ecore:EDataType" href="e4sm.ecore#//core/String"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_idyflt_JEeuulr_rs9nI6w">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -12216,8 +12216,8 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EDataType']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_ieecE9_JEeuulr_rs9nI6w" name="java.lang.String" tooltipText="">
-        <target xmi:type="ecore:EDataType" href="e4sm.ecore#//types/String"/>
-        <semanticElements xmi:type="ecore:EDataType" href="e4sm.ecore#//types/String"/>
+        <target xmi:type="ecore:EDataType" href="e4sm.ecore#//core/String"/>
+        <semanticElements xmi:type="ecore:EDataType" href="e4sm.ecore#//core/String"/>
         <decorations xmi:type="viewpoint:Decoration" uid="_ieecFN_JEeuulr_rs9nI6w">
           <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
         </decorations>
@@ -12229,8 +12229,8 @@
       </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_idzGod_JEeuulr_rs9nI6w" name="Time" tooltipText="" width="14" height="5">
-      <target xmi:type="ecore:EDataType" href="e4sm.ecore#//types/Time"/>
-      <semanticElements xmi:type="ecore:EDataType" href="e4sm.ecore#//types/Time"/>
+      <target xmi:type="ecore:EDataType" href="e4sm.ecore#//core/Time"/>
+      <semanticElements xmi:type="ecore:EDataType" href="e4sm.ecore#//core/Time"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_idzGo9_JEeuulr_rs9nI6w">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -12239,8 +12239,8 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EDataType']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_ieecFt_JEeuulr_rs9nI6w" name="java.time.LocalTime" tooltipText="">
-        <target xmi:type="ecore:EDataType" href="e4sm.ecore#//types/Time"/>
-        <semanticElements xmi:type="ecore:EDataType" href="e4sm.ecore#//types/Time"/>
+        <target xmi:type="ecore:EDataType" href="e4sm.ecore#//core/Time"/>
+        <semanticElements xmi:type="ecore:EDataType" href="e4sm.ecore#//core/Time"/>
         <decorations xmi:type="viewpoint:Decoration" uid="_ieecF9_JEeuulr_rs9nI6w">
           <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
         </decorations>
@@ -12252,8 +12252,8 @@
       </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_idzGpd_JEeuulr_rs9nI6w" name="Timestamp" tooltipText="" width="14" height="5">
-      <target xmi:type="ecore:EDataType" href="e4sm.ecore#//types/Timestamp"/>
-      <semanticElements xmi:type="ecore:EDataType" href="e4sm.ecore#//types/Timestamp"/>
+      <target xmi:type="ecore:EDataType" href="e4sm.ecore#//core/Timestamp"/>
+      <semanticElements xmi:type="ecore:EDataType" href="e4sm.ecore#//core/Timestamp"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_idztsd_JEeuulr_rs9nI6w">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -12262,8 +12262,8 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EDataType']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_iefDIN_JEeuulr_rs9nI6w" name="java.time.LocalDateTime" tooltipText="">
-        <target xmi:type="ecore:EDataType" href="e4sm.ecore#//types/Timestamp"/>
-        <semanticElements xmi:type="ecore:EDataType" href="e4sm.ecore#//types/Timestamp"/>
+        <target xmi:type="ecore:EDataType" href="e4sm.ecore#//core/Timestamp"/>
+        <semanticElements xmi:type="ecore:EDataType" href="e4sm.ecore#//core/Timestamp"/>
         <decorations xmi:type="viewpoint:Decoration" uid="_iefDId_JEeuulr_rs9nI6w">
           <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
         </decorations>
@@ -12275,8 +12275,8 @@
       </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_id0Uw9_JEeuulr_rs9nI6w" name="UnitOfMeasurement" tooltipText="" width="12" height="10">
-      <target xmi:type="ecore:EEnum" href="e4sm.ecore#//types/UnitOfMeasurement"/>
-      <semanticElements xmi:type="ecore:EEnum" href="e4sm.ecore#//types/UnitOfMeasurement"/>
+      <target xmi:type="ecore:EEnum" href="e4sm.ecore#//core/UnitOfMeasurement"/>
+      <semanticElements xmi:type="ecore:EEnum" href="e4sm.ecore#//core/UnitOfMeasurement"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_id0Uxd_JEeuulr_rs9nI6w">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -12285,80 +12285,80 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_ieXuYt_JEeuulr_rs9nI6w" name="cm" tooltipText="">
-        <target xmi:type="ecore:EEnumLiteral" href="e4sm.ecore#//types/UnitOfMeasurement/cm"/>
-        <semanticElements xmi:type="ecore:EEnumLiteral" href="e4sm.ecore#//types/UnitOfMeasurement/cm"/>
+        <target xmi:type="ecore:EEnumLiteral" href="e4sm.ecore#//core/UnitOfMeasurement/cm"/>
+        <semanticElements xmi:type="ecore:EEnumLiteral" href="e4sm.ecore#//core/UnitOfMeasurement/cm"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_ieYVcN_JEeuulr_rs9nI6w" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_ieYVcd_JEeuulr_rs9nI6w" name="m" tooltipText="">
-        <target xmi:type="ecore:EEnumLiteral" href="e4sm.ecore#//types/UnitOfMeasurement/m"/>
-        <semanticElements xmi:type="ecore:EEnumLiteral" href="e4sm.ecore#//types/UnitOfMeasurement/m"/>
+        <target xmi:type="ecore:EEnumLiteral" href="e4sm.ecore#//core/UnitOfMeasurement/m"/>
+        <semanticElements xmi:type="ecore:EEnumLiteral" href="e4sm.ecore#//core/UnitOfMeasurement/m"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_ieYVct_JEeuulr_rs9nI6w" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_ieYVc9_JEeuulr_rs9nI6w" name="mm" tooltipText="">
-        <target xmi:type="ecore:EEnumLiteral" href="e4sm.ecore#//types/UnitOfMeasurement/mm"/>
-        <semanticElements xmi:type="ecore:EEnumLiteral" href="e4sm.ecore#//types/UnitOfMeasurement/mm"/>
+        <target xmi:type="ecore:EEnumLiteral" href="e4sm.ecore#//core/UnitOfMeasurement/mm"/>
+        <semanticElements xmi:type="ecore:EEnumLiteral" href="e4sm.ecore#//core/UnitOfMeasurement/mm"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_ieYVdN_JEeuulr_rs9nI6w" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_ieY8gN_JEeuulr_rs9nI6w" name="percentage" tooltipText="">
-        <target xmi:type="ecore:EEnumLiteral" href="e4sm.ecore#//types/UnitOfMeasurement/percentage"/>
-        <semanticElements xmi:type="ecore:EEnumLiteral" href="e4sm.ecore#//types/UnitOfMeasurement/percentage"/>
+        <target xmi:type="ecore:EEnumLiteral" href="e4sm.ecore#//core/UnitOfMeasurement/percentage"/>
+        <semanticElements xmi:type="ecore:EEnumLiteral" href="e4sm.ecore#//core/UnitOfMeasurement/percentage"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_ieY8gd_JEeuulr_rs9nI6w" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_ieY8gt_JEeuulr_rs9nI6w" name="s" tooltipText="">
-        <target xmi:type="ecore:EEnumLiteral" href="e4sm.ecore#//types/UnitOfMeasurement/s"/>
-        <semanticElements xmi:type="ecore:EEnumLiteral" href="e4sm.ecore#//types/UnitOfMeasurement/s"/>
+        <target xmi:type="ecore:EEnumLiteral" href="e4sm.ecore#//core/UnitOfMeasurement/s"/>
+        <semanticElements xmi:type="ecore:EEnumLiteral" href="e4sm.ecore#//core/UnitOfMeasurement/s"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_ieY8g9_JEeuulr_rs9nI6w" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_ieY8hN_JEeuulr_rs9nI6w" name="ms" tooltipText="">
-        <target xmi:type="ecore:EEnumLiteral" href="e4sm.ecore#//types/UnitOfMeasurement/ms"/>
-        <semanticElements xmi:type="ecore:EEnumLiteral" href="e4sm.ecore#//types/UnitOfMeasurement/ms"/>
+        <target xmi:type="ecore:EEnumLiteral" href="e4sm.ecore#//core/UnitOfMeasurement/ms"/>
+        <semanticElements xmi:type="ecore:EEnumLiteral" href="e4sm.ecore#//core/UnitOfMeasurement/ms"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_ieY8hd_JEeuulr_rs9nI6w" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_ieY8ht_JEeuulr_rs9nI6w" name="minutes" tooltipText="">
-        <target xmi:type="ecore:EEnumLiteral" href="e4sm.ecore#//types/UnitOfMeasurement/minutes"/>
-        <semanticElements xmi:type="ecore:EEnumLiteral" href="e4sm.ecore#//types/UnitOfMeasurement/minutes"/>
+        <target xmi:type="ecore:EEnumLiteral" href="e4sm.ecore#//core/UnitOfMeasurement/minutes"/>
+        <semanticElements xmi:type="ecore:EEnumLiteral" href="e4sm.ecore#//core/UnitOfMeasurement/minutes"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_ieZjkN_JEeuulr_rs9nI6w" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_ieZjkd_JEeuulr_rs9nI6w" name="hours" tooltipText="">
-        <target xmi:type="ecore:EEnumLiteral" href="e4sm.ecore#//types/UnitOfMeasurement/hours"/>
-        <semanticElements xmi:type="ecore:EEnumLiteral" href="e4sm.ecore#//types/UnitOfMeasurement/hours"/>
+        <target xmi:type="ecore:EEnumLiteral" href="e4sm.ecore#//core/UnitOfMeasurement/hours"/>
+        <semanticElements xmi:type="ecore:EEnumLiteral" href="e4sm.ecore#//core/UnitOfMeasurement/hours"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_ieZjkt_JEeuulr_rs9nI6w" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_ieZjk9_JEeuulr_rs9nI6w" name="mbps" tooltipText="">
-        <target xmi:type="ecore:EEnumLiteral" href="e4sm.ecore#//types/UnitOfMeasurement/mbps"/>
-        <semanticElements xmi:type="ecore:EEnumLiteral" href="e4sm.ecore#//types/UnitOfMeasurement/mbps"/>
+        <target xmi:type="ecore:EEnumLiteral" href="e4sm.ecore#//core/UnitOfMeasurement/mbps"/>
+        <semanticElements xmi:type="ecore:EEnumLiteral" href="e4sm.ecore#//core/UnitOfMeasurement/mbps"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_ieZjlN_JEeuulr_rs9nI6w" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_ieaKoN_JEeuulr_rs9nI6w" name="none" tooltipText="">
-        <target xmi:type="ecore:EEnumLiteral" href="e4sm.ecore#//types/UnitOfMeasurement/none"/>
-        <semanticElements xmi:type="ecore:EEnumLiteral" href="e4sm.ecore#//types/UnitOfMeasurement/none"/>
+        <target xmi:type="ecore:EEnumLiteral" href="e4sm.ecore#//core/UnitOfMeasurement/none"/>
+        <semanticElements xmi:type="ecore:EEnumLiteral" href="e4sm.ecore#//core/UnitOfMeasurement/none"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_ieaKod_JEeuulr_rs9nI6w" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']/@style"/>
         </ownedStyle>
@@ -12366,8 +12366,8 @@
       </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_ietFkN_JEeuulr_rs9nI6w" sourceNode="_idoukd_JEeuulr_rs9nI6w" targetNode="_idvcQ9_JEeuulr_rs9nI6w">
-      <target xmi:type="ecore:EClass" href="e4sm.ecore#//types/LiteralBoolean"/>
-      <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//types/LiteralBoolean"/>
+      <target xmi:type="ecore:EClass" href="e4sm.ecore#//core/LiteralBoolean"/>
+      <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//core/LiteralBoolean"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_ietFl9_JEeuulr_rs9nI6w">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -12381,8 +12381,8 @@
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_ietFmN_JEeuulr_rs9nI6w" sourceNode="_idpVo9_JEeuulr_rs9nI6w" targetNode="_idvcQ9_JEeuulr_rs9nI6w">
-      <target xmi:type="ecore:EClass" href="e4sm.ecore#//types/LiteralByte"/>
-      <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//types/LiteralByte"/>
+      <target xmi:type="ecore:EClass" href="e4sm.ecore#//core/LiteralByte"/>
+      <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//core/LiteralByte"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_ietso9_JEeuulr_rs9nI6w">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -12396,8 +12396,8 @@
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_ietspN_JEeuulr_rs9nI6w" sourceNode="_idp8s9_JEeuulr_rs9nI6w" targetNode="_idvcQ9_JEeuulr_rs9nI6w">
-      <target xmi:type="ecore:EClass" href="e4sm.ecore#//types/LiteralCharacter"/>
-      <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//types/LiteralCharacter"/>
+      <target xmi:type="ecore:EClass" href="e4sm.ecore#//core/LiteralCharacter"/>
+      <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//core/LiteralCharacter"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_ietsq9_JEeuulr_rs9nI6w">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -12411,8 +12411,8 @@
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_ietsrN_JEeuulr_rs9nI6w" sourceNode="_idrK0N_JEeuulr_rs9nI6w" targetNode="_idvcQ9_JEeuulr_rs9nI6w">
-      <target xmi:type="ecore:EClass" href="e4sm.ecore#//types/LiteralDate"/>
-      <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//types/LiteralDate"/>
+      <target xmi:type="ecore:EClass" href="e4sm.ecore#//core/LiteralDate"/>
+      <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//core/LiteralDate"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_ieuTsN_JEeuulr_rs9nI6w">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -12426,8 +12426,8 @@
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_ieuTsd_JEeuulr_rs9nI6w" sourceNode="_idrx4d_JEeuulr_rs9nI6w" targetNode="_idvcQ9_JEeuulr_rs9nI6w">
-      <target xmi:type="ecore:EClass" href="e4sm.ecore#//types/LiteralDouble"/>
-      <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//types/LiteralDouble"/>
+      <target xmi:type="ecore:EClass" href="e4sm.ecore#//core/LiteralDouble"/>
+      <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//core/LiteralDouble"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_ieuTuN_JEeuulr_rs9nI6w">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -12441,8 +12441,8 @@
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_ieuTud_JEeuulr_rs9nI6w" sourceNode="_idsY8t_JEeuulr_rs9nI6w" targetNode="_idvcQ9_JEeuulr_rs9nI6w">
-      <target xmi:type="ecore:EClass" href="e4sm.ecore#//types/LiteralFloat"/>
-      <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//types/LiteralFloat"/>
+      <target xmi:type="ecore:EClass" href="e4sm.ecore#//core/LiteralFloat"/>
+      <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//core/LiteralFloat"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_ieu6w9_JEeuulr_rs9nI6w">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -12456,8 +12456,8 @@
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_ieu6xN_JEeuulr_rs9nI6w" sourceNode="_idtAAt_JEeuulr_rs9nI6w" targetNode="_idvcQ9_JEeuulr_rs9nI6w">
-      <target xmi:type="ecore:EClass" href="e4sm.ecore#//types/LiteralInteger"/>
-      <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//types/LiteralInteger"/>
+      <target xmi:type="ecore:EClass" href="e4sm.ecore#//core/LiteralInteger"/>
+      <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//core/LiteralInteger"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_ieu6y9_JEeuulr_rs9nI6w">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -12471,8 +12471,8 @@
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_ievh0N_JEeuulr_rs9nI6w" sourceNode="_idtnEt_JEeuulr_rs9nI6w" targetNode="_idvcQ9_JEeuulr_rs9nI6w">
-      <target xmi:type="ecore:EClass" href="e4sm.ecore#//types/LiteralLong"/>
-      <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//types/LiteralLong"/>
+      <target xmi:type="ecore:EClass" href="e4sm.ecore#//core/LiteralLong"/>
+      <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//core/LiteralLong"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_ievh19_JEeuulr_rs9nI6w">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -12486,8 +12486,8 @@
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_ievh2N_JEeuulr_rs9nI6w" sourceNode="_iduOIt_JEeuulr_rs9nI6w" targetNode="_idvcQ9_JEeuulr_rs9nI6w">
-      <target xmi:type="ecore:EClass" href="e4sm.ecore#//types/LiteralNull"/>
-      <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//types/LiteralNull"/>
+      <target xmi:type="ecore:EClass" href="e4sm.ecore#//core/LiteralNull"/>
+      <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//core/LiteralNull"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_iewI5t_JEeuulr_rs9nI6w">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -12501,8 +12501,8 @@
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_iewI59_JEeuulr_rs9nI6w" sourceNode="_idu1Mt_JEeuulr_rs9nI6w" targetNode="_idvcQ9_JEeuulr_rs9nI6w">
-      <target xmi:type="ecore:EClass" href="e4sm.ecore#//types/LiteralShort"/>
-      <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//types/LiteralShort"/>
+      <target xmi:type="ecore:EClass" href="e4sm.ecore#//core/LiteralShort"/>
+      <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//core/LiteralShort"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_iewI7t_JEeuulr_rs9nI6w">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -12516,8 +12516,8 @@
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_iewv99_JEeuulr_rs9nI6w" sourceNode="_idwDU9_JEeuulr_rs9nI6w" targetNode="_idvcQ9_JEeuulr_rs9nI6w">
-      <target xmi:type="ecore:EClass" href="e4sm.ecore#//types/LiteralString"/>
-      <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//types/LiteralString"/>
+      <target xmi:type="ecore:EClass" href="e4sm.ecore#//core/LiteralString"/>
+      <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//core/LiteralString"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_iewv_t_JEeuulr_rs9nI6w">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -12808,8 +12808,8 @@
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_068h9N_KEeuulr_rs9nI6w" name=" type : EDataType" tooltipText="">
-        <target xmi:type="ecore:EReference" href="e4sm.ecore#//types/TypedElement/type"/>
-        <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//types/TypedElement/type"/>
+        <target xmi:type="ecore:EReference" href="e4sm.ecore#//core/TypedElement/type"/>
+        <semanticElements xmi:type="ecore:EReference" href="e4sm.ecore#//core/TypedElement/type"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_068h9d_KEeuulr_rs9nI6w" labelColor="125,125,125" labelAlignment="LEFT">
           <labelFormat>italic</labelFormat>
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@conditionnalStyles.0/@style"/>

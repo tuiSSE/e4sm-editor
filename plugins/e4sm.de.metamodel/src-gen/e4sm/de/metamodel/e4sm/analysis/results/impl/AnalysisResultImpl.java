@@ -4,7 +4,7 @@ package e4sm.de.metamodel.e4sm.analysis.results.impl;
 
 import e4sm.de.metamodel.e4sm.analysis.results.AnalysisResult;
 import e4sm.de.metamodel.e4sm.analysis.results.ResultsPackage;
-import e4sm.de.metamodel.e4sm.types.impl.NamedElementImpl;
+import e4sm.de.metamodel.e4sm.core.impl.NamedElementImpl;
 import org.eclipse.emf.ecore.EClass;
 
 /**
