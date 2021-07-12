@@ -325,7 +325,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 
 		// Obtain or create and register interdependencies
 		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
-		CorePackageImpl theTypesPackage = (CorePackageImpl) (registeredPackage instanceof CorePackageImpl
+		CorePackageImpl theCorePackage = (CorePackageImpl) (registeredPackage instanceof CorePackageImpl
 				? registeredPackage
 				: CorePackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(AnalysisPackage.eNS_URI);
@@ -339,13 +339,13 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 
 		// Create package meta-data objects
 		thee4smPackage.createPackageContents();
-		theTypesPackage.createPackageContents();
+		theCorePackage.createPackageContents();
 		theAnalysisPackage.createPackageContents();
 		theResultsPackage.createPackageContents();
 
 		// Initialize created meta-data
 		thee4smPackage.initializePackageContents();
-		theTypesPackage.initializePackageContents();
+		theCorePackage.initializePackageContents();
 		theAnalysisPackage.initializePackageContents();
 		theResultsPackage.initializePackageContents();
 
@@ -1222,12 +1222,12 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		CorePackage theTypesPackage = (CorePackage) EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
+		CorePackage theCorePackage = (CorePackage) EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
 		AnalysisPackage theAnalysisPackage = (AnalysisPackage) EPackage.Registry.INSTANCE
 				.getEPackage(AnalysisPackage.eNS_URI);
 
 		// Add subpackages
-		getESubpackages().add(theTypesPackage);
+		getESubpackages().add(theCorePackage);
 		getESubpackages().add(theAnalysisPackage);
 
 		// Create type parameters
@@ -1235,11 +1235,11 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		componentEClass.getESuperTypes().add(theTypesPackage.getNamedElement());
+		componentEClass.getESuperTypes().add(theCorePackage.getNamedElement());
 		componentEClass.getESuperTypes().add(theAnalysisPackage.getParameterizableElement());
 		machineLearningComponentEClass.getESuperTypes().add(this.getSoftwareComponent());
 		connectorEClass.getESuperTypes().add(theAnalysisPackage.getParameterizableElement());
-		connectorEClass.getESuperTypes().add(theTypesPackage.getNamedElement());
+		connectorEClass.getESuperTypes().add(theCorePackage.getNamedElement());
 		physicalConnectorEClass.getESuperTypes().add(this.getConnector());
 		physicalComponentEClass.getESuperTypes().add(this.getComponent());
 		softwareComponentEClass.getESuperTypes().add(this.getComponent());
@@ -1247,18 +1247,18 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		heuristicEClass.getESuperTypes().add(this.getSoftwareComponent());
 		functionEClass.getESuperTypes().add(this.getSoftwareComponent());
 		externalDependencyEClass.getESuperTypes().add(this.getSoftwareComponent());
-		packageEClass.getESuperTypes().add(theTypesPackage.getNamedElement());
+		packageEClass.getESuperTypes().add(theCorePackage.getNamedElement());
 		packageEClass.getESuperTypes().add(theAnalysisPackage.getParameterizableElement());
-		modelEClass.getESuperTypes().add(theTypesPackage.getNamedElement());
+		modelEClass.getESuperTypes().add(theCorePackage.getNamedElement());
 		modelEClass.getESuperTypes().add(theAnalysisPackage.getParameterizableElement());
-		actorEClass.getESuperTypes().add(theTypesPackage.getNamedElement());
+		actorEClass.getESuperTypes().add(theCorePackage.getNamedElement());
 		humanEClass.getESuperTypes().add(this.getActor());
 		robotEClass.getESuperTypes().add(this.getActor());
-		sectorEClass.getESuperTypes().add(theTypesPackage.getNamedElement());
+		sectorEClass.getESuperTypes().add(theCorePackage.getNamedElement());
 		sensorEClass.getESuperTypes().add(this.getPhysicalComponent());
 		actuatorEClass.getESuperTypes().add(this.getPhysicalComponent());
 		pinEClass.getESuperTypes().add(theAnalysisPackage.getParameterizableElement());
-		pinEClass.getESuperTypes().add(theTypesPackage.getTypedElement());
+		pinEClass.getESuperTypes().add(theCorePackage.getTypedElement());
 		inputPinEClass.getESuperTypes().add(this.getPin());
 		outputPinEClass.getESuperTypes().add(this.getPin());
 		personEClass.getESuperTypes().add(this.getHuman());

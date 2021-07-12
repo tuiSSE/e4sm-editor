@@ -88,8 +88,7 @@ public class LiteralBooleanImpl extends LiteralSpecificationImpl implements Lite
 		boolean oldValue = value;
 		value = newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.LITERAL_BOOLEAN__VALUE, oldValue,
-					value));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.LITERAL_BOOLEAN__VALUE, oldValue, value));
 	}
 
 	/**

@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.util.Switch;
  * @see e4sm.de.metamodel.e4sm.core.CorePackage
  * @generated
  */
-public class TypesSwitch<T> extends Switch<T> {
+public class CoreSwitch<T> extends Switch<T> {
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
@@ -37,7 +37,7 @@ public class TypesSwitch<T> extends Switch<T> {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TypesSwitch() {
+	public CoreSwitch() {
 		if (modelPackage == null) {
 			modelPackage = CorePackage.eINSTANCE;
 		}
@@ -569,4 +569,4 @@ public class TypesSwitch<T> extends Switch<T> {
 		return null;
 	}
 
-} //TypesSwitch
+} //CoreSwitch

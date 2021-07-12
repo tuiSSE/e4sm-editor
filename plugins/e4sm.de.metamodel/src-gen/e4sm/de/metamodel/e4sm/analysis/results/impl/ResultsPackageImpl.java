@@ -151,7 +151,7 @@ public class ResultsPackageImpl extends EPackageImpl implements ResultsPackage {
 				? registeredPackage
 				: e4smPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
-		CorePackageImpl theTypesPackage = (CorePackageImpl) (registeredPackage instanceof CorePackageImpl
+		CorePackageImpl theCorePackage = (CorePackageImpl) (registeredPackage instanceof CorePackageImpl
 				? registeredPackage
 				: CorePackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(AnalysisPackage.eNS_URI);
@@ -162,13 +162,13 @@ public class ResultsPackageImpl extends EPackageImpl implements ResultsPackage {
 		// Create package meta-data objects
 		theResultsPackage.createPackageContents();
 		thee4smPackage.createPackageContents();
-		theTypesPackage.createPackageContents();
+		theCorePackage.createPackageContents();
 		theAnalysisPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theResultsPackage.initializePackageContents();
 		thee4smPackage.initializePackageContents();
-		theTypesPackage.initializePackageContents();
+		theCorePackage.initializePackageContents();
 		theAnalysisPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
@@ -430,7 +430,7 @@ public class ResultsPackageImpl extends EPackageImpl implements ResultsPackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		CorePackage theTypesPackage = (CorePackage) EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
+		CorePackage theCorePackage = (CorePackage) EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
 		AnalysisPackage theAnalysisPackage = (AnalysisPackage) EPackage.Registry.INSTANCE
 				.getEPackage(AnalysisPackage.eNS_URI);
 		e4smPackage thee4smPackage = (e4smPackage) EPackage.Registry.INSTANCE.getEPackage(e4smPackage.eNS_URI);
@@ -440,7 +440,7 @@ public class ResultsPackageImpl extends EPackageImpl implements ResultsPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		analysisResultEClass.getESuperTypes().add(theTypesPackage.getNamedElement());
+		analysisResultEClass.getESuperTypes().add(theCorePackage.getNamedElement());
 		diagramEClass.getESuperTypes().add(this.getAnalysisResult());
 		plotEClass.getESuperTypes().add(this.getDiagram());
 		twoDimensionalPlotEClass.getESuperTypes().add(this.getPlot());
@@ -483,10 +483,10 @@ public class ResultsPackageImpl extends EPackageImpl implements ResultsPackage {
 		initEReference(getAnalysisExecution_AnalysisResults(), this.getAnalysisResult(), null, "analysisResults", null,
 				0, -1, AnalysisExecution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAnalysisExecution_Started(), theTypesPackage.getTimestamp(), "started", null, 0, 1,
+		initEAttribute(getAnalysisExecution_Started(), theCorePackage.getTimestamp(), "started", null, 0, 1,
 				AnalysisExecution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAnalysisExecution_Finished(), theTypesPackage.getTimestamp(), "finished", null, 0, 1,
+		initEAttribute(getAnalysisExecution_Finished(), theCorePackage.getTimestamp(), "finished", null, 0, 1,
 				AnalysisExecution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
 		initEReference(getAnalysisExecution_Analysis(), theAnalysisPackage.getAnalysis(), null, "analysis", null, 0, 1,

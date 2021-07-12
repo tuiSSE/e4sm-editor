@@ -458,7 +458,6 @@
       <eOperations name="run" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ModelAnalysis" abstract="true" eSuperTypes="#//analysis/Analysis"/>
-    <eClassifiers xsi:type="ecore:EClass" name="AnalysisParameter" abstract="true"/>
     <eClassifiers xsi:type="ecore:EClass" name="GraphAnalysis" abstract="true" eSuperTypes="#//analysis/Analysis">
       <eOperations name="initGraph" eType="#//analysis/Graph"/>
       <eOperations name="init" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>

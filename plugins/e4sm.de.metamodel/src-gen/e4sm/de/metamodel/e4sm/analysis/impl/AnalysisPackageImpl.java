@@ -204,7 +204,7 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 				? registeredPackage
 				: e4smPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
-		CorePackageImpl theTypesPackage = (CorePackageImpl) (registeredPackage instanceof CorePackageImpl
+		CorePackageImpl theCorePackage = (CorePackageImpl) (registeredPackage instanceof CorePackageImpl
 				? registeredPackage
 				: CorePackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ResultsPackage.eNS_URI);
@@ -215,13 +215,13 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		// Create package meta-data objects
 		theAnalysisPackage.createPackageContents();
 		thee4smPackage.createPackageContents();
-		theTypesPackage.createPackageContents();
+		theCorePackage.createPackageContents();
 		theResultsPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theAnalysisPackage.initializePackageContents();
 		thee4smPackage.initializePackageContents();
-		theTypesPackage.initializePackageContents();
+		theCorePackage.initializePackageContents();
 		theResultsPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
@@ -735,7 +735,7 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		// Obtain other dependent packages
 		ResultsPackage theResultsPackage = (ResultsPackage) EPackage.Registry.INSTANCE
 				.getEPackage(ResultsPackage.eNS_URI);
-		CorePackage theTypesPackage = (CorePackage) EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
+		CorePackage theCorePackage = (CorePackage) EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
 
 		// Add subpackages
 		getESubpackages().add(theResultsPackage);
@@ -745,16 +745,16 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		analysisDefinitionEClass.getESuperTypes().add(theTypesPackage.getNamedElement());
-		parameterDefinitionEClass.getESuperTypes().add(theTypesPackage.getTypedElement());
-		parameterEClass.getESuperTypes().add(theTypesPackage.getElement());
+		analysisDefinitionEClass.getESuperTypes().add(theCorePackage.getNamedElement());
+		parameterDefinitionEClass.getESuperTypes().add(theCorePackage.getTypedElement());
+		parameterEClass.getESuperTypes().add(theCorePackage.getElement());
 		modelAnalysisEClass.getESuperTypes().add(this.getAnalysis());
 		graphAnalysisEClass.getESuperTypes().add(this.getAnalysis());
 		memoryLessGraphAnalysisEClass.getESuperTypes().add(this.getGraphAnalysis());
 		entireGraphAnalysisEClass.getESuperTypes().add(this.getGraphAnalysis());
 		packageAnalysisEClass.getESuperTypes().add(this.getAnalysis());
 		previousNodeGraphAnalysisEClass.getESuperTypes().add(this.getGraphAnalysis());
-		variantEClass.getESuperTypes().add(theTypesPackage.getNamedElement());
+		variantEClass.getESuperTypes().add(theCorePackage.getNamedElement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(analysisManagerEClass, AnalysisManager.class, "AnalysisManager", !IS_ABSTRACT, !IS_INTERFACE,
@@ -783,7 +783,7 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 				this.getParameter_ParameterDefinition(), "parameters", null, 0, -1, ParameterDefinition.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getParameterDefinition_Unit(), theTypesPackage.getUnitOfMeasurement(), "unit", "none", 0, 1,
+		initEAttribute(getParameterDefinition_Unit(), theCorePackage.getUnitOfMeasurement(), "unit", "none", 0, 1,
 				ParameterDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getParameterDefinition_MustBeDefinedOn(), ecorePackage.getEClass(), null, "mustBeDefinedOn",
@@ -795,7 +795,7 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		initEReference(getParameterDefinition_ShallNotBeDefinedOn(), ecorePackage.getEClass(), null,
 				"shallNotBeDefinedOn", null, 0, -1, ParameterDefinition.class, !IS_TRANSIENT, !IS_VOLATILE,
 				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getParameterDefinition_DefaultValue(), theTypesPackage.getValueSpecification(), null,
+		initEReference(getParameterDefinition_DefaultValue(), theCorePackage.getValueSpecification(), null,
 				"defaultValue", null, 0, 1, ParameterDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
 				IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -811,10 +811,10 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		initEReference(getParameter_DoesNotApplyOnVariants(), this.getVariant(), null, "doesNotApplyOnVariants", null,
 				0, -1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getParameter_InitialValue(), theTypesPackage.getValueSpecification(), null, "initialValue", null,
+		initEReference(getParameter_InitialValue(), theCorePackage.getValueSpecification(), null, "initialValue", null,
 				0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getParameter_CurrentValue(), theTypesPackage.getValueSpecification(), null, "currentValue", null,
+		initEReference(getParameter_CurrentValue(), theCorePackage.getValueSpecification(), null, "currentValue", null,
 				0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

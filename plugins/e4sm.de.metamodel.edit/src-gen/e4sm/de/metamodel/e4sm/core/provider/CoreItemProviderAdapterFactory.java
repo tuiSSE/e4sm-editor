@@ -2,8 +2,7 @@
  */
 package e4sm.de.metamodel.e4sm.core.provider;
 
-import e4sm.de.metamodel.e4sm.core.util.TypesAdapterFactory;
-
+import e4sm.de.metamodel.e4sm.core.util.CoreAdapterFactory;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -32,7 +31,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * <!-- end-user-doc -->
  * @generated
  */
-public class CoreItemProviderAdapterFactory extends TypesAdapterFactory
+public class CoreItemProviderAdapterFactory extends CoreAdapterFactory
 		implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
 	/**
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.
@@ -423,7 +422,7 @@ public class CoreItemProviderAdapterFactory extends TypesAdapterFactory
 	}
 
 	/**
-	 * This disposes all of the item providers created by this factory.
+	 * This disposes all of the item providers created by this factory. 
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated

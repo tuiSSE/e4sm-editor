@@ -34,15 +34,31 @@
       </editor>
    </extension>
 
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated e4sm -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="e4sm.de.metamodel.e4sm.core.presentation.CoreModelWizardID"
+            name="%_UI_CoreModelWizard_label"
+            class="e4sm.de.metamodel.e4sm.core.presentation.CoreModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/CoreModelFile.gif">
+         <description>%_UI_CoreModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
    <extension point="org.eclipse.ui.editors">
       <!-- @generated e4sm -->
       <editor
-            id="e4sm.de.metamodel.e4sm.core.presentation.TypesEditorID"
+            id="e4sm.de.metamodel.e4sm.core.presentation.CoreEditorID"
             name="%_UI_CoreEditor_label"
             icon="icons/full/obj16/CoreModelFile.gif"
             extensions="core"
-            class="e4sm.de.metamodel.e4sm.core.presentation.TypesEditor"
-            contributorClass="e4sm.de.metamodel.e4sm.core.presentation.TypesActionBarContributor">
+            class="e4sm.de.metamodel.e4sm.core.presentation.CoreEditor"
+            contributorClass="e4sm.de.metamodel.e4sm.core.presentation.CoreActionBarContributor">
       </editor>
    </extension>
 

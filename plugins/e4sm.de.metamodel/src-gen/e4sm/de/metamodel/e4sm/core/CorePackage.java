@@ -34,7 +34,7 @@ public interface CorePackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNAME = "types";
+	String eNAME = "core";
 
 	/**
 	 * The package namespace URI.
@@ -50,7 +50,7 @@ public interface CorePackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_PREFIX = "types";
+	String eNS_PREFIX = "core";
 
 	/**
 	 * The singleton instance of the package.
@@ -1825,9 +1825,6 @@ public interface CorePackage extends EPackage {
 	 * Returns the meta object for data type '{@link java.time.LocalDateTime <em>Timestamp</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Format: yyyy-MM-dd HH:mm:ss
-	 * <!-- end-model-doc -->
 	 * @return the meta object for data type '<em>Timestamp</em>'.
 	 * @see java.time.LocalDateTime
 	 * @model instanceClass="java.time.LocalDateTime"

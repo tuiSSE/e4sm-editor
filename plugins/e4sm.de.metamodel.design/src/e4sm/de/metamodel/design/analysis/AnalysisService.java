@@ -99,10 +99,12 @@ public class AnalysisService {
 	 * @param a The kind of analysis to start
 	 */
 	public void startAnalyisOnPackage(Package p, String path, String fileName) {
-		System.out.println(p.toString());
+		System.out.println("Start analysis on package " + p.getName());
 		startAnalysisExecution();
-		System.out.println("2222");
 		ae.setRunOnModel((Model)EcoreUtil.getRootContainer(p, false));
+		
+		//run analysis
+		
 		stopAnalysisExecution();
 		saveResults(path, fileName);
 	}
@@ -114,7 +116,7 @@ public class AnalysisService {
 	 * @param ad An Analysis Definition
 	 */
 	public void startAnalysisOnComponent(Component c, AnalysisDefinition ad, int analysisType) {
-
+		System.out.println("Start analysis on component " + c.getName());
 	}
 
 	/**

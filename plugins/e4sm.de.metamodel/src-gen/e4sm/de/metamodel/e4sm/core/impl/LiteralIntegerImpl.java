@@ -84,8 +84,7 @@ public class LiteralIntegerImpl extends LiteralSpecificationImpl implements Lite
 		int oldValue = value;
 		value = newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.LITERAL_INTEGER__VALUE, oldValue,
-					value));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.LITERAL_INTEGER__VALUE, oldValue, value));
 	}
 
 	/**

@@ -42,7 +42,7 @@ import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PartInitException;
 
 /**
- * This is the action bar contributor for the Types model editor.
+ * This is the action bar contributor for the Core model editor.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated

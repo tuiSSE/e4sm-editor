@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  * @see e4sm.de.metamodel.e4sm.core.CorePackage
  * @generated
  */
-public class TypesAdapterFactory extends AdapterFactoryImpl {
+public class CoreAdapterFactory extends AdapterFactoryImpl {
 	/**
 	 * The cached model package.
 	 * <!-- begin-user-doc -->
@@ -34,7 +34,7 @@ public class TypesAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TypesAdapterFactory() {
+	public CoreAdapterFactory() {
 		if (modelPackage == null) {
 			modelPackage = CorePackage.eINSTANCE;
 		}
@@ -65,7 +65,7 @@ public class TypesAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected TypesSwitch<Adapter> modelSwitch = new TypesSwitch<Adapter>() {
+	protected CoreSwitch<Adapter> modelSwitch = new CoreSwitch<Adapter>() {
 		@Override
 		public Adapter caseNamedElement(NamedElement object) {
 			return createNamedElementAdapter();
@@ -401,4 +401,4 @@ public class TypesAdapterFactory extends AdapterFactoryImpl {
 		return null;
 	}
 
-} //TypesAdapterFactory
+} //CoreAdapterFactory

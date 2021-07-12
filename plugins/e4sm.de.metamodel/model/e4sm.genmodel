@@ -224,7 +224,6 @@
         <genOperations ecoreOperation="e4sm.ecore#//analysis/Analysis/run"/>
       </genClasses>
       <genClasses image="false" ecoreClass="e4sm.ecore#//analysis/ModelAnalysis"/>
-      <genClasses image="false" ecoreClass="e4sm.ecore#//analysis/AnalysisParameter"/>
       <genClasses image="false" ecoreClass="e4sm.ecore#//analysis/GraphAnalysis">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//analysis/GraphAnalysis/graph"/>
         <genOperations ecoreOperation="e4sm.ecore#//analysis/GraphAnalysis/initGraph"/>
