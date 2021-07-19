@@ -36,6 +36,8 @@ import e4sm.de.metamodel.e4sm.analysis.results.ResultsPackage;
 import e4sm.de.metamodel.e4sm.analysis.results.impl.ResultsPackageImpl;
 import e4sm.de.metamodel.e4sm.e4smFactory;
 import e4sm.de.metamodel.e4sm.e4smPackage;
+import e4sm.de.metamodel.e4sm.guava.GuavaPackage;
+import e4sm.de.metamodel.e4sm.guava.impl.GuavaPackageImpl;
 import e4sm.de.metamodel.e4sm.core.CorePackage;
 import e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl;
 import e4sm.de.metamodel.e4sm.util.e4smValidator;
@@ -336,18 +338,24 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		ResultsPackageImpl theResultsPackage = (ResultsPackageImpl) (registeredPackage instanceof ResultsPackageImpl
 				? registeredPackage
 				: ResultsPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(GuavaPackage.eNS_URI);
+		GuavaPackageImpl theGuavaPackage = (GuavaPackageImpl) (registeredPackage instanceof GuavaPackageImpl
+				? registeredPackage
+				: GuavaPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		thee4smPackage.createPackageContents();
 		theCorePackage.createPackageContents();
 		theAnalysisPackage.createPackageContents();
 		theResultsPackage.createPackageContents();
+		theGuavaPackage.createPackageContents();
 
 		// Initialize created meta-data
 		thee4smPackage.initializePackageContents();
 		theCorePackage.initializePackageContents();
 		theAnalysisPackage.initializePackageContents();
 		theResultsPackage.initializePackageContents();
+		theGuavaPackage.initializePackageContents();
 
 		// Register package validator
 		EValidator.Registry.INSTANCE.put(thee4smPackage, new EValidator.Descriptor() {
@@ -1225,10 +1233,12 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		CorePackage theCorePackage = (CorePackage) EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
 		AnalysisPackage theAnalysisPackage = (AnalysisPackage) EPackage.Registry.INSTANCE
 				.getEPackage(AnalysisPackage.eNS_URI);
+		GuavaPackage theGuavaPackage = (GuavaPackage) EPackage.Registry.INSTANCE.getEPackage(GuavaPackage.eNS_URI);
 
 		// Add subpackages
 		getESubpackages().add(theCorePackage);
 		getESubpackages().add(theAnalysisPackage);
+		getESubpackages().add(theGuavaPackage);
 
 		// Create type parameters
 

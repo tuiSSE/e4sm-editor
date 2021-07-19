@@ -4,7 +4,6 @@ package e4sm.de.metamodel.e4sm.analysis.impl;
 
 import e4sm.de.metamodel.e4sm.analysis.*;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -72,32 +71,10 @@ public class AnalysisFactoryImpl extends EFactoryImpl implements AnalysisFactory
 			return createPreviousNodeGraphAnalysis();
 		case AnalysisPackage.VARIANT:
 			return createVariant();
+		case AnalysisPackage.NETWORK_GENERATOR:
+			return createNetworkGenerator();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object createFromString(EDataType eDataType, String initialValue) {
-		switch (eDataType.getClassifierID()) {
-		default:
-			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String convertToString(EDataType eDataType, Object instanceValue) {
-		switch (eDataType.getClassifierID()) {
-		default:
-			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -149,8 +126,8 @@ public class AnalysisFactoryImpl extends EFactoryImpl implements AnalysisFactory
 	 * @generated
 	 */
 	@Override
-	public MemoryLessGraphAnalysis createMemoryLessGraphAnalysis() {
-		MemoryLessGraphAnalysisImpl memoryLessGraphAnalysis = new MemoryLessGraphAnalysisImpl();
+	public <C> MemoryLessGraphAnalysis<C> createMemoryLessGraphAnalysis() {
+		MemoryLessGraphAnalysisImpl<C> memoryLessGraphAnalysis = new MemoryLessGraphAnalysisImpl<C>();
 		return memoryLessGraphAnalysis;
 	}
 
@@ -159,8 +136,8 @@ public class AnalysisFactoryImpl extends EFactoryImpl implements AnalysisFactory
 	 * @generated
 	 */
 	@Override
-	public EntireGraphAnalysis createEntireGraphAnalysis() {
-		EntireGraphAnalysisImpl entireGraphAnalysis = new EntireGraphAnalysisImpl();
+	public <C> EntireGraphAnalysis<C> createEntireGraphAnalysis() {
+		EntireGraphAnalysisImpl<C> entireGraphAnalysis = new EntireGraphAnalysisImpl<C>();
 		return entireGraphAnalysis;
 	}
 
@@ -179,8 +156,8 @@ public class AnalysisFactoryImpl extends EFactoryImpl implements AnalysisFactory
 	 * @generated
 	 */
 	@Override
-	public PreviousNodeGraphAnalysis createPreviousNodeGraphAnalysis() {
-		PreviousNodeGraphAnalysisImpl previousNodeGraphAnalysis = new PreviousNodeGraphAnalysisImpl();
+	public <C> PreviousNodeGraphAnalysis<C> createPreviousNodeGraphAnalysis() {
+		PreviousNodeGraphAnalysisImpl<C> previousNodeGraphAnalysis = new PreviousNodeGraphAnalysisImpl<C>();
 		return previousNodeGraphAnalysis;
 	}
 
@@ -193,6 +170,17 @@ public class AnalysisFactoryImpl extends EFactoryImpl implements AnalysisFactory
 	public Variant createVariant() {
 		VariantImpl variant = new VariantImpl();
 		return variant;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NetworkGenerator createNetworkGenerator() {
+		NetworkGeneratorImpl networkGenerator = new NetworkGeneratorImpl();
+		return networkGenerator;
 	}
 
 	/**

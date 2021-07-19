@@ -2,7 +2,6 @@
  */
 package e4sm.de.metamodel.e4sm.analysis.provider;
 
-import e4sm.de.metamodel.e4sm.analysis.MemoryLessGraphAnalysis;
 import java.util.Collection;
 import java.util.List;
 
@@ -72,8 +71,7 @@ public class MemoryLessGraphAnalysisItemProvider extends GraphAnalysisItemProvid
 	 */
 	@Override
 	public String getText(Object object) {
-		MemoryLessGraphAnalysis memoryLessGraphAnalysis = (MemoryLessGraphAnalysis) object;
-		return getString("_UI_MemoryLessGraphAnalysis_type") + " " + memoryLessGraphAnalysis.getGraph();
+		return getString("_UI_MemoryLessGraphAnalysis_type");
 	}
 
 	/**

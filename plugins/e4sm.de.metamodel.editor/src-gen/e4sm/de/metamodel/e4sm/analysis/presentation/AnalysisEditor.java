@@ -161,6 +161,7 @@ import e4sm.de.metamodel.e4sm.presentation.e4smEditorPlugin;
 
 import e4sm.de.metamodel.e4sm.provider.e4smItemProviderAdapterFactory;
 import e4sm.de.metamodel.e4sm.core.provider.CoreItemProviderAdapterFactory;
+import e4sm.de.metamodel.e4sm.guava.provider.GuavaItemProviderAdapterFactory;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
 /**
@@ -695,6 +696,7 @@ public class AnalysisEditor extends MultiPageEditorPart
 		adapterFactory.addAdapterFactory(new CoreItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new AnalysisItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ResultsItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new GuavaItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.

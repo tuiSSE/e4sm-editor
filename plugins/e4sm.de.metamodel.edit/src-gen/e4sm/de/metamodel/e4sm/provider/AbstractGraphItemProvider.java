@@ -1,6 +1,6 @@
 /**
  */
-package e4sm.de.metamodel.e4sm.analysis.provider;
+package e4sm.de.metamodel.e4sm.provider;
 
 import java.util.Collection;
 import java.util.List;
@@ -8,22 +8,31 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.ResourceLocator;
+
+import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
+import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
+import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 
 /**
- * This is the item provider adapter for a {@link e4sm.de.metamodel.e4sm.analysis.EntireGraphAnalysis} object.
+ * This is the item provider adapter for a {@link com.google.common.graph.AbstractGraph} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class EntireGraphAnalysisItemProvider extends GraphAnalysisItemProvider {
+public class AbstractGraphItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EntireGraphAnalysisItemProvider(AdapterFactory adapterFactory) {
+	public AbstractGraphItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -43,14 +52,14 @@ public class EntireGraphAnalysisItemProvider extends GraphAnalysisItemProvider {
 	}
 
 	/**
-	 * This returns EntireGraphAnalysis.gif.
+	 * This returns AbstractGraph.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/EntireGraphAnalysis"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/AbstractGraph"));
 	}
 
 	/**
@@ -71,7 +80,7 @@ public class EntireGraphAnalysisItemProvider extends GraphAnalysisItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_EntireGraphAnalysis_type");
+		return getString("_UI_AbstractGraph_type");
 	}
 
 	/**
@@ -97,6 +106,17 @@ public class EntireGraphAnalysisItemProvider extends GraphAnalysisItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
+
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return e4smEditPlugin.INSTANCE;
 	}
 
 }

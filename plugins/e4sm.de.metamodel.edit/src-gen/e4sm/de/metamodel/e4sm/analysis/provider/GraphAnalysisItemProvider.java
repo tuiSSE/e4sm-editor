@@ -3,7 +3,6 @@
 package e4sm.de.metamodel.e4sm.analysis.provider;
 
 import e4sm.de.metamodel.e4sm.analysis.AnalysisPackage;
-import e4sm.de.metamodel.e4sm.analysis.GraphAnalysis;
 import java.util.Collection;
 import java.util.List;
 
@@ -12,8 +11,6 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link e4sm.de.metamodel.e4sm.analysis.GraphAnalysis} object.
@@ -60,8 +57,7 @@ public class GraphAnalysisItemProvider extends AnalysisItemProvider {
 						getResourceLocator(), getString("_UI_GraphAnalysis_graph_feature"),
 						getString("_UI_PropertyDescriptor_description", "_UI_GraphAnalysis_graph_feature",
 								"_UI_GraphAnalysis_type"),
-						AnalysisPackage.Literals.GRAPH_ANALYSIS__GRAPH, true, false, false,
-						ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
+						AnalysisPackage.Literals.GRAPH_ANALYSIS__GRAPH, true, false, true, null, null, null));
 	}
 
 	/**
@@ -82,8 +78,7 @@ public class GraphAnalysisItemProvider extends AnalysisItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		GraphAnalysis graphAnalysis = (GraphAnalysis) object;
-		return getString("_UI_GraphAnalysis_type") + " " + graphAnalysis.getGraph();
+		return getString("_UI_GraphAnalysis_type");
 	}
 
 	/**
@@ -96,12 +91,6 @@ public class GraphAnalysisItemProvider extends AnalysisItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(GraphAnalysis.class)) {
-		case AnalysisPackage.GRAPH_ANALYSIS__GRAPH:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-			return;
-		}
 		super.notifyChanged(notification);
 	}
 

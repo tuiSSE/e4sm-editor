@@ -19,6 +19,8 @@ import e4sm.de.metamodel.e4sm.analysis.results.TwoDimensionalPlot;
 
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
+import e4sm.de.metamodel.e4sm.guava.GuavaPackage;
+import e4sm.de.metamodel.e4sm.guava.impl.GuavaPackageImpl;
 import e4sm.de.metamodel.e4sm.impl.e4smPackageImpl;
 
 import e4sm.de.metamodel.e4sm.core.CorePackage;
@@ -158,18 +160,24 @@ public class ResultsPackageImpl extends EPackageImpl implements ResultsPackage {
 		AnalysisPackageImpl theAnalysisPackage = (AnalysisPackageImpl) (registeredPackage instanceof AnalysisPackageImpl
 				? registeredPackage
 				: AnalysisPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(GuavaPackage.eNS_URI);
+		GuavaPackageImpl theGuavaPackage = (GuavaPackageImpl) (registeredPackage instanceof GuavaPackageImpl
+				? registeredPackage
+				: GuavaPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theResultsPackage.createPackageContents();
 		thee4smPackage.createPackageContents();
 		theCorePackage.createPackageContents();
 		theAnalysisPackage.createPackageContents();
+		theGuavaPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theResultsPackage.initializePackageContents();
 		thee4smPackage.initializePackageContents();
 		theCorePackage.initializePackageContents();
 		theAnalysisPackage.initializePackageContents();
+		theGuavaPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theResultsPackage.freeze();

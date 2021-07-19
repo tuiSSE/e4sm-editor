@@ -8,6 +8,8 @@ import e4sm.de.metamodel.e4sm.analysis.results.ResultsPackage;
 import e4sm.de.metamodel.e4sm.analysis.results.impl.ResultsPackageImpl;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
+import e4sm.de.metamodel.e4sm.guava.GuavaPackage;
+import e4sm.de.metamodel.e4sm.guava.impl.GuavaPackageImpl;
 import e4sm.de.metamodel.e4sm.impl.e4smPackageImpl;
 import e4sm.de.metamodel.e4sm.core.Element;
 import e4sm.de.metamodel.e4sm.core.LiteralBoolean;
@@ -315,18 +317,24 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		ResultsPackageImpl theResultsPackage = (ResultsPackageImpl) (registeredPackage instanceof ResultsPackageImpl
 				? registeredPackage
 				: ResultsPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(GuavaPackage.eNS_URI);
+		GuavaPackageImpl theGuavaPackage = (GuavaPackageImpl) (registeredPackage instanceof GuavaPackageImpl
+				? registeredPackage
+				: GuavaPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theCorePackage.createPackageContents();
 		thee4smPackage.createPackageContents();
 		theAnalysisPackage.createPackageContents();
 		theResultsPackage.createPackageContents();
+		theGuavaPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theCorePackage.initializePackageContents();
 		thee4smPackage.initializePackageContents();
 		theAnalysisPackage.initializePackageContents();
 		theResultsPackage.initializePackageContents();
+		theGuavaPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theCorePackage.freeze();

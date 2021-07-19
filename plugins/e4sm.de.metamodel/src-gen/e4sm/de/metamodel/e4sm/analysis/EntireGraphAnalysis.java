@@ -12,5 +12,5 @@ package e4sm.de.metamodel.e4sm.analysis;
  * @model
  * @generated
  */
-public interface EntireGraphAnalysis extends GraphAnalysis {
+public interface EntireGraphAnalysis<C> extends GraphAnalysis<C> {
 } // EntireGraphAnalysis

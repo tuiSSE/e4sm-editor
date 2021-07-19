@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class PreviousNodeGraphAnalysisImpl extends GraphAnalysisImpl implements PreviousNodeGraphAnalysis {
+public class PreviousNodeGraphAnalysisImpl<C> extends GraphAnalysisImpl<C> implements PreviousNodeGraphAnalysis<C> {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

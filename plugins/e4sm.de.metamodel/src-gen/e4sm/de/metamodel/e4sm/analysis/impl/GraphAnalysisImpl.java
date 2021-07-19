@@ -2,15 +2,20 @@
  */
 package e4sm.de.metamodel.e4sm.analysis.impl;
 
+import com.google.common.graph.Graph;
 import e4sm.de.metamodel.e4sm.analysis.AnalysisPackage;
 import e4sm.de.metamodel.e4sm.analysis.GraphAnalysis;
 
 import java.lang.reflect.InvocationTargetException;
 
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -26,25 +31,16 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public abstract class GraphAnalysisImpl extends AnalysisImpl implements GraphAnalysis {
+public abstract class GraphAnalysisImpl<C> extends AnalysisImpl implements GraphAnalysis<C> {
 	/**
-	 * The default value of the '{@link #getGraph() <em>Graph</em>}' attribute.
+	 * The cached value of the '{@link #getGraph() <em>Graph</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getGraph()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int GRAPH_EDEFAULT = 0;
-	/**
-	 * The cached value of the '{@link #getGraph() <em>Graph</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getGraph()
-	 * @generated
-	 * @ordered
-	 */
-	protected int graph = GRAPH_EDEFAULT;
+	protected Graph<C> graph;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -70,8 +66,27 @@ public abstract class GraphAnalysisImpl extends AnalysisImpl implements GraphAna
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
-	public int getGraph() {
+	public Graph<C> getGraph() {
+		if (graph != null && ((EObject) graph).eIsProxy()) {
+			InternalEObject oldGraph = (InternalEObject) graph;
+			graph = (Graph<C>) eResolveProxy(oldGraph);
+			if (graph != oldGraph) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AnalysisPackage.GRAPH_ANALYSIS__GRAPH,
+							oldGraph, graph));
+			}
+		}
+		return graph;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Graph<C> basicGetGraph() {
 		return graph;
 	}
 
@@ -81,8 +96,8 @@ public abstract class GraphAnalysisImpl extends AnalysisImpl implements GraphAna
 	 * @generated
 	 */
 	@Override
-	public void setGraph(int newGraph) {
-		int oldGraph = graph;
+	public void setGraph(Graph<C> newGraph) {
+		Graph<C> oldGraph = graph;
 		graph = newGraph;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, AnalysisPackage.GRAPH_ANALYSIS__GRAPH, oldGraph,
@@ -95,7 +110,7 @@ public abstract class GraphAnalysisImpl extends AnalysisImpl implements GraphAna
 	 * @generated
 	 */
 	@Override
-	public int initGraph() {
+	public void initGraph() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -121,7 +136,9 @@ public abstract class GraphAnalysisImpl extends AnalysisImpl implements GraphAna
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case AnalysisPackage.GRAPH_ANALYSIS__GRAPH:
-			return getGraph();
+			if (resolve)
+				return getGraph();
+			return basicGetGraph();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -131,11 +148,12 @@ public abstract class GraphAnalysisImpl extends AnalysisImpl implements GraphAna
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 		case AnalysisPackage.GRAPH_ANALYSIS__GRAPH:
-			setGraph((Integer) newValue);
+			setGraph((Graph<C>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -150,7 +168,7 @@ public abstract class GraphAnalysisImpl extends AnalysisImpl implements GraphAna
 	public void eUnset(int featureID) {
 		switch (featureID) {
 		case AnalysisPackage.GRAPH_ANALYSIS__GRAPH:
-			setGraph(GRAPH_EDEFAULT);
+			setGraph((Graph<C>) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -165,7 +183,7 @@ public abstract class GraphAnalysisImpl extends AnalysisImpl implements GraphAna
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 		case AnalysisPackage.GRAPH_ANALYSIS__GRAPH:
-			return graph != GRAPH_EDEFAULT;
+			return graph != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -179,28 +197,12 @@ public abstract class GraphAnalysisImpl extends AnalysisImpl implements GraphAna
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 		case AnalysisPackage.GRAPH_ANALYSIS___INIT_GRAPH:
-			return initGraph();
+			initGraph();
+			return null;
 		case AnalysisPackage.GRAPH_ANALYSIS___INIT:
 			return init();
 		}
 		return super.eInvoke(operationID, arguments);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy())
-			return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (graph: ");
-		result.append(graph);
-		result.append(')');
-		return result.toString();
 	}
 
 } //GraphAnalysisImpl

@@ -2,6 +2,8 @@
  */
 package e4sm.de.metamodel.e4sm.analysis;
 
+import com.google.common.graph.Graph;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Graph Analysis</b></em>'.
@@ -18,36 +20,36 @@ package e4sm.de.metamodel.e4sm.analysis;
  * @model abstract="true"
  * @generated
  */
-public interface GraphAnalysis extends Analysis {
+public interface GraphAnalysis<C> extends Analysis {
 	/**
-	 * Returns the value of the '<em><b>Graph</b></em>' attribute.
+	 * Returns the value of the '<em><b>Graph</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Graph</em>' attribute.
-	 * @see #setGraph(int)
+	 * @return the value of the '<em>Graph</em>' reference.
+	 * @see #setGraph(Graph)
 	 * @see e4sm.de.metamodel.e4sm.analysis.AnalysisPackage#getGraphAnalysis_Graph()
-	 * @model dataType="e4sm.de.metamodel.e4sm.analysis.Graph" transient="true"
+	 * @model type="e4sm.de.metamodel.e4sm.guava.Graph&lt;C&gt;"
 	 * @generated
 	 */
-	int getGraph();
+	Graph<C> getGraph();
 
 	/**
-	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.analysis.GraphAnalysis#getGraph <em>Graph</em>}' attribute.
+	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.analysis.GraphAnalysis#getGraph <em>Graph</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Graph</em>' attribute.
+	 * @param value the new value of the '<em>Graph</em>' reference.
 	 * @see #getGraph()
 	 * @generated
 	 */
-	void setGraph(int value);
+	void setGraph(Graph<C> value);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="e4sm.de.metamodel.e4sm.analysis.Graph"
+	 * @model
 	 * @generated
 	 */
-	int initGraph();
+	void initGraph();
 
 	/**
 	 * <!-- begin-user-doc -->

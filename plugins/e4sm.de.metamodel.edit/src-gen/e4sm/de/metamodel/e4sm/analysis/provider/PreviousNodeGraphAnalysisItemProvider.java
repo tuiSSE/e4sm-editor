@@ -2,7 +2,6 @@
  */
 package e4sm.de.metamodel.e4sm.analysis.provider;
 
-import e4sm.de.metamodel.e4sm.analysis.PreviousNodeGraphAnalysis;
 import java.util.Collection;
 import java.util.List;
 
@@ -72,8 +71,7 @@ public class PreviousNodeGraphAnalysisItemProvider extends GraphAnalysisItemProv
 	 */
 	@Override
 	public String getText(Object object) {
-		PreviousNodeGraphAnalysis previousNodeGraphAnalysis = (PreviousNodeGraphAnalysis) object;
-		return getString("_UI_PreviousNodeGraphAnalysis_type") + " " + previousNodeGraphAnalysis.getGraph();
+		return getString("_UI_PreviousNodeGraphAnalysis_type");
 	}
 
 	/**

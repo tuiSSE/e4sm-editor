@@ -12,7 +12,7 @@ import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.Model;
 import e4sm.de.metamodel.e4sm.Package;
 
-public class DependencyGraph {
+public class GraphUtils {
 
 	private MutableGraph<Component> graph;
 

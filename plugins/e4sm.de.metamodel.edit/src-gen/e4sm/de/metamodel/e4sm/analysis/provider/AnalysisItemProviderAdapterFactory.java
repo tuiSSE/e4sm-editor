@@ -280,6 +280,29 @@ public class AnalysisItemProviderAdapterFactory extends AnalysisAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.analysis.NetworkGenerator} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NetworkGeneratorItemProvider networkGeneratorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.analysis.NetworkGenerator}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNetworkGeneratorAdapter() {
+		if (networkGeneratorItemProvider == null) {
+			networkGeneratorItemProvider = new NetworkGeneratorItemProvider(this);
+		}
+
+		return networkGeneratorItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -402,6 +425,8 @@ public class AnalysisItemProviderAdapterFactory extends AnalysisAdapterFactory
 			previousNodeGraphAnalysisItemProvider.dispose();
 		if (variantItemProvider != null)
 			variantItemProvider.dispose();
+		if (networkGeneratorItemProvider != null)
+			networkGeneratorItemProvider.dispose();
 	}
 
 }

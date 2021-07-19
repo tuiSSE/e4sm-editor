@@ -64,7 +64,7 @@ public interface AnalysisFactory extends EFactory {
 	 * @return a new object of class '<em>Memory Less Graph Analysis</em>'.
 	 * @generated
 	 */
-	MemoryLessGraphAnalysis createMemoryLessGraphAnalysis();
+	<C> MemoryLessGraphAnalysis<C> createMemoryLessGraphAnalysis();
 
 	/**
 	 * Returns a new object of class '<em>Entire Graph Analysis</em>'.
@@ -73,7 +73,7 @@ public interface AnalysisFactory extends EFactory {
 	 * @return a new object of class '<em>Entire Graph Analysis</em>'.
 	 * @generated
 	 */
-	EntireGraphAnalysis createEntireGraphAnalysis();
+	<C> EntireGraphAnalysis<C> createEntireGraphAnalysis();
 
 	/**
 	 * Returns a new object of class '<em>Package Analysis</em>'.
@@ -91,7 +91,7 @@ public interface AnalysisFactory extends EFactory {
 	 * @return a new object of class '<em>Previous Node Graph Analysis</em>'.
 	 * @generated
 	 */
-	PreviousNodeGraphAnalysis createPreviousNodeGraphAnalysis();
+	<C> PreviousNodeGraphAnalysis<C> createPreviousNodeGraphAnalysis();
 
 	/**
 	 * Returns a new object of class '<em>Variant</em>'.
@@ -101,6 +101,15 @@ public interface AnalysisFactory extends EFactory {
 	 * @generated
 	 */
 	Variant createVariant();
+
+	/**
+	 * Returns a new object of class '<em>Network Generator</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Network Generator</em>'.
+	 * @generated
+	 */
+	NetworkGenerator createNetworkGenerator();
 
 	/**
 	 * Returns the package supported by this factory.

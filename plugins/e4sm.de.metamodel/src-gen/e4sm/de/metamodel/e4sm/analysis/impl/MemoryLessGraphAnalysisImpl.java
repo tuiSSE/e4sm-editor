@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class MemoryLessGraphAnalysisImpl extends GraphAnalysisImpl implements MemoryLessGraphAnalysis {
+public class MemoryLessGraphAnalysisImpl<C> extends GraphAnalysisImpl<C> implements MemoryLessGraphAnalysis<C> {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -11,19 +11,19 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 /**
- * This is the item provider adapter for a {@link e4sm.de.metamodel.e4sm.analysis.EntireGraphAnalysis} object.
+ * This is the item provider adapter for a {@link com.google.common.graph.ImmutableGraph} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class EntireGraphAnalysisItemProvider extends GraphAnalysisItemProvider {
+public class ImmutableGraphItemProvider extends AbstractGraphItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EntireGraphAnalysisItemProvider(AdapterFactory adapterFactory) {
+	public ImmutableGraphItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -43,14 +43,14 @@ public class EntireGraphAnalysisItemProvider extends GraphAnalysisItemProvider {
 	}
 
 	/**
-	 * This returns EntireGraphAnalysis.gif.
+	 * This returns ImmutableGraph.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/EntireGraphAnalysis"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ImmutableGraph"));
 	}
 
 	/**
@@ -71,7 +71,7 @@ public class EntireGraphAnalysisItemProvider extends GraphAnalysisItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_EntireGraphAnalysis_type");
+		return getString("_UI_ImmutableGraph_type");
 	}
 
 	/**

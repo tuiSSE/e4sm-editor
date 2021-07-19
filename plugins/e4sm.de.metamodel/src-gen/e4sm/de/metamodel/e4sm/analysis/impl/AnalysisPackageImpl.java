@@ -7,11 +7,11 @@ import e4sm.de.metamodel.e4sm.analysis.AnalysisDefinition;
 import e4sm.de.metamodel.e4sm.analysis.AnalysisFactory;
 import e4sm.de.metamodel.e4sm.analysis.AnalysisManager;
 import e4sm.de.metamodel.e4sm.analysis.AnalysisPackage;
-import e4sm.de.metamodel.e4sm.analysis.AnalysisParameter;
 import e4sm.de.metamodel.e4sm.analysis.EntireGraphAnalysis;
 import e4sm.de.metamodel.e4sm.analysis.GraphAnalysis;
 import e4sm.de.metamodel.e4sm.analysis.MemoryLessGraphAnalysis;
 import e4sm.de.metamodel.e4sm.analysis.ModelAnalysis;
+import e4sm.de.metamodel.e4sm.analysis.NetworkGenerator;
 import e4sm.de.metamodel.e4sm.analysis.PackageAnalysis;
 import e4sm.de.metamodel.e4sm.analysis.Parameter;
 import e4sm.de.metamodel.e4sm.analysis.ParameterDefinition;
@@ -23,17 +23,20 @@ import e4sm.de.metamodel.e4sm.analysis.results.ResultsPackage;
 import e4sm.de.metamodel.e4sm.analysis.results.impl.ResultsPackageImpl;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
+import e4sm.de.metamodel.e4sm.guava.GuavaPackage;
+import e4sm.de.metamodel.e4sm.guava.impl.GuavaPackageImpl;
 import e4sm.de.metamodel.e4sm.impl.e4smPackageImpl;
 import e4sm.de.metamodel.e4sm.core.CorePackage;
 
 import e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
+import org.eclipse.emf.ecore.ETypeParameter;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -97,13 +100,6 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass analysisParameterEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass graphAnalysisEClass = null;
 
 	/**
@@ -146,7 +142,7 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType graphEDataType = null;
+	private EClass networkGeneratorEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -211,18 +207,24 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		ResultsPackageImpl theResultsPackage = (ResultsPackageImpl) (registeredPackage instanceof ResultsPackageImpl
 				? registeredPackage
 				: ResultsPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(GuavaPackage.eNS_URI);
+		GuavaPackageImpl theGuavaPackage = (GuavaPackageImpl) (registeredPackage instanceof GuavaPackageImpl
+				? registeredPackage
+				: GuavaPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theAnalysisPackage.createPackageContents();
 		thee4smPackage.createPackageContents();
 		theCorePackage.createPackageContents();
 		theResultsPackage.createPackageContents();
+		theGuavaPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theAnalysisPackage.initializePackageContents();
 		thee4smPackage.initializePackageContents();
 		theCorePackage.initializePackageContents();
 		theResultsPackage.initializePackageContents();
+		theGuavaPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theAnalysisPackage.freeze();
@@ -518,16 +520,6 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getAnalysisParameter() {
-		return analysisParameterEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getGraphAnalysis() {
 		return graphAnalysisEClass;
 	}
@@ -538,8 +530,8 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getGraphAnalysis_Graph() {
-		return (EAttribute) graphAnalysisEClass.getEStructuralFeatures().get(0);
+	public EReference getGraphAnalysis_Graph() {
+		return (EReference) graphAnalysisEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -618,8 +610,28 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 * @generated
 	 */
 	@Override
-	public EDataType getGraph() {
-		return graphEDataType;
+	public EClass getNetworkGenerator() {
+		return networkGeneratorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getNetworkGenerator__GenerateNetwork__Model() {
+		return networkGeneratorEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getNetworkGenerator__GenerateNetwork__Package() {
+		return networkGeneratorEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -687,10 +699,8 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 
 		modelAnalysisEClass = createEClass(MODEL_ANALYSIS);
 
-		analysisParameterEClass = createEClass(ANALYSIS_PARAMETER);
-
 		graphAnalysisEClass = createEClass(GRAPH_ANALYSIS);
-		createEAttribute(graphAnalysisEClass, GRAPH_ANALYSIS__GRAPH);
+		createEReference(graphAnalysisEClass, GRAPH_ANALYSIS__GRAPH);
 		createEOperation(graphAnalysisEClass, GRAPH_ANALYSIS___INIT_GRAPH);
 		createEOperation(graphAnalysisEClass, GRAPH_ANALYSIS___INIT);
 
@@ -704,8 +714,9 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 
 		variantEClass = createEClass(VARIANT);
 
-		// Create data types
-		graphEDataType = createEDataType(GRAPH);
+		networkGeneratorEClass = createEClass(NETWORK_GENERATOR);
+		createEOperation(networkGeneratorEClass, NETWORK_GENERATOR___GENERATE_NETWORK__MODEL);
+		createEOperation(networkGeneratorEClass, NETWORK_GENERATOR___GENERATE_NETWORK__PACKAGE);
 	}
 
 	/**
@@ -736,11 +747,17 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		ResultsPackage theResultsPackage = (ResultsPackage) EPackage.Registry.INSTANCE
 				.getEPackage(ResultsPackage.eNS_URI);
 		CorePackage theCorePackage = (CorePackage) EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
+		GuavaPackage theGuavaPackage = (GuavaPackage) EPackage.Registry.INSTANCE.getEPackage(GuavaPackage.eNS_URI);
+		e4smPackage thee4smPackage = (e4smPackage) EPackage.Registry.INSTANCE.getEPackage(e4smPackage.eNS_URI);
 
 		// Add subpackages
 		getESubpackages().add(theResultsPackage);
 
 		// Create type parameters
+		ETypeParameter graphAnalysisEClass_C = addETypeParameter(graphAnalysisEClass, "C");
+		ETypeParameter memoryLessGraphAnalysisEClass_C = addETypeParameter(memoryLessGraphAnalysisEClass, "C");
+		ETypeParameter entireGraphAnalysisEClass_C = addETypeParameter(entireGraphAnalysisEClass, "C");
+		ETypeParameter previousNodeGraphAnalysisEClass_C = addETypeParameter(previousNodeGraphAnalysisEClass, "C");
 
 		// Set bounds for type parameters
 
@@ -750,10 +767,19 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		parameterEClass.getESuperTypes().add(theCorePackage.getElement());
 		modelAnalysisEClass.getESuperTypes().add(this.getAnalysis());
 		graphAnalysisEClass.getESuperTypes().add(this.getAnalysis());
-		memoryLessGraphAnalysisEClass.getESuperTypes().add(this.getGraphAnalysis());
-		entireGraphAnalysisEClass.getESuperTypes().add(this.getGraphAnalysis());
+		EGenericType g1 = createEGenericType(this.getGraphAnalysis());
+		EGenericType g2 = createEGenericType(memoryLessGraphAnalysisEClass_C);
+		g1.getETypeArguments().add(g2);
+		memoryLessGraphAnalysisEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getGraphAnalysis());
+		g2 = createEGenericType(entireGraphAnalysisEClass_C);
+		g1.getETypeArguments().add(g2);
+		entireGraphAnalysisEClass.getEGenericSuperTypes().add(g1);
 		packageAnalysisEClass.getESuperTypes().add(this.getAnalysis());
-		previousNodeGraphAnalysisEClass.getESuperTypes().add(this.getGraphAnalysis());
+		g1 = createEGenericType(this.getGraphAnalysis());
+		g2 = createEGenericType(previousNodeGraphAnalysisEClass_C);
+		g1.getETypeArguments().add(g2);
+		previousNodeGraphAnalysisEClass.getEGenericSuperTypes().add(g1);
 		variantEClass.getESuperTypes().add(theCorePackage.getNamedElement());
 
 		// Initialize classes, features, and operations; add parameters
@@ -839,15 +865,16 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		initEClass(modelAnalysisEClass, ModelAnalysis.class, "ModelAnalysis", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(analysisParameterEClass, AnalysisParameter.class, "AnalysisParameter", IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-
 		initEClass(graphAnalysisEClass, GraphAnalysis.class, "GraphAnalysis", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getGraphAnalysis_Graph(), this.getGraph(), "graph", null, 0, 1, GraphAnalysis.class,
-				IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(theGuavaPackage.getGraph());
+		g2 = createEGenericType(graphAnalysisEClass_C);
+		g1.getETypeArguments().add(g2);
+		initEReference(getGraphAnalysis_Graph(), g1, null, "graph", null, 0, 1, GraphAnalysis.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 
-		initEOperation(getGraphAnalysis__InitGraph(), this.getGraph(), "initGraph", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getGraphAnalysis__InitGraph(), null, "initGraph", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getGraphAnalysis__Init(), ecorePackage.getEBoolean(), "init", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -865,8 +892,28 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 
 		initEClass(variantEClass, Variant.class, "Variant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		// Initialize data types
-		initEDataType(graphEDataType, int.class, "Graph", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEClass(networkGeneratorEClass, NetworkGenerator.class, "NetworkGenerator", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+
+		op = initEOperation(getNetworkGenerator__GenerateNetwork__Model(), null, "generateNetwork", 0, 1, IS_UNIQUE,
+				IS_ORDERED);
+		addEParameter(op, thee4smPackage.getModel(), "m", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(theGuavaPackage.getImmutableNetwork());
+		g2 = createEGenericType(thee4smPackage.getComponent());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(thee4smPackage.getConnector());
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
+
+		op = initEOperation(getNetworkGenerator__GenerateNetwork__Package(), null, "generateNetwork", 0, 1, IS_UNIQUE,
+				IS_ORDERED);
+		addEParameter(op, thee4smPackage.getPackage(), "p", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(theGuavaPackage.getImmutableNetwork());
+		g2 = createEGenericType(thee4smPackage.getComponent());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(thee4smPackage.getConnector());
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
 	}
 
 } //AnalysisPackageImpl

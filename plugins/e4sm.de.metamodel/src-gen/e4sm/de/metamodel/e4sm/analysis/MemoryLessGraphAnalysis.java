@@ -12,5 +12,5 @@ package e4sm.de.metamodel.e4sm.analysis;
  * @model
  * @generated
  */
-public interface MemoryLessGraphAnalysis extends GraphAnalysis {
+public interface MemoryLessGraphAnalysis<C> extends GraphAnalysis<C> {
 } // MemoryLessGraphAnalysis

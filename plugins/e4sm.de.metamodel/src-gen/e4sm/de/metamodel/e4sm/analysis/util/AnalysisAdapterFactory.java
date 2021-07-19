@@ -105,22 +105,17 @@ public class AnalysisAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseAnalysisParameter(AnalysisParameter object) {
-			return createAnalysisParameterAdapter();
-		}
-
-		@Override
-		public Adapter caseGraphAnalysis(GraphAnalysis object) {
+		public <C> Adapter caseGraphAnalysis(GraphAnalysis<C> object) {
 			return createGraphAnalysisAdapter();
 		}
 
 		@Override
-		public Adapter caseMemoryLessGraphAnalysis(MemoryLessGraphAnalysis object) {
+		public <C> Adapter caseMemoryLessGraphAnalysis(MemoryLessGraphAnalysis<C> object) {
 			return createMemoryLessGraphAnalysisAdapter();
 		}
 
 		@Override
-		public Adapter caseEntireGraphAnalysis(EntireGraphAnalysis object) {
+		public <C> Adapter caseEntireGraphAnalysis(EntireGraphAnalysis<C> object) {
 			return createEntireGraphAnalysisAdapter();
 		}
 
@@ -130,13 +125,18 @@ public class AnalysisAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter casePreviousNodeGraphAnalysis(PreviousNodeGraphAnalysis object) {
+		public <C> Adapter casePreviousNodeGraphAnalysis(PreviousNodeGraphAnalysis<C> object) {
 			return createPreviousNodeGraphAnalysisAdapter();
 		}
 
 		@Override
 		public Adapter caseVariant(Variant object) {
 			return createVariantAdapter();
+		}
+
+		@Override
+		public Adapter caseNetworkGenerator(NetworkGenerator object) {
+			return createNetworkGeneratorAdapter();
 		}
 
 		@Override
@@ -272,20 +272,6 @@ public class AnalysisAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.analysis.AnalysisParameter <em>Parameter</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see e4sm.de.metamodel.e4sm.analysis.AnalysisParameter
-	 * @generated
-	 */
-	public Adapter createAnalysisParameterAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.analysis.GraphAnalysis <em>Graph Analysis</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -366,6 +352,20 @@ public class AnalysisAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createVariantAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.analysis.NetworkGenerator <em>Network Generator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.analysis.NetworkGenerator
+	 * @generated
+	 */
+	public Adapter createNetworkGeneratorAdapter() {
 		return null;
 	}
 

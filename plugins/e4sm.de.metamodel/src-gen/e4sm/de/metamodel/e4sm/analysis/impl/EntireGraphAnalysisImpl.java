@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class EntireGraphAnalysisImpl extends GraphAnalysisImpl implements EntireGraphAnalysis {
+public class EntireGraphAnalysisImpl<C> extends GraphAnalysisImpl<C> implements EntireGraphAnalysis<C> {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

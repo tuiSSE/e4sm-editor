@@ -5,7 +5,6 @@ package e4sm.de.metamodel.e4sm.analysis;
 import e4sm.de.metamodel.e4sm.core.CorePackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -508,34 +507,6 @@ public interface AnalysisPackage extends EPackage {
 	int MODEL_ANALYSIS_OPERATION_COUNT = ANALYSIS_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.analysis.impl.AnalysisParameterImpl <em>Parameter</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisParameterImpl
-	 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl#getAnalysisParameter()
-	 * @generated
-	 */
-	int ANALYSIS_PARAMETER = 7;
-
-	/**
-	 * The number of structural features of the '<em>Parameter</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ANALYSIS_PARAMETER_FEATURE_COUNT = 0;
-
-	/**
-	 * The number of operations of the '<em>Parameter</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ANALYSIS_PARAMETER_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.analysis.impl.GraphAnalysisImpl <em>Graph Analysis</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -543,10 +514,10 @@ public interface AnalysisPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl#getGraphAnalysis()
 	 * @generated
 	 */
-	int GRAPH_ANALYSIS = 8;
+	int GRAPH_ANALYSIS = 7;
 
 	/**
-	 * The feature id for the '<em><b>Graph</b></em>' attribute.
+	 * The feature id for the '<em><b>Graph</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -625,10 +596,10 @@ public interface AnalysisPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl#getMemoryLessGraphAnalysis()
 	 * @generated
 	 */
-	int MEMORY_LESS_GRAPH_ANALYSIS = 9;
+	int MEMORY_LESS_GRAPH_ANALYSIS = 8;
 
 	/**
-	 * The feature id for the '<em><b>Graph</b></em>' attribute.
+	 * The feature id for the '<em><b>Graph</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -707,10 +678,10 @@ public interface AnalysisPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl#getEntireGraphAnalysis()
 	 * @generated
 	 */
-	int ENTIRE_GRAPH_ANALYSIS = 10;
+	int ENTIRE_GRAPH_ANALYSIS = 9;
 
 	/**
-	 * The feature id for the '<em><b>Graph</b></em>' attribute.
+	 * The feature id for the '<em><b>Graph</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -789,7 +760,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl#getPackageAnalysis()
 	 * @generated
 	 */
-	int PACKAGE_ANALYSIS = 11;
+	int PACKAGE_ANALYSIS = 10;
 
 	/**
 	 * The number of structural features of the '<em>Package Analysis</em>' class.
@@ -853,10 +824,10 @@ public interface AnalysisPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl#getPreviousNodeGraphAnalysis()
 	 * @generated
 	 */
-	int PREVIOUS_NODE_GRAPH_ANALYSIS = 12;
+	int PREVIOUS_NODE_GRAPH_ANALYSIS = 11;
 
 	/**
-	 * The feature id for the '<em><b>Graph</b></em>' attribute.
+	 * The feature id for the '<em><b>Graph</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -935,7 +906,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl#getVariant()
 	 * @generated
 	 */
-	int VARIANT = 13;
+	int VARIANT = 12;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -965,13 +936,50 @@ public interface AnalysisPackage extends EPackage {
 	int VARIANT_OPERATION_COUNT = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '<em>Graph</em>' data type.
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.analysis.impl.NetworkGeneratorImpl <em>Network Generator</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl#getGraph()
+	 * @see e4sm.de.metamodel.e4sm.analysis.impl.NetworkGeneratorImpl
+	 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl#getNetworkGenerator()
 	 * @generated
 	 */
-	int GRAPH = 14;
+	int NETWORK_GENERATOR = 13;
+
+	/**
+	 * The number of structural features of the '<em>Network Generator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NETWORK_GENERATOR_FEATURE_COUNT = 0;
+
+	/**
+	 * The operation id for the '<em>Generate Network</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NETWORK_GENERATOR___GENERATE_NETWORK__MODEL = 0;
+
+	/**
+	 * The operation id for the '<em>Generate Network</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NETWORK_GENERATOR___GENERATE_NETWORK__PACKAGE = 1;
+
+	/**
+	 * The number of operations of the '<em>Network Generator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NETWORK_GENERATOR_OPERATION_COUNT = 2;
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.analysis.AnalysisManager <em>Manager</em>}'.
@@ -1268,16 +1276,6 @@ public interface AnalysisPackage extends EPackage {
 	EClass getModelAnalysis();
 
 	/**
-	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.analysis.AnalysisParameter <em>Parameter</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Parameter</em>'.
-	 * @see e4sm.de.metamodel.e4sm.analysis.AnalysisParameter
-	 * @generated
-	 */
-	EClass getAnalysisParameter();
-
-	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.analysis.GraphAnalysis <em>Graph Analysis</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1288,15 +1286,15 @@ public interface AnalysisPackage extends EPackage {
 	EClass getGraphAnalysis();
 
 	/**
-	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.analysis.GraphAnalysis#getGraph <em>Graph</em>}'.
+	 * Returns the meta object for the reference '{@link e4sm.de.metamodel.e4sm.analysis.GraphAnalysis#getGraph <em>Graph</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Graph</em>'.
+	 * @return the meta object for the reference '<em>Graph</em>'.
 	 * @see e4sm.de.metamodel.e4sm.analysis.GraphAnalysis#getGraph()
 	 * @see #getGraphAnalysis()
 	 * @generated
 	 */
-	EAttribute getGraphAnalysis_Graph();
+	EReference getGraphAnalysis_Graph();
 
 	/**
 	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.analysis.GraphAnalysis#initGraph() <em>Init Graph</em>}' operation.
@@ -1369,14 +1367,34 @@ public interface AnalysisPackage extends EPackage {
 	EClass getVariant();
 
 	/**
-	 * Returns the meta object for data type '<em>Graph</em>'.
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.analysis.NetworkGenerator <em>Network Generator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for data type '<em>Graph</em>'.
-	 * @model instanceClass="int" serializeable="false"
+	 * @return the meta object for class '<em>Network Generator</em>'.
+	 * @see e4sm.de.metamodel.e4sm.analysis.NetworkGenerator
 	 * @generated
 	 */
-	EDataType getGraph();
+	EClass getNetworkGenerator();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.analysis.NetworkGenerator#generateNetwork(e4sm.de.metamodel.e4sm.Model) <em>Generate Network</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Generate Network</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.analysis.NetworkGenerator#generateNetwork(e4sm.de.metamodel.e4sm.Model)
+	 * @generated
+	 */
+	EOperation getNetworkGenerator__GenerateNetwork__Model();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.analysis.NetworkGenerator#generateNetwork(e4sm.de.metamodel.e4sm.Package) <em>Generate Network</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Generate Network</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.analysis.NetworkGenerator#generateNetwork(e4sm.de.metamodel.e4sm.Package)
+	 * @generated
+	 */
+	EOperation getNetworkGenerator__GenerateNetwork__Package();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1642,16 +1660,6 @@ public interface AnalysisPackage extends EPackage {
 		EClass MODEL_ANALYSIS = eINSTANCE.getModelAnalysis();
 
 		/**
-		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.analysis.impl.AnalysisParameterImpl <em>Parameter</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisParameterImpl
-		 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl#getAnalysisParameter()
-		 * @generated
-		 */
-		EClass ANALYSIS_PARAMETER = eINSTANCE.getAnalysisParameter();
-
-		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.analysis.impl.GraphAnalysisImpl <em>Graph Analysis</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1662,12 +1670,12 @@ public interface AnalysisPackage extends EPackage {
 		EClass GRAPH_ANALYSIS = eINSTANCE.getGraphAnalysis();
 
 		/**
-		 * The meta object literal for the '<em><b>Graph</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Graph</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute GRAPH_ANALYSIS__GRAPH = eINSTANCE.getGraphAnalysis_Graph();
+		EReference GRAPH_ANALYSIS__GRAPH = eINSTANCE.getGraphAnalysis_Graph();
 
 		/**
 		 * The meta object literal for the '<em><b>Init Graph</b></em>' operation.
@@ -1736,13 +1744,32 @@ public interface AnalysisPackage extends EPackage {
 		EClass VARIANT = eINSTANCE.getVariant();
 
 		/**
-		 * The meta object literal for the '<em>Graph</em>' data type.
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.analysis.impl.NetworkGeneratorImpl <em>Network Generator</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl#getGraph()
+		 * @see e4sm.de.metamodel.e4sm.analysis.impl.NetworkGeneratorImpl
+		 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl#getNetworkGenerator()
 		 * @generated
 		 */
-		EDataType GRAPH = eINSTANCE.getGraph();
+		EClass NETWORK_GENERATOR = eINSTANCE.getNetworkGenerator();
+
+		/**
+		 * The meta object literal for the '<em><b>Generate Network</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NETWORK_GENERATOR___GENERATE_NETWORK__MODEL = eINSTANCE
+				.getNetworkGenerator__GenerateNetwork__Model();
+
+		/**
+		 * The meta object literal for the '<em><b>Generate Network</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NETWORK_GENERATOR___GENERATE_NETWORK__PACKAGE = eINSTANCE
+				.getNetworkGenerator__GenerateNetwork__Package();
 
 	}
 

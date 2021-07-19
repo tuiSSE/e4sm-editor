@@ -132,15 +132,8 @@ public class AnalysisSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case AnalysisPackage.ANALYSIS_PARAMETER: {
-			AnalysisParameter analysisParameter = (AnalysisParameter) theEObject;
-			T result = caseAnalysisParameter(analysisParameter);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
 		case AnalysisPackage.GRAPH_ANALYSIS: {
-			GraphAnalysis graphAnalysis = (GraphAnalysis) theEObject;
+			GraphAnalysis<?> graphAnalysis = (GraphAnalysis<?>) theEObject;
 			T result = caseGraphAnalysis(graphAnalysis);
 			if (result == null)
 				result = caseAnalysis(graphAnalysis);
@@ -149,7 +142,7 @@ public class AnalysisSwitch<T> extends Switch<T> {
 			return result;
 		}
 		case AnalysisPackage.MEMORY_LESS_GRAPH_ANALYSIS: {
-			MemoryLessGraphAnalysis memoryLessGraphAnalysis = (MemoryLessGraphAnalysis) theEObject;
+			MemoryLessGraphAnalysis<?> memoryLessGraphAnalysis = (MemoryLessGraphAnalysis<?>) theEObject;
 			T result = caseMemoryLessGraphAnalysis(memoryLessGraphAnalysis);
 			if (result == null)
 				result = caseGraphAnalysis(memoryLessGraphAnalysis);
@@ -160,7 +153,7 @@ public class AnalysisSwitch<T> extends Switch<T> {
 			return result;
 		}
 		case AnalysisPackage.ENTIRE_GRAPH_ANALYSIS: {
-			EntireGraphAnalysis entireGraphAnalysis = (EntireGraphAnalysis) theEObject;
+			EntireGraphAnalysis<?> entireGraphAnalysis = (EntireGraphAnalysis<?>) theEObject;
 			T result = caseEntireGraphAnalysis(entireGraphAnalysis);
 			if (result == null)
 				result = caseGraphAnalysis(entireGraphAnalysis);
@@ -180,7 +173,7 @@ public class AnalysisSwitch<T> extends Switch<T> {
 			return result;
 		}
 		case AnalysisPackage.PREVIOUS_NODE_GRAPH_ANALYSIS: {
-			PreviousNodeGraphAnalysis previousNodeGraphAnalysis = (PreviousNodeGraphAnalysis) theEObject;
+			PreviousNodeGraphAnalysis<?> previousNodeGraphAnalysis = (PreviousNodeGraphAnalysis<?>) theEObject;
 			T result = casePreviousNodeGraphAnalysis(previousNodeGraphAnalysis);
 			if (result == null)
 				result = caseGraphAnalysis(previousNodeGraphAnalysis);
@@ -197,6 +190,13 @@ public class AnalysisSwitch<T> extends Switch<T> {
 				result = caseNamedElement(variant);
 			if (result == null)
 				result = caseElement(variant);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case AnalysisPackage.NETWORK_GENERATOR: {
+			NetworkGenerator networkGenerator = (NetworkGenerator) theEObject;
+			T result = caseNetworkGenerator(networkGenerator);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -312,21 +312,6 @@ public class AnalysisSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Parameter</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Parameter</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseAnalysisParameter(AnalysisParameter object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Graph Analysis</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -337,7 +322,7 @@ public class AnalysisSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseGraphAnalysis(GraphAnalysis object) {
+	public <C> T caseGraphAnalysis(GraphAnalysis<C> object) {
 		return null;
 	}
 
@@ -352,7 +337,7 @@ public class AnalysisSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseMemoryLessGraphAnalysis(MemoryLessGraphAnalysis object) {
+	public <C> T caseMemoryLessGraphAnalysis(MemoryLessGraphAnalysis<C> object) {
 		return null;
 	}
 
@@ -367,7 +352,7 @@ public class AnalysisSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEntireGraphAnalysis(EntireGraphAnalysis object) {
+	public <C> T caseEntireGraphAnalysis(EntireGraphAnalysis<C> object) {
 		return null;
 	}
 
@@ -397,7 +382,7 @@ public class AnalysisSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePreviousNodeGraphAnalysis(PreviousNodeGraphAnalysis object) {
+	public <C> T casePreviousNodeGraphAnalysis(PreviousNodeGraphAnalysis<C> object) {
 		return null;
 	}
 
@@ -413,6 +398,21 @@ public class AnalysisSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseVariant(Variant object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Network Generator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Network Generator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNetworkGenerator(NetworkGenerator object) {
 		return null;
 	}
 
