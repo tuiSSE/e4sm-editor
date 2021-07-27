@@ -4,14 +4,24 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Iterator;
+import java.util.Optional;
+import java.util.Random;
 
 import com.google.common.graph.MutableNetwork;
 import com.google.common.graph.NetworkBuilder;
+import com.google.common.graph.SuccessorsFunction;
+import com.google.common.graph.Traverser;
 
 import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.Connector;
+import e4sm.de.metamodel.e4sm.InputPin;
 import e4sm.de.metamodel.e4sm.Model;
+import e4sm.de.metamodel.e4sm.OutputPin;
 import e4sm.de.metamodel.e4sm.Package;
+import e4sm.de.metamodel.e4sm.Pin;
+import e4sm.de.metamodel.e4sm.Sensor;
+import e4sm.de.metamodel.design.Utils;
 
 public class NetworkUtils {
 
@@ -29,7 +39,7 @@ public class NetworkUtils {
 	 * @param {Package} aPackage
 	 */
 	public static MutableNetwork<Component, Connector> generateNetwork(Package aPackage) {
-		System.out.println("Computing dependency graph for the package " + aPackage.getName());
+		Utils.debug("Computing dependency graph for the package " + aPackage.getName());
 		MutableNetwork<Component, Connector> network = initializeGraph();
 		// Add all components to the network
 		computePackageDependencyGraphInNetwork(aPackage, network);
@@ -38,29 +48,54 @@ public class NetworkUtils {
 
 	private static MutableNetwork<Component, Connector> computePackageDependencyGraphInNetwork(Package aPackage,
 			MutableNetwork<Component, Connector> network) {
-		System.out.println("Computing dependency graph for the package " + aPackage.getName());
+		Utils.debug("Computing dependency graph for the package " + aPackage.getName());
 		// Add all components to the graph
 		aPackage.getAllComponents().forEach(c -> {
 			computeComponentDependencyGraphInNetwork(c, network);
 		});
 		aPackage.getConnectors().forEach(c -> {
+			// Check if the source or target pin are "gateway pins"
 			if (c != null && c.getSource() != null && c.getTarget() != null) {
-				System.out.println("Connector: " + c.getName());
-				network.addEdge((Component) c.getSource().eContainer(), (Component) c.getTarget().eContainer(), c);
+				Utils.debug("Connector: " + c.getName());
+				// If the edge leads to an output pin of this package
+				Component realSource = (Component) c.getSource().eContainer();
+				Component realTarget = (Component) c.getTarget().eContainer();
+				if (c.getSource() instanceof OutputPin && c.getSource().isGatewayPin()) {
+					realSource = (Component) c.getSource().getIncomingConnectors().get(0).getSource().eContainer();
+					if (c.getTarget().isGatewayPin()) {
+						return;
+					}
+				}
+				//Compute the actual target pin
+				Pin realTargetPin = c.getTarget();
+				while (realTargetPin instanceof OutputPin && realTargetPin.isGatewayPin() /*&& ((Component)c.getTarget().eContainer()).getComponents().size()==0*/) {
+					realTargetPin = realTargetPin.getOutgoingConnectors().get(0).getTarget();
+				}
+				realTarget = (Component) realTargetPin.eContainer();
+//				if(c.getTarget().eContainer().equals(c.getSource().eContainer().eContainer())) {
+//					Utils.debug("EDGE TO PACKAGE PIN", true);
+//				}else {
+				Utils.debug(realSource.toString() + realTarget.toString());
+				network.addEdge(realSource, realTarget, c);
+//				}
 			}
 		});
 		return network;
 	}
 
+	public static Iterable<Component> depthFirst(SuccessorsFunction<Component> sf, Component startNode) {
+		return Traverser.forGraph(sf).depthFirstPreOrder(startNode);
+	}
+
 	private static MutableNetwork<Component, Connector> computeComponentDependencyGraphInNetwork(Component c,
 			MutableNetwork<Component, Connector> network) {
-		System.out.println("Computing dependency graph for the component " + c.getName());
+		Utils.debug("Computing dependency graph for the component " + c.getName());
 		// initializeGraph(false); Uncomment if this method is made "public"
-		System.out.println(" added to graph:" + network.addNode(c));
+		Utils.debug(" added to graph:" + network.addNode(c));
 		Package specifiedIn = c.getSpecifiedInPackage();
 		if (specifiedIn != null) {
 			// This component is specified in a package
-			System.out.println("Adding sub-specified component" + specifiedIn.getName());
+			Utils.debug("Adding sub-specified component" + specifiedIn.getName());
 			computePackageDependencyGraphInNetwork(specifiedIn, network);
 		} else {
 			// This component may contain other components
@@ -77,7 +112,7 @@ public class NetworkUtils {
 	 * @param aModel
 	 */
 	public static MutableNetwork<Component, Connector> generateNetwork(Model aModel) {
-		System.out.println("Computing dependency graph for the model " + aModel.getName());
+		Utils.debug("Computing dependency graph for the model " + aModel.getName());
 		MutableNetwork<Component, Connector> network = initializeGraph();
 		// System.out.println(URI.createPlatformResourceURI("test.gv", false));
 		aModel.getPackages().forEach(p -> computePackageDependencyGraphInNetwork(p, network));
@@ -91,18 +126,49 @@ public class NetworkUtils {
 	 * @return a String with containing the dot model
 	 */
 	public String exportToDOT(MutableNetwork<Component, Connector> network) {
-		System.out.println("Generating the Dot String...");
+		Utils.debug("Generating the Dot String...");
 		final StringBuilder builder = new StringBuilder();
 		builder.append("digraph graphname {\r\n");
-		network.nodes().forEach(n -> {
+		Utils.debug("NODES: " + network.nodes().toString());
+		Optional<Component> startNode = network.nodes().stream().filter(n -> n instanceof Sensor && new Random().nextBoolean())
+				.peek(e -> Utils.debug("FILTERED: " + e.getName())).findFirst();
 
+		network.nodes().forEach(n -> {
 			builder.append("\"" + n.eResource().getURIFragment(n) + "\"[label=\"" + n.getName() + "\"];\r\n");
 		});
 		network.edges().forEach(edge -> {
-			builder.append("\"" + edge.getSource().eResource().getURIFragment(edge.getSource()) + "\" -> \""
-					+ edge.getTarget().eResource().getURIFragment(edge.getTarget()) + "\"\r\n");
+			builder.append(
+					"\"" + edge.getSource().eResource().getURIFragment(edge.getSource().eContainer()) + "\" -> \""
+							+ edge.getTarget().eResource().getURIFragment(edge.getTarget().eContainer()) + "\"\r\n");
 		});
+
+		if (startNode.isPresent()) {
+			Utils.debug(startNode.get().getName() + " is the starting component");
+			Iterable<Component> dbf = depthFirst(network, startNode.get());
+			Utils.debug("depthFirst completed");
+			int i = 0;
+			Iterator<Component> it = dbf.iterator();
+			while (it.hasNext() && i < 500) {
+				Component c = it.next();
+				if (i == 0) {
+					Utils.debug("Start: " + c.getName());
+					builder.append("\"" + c.eResource().getURIFragment(c) + "\"[color=\"blue\", label=\"" + c.getName()
+							+ "\"];\r\n");
+				} else {
+					Utils.debug("Path: " + c.getName());
+					builder.append("\"" + c.eResource().getURIFragment(c) + "\"[color=\"red\", label=\"" + c.getName()
+							+ "\"];\r\n");
+				}
+				i++;
+			}
+			if (i >= 500) {
+				System.err.println("Warning: max iteration limit reached.");
+			}
+		} else {
+			System.err.println("Component not found");
+		}
 		builder.append("}");
+		Utils.debug("exportToDot completed.");
 		return builder.toString();
 	}
 

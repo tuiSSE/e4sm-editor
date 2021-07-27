@@ -156,12 +156,15 @@ import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 import e4sm.de.metamodel.e4sm.analysis.provider.AnalysisItemProviderAdapterFactory;
 
 import e4sm.de.metamodel.e4sm.analysis.results.provider.ResultsItemProviderAdapterFactory;
-import e4sm.de.metamodel.e4sm.common.E4SMAdapterFactoryContentProvider;
+
+import e4sm.de.metamodel.e4sm.core.provider.CoreItemProviderAdapterFactory;
+
+import e4sm.de.metamodel.e4sm.guava.provider.GuavaItemProviderAdapterFactory;
+
 import e4sm.de.metamodel.e4sm.presentation.e4smEditorPlugin;
 
 import e4sm.de.metamodel.e4sm.provider.e4smItemProviderAdapterFactory;
-import e4sm.de.metamodel.e4sm.core.provider.CoreItemProviderAdapterFactory;
-import e4sm.de.metamodel.e4sm.guava.provider.GuavaItemProviderAdapterFactory;
+
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
 /**
@@ -1381,7 +1384,7 @@ public class AnalysisEditor extends MultiPageEditorPart
 	 * This accesses a cached version of the property sheet.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	public IPropertySheetPage getPropertySheetPage() {
 		PropertySheetPage propertySheetPage = new ExtendedPropertySheetPage(editingDomain,
@@ -1398,7 +1401,7 @@ public class AnalysisEditor extends MultiPageEditorPart
 				getActionBarContributor().shareGlobalActions(this, actionBars);
 			}
 		};
-		propertySheetPage.setPropertySourceProvider(new E4SMAdapterFactoryContentProvider(adapterFactory)); //<- This line is not generated
+		propertySheetPage.setPropertySourceProvider(new AdapterFactoryContentProvider(adapterFactory));
 		propertySheetPages.add(propertySheetPage);
 
 		return propertySheetPage;
