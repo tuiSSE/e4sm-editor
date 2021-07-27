@@ -2,6 +2,7 @@
  */
 package e4sm.de.metamodel.e4sm.impl;
 
+import e4sm.de.metamodel.e4sm.Connector;
 import e4sm.de.metamodel.e4sm.Pin;
 import e4sm.de.metamodel.e4sm.analysis.Parameter;
 import e4sm.de.metamodel.e4sm.e4smPackage;
@@ -20,6 +21,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -33,6 +35,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.PinImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.PinImpl#getName <em>Name</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.PinImpl#getType <em>Type</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.PinImpl#getOutgoingConnectors <em>Outgoing Connectors</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.PinImpl#getIncomingConnectors <em>Incoming Connectors</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.PinImpl#isGatewayPin <em>Gateway Pin</em>}</li>
  * </ul>
  *
  * @generated
@@ -77,6 +82,36 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 	 * @ordered
 	 */
 	protected EDataType type;
+
+	/**
+	 * The cached value of the '{@link #getOutgoingConnectors() <em>Outgoing Connectors</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOutgoingConnectors()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Connector> outgoingConnectors;
+
+	/**
+	 * The cached value of the '{@link #getIncomingConnectors() <em>Incoming Connectors</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIncomingConnectors()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Connector> incomingConnectors;
+
+	/**
+	 * The default value of the '{@link #isGatewayPin() <em>Gateway Pin</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isGatewayPin()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean GATEWAY_PIN_EDEFAULT = false;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -179,10 +214,71 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 	 * @generated
 	 */
 	@Override
+	public EList<Connector> getOutgoingConnectors() {
+		if (outgoingConnectors == null) {
+			outgoingConnectors = new EObjectWithInverseResolvingEList<Connector>(Connector.class, this,
+					e4smPackage.PIN__OUTGOING_CONNECTORS, e4smPackage.CONNECTOR__SOURCE);
+		}
+		return outgoingConnectors;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<Connector> getIncomingConnectors() {
+		if (incomingConnectors == null) {
+			incomingConnectors = new EObjectWithInverseResolvingEList<Connector>(Connector.class, this,
+					e4smPackage.PIN__INCOMING_CONNECTORS, e4smPackage.CONNECTOR__TARGET);
+		}
+		return incomingConnectors;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isGatewayPin() {
+		return this.getOutgoingConnectors().size() >= 1 && this.getIncomingConnectors().size() >= 1;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case e4smPackage.PIN__OUTGOING_CONNECTORS:
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getOutgoingConnectors()).basicAdd(otherEnd,
+					msgs);
+		case e4smPackage.PIN__INCOMING_CONNECTORS:
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getIncomingConnectors()).basicAdd(otherEnd,
+					msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case e4smPackage.PIN__PARAMETERS:
 			return ((InternalEList<?>) getParameters()).basicRemove(otherEnd, msgs);
+		case e4smPackage.PIN__OUTGOING_CONNECTORS:
+			return ((InternalEList<?>) getOutgoingConnectors()).basicRemove(otherEnd, msgs);
+		case e4smPackage.PIN__INCOMING_CONNECTORS:
+			return ((InternalEList<?>) getIncomingConnectors()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -203,6 +299,12 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 			if (resolve)
 				return getType();
 			return basicGetType();
+		case e4smPackage.PIN__OUTGOING_CONNECTORS:
+			return getOutgoingConnectors();
+		case e4smPackage.PIN__INCOMING_CONNECTORS:
+			return getIncomingConnectors();
+		case e4smPackage.PIN__GATEWAY_PIN:
+			return isGatewayPin();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -226,6 +328,14 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 		case e4smPackage.PIN__TYPE:
 			setType((EDataType) newValue);
 			return;
+		case e4smPackage.PIN__OUTGOING_CONNECTORS:
+			getOutgoingConnectors().clear();
+			getOutgoingConnectors().addAll((Collection<? extends Connector>) newValue);
+			return;
+		case e4smPackage.PIN__INCOMING_CONNECTORS:
+			getIncomingConnectors().clear();
+			getIncomingConnectors().addAll((Collection<? extends Connector>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -247,6 +357,12 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 		case e4smPackage.PIN__TYPE:
 			setType((EDataType) null);
 			return;
+		case e4smPackage.PIN__OUTGOING_CONNECTORS:
+			getOutgoingConnectors().clear();
+			return;
+		case e4smPackage.PIN__INCOMING_CONNECTORS:
+			getIncomingConnectors().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -265,6 +381,12 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		case e4smPackage.PIN__TYPE:
 			return type != null;
+		case e4smPackage.PIN__OUTGOING_CONNECTORS:
+			return outgoingConnectors != null && !outgoingConnectors.isEmpty();
+		case e4smPackage.PIN__INCOMING_CONNECTORS:
+			return incomingConnectors != null && !incomingConnectors.isEmpty();
+		case e4smPackage.PIN__GATEWAY_PIN:
+			return isGatewayPin() != GATEWAY_PIN_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

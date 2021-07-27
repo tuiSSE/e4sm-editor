@@ -77,7 +77,12 @@
     </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//Sensor"/>
     <genClasses ecoreClass="e4sm.ecore#//Actuator"/>
-    <genClasses ecoreClass="e4sm.ecore#//Pin"/>
+    <genClasses ecoreClass="e4sm.ecore#//Pin">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//Pin/outgoingConnectors"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//Pin/incomingConnectors"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//Pin/gatewayPin"
+          get="return this.getOutgoingConnectors().size()>=1 &amp;&amp; this.getIncomingConnectors().size() >=1;"/>
+    </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//InputPin"/>
     <genClasses ecoreClass="e4sm.ecore#//OutputPin"/>
     <genClasses ecoreClass="e4sm.ecore#//Person">
@@ -167,7 +172,8 @@
       </genClasses>
       <genClasses image="false" ecoreClass="e4sm.ecore#//core/ValueSpecification">
         <genOperations ecoreOperation="e4sm.ecore#//core/ValueSpecification/booleanValue"/>
-        <genOperations ecoreOperation="e4sm.ecore#//core/ValueSpecification/integerValue"/>
+        <genOperations ecoreOperation="e4sm.ecore#//core/ValueSpecification/integerValue"
+            body=""/>
         <genOperations ecoreOperation="e4sm.ecore#//core/ValueSpecification/isComputable"/>
         <genOperations ecoreOperation="e4sm.ecore#//core/ValueSpecification/toString"/>
       </genClasses>
@@ -277,8 +283,8 @@
         </genClasses>
       </nestedGenPackages>
     </nestedGenPackages>
-    <nestedGenPackages prefix="Guava" disposableProviderFactory="true" adapterFactory="false"
-        literalsInterface="false" ecorePackage="e4sm.ecore#//guava">
+    <nestedGenPackages prefix="Guava" disposableProviderFactory="true" literalsInterface="false"
+        multipleEditorPages="false" generateModelWizard="false" ecorePackage="e4sm.ecore#//guava">
       <genClasses image="false" ecoreClass="e4sm.ecore#//guava/Graph">
         <genTypeParameters ecoreTypeParameter="e4sm.ecore#//guava/Graph/N"/>
         <genOperations ecoreOperation="e4sm.ecore#//guava/Graph/isDirected"/>

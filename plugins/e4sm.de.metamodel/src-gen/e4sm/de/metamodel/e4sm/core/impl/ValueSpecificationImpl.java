@@ -3,6 +3,7 @@
 package e4sm.de.metamodel.e4sm.core.impl;
 
 import e4sm.de.metamodel.e4sm.core.CorePackage;
+import e4sm.de.metamodel.e4sm.core.LiteralInteger;
 import e4sm.de.metamodel.e4sm.core.ValueSpecification;
 
 import java.lang.reflect.InvocationTargetException;
@@ -48,13 +49,14 @@ public abstract class ValueSpecificationImpl extends TypedElementImpl implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public int integerValue() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		if(this instanceof LiteralInteger) {
+			return ((LiteralInteger) this).getValue();
+		}
+		return 0;
 	}
 
 	/**

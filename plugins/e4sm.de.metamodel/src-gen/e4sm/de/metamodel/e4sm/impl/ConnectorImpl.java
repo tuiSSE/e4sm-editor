@@ -179,12 +179,40 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public void setSource(Pin newSource) {
+	public NotificationChain basicSetSource(Pin newSource, NotificationChain msgs) {
 		Pin oldSource = source;
 		source = newSource;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.CONNECTOR__SOURCE, oldSource, source));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					e4smPackage.CONNECTOR__SOURCE, oldSource, newSource);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setSource(Pin newSource) {
+		if (newSource != source) {
+			NotificationChain msgs = null;
+			if (source != null)
+				msgs = ((InternalEObject) source).eInverseRemove(this, e4smPackage.PIN__OUTGOING_CONNECTORS, Pin.class,
+						msgs);
+			if (newSource != null)
+				msgs = ((InternalEObject) newSource).eInverseAdd(this, e4smPackage.PIN__OUTGOING_CONNECTORS, Pin.class,
+						msgs);
+			msgs = basicSetSource(newSource, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.CONNECTOR__SOURCE, newSource, newSource));
 	}
 
 	/**
@@ -220,12 +248,62 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public void setTarget(Pin newTarget) {
+	public NotificationChain basicSetTarget(Pin newTarget, NotificationChain msgs) {
 		Pin oldTarget = target;
 		target = newTarget;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.CONNECTOR__TARGET, oldTarget, target));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					e4smPackage.CONNECTOR__TARGET, oldTarget, newTarget);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setTarget(Pin newTarget) {
+		if (newTarget != target) {
+			NotificationChain msgs = null;
+			if (target != null)
+				msgs = ((InternalEObject) target).eInverseRemove(this, e4smPackage.PIN__INCOMING_CONNECTORS, Pin.class,
+						msgs);
+			if (newTarget != null)
+				msgs = ((InternalEObject) newTarget).eInverseAdd(this, e4smPackage.PIN__INCOMING_CONNECTORS, Pin.class,
+						msgs);
+			msgs = basicSetTarget(newTarget, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.CONNECTOR__TARGET, newTarget, newTarget));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case e4smPackage.CONNECTOR__SOURCE:
+			if (source != null)
+				msgs = ((InternalEObject) source).eInverseRemove(this, e4smPackage.PIN__OUTGOING_CONNECTORS, Pin.class,
+						msgs);
+			return basicSetSource((Pin) otherEnd, msgs);
+		case e4smPackage.CONNECTOR__TARGET:
+			if (target != null)
+				msgs = ((InternalEObject) target).eInverseRemove(this, e4smPackage.PIN__INCOMING_CONNECTORS, Pin.class,
+						msgs);
+			return basicSetTarget((Pin) otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -238,6 +316,10 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 		switch (featureID) {
 		case e4smPackage.CONNECTOR__PARAMETERS:
 			return ((InternalEList<?>) getParameters()).basicRemove(otherEnd, msgs);
+		case e4smPackage.CONNECTOR__SOURCE:
+			return basicSetSource(null, msgs);
+		case e4smPackage.CONNECTOR__TARGET:
+			return basicSetTarget(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
