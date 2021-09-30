@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/timenet.tuilmenau.de.scpn.metamodel/src-gen" creationIcons="false"
+    editDirectory="/timenet.tuilmenau.de.scpn.metamodel.edit/src-gen" editorDirectory="/timenet.tuilmenau.de.scpn.metamodel.editor/src-gen"
+    modelPluginID="timenet.tuilmenau.de.scpn.metamodel" modelName="SCPN" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="16.0"
+    copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>scpn.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="scpn" basePackage="de.ilmenau.tu.timenet.schema" resource="XML"
+      disposableProviderFactory="true" ecorePackage="scpn.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="scpn.ecore#//MeasureEvalType">
+      <genEnumLiterals ecoreEnumLiteral="scpn.ecore#//MeasureEvalType/Instantaneous"/>
+      <genEnumLiterals ecoreEnumLiteral="scpn.ecore#//MeasureEvalType/Cumulative"/>
+      <genEnumLiterals ecoreEnumLiteral="scpn.ecore#//MeasureEvalType/TimeAverage"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="scpn.ecore#//QueueType">
+      <genEnumLiterals ecoreEnumLiteral="scpn.ecore#//QueueType/Random"/>
+      <genEnumLiterals ecoreEnumLiteral="scpn.ecore#//QueueType/FIFO"/>
+      <genEnumLiterals ecoreEnumLiteral="scpn.ecore#//QueueType/LIFO"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="scpn.ecore#//ServerTypeType">
+      <genEnumLiterals ecoreEnumLiteral="scpn.ecore#//ServerTypeType/InfiniteServer"/>
+      <genEnumLiterals ecoreEnumLiteral="scpn.ecore#//ServerTypeType/ExclusiveServer"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="scpn.ecore#//SpecTypeType">
+      <genEnumLiterals ecoreEnumLiteral="scpn.ecore#//SpecTypeType/Manual"/>
+      <genEnumLiterals ecoreEnumLiteral="scpn.ecore#//SpecTypeType/Automatic"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="scpn.ecore#//Type">
+      <genEnumLiterals ecoreEnumLiteral="scpn.ecore#//Type/node"/>
+      <genEnumLiterals ecoreEnumLiteral="scpn.ecore#//Type/connector"/>
+      <genEnumLiterals ecoreEnumLiteral="scpn.ecore#//Type/text"/>
+      <genEnumLiterals ecoreEnumLiteral="scpn.ecore#//Type/inscriptionText"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="scpn.ecore#//MeasureEvalTypeObject"/>
+    <genDataTypes ecoreDataType="scpn.ecore#//QueueTypeObject"/>
+    <genDataTypes ecoreDataType="scpn.ecore#//ServerTypeTypeObject"/>
+    <genDataTypes ecoreDataType="scpn.ecore#//SpecTypeTypeObject"/>
+    <genDataTypes ecoreDataType="scpn.ecore#//TypeObject"/>
+    <genClasses ecoreClass="scpn.ecore#//AddDataType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//AddDataType/classname"/>
+    </genClasses>
+    <genClasses ecoreClass="scpn.ecore#//ArcType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scpn.ecore#//ArcType/inscription"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scpn.ecore#//ArcType/handle"/>
+    </genClasses>
+    <genClasses ecoreClass="scpn.ecore#//AttributeType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//AttributeType/dataType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//AttributeType/name"/>
+    </genClasses>
+    <genClasses ecoreClass="scpn.ecore#//CommentType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//CommentType/commentText"/>
+    </genClasses>
+    <genClasses ecoreClass="scpn.ecore#//ConnectorType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//ConnectorType/fromNode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//ConnectorType/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//ConnectorType/toNode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//ConnectorType/type"/>
+    </genClasses>
+    <genClasses ecoreClass="scpn.ecore#//DefinitionType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scpn.ecore#//DefinitionType/additionalData"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//DefinitionType/expression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//DefinitionType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//DefinitionType/path"/>
+    </genClasses>
+    <genClasses ecoreClass="scpn.ecore#//DocumentRoot">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//DocumentRoot/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference scpn.ecore#//DocumentRoot/xMLNSPrefixMap"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference scpn.ecore#//DocumentRoot/xSISchemaLocation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scpn.ecore#//DocumentRoot/net"/>
+    </genClasses>
+    <genClasses ecoreClass="scpn.ecore#//GraphicsType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//GraphicsType/orientation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//GraphicsType/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//GraphicsType/y"/>
+    </genClasses>
+    <genClasses ecoreClass="scpn.ecore#//HandleType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scpn.ecore#//HandleType/graphics"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//HandleType/id"/>
+    </genClasses>
+    <genClasses ecoreClass="scpn.ecore#//ImmediateTransitionType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//ImmediateTransitionType/priority"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//ImmediateTransitionType/weight"/>
+    </genClasses>
+    <genClasses ecoreClass="scpn.ecore#//InscriptionTextType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scpn.ecore#//InscriptionTextType/graphics"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//InscriptionTextType/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//InscriptionTextType/type"/>
+    </genClasses>
+    <genClasses ecoreClass="scpn.ecore#//InscriptionType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//InscriptionType/text"/>
+    </genClasses>
+    <genClasses ecoreClass="scpn.ecore#//LabelType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//LabelType/text"/>
+    </genClasses>
+    <genClasses ecoreClass="scpn.ecore#//LibImportType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//LibImportType/filename"/>
+    </genClasses>
+    <genClasses ecoreClass="scpn.ecore#//MeasureType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scpn.ecore#//MeasureType/additionalData"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//MeasureType/eval"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//MeasureType/expression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//MeasureType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//MeasureType/path"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//MeasureType/result"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//MeasureType/watch"/>
+    </genClasses>
+    <genClasses ecoreClass="scpn.ecore#//ModuleImplementationType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scpn.ecore#//ModuleImplementationType/label"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scpn.ecore#//ModuleImplementationType/place"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scpn.ecore#//ModuleImplementationType/timedTransition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scpn.ecore#//ModuleImplementationType/immediateTransition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scpn.ecore#//ModuleImplementationType/substitutionTransition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scpn.ecore#//ModuleImplementationType/moduleInstance"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scpn.ecore#//ModuleImplementationType/modulePin"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scpn.ecore#//ModuleImplementationType/arc"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scpn.ecore#//ModuleImplementationType/measure"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scpn.ecore#//ModuleImplementationType/definition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scpn.ecore#//ModuleImplementationType/comment"/>
+    </genClasses>
+    <genClasses ecoreClass="scpn.ecore#//ModuleInstanceType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scpn.ecore#//ModuleInstanceType/label"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scpn.ecore#//ModuleInstanceType/parameterValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//ModuleInstanceType/implementation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//ModuleInstanceType/module"/>
+    </genClasses>
+    <genClasses ecoreClass="scpn.ecore#//ModulePinType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scpn.ecore#//ModulePinType/label"/>
+    </genClasses>
+    <genClasses ecoreClass="scpn.ecore#//ModuleType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scpn.ecore#//ModuleType/label"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scpn.ecore#//ModuleType/net"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scpn.ecore#//ModuleType/parameter"/>
+    </genClasses>
+    <genClasses ecoreClass="scpn.ecore#//NetType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//NetType/gridActive"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//NetType/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//NetType/netclass"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//NetType/sharpEdges"/>
+    </genClasses>
+    <genClasses ecoreClass="scpn.ecore#//NodeType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scpn.ecore#//NodeType/graphics"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//NodeType/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//NodeType/type"/>
+    </genClasses>
+    <genClasses ecoreClass="scpn.ecore#//ParameterType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//ParameterType/dataType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//ParameterType/defaultValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//ParameterType/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//ParameterType/name"/>
+    </genClasses>
+    <genClasses ecoreClass="scpn.ecore#//ParameterValueType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//ParameterValueType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//ParameterValueType/value"/>
+    </genClasses>
+    <genClasses ecoreClass="scpn.ecore#//PlaceType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scpn.ecore#//PlaceType/label"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//PlaceType/capacity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//PlaceType/initialMarking"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//PlaceType/path"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//PlaceType/queue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//PlaceType/tokentype"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//PlaceType/watch"/>
+    </genClasses>
+    <genClasses ecoreClass="scpn.ecore#//RecordTokentype">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scpn.ecore#//RecordTokentype/attribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//RecordTokentype/name"/>
+    </genClasses>
+    <genClasses ecoreClass="scpn.ecore#//ReplicationType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scpn.ecore#//ReplicationType/place"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scpn.ecore#//ReplicationType/timedTransition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scpn.ecore#//ReplicationType/immediateTransition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scpn.ecore#//ReplicationType/substitutionTransition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scpn.ecore#//ReplicationType/moduleInstance"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scpn.ecore#//ReplicationType/modulePin"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scpn.ecore#//ReplicationType/arc"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scpn.ecore#//ReplicationType/measure"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scpn.ecore#//ReplicationType/definition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scpn.ecore#//ReplicationType/comment"/>
+    </genClasses>
+    <genClasses ecoreClass="scpn.ecore#//SCPNNet">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scpn.ecore#//SCPNNet/place"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scpn.ecore#//SCPNNet/timedTransition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scpn.ecore#//SCPNNet/immediateTransition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scpn.ecore#//SCPNNet/substitutionTransition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scpn.ecore#//SCPNNet/module"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scpn.ecore#//SCPNNet/moduleInstance"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scpn.ecore#//SCPNNet/modulePin"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scpn.ecore#//SCPNNet/arc"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scpn.ecore#//SCPNNet/measure"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scpn.ecore#//SCPNNet/definition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scpn.ecore#//SCPNNet/comment"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scpn.ecore#//SCPNNet/recordTokentype"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scpn.ecore#//SCPNNet/libImport"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scpn.ecore#//SCPNNet/parameter"/>
+    </genClasses>
+    <genClasses ecoreClass="scpn.ecore#//SubstitutionTransitionType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scpn.ecore#//SubstitutionTransitionType/net"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//SubstitutionTransitionType/replication"/>
+    </genClasses>
+    <genClasses ecoreClass="scpn.ecore#//TextType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scpn.ecore#//TextType/graphics"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//TextType/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//TextType/type"/>
+    </genClasses>
+    <genClasses ecoreClass="scpn.ecore#//TimedTransitionType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//TimedTransitionType/timeFunction"/>
+    </genClasses>
+    <genClasses ecoreClass="scpn.ecore#//TransitionType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scpn.ecore#//TransitionType/label"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//TransitionType/displayExpression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//TransitionType/globalGuard"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//TransitionType/localGuard"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//TransitionType/logfileDescription"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//TransitionType/logfileExpression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//TransitionType/logfileName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//TransitionType/manualCode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//TransitionType/path"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//TransitionType/serverType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//TransitionType/specType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//TransitionType/takeFirst"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//TransitionType/timeGuard"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//TransitionType/watch"/>
+    </genClasses>
+    <genClasses ecoreClass="scpn.ecore#//TypedefType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//TypedefType/definition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scpn.ecore#//TypedefType/name"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

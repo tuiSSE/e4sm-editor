@@ -1,0 +1,47 @@
+modeltype e4sm "strict" uses e4sm("http://de.tu-ilmenau/e4sm/1.0.0");
+modeltype scpn "strict" uses scpn("http://timenet.tu-ilmenau.de/schema/SCPN");
+
+
+transformation transformToSCPN(in e:e4sm, out s:scpn);
+configuration property packageName : String;
+
+main() {
+	log("Transforming E4SM Model to Stochastic Colored Petri Net");
+	e.rootObjects()[Model].packages->select(p:Package | p.name = packageName)->map packageToSCPN();
+	log("Main: Transformation completed.");
+}
+	
+
+/** Mappings **/
+mapping Package::packageToSCPN() : SCPNNet{
+	log("Transforming package " +  self.name);
+	place += self.components->componentToPlace();
+	id := self.name;
+	
+	//Defautl SCPN Configuration for TimeNET:
+	gridActive := true;
+	netclass :="SCPN";
+	sharpEdges:=false;
+}
+
+mapping Component::componentToPlace() : PlaceType{
+	log("Transforming component " +  self.name);
+	id := self.name;
+	type := Type::node;
+	queue := QueueType::Random;
+	tokentype := "int";
+	label := object LabelType{
+		id:=self.name.concat('.0'); 
+		text:=self.name;
+	 	type:=Type::text;
+	 	graphics := object GraphicsType {
+			x := -10;
+	 		y := 30;
+	 	}
+ 	};
+	 graphics := object GraphicsType {
+	 	orientation:=0;
+	 	x:=0;
+	 	y:=0;
+	 }
+}

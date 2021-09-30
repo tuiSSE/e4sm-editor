@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Qvto Plug-in
+Bundle-SymbolicName: e4sm.de.metamodel.to.scpn.qvto;singleton:=true
+Bundle-Version: 0.1.0.qualifier
+Require-Bundle: org.eclipse.core.runtime;bundle-version="0.0.0",
+ e4sm.de.metamodel;bundle-version="1.0.0",
+ timenet.tuilmenau.de.scpn.metamodel;bundle-version="0.1.0"
+Bundle-ActivationPolicy: lazy
