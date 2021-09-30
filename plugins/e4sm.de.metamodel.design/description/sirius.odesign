@@ -698,12 +698,30 @@
                   <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:diagram.target.oclAsType(e4sm::Package).eContainer(e4sm::Model).computeModelDependencyGraph()"/>
                 </initialOperation>
               </menuItemDescription>
+              <menuItemDescription xsi:type="tool_1:OperationAction" name="compute_model_network" label="Model Network" icon="/e4sm.de.metamodel.design/icons/specified.gif">
+                <view name="views"/>
+                <initialOperation>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:diagram.target.oclAsType(e4sm::Package).eContainer(e4sm::Model).generateNetwork().exportToDOTFile('network.gv')"/>
+                </initialOperation>
+              </menuItemDescription>
+              <menuItemDescription xsi:type="tool_1:OperationAction" name="compute_package_network" label="Package Network" icon="/e4sm.de.metamodel.design/icons/specified.gif">
+                <view name="views"/>
+                <initialOperation>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:diagram.target.oclAsType(e4sm::Package).generateNetwork().exportToDOTFile('network.gv')"/>
+                </initialOperation>
+              </menuItemDescription>
+              <menuItemDescription xsi:type="tool_1:OperationAction" name="compute_package_SCPN" label="to SCPN" icon="/e4sm.de.metamodel.design/icons/specified.gif">
+                <view name="views"/>
+                <initialOperation>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:diagram.target.oclAsType(e4sm::Package).toSCPN('platform:/resource/E4SM_Editor_Example/Results/scpm.xml')"/>
+                </initialOperation>
+              </menuItemDescription>
             </itemDescriptions>
             <itemDescriptions xsi:type="tool_1:PopupMenu" name="popup_start_analysis" label="Start Analysis">
               <menuItemDescription xsi:type="tool_1:OperationAction" name="analysis_time_analysis_start" label="▶ Time Analysis" icon="/e4sm.de.metamodel.design/icons/specified.gif">
                 <view name="views"/>
                 <initialOperation>
-                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:diagram.target.oclAsType(e4sm::Package).startAnalyisOnPackage('/E4SM_Editor_Example/Results','TimeAnalysis')"/>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:diagram.target.oclAsType(e4sm::Package).startAnalysisOnPackage('/E4SM_Editor_Example/Results','TimeAnalysis')"/>
                 </initialOperation>
               </menuItemDescription>
               <menuItemDescription xsi:type="tool_1:OperationAction" name="analysis_bandwidth_analysis_start" label="▶ Bandwidth Analysis" icon="/e4sm.de.metamodel.design/icons/specified.gif">
@@ -733,6 +751,9 @@
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.oclIsKindOf(e4sm::Connector) and ((self.source.oclIsTypeOf(e4sm::InputPin) and self.target.oclIsTypeOf(e4sm::InputPin)) or (self.source.oclIsTypeOf(e4sm::OutputPin) and self.target.oclIsTypeOf(e4sm::OutputPin)))">
             <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_connector']/@style" applyOnAll="true" attributeName="targetArrow" value="NoDecoration"/>
             <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_connector']/@style" applyOnAll="true" attributeName="lineStyle" value="solid"/>
+          </vsmElementCustomizations>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.oclAsType(e4sm::Pin).gatewayPin">
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin']/@style //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin']/@style" applyOnAll="true" attributeName="labelExpression" value="G"/>
           </vsmElementCustomizations>
         </customization>
       </defaultLayer>
@@ -833,7 +854,8 @@
     <ownedJavaExtensions qualifiedClassName="e4sm.de.metamodel.design.Services"/>
     <ownedJavaExtensions qualifiedClassName="e4sm.de.metamodel.design.ConnectorServices"/>
     <ownedJavaExtensions qualifiedClassName="e4sm.de.metamodel.design.ElementTransformationServices"/>
-    <ownedJavaExtensions qualifiedClassName="e4sm.de.metamodel.design.analysis.DependencyGraph"/>
+    <ownedJavaExtensions qualifiedClassName="e4sm.de.metamodel.design.analysis.GraphUtils"/>
     <ownedJavaExtensions qualifiedClassName="e4sm.de.metamodel.design.analysis.AnalysisService"/>
+    <ownedJavaExtensions qualifiedClassName="e4sm.de.metamodel.design.analysis.NetworkUtils"/>
   </ownedViewpoints>
 </description:Group>

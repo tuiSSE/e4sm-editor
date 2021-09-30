@@ -2,6 +2,7 @@ package e4sm.de.metamodel.design;
 
 import org.eclipse.emf.ecore.EObject;
 
+import e4sm.de.metamodel.e4sm.Model;
 import e4sm.de.metamodel.e4sm.Package;
 
 final public class Utils {
@@ -24,6 +25,17 @@ final public class Utils {
 		}
 		return (Package) el;
 	}
+	
+	public static Model getModel(Package p) {
+		if (p == null) {
+			return null;
+		}
+		if (! (p.eContainer() instanceof Model)) {
+			return getModel((Package)p.eContainer());
+		}
+		return (Model) p.eContainer();
+	}
+
 
 	/**
 	 * If debug is enabled, prints the given message

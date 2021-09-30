@@ -5,11 +5,14 @@ import java.nio.file.Path;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import e4sm.de.metamodel.design.Activator;
 import e4sm.de.metamodel.design.Utils;
 import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.Connector;
@@ -21,8 +24,15 @@ import e4sm.de.metamodel.e4sm.analysis.results.AnalysisResult;
 import e4sm.de.metamodel.e4sm.Package;
 import e4sm.de.metamodel.e4sm.Sensor;
 
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.emf.common.CommonPlugin;
+import org.eclipse.emf.common.util.BasicDiagnostic;
+import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.ECollections;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
@@ -30,6 +40,11 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceFactoryImpl;
+import org.eclipse.m2m.qvt.oml.BasicModelExtent;
+import org.eclipse.m2m.qvt.oml.ExecutionContextImpl;
+import org.eclipse.m2m.qvt.oml.ExecutionDiagnostic;
+import org.eclipse.m2m.qvt.oml.ModelExtent;
+import org.eclipse.m2m.qvt.oml.TransformationExecutor;
 
 import com.google.common.graph.MutableNetwork;
 
@@ -52,6 +67,76 @@ public class AnalysisService {
 
 	private void addResult(AnalysisResult ar) {
 		results.add(ar);
+	}
+	
+	public void toSCPN(Package p, String outputPath) {
+		Utils.debug("Converting package to SCPN");
+		Utils.debug("Package: " +p.getName());
+		Model m = Utils.getModel(p);
+		// Refer to an existing transformation via URI
+		//URI transformationURI = URI.createURI("platform:/plugin/e4sm.de.metamodel.to.scpn.qvto/transforms/transformToSCPN.qvto");
+		URI transformationURI = URI.createURI("platform:/resource/e4sm.de.metamodel.to.scpn.qvto/transforms/transformToSCPN.qvto");
+		if(!transformationURI.isFile()) {
+			System.err.println("Given URI is not a transformation file");
+		}
+		if(!transformationURI.isPlatformPlugin()) {
+			System.err.println("Given URI is not a platform plugin");
+		}
+		Utils.debug(transformationURI.toString());
+		// create executor for the given transformation
+		TransformationExecutor executor = new TransformationExecutor(transformationURI);
+		Utils.debug("TransformationExecutor - created");
+		// define the transformation input
+		//Define an empty list
+		Utils.debug("Creating an empty list");
+		EList<EObject> inObjects = ECollections.newBasicEList();
+		//Add the package to the list
+		Utils.debug("Add model to the list");
+		inObjects.add(m);
+
+		Utils.debug("Setting input model");
+		// create the input extent with its initial contents
+		ModelExtent input = new BasicModelExtent(inObjects);		
+		// create an empty extent to catch the output
+		ModelExtent output = new BasicModelExtent();
+
+		// setup the execution environment details -> 
+		// configuration properties, logger, monitor object etc.
+		ExecutionContextImpl context = new ExecutionContextImpl();
+		context.setConfigProperty("packageID", p.getName());
+
+		// run the transformation assigned to the executor with the given 
+		// input and output and execution context -> ChangeTheWorld(in, out)
+		// Remark: variable arguments count is supported
+		Utils.debug("Sirius - starting transformation");
+		ExecutionDiagnostic result = executor.execute(context, input, output);
+
+		// check the result for success
+		System.out.println(result.toString());
+		if(result.getSeverity() == Diagnostic.OK) {
+			Utils.debug("Sirius - transformation succeded");
+			Utils.debug(output.toString());
+			// the output objects got captured in the output extent
+			List<EObject> outObjects = output.getContents();
+			// let's persist them using a resource 
+		        ResourceSet resourceSet2 = new ResourceSetImpl();
+			Resource outResource = resourceSet2.getResource(
+					URI.createURI(outputPath), true);
+			outResource.getContents().addAll(outObjects);
+			try {
+				Utils.debug(outResource.toString());
+				outResource.save(Collections.emptyMap());
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				System.err.println("Failed to save output SCPN");
+				e.printStackTrace();
+			}
+		} else {
+			System.err.println("Sirius - Transformation failed");
+			// turn the result diagnostic into status and send it to error log			
+			IStatus status = BasicDiagnostic.toIStatus(result);
+			Activator.getDefault().getLog().log(status);
+		}
 	}
 
 	private Boolean startAnalysisExecution() {

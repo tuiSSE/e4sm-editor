@@ -53,7 +53,7 @@ public abstract class ValueSpecificationImpl extends TypedElementImpl implements
 	 */
 	@Override
 	public int integerValue() {
-		if(this instanceof LiteralInteger) {
+		if (this instanceof LiteralInteger) {
 			return ((LiteralInteger) this).getValue();
 		}
 		return 0;
