@@ -22,7 +22,7 @@ Export-Package: e4sm.de.metamodel.e4sm,
  e4sm.de.metamodel.e4sm.guava.impl,
  e4sm.de.metamodel.e4sm.guava.util,
  e4sm.de.metamodel.e4sm.util
-Bundle-RequiredExecutionEnvironment: JavaSE-15
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
