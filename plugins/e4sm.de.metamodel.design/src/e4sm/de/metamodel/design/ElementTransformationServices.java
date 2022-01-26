@@ -1,9 +1,8 @@
 package e4sm.de.metamodel.design;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeEditPart;
@@ -17,7 +16,9 @@ import org.eclipse.sirius.diagram.DNodeContainer;
 import org.eclipse.sirius.diagram.ui.business.api.view.SiriusGMFHelper;
 import org.eclipse.sirius.diagram.ui.business.api.view.SiriusLayoutDataManager;
 import org.eclipse.sirius.diagram.ui.business.internal.view.RootLayoutData;
+import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.ui.IEditorPart;
+
 
 import e4sm.de.metamodel.e4sm.Actuator;
 import e4sm.de.metamodel.e4sm.Component;
@@ -25,7 +26,7 @@ import e4sm.de.metamodel.e4sm.ExternalDependency;
 import e4sm.de.metamodel.e4sm.Function;
 import e4sm.de.metamodel.e4sm.Heuristic;
 import e4sm.de.metamodel.e4sm.MachineLearningComponent;
-import e4sm.de.metamodel.e4sm.NamedElement;
+import e4sm.de.metamodel.e4sm.core.NamedElement;
 import e4sm.de.metamodel.e4sm.Package;
 import e4sm.de.metamodel.e4sm.PhysicalComponent;
 import e4sm.de.metamodel.e4sm.Sector;
@@ -34,6 +35,11 @@ import e4sm.de.metamodel.e4sm.SoftwareComponent;
 import e4sm.de.metamodel.e4sm.e4smFactory;
 
 public class ElementTransformationServices {
+	
+	public ElementTransformationServices() {
+		
+	}
+	
 
 	/***
 	 * This method returns the EditPart corresponding to a DDiagramElement Source:
@@ -42,7 +48,7 @@ public class ElementTransformationServices {
 	 * @param diagramElement
 	 * @return
 	 */
-	private IGraphicalEditPart getEditPart(DDiagramElement diagramElement) {
+	private static IGraphicalEditPart getEditPart(DDiagramElement diagramElement) {
 		IEditorPart editor = EclipseUIUtil.getActiveEditor();
 		if (editor instanceof DiagramEditor) {
 			Session session = new EObjectQuery(diagramElement).getSession();
@@ -62,7 +68,11 @@ public class ElementTransformationServices {
 		return null;
 	}
 
-	private void restorePositionAndSize(DNodeContainer existingNode) {
+	/**
+	 * Places the new element at the same position of the old one 
+	 * @param existingNode
+	 */
+	private static void restorePositionAndSize(DNodeContainer existingNode) {
 		IGraphicalEditPart editPart = getEditPart(existingNode);
 		if (editPart instanceof ShapeEditPart) {
 			ShapeEditPart part = (ShapeEditPart) editPart;
@@ -71,13 +81,13 @@ public class ElementTransformationServices {
 		}
 	}
 
-	/*
+	/**
 	 * Transforms the given (software/physical) component to a Component
+	 * @param c
+	 * @param containingViews
 	 */
-	public void transformToComponent(Component c, ArrayList<EObject> containingViews) {
-		System.out.println("Tr");
+	public static void transformToComponent(Component c, List<DSemanticDecorator> containingViews) {
 		final Component newComponent = e4smFactory.eINSTANCE.createComponent();
-
 		// ArrayList<EObject> references = new ArrayList<EObject>( new
 		// EObjectQuery(c).getInverseReferences(ViewpointPackage.Literals.DSEMANTIC_DECORATOR__TARGET));
 
@@ -155,7 +165,7 @@ public class ElementTransformationServices {
 	/*
 	 * Transforms the given specific software component to a SoftwareComponent
 	 */
-	public void transformToSoftwareComponent(SoftwareComponent c, ArrayList<EObject> containingViews) {
+	public void transformToSoftwareComponent(SoftwareComponent c,  List<DSemanticDecorator> containingViews) {
 		final SoftwareComponent newComponent = e4smFactory.eINSTANCE.createSoftwareComponent();
 		NamedElement oldComponentContainer = (NamedElement) c.eContainer();
 		if (oldComponentContainer instanceof Component) {

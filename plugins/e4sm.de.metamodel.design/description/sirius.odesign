@@ -623,7 +623,7 @@
               <menuItemDescription xsi:type="tool_1:OperationAction" name="change_to_software_component_action" label="To Software Component" precondition="aql:container.oclIsKindOf(e4sm::SoftwareComponent) and not container.oclIsTypeOf(e4sm::SoftwareComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/SoftwareComponent.gif">
                 <view name="views"/>
                 <initialOperation>
-                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.transformToSoftwareComponent(views)"/>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformToSoftwareComponent(views)"/>
                 </initialOperation>
               </menuItemDescription>
               <menuItemDescription xsi:type="tool_1:OperationAction" name="change_to_physical_component_action" label="To Physical Component" precondition="aql:container.oclIsKindOf(e4sm::PhysicalComponent) and not container.oclIsTypeOf(e4sm::PhysicalComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/PhysicalComponent.gif">
