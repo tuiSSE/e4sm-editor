@@ -4,7 +4,7 @@
     modelDirectory="/e4sm.de.metamodel/src-gen" creationIcons="false"
     editDirectory="/e4sm.de.metamodel.edit/src-gen" editorDirectory="/e4sm.de.metamodel.editor/src-gen"
     modelPluginID="e4sm.de.metamodel" modelName="e4sm" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
-    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="15.0"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="17.0"
     copyrightFields="false" operationReflection="true" importOrganizing="true">
   <foreignModel>e4sm.ecore</foreignModel>
   <testsDirectory xsi:nil="true"/>
