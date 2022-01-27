@@ -101,8 +101,7 @@ public class ConnectorItemProvider extends ItemProviderAdapter implements IEditi
 						e4smPackage.Literals.CONNECTOR__SOURCE, true, false, true, null, null, null) {
 					@Override
 					public Collection<?> getChoiceOfValues(Object object) {
-						if (object instanceof Connector) {
-							Connector connector = (Connector) object;
+						if (object instanceof Connector connector) {
 							Package contaninedInPackage = (Package) connector.eContainer();
 							EGenericType eGenericType = connector.eClass().getFeatureType(feature);
 							Collection<EObject> result = new UniqueEList<EObject>();
@@ -134,8 +133,7 @@ public class ConnectorItemProvider extends ItemProviderAdapter implements IEditi
 						e4smPackage.Literals.CONNECTOR__TARGET, true, false, true, null, null, null) {
 					@Override
 					public Collection<?> getChoiceOfValues(Object object) {
-						if (object instanceof Connector) {
-							Connector connector = (Connector) object;
+						if (object instanceof Connector connector) {
 							Package contaninedInPackage = (Package) connector.eContainer();
 							EGenericType eGenericType = connector.eClass().getFeatureType(feature);
 							Collection<EObject> result = new UniqueEList<EObject>();

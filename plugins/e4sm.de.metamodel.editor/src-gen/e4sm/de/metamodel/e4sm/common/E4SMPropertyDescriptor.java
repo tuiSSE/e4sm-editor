@@ -40,8 +40,7 @@ public class E4SMPropertyDescriptor extends PropertyDescriptor {
 		}
 		EClassifier eType = ((EStructuralFeature) itemPropertyDescriptor.getFeature(object)).getEType();
 		System.err.println(itemPropertyDescriptor.getClass().toString());
-		if (eType instanceof EDataType) {
-			EDataType eDataType = (EDataType) eType;
+		if (eType instanceof EDataType eDataType) {
 			if (eDataType.getInstanceClass() == LocalDate.class) {
 				result = new ExtendedDialogCellEditor(composite, getEditLabelProvider()) {
 					protected Object openDialogBox(Control cellEditorWindow) {
