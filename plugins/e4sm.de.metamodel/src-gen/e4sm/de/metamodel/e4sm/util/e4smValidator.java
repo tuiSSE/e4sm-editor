@@ -712,21 +712,18 @@ public class e4smValidator extends EObjectValidator {
 
 	/**
 	 * Validates the PackageC1 constraint of '<em>Package</em>'.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
-	 * @generated
+	 * <!-- begin-user-doc --> 
+	 * C1: A package is contained by this package but is not used to specify any component
+	 * <!-- end-user-doc -->
+	 * @generated NOT
 	 */
 	public boolean validatePackage_PackageC1(e4sm.de.metamodel.e4sm.Package package_, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
-		// TODO implement the constraint
-		// -> specify the condition that violates the constraint
-		// -> verify the diagnostic details, including severity, code, and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
+		if (package_.getSpecifiesComponent() == null && package_.eContainer() instanceof Package) {
 			if (diagnostics != null) {
 				diagnostics.add(
-						createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic",
-								new Object[] { "PackageC1", getObjectLabel(package_, context) },
+						createDiagnostic(Diagnostic.WARNING, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic",
+								new Object[] { "C1: A package is contained by this package but is not used to specify any component", getObjectLabel(package_, context) },
 								new Object[] { package_ }, context));
 			}
 			return false;

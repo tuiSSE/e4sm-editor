@@ -67,6 +67,11 @@
       </components>
     </sectors>
   </packages>
+  <packages xmi:id="_983IIH9cEeyG66o6Osh0ew" name="Package TestCases">
+    <components xsi:type="e4sm:SoftwareComponent" xmi:id="_DOQwUH9dEeyG66o6Osh0ew" name="Component To Be Specified" specifiedInPackage="_FRCgYH9dEeyG66o6Osh0ew"/>
+    <packages xmi:id="__pnk4H9cEeyG66o6Osh0ew" name="Violates C1"/>
+    <packages xmi:id="_FRCgYH9dEeyG66o6Osh0ew" name="Does Not Violate C1" specifiesComponent="_DOQwUH9dEeyG66o6Osh0ew"/>
+  </packages>
   <actors xmi:id="_WuRuC7I2EeuWI7I5oKywHA" name="TestActor"/>
   <actors xsi:type="e4sm:Human" xmi:id="_WuRuDLI2EeuWI7I5oKywHA" name="Test Human"/>
   <actors xsi:type="e4sm:Robot" xmi:id="_WuRuDbI2EeuWI7I5oKywHA" name="Test Robot"/>

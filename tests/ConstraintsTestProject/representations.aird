@@ -28,6 +28,10 @@
         <description xmi:type="description_1:DiagramDescription" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']"/>
         <target xmi:type="e4sm:Package" href="Constraints.e4sm#_rz-iEH9aEeyTs9gBHln3JQ"/>
       </ownedRepresentationDescriptors>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_gfBUoH9dEeyG66o6Osh0ew" name="[DTD] Package TestCases" repPath="#_ge-RUH9dEeyG66o6Osh0ew" changeId="c440f8e6-3ef7-4afe-9184-e43f81993521">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']"/>
+        <target xmi:type="e4sm:Package" href="Constraints.e4sm#_983IIH9cEeyG66o6Osh0ew"/>
+      </ownedRepresentationDescriptors>
     </ownedViews>
   </viewpoint:DAnalysis>
   <diagram:DSemanticDiagram uid="_3wa5MLI2EeuWI7I5oKywHA">
@@ -1145,5 +1149,63 @@
     <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_yQq4sH9aEeyTs9gBHln3JQ"/>
     <activatedLayers xmi:type="description_1:Layer" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer"/>
     <target xmi:type="e4sm:Package" href="Constraints.e4sm#_rz-iEH9aEeyTs9gBHln3JQ"/>
+  </diagram:DSemanticDiagram>
+  <diagram:DSemanticDiagram uid="_ge-RUH9dEeyG66o6Osh0ew">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_gfIpYH9dEeyG66o6Osh0ew" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_gfIpYX9dEeyG66o6Osh0ew" type="Sirius" element="_ge-RUH9dEeyG66o6Osh0ew" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_gfTogH9dEeyG66o6Osh0ew" type="2002" element="_gfLssH9dEeyG66o6Osh0ew">
+          <children xmi:type="notation:Node" xmi:id="_gfVdsH9dEeyG66o6Osh0ew" type="5006"/>
+          <children xmi:type="notation:Node" xmi:id="_gfWEwH9dEeyG66o6Osh0ew" type="7001">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_gfWEwX9dEeyG66o6Osh0ew"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_gfWEwn9dEeyG66o6Osh0ew"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_gfTogX9dEeyG66o6Osh0ew" fontName="Segoe UI" fontHeight="12"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gfTogn9dEeyG66o6Osh0ew" x="150" y="270"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_htw_sH9dEeyG66o6Osh0ew" type="Note" fontName="Segoe UI" description="C1: This package is contained by another package but does not specify any component" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_htw_sX9dEeyG66o6Osh0ew" source="specificStyles">
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_htw_sn9dEeyG66o6Osh0ew" key="verticalAlignment" value="8"/>
+          </eAnnotations>
+          <children xmi:type="notation:BasicDecorationNode" xmi:id="_htxmwH9dEeyG66o6Osh0ew" type="DiagramName">
+            <element xsi:nil="true"/>
+          </children>
+          <children xmi:type="notation:BasicDecorationNode" xmi:id="_htxmwX9dEeyG66o6Osh0ew" type="Description">
+            <element xsi:nil="true"/>
+          </children>
+          <styles xmi:type="notation:TextStyle" xmi:id="_htw_s39dEeyG66o6Osh0ew" textAlignment="Center"/>
+          <styles xmi:type="notation:LineTypeStyle" xmi:id="_htw_tH9dEeyG66o6Osh0ew"/>
+          <element xsi:nil="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_htw_tX9dEeyG66o6Osh0ew" x="75" y="60" width="421" height="106"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_gfIpYn9dEeyG66o6Osh0ew"/>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_gfNh4H9dEeyG66o6Osh0ew" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_gfNh4X9dEeyG66o6Osh0ew">
+        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_gfNh4n9dEeyG66o6Osh0ew" borderSizeComputationExpression="1" labelSize="12" tooltipExpression="aql:'Software Component &quot;'+self.name+'&quot;'">
+          <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_yellow']"/>
+          <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          <backgroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
+          <foregroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
+          <labelBorderStyle xmi:type="style_1:LabelBorderStyleDescription" href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.2"/>
+        </computedStyleDescriptions>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_gfLssH9dEeyG66o6Osh0ew" name="Component To Be Specified" tooltipText="Software Component &quot;Component To Be Specified&quot;">
+      <target xmi:type="e4sm:SoftwareComponent" href="Constraints.e4sm#_DOQwUH9dEeyG66o6Osh0ew"/>
+      <semanticElements xmi:type="e4sm:SoftwareComponent" href="Constraints.e4sm#_DOQwUH9dEeyG66o6Osh0ew"/>
+      <decorations xmi:type="viewpoint:Decoration" uid="_gfOwAH9dEeyG66o6Osh0ew">
+        <description xmi:type="description:SemanticBasedDecoration" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='Arrow%20on%20Specified%20Components']"/>
+      </decorations>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_gfOI8H9dEeyG66o6Osh0ew" labelSize="12" description="_gfNh4n9dEeyG66o6Osh0ew" borderSize="1" borderSizeComputationExpression="1" borderColor="214,197,66" backgroundColor="252,233,79" foregroundColor="252,233,79"/>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_SoftwareComponent']"/>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_ge-4YH9dEeyG66o6Osh0ew"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer"/>
+    <target xmi:type="e4sm:Package" href="Constraints.e4sm#_983IIH9cEeyG66o6Osh0ew"/>
   </diagram:DSemanticDiagram>
 </xmi:XMI>
