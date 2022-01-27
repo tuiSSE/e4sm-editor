@@ -33,7 +33,7 @@ public interface Sector extends NamedElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A list of references to components which are contained in this sector
+	 * A list of references to components which are contained in this sector. Only Physical Components should be allowed.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Components</em>' containment reference list.
 	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getSector_Components()

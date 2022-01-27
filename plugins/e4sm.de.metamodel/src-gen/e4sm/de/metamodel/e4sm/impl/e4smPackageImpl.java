@@ -1543,6 +1543,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		addAnnotation(packageEClass, source, new String[] { "constraints", "PackageC1" });
 		addAnnotation(sensorEClass, source, new String[] { "constraints", "SensorC1" });
 		addAnnotation(actuatorEClass, source, new String[] { "constraints", "ActuatorC1" });
+		addAnnotation(pinEClass, source, new String[] { "constraints", "PinC1" });
 	}
 
 } //e4smPackageImpl

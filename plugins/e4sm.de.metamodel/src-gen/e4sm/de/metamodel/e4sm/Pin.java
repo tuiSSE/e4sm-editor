@@ -26,6 +26,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * @see e4sm.de.metamodel.e4sm.e4smPackage#getPin()
  * @model abstract="true"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='PinC1'"
  * @generated
  */
 public interface Pin extends ParameterizableElement, TypedElement {

@@ -32,6 +32,10 @@
         <description xmi:type="description_1:DiagramDescription" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']"/>
         <target xmi:type="e4sm:Package" href="Constraints.e4sm#_983IIH9cEeyG66o6Osh0ew"/>
       </ownedRepresentationDescriptors>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_EUy9wH9hEeyp_5B0a6JkUQ" name="[DTD] Pin TestCases" repPath="#_EUvTYH9hEeyp_5B0a6JkUQ" changeId="3f0ec793-4a77-4eac-8ee9-8e5943b3c38f">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']"/>
+        <target xmi:type="e4sm:Package" href="Constraints.e4sm#_Bnj7cH9hEeyp_5B0a6JkUQ"/>
+      </ownedRepresentationDescriptors>
     </ownedViews>
   </viewpoint:DAnalysis>
   <diagram:DSemanticDiagram uid="_3wa5MLI2EeuWI7I5oKywHA">
@@ -1207,5 +1211,226 @@
     <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_ge-4YH9dEeyG66o6Osh0ew"/>
     <activatedLayers xmi:type="description_1:Layer" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer"/>
     <target xmi:type="e4sm:Package" href="Constraints.e4sm#_983IIH9cEeyG66o6Osh0ew"/>
+  </diagram:DSemanticDiagram>
+  <diagram:DSemanticDiagram uid="_EUvTYH9hEeyp_5B0a6JkUQ">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_EU32QH9hEeyp_5B0a6JkUQ" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_EU32QX9hEeyp_5B0a6JkUQ" type="Sirius" element="_EUvTYH9hEeyp_5B0a6JkUQ" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_FcF9AH9hEeyp_5B0a6JkUQ" type="2002" element="_Fb4hoH9hEeyp_5B0a6JkUQ">
+          <children xmi:type="notation:Node" xmi:id="_FcHyMH9hEeyp_5B0a6JkUQ" type="5006"/>
+          <children xmi:type="notation:Node" xmi:id="_FcIZQH9hEeyp_5B0a6JkUQ" type="7001">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_FcIZQX9hEeyp_5B0a6JkUQ"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_FcIZQn9hEeyp_5B0a6JkUQ"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_FcJnYH9hEeyp_5B0a6JkUQ" type="3012" element="_Fb8zEH9hEeyp_5B0a6JkUQ">
+            <children xmi:type="notation:Node" xmi:id="_FcKOcH9hEeyp_5B0a6JkUQ" type="5010">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_FcKOcX9hEeyp_5B0a6JkUQ" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_FcPuAH9hEeyp_5B0a6JkUQ" type="3004" element="_Fb8zEX9hEeyp_5B0a6JkUQ">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_FcPuAX9hEeyp_5B0a6JkUQ" fontName="Segoe UI"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_FcPuAn9hEeyp_5B0a6JkUQ"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_FcJnYX9hEeyp_5B0a6JkUQ" fontName="Segoe UI" bold="true"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_FcJnYn9hEeyp_5B0a6JkUQ" x="-22" y="30" width="30" height="30"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_FcOf4H9hEeyp_5B0a6JkUQ" type="3012" element="_Fb9aIH9hEeyp_5B0a6JkUQ">
+            <children xmi:type="notation:Node" xmi:id="_FcPG8H9hEeyp_5B0a6JkUQ" type="5010">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_FcPG8X9hEeyp_5B0a6JkUQ" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_FcPuA39hEeyp_5B0a6JkUQ" type="3004" element="_Fb-BMH9hEeyp_5B0a6JkUQ">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_FcPuBH9hEeyp_5B0a6JkUQ" fontName="Segoe UI"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_FcPuBX9hEeyp_5B0a6JkUQ"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_FcOf4X9hEeyp_5B0a6JkUQ" fontName="Segoe UI" bold="true"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_FcOf4n9hEeyp_5B0a6JkUQ" x="235" y="30" width="30" height="30"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_FcF9AX9hEeyp_5B0a6JkUQ" fontName="Segoe UI" fontHeight="12"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_FcF9An9hEeyp_5B0a6JkUQ" x="45" y="105"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_GlZHYH9hEeyp_5B0a6JkUQ" type="2002" element="_GlRLkn9hEeyp_5B0a6JkUQ">
+          <children xmi:type="notation:Node" xmi:id="_GlZHY39hEeyp_5B0a6JkUQ" type="5006"/>
+          <children xmi:type="notation:Node" xmi:id="_GlZHZH9hEeyp_5B0a6JkUQ" type="7001">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_GlZHZX9hEeyp_5B0a6JkUQ"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_GlZHZn9hEeyp_5B0a6JkUQ"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_GlZucH9hEeyp_5B0a6JkUQ" type="3012" element="_GlSZsn9hEeyp_5B0a6JkUQ">
+            <children xmi:type="notation:Node" xmi:id="_GlZuc39hEeyp_5B0a6JkUQ" type="5010">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_GlZudH9hEeyp_5B0a6JkUQ" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_GlZudX9hEeyp_5B0a6JkUQ" type="3004" element="_GlTAwH9hEeyp_5B0a6JkUQ">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_GlZudn9hEeyp_5B0a6JkUQ" fontName="Segoe UI"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_GlZud39hEeyp_5B0a6JkUQ"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_GlZucX9hEeyp_5B0a6JkUQ" fontName="Segoe UI" bold="true"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_GlZucn9hEeyp_5B0a6JkUQ" x="-22" y="30" width="30" height="30"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_GlZHYX9hEeyp_5B0a6JkUQ" fontName="Segoe UI" fontHeight="12"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_GlZHYn9hEeyp_5B0a6JkUQ" x="420" y="105"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_JxM8EH9hEeyp_5B0a6JkUQ" type="2002" element="_JxFAQn9hEeyp_5B0a6JkUQ">
+          <children xmi:type="notation:Node" xmi:id="_JxNjIH9hEeyp_5B0a6JkUQ" type="5006"/>
+          <children xmi:type="notation:Node" xmi:id="_JxNjIX9hEeyp_5B0a6JkUQ" type="7001">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_JxNjIn9hEeyp_5B0a6JkUQ"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_JxNjI39hEeyp_5B0a6JkUQ"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_JxNjJH9hEeyp_5B0a6JkUQ" type="3012" element="_JxGOYH9hEeyp_5B0a6JkUQ">
+            <children xmi:type="notation:Node" xmi:id="_JxNjJ39hEeyp_5B0a6JkUQ" type="5010">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_JxNjKH9hEeyp_5B0a6JkUQ" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_JxOKMH9hEeyp_5B0a6JkUQ" type="3004" element="_JxGOYX9hEeyp_5B0a6JkUQ">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_JxOKMX9hEeyp_5B0a6JkUQ" fontName="Segoe UI"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JxOKMn9hEeyp_5B0a6JkUQ"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_JxNjJX9hEeyp_5B0a6JkUQ" fontName="Segoe UI" bold="true"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JxNjJn9hEeyp_5B0a6JkUQ" x="140" y="15" width="30" height="30"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_JxM8EX9hEeyp_5B0a6JkUQ" fontName="Segoe UI" fontHeight="12"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JxM8En9hEeyp_5B0a6JkUQ" x="45" y="225"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_Oj-HgH9hEeyp_5B0a6JkUQ" type="Note" fontName="Segoe UI" description="C1: pin is disconnected" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Oj-HgX9hEeyp_5B0a6JkUQ" source="specificStyles">
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Oj-Hgn9hEeyp_5B0a6JkUQ" key="verticalAlignment" value="8"/>
+          </eAnnotations>
+          <children xmi:type="notation:BasicDecorationNode" xmi:id="_Oj-ukH9hEeyp_5B0a6JkUQ" type="DiagramName">
+            <element xsi:nil="true"/>
+          </children>
+          <children xmi:type="notation:BasicDecorationNode" xmi:id="_Oj-ukX9hEeyp_5B0a6JkUQ" type="Description">
+            <element xsi:nil="true"/>
+          </children>
+          <styles xmi:type="notation:TextStyle" xmi:id="_Oj-Hg39hEeyp_5B0a6JkUQ" textAlignment="Center"/>
+          <styles xmi:type="notation:LineTypeStyle" xmi:id="_Oj-HhH9hEeyp_5B0a6JkUQ"/>
+          <element xsi:nil="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Oj-HhX9hEeyp_5B0a6JkUQ" x="30" y="15" width="481" height="61"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_EU32Qn9hEeyp_5B0a6JkUQ"/>
+        <edges xmi:type="notation:Edge" xmi:id="_HXOM8H9hEeyp_5B0a6JkUQ" type="4001" element="_HXFqEH9hEeyp_5B0a6JkUQ" source="_FcOf4H9hEeyp_5B0a6JkUQ" target="_GlZucH9hEeyp_5B0a6JkUQ">
+          <children xmi:type="notation:Node" xmi:id="_HXO0AH9hEeyp_5B0a6JkUQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HXO0AX9hEeyp_5B0a6JkUQ" x="37" y="4"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_HXPbEH9hEeyp_5B0a6JkUQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HXPbEX9hEeyp_5B0a6JkUQ" x="-2" y="8"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_HXPbEn9hEeyp_5B0a6JkUQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HXPbE39hEeyp_5B0a6JkUQ" x="-42" y="-8"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_HXOM8X9hEeyp_5B0a6JkUQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_HXOM8n9hEeyp_5B0a6JkUQ" fontName="Segoe UI" fontHeight="12"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_HXOM839hEeyp_5B0a6JkUQ" points="[11, -1, -103, 10]$[99, -1, -15, 10]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_HXRQQH9hEeyp_5B0a6JkUQ" id="(0.6666666666666666,1.0)"/>
+        </edges>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_EU984H9hEeyp_5B0a6JkUQ" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_EU984X9hEeyp_5B0a6JkUQ">
+        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_Fb6W0H9hEeyp_5B0a6JkUQ" borderSizeComputationExpression="1" labelSize="12" tooltipExpression="aql:'Physical Component &quot;'+self.name+'&quot;'">
+          <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_orange']"/>
+          <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          <backgroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+          <foregroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+          <labelBorderStyle xmi:type="style_1:LabelBorderStyleDescription" href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.2"/>
+        </computedStyleDescriptions>
+        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_GlRyoH9hEeyp_5B0a6JkUQ" borderSizeComputationExpression="1" labelSize="12" tooltipExpression="aql:'Actuator &quot;'+self.name+'&quot;'">
+          <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_orange']"/>
+          <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          <backgroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+          <foregroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+          <labelBorderStyle xmi:type="style_1:LabelBorderStyleDescription" href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.2"/>
+        </computedStyleDescriptions>
+        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_JxFnUH9hEeyp_5B0a6JkUQ" borderSizeComputationExpression="1" labelSize="12" tooltipExpression="aql:'Sensor &quot;'+self.name+'&quot;'">
+          <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_orange']"/>
+          <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          <backgroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+          <foregroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+          <labelBorderStyle xmi:type="style_1:LabelBorderStyleDescription" href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.2"/>
+        </computedStyleDescriptions>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_Fb4hoH9hEeyp_5B0a6JkUQ" name="New Physical Component" tooltipText="Physical Component &quot;New Physical Component&quot;">
+      <target xmi:type="e4sm:PhysicalComponent" href="Constraints.e4sm#_Fb36kH9hEeyp_5B0a6JkUQ"/>
+      <semanticElements xmi:type="e4sm:PhysicalComponent" href="Constraints.e4sm#_Fb36kH9hEeyp_5B0a6JkUQ"/>
+      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_Fb8zEH9hEeyp_5B0a6JkUQ" name="IN" width="3" height="3">
+        <target xmi:type="e4sm:InputPin" href="Constraints.e4sm#_Fb36kn9hEeyp_5B0a6JkUQ"/>
+        <semanticElements xmi:type="e4sm:InputPin" href="Constraints.e4sm#_Fb36kn9hEeyp_5B0a6JkUQ"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_Fb8zEX9hEeyp_5B0a6JkUQ" labelSize="9" showIcon="false" labelPosition="node" color="255,255,255">
+          <labelFormat>bold</labelFormat>
+          <description xmi:type="style:BundledImageDescription" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin']"/>
+      </ownedBorderedNodes>
+      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_Fb9aIH9hEeyp_5B0a6JkUQ" name="O" outgoingEdges="_HXFqEH9hEeyp_5B0a6JkUQ" width="3" height="3">
+        <target xmi:type="e4sm:OutputPin" href="Constraints.e4sm#_Fb36kX9hEeyp_5B0a6JkUQ"/>
+        <semanticElements xmi:type="e4sm:OutputPin" href="Constraints.e4sm#_Fb36kX9hEeyp_5B0a6JkUQ"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_Fb-BMH9hEeyp_5B0a6JkUQ" labelSize="9" showIcon="false" labelPosition="node" color="209,209,209">
+          <labelFormat>bold</labelFormat>
+          <description xmi:type="style:BundledImageDescription" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin']"/>
+      </ownedBorderedNodes>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_Fb6W0X9hEeyp_5B0a6JkUQ" labelSize="12" description="_Fb6W0H9hEeyp_5B0a6JkUQ" borderSize="1" borderSizeComputationExpression="1" borderColor="224,133,3" backgroundColor="253,206,137" foregroundColor="253,206,137"/>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_PhisicalComponent']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_GlRLkn9hEeyp_5B0a6JkUQ" name="New Actuator" tooltipText="Actuator &quot;New Actuator&quot;">
+      <target xmi:type="e4sm:Actuator" href="Constraints.e4sm#_GlRLkH9hEeyp_5B0a6JkUQ"/>
+      <semanticElements xmi:type="e4sm:Actuator" href="Constraints.e4sm#_GlRLkH9hEeyp_5B0a6JkUQ"/>
+      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_GlSZsn9hEeyp_5B0a6JkUQ" name="IN" incomingEdges="_HXFqEH9hEeyp_5B0a6JkUQ" width="3" height="3">
+        <target xmi:type="e4sm:InputPin" href="Constraints.e4sm#_GlRLkX9hEeyp_5B0a6JkUQ"/>
+        <semanticElements xmi:type="e4sm:InputPin" href="Constraints.e4sm#_GlRLkX9hEeyp_5B0a6JkUQ"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_GlTAwH9hEeyp_5B0a6JkUQ" labelSize="9" showIcon="false" labelPosition="node" color="255,255,255">
+          <labelFormat>bold</labelFormat>
+          <description xmi:type="style:BundledImageDescription" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin']"/>
+      </ownedBorderedNodes>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_GlSZsH9hEeyp_5B0a6JkUQ" labelSize="12" description="_GlRyoH9hEeyp_5B0a6JkUQ" borderSize="1" borderSizeComputationExpression="1" borderColor="224,133,3" backgroundColor="253,206,137" foregroundColor="253,206,137"/>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Actuator']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_HXFqEH9hEeyp_5B0a6JkUQ" sourceNode="_Fb9aIH9hEeyp_5B0a6JkUQ" targetNode="_GlSZsn9hEeyp_5B0a6JkUQ">
+      <target xmi:type="e4sm:PhysicalConnector" href="Constraints.e4sm#_HXEb8H9hEeyp_5B0a6JkUQ"/>
+      <semanticElements xmi:type="e4sm:PhysicalConnector" href="Constraints.e4sm#_HXEb8H9hEeyp_5B0a6JkUQ"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_HXGRIH9hEeyp_5B0a6JkUQ" size="3" strokeColor="0,0,0">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_physical_connector']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_HXGRIX9hEeyp_5B0a6JkUQ" labelSize="12"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_physical_connector']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_JxFAQn9hEeyp_5B0a6JkUQ" name="New Sensor" tooltipText="Sensor &quot;New Sensor&quot;">
+      <target xmi:type="e4sm:Sensor" href="Constraints.e4sm#_JxFAQH9hEeyp_5B0a6JkUQ"/>
+      <semanticElements xmi:type="e4sm:Sensor" href="Constraints.e4sm#_JxFAQH9hEeyp_5B0a6JkUQ"/>
+      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_JxGOYH9hEeyp_5B0a6JkUQ" name="O" width="3" height="3">
+        <target xmi:type="e4sm:OutputPin" href="Constraints.e4sm#_JxFAQX9hEeyp_5B0a6JkUQ"/>
+        <semanticElements xmi:type="e4sm:OutputPin" href="Constraints.e4sm#_JxFAQX9hEeyp_5B0a6JkUQ"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_JxGOYX9hEeyp_5B0a6JkUQ" labelSize="9" showIcon="false" labelPosition="node" color="209,209,209">
+          <labelFormat>bold</labelFormat>
+          <description xmi:type="style:BundledImageDescription" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin']"/>
+      </ownedBorderedNodes>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_JxFnUX9hEeyp_5B0a6JkUQ" labelSize="12" description="_JxFnUH9hEeyp_5B0a6JkUQ" borderSize="1" borderSizeComputationExpression="1" borderColor="224,133,3" backgroundColor="253,206,137" foregroundColor="253,206,137"/>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Sensor']"/>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_EUv6cH9hEeyp_5B0a6JkUQ"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer"/>
+    <target xmi:type="e4sm:Package" href="Constraints.e4sm#_Bnj7cH9hEeyp_5B0a6JkUQ"/>
   </diagram:DSemanticDiagram>
 </xmi:XMI>
