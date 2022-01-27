@@ -3,7 +3,6 @@
 package e4sm.de.metamodel.e4sm.impl;
 
 import e4sm.de.metamodel.e4sm.Component;
-import e4sm.de.metamodel.e4sm.PhysicalComponent;
 import e4sm.de.metamodel.e4sm.Sector;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 import e4sm.de.metamodel.e4sm.core.impl.NamedElementImpl;
@@ -41,7 +40,7 @@ public class SectorImpl extends NamedElementImpl implements Sector {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<PhysicalComponent> components;
+	protected EList<Component> components;
 
 	/**
 	 * The cached value of the '{@link #getSectors() <em>Sectors</em>}' containment reference list.
@@ -78,10 +77,9 @@ public class SectorImpl extends NamedElementImpl implements Sector {
 	 * @generated
 	 */
 	@Override
-	public EList<PhysicalComponent> getComponents() {
+	public EList<Component> getComponents() {
 		if (components == null) {
-			components = new EObjectContainmentEList<PhysicalComponent>(PhysicalComponent.class, this,
-					e4smPackage.SECTOR__COMPONENTS);
+			components = new EObjectContainmentEList<Component>(Component.class, this, e4smPackage.SECTOR__COMPONENTS);
 		}
 		return components;
 	}
@@ -156,7 +154,7 @@ public class SectorImpl extends NamedElementImpl implements Sector {
 		switch (featureID) {
 		case e4smPackage.SECTOR__COMPONENTS:
 			getComponents().clear();
-			getComponents().addAll((Collection<? extends PhysicalComponent>) newValue);
+			getComponents().addAll((Collection<? extends Component>) newValue);
 			return;
 		case e4smPackage.SECTOR__SECTORS:
 			getSectors().clear();

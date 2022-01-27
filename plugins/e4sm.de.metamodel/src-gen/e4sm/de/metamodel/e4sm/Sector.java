@@ -29,7 +29,7 @@ import org.eclipse.emf.common.util.EList;
 public interface Sector extends NamedElement {
 	/**
 	 * Returns the value of the '<em><b>Components</b></em>' containment reference list.
-	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.PhysicalComponent}.
+	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.Component}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -40,7 +40,7 @@ public interface Sector extends NamedElement {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<PhysicalComponent> getComponents();
+	EList<Component> getComponents();
 
 	/**
 	 * Returns the value of the '<em><b>Sectors</b></em>' containment reference list.

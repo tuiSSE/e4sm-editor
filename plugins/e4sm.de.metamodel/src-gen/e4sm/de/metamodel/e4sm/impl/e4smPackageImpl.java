@@ -1433,9 +1433,9 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		initEClass(robotEClass, Robot.class, "Robot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(sectorEClass, Sector.class, "Sector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSector_Components(), this.getPhysicalComponent(), null, "components", null, 0, -1,
-				Sector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSector_Components(), this.getComponent(), null, "components", null, 0, -1, Sector.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSector_Sectors(), this.getSector(), null, "sectors", null, 0, -1, Sector.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
@@ -1539,6 +1539,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		addAnnotation(connectorEClass, source, new String[] { "constraints", "ConnectorC1" });
 		addAnnotation(physicalConnectorEClass, source,
 				new String[] { "constraints", "PhysicalConnectorC1 PhysicalConnectorC2 PhysicalConnectorC3" });
+		addAnnotation(softwareComponentEClass, source, new String[] { "constraints", "SoftwareComponentC1" });
 		addAnnotation(packageEClass, source, new String[] { "constraints", "PackageC1" });
 		addAnnotation(sensorEClass, source, new String[] { "constraints", "SensorC1" });
 		addAnnotation(actuatorEClass, source, new String[] { "constraints", "ActuatorC1" });

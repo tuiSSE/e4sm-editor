@@ -20,7 +20,7 @@ package e4sm.de.metamodel.e4sm;
  * </ul>
  *
  * @see e4sm.de.metamodel.e4sm.e4smPackage#getSoftwareComponent()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='SoftwareComponentC1'"
  * @generated
  */
 public interface SoftwareComponent extends Component {

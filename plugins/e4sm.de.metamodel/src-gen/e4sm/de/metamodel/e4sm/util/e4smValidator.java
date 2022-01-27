@@ -302,6 +302,8 @@ public class e4smValidator extends EObjectValidator {
 			result &= validateComponent_ComponentC1(machineLearningComponent, diagnostics, context);
 		if (result || diagnostics != null)
 			result &= validateComponent_ComponentC2(machineLearningComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateSoftwareComponent_SoftwareComponentC1(machineLearningComponent, diagnostics, context);
 		return result;
 	}
 
@@ -530,7 +532,32 @@ public class e4smValidator extends EObjectValidator {
 			result &= validateComponent_ComponentC1(softwareComponent, diagnostics, context);
 		if (result || diagnostics != null)
 			result &= validateComponent_ComponentC2(softwareComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateSoftwareComponent_SoftwareComponentC1(softwareComponent, diagnostics, context);
 		return result;
+	}
+
+	/**
+	 * Validates the SoftwareComponentC1 constraint of '<em>Software Component</em>'.
+	 * <!-- begin-user-doc -->
+	 * C1: A software component shall not be directly contained in a Sector
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean validateSoftwareComponent_SoftwareComponentC1(SoftwareComponent softwareComponent,
+			DiagnosticChain diagnostics, Map<Object, Object> context) {
+		// -> specify the condition that violates the constraint
+		// -> verify the diagnostic details, including severity, code, and message
+		if (softwareComponent.eContainer() instanceof Sector) {
+			if (diagnostics != null) {
+				diagnostics.add(
+						createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic",
+								new Object[] { "C1: A software component shall not be directly contained in a Sector", getObjectLabel(softwareComponent, context) },
+								new Object[] { softwareComponent }, context));
+			}
+			return false;
+		}
+		return true;
 	}
 
 	/**
@@ -587,6 +614,8 @@ public class e4smValidator extends EObjectValidator {
 			result &= validateComponent_ComponentC1(heuristic, diagnostics, context);
 		if (result || diagnostics != null)
 			result &= validateComponent_ComponentC2(heuristic, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateSoftwareComponent_SoftwareComponentC1(heuristic, diagnostics, context);
 		return result;
 	}
 
@@ -616,6 +645,8 @@ public class e4smValidator extends EObjectValidator {
 			result &= validateComponent_ComponentC1(function, diagnostics, context);
 		if (result || diagnostics != null)
 			result &= validateComponent_ComponentC2(function, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateSoftwareComponent_SoftwareComponentC1(function, diagnostics, context);
 		return result;
 	}
 
@@ -646,6 +677,8 @@ public class e4smValidator extends EObjectValidator {
 			result &= validateComponent_ComponentC1(externalDependency, diagnostics, context);
 		if (result || diagnostics != null)
 			result &= validateComponent_ComponentC2(externalDependency, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateSoftwareComponent_SoftwareComponentC1(externalDependency, diagnostics, context);
 		return result;
 	}
 

@@ -71,6 +71,9 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A software component is a generic component which will be realised/is already available digitally"/>
     </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="SoftwareComponentC1"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputUncertainty" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="0.0"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="synchronous" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
@@ -215,7 +218,7 @@
       </eAnnotations>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
-        eType="#//PhysicalComponent" containment="true">
+        eType="#//Component" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="A list of references to components which are contained in this sector"/>
       </eAnnotations>

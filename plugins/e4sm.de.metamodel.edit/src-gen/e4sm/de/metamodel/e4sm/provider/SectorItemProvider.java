@@ -157,14 +157,32 @@ public class SectorItemProvider extends NamedElementItemProvider {
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
+//		newChildDescriptors.add(
+//				createChildParameter(e4smPackage.Literals.SECTOR__COMPONENTS, e4smFactory.eINSTANCE.createComponent()));
+//
+//		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.SECTOR__COMPONENTS,
+//				e4smFactory.eINSTANCE.createSoftwareComponent()));
+//
+//		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.SECTOR__COMPONENTS,
+//				e4smFactory.eINSTANCE.createMachineLearningComponent()));
+
 		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.SECTOR__COMPONENTS,
 				e4smFactory.eINSTANCE.createPhysicalComponent()));
+
+//		newChildDescriptors.add(
+//				createChildParameter(e4smPackage.Literals.SECTOR__COMPONENTS, e4smFactory.eINSTANCE.createHeuristic()));
+//
+//		newChildDescriptors.add(
+//				createChildParameter(e4smPackage.Literals.SECTOR__COMPONENTS, e4smFactory.eINSTANCE.createFunction()));
+//
+//		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.SECTOR__COMPONENTS,
+//				e4smFactory.eINSTANCE.createExternalDependency()));
 
 		newChildDescriptors.add(
 				createChildParameter(e4smPackage.Literals.SECTOR__COMPONENTS, e4smFactory.eINSTANCE.createSensor()));
