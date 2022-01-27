@@ -713,7 +713,7 @@ public class e4smValidator extends EObjectValidator {
 	/**
 	 * Validates the PackageC1 constraint of '<em>Package</em>'.
 	 * <!-- begin-user-doc --> 
-	 * C1: A package is contained by this package but is not used to specify any component
+	 * C1: This package is contained by another package but does not specify any component
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
@@ -723,7 +723,7 @@ public class e4smValidator extends EObjectValidator {
 			if (diagnostics != null) {
 				diagnostics.add(
 						createDiagnostic(Diagnostic.WARNING, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic",
-								new Object[] { "C1: A package is contained by this package but is not used to specify any component", getObjectLabel(package_, context) },
+								new Object[] { "C1: This package is contained by another package but does not specify any component", getObjectLabel(package_, context) },
 								new Object[] { package_ }, context));
 			}
 			return false;
