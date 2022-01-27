@@ -8,7 +8,6 @@ import e4sm.de.metamodel.e4sm.core.CorePackage;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -71,7 +70,7 @@ public class TypedElementItemProvider extends NamedElementItemProvider {
 
 						//Add all types contained by the types package
 						choiceOfValues.addAll(CorePackage.eINSTANCE.getEClassifiers().stream().map(e -> (EDataType) e)
-								.collect(Collectors.toList()));
+								.toList());
 						return choiceOfValues;
 					}
 				});

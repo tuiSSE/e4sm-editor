@@ -152,12 +152,12 @@ public class ConnectorItemProvider extends ItemProviderAdapter implements IEditi
 							 * the same level, TODO: include PhysicalComponents contained by sectors.
 							 * result.addAll(p.getComponents().stream().filter(c -> c instanceof
 							 * PhysicalComponent) .map(c -> c.getPins()).flatMap(l ->
-							 * l.stream()).collect(Collectors.toList())); } else if (connector instanceof
+							 * l.stream()).toList()); } else if (connector instanceof
 							 * LogicalConnector) { //Get all pins, including pins contained by containers
 							 * TODO result.addAll(p.getComponents().stream().map(c -> c.getPins()).flatMap(l
-							 * -> l.stream()) .collect(Collectors.toList())); } else //Generic connector,
+							 * -> l.stream()) .toList()); } else //Generic connector,
 							 * TODO result.addAll(p.getComponents().stream().map(c -> c.getPins()).flatMap(l
-							 * -> l.stream()) .collect(Collectors.toList())); }
+							 * -> l.stream()).toList()); }
 							 * 
 							 * return result;
 							 */

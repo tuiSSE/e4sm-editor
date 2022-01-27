@@ -15,7 +15,6 @@ import e4sm.de.metamodel.e4sm.e4smPackage;
 import e4sm.de.metamodel.e4sm.core.impl.NamedElementImpl;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
-import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -163,7 +162,7 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	@Override
 	public EList<SoftwareComponent> getSoftwareComponents() {
 		return ECollections.toEList(this.getComponents().stream().filter(c -> c instanceof SoftwareComponent)
-				.map(e -> (SoftwareComponent) e).collect(Collectors.toList()));
+				.map(e -> (SoftwareComponent) e).toList());
 	}
 
 	/**
@@ -175,7 +174,7 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	@Override
 	public EList<PhysicalComponent> getPhysicalComponents() {
 		return ECollections.toEList(this.getComponents().stream().filter(c -> c instanceof PhysicalComponent)
-				.map(e -> (PhysicalComponent) e).collect(Collectors.toList()));
+				.map(e -> (PhysicalComponent) e).toList());
 	}
 
 	/**
