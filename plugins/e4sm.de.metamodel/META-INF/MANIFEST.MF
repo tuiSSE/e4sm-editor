@@ -27,5 +27,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  e4sm.de.metamodel;visibility:=reexport,
- com.google.guava
+ com.google.guava,
+ org.eclipse.emf.edapt.history
 Bundle-ActivationPolicy: lazy

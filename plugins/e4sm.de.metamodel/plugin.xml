@@ -66,5 +66,11 @@
             class="e4sm.de.metamodel.e4sm.guava.GuavaPackage"
             genModel="model/e4sm.genmodel"/>
    </extension>
+   <extension
+         point="org.eclipse.emf.edapt.migrators">
+      <migrator
+            path="model/e4sm.history">
+      </migrator>
+   </extension>
 
 </plugin>

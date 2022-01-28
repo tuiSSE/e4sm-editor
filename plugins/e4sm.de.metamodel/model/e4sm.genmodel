@@ -121,7 +121,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//UnitPrefix/symbol"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//UnitPrefix/conversionFactor"/>
     </genClasses>
-    <nestedGenPackages prefix="Core" disposableProviderFactory="true" ecorePackage="e4sm.ecore#//core">
+    <nestedGenPackages prefix="Core" basePackage="e4sm.de.metamodel.e4sm" disposableProviderFactory="true"
+        ecorePackage="e4sm.ecore#//core">
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="e4sm.ecore#//core/UnitOfMeasurement">
         <genEnumLiterals ecoreEnumLiteral="e4sm.ecore#//core/UnitOfMeasurement/cm"/>
         <genEnumLiterals ecoreEnumLiteral="e4sm.ecore#//core/UnitOfMeasurement/m"/>
@@ -296,8 +297,9 @@
         </genClasses>
       </nestedGenPackages>
     </nestedGenPackages>
-    <nestedGenPackages prefix="Guava" disposableProviderFactory="true" literalsInterface="false"
-        multipleEditorPages="false" generateModelWizard="false" ecorePackage="e4sm.ecore#//guava">
+    <nestedGenPackages prefix="Guava" basePackage="e4sm.de.metamodel.e4sm" disposableProviderFactory="true"
+        literalsInterface="false" multipleEditorPages="false" generateModelWizard="false"
+        ecorePackage="e4sm.ecore#//guava">
       <genClasses image="false" ecoreClass="e4sm.ecore#//guava/Graph">
         <genTypeParameters ecoreTypeParameter="e4sm.ecore#//guava/Graph/N"/>
         <genOperations ecoreOperation="e4sm.ecore#//guava/Graph/isDirected"/>
