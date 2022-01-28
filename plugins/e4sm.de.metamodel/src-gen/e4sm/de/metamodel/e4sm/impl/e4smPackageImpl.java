@@ -568,6 +568,16 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
+	public EOperation getSoftwareComponent__IsParallel() {
+		return softwareComponentEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getLogicalConnector() {
 		return logicalConnectorEClass;
 	}
@@ -1205,6 +1215,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		createEAttribute(softwareComponentEClass, SOFTWARE_COMPONENT__OUTPUT_UNCERTAINTY);
 		createEAttribute(softwareComponentEClass, SOFTWARE_COMPONENT__SYNCHRONOUS);
 		createEAttribute(softwareComponentEClass, SOFTWARE_COMPONENT__NUMBER_OF_SERVERS);
+		createEOperation(softwareComponentEClass, SOFTWARE_COMPONENT___IS_PARALLEL);
 
 		logicalConnectorEClass = createEClass(LOGICAL_CONNECTOR);
 
@@ -1420,6 +1431,9 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 				SoftwareComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
 
+		initEOperation(getSoftwareComponent__IsParallel(), ecorePackage.getEBoolean(), "isParallel", 0, 1, IS_UNIQUE,
+				IS_ORDERED);
+
 		initEClass(logicalConnectorEClass, LogicalConnector.class, "LogicalConnector", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 
@@ -1595,6 +1609,8 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		// Create annotations
 		// http://www.eclipse.org/emf/2002/Ecore
 		createEcoreAnnotations();
+		// null
+		createNullAnnotations();
 	}
 
 	/**
@@ -1614,6 +1630,17 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		addAnnotation(sensorEClass, source, new String[] { "constraints", "SensorC1" });
 		addAnnotation(actuatorEClass, source, new String[] { "constraints", "ActuatorC1" });
 		addAnnotation(pinEClass, source, new String[] { "constraints", "PinC1" });
+	}
+
+	/**
+	 * Initializes the annotations for <b>null</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createNullAnnotations() {
+		String source = null;
+		addAnnotation(getSoftwareComponent__IsParallel(), source, new String[] {});
 	}
 
 } //e4smPackageImpl

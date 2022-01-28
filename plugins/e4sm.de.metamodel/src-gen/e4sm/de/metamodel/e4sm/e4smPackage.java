@@ -262,13 +262,22 @@ public interface e4smPackage extends EPackage {
 	int SOFTWARE_COMPONENT___COMPUTE_MAIN_RESPONSIBLE = COMPONENT___COMPUTE_MAIN_RESPONSIBLE;
 
 	/**
+	 * The operation id for the '<em>Is Parallel</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOFTWARE_COMPONENT___IS_PARALLEL = COMPONENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Software Component</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOFTWARE_COMPONENT_OPERATION_COUNT = COMPONENT_OPERATION_COUNT + 0;
+	int SOFTWARE_COMPONENT_OPERATION_COUNT = COMPONENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.MachineLearningComponentImpl <em>Machine Learning Component</em>}' class.
@@ -378,6 +387,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int MACHINE_LEARNING_COMPONENT___COMPUTE_MAIN_RESPONSIBLE = SOFTWARE_COMPONENT___COMPUTE_MAIN_RESPONSIBLE;
+
+	/**
+	 * The operation id for the '<em>Is Parallel</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MACHINE_LEARNING_COMPONENT___IS_PARALLEL = SOFTWARE_COMPONENT___IS_PARALLEL;
 
 	/**
 	 * The number of operations of the '<em>Machine Learning Component</em>' class.
@@ -899,6 +917,15 @@ public interface e4smPackage extends EPackage {
 	int HEURISTIC___COMPUTE_MAIN_RESPONSIBLE = SOFTWARE_COMPONENT___COMPUTE_MAIN_RESPONSIBLE;
 
 	/**
+	 * The operation id for the '<em>Is Parallel</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HEURISTIC___IS_PARALLEL = SOFTWARE_COMPONENT___IS_PARALLEL;
+
+	/**
 	 * The number of operations of the '<em>Heuristic</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1007,6 +1034,15 @@ public interface e4smPackage extends EPackage {
 	int FUNCTION___COMPUTE_MAIN_RESPONSIBLE = SOFTWARE_COMPONENT___COMPUTE_MAIN_RESPONSIBLE;
 
 	/**
+	 * The operation id for the '<em>Is Parallel</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION___IS_PARALLEL = SOFTWARE_COMPONENT___IS_PARALLEL;
+
+	/**
 	 * The number of operations of the '<em>Function</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1104,6 +1140,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXTERNAL_DEPENDENCY_FEATURE_COUNT = SOFTWARE_COMPONENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Is Parallel</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_DEPENDENCY___IS_PARALLEL = SOFTWARE_COMPONENT___IS_PARALLEL;
 
 	/**
 	 * The operation id for the '<em>Compute Main Responsible</em>' operation.
@@ -2481,6 +2526,16 @@ public interface e4smPackage extends EPackage {
 	EAttribute getSoftwareComponent_NumberOfServers();
 
 	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.SoftwareComponent#isParallel() <em>Is Parallel</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Parallel</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.SoftwareComponent#isParallel()
+	 * @generated
+	 */
+	EOperation getSoftwareComponent__IsParallel();
+
+	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.LogicalConnector <em>Logical Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3279,6 +3334,14 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SOFTWARE_COMPONENT__NUMBER_OF_SERVERS = eINSTANCE.getSoftwareComponent_NumberOfServers();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Parallel</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SOFTWARE_COMPONENT___IS_PARALLEL = eINSTANCE.getSoftwareComponent__IsParallel();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.LogicalConnectorImpl <em>Logical Connector</em>}' class.

@@ -5,8 +5,10 @@ package e4sm.de.metamodel.e4sm.impl;
 import e4sm.de.metamodel.e4sm.SoftwareComponent;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
+import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -184,6 +186,16 @@ public class SoftwareComponentImpl extends ComponentImpl implements SoftwareComp
 	 * @generated
 	 */
 	@Override
+	public boolean isParallel() {
+		return numberOfServers > 1;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case e4smPackage.SOFTWARE_COMPONENT__OUTPUT_UNCERTAINTY:
@@ -254,6 +266,20 @@ public class SoftwareComponentImpl extends ComponentImpl implements SoftwareComp
 			return numberOfServers != NUMBER_OF_SERVERS_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+		case e4smPackage.SOFTWARE_COMPONENT___IS_PARALLEL:
+			return isParallel();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

@@ -74,6 +74,9 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="constraints" value="SoftwareComponentC1"/>
     </eAnnotations>
+    <eOperations name="isParallel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputUncertainty" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="0.0"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="synchronous" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"

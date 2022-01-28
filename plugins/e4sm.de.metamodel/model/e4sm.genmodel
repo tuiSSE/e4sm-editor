@@ -42,6 +42,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//SoftwareComponent/outputUncertainty"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//SoftwareComponent/synchronous"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//SoftwareComponent/numberOfServers"/>
+      <genOperations documentation="Returns true if the current Software components gets executed in parallel"
+          ecoreOperation="e4sm.ecore#//SoftwareComponent/isParallel" body="return numberOfServers > 1;"/>
     </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//LogicalConnector"/>
     <genClasses ecoreClass="e4sm.ecore#//Heuristic"/>

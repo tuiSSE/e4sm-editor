@@ -100,4 +100,15 @@ public interface SoftwareComponent extends Component {
 	 */
 	void setNumberOfServers(int value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Returns true if the current Software components gets executed in parallel
+	 * <!-- end-model-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	boolean isParallel();
+
 } // SoftwareComponent
