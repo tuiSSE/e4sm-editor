@@ -10,6 +10,13 @@
   <testsDirectory xsi:nil="true"/>
   <genPackages prefix="e4sm" basePackage="e4sm.de.metamodel" resource="XMI" disposableProviderFactory="true"
       ecorePackage="e4sm.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="e4sm.ecore#//QueueType">
+      <genEnumLiterals ecoreEnumLiteral="e4sm.ecore#//QueueType/FIFO"/>
+      <genEnumLiterals ecoreEnumLiteral="e4sm.ecore#//QueueType/LIFO"/>
+      <genEnumLiterals ecoreEnumLiteral="e4sm.ecore#//QueueType/RANDOM"/>
+      <genEnumLiterals ecoreEnumLiteral="e4sm.ecore#//QueueType/LATEST_ONLY"/>
+      <genEnumLiterals ecoreEnumLiteral="e4sm.ecore#//QueueType/STORE"/>
+    </genEnums>
     <genDataTypes ecoreDataType="e4sm.ecore#//Connectionspeed"/>
     <genDataTypes ecoreDataType="e4sm.ecore#//JSON"/>
     <genClasses ecoreClass="e4sm.ecore#//Component">
@@ -34,6 +41,7 @@
     <genClasses ecoreClass="e4sm.ecore#//SoftwareComponent">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//SoftwareComponent/outputUncertainty"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//SoftwareComponent/synchronous"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//SoftwareComponent/numberOfServers"/>
     </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//LogicalConnector"/>
     <genClasses ecoreClass="e4sm.ecore#//Heuristic"/>
@@ -82,8 +90,11 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//Pin/incomingConnectors"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//Pin/gatewayPin"
           get="return this.getOutgoingConnectors().size()>=1 &amp;&amp; this.getIncomingConnectors().size() >=1;"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//Pin/stream"/>
     </genClasses>
-    <genClasses ecoreClass="e4sm.ecore#//InputPin"/>
+    <genClasses ecoreClass="e4sm.ecore#//InputPin">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//InputPin/queueType"/>
+    </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//OutputPin"/>
     <genClasses ecoreClass="e4sm.ecore#//Person">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//Person/surname"/>

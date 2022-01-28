@@ -82,6 +82,12 @@
         <details key="documentation" value="If synchronous, the execution is blocked on the current component until it provides a result. If the component is asynchronous, the execution continues immediatly and the results are provided in other ways (e.g. written out somewhere, with an event system, with promise systems, by polling...)"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfServers" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Number of computational units. If one, the execution is syncronous. If > 1, the execution will be parallel."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LogicalConnector" eSuperTypes="#//Connector">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -259,11 +265,17 @@
         eType="#//Connector" eOpposite="#//Connector/target"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="gatewayPin" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stream" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InputPin" eSuperTypes="#//Pin">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="An interface which delivers data inside a component"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="queueType" eType="#//QueueType">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="When multiple data reaches this pin, the Queue type decides how they will be processed"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OutputPin" eSuperTypes="#//Pin">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -317,6 +329,33 @@
   <eClassifiers xsi:type="ecore:EClass" name="UnitPrefix">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="symbol" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="conversionFactor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="QueueType">
+    <eLiterals name="FIFO">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="First in, first out"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="LIFO" value="1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Last in, Last out (stack)"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="RANDOM" value="2">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An element of the queue is picked randomly"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="LATEST_ONLY" value="3">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="There is no queue, only the latest received element remain stored. Once consumed, the pin does not have any other data available until it receives a new one."/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="STORE" value="4">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The data remain stored in the pin. If new data arrives, it replace the currently stored data."/>
+      </eAnnotations>
+    </eLiterals>
   </eClassifiers>
   <eSubpackages name="core" nsURI="http://de.tu-ilmenau/e4sm/core/1.0.0" nsPrefix="core">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore"/>
