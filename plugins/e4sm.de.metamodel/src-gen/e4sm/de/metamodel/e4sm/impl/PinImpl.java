@@ -38,6 +38,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.PinImpl#getOutgoingConnectors <em>Outgoing Connectors</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.PinImpl#getIncomingConnectors <em>Incoming Connectors</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.PinImpl#isGatewayPin <em>Gateway Pin</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.PinImpl#isStream <em>Stream</em>}</li>
  * </ul>
  *
  * @generated
@@ -112,6 +113,26 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 	 * @ordered
 	 */
 	protected static final boolean GATEWAY_PIN_EDEFAULT = false;
+
+	/**
+	 * The default value of the '{@link #isStream() <em>Stream</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isStream()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean STREAM_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isStream() <em>Stream</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isStream()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean stream = STREAM_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -251,6 +272,29 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public boolean isStream() {
+		return stream;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setStream(boolean newStream) {
+		boolean oldStream = stream;
+		stream = newStream;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.PIN__STREAM, oldStream, stream));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -305,6 +349,8 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 			return getIncomingConnectors();
 		case e4smPackage.PIN__GATEWAY_PIN:
 			return isGatewayPin();
+		case e4smPackage.PIN__STREAM:
+			return isStream();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -336,6 +382,9 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 			getIncomingConnectors().clear();
 			getIncomingConnectors().addAll((Collection<? extends Connector>) newValue);
 			return;
+		case e4smPackage.PIN__STREAM:
+			setStream((Boolean) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -363,6 +412,9 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 		case e4smPackage.PIN__INCOMING_CONNECTORS:
 			getIncomingConnectors().clear();
 			return;
+		case e4smPackage.PIN__STREAM:
+			setStream(STREAM_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -387,6 +439,8 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 			return incomingConnectors != null && !incomingConnectors.isEmpty();
 		case e4smPackage.PIN__GATEWAY_PIN:
 			return isGatewayPin() != GATEWAY_PIN_EDEFAULT;
+		case e4smPackage.PIN__STREAM:
+			return stream != STREAM_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -468,6 +522,8 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (name: ");
 		result.append(name);
+		result.append(", stream: ");
+		result.append(stream);
 		result.append(')');
 		return result.toString();
 	}

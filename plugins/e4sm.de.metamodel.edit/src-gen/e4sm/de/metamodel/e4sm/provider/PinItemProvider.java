@@ -58,6 +58,7 @@ public class PinItemProvider extends ItemProviderAdapter implements IEditingDoma
 			addOutgoingConnectorsPropertyDescriptor(object);
 			addIncomingConnectorsPropertyDescriptor(object);
 			addGatewayPinPropertyDescriptor(object);
+			addStreamPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -135,6 +136,21 @@ public class PinItemProvider extends ItemProviderAdapter implements IEditingDoma
 						getResourceLocator(), getString("_UI_Pin_gatewayPin_feature"),
 						getString("_UI_PropertyDescriptor_description", "_UI_Pin_gatewayPin_feature", "_UI_Pin_type"),
 						e4smPackage.Literals.PIN__GATEWAY_PIN, true, false, false,
+						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Stream feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addStreamPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Pin_stream_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Pin_stream_feature", "_UI_Pin_type"),
+						e4smPackage.Literals.PIN__STREAM, true, false, false,
 						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
 
@@ -229,6 +245,7 @@ public class PinItemProvider extends ItemProviderAdapter implements IEditingDoma
 		switch (notification.getFeatureID(Pin.class)) {
 		case e4smPackage.PIN__NAME:
 		case e4smPackage.PIN__GATEWAY_PIN:
+		case e4smPackage.PIN__STREAM:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		case e4smPackage.PIN__PARAMETERS:

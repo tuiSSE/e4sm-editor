@@ -22,6 +22,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link e4sm.de.metamodel.e4sm.Pin#getOutgoingConnectors <em>Outgoing Connectors</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Pin#getIncomingConnectors <em>Incoming Connectors</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Pin#isGatewayPin <em>Gateway Pin</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.Pin#isStream <em>Stream</em>}</li>
  * </ul>
  *
  * @see e4sm.de.metamodel.e4sm.e4smPackage#getPin()
@@ -69,4 +70,26 @@ public interface Pin extends ParameterizableElement, TypedElement {
 	 * @generated
 	 */
 	boolean isGatewayPin();
+
+	/**
+	 * Returns the value of the '<em><b>Stream</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Stream</em>' attribute.
+	 * @see #setStream(boolean)
+	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getPin_Stream()
+	 * @model
+	 * @generated
+	 */
+	boolean isStream();
+
+	/**
+	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.Pin#isStream <em>Stream</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Stream</em>' attribute.
+	 * @see #isStream()
+	 * @generated
+	 */
+	void setStream(boolean value);
 } // Pin

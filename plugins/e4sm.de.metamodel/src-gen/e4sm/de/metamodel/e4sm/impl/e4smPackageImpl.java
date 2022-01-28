@@ -23,6 +23,7 @@ import e4sm.de.metamodel.e4sm.Person;
 import e4sm.de.metamodel.e4sm.PhysicalComponent;
 import e4sm.de.metamodel.e4sm.PhysicalConnector;
 import e4sm.de.metamodel.e4sm.Pin;
+import e4sm.de.metamodel.e4sm.QueueType;
 import e4sm.de.metamodel.e4sm.Robot;
 import e4sm.de.metamodel.e4sm.Sector;
 import e4sm.de.metamodel.e4sm.Sensor;
@@ -44,6 +45,7 @@ import e4sm.de.metamodel.e4sm.util.e4smValidator;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -260,6 +262,13 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	private EClass unitPrefixEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum queueTypeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -541,6 +550,16 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	@Override
 	public EAttribute getSoftwareComponent_Synchronous() {
 		return (EAttribute) softwareComponentEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getSoftwareComponent_NumberOfServers() {
+		return (EAttribute) softwareComponentEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -889,8 +908,28 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getPin_Stream() {
+		return (EAttribute) pinEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getInputPin() {
 		return inputPinEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getInputPin_QueueType() {
+		return (EAttribute) inputPinEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1089,6 +1128,16 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
+	public EEnum getQueueType() {
+		return queueTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EDataType getConnectionspeed() {
 		return connectionspeedEDataType;
 	}
@@ -1155,6 +1204,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		softwareComponentEClass = createEClass(SOFTWARE_COMPONENT);
 		createEAttribute(softwareComponentEClass, SOFTWARE_COMPONENT__OUTPUT_UNCERTAINTY);
 		createEAttribute(softwareComponentEClass, SOFTWARE_COMPONENT__SYNCHRONOUS);
+		createEAttribute(softwareComponentEClass, SOFTWARE_COMPONENT__NUMBER_OF_SERVERS);
 
 		logicalConnectorEClass = createEClass(LOGICAL_CONNECTOR);
 
@@ -1202,8 +1252,10 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		createEReference(pinEClass, PIN__OUTGOING_CONNECTORS);
 		createEReference(pinEClass, PIN__INCOMING_CONNECTORS);
 		createEAttribute(pinEClass, PIN__GATEWAY_PIN);
+		createEAttribute(pinEClass, PIN__STREAM);
 
 		inputPinEClass = createEClass(INPUT_PIN);
+		createEAttribute(inputPinEClass, INPUT_PIN__QUEUE_TYPE);
 
 		outputPinEClass = createEClass(OUTPUT_PIN);
 
@@ -1232,6 +1284,9 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		unitPrefixEClass = createEClass(UNIT_PREFIX);
 		createEAttribute(unitPrefixEClass, UNIT_PREFIX__SYMBOL);
 		createEAttribute(unitPrefixEClass, UNIT_PREFIX__CONVERSION_FACTOR);
+
+		// Create enums
+		queueTypeEEnum = createEEnum(QUEUE_TYPE);
 
 		// Create data types
 		connectionspeedEDataType = createEDataType(CONNECTIONSPEED);
@@ -1361,6 +1416,9 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		initEAttribute(getSoftwareComponent_Synchronous(), ecorePackage.getEBoolean(), "synchronous", "true", 0, 1,
 				SoftwareComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSoftwareComponent_NumberOfServers(), ecorePackage.getEInt(), "numberOfServers", "1", 0, 1,
+				SoftwareComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
 		initEClass(logicalConnectorEClass, LogicalConnector.class, "LogicalConnector", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -1457,9 +1515,13 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPin_GatewayPin(), ecorePackage.getEBoolean(), "gatewayPin", null, 0, 1, Pin.class,
 				IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPin_Stream(), ecorePackage.getEBoolean(), "stream", null, 0, 1, Pin.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(inputPinEClass, InputPin.class, "InputPin", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getInputPin_QueueType(), this.getQueueType(), "queueType", null, 0, 1, InputPin.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(outputPinEClass, OutputPin.class, "OutputPin", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -1513,6 +1575,14 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		initEAttribute(getUnitPrefix_ConversionFactor(), ecorePackage.getEInt(), "conversionFactor", null, 0, 1,
 				UnitPrefix.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(queueTypeEEnum, QueueType.class, "QueueType");
+		addEEnumLiteral(queueTypeEEnum, QueueType.FIFO);
+		addEEnumLiteral(queueTypeEEnum, QueueType.LIFO);
+		addEEnumLiteral(queueTypeEEnum, QueueType.RANDOM);
+		addEEnumLiteral(queueTypeEEnum, QueueType.LATEST_ONLY);
+		addEEnumLiteral(queueTypeEEnum, QueueType.STORE);
 
 		// Initialize data types
 		initEDataType(connectionspeedEDataType, Object.class, "Connectionspeed", IS_SERIALIZABLE,

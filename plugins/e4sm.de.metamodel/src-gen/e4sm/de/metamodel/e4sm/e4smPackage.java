@@ -7,6 +7,7 @@ import e4sm.de.metamodel.e4sm.core.CorePackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -234,13 +235,22 @@ public interface e4smPackage extends EPackage {
 	int SOFTWARE_COMPONENT__SYNCHRONOUS = COMPONENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Number Of Servers</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOFTWARE_COMPONENT__NUMBER_OF_SERVERS = COMPONENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Software Component</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOFTWARE_COMPONENT_FEATURE_COUNT = COMPONENT_FEATURE_COUNT + 2;
+	int SOFTWARE_COMPONENT_FEATURE_COUNT = COMPONENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Compute Main Responsible</em>' operation.
@@ -341,6 +351,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int MACHINE_LEARNING_COMPONENT__SYNCHRONOUS = SOFTWARE_COMPONENT__SYNCHRONOUS;
+
+	/**
+	 * The feature id for the '<em><b>Number Of Servers</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MACHINE_LEARNING_COMPONENT__NUMBER_OF_SERVERS = SOFTWARE_COMPONENT__NUMBER_OF_SERVERS;
 
 	/**
 	 * The number of structural features of the '<em>Machine Learning Component</em>' class.
@@ -853,6 +872,15 @@ public interface e4smPackage extends EPackage {
 	int HEURISTIC__SYNCHRONOUS = SOFTWARE_COMPONENT__SYNCHRONOUS;
 
 	/**
+	 * The feature id for the '<em><b>Number Of Servers</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HEURISTIC__NUMBER_OF_SERVERS = SOFTWARE_COMPONENT__NUMBER_OF_SERVERS;
+
+	/**
 	 * The number of structural features of the '<em>Heuristic</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -952,6 +980,15 @@ public interface e4smPackage extends EPackage {
 	int FUNCTION__SYNCHRONOUS = SOFTWARE_COMPONENT__SYNCHRONOUS;
 
 	/**
+	 * The feature id for the '<em><b>Number Of Servers</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION__NUMBER_OF_SERVERS = SOFTWARE_COMPONENT__NUMBER_OF_SERVERS;
+
+	/**
 	 * The number of structural features of the '<em>Function</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1049,6 +1086,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXTERNAL_DEPENDENCY__SYNCHRONOUS = SOFTWARE_COMPONENT__SYNCHRONOUS;
+
+	/**
+	 * The feature id for the '<em><b>Number Of Servers</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_DEPENDENCY__NUMBER_OF_SERVERS = SOFTWARE_COMPONENT__NUMBER_OF_SERVERS;
 
 	/**
 	 * The number of structural features of the '<em>External Dependency</em>' class.
@@ -1667,13 +1713,22 @@ public interface e4smPackage extends EPackage {
 	int PIN__GATEWAY_PIN = AnalysisPackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Stream</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIN__STREAM = AnalysisPackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Pin</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PIN_FEATURE_COUNT = AnalysisPackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 5;
+	int PIN_FEATURE_COUNT = AnalysisPackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of operations of the '<em>Pin</em>' class.
@@ -1739,13 +1794,31 @@ public interface e4smPackage extends EPackage {
 	int INPUT_PIN__GATEWAY_PIN = PIN__GATEWAY_PIN;
 
 	/**
+	 * The feature id for the '<em><b>Stream</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_PIN__STREAM = PIN__STREAM;
+
+	/**
+	 * The feature id for the '<em><b>Queue Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_PIN__QUEUE_TYPE = PIN_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Input Pin</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_PIN_FEATURE_COUNT = PIN_FEATURE_COUNT + 0;
+	int INPUT_PIN_FEATURE_COUNT = PIN_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Input Pin</em>' class.
@@ -1809,6 +1882,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int OUTPUT_PIN__GATEWAY_PIN = PIN__GATEWAY_PIN;
+
+	/**
+	 * The feature id for the '<em><b>Stream</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_PIN__STREAM = PIN__STREAM;
 
 	/**
 	 * The number of structural features of the '<em>Output Pin</em>' class.
@@ -2178,6 +2260,16 @@ public interface e4smPackage extends EPackage {
 	int UNIT_PREFIX_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.QueueType <em>Queue Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.QueueType
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getQueueType()
+	 * @generated
+	 */
+	int QUEUE_TYPE = 29;
+
+	/**
 	 * The meta object id for the '<em>Connectionspeed</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2185,7 +2277,7 @@ public interface e4smPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getConnectionspeed()
 	 * @generated
 	 */
-	int CONNECTIONSPEED = 29;
+	int CONNECTIONSPEED = 30;
 
 	/**
 	 * The meta object id for the '<em>JSON</em>' data type.
@@ -2195,7 +2287,7 @@ public interface e4smPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getJSON()
 	 * @generated
 	 */
-	int JSON = 30;
+	int JSON = 31;
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.Component <em>Component</em>}'.
@@ -2376,6 +2468,17 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getSoftwareComponent_Synchronous();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.SoftwareComponent#getNumberOfServers <em>Number Of Servers</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Number Of Servers</em>'.
+	 * @see e4sm.de.metamodel.e4sm.SoftwareComponent#getNumberOfServers()
+	 * @see #getSoftwareComponent()
+	 * @generated
+	 */
+	EAttribute getSoftwareComponent_NumberOfServers();
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.LogicalConnector <em>Logical Connector</em>}'.
@@ -2735,6 +2838,17 @@ public interface e4smPackage extends EPackage {
 	EAttribute getPin_GatewayPin();
 
 	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.Pin#isStream <em>Stream</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Stream</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Pin#isStream()
+	 * @see #getPin()
+	 * @generated
+	 */
+	EAttribute getPin_Stream();
+
+	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.InputPin <em>Input Pin</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2743,6 +2857,17 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getInputPin();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.InputPin#getQueueType <em>Queue Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Queue Type</em>'.
+	 * @see e4sm.de.metamodel.e4sm.InputPin#getQueueType()
+	 * @see #getInputPin()
+	 * @generated
+	 */
+	EAttribute getInputPin_QueueType();
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.OutputPin <em>Output Pin</em>}'.
@@ -2945,6 +3070,16 @@ public interface e4smPackage extends EPackage {
 	EAttribute getUnitPrefix_ConversionFactor();
 
 	/**
+	 * Returns the meta object for enum '{@link e4sm.de.metamodel.e4sm.QueueType <em>Queue Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Queue Type</em>'.
+	 * @see e4sm.de.metamodel.e4sm.QueueType
+	 * @generated
+	 */
+	EEnum getQueueType();
+
+	/**
 	 * Returns the meta object for data type '{@link java.lang.Object <em>Connectionspeed</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3136,6 +3271,14 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SOFTWARE_COMPONENT__SYNCHRONOUS = eINSTANCE.getSoftwareComponent_Synchronous();
+
+		/**
+		 * The meta object literal for the '<em><b>Number Of Servers</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SOFTWARE_COMPONENT__NUMBER_OF_SERVERS = eINSTANCE.getSoftwareComponent_NumberOfServers();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.LogicalConnectorImpl <em>Logical Connector</em>}' class.
@@ -3438,6 +3581,14 @@ public interface e4smPackage extends EPackage {
 		EAttribute PIN__GATEWAY_PIN = eINSTANCE.getPin_GatewayPin();
 
 		/**
+		 * The meta object literal for the '<em><b>Stream</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PIN__STREAM = eINSTANCE.getPin_Stream();
+
+		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.InputPinImpl <em>Input Pin</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3446,6 +3597,14 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EClass INPUT_PIN = eINSTANCE.getInputPin();
+
+		/**
+		 * The meta object literal for the '<em><b>Queue Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INPUT_PIN__QUEUE_TYPE = eINSTANCE.getInputPin_QueueType();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.OutputPinImpl <em>Output Pin</em>}' class.
@@ -3616,6 +3775,16 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute UNIT_PREFIX__CONVERSION_FACTOR = eINSTANCE.getUnitPrefix_ConversionFactor();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.QueueType <em>Queue Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.QueueType
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getQueueType()
+		 * @generated
+		 */
+		EEnum QUEUE_TYPE = eINSTANCE.getQueueType();
 
 		/**
 		 * The meta object literal for the '<em>Connectionspeed</em>' data type.

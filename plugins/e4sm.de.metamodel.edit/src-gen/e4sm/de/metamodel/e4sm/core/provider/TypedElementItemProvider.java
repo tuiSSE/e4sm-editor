@@ -69,8 +69,8 @@ public class TypedElementItemProvider extends NamedElementItemProvider {
 						choiceOfValues.add(null);
 
 						//Add all types contained by the types package
-						choiceOfValues.addAll(CorePackage.eINSTANCE.getEClassifiers().stream().map(e -> (EDataType) e)
-								.toList());
+						choiceOfValues.addAll(
+								CorePackage.eINSTANCE.getEClassifiers().stream().map(e -> (EDataType) e).toList());
 						return choiceOfValues;
 					}
 				});

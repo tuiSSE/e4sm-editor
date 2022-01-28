@@ -17,6 +17,7 @@ package e4sm.de.metamodel.e4sm;
  * <ul>
  *   <li>{@link e4sm.de.metamodel.e4sm.SoftwareComponent#getOutputUncertainty <em>Output Uncertainty</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.SoftwareComponent#isSynchronous <em>Synchronous</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.SoftwareComponent#getNumberOfServers <em>Number Of Servers</em>}</li>
  * </ul>
  *
  * @see e4sm.de.metamodel.e4sm.e4smPackage#getSoftwareComponent()
@@ -72,5 +73,31 @@ public interface SoftwareComponent extends Component {
 	 * @generated
 	 */
 	void setSynchronous(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Number Of Servers</b></em>' attribute.
+	 * The default value is <code>"1"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Number of computational units. If one, the execution is syncronous. If > 1, the execution will be parallel.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Number Of Servers</em>' attribute.
+	 * @see #setNumberOfServers(int)
+	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getSoftwareComponent_NumberOfServers()
+	 * @model default="1"
+	 * @generated
+	 */
+	int getNumberOfServers();
+
+	/**
+	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.SoftwareComponent#getNumberOfServers <em>Number Of Servers</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Number Of Servers</em>' attribute.
+	 * @see #getNumberOfServers()
+	 * @generated
+	 */
+	void setNumberOfServers(int value);
 
 } // SoftwareComponent

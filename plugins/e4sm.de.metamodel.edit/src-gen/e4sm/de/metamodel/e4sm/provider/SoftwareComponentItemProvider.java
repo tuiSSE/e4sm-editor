@@ -46,6 +46,7 @@ public class SoftwareComponentItemProvider extends ComponentItemProvider {
 
 			addOutputUncertaintyPropertyDescriptor(object);
 			addSynchronousPropertyDescriptor(object);
+			addNumberOfServersPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -79,6 +80,22 @@ public class SoftwareComponentItemProvider extends ComponentItemProvider {
 				getString("_UI_SoftwareComponent_synchronous_feature_help"),
 				e4smPackage.Literals.SOFTWARE_COMPONENT__SYNCHRONOUS, true, false, false,
 				ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString("_UI_EMF_Editor_Category_Execution"), null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Number Of Servers feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNumberOfServersPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_SoftwareComponent_numberOfServers_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_SoftwareComponent_numberOfServers_feature",
+						"_UI_SoftwareComponent_type"),
+				e4smPackage.Literals.SOFTWARE_COMPONENT__NUMBER_OF_SERVERS, true, false, false,
+				ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -129,6 +146,7 @@ public class SoftwareComponentItemProvider extends ComponentItemProvider {
 		switch (notification.getFeatureID(SoftwareComponent.class)) {
 		case e4smPackage.SOFTWARE_COMPONENT__OUTPUT_UNCERTAINTY:
 		case e4smPackage.SOFTWARE_COMPONENT__SYNCHRONOUS:
+		case e4smPackage.SOFTWARE_COMPONENT__NUMBER_OF_SERVERS:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}

@@ -22,6 +22,7 @@ import e4sm.de.metamodel.e4sm.OutputPin;
 import e4sm.de.metamodel.e4sm.Person;
 import e4sm.de.metamodel.e4sm.PhysicalComponent;
 import e4sm.de.metamodel.e4sm.PhysicalConnector;
+import e4sm.de.metamodel.e4sm.QueueType;
 import e4sm.de.metamodel.e4sm.Robot;
 import e4sm.de.metamodel.e4sm.Sector;
 import e4sm.de.metamodel.e4sm.Sensor;
@@ -152,6 +153,8 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
+		case e4smPackage.QUEUE_TYPE:
+			return createQueueTypeFromString(eDataType, initialValue);
 		case e4smPackage.CONNECTIONSPEED:
 			return createConnectionspeedFromString(eDataType, initialValue);
 		case e4smPackage.JSON:
@@ -169,6 +172,8 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
+		case e4smPackage.QUEUE_TYPE:
+			return convertQueueTypeToString(eDataType, instanceValue);
 		case e4smPackage.CONNECTIONSPEED:
 			return convertConnectionspeedToString(eDataType, instanceValue);
 		case e4smPackage.JSON:
@@ -484,6 +489,28 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 	public UnitPrefix createUnitPrefix() {
 		UnitPrefixImpl unitPrefix = new UnitPrefixImpl();
 		return unitPrefix;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QueueType createQueueTypeFromString(EDataType eDataType, String initialValue) {
+		QueueType result = QueueType.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException(
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertQueueTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

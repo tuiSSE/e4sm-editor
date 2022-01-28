@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.SoftwareComponentImpl#getOutputUncertainty <em>Output Uncertainty</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.SoftwareComponentImpl#isSynchronous <em>Synchronous</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.SoftwareComponentImpl#getNumberOfServers <em>Number Of Servers</em>}</li>
  * </ul>
  *
  * @generated
@@ -65,6 +66,26 @@ public class SoftwareComponentImpl extends ComponentImpl implements SoftwareComp
 	 * @ordered
 	 */
 	protected boolean synchronous = SYNCHRONOUS_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getNumberOfServers() <em>Number Of Servers</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNumberOfServers()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int NUMBER_OF_SERVERS_EDEFAULT = 1;
+
+	/**
+	 * The cached value of the '{@link #getNumberOfServers() <em>Number Of Servers</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNumberOfServers()
+	 * @generated
+	 * @ordered
+	 */
+	protected int numberOfServers = NUMBER_OF_SERVERS_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -139,12 +160,38 @@ public class SoftwareComponentImpl extends ComponentImpl implements SoftwareComp
 	 * @generated
 	 */
 	@Override
+	public int getNumberOfServers() {
+		return numberOfServers;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setNumberOfServers(int newNumberOfServers) {
+		int oldNumberOfServers = numberOfServers;
+		numberOfServers = newNumberOfServers;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.SOFTWARE_COMPONENT__NUMBER_OF_SERVERS,
+					oldNumberOfServers, numberOfServers));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case e4smPackage.SOFTWARE_COMPONENT__OUTPUT_UNCERTAINTY:
 			return getOutputUncertainty();
 		case e4smPackage.SOFTWARE_COMPONENT__SYNCHRONOUS:
 			return isSynchronous();
+		case e4smPackage.SOFTWARE_COMPONENT__NUMBER_OF_SERVERS:
+			return getNumberOfServers();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -162,6 +209,9 @@ public class SoftwareComponentImpl extends ComponentImpl implements SoftwareComp
 			return;
 		case e4smPackage.SOFTWARE_COMPONENT__SYNCHRONOUS:
 			setSynchronous((Boolean) newValue);
+			return;
+		case e4smPackage.SOFTWARE_COMPONENT__NUMBER_OF_SERVERS:
+			setNumberOfServers((Integer) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -181,6 +231,9 @@ public class SoftwareComponentImpl extends ComponentImpl implements SoftwareComp
 		case e4smPackage.SOFTWARE_COMPONENT__SYNCHRONOUS:
 			setSynchronous(SYNCHRONOUS_EDEFAULT);
 			return;
+		case e4smPackage.SOFTWARE_COMPONENT__NUMBER_OF_SERVERS:
+			setNumberOfServers(NUMBER_OF_SERVERS_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -197,6 +250,8 @@ public class SoftwareComponentImpl extends ComponentImpl implements SoftwareComp
 			return outputUncertainty != OUTPUT_UNCERTAINTY_EDEFAULT;
 		case e4smPackage.SOFTWARE_COMPONENT__SYNCHRONOUS:
 			return synchronous != SYNCHRONOUS_EDEFAULT;
+		case e4smPackage.SOFTWARE_COMPONENT__NUMBER_OF_SERVERS:
+			return numberOfServers != NUMBER_OF_SERVERS_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -216,6 +271,8 @@ public class SoftwareComponentImpl extends ComponentImpl implements SoftwareComp
 		result.append(outputUncertainty);
 		result.append(", synchronous: ");
 		result.append(synchronous);
+		result.append(", numberOfServers: ");
+		result.append(numberOfServers);
 		result.append(')');
 		return result.toString();
 	}

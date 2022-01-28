@@ -23,6 +23,7 @@ import e4sm.de.metamodel.e4sm.Person;
 import e4sm.de.metamodel.e4sm.PhysicalComponent;
 import e4sm.de.metamodel.e4sm.PhysicalConnector;
 import e4sm.de.metamodel.e4sm.Pin;
+import e4sm.de.metamodel.e4sm.QueueType;
 import e4sm.de.metamodel.e4sm.Robot;
 import e4sm.de.metamodel.e4sm.Sector;
 import e4sm.de.metamodel.e4sm.Sensor;
@@ -179,6 +180,8 @@ public class e4smValidator extends EObjectValidator {
 			return validateConversionByConvention((ConversionByConvention) value, diagnostics, context);
 		case e4smPackage.UNIT_PREFIX:
 			return validateUnitPrefix((UnitPrefix) value, diagnostics, context);
+		case e4smPackage.QUEUE_TYPE:
+			return validateQueueType((QueueType) value, diagnostics, context);
 		case e4smPackage.CONNECTIONSPEED:
 			return validateConnectionspeed(value, diagnostics, context);
 		case e4smPackage.JSON:
@@ -946,7 +949,8 @@ public class e4smValidator extends EObjectValidator {
 			if (diagnostics != null) {
 				diagnostics.add(
 						createDiagnostic(Diagnostic.WARNING, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic",
-								new Object[] { "C1: pin is disconnected", getObjectLabel(pin, context) }, new Object[] { pin }, context));
+								new Object[] { "C1: pin is disconnected", getObjectLabel(pin, context) },
+								new Object[] { pin }, context));
 			}
 			return false;
 		}
@@ -1081,6 +1085,15 @@ public class e4smValidator extends EObjectValidator {
 	 */
 	public boolean validateUnitPrefix(UnitPrefix unitPrefix, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(unitPrefix, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateQueueType(QueueType queueType, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
 	}
 
 	/**
