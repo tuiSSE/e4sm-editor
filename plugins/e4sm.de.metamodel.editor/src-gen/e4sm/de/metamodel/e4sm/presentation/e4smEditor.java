@@ -980,6 +980,10 @@ public class e4smEditor extends MultiPageEditorPart
 		this.createModelGen();
 	}
 	
+	/**
+	 * See https://www.eclipse.org/edapt/libraryexample.php
+	 * @param resourceURI
+	 */
 	private void checkMigration(final URI resourceURI) {
 		String nsURI = ReleaseUtils.getNamespaceURI(resourceURI);
 		final Migrator migrator = MigratorRegistry.getInstance().getMigrator(
@@ -1002,6 +1006,12 @@ public class e4smEditor extends MultiPageEditorPart
 		}
 	}
 
+	/**
+	 * See https://www.eclipse.org/edapt/libraryexample.php
+	 * @param migrator
+	 * @param resourceURI
+	 * @param release
+	 */
 	private void performMigration(final Migrator migrator,
 			final URI resourceURI, final Release release) {
 		IRunnableWithProgress runnable = new IRunnableWithProgress() {
