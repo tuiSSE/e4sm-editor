@@ -1,3 +1,6 @@
+import SCPNConstructors;
+import SCPNHelpers;
+
 modeltype e4sm "strict" uses e4sm("http://de.tu-ilmenau/e4sm/1.0.0");
 modeltype scpn "strict" uses scpn("http://timenet.tu-ilmenau.de/schema/SCPN");
 
@@ -7,7 +10,12 @@ configuration property packageName : String;
 
 main() {
 	log("Transforming E4SM Model to Stochastic Colored Petri Net");
-	e.rootObjects()[Model].packages->select(p:Package | p.name = packageName)->map packageToSCPN();
+	assert fatal (packageName <> null and not packageName->isEmpty() and packageName <> "") with log("Please set a package name in the run configuration.");
+	
+	var packages : Bag(Package) = e.rootObjects()[Model].packages->select(p:Package | p.name = packageName);
+	assert fatal (packages->size() > 0) with log("Could not find any package named \"" + packageName + "\". Please check your Run Configurations.");
+	
+	packages->map packageToSCPN();
 	log("Main: Transformation completed.");
 }
 	
@@ -16,22 +24,85 @@ main() {
 mapping Package::packageToSCPN() : SCPNNet{
 	log("Transforming package " +  self.name);
 	place += self.components->componentToPlace();
-	id := self.name;
+	substitutionTransition += self.sectors->transformSector();
+	
+	id := safeString(self.name);
 	
 	//Defautl SCPN Configuration for TimeNET:
 	gridActive := true;
-	netclass :="SCPN";
-	sharpEdges:=false;
+	netclass := "SCPN";
+	sharpEdges := false;
+}
+
+/**
+  Converts an e4sm Queue to a Petri net place queue
+*/
+helper e4sm::QueueType::convertQueueType() : scpn::QueueType {
+	switch {
+	case  (self = e4sm::QueueType::RANDOM){
+			return scpn::QueueType::Random;
+		}
+		case  (self = e4sm::QueueType::FIFO){
+			return scpn::QueueType::FIFO;
+		}
+		case  (self = e4sm::QueueType::LIFO){
+			return scpn::QueueType::LIFO;
+		}
+		else{
+			log("Unsupported queue type " + self.toString());
+			return scpn::QueueType::Random;
+		}
+	};
+	//Not needed, but it removes the warning
+	return scpn::QueueType::Random;
+}
+
+mapping Sector::transformSector() : SubstitutionTransitionType{
+	var idName := safeString(self.name);
+	log("Transforming sector " +  self.name);
+	id := idName; //In TimeNET: 0.0, 0.1...
+	
+	//TimeNET's default:
+	replication := 0;
+    type:=scpn::Type::node;
+	
+	//If these are added, TimeNet says the network's schema is outdated.
+	//serverType:=ServerTypeType::ExclusiveServer;
+    //specType:=SpecTypeType::Automatic;
+	//takeFirst:=false;
+    //watch:=false;
+
+
+ 	graphics := object GraphicsType {
+ 		   orientation:=0;
+ 			x := 650;
+	 		y := 200;
+	 	};
+	 	label := object LabelType{
+	 	   id:=idName+"_label";
+	 	   text:=self.name;
+	 	   type:=scpn::Type::text;
+	 	   graphics := object GraphicsType {
+			x := -10;
+	 		y := -40;
+	 	   };
+	 	};
+    net += object ReplicationType{
+    	gridActive := true;
+    	netclass:="SCPN";
+    	sharpEdges := false;
+    	id:=idName+"_subnet";
+    };    
 }
 
 mapping Component::componentToPlace() : PlaceType{
 	log("Transforming component " +  self.name);
-	id := self.name;
+	id := safeString(self.name);
 	type := Type::node;
-	queue := QueueType::Random;
 	tokentype := "int";
+	queue := scpn::QueueType::Random;
 	label := object LabelType{
-		id:=self.name.concat('.0'); 
+		id:= safeString(self.name).concat('.0'); 
 		text:=self.name;
 	 	type:=Type::text;
 	 	graphics := object GraphicsType {
