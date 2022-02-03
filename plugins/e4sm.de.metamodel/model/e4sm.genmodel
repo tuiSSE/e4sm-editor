@@ -32,6 +32,7 @@
     <genClasses ecoreClass="e4sm.ecore#//Connector">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//Connector/source"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//Connector/target"/>
+      <genOperations ecoreOperation="e4sm.ecore#//Connector/computeName" body="if(this.getName() != null &amp;&amp; !this.getName().isBlank()) {&#xD;&#xA;&#x9;&#x9;&#x9;return this.getName();&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;if(this.getSource() != null &amp;&amp; this.getTarget() != null) {&#xD;&#xA;&#x9;&#x9;&#x9;return this.getSource().computeName() + &quot;_to_&quot; + this.getTarget().computeName();&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;return &quot;Invalid connector&quot;;"/>
     </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//PhysicalConnector">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//PhysicalConnector/minSpeed"/>
@@ -93,11 +94,15 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//Pin/gatewayPin"
           get="return this.getOutgoingConnectors().size()>=1 &amp;&amp; this.getIncomingConnectors().size() >=1;"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//Pin/stream"/>
+      <genOperations ecoreOperation="e4sm.ecore#//Pin/computeName"/>
     </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//InputPin">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//InputPin/queueType"/>
+      <genOperations ecoreOperation="e4sm.ecore#//InputPin/computeName" body="&#x9;&#x9;if(this.getName() != null &amp;&amp; !this.getName().isBlank()) {&#xD;&#xA;&#x9;&#x9;&#x9;return this.getName();&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;var container = ((Component)this.eContainer());&#xD;&#xA;&#x9;&#x9;return  container.getName()+&quot;_in_&quot;+container.getPins().indexOf(this);"/>
     </genClasses>
-    <genClasses ecoreClass="e4sm.ecore#//OutputPin"/>
+    <genClasses ecoreClass="e4sm.ecore#//OutputPin">
+      <genOperations ecoreOperation="e4sm.ecore#//OutputPin/computeName" body="&#x9;&#x9;if(this.getName() != null &amp;&amp; !this.getName().isBlank()) {&#xD;&#xA;&#x9;&#x9;&#x9;return this.getName();&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;var container = ((Component)this.eContainer());&#xD;&#xA;&#x9;&#x9;return  container.getName()+&quot;_out_&quot;+container.getPins().indexOf(this);"/>
+    </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//Person">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//Person/surname"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//Person/department"/>

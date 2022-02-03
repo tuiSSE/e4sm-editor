@@ -51,4 +51,12 @@ public interface InputPin extends Pin {
 	 * @generated
 	 */
 	void setQueueType(QueueType value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	String computeName();
 } // InputPin

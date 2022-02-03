@@ -17,4 +17,12 @@ package e4sm.de.metamodel.e4sm;
  * @generated
  */
 public interface OutputPin extends Pin {
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	String computeName();
 } // OutputPin

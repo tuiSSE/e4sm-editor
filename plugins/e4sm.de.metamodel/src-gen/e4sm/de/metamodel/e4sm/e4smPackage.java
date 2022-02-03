@@ -602,13 +602,22 @@ public interface e4smPackage extends EPackage {
 	int CONNECTOR_FEATURE_COUNT = AnalysisPackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Compute Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR___COMPUTE_NAME = AnalysisPackage.PARAMETERIZABLE_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Connector</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR_OPERATION_COUNT = AnalysisPackage.PARAMETERIZABLE_ELEMENT_OPERATION_COUNT + 0;
+	int CONNECTOR_OPERATION_COUNT = AnalysisPackage.PARAMETERIZABLE_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
@@ -672,6 +681,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int PHYSICAL_CONNECTOR_FEATURE_COUNT = CONNECTOR_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Compute Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PHYSICAL_CONNECTOR___COMPUTE_NAME = CONNECTOR___COMPUTE_NAME;
 
 	/**
 	 * The number of operations of the '<em>Physical Connector</em>' class.
@@ -807,6 +825,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int LOGICAL_CONNECTOR_FEATURE_COUNT = CONNECTOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Compute Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOGICAL_CONNECTOR___COMPUTE_NAME = CONNECTOR___COMPUTE_NAME;
 
 	/**
 	 * The number of operations of the '<em>Logical Connector</em>' class.
@@ -1776,13 +1803,22 @@ public interface e4smPackage extends EPackage {
 	int PIN_FEATURE_COUNT = AnalysisPackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
+	 * The operation id for the '<em>Compute Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIN___COMPUTE_NAME = AnalysisPackage.PARAMETERIZABLE_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Pin</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PIN_OPERATION_COUNT = AnalysisPackage.PARAMETERIZABLE_ELEMENT_OPERATION_COUNT + 0;
+	int PIN_OPERATION_COUNT = AnalysisPackage.PARAMETERIZABLE_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
@@ -1866,13 +1902,22 @@ public interface e4smPackage extends EPackage {
 	int INPUT_PIN_FEATURE_COUNT = PIN_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Compute Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_PIN___COMPUTE_NAME = PIN_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Input Pin</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_PIN_OPERATION_COUNT = PIN_OPERATION_COUNT + 0;
+	int INPUT_PIN_OPERATION_COUNT = PIN_OPERATION_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
@@ -1947,13 +1992,22 @@ public interface e4smPackage extends EPackage {
 	int OUTPUT_PIN_FEATURE_COUNT = PIN_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Compute Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_PIN___COMPUTE_NAME = PIN_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Output Pin</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OUTPUT_PIN_OPERATION_COUNT = PIN_OPERATION_COUNT + 0;
+	int OUTPUT_PIN_OPERATION_COUNT = PIN_OPERATION_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2441,6 +2495,16 @@ public interface e4smPackage extends EPackage {
 	EReference getConnector_Target();
 
 	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.Connector#computeName() <em>Compute Name</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Compute Name</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.Connector#computeName()
+	 * @generated
+	 */
+	EOperation getConnector__ComputeName();
+
+	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.PhysicalConnector <em>Physical Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2904,6 +2968,16 @@ public interface e4smPackage extends EPackage {
 	EAttribute getPin_Stream();
 
 	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.Pin#computeName() <em>Compute Name</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Compute Name</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.Pin#computeName()
+	 * @generated
+	 */
+	EOperation getPin__ComputeName();
+
+	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.InputPin <em>Input Pin</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2925,6 +2999,16 @@ public interface e4smPackage extends EPackage {
 	EAttribute getInputPin_QueueType();
 
 	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.InputPin#computeName() <em>Compute Name</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Compute Name</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.InputPin#computeName()
+	 * @generated
+	 */
+	EOperation getInputPin__ComputeName();
+
+	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.OutputPin <em>Output Pin</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2933,6 +3017,16 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getOutputPin();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.OutputPin#computeName() <em>Compute Name</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Compute Name</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.OutputPin#computeName()
+	 * @generated
+	 */
+	EOperation getOutputPin__ComputeName();
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.Person <em>Person</em>}'.
@@ -3264,6 +3358,14 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CONNECTOR__TARGET = eINSTANCE.getConnector_Target();
+
+		/**
+		 * The meta object literal for the '<em><b>Compute Name</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CONNECTOR___COMPUTE_NAME = eINSTANCE.getConnector__ComputeName();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.PhysicalConnectorImpl <em>Physical Connector</em>}' class.
@@ -3652,6 +3754,14 @@ public interface e4smPackage extends EPackage {
 		EAttribute PIN__STREAM = eINSTANCE.getPin_Stream();
 
 		/**
+		 * The meta object literal for the '<em><b>Compute Name</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PIN___COMPUTE_NAME = eINSTANCE.getPin__ComputeName();
+
+		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.InputPinImpl <em>Input Pin</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3670,6 +3780,14 @@ public interface e4smPackage extends EPackage {
 		EAttribute INPUT_PIN__QUEUE_TYPE = eINSTANCE.getInputPin_QueueType();
 
 		/**
+		 * The meta object literal for the '<em><b>Compute Name</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation INPUT_PIN___COMPUTE_NAME = eINSTANCE.getInputPin__ComputeName();
+
+		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.OutputPinImpl <em>Output Pin</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3678,6 +3796,14 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EClass OUTPUT_PIN = eINSTANCE.getOutputPin();
+
+		/**
+		 * The meta object literal for the '<em><b>Compute Name</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation OUTPUT_PIN___COMPUTE_NAME = eINSTANCE.getOutputPin__ComputeName();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.PersonImpl <em>Person</em>}' class.

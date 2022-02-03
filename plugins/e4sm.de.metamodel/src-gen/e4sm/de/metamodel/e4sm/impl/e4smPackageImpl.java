@@ -488,6 +488,16 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
+	public EOperation getConnector__ComputeName() {
+		return connectorEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getPhysicalConnector() {
 		return physicalConnectorEClass;
 	}
@@ -928,6 +938,16 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
+	public EOperation getPin__ComputeName() {
+		return pinEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getInputPin() {
 		return inputPinEClass;
 	}
@@ -948,8 +968,28 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
+	public EOperation getInputPin__ComputeName() {
+		return inputPinEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getOutputPin() {
 		return outputPinEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getOutputPin__ComputeName() {
+		return outputPinEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1204,6 +1244,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		connectorEClass = createEClass(CONNECTOR);
 		createEReference(connectorEClass, CONNECTOR__SOURCE);
 		createEReference(connectorEClass, CONNECTOR__TARGET);
+		createEOperation(connectorEClass, CONNECTOR___COMPUTE_NAME);
 
 		physicalConnectorEClass = createEClass(PHYSICAL_CONNECTOR);
 		createEAttribute(physicalConnectorEClass, PHYSICAL_CONNECTOR__MIN_SPEED);
@@ -1264,11 +1305,14 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		createEReference(pinEClass, PIN__INCOMING_CONNECTORS);
 		createEAttribute(pinEClass, PIN__GATEWAY_PIN);
 		createEAttribute(pinEClass, PIN__STREAM);
+		createEOperation(pinEClass, PIN___COMPUTE_NAME);
 
 		inputPinEClass = createEClass(INPUT_PIN);
 		createEAttribute(inputPinEClass, INPUT_PIN__QUEUE_TYPE);
+		createEOperation(inputPinEClass, INPUT_PIN___COMPUTE_NAME);
 
 		outputPinEClass = createEClass(OUTPUT_PIN);
+		createEOperation(outputPinEClass, OUTPUT_PIN___COMPUTE_NAME);
 
 		personEClass = createEClass(PERSON);
 		createEAttribute(personEClass, PERSON__SURNAME);
@@ -1407,6 +1451,9 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 				Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEOperation(getConnector__ComputeName(), ecorePackage.getEString(), "computeName", 0, 1, IS_UNIQUE,
+				IS_ORDERED);
+
 		initEClass(physicalConnectorEClass, PhysicalConnector.class, "PhysicalConnector", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPhysicalConnector_MinSpeed(), this.getConnectionspeed(), "minSpeed", null, 0, 1,
@@ -1532,13 +1579,21 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		initEAttribute(getPin_Stream(), ecorePackage.getEBoolean(), "stream", null, 0, 1, Pin.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEOperation(getPin__ComputeName(), ecorePackage.getEString(), "computeName", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(inputPinEClass, InputPin.class, "InputPin", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getInputPin_QueueType(), this.getQueueType(), "queueType", null, 0, 1, InputPin.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEOperation(getInputPin__ComputeName(), ecorePackage.getEString(), "computeName", 0, 1, IS_UNIQUE,
+				IS_ORDERED);
+
 		initEClass(outputPinEClass, OutputPin.class, "OutputPin", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
+
+		initEOperation(getOutputPin__ComputeName(), ecorePackage.getEString(), "computeName", 0, 1, IS_UNIQUE,
+				IS_ORDERED);
 
 		initEClass(personEClass, Person.class, "Person", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPerson_Surname(), ecorePackage.getEString(), "surname", null, 1, 1, Person.class,

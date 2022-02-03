@@ -92,4 +92,12 @@ public interface Pin extends ParameterizableElement, TypedElement {
 	 * @generated
 	 */
 	void setStream(boolean value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	String computeName();
 } // Pin

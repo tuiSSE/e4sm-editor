@@ -7,6 +7,7 @@ import e4sm.de.metamodel.e4sm.Pin;
 import e4sm.de.metamodel.e4sm.analysis.Parameter;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
+import java.lang.reflect.InvocationTargetException;
 import e4sm.de.metamodel.e4sm.core.Element;
 import e4sm.de.metamodel.e4sm.core.NamedElement;
 import e4sm.de.metamodel.e4sm.core.TypedElement;
@@ -295,6 +296,18 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public String computeName() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -507,6 +520,20 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+		case e4smPackage.PIN___COMPUTE_NAME:
+			return computeName();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

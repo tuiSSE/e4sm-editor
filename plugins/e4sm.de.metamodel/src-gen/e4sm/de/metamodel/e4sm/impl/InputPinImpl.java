@@ -2,11 +2,14 @@
  */
 package e4sm.de.metamodel.e4sm.impl;
 
+import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.InputPin;
 import e4sm.de.metamodel.e4sm.QueueType;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
+import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -92,6 +95,20 @@ public class InputPinImpl extends PinImpl implements InputPin {
 	 * @generated
 	 */
 	@Override
+	public String computeName() {
+		if (this.getName() != null && !this.getName().isBlank()) {
+			return this.getName();
+		}
+		var container = ((Component) this.eContainer());
+		return container.getName() + "_in_" + container.getPins().indexOf(this);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case e4smPackage.INPUT_PIN__QUEUE_TYPE:
@@ -142,6 +159,20 @@ public class InputPinImpl extends PinImpl implements InputPin {
 			return queueType != QUEUE_TYPE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+		case e4smPackage.INPUT_PIN___COMPUTE_NAME:
+			return computeName();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

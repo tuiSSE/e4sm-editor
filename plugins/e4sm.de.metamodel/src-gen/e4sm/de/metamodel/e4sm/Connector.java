@@ -77,4 +77,12 @@ public interface Connector extends ParameterizableElement, NamedElement {
 	 */
 	void setTarget(Pin value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	String computeName();
+
 } // Connector

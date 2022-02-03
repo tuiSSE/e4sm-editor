@@ -7,6 +7,7 @@ import e4sm.de.metamodel.e4sm.Pin;
 import e4sm.de.metamodel.e4sm.analysis.Parameter;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
+import java.lang.reflect.InvocationTargetException;
 import e4sm.de.metamodel.e4sm.core.Element;
 import e4sm.de.metamodel.e4sm.core.NamedElement;
 import e4sm.de.metamodel.e4sm.core.CorePackage;
@@ -290,6 +291,22 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	@Override
+	public String computeName() {
+		if (this.getName() != null && !this.getName().isBlank()) {
+			return this.getName();
+		}
+		if (this.getSource() != null && this.getTarget() != null) {
+			return this.getSource().computeName() + "_to_" + this.getTarget().computeName();
+		}
+		return "Invalid connector";
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case e4smPackage.CONNECTOR__SOURCE:
@@ -464,6 +481,20 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+		case e4smPackage.CONNECTOR___COMPUTE_NAME:
+			return computeName();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
