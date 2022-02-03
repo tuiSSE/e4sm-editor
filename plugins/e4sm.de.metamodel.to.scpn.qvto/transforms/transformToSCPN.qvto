@@ -23,15 +23,48 @@ main() {
 /** Mappings **/
 mapping Package::packageToSCPN() : SCPNNet{
 	log("Transforming package " +  self.name);
-	place += self.components->componentToPlace();
-	substitutionTransition += self.sectors->transformSector();
-	
+	//Attributes
 	id := safeString(self.name);
 	
 	//Defautl SCPN Configuration for TimeNET:
 	gridActive := true;
 	netclass := "SCPN";
 	sharpEdges := false;
+	
+	//Children
+	var res = self.components->map transformComponent();
+	place += res.pl;
+	immediateTransition += res.iTr;
+	arc += res.arcs;
+	timedTransition += res.tt;
+	substitutionTransition += self.sectors->map transformSector();
+	
+	//Transform connectors
+	var connectors := self.connectors->map connectorToSCPN();
+	arc += connectors.arcs;
+	timedTransition += connectors.tt;
+
+}
+
+mapping Connector::connectorToSCPN(): arcs:List(ArcType), tt:TimedTransitionType {
+	init{   
+	log(self.computeName());
+		tt := new TimedTransitionType(self.computeName());
+	}
+	log("Transforming connector " +  self.name);
+	var arc1 := new ArcType(self.computeName() + "_1");
+	var arc2 := new ArcType(self.computeName() + "_2");
+	
+	arc1.fromNode := self.source.resolveone(PlaceType).id;
+	arc1.toNode := tt.id;
+	
+	arc2.fromNode := tt.id;
+	arc2.toNode := self.target.resolveone(PlaceType).id;
+	
+	arcs->add(arc1);
+	arcs->add(arc2);
+
+	log("Transformed connector " +  self.name);
 }
 
 /**
@@ -95,24 +128,76 @@ mapping Sector::transformSector() : SubstitutionTransitionType{
     };    
 }
 
-mapping Component::componentToPlace() : PlaceType{
-	log("Transforming component " +  self.name);
-	id := safeString(self.name);
-	type := Type::node;
-	tokentype := "int";
-	queue := scpn::QueueType::Random;
-	label := object LabelType{
-		id:= safeString(self.name).concat('.0'); 
-		text:=self.name;
-	 	type:=Type::text;
-	 	graphics := object GraphicsType {
-			x := -10;
-	 		y := 30;
-	 	}
- 	};
-	 graphics := object GraphicsType {
-	 	orientation:=0;
-	 	x:=0;
-	 	y:=0;
+mapping InputPin::transform(parentName:String, index: Integer) : PlaceType {
+init{
+ 	result:= new PlaceType(parentName +"_in_"+index.toString());
+}
+}
+
+mapping OutputPin::transform(parentName:String, index: Integer) : PlaceType {
+init{
+ 	result:= new PlaceType(parentName +"_out_"+index.toString());
+}
+}
+
+mapping Component::transformComponent() : pl: List(PlaceType), iTr : List(ImmediateTransitionType), arcs : List (ArcType), tt : TimedTransitionType {		
+	init{
+		log("Transforming component " +  self.name);
+		pl := List{};
+		iTr := List{};
+		
+		var componentMainPlace := new PlaceType(self.name + "_main");
+		pl->add(componentMainPlace);
+		
+		var componentReadyTransition := new ImmediateTransitionType(self.name + "_ready");
+		iTr->add(componentReadyTransition);
+		
+		var readyToMain := new ArcType(self.name+"_ready_to_main");
+		readyToMain.fromNode := componentReadyTransition.id;
+		readyToMain.toNode := componentMainPlace.id;
+		arcs->add(readyToMain);
+		
+		// Timed transition for the component execution
+		tt := new TimedTransitionType(self.name+"_execution");
+		
+		// Arc between the main Place and the timed transition
+		var mainToTimed := new ArcType(self.name+"_main_to_timed");
+		mainToTimed.fromNode := componentMainPlace.id;
+		mainToTimed.toNode := tt.id;
+		arcs->add(mainToTimed);
+		
+		// Transform the input pins
+		var i:Integer := 0;
+		self.pins[InputPin]->forEach(ip) {
+		    //Create the place
+		    var inputPinPlace := ip.map transform(self.name, i);
+		    pl->add(inputPinPlace);
+			
+			//Create an arc to connect it to the component
+			var arcToTransition = new ArcType(inputPinPlace.id + "_to_" + self.name);
+			arcToTransition.fromNode := inputPinPlace.id;
+			arcToTransition.toNode := componentReadyTransition.id;
+			arcs->add(arcToTransition);
+			
+			i := i+1;
+		};
+		
+		i := 0;
+		self.pins[OutputPin]->forEach(op) {
+			//Create the place
+		    var outputPinPlace := op.map transform(self.name, i);
+		    pl->add(outputPinPlace);
+			
+			//Create an arc to connect the the component to the place
+			var arcFromTransition = new ArcType(outputPinPlace.id + "_from_" + self.name);
+			arcFromTransition.fromNode := tt.id;
+			arcFromTransition.toNode := outputPinPlace.id;
+			arcs->add(arcFromTransition);
+			
+			i := i+1;
+		};
+		
 	 }
+	 log("Transformed component '" +  self.name + "' to " + pl->size().toString()+ " places and "
+	  + iTr->size().toString() + " immediate transition(s)");
 }

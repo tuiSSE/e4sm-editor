@@ -13,6 +13,22 @@ constructor LabelType::LabelType(given_text : String) {
 	log("Created Label called: " + given_text);
 }
 
+constructor PlaceType::PlaceType(given_label : String) {
+	//Attributes
+	id := safeString(given_label) + "_place_id";
+	capacity := "0";
+	queue:= scpn::QueueType::Random;
+	tokentype:= "int";
+	type := scpn::Type::node;
+	watch := false;
+	initialMarking := "";
+	
+	//Children
+	graphics := new GraphicsType(true);
+	label := new LabelType(given_label);
+	
+	log("Created Place called: " + given_label);
+}
 
 constructor PlaceType::PlaceType(given_label : String, initial_marking : String) {
 	//Attributes
@@ -43,7 +59,7 @@ constructor GraphicsType::GraphicsType(create_orientation:Boolean){
 constructor InscriptionType::InscriptionType(){
 	//Attributes
 	id := "anonymous_inscription_id";
-	text := "1";
+	text := "";
 	type:=scpn::Type::inscriptionText;
 	
 	//Children
@@ -65,9 +81,9 @@ constructor InscriptionType::InscriptionType(g : GraphicsType){
 }
 
 
-constructor ArcType::ArcType(){
+constructor ArcType::ArcType(name : String){
 	//Attributes
-	id := "arc_id";
+	id := safeString(name) + "_arc_id";
 	type := scpn::Type::connector;
 	//fromNode := t.id;
 	//toNode := p.id;
@@ -112,6 +128,7 @@ constructor ImmediateTransitionType::ImmediateTransitionType(name:String) {
 }
 
 constructor TimedTransitionType::TimedTransitionType(name : String) {
+    assert fatal (name->size()>0);
     //Attributes
 	id := safeString(name) + "_timed_trans_id";
 	serverType := scpn::ServerTypeType::ExclusiveServer;
@@ -144,7 +161,7 @@ constructor SubstitutionTransitionType::SubstitutionTransitionType(name : String
     	gridActive := true;
     	netclass:="SCPN";
     	sharpEdges := false;
-    	id:= name + "_subnet";
+    	id:= safeString(name) + "_subnet";
     };    
 
     log("Created Substitution transition called: " + name);
