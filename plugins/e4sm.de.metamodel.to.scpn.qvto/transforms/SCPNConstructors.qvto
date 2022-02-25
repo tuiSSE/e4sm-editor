@@ -59,7 +59,7 @@ constructor GraphicsType::GraphicsType(create_orientation:Boolean){
 constructor InscriptionType::InscriptionType(){
 	//Attributes
 	id := "anonymous_inscription_id";
-	text := "";
+	text := "x";
 	type:=scpn::Type::inscriptionText;
 	
 	//Children

@@ -9,7 +9,7 @@ transformation transformToSCPN(in e:e4sm, out s:scpn);
 configuration property packageName : String;
 
 main() {
-	log("Transforming E4SM Model to Stochastic Colored Petri Net");
+	log("\nTransforming E4SM Model to Stochastic Colored Petri Net");
 	assert fatal (packageName <> null and not packageName->isEmpty() and packageName <> "") with log("Please set a package name in the run configuration.");
 	
 	var packages : Bag(Package) = e.rootObjects()[Model].packages->select(p:Package | p.name = packageName);
@@ -22,7 +22,7 @@ main() {
 
 /** Mappings **/
 mapping Package::packageToSCPN() : SCPNNet{
-	log("Transforming package " +  self.name);
+	log("\nTransforming package " +  self.name);
 	//Attributes
 	id := safeString(self.name);
 	
@@ -32,26 +32,46 @@ mapping Package::packageToSCPN() : SCPNNet{
 	sharpEdges := false;
 	
 	//Children
-	var res = self.components->map transformComponent();
-	place += res.pl;
-	immediateTransition += res.iTr;
-	arc += res.arcs;
-	timedTransition += res.tt;
-	substitutionTransition += self.sectors->map transformSector();
+	if(self.components->isEmpty()){
+		log("\n=== Warning: no components to transform ===");
+	}
+	else {
+		log("\n=== Transforming all Components ===");
+		var res = self.components->map transformComponent();
+		place += res.pl;
+		immediateTransition += res.iTr;
+		arc += res.arcs;
+		timedTransition += res.tt;
+	};
+	
+	if(self.sectors->isEmpty()){
+		log("\n=== Info: No sectors to transform ===");
+	}
+	else {
+		log("\n=== Transforming all Sectors ===");
+		substitutionTransition += self.sectors->map transformSector();
+	};
 	
 	//Transform connectors
-	var connectors := self.connectors->map connectorToSCPN();
-	arc += connectors.arcs;
-	timedTransition += connectors.tt;
-
+	if(self.connectors->isEmpty()){
+		log("\n=== Warning: no connectors to transform ===");
+	}
+	else{
+		log("\n=== Transforming all Connectors ===");
+		var connectors := self.connectors->map connectorToSCPN();
+		arc += connectors.arcs;
+		timedTransition += connectors.tt;
+	};
 }
 
 mapping Connector::connectorToSCPN(): arcs:List(ArcType), tt:TimedTransitionType {
-	init{   
-	log(self.computeName());
+	init{
+	    var name := self.computeName();
+		log("\nTransforming connector " +  name);
+	    assert fatal (name <> "Invalid connector") with log ("Invalid connector found. Please fix it or remove it from the model: " + self.toString());
 		tt := new TimedTransitionType(self.computeName());
 	}
-	log("Transforming connector " +  self.name);
+
 	var arc1 := new ArcType(self.computeName() + "_1");
 	var arc2 := new ArcType(self.computeName() + "_2");
 	
@@ -64,7 +84,7 @@ mapping Connector::connectorToSCPN(): arcs:List(ArcType), tt:TimedTransitionType
 	arcs->add(arc1);
 	arcs->add(arc2);
 
-	log("Transformed connector " +  self.name);
+	log("Transformed connector " +  name);
 }
 
 /**
@@ -92,7 +112,7 @@ helper e4sm::QueueType::convertQueueType() : scpn::QueueType {
 
 mapping Sector::transformSector() : SubstitutionTransitionType{
 	var idName := safeString(self.name);
-	log("Transforming sector " +  self.name);
+	log("\nTransforming sector " +  self.name);
 	id := idName; //In TimeNET: 0.0, 0.1...
 	
 	//TimeNET's default:
@@ -140,11 +160,17 @@ init{
 }
 }
 
-mapping Component::transformComponent() : pl: List(PlaceType), iTr : List(ImmediateTransitionType), arcs : List (ArcType), tt : TimedTransitionType {		
+mapping Component::transformComponent() : pl: List(PlaceType), iTr : List(ImmediateTransitionType), arcs : List (ArcType), tt : List(TimedTransitionType) {		
 	init{
-		log("Transforming component " +  self.name);
-		pl := List{};
-		iTr := List{};
+		log("\nTransforming component " +  self.name);
+		//pl := List{};
+		//iTr := List{};
+		
+		var res := self.components->map transformComponent();
+		pl += res.pl;
+		iTr += res.iTr;
+		arcs += res.arcs;
+		tt += res.tt;
 		
 		var componentMainPlace := new PlaceType(self.name + "_main");
 		pl->add(componentMainPlace);
@@ -158,13 +184,15 @@ mapping Component::transformComponent() : pl: List(PlaceType), iTr : List(Immedi
 		arcs->add(readyToMain);
 		
 		// Timed transition for the component execution
-		tt := new TimedTransitionType(self.name+"_execution");
+		var timedTran = new TimedTransitionType(self.name+"_execution");
+		tt->add(timedTran);
 		
 		// Arc between the main Place and the timed transition
 		var mainToTimed := new ArcType(self.name+"_main_to_timed");
 		mainToTimed.fromNode := componentMainPlace.id;
-		mainToTimed.toNode := tt.id;
+		mainToTimed.toNode := timedTran.id;
 		arcs->add(mainToTimed);
+
 		
 		// Transform the input pins
 		var i:Integer := 0;
@@ -190,7 +218,7 @@ mapping Component::transformComponent() : pl: List(PlaceType), iTr : List(Immedi
 			
 			//Create an arc to connect the the component to the place
 			var arcFromTransition = new ArcType(outputPinPlace.id + "_from_" + self.name);
-			arcFromTransition.fromNode := tt.id;
+			arcFromTransition.fromNode := timedTran.id;
 			arcFromTransition.toNode := outputPinPlace.id;
 			arcs->add(arcFromTransition);
 			
