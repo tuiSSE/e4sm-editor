@@ -247,6 +247,8 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="constraints" value="SensorC1"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeFunction" lowerBound="1"
+        eType="#//core/String" defaultValueLiteral="EXP(1.0)"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Actuator" eSuperTypes="#//PhysicalComponent">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

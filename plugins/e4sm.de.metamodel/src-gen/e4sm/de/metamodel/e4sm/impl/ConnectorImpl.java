@@ -298,7 +298,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 		if (this.getSource() != null && this.getTarget() != null) {
 			return this.getSource().computeName() + "_to_" + this.getTarget().computeName();
 		}
-		return "Invalid connector";
+		return "Invalid connector"; //Do not change this string, it is used in the QVTo transformation too.
 	}
 
 	/**

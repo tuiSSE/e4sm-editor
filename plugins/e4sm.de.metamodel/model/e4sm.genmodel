@@ -32,7 +32,7 @@
     <genClasses ecoreClass="e4sm.ecore#//Connector">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//Connector/source"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//Connector/target"/>
-      <genOperations ecoreOperation="e4sm.ecore#//Connector/computeName" body="if(this.getName() != null &amp;&amp; !this.getName().isBlank()) {&#xD;&#xA;&#x9;&#x9;&#x9;return this.getName();&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;if(this.getSource() != null &amp;&amp; this.getTarget() != null) {&#xD;&#xA;&#x9;&#x9;&#x9;return this.getSource().computeName() + &quot;_to_&quot; + this.getTarget().computeName();&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;return &quot;Invalid connector&quot;;"/>
+      <genOperations ecoreOperation="e4sm.ecore#//Connector/computeName" body="if(this.getName() != null &amp;&amp; !this.getName().isBlank()) {&#xD;&#xA;&#x9;&#x9;&#x9;return this.getName();&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;if(this.getSource() != null &amp;&amp; this.getTarget() != null) {&#xD;&#xA;&#x9;&#x9;&#x9;return this.getSource().computeName() + &quot;_to_&quot; + this.getTarget().computeName();&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;return &quot;Invalid connector&quot;;  //Do not change this string, it is used in the QVTo transformation too."/>
     </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//PhysicalConnector">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//PhysicalConnector/minSpeed"/>
@@ -86,7 +86,9 @@
       <genOperations documentation="Returns all components contained by this sector, even if wrapped by other sectors"
           ecoreOperation="e4sm.ecore#//Sector/getAllComponents" body="&#x9;&#x9;EList&lt;Component> res = ECollections.newBasicEList(this.getComponents());&#xD;&#xA;&#x9;&#x9;this.getSectors().forEach(s->{res.addAll(s.getAllComponents());});&#xD;&#xA;&#x9;&#x9;return res;"/>
     </genClasses>
-    <genClasses ecoreClass="e4sm.ecore#//Sensor"/>
+    <genClasses ecoreClass="e4sm.ecore#//Sensor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//Sensor/timeFunction"/>
+    </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//Actuator"/>
     <genClasses ecoreClass="e4sm.ecore#//Pin">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//Pin/outgoingConnectors"/>

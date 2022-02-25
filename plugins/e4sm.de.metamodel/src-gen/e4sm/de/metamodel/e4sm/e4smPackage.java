@@ -1583,13 +1583,22 @@ public interface e4smPackage extends EPackage {
 	int SENSOR__SPECIFIED_IN_PACKAGE = PHYSICAL_COMPONENT__SPECIFIED_IN_PACKAGE;
 
 	/**
+	 * The feature id for the '<em><b>Time Function</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENSOR__TIME_FUNCTION = PHYSICAL_COMPONENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Sensor</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SENSOR_FEATURE_COUNT = PHYSICAL_COMPONENT_FEATURE_COUNT + 0;
+	int SENSOR_FEATURE_COUNT = PHYSICAL_COMPONENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Compute Main Responsible</em>' operation.
@@ -2904,6 +2913,17 @@ public interface e4smPackage extends EPackage {
 	EClass getSensor();
 
 	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.Sensor#getTimeFunction <em>Time Function</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Time Function</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Sensor#getTimeFunction()
+	 * @see #getSensor()
+	 * @generated
+	 */
+	EAttribute getSensor_TimeFunction();
+
+	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.Actuator <em>Actuator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3700,6 +3720,14 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EClass SENSOR = eINSTANCE.getSensor();
+
+		/**
+		 * The meta object literal for the '<em><b>Time Function</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SENSOR__TIME_FUNCTION = eINSTANCE.getSensor_TimeFunction();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.ActuatorImpl <em>Actuator</em>}' class.

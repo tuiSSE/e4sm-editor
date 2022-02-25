@@ -878,6 +878,16 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getSensor_TimeFunction() {
+		return (EAttribute) sensorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getActuator() {
 		return actuatorEClass;
 	}
@@ -1297,6 +1307,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		createEOperation(sectorEClass, SECTOR___GET_ALL_COMPONENTS);
 
 		sensorEClass = createEClass(SENSOR);
+		createEAttribute(sensorEClass, SENSOR__TIME_FUNCTION);
 
 		actuatorEClass = createEClass(ACTUATOR);
 
@@ -1563,6 +1574,9 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 				IS_ORDERED);
 
 		initEClass(sensorEClass, Sensor.class, "Sensor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSensor_TimeFunction(), theCorePackage.getString(), "timeFunction", "EXP(1.0)", 1, 1,
+				Sensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
 		initEClass(actuatorEClass, Actuator.class, "Actuator", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
