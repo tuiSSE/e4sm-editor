@@ -1803,13 +1803,22 @@ public interface e4smPackage extends EPackage {
 	int PIN__STREAM = AnalysisPackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Race Semantic</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIN__RACE_SEMANTIC = AnalysisPackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>Pin</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PIN_FEATURE_COUNT = AnalysisPackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 6;
+	int PIN_FEATURE_COUNT = AnalysisPackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Compute Name</em>' operation.
@@ -1891,6 +1900,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int INPUT_PIN__STREAM = PIN__STREAM;
+
+	/**
+	 * The feature id for the '<em><b>Race Semantic</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_PIN__RACE_SEMANTIC = PIN__RACE_SEMANTIC;
 
 	/**
 	 * The feature id for the '<em><b>Queue Type</b></em>' attribute.
@@ -1990,6 +2008,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int OUTPUT_PIN__STREAM = PIN__STREAM;
+
+	/**
+	 * The feature id for the '<em><b>Race Semantic</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_PIN__RACE_SEMANTIC = PIN__RACE_SEMANTIC;
 
 	/**
 	 * The number of structural features of the '<em>Output Pin</em>' class.
@@ -2378,6 +2405,16 @@ public interface e4smPackage extends EPackage {
 	int QUEUE_TYPE = 29;
 
 	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.RaceSemantic <em>Race Semantic</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.RaceSemantic
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getRaceSemantic()
+	 * @generated
+	 */
+	int RACE_SEMANTIC = 30;
+
+	/**
 	 * The meta object id for the '<em>Connectionspeed</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2385,7 +2422,7 @@ public interface e4smPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getConnectionspeed()
 	 * @generated
 	 */
-	int CONNECTIONSPEED = 30;
+	int CONNECTIONSPEED = 31;
 
 	/**
 	 * The meta object id for the '<em>JSON</em>' data type.
@@ -2395,7 +2432,7 @@ public interface e4smPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getJSON()
 	 * @generated
 	 */
-	int JSON = 31;
+	int JSON = 32;
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.Component <em>Component</em>}'.
@@ -2988,6 +3025,17 @@ public interface e4smPackage extends EPackage {
 	EAttribute getPin_Stream();
 
 	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.Pin#getRaceSemantic <em>Race Semantic</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Race Semantic</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Pin#getRaceSemantic()
+	 * @see #getPin()
+	 * @generated
+	 */
+	EAttribute getPin_RaceSemantic();
+
+	/**
 	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.Pin#computeName() <em>Compute Name</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3247,6 +3295,16 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getQueueType();
+
+	/**
+	 * Returns the meta object for enum '{@link e4sm.de.metamodel.e4sm.RaceSemantic <em>Race Semantic</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Race Semantic</em>'.
+	 * @see e4sm.de.metamodel.e4sm.RaceSemantic
+	 * @generated
+	 */
+	EEnum getRaceSemantic();
 
 	/**
 	 * Returns the meta object for data type '{@link java.lang.Object <em>Connectionspeed</em>}'.
@@ -3782,6 +3840,14 @@ public interface e4smPackage extends EPackage {
 		EAttribute PIN__STREAM = eINSTANCE.getPin_Stream();
 
 		/**
+		 * The meta object literal for the '<em><b>Race Semantic</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PIN__RACE_SEMANTIC = eINSTANCE.getPin_RaceSemantic();
+
+		/**
 		 * The meta object literal for the '<em><b>Compute Name</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4002,6 +4068,16 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum QUEUE_TYPE = eINSTANCE.getQueueType();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.RaceSemantic <em>Race Semantic</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.RaceSemantic
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getRaceSemantic()
+		 * @generated
+		 */
+		EEnum RACE_SEMANTIC = eINSTANCE.getRaceSemantic();
 
 		/**
 		 * The meta object literal for the '<em>Connectionspeed</em>' data type.

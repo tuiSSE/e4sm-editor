@@ -24,6 +24,7 @@ import e4sm.de.metamodel.e4sm.PhysicalComponent;
 import e4sm.de.metamodel.e4sm.PhysicalConnector;
 import e4sm.de.metamodel.e4sm.Pin;
 import e4sm.de.metamodel.e4sm.QueueType;
+import e4sm.de.metamodel.e4sm.RaceSemantic;
 import e4sm.de.metamodel.e4sm.Robot;
 import e4sm.de.metamodel.e4sm.Sector;
 import e4sm.de.metamodel.e4sm.Sensor;
@@ -269,6 +270,13 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	private EEnum queueTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum raceSemanticEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -948,6 +956,16 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getPin_RaceSemantic() {
+		return (EAttribute) pinEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getPin__ComputeName() {
 		return pinEClass.getEOperations().get(0);
 	}
@@ -1198,6 +1216,16 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
+	public EEnum getRaceSemantic() {
+		return raceSemanticEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EDataType getConnectionspeed() {
 		return connectionspeedEDataType;
 	}
@@ -1316,6 +1344,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		createEReference(pinEClass, PIN__INCOMING_CONNECTORS);
 		createEAttribute(pinEClass, PIN__GATEWAY_PIN);
 		createEAttribute(pinEClass, PIN__STREAM);
+		createEAttribute(pinEClass, PIN__RACE_SEMANTIC);
 		createEOperation(pinEClass, PIN___COMPUTE_NAME);
 
 		inputPinEClass = createEClass(INPUT_PIN);
@@ -1353,6 +1382,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 
 		// Create enums
 		queueTypeEEnum = createEEnum(QUEUE_TYPE);
+		raceSemanticEEnum = createEEnum(RACE_SEMANTIC);
 
 		// Create data types
 		connectionspeedEDataType = createEDataType(CONNECTIONSPEED);
@@ -1592,6 +1622,9 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 				IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPin_Stream(), ecorePackage.getEBoolean(), "stream", null, 0, 1, Pin.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPin_RaceSemantic(), this.getRaceSemantic(), "raceSemantic", "MERGE_AND_DUPLICATE", 0, 1,
+				Pin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 
 		initEOperation(getPin__ComputeName(), ecorePackage.getEString(), "computeName", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -1666,6 +1699,12 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		addEEnumLiteral(queueTypeEEnum, QueueType.RANDOM);
 		addEEnumLiteral(queueTypeEEnum, QueueType.LATEST_ONLY);
 		addEEnumLiteral(queueTypeEEnum, QueueType.STORE);
+
+		initEEnum(raceSemanticEEnum, RaceSemantic.class, "RaceSemantic");
+		addEEnumLiteral(raceSemanticEEnum, RaceSemantic.FCFS);
+		addEEnumLiteral(raceSemanticEEnum, RaceSemantic.DUPLICATE);
+		addEEnumLiteral(raceSemanticEEnum, RaceSemantic.MERGE);
+		addEEnumLiteral(raceSemanticEEnum, RaceSemantic.MERGE_AND_DUPLICATE);
 
 		// Initialize data types
 		initEDataType(connectionspeedEDataType, Object.class, "Connectionspeed", IS_SERIALIZABLE,

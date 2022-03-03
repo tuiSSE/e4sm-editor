@@ -17,6 +17,12 @@
       <genEnumLiterals ecoreEnumLiteral="e4sm.ecore#//QueueType/LATEST_ONLY"/>
       <genEnumLiterals ecoreEnumLiteral="e4sm.ecore#//QueueType/STORE"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="e4sm.ecore#//RaceSemantic">
+      <genEnumLiterals ecoreEnumLiteral="e4sm.ecore#//RaceSemantic/FCFS"/>
+      <genEnumLiterals ecoreEnumLiteral="e4sm.ecore#//RaceSemantic/DUPLICATE"/>
+      <genEnumLiterals ecoreEnumLiteral="e4sm.ecore#//RaceSemantic/MERGE"/>
+      <genEnumLiterals ecoreEnumLiteral="e4sm.ecore#//RaceSemantic/MERGE_AND_DUPLICATE"/>
+    </genEnums>
     <genDataTypes ecoreDataType="e4sm.ecore#//Connectionspeed"/>
     <genDataTypes ecoreDataType="e4sm.ecore#//JSON"/>
     <genClasses ecoreClass="e4sm.ecore#//Component">
@@ -96,6 +102,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//Pin/gatewayPin"
           get="return this.getOutgoingConnectors().size()>=1 &amp;&amp; this.getIncomingConnectors().size() >=1;"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//Pin/stream"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//Pin/raceSemantic"/>
       <genOperations ecoreOperation="e4sm.ecore#//Pin/computeName"/>
     </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//InputPin">

@@ -23,6 +23,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link e4sm.de.metamodel.e4sm.Pin#getIncomingConnectors <em>Incoming Connectors</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Pin#isGatewayPin <em>Gateway Pin</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Pin#isStream <em>Stream</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.Pin#getRaceSemantic <em>Race Semantic</em>}</li>
  * </ul>
  *
  * @see e4sm.de.metamodel.e4sm.e4smPackage#getPin()
@@ -92,6 +93,35 @@ public interface Pin extends ParameterizableElement, TypedElement {
 	 * @generated
 	 */
 	void setStream(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Race Semantic</b></em>' attribute.
+	 * The default value is <code>"MERGE_AND_DUPLICATE"</code>.
+	 * The literals are from the enumeration {@link e4sm.de.metamodel.e4sm.RaceSemantic}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * When multiple connectors are connected to a pin, the race semantic specifies how the data gets sent forward.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Race Semantic</em>' attribute.
+	 * @see e4sm.de.metamodel.e4sm.RaceSemantic
+	 * @see #setRaceSemantic(RaceSemantic)
+	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getPin_RaceSemantic()
+	 * @model default="MERGE_AND_DUPLICATE" unique="false"
+	 * @generated
+	 */
+	RaceSemantic getRaceSemantic();
+
+	/**
+	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.Pin#getRaceSemantic <em>Race Semantic</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Race Semantic</em>' attribute.
+	 * @see e4sm.de.metamodel.e4sm.RaceSemantic
+	 * @see #getRaceSemantic()
+	 * @generated
+	 */
+	void setRaceSemantic(RaceSemantic value);
 
 	/**
 	 * <!-- begin-user-doc -->

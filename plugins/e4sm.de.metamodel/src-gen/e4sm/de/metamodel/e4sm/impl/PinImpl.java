@@ -4,6 +4,7 @@ package e4sm.de.metamodel.e4sm.impl;
 
 import e4sm.de.metamodel.e4sm.Connector;
 import e4sm.de.metamodel.e4sm.Pin;
+import e4sm.de.metamodel.e4sm.RaceSemantic;
 import e4sm.de.metamodel.e4sm.analysis.Parameter;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
@@ -40,6 +41,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.PinImpl#getIncomingConnectors <em>Incoming Connectors</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.PinImpl#isGatewayPin <em>Gateway Pin</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.PinImpl#isStream <em>Stream</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.PinImpl#getRaceSemantic <em>Race Semantic</em>}</li>
  * </ul>
  *
  * @generated
@@ -134,6 +136,26 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 	 * @ordered
 	 */
 	protected boolean stream = STREAM_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getRaceSemantic() <em>Race Semantic</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRaceSemantic()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final RaceSemantic RACE_SEMANTIC_EDEFAULT = RaceSemantic.MERGE_AND_DUPLICATE;
+
+	/**
+	 * The cached value of the '{@link #getRaceSemantic() <em>Race Semantic</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRaceSemantic()
+	 * @generated
+	 * @ordered
+	 */
+	protected RaceSemantic raceSemantic = RACE_SEMANTIC_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -297,6 +319,30 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 	 * @generated
 	 */
 	@Override
+	public RaceSemantic getRaceSemantic() {
+		return raceSemantic;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setRaceSemantic(RaceSemantic newRaceSemantic) {
+		RaceSemantic oldRaceSemantic = raceSemantic;
+		raceSemantic = newRaceSemantic == null ? RACE_SEMANTIC_EDEFAULT : newRaceSemantic;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.PIN__RACE_SEMANTIC, oldRaceSemantic,
+					raceSemantic));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public String computeName() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -364,6 +410,8 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 			return isGatewayPin();
 		case e4smPackage.PIN__STREAM:
 			return isStream();
+		case e4smPackage.PIN__RACE_SEMANTIC:
+			return getRaceSemantic();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -398,6 +446,9 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 		case e4smPackage.PIN__STREAM:
 			setStream((Boolean) newValue);
 			return;
+		case e4smPackage.PIN__RACE_SEMANTIC:
+			setRaceSemantic((RaceSemantic) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -428,6 +479,9 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 		case e4smPackage.PIN__STREAM:
 			setStream(STREAM_EDEFAULT);
 			return;
+		case e4smPackage.PIN__RACE_SEMANTIC:
+			setRaceSemantic(RACE_SEMANTIC_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -454,6 +508,8 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 			return isGatewayPin() != GATEWAY_PIN_EDEFAULT;
 		case e4smPackage.PIN__STREAM:
 			return stream != STREAM_EDEFAULT;
+		case e4smPackage.PIN__RACE_SEMANTIC:
+			return raceSemantic != RACE_SEMANTIC_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -551,6 +607,8 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 		result.append(name);
 		result.append(", stream: ");
 		result.append(stream);
+		result.append(", raceSemantic: ");
+		result.append(raceSemantic);
 		result.append(')');
 		return result.toString();
 	}

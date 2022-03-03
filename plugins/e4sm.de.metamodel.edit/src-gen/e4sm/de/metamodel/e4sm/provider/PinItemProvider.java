@@ -59,6 +59,7 @@ public class PinItemProvider extends ItemProviderAdapter implements IEditingDoma
 			addIncomingConnectorsPropertyDescriptor(object);
 			addGatewayPinPropertyDescriptor(object);
 			addStreamPropertyDescriptor(object);
+			addRaceSemanticPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -155,6 +156,21 @@ public class PinItemProvider extends ItemProviderAdapter implements IEditingDoma
 	}
 
 	/**
+	 * This adds a property descriptor for the Race Semantic feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRaceSemanticPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Pin_raceSemantic_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Pin_raceSemantic_feature", "_UI_Pin_type"),
+						e4smPackage.Literals.PIN__RACE_SEMANTIC, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -246,6 +262,7 @@ public class PinItemProvider extends ItemProviderAdapter implements IEditingDoma
 		case e4smPackage.PIN__NAME:
 		case e4smPackage.PIN__GATEWAY_PIN:
 		case e4smPackage.PIN__STREAM:
+		case e4smPackage.PIN__RACE_SEMANTIC:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		case e4smPackage.PIN__PARAMETERS:

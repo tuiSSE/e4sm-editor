@@ -273,6 +273,12 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="gatewayPin" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="stream" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="raceSemantic" unique="false"
+        eType="#//RaceSemantic" defaultValueLiteral="MERGE_AND_DUPLICATE">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="When multiple connectors are connected to a pin, the race semantic specifies how the data gets sent forward."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InputPin" eSuperTypes="#//Pin">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -363,6 +369,31 @@
     <eLiterals name="STORE" value="4">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The data remain stored in the pin. If new data arrives, it replace the currently stored data."/>
+      </eAnnotations>
+    </eLiterals>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="RaceSemantic">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="When multiple connectors are connected to a pin, the race semantic specifies how the data gets sent forward."/>
+    </eAnnotations>
+    <eLiterals name="FCFS">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="FCFS - First come, first served.&#xD;&#xA;In this mode, the output is consumed by one of the following components."/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="DUPLICATE" value="1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="In this mode, the data is duplicated and made available to each and every following components. This value is only valid for pins with multiple outgoing connectors."/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="MERGE" value="2">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="In this mode, a value is required from each incoming connector, before the execution can continue with one single token. This value is only valid on pins with multiple incoming connectors."/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="MERGE_AND_DUPLICATE" value="3">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="In this mode, a value is required from each incoming connector, before the execution can continue with one single token, which will be duplicated on all outgoing edges. &#xD;&#xA;This value is only valid on pins with multiple incoming and outgoing connectors."/>
       </eAnnotations>
     </eLiterals>
   </eClassifiers>

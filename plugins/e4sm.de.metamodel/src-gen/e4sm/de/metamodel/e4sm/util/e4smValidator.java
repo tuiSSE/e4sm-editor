@@ -24,6 +24,7 @@ import e4sm.de.metamodel.e4sm.PhysicalComponent;
 import e4sm.de.metamodel.e4sm.PhysicalConnector;
 import e4sm.de.metamodel.e4sm.Pin;
 import e4sm.de.metamodel.e4sm.QueueType;
+import e4sm.de.metamodel.e4sm.RaceSemantic;
 import e4sm.de.metamodel.e4sm.Robot;
 import e4sm.de.metamodel.e4sm.Sector;
 import e4sm.de.metamodel.e4sm.Sensor;
@@ -182,6 +183,8 @@ public class e4smValidator extends EObjectValidator {
 			return validateUnitPrefix((UnitPrefix) value, diagnostics, context);
 		case e4smPackage.QUEUE_TYPE:
 			return validateQueueType((QueueType) value, diagnostics, context);
+		case e4smPackage.RACE_SEMANTIC:
+			return validateRaceSemantic((RaceSemantic) value, diagnostics, context);
 		case e4smPackage.CONNECTIONSPEED:
 			return validateConnectionspeed(value, diagnostics, context);
 		case e4smPackage.JSON:
@@ -1093,6 +1096,16 @@ public class e4smValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateQueueType(QueueType queueType, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateRaceSemantic(RaceSemantic raceSemantic, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
 		return true;
 	}
 
