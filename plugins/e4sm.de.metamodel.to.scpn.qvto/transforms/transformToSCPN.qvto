@@ -1,5 +1,6 @@
 import SCPNConstructors;
 import SCPNHelpers;
+import transformPins;
 
 modeltype e4sm "strict" uses e4sm("http://de.tu-ilmenau/e4sm/1.0.0");
 modeltype scpn "strict" uses scpn("http://timenet.tu-ilmenau.de/schema/SCPN");
@@ -82,14 +83,15 @@ mapping Connector::connectorToSCPN(): arcs:List(ArcType), tt:TimedTransitionType
 	var arc1 := new ArcType(self.computeName() + "_1");
 	var arc2 := new ArcType(self.computeName() + "_2");
 	
-	log(self.source.toString());
-	var sourcePlace : PlaceType := self.source.resolveone(PlaceType);
-    assert fatal (sourcePlace <> null) with log ("can't find place replacing source pin " + self.source.toString());
+	//log("... place for arc source pin: " + self.source.toString());
+	var sourcePlace : PlaceType := self.source.resolvePinPlace(self);
 	arc1.fromNode := sourcePlace.id;
 	arc1.toNode := tt.id;
 	
-	var targetPlace : PlaceType := self.target.resolveone(PlaceType);
-	assert fatal (targetPlace <> null) with log ("can't find place replacing target pin " + self.target.toString());
+
+	//log("... place for arc target pin: " + self.target.toString());
+	var targetPlace : PlaceType := null;
+	targetPlace := self.target.resolvePinPlace(self);
 	
 	arc2.fromNode := tt.id;
 	arc2.toNode := targetPlace.id;
@@ -167,18 +169,6 @@ mapping Sector::transformSector() : st: SubstitutionTransitionType, pl: List(Pla
     tt += res.tt;    
 }
 
-mapping InputPin::transformInputPin(parentName:String, index: Integer) : PlaceType {
-init{
- 	result:= new PlaceType(parentName +"_in_"+index.toString());
-}
-}
-
-mapping OutputPin::transformOutputPin(parentName:String, index: Integer) : PlaceType {
-init{
- 	result:= new PlaceType(parentName +"_out_"+index.toString());
-}
-}
-
 mapping Component::transformComponent() : pl: List(PlaceType), iTr : List(TransitionType), arcs : List (ArcType), tt : List(TimedTransitionType) {		
 	init{
 		log("\nTransforming component " +  self.name);
@@ -199,7 +189,9 @@ mapping Component::transformComponent() : pl: List(PlaceType), iTr : List(Transi
 		var timedTran : TimedTransitionType := null;
 		
 		//Generate the full component only if it is not redefined
+		var simpleComponent := false;
 		if(self.components->isEmpty() and self.specifiedInPackage = null) {
+			simpleComponent := true;
 			var componentMainPlace := new PlaceType(self.name + "_main");
 			pl->add(componentMainPlace);
 			
@@ -236,39 +228,79 @@ mapping Component::transformComponent() : pl: List(PlaceType), iTr : List(Transi
 		
 		// Transform the input pins
 		var i:Integer := 0;
-		self.pins[InputPin]->forEach(ip) {
-		    //Create the place
-		    var inputPinPlace := ip.map transformInputPin(self.name, i);
-		    pl->add(inputPinPlace);
-			
-			//Create an arc to connect it to the component
-			if(componentReadyTransition <> null) {
-				var arcToTransition = new ArcType(inputPinPlace.id + "_to_" + self.name);
-				arcToTransition.fromNode := inputPinPlace.id;
-				arcToTransition.toNode := componentReadyTransition.id;
-				arcs->add(arcToTransition);
-			}; //else this component is redefined and not generated completely
-			
-			i := i+1;
-		};
-		
-		i := 0;
-		self.pins[OutputPin]->forEach(op) {
-			//Create the place
-		    var outputPinPlace := op.map transformOutputPin(self.name, i);
-		    pl->add(outputPinPlace);
-			
-			//Create an arc to connect the the component to the place
-			if(timedTran <> null) {
-			var arcFromTransition = new ArcType(outputPinPlace.id + "_from_" + self.name);
-			arcFromTransition.fromNode := timedTran.id;
-			arcFromTransition.toNode := outputPinPlace.id;
-			arcs->add(arcFromTransition);
-			}; // else this component is redefined and not generated completely
-			i := i+1;
+//		self.pins[InputPin]->forEach(ip) {
+//		    //Create the place
+//		    var inputPinPlace := ip.map transformInputPin(self.name, i);
+//		    pl->add(inputPinPlace);
+//			
+//			//Create an arc to connect it to the component
+//			if(componentReadyTransition <> null) {
+//				var arcToTransition = new ArcType(inputPinPlace.id + "_to_" + self.name);
+//				arcToTransition.fromNode := inputPinPlace.id;
+//				arcToTransition.toNode := componentReadyTransition.id;
+//				arcs->add(arcToTransition);
+//			}; //else this component is redefined and not generated completely
+//			
+//			i := i+1;
+//		};
+//		
+//		i := 0;
+		self.pins->forEach(op) {
+			if (op.requiresSimpleTransformation()) {
+				//OUT FCFS
+				//Create the place
+			    var outputPinPlace := op.map simpleTransformOutputPin(self.name, i);
+			    pl += outputPinPlace;
+				
+				//Create an arc to connect the the component to the place
+				if(simpleComponent and op.oclIsTypeOf(OutputPin)) {
+					var arcFromTransition = new ArcType(outputPinPlace.id + "_from_" + self.name);
+					arcFromTransition.fromNode := timedTran.id;
+					arcFromTransition.toNode := outputPinPlace.id;
+					arcs->add(arcFromTransition);
+				}; // else this component is redefined and not generated completely
+				if(simpleComponent and op.oclIsTypeOf(InputPin)) {
+					var arcToTransition = new ArcType(outputPinPlace.id + "_to_" + self.name);
+					arcToTransition.fromNode := outputPinPlace.id;
+					arcToTransition.toNode := componentReadyTransition.id;
+					arcs->add(arcToTransition);
+				}; //else this component is redefined and not generated completely
+				i := i+1;
+			} else if (op.requiresMerge()) {
+				//OUT Merge
+				var outputPin := op.map transformOutputPinMerge(self.name, i);
+			    pl += outputPin.pl;
+			    iTr += outputPin.it;
+			    arcs += outputPin.arcs;
+			    if(simpleComponent and op.oclIsTypeOf(InputPin)) {
+			    	var arcToTransition = new ArcType(outputPin.pl->first().id + "_to_" + self.name);
+					arcToTransition.fromNode := outputPin.pl->first().id;
+					arcToTransition.toNode := componentReadyTransition.id;
+					arcs->add(arcToTransition);			    
+			    }endif;
+
+			} else if(op.requiresDuplicate())
+			{
+				var outputPin := op.map transformOutputPinDuplicate(self.name, i);
+			    pl += outputPin.pl;
+			    iTr += outputPin.it;
+			    arcs += outputPin.arcs;
+			    if(simpleComponent and op.oclIsTypeOf(OutputPin)){
+			    var arcFromTransition = new ArcType(outputPin.pl->first().id + "_from_" + self.name);
+					arcFromTransition.fromNode := timedTran.id;
+					arcFromTransition.toNode := outputPin.pl->first().id;
+					arcs->add(arcFromTransition);
+			    };
+			} else if(op.requiresMergeAndDuplicate())
+			{
+				var outputPin := op.map transformOutputPinMergeAndDuplicate(self.name, i);
+			    pl += outputPin.pl;
+			    iTr += outputPin.it;
+			    arcs += outputPin.arcs;
+			}endif;
 		};
 		
 	 }
-	 log("Transformed component '" +  self.name + "' to " + pl->size().toString()+ " places and "
-	  + iTr->size().toString() + " immediate transition(s)");
+	 log("Transformed component '" +  self.name + "' to " + pl->size().toString()+ " place(s), "
+	  + iTr[ImmediateTransitionType]->size().toString() + " immediate transition(s) and " + iTr[TimedTransitionType]->size().toString() + " timed transition(s)");
 }

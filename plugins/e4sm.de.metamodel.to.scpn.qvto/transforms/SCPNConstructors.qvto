@@ -6,7 +6,7 @@ library SCPNConstructors(){
 
 /** Constructors **/
 constructor LabelType::LabelType(given_text : String) {
-	text := given_text;
+	text := safeString(given_text);
 	type:= scpn::Type::text;
 	id := safeString(given_text) + "_id";
 	graphics := new GraphicsType(false);

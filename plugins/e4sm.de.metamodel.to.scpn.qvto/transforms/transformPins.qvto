@@ -1,0 +1,298 @@
+library transformPins;
+import SCPNConstructors;
+
+modeltype e4sm "strict" uses e4sm("http://de.tu-ilmenau/e4sm/1.0.0");
+modeltype scpn "strict" uses scpn("http://timenet.tu-ilmenau.de/schema/SCPN");
+
+//mapping InputPin::transformInputPin(parentName:String, index: Integer) : PlaceType when {true} {
+//init{
+//	log("\t~Transforming FCFS input pin " + self.computeName());
+// 	result:= new PlaceType(parentName +"_in_"+index.toString());
+//}
+//	log("\t~Transformed input pin " + result.label.text);
+//}
+
+-- maps an outputPin with raceSemantic = FCFS
+
+property mergeArcNames : List(String) = List{"x","y","z","a","b","c","d","e","f","g"};
+
+helper Pin::getDirection():String {
+	    if(self.oclIsTypeOf(InputPin))
+		    return "input";
+		    return "output";
+}
+
+helper Pin::getDirectionShort():String {
+	    if(self.oclIsTypeOf(InputPin))
+		    return "_in_";
+		    return "_out";
+}
+
+helper Pin::requiresSimpleTransformation() : Boolean{
+   if(self.raceSemantic = RaceSemantic::FCFS or (self.incomingConnectors->size()<2 and self.outgoingConnectors->size()<2)){
+   	return true;
+   };
+   	return false;
+}
+
+helper Pin::requiresMerge() : Boolean{
+   if(self.raceSemantic = RaceSemantic::MERGE and self.incomingConnectors->size() > 1){
+   	return true;
+   };
+   if(self.raceSemantic = RaceSemantic::MERGE_AND_DUPLICATE and self.incomingConnectors->size() > 1 and self.outgoingConnectors->size() < 2){
+   	return true;
+   };
+   	return false;
+}
+
+helper Pin::requiresDuplicate() : Boolean{
+   if(self.raceSemantic = RaceSemantic::DUPLICATE and self.outgoingConnectors->size() > 1){
+   	return true;
+   };
+   if(self.raceSemantic = RaceSemantic::MERGE_AND_DUPLICATE and self.outgoingConnectors->size() > 1 and self.incomingConnectors->size() < 2){
+   	return true;
+   };
+   	return false;
+}
+
+helper Pin::requiresMergeAndDuplicate() : Boolean{
+   if(self.raceSemantic = RaceSemantic::MERGE_AND_DUPLICATE and self.outgoingConnectors->size() > 1 and self.incomingConnectors->size() > 1){
+   	return true;
+   };
+   	return false;
+}
+
+mapping Pin::simpleTransformOutputPin(parentName:String, index: Integer) : PlaceType 
+where {self.raceSemantic = RaceSemantic::FCFS or (self.incomingConnectors->size()<2 and self.outgoingConnectors->size()<2)} {
+	init{
+	    var direction:String := self.getDirection();
+
+		log("\t~Transforming FCFS " + self.getDirection() + " pin " + self.computeName());
+	 	result:= new PlaceType(parentName + self.getDirectionShort() + index.toString());
+	}
+	log("\t~Transformed FCFS " + self.getDirection() + " pin " + result.label.text);
+}
+
+-- maps an outputPin with raceSemantic = MERGE
+mapping Pin::transformOutputPinMerge(parentName:String, index: Integer) : pl :List(PlaceType), arcs : List(ArcType), it:ImmediateTransitionType 
+where {self.requiresMerge()} {
+	init{
+		//create the connecting immediate transition
+		it := new ImmediateTransitionType(parentName + self.getDirectionShort() + index.toString() + "_merge");
+	}
+	log("\t~Transforming Merge " + self.getDirection() + " pin " + self.computeName());
+    var mainPlace := new PlaceType(parentName + self.getDirectionShort() + index.toString());
+ 	pl += mainPlace;
+ 	
+ 	//create an arc between the immediate transition and the main pin place
+ 	var mainArc := new ArcType(parentName + self.getDirectionShort() + index.toString());
+ 	    mainArc.fromNode := it.id;
+ 	    mainArc.toNode := mainPlace.id;
+ 	    mainArc.inscription.text := "new(1)"; // TODO: just a placeholder so far
+ 	arcs += mainArc;
+ 	    
+ 	var i:Integer := 1;
+ 	self.incomingConnectors->forEach(ic){
+ 	    var place := new PlaceType(parentName + self.getDirectionShort() + i.toString()+"_"+index.toString());
+ 	    pl += place;
+ 	    var arc := new ArcType(parentName + self.getDirectionShort() + i.toString()+"_"+index.toString());
+ 	    arc.fromNode := place.id;
+ 	    arc.toNode := it.id;
+ 	    arc.inscription.text := mergeArcNames->at(i);
+ 	    arcs += arc;
+ 	    i := i + 1;
+ 	};
+ 	//log(result.toString());
+	log("\t~Transformed Merge " + self.getDirection() + " pin " + mainPlace.label.text);
+}
+
+-- maps an outputPin with raceSemantic = DUPLICATE
+mapping Pin::transformOutputPinDuplicate(parentName:String, index: Integer) : pl :List(PlaceType), arcs : List(ArcType), it:ImmediateTransitionType 
+where {self.requiresDuplicate()} {
+	init{
+		//create the connecting immediate transition
+		it := new ImmediateTransitionType(parentName + self.getDirectionShort() + index.toString() + "_dupl");
+	}
+	log("\t~Transforming Duplicate " + self.getDirection() + " pin " + self.computeName());
+    var mainPlace := new PlaceType(parentName + self.getDirectionShort() + index.toString());
+ 	pl += mainPlace;
+ 	
+
+ 	 	//create an arc between the main pin place and the immediate transition
+ 	 	var mainArc := new ArcType(parentName + self.getDirectionShort() + index.toString());
+ 	 	    mainArc.fromNode := mainPlace.id;
+ 	 	    mainArc.toNode := it.id;
+ 	 	arcs += mainArc;
+ 	 	    
+ 	 	var i:Integer := 1;
+ 	 	self.outgoingConnectors->forEach(oc){
+ 	 	    var place := new PlaceType(parentName + self.getDirectionShort() + i.toString()+"_"+index.toString());
+ 	 	    pl += place;
+ 	 	    var arc := new ArcType(parentName + self.getDirectionShort() + i.toString()+"_"+index.toString());
+ 	 	    arc.fromNode := it.id;
+ 	 	    arc.toNode := place.id;
+ 	 	    arc.inscription.text := "new(1)"; //TODO: just a placeholder so far
+ 	 	    arcs += arc;
+ 	 	    i := i + 1;
+ 	 	};
+ 	//log(result.toString());
+	log("\t~Transformed Duplicate " + self.getDirection() + " pin " + mainPlace.label.text);
+}
+
+-- maps a Pin with raceSemantic = MERGE_AND_DUPLICATE
+mapping Pin::transformOutputPinMergeAndDuplicate(parentName:String, index: Integer) : pl :List(PlaceType), arcs : List(ArcType), it:List(ImmediateTransitionType) 
+where {self.requiresMergeAndDuplicate()} {
+	init{
+		//create the connecting immediate transition
+	}
+	log("\t~Transforming M&D " + self.getDirection() + " pin " + self.computeName());
+	var itL := new ImmediateTransitionType(parentName + self.getDirectionShort() + index.toString() + "_mAndD_left");
+	it += itL;
+	var itR := new ImmediateTransitionType(parentName + self.getDirectionShort() + index.toString() + "_mAndD_right");
+	it += itR;
+
+    var mainPlace := new PlaceType(parentName + self.getDirectionShort() + index.toString());
+ 	pl += mainPlace;
+
+ 	 	//create an arc between the main pin place and the immediate transitions
+ 	 	var mainArcR := new ArcType(parentName + self.getDirectionShort() + index.toString() + "_1");
+ 	 	    mainArcR.fromNode := mainPlace.id;
+ 	 	    mainArcR.toNode := itR.id;
+ 	 	arcs += mainArcR;
+ 	 	
+ 	 	var mainArcL := new ArcType(parentName + self.getDirectionShort() + index.toString() +"_2");
+ 	 	    mainArcL.fromNode := itL.id;
+ 	 	    mainArcL.toNode := mainPlace.id;
+ 	 	    mainArcL.inscription.text := "new(1)"; //TODO: just a temporary placeholder so far
+ 	 	arcs += mainArcL;
+ 	 	    
+ 	 	var i:Integer := 1;
+ 	 	self.outgoingConnectors->forEach(oc){
+ 	 	    var place := new PlaceType(parentName + self.getDirectionShort() + i.toString()+"outg_"+index.toString());
+ 	 	    pl += place;
+ 	 	    var arc := new ArcType(parentName + self.getDirectionShort() + i.toString()+"outg_"+index.toString());
+ 	 	    arc.fromNode := itR.id;
+ 	 	    arc.toNode := place.id;
+ 	 	    arc.inscription.text := "new(1)"; //TODO: just a placeholder so far
+ 	 	    arcs += arc;
+ 	 	    i := i + 1;
+ 	 	};
+ 	 	
+ 	 	//reset i to 1 and repeat for the incoming connectors
+ 	 	i := 1;
+ 	 	self.incomingConnectors->forEach(ic){
+	 	    var place := new PlaceType(parentName + self.getDirectionShort() + i.toString()+"inc_"+index.toString());
+	 	    pl += place;
+	 	    var arc := new ArcType(parentName + self.getDirectionShort() + i.toString()+"inc_"+index.toString());
+	 	    arc.fromNode := place.id;
+	 	    arc.toNode := itL.id;
+	 	    arc.inscription.text := mergeArcNames->at(i);
+	 	    arcs += arc;
+	 	    i := i + 1;
+ 		};
+ 	//log(result.toString());
+	log("\t~Transformed M&D " + self.getDirection() + " pin " + mainPlace.label.text);
+}
+
+helper Pin::resolvePinPlace (connector : Connector) : PlaceType{
+	assert fatal (connector.source = self or connector.target = self) with log ("The given connector does not connect to the given pin. CONNECTOR: " + connector.toString() + " PIN: "+ self.toString());
+
+	if(connector.target = self){
+		log("... place for arc target pin: " + self.toString());
+		var targetPlace : PlaceType := null;
+		if(self.requiresSimpleTransformation()) {
+			targetPlace := self.resolveone(PlaceType); // This works for FCFS pins
+			assert fatal (targetPlace <> null) with log ("It seems like the " + self.getDirection() + " pin wasn't transformed to any place " + self.toString());
+			return targetPlace;
+		}endif;
+		
+		log("Could not resolve as a simple place");
+		if(self.requiresMerge()){
+			var searchTransformation := self.resolveoneIn(Pin::transformOutputPinMerge);
+			log(searchTransformation.toString());
+			var p : List(PlaceType) := searchTransformation.pl;
+		
+			assert fatal (p->size() > 1) with log ("It seems like the target merge " + self.getDirection() + " pin wasn't transformed to any place " + self.toString());
+		    var i:=2; //List starts from 1, skip the first element (which is the main place)
+		    self.incomingConnectors->forEach(ic){
+			    if(ic = connector){
+			    	return p->at(i);
+			    }endif;
+			    i := i+1;
+		    }
+		}else if(self.requiresDuplicate()){
+			var searchTransformation := self.resolveoneIn(Pin::transformOutputPinDuplicate);
+			log(searchTransformation.toString());
+			var p : List(PlaceType) := searchTransformation.pl;
+		
+			assert fatal (p->size() > 1) with log ("It seems like the target duplicate " + self.getDirection() + " pin wasn't transformed to any place " + self.toString());
+		    return p->first(); //Return the main place
+		}else { //self.requiresMergeAndDuplicate() is true
+		var searchTransformation := self.resolveoneIn(Pin::transformOutputPinMergeAndDuplicate);
+			log(searchTransformation.toString());
+			var p : List(PlaceType) := searchTransformation.pl;
+		
+			assert fatal (p->size() > 1) with log ("It seems like the target merge and duplicate " + self.getDirection() + " pin wasn't transformed to any place " + self.toString());
+		    var i:=2 + self.outgoingConnectors->size(); //List starts from 1, skip the first element (which is the main place) and the places for the outgoingConnectors (which were created first)
+		    self.incomingConnectors->forEach(ic){
+			    if(ic = connector){
+			    	return p->at(i);
+			    }endif;
+			    i := i+1;
+		    }
+		}
+		endif;
+		    
+		assert fatal (targetPlace <> null) with log ("can't find place replacing target " + self.getDirection() + " pin " + self.toString());
+		return targetPlace;
+	} else { // connector.source = pin, due to the assert above
+		log("... place for arc source pin: " + self.toString());
+		var sourcePlace : PlaceType := null;
+		if(self.requiresSimpleTransformation()) {
+			sourcePlace := self.resolveone(PlaceType); // This works for FCFS pins
+			assert fatal (sourcePlace <> null) with log ("It seems like the FCFS source pin wasn't transformed to any place " + self.toString());
+			return sourcePlace;
+		}endif;
+		
+		log("Could not resolve as a simple place");
+		if(self.requiresMerge()){
+			var searchTransformation := self.resolveoneIn(Pin::transformOutputPinMerge);
+			log(searchTransformation.toString());
+			var p : List(PlaceType) := searchTransformation.pl;
+		
+			assert fatal (p->size() > 1) with log ("It seems like the source merge " + self.getDirection() + " pin wasn't transformed to any place " + self.toString());
+		    return p->first(); // Return the main place
+		}else if(self.requiresDuplicate()){
+			var searchTransformation := self.resolveoneIn(Pin::transformOutputPinDuplicate);
+			log(searchTransformation.toString());
+			var p : List(PlaceType) := searchTransformation.pl;
+		
+			assert fatal (p->size() > 1) with log ("It seems like the source duplicate " + self.getDirection() + " pin wasn't transformed to any place " + self.toString());
+		    var i:=2; //List starts from 1, skip the first element (which is the main place)
+		    self.outgoingConnectors->forEach(ic){
+			    if(ic = connector){
+			    	return p->at(i);
+			    }endif;
+			    i := i+1;
+		    }
+		    //targetPlace := p->any(pl | pl.capacity = "0");
+		}else{ //self.requiresMergeAndDuplicate() is true
+		var searchTransformation := self.resolveoneIn(Pin::transformOutputPinMergeAndDuplicate);
+			log(searchTransformation.toString());
+			var p : List(PlaceType) := searchTransformation.pl;
+		
+			assert fatal (p->size() > 1) with log ("It seems like the source merge and duplicate " + self.getDirection() + " pin wasn't transformed to any place " + self.toString());
+		    var i:=2; //List starts from 1, skip the first element (which is the main place)
+		    self.outgoingConnectors->forEach(ic){
+			    if(ic = connector){
+			    	return p->at(i);
+			    }endif;
+			    i := i+1;
+		    }
+		}endif;
+		    
+		assert fatal (sourcePlace <> null) with log ("can't find place replacing source " + self.getDirection() + " pin " + self.toString());
+		return sourcePlace;
+	}endif;
+	return null;
+}
