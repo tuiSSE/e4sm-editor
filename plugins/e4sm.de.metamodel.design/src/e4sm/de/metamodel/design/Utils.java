@@ -4,6 +4,9 @@ import org.eclipse.emf.ecore.EObject;
 
 import e4sm.de.metamodel.e4sm.Model;
 import e4sm.de.metamodel.e4sm.Package;
+import e4sm.de.metamodel.e4sm.Sensor;
+import e4sm.de.metamodel.e4sm.e4smPackage;
+import e4sm.de.metamodel.e4sm.util.e4smValidator;
 
 final public class Utils {
 //Final: it makes no sense to extend a static class.
@@ -58,5 +61,9 @@ final public class Utils {
 	 */
 	public static void debug(String message) {
 		debug(message, false);
+	}
+	
+	public static boolean isValidService(Sensor s) {
+		return new e4smValidator().validateTimeFunction(s.getTimeFunction(), null, null);
 	}
 }
