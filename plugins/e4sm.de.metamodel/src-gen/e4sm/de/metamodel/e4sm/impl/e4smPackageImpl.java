@@ -293,6 +293,13 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	private EDataType jsonEDataType = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType timeFunctionEDataType = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -1246,6 +1253,16 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
+	public EDataType getTimeFunction() {
+		return timeFunctionEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public e4smFactory gete4smFactory() {
 		return (e4smFactory) getEFactoryInstance();
 	}
@@ -1387,6 +1404,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		// Create data types
 		connectionspeedEDataType = createEDataType(CONNECTIONSPEED);
 		jsonEDataType = createEDataType(JSON);
+		timeFunctionEDataType = createEDataType(TIME_FUNCTION);
 	}
 
 	/**
@@ -1604,9 +1622,8 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 				IS_ORDERED);
 
 		initEClass(sensorEClass, Sensor.class, "Sensor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSensor_TimeFunction(), theCorePackage.getString(), "timeFunction", "EXP(1.0)", 1, 1,
-				Sensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSensor_TimeFunction(), this.getTimeFunction(), "timeFunction", "EXP(1.0)", 1, 1, Sensor.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(actuatorEClass, Actuator.class, "Actuator", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -1710,6 +1727,8 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		initEDataType(connectionspeedEDataType, Object.class, "Connectionspeed", IS_SERIALIZABLE,
 				!IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(jsonEDataType, String.class, "JSON", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(timeFunctionEDataType, String.class, "TimeFunction", IS_SERIALIZABLE,
+				!IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -1738,6 +1757,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		addAnnotation(sensorEClass, source, new String[] { "constraints", "SensorC1" });
 		addAnnotation(actuatorEClass, source, new String[] { "constraints", "ActuatorC1" });
 		addAnnotation(pinEClass, source, new String[] { "constraints", "PinC1" });
+		addAnnotation(timeFunctionEDataType, source, new String[] { "constraints", "TimeFunctionIsValid" });
 	}
 
 	/**

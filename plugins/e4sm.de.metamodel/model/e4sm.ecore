@@ -248,7 +248,7 @@
       <details key="constraints" value="SensorC1"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeFunction" lowerBound="1"
-        eType="#//core/String" defaultValueLiteral="EXP(1.0)"/>
+        eType="#//TimeFunction" defaultValueLiteral="EXP(1.0)"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Actuator" eSuperTypes="#//PhysicalComponent">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -396,6 +396,14 @@
         <details key="documentation" value="In this mode, a value is required from each incoming connector, before the execution can continue with one single token, which will be duplicated on all outgoing edges. &#xD;&#xA;This value is only valid on pins with multiple incoming and outgoing connectors."/>
       </eAnnotations>
     </eLiterals>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="TimeFunction" instanceClassName="java.lang.String">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A string containing a valid TimeFunction, e.g. EXP(1.0)"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="TimeFunctionIsValid"/>
+    </eAnnotations>
   </eClassifiers>
   <eSubpackages name="core" nsURI="http://de.tu-ilmenau/e4sm/core/1.0.0" nsPrefix="core">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore"/>

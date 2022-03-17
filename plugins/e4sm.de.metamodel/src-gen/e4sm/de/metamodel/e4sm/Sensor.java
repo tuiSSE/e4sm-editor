@@ -34,7 +34,7 @@ public interface Sensor extends PhysicalComponent {
 	 * @return the value of the '<em>Time Function</em>' attribute.
 	 * @see #setTimeFunction(String)
 	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getSensor_TimeFunction()
-	 * @model default="EXP(1.0)" dataType="e4sm.de.metamodel.e4sm.core.String" required="true"
+	 * @model default="EXP(1.0)" dataType="e4sm.de.metamodel.e4sm.TimeFunction" required="true"
 	 * @generated
 	 */
 	String getTimeFunction();

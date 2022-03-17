@@ -218,11 +218,16 @@ public class ModelImpl extends NamedElementImpl implements Model {
 		// -> specify the condition that violates the invariant
 		// -> verify the details of the diagnostic, including severity and message
 		// Ensure that you remove @generated or mark it @generated NOT
-		URI uri = URI.createURI(personsPicturesPath);
-		if (false && personsPicturesPath != null && personsPicturesPath.length() > 0
-				&& Files.notExists(Paths.get(uri.toPlatformString(false)))) {
+		boolean validationFailed = false;
+		URI uri = null;
+		if (personsPicturesPath == null || personsPicturesPath.length() == 0) {
+			validationFailed = true;
+		} else {
+			uri = URI.createURI(personsPicturesPath);
+		}
+		if (validationFailed || Files.notExists(Paths.get(uri.toPlatformString(false)))) {
 			if (diagnostics != null) {
-				diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR, e4smValidator.DIAGNOSTIC_SOURCE,
+				diagnostics.add(new BasicDiagnostic(Diagnostic.WARNING, e4smValidator.DIAGNOSTIC_SOURCE,
 						e4smValidator.MODEL__IS_PERSON_PICTURE_PATH_VALID,
 						"The given path does not exists in this system or is not accessible",
 						new Object[] { this, this.getPersonsPicturesPath() }));

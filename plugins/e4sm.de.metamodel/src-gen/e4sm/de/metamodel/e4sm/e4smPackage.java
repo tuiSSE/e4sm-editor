@@ -2435,6 +2435,16 @@ public interface e4smPackage extends EPackage {
 	int JSON = 32;
 
 	/**
+	 * The meta object id for the '<em>Time Function</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.lang.String
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getTimeFunction()
+	 * @generated
+	 */
+	int TIME_FUNCTION = 33;
+
+	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.Component <em>Component</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3329,6 +3339,21 @@ public interface e4smPackage extends EPackage {
 	EDataType getJSON();
 
 	/**
+	 * Returns the meta object for data type '{@link java.lang.String <em>Time Function</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A string containing a valid TimeFunction, e.g. EXP(1.0)
+	 * <!-- end-model-doc -->
+	 * @return the meta object for data type '<em>Time Function</em>'.
+	 * @see java.lang.String
+	 * @model instanceClass="java.lang.String"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='TimeFunctionIsValid'"
+	 * @generated
+	 */
+	EDataType getTimeFunction();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4098,6 +4123,16 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType JSON = eINSTANCE.getJSON();
+
+		/**
+		 * The meta object literal for the '<em>Time Function</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.lang.String
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getTimeFunction()
+		 * @generated
+		 */
+		EDataType TIME_FUNCTION = eINSTANCE.getTimeFunction();
 
 	}
 
