@@ -7,6 +7,6 @@ transformation SCPNHelpers() {
 	if(s.oclIsUndefined()){
 		return "placeholder";
 	}endif;
-		return s.replaceAll(" ", "_").replaceAll("\\.","_");
+		return s.replaceAll(" ", "_").replaceAll("\\.","_").replaceAll("\\(","").replaceAll("\\)","");
 	}
 }

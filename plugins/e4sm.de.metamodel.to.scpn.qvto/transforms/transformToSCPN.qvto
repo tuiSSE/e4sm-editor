@@ -44,6 +44,7 @@ mapping Package::packageToSCPN() : SCPNNet{
 		timedTransition += res.iTr[TimedTransitionType];
 		arc += res.arcs;
 		timedTransition += res.tt;
+		substitutionTransition += res.st;
 	};
 	
 	if(self.sectors->isEmpty()){
@@ -69,6 +70,49 @@ mapping Package::packageToSCPN() : SCPNNet{
 		var connectors := self.connectors->map connectorToSCPN();
 		arc += connectors.arcs;
 		timedTransition += connectors.tt;
+	};
+}
+
+mapping Package::transformSpecificationPackage() : st: List(SubstitutionTransitionType), pl: List(PlaceType), iTr : List(TransitionType), arcs : List (ArcType), tt : List(TimedTransitionType){
+	log("\nTransforming specification package " +  self.name);
+	//Children
+	if(self.components->isEmpty()){
+		log("\n=== Warning: no components to transform ===");
+	}
+	else {
+		log("\n=== Transforming all Components ===");
+		var res = self.components->map transformComponent();
+		pl += res.pl;
+		iTr += res.iTr[ImmediateTransitionType];
+		tt += res.iTr[TimedTransitionType];
+		arcs += res.arcs;
+		tt += res.tt;
+		st += res.st;
+	};
+	
+	if(self.sectors->isEmpty()){
+		log("\n=== Info: No sectors to transform ===");
+	}
+	else {
+		log("\n=== Transforming all Sectors ===");
+		var sec := self.sectors->map transformSector();
+		st += sec.st;
+		pl += sec.pl;
+		iTr += sec.iTr[ImmediateTransitionType];
+		tt += sec.iTr[TimedTransitionType];
+		arcs += sec.arcs;
+		tt += sec.tt;
+	};
+	
+	//Transform connectors
+	if(self.connectors->isEmpty()){
+		log("\n=== Warning: no connectors to transform ===");
+	}
+	else{
+		log("\n=== Transforming all Connectors ===");
+		var connectors := self.connectors->map connectorToSCPN();
+		arcs += connectors.arcs;
+		tt += connectors.tt;
 	};
 }
 
@@ -125,14 +169,15 @@ helper e4sm::QueueType::convertQueueType() : scpn::QueueType {
 	return scpn::QueueType::Random;
 }
 
-mapping Sector::transformSector() : st: SubstitutionTransitionType, pl: List(PlaceType), iTr : List(TransitionType), arcs : List (ArcType), tt : List(TimedTransitionType){
+mapping Sector::transformSector() : st: List(SubstitutionTransitionType), pl: List(PlaceType), iTr : List(TransitionType), arcs : List (ArcType), tt : List(TimedTransitionType){
 	var idName := safeString(self.name);
 	log("\nTransforming sector " +  self.name);
-	st.id := idName; //In TimeNET: 0.0, 0.1...
+	var sTr : SubstitutionTransitionType = object SubstitutionTransitionType {};
+	sTr.id := idName; //In TimeNET: 0.0, 0.1...
 	
 	//TimeNET's default:
-	st.replication := 0;
-    st.type:=scpn::Type::node;
+	sTr.replication := 0;
+    sTr.type:=scpn::Type::node;
 	
 	//If these are added, TimeNet says the network's schema is outdated.
 	//serverType:=ServerTypeType::ExclusiveServer;
@@ -141,35 +186,48 @@ mapping Sector::transformSector() : st: SubstitutionTransitionType, pl: List(Pla
     //watch:=false;
 
 
- 	st.graphics := object GraphicsType {
+ 	sTr.graphics := object GraphicsType {
  		   orientation:=0;
  			x := 650;
 	 		y := 200;
 	 	};
- 	st.label := object LabelType{
+ 	sTr.label := object LabelType{
 	 	   id:=idName+"_label";
-	 	   text:=self.name;
+	 	   text := idName;
 	 	   type:=scpn::Type::text;
 	 	   graphics := object GraphicsType {
 			x := -10;
 	 		y := -40;
 	 	   };
 	 	};
-    st.net += object ReplicationType{
+    sTr.net += object ReplicationType{
     	gridActive := true;
     	netclass:="SCPN";
     	sharpEdges := false;
     	id:=idName+"_subnet";
     };
+    st += sTr;
+    
+    if(self.sectors->size()>0){
+    	log("Transforming subsectors...");
+    	var res := self.sectors->map transformSector();
+	    pl += res.pl;
+	    iTr += res.iTr;
+	    arcs += res.arcs;
+	    tt += res.tt; 
+	    st += res.st;   
+    }endif;
     
     var res = self.components-> map transformComponent();    
     pl += res.pl;
     iTr += res.iTr;
     arcs += res.arcs;
-    tt += res.tt;    
+    tt += res.tt; 
+    st += res.st;
+    log("\tTransformed sector " +  sTr.id);
 }
 
-mapping Component::transformComponent() : pl: List(PlaceType), iTr : List(TransitionType), arcs : List (ArcType), tt : List(TimedTransitionType) {		
+mapping Component::transformComponent() : pl: List(PlaceType), iTr : List(TransitionType), arcs : List (ArcType), tt : List(TimedTransitionType), st : List (SubstitutionTransitionType) {		
 	init{
 		log("\nTransforming component " +  self.name);
 		//pl := List{};
@@ -183,6 +241,7 @@ mapping Component::transformComponent() : pl: List(PlaceType), iTr : List(Transi
 			iTr += res.iTr;
 			arcs += res.arcs;
 			tt += res.tt;
+			st += res.st;
 		};
 		
 		var componentReadyTransition : TransitionType := null;
@@ -300,6 +359,15 @@ mapping Component::transformComponent() : pl: List(PlaceType), iTr : List(Transi
 			}endif;
 		};
 		
+		//Generate the specifying package, if any.
+		if(not (self.specifiedInPackage = null)){
+			var res := self.specifiedInPackage.map transformSpecificationPackage();
+			pl += res.pl;
+			iTr += res.iTr;
+			tt += res.tt;
+			arcs += res.arcs;
+			st += res.st;
+		}endif;
 	 }
 	 log("Transformed component '" +  self.name + "' to " + pl->size().toString()+ " place(s), "
 	  + iTr[ImmediateTransitionType]->size().toString() + " immediate transition(s) and " + iTr[TimedTransitionType]->size().toString() + " timed transition(s)");

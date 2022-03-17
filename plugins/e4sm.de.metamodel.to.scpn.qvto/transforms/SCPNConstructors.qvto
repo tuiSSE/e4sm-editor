@@ -10,7 +10,7 @@ constructor LabelType::LabelType(given_text : String) {
 	type:= scpn::Type::text;
 	id := safeString(given_text) + "_id";
 	graphics := new GraphicsType(false);
-	log("Created Label called: " + given_text);
+	log("Created Label called: " + text);
 }
 
 constructor PlaceType::PlaceType(given_label : String) {
@@ -27,7 +27,7 @@ constructor PlaceType::PlaceType(given_label : String) {
 	graphics := new GraphicsType(true);
 	label := new LabelType(given_label);
 	
-	log("Created Place called: " + given_label);
+	log("Created Place called: " + label.text);
 }
 
 constructor PlaceType::PlaceType(given_label : String, initial_marking : String) {
@@ -44,7 +44,7 @@ constructor PlaceType::PlaceType(given_label : String, initial_marking : String)
 	graphics := new GraphicsType(true);
 	label := new LabelType(given_label);
 	
-	log("Created Place called: " + given_label);
+	log("Created Place called: " + label.text);
 }
 
 constructor GraphicsType::GraphicsType(create_orientation:Boolean){
@@ -65,7 +65,7 @@ constructor InscriptionType::InscriptionType(){
 	//Children
 	graphics := new GraphicsType(false);
 		
-	log("Created Inscription");
+	log("Created unnamed Inscription");
 }
 
 constructor InscriptionType::InscriptionType(g : GraphicsType){
@@ -90,7 +90,7 @@ constructor ArcType::ArcType(name : String){
 	
 	//Children
 	inscription := new InscriptionType();
-	log("Created Arc");
+	log("Created Arc named " + inscription.text);
 }
 
 constructor ImmediateTransitionType::ImmediateTransitionType() {
@@ -141,7 +141,7 @@ constructor TimedTransitionType::TimedTransitionType(name : String) {
 	label := new LabelType(name);
 	graphics := new GraphicsType(true);
 
-    log("Created Deterministic transition called: " + name);
+    log("Created Deterministic transition called: " + label.text);
 }
 
 constructor SubstitutionTransitionType::SubstitutionTransitionType(name : String) {
@@ -164,7 +164,7 @@ constructor SubstitutionTransitionType::SubstitutionTransitionType(name : String
     	id:= safeString(name) + "_subnet";
     };    
 
-    log("Created Substitution transition called: " + name);
+    log("Created Substitution transition called: " + label.text);
 }
 
 constructor MeasureType::MeasureType(name:String) {

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<net gridActive="true" id="0" netclass="SCPN" sharpEdges="false"
+  xmlns="http://timenet.tu-ilmenau.de/schema/SCPN"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://timenet.tu-ilmenau.de/schema/SCPN etc/schemas/SCPN.xsd">
+  <place capacity="0" id="0.1" queue="Random" tokentype="int"
+    type="node" watch="false">
+    <graphics orientation="0" x="410" y="260"/>
+    <label id="0.1.0" text="S1_main" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </place>
+  <place capacity="0" id="0.6" queue="Random" tokentype="int"
+    type="node" watch="false">
+    <graphics orientation="0" x="590" y="260"/>
+    <label id="0.6.0" text="S1_out_0" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </place>
+  <place capacity="0" id="0.8" initialMarking="" queue="Random"
+    tokentype="int" type="node" watch="false">
+    <graphics orientation="0" x="500" y="460"/>
+    <label id="PC2_main_id" text="PC_main" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </place>
+  <place capacity="0" id="0.9" initialMarking="" queue="Random"
+    tokentype="int" type="node" watch="false">
+    <graphics orientation="0" x="280" y="410"/>
+    <label id="PC2_in_0_id" text="PC_in_0" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </place>
+  <place capacity="0" id="0.10" initialMarking="" queue="Random"
+    tokentype="int" type="node" watch="false">
+    <graphics orientation="0" x="730" y="410"/>
+    <label id="PC2_out_0_id" text="PC_out_0" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </place>
+  <place capacity="0" id="0.17" initialMarking="" queue="Random"
+    tokentype="int" type="node" watch="false">
+    <graphics orientation="0" x="280" y="510"/>
+    <label id="PC2_in_0_id" text="PC_in_1" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </place>
+  <place capacity="0" id="0.19" initialMarking="" queue="Random"
+    tokentype="int" type="node" watch="false">
+    <graphics orientation="0" x="730" y="510"/>
+    <label id="PC2_out_0_id" text="PC_out_1" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </place>
+  <place capacity="0" id="0.22" queue="Random" tokentype="int"
+    type="node" watch="false">
+    <graphics orientation="0" x="330" y="820"/>
+    <label id="0.22.0" text="P0" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </place>
+  <place capacity="0" id="0.24" queue="Random" tokentype="int"
+    type="node" watch="false">
+    <graphics orientation="0" x="570" y="760"/>
+    <label id="0.24.0" text="P1" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </place>
+  <place capacity="0" id="0.25" queue="Random" tokentype="int"
+    type="node" watch="false">
+    <graphics orientation="0" x="570" y="830"/>
+    <label id="0.25.0" text="P2" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </place>
+  <timedTransition id="0.0" serverType="ExclusiveServer"
+    specType="Automatic" takeFirst="false" timeFunction="EXP(1.0)"
+    type="node" watch="false">
+    <graphics orientation="0" x="300" y="260"/>
+    <label id="0.0.0" text="S1_ready" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </timedTransition>
+  <timedTransition id="0.4" serverType="ExclusiveServer"
+    specType="Automatic" takeFirst="false" timeFunction="EXP(1.0)"
+    type="node" watch="false">
+    <graphics orientation="0" x="500" y="260"/>
+    <label id="0.4.0" text="S1_execution" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </timedTransition>
+  <timedTransition id="0.11" serverType="ExclusiveServer"
+    specType="Automatic" takeFirst="false" timeFunction="EXP(1.0)"
+    type="node" watch="false">
+    <graphics orientation="0" x="620" y="460"/>
+    <label id="PC2_execution_id" text="PC_execution" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </timedTransition>
+  <immediateTransition id="0.12" priority="1"
+    serverType="ExclusiveServer" specType="Automatic" takeFirst="false"
+    type="node" watch="false" weight="1.0">
+    <graphics orientation="0" x="390" y="460"/>
+    <label id="PC2_ready_id" text="PC_ready" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </immediateTransition>
+  <immediateTransition id="0.23" priority="1"
+    serverType="ExclusiveServer" specType="Automatic" takeFirst="false"
+    type="node" watch="false" weight="1.0">
+    <graphics orientation="0" x="410" y="820"/>
+    <label id="0.23.0" text="T0" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </immediateTransition>
+  <arc fromNode="0.0" id="0.2" toNode="0.1" type="connector">
+    <inscription id="0.2.0" text="new(1)" type="inscriptionText">
+      <graphics x="-25" y="-20"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.1" id="0.5" toNode="0.4" type="connector">
+    <inscription id="0.5.0" text="x" type="inscriptionText">
+      <graphics x="-5" y="-10"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.4" id="0.7" toNode="0.6" type="connector">
+    <inscription id="0.7.0" text="x" type="inscriptionText">
+      <graphics x="-15" y="-10"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.12" id="0.13" toNode="0.8" type="connector">
+    <inscription id="anonymous_inscription_id" text="x" type="inscriptionText">
+      <graphics x="-20" y="-10"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.8" id="0.14" toNode="0.11" type="connector">
+    <inscription id="anonymous_inscription_id" text="x" type="inscriptionText">
+      <graphics x="-5" y="-10"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.9" id="0.15" toNode="0.12" type="connector">
+    <inscription id="anonymous_inscription_id" text="x" type="inscriptionText">
+      <graphics x="-5" y="-10"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.11" id="0.16" toNode="0.10" type="connector">
+    <inscription id="anonymous_inscription_id" text="x" type="inscriptionText">
+      <graphics x="-15" y="-10"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.17" id="0.18" toNode="0.12" type="connector">
+    <inscription id="0.18.0" text="x" type="inscriptionText">
+      <graphics x="0" y="0"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.11" id="0.20" toNode="0.19" type="connector">
+    <inscription id="0.20.0" text="x" type="inscriptionText">
+      <graphics x="-15" y="-15"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.22" id="0.26" toNode="0.23" type="connector">
+    <inscription id="0.26.0" text="x" type="inscriptionText">
+      <graphics x="0" y="0"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.23" id="0.27" toNode="0.24" type="connector">
+    <inscription id="0.27.0" text="x" type="inscriptionText">
+      <graphics x="0" y="0"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.23" id="0.28" toNode="0.25" type="connector">
+    <inscription id="0.28.0" text="x" type="inscriptionText">
+      <graphics x="0" y="0"/>
+    </inscription>
+  </arc>
+  <comment commentText="Sensor named S1" id="0.3" type="text">
+    <graphics x="330" y="190"/>
+  </comment>
+  <comment commentText="Component named PC" id="0.21" type="text">
+    <graphics x="320" y="350"/>
+  </comment>
+  <recordTokentype id="0.29" name="" type="text">
+    <graphics x="70" y="380"/>
+  </recordTokentype>
+</net>

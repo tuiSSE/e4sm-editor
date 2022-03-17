@@ -198,7 +198,7 @@ helper Pin::resolvePinPlace (connector : Connector) : PlaceType{
 	assert fatal (connector.source = self or connector.target = self) with log ("The given connector does not connect to the given pin. CONNECTOR: " + connector.toString() + " PIN: "+ self.toString());
 
 	if(connector.target = self){
-		log("... place for arc target pin: " + self.toString());
+		log("... place for arc target pin: " + self.computeName() + " " + self.toString());
 		var targetPlace : PlaceType := null;
 		if(self.requiresSimpleTransformation()) {
 			targetPlace := self.resolveone(PlaceType); // This works for FCFS pins
@@ -246,7 +246,7 @@ helper Pin::resolvePinPlace (connector : Connector) : PlaceType{
 		assert fatal (targetPlace <> null) with log ("can't find place replacing target " + self.getDirection() + " pin " + self.toString());
 		return targetPlace;
 	} else { // connector.source = pin, due to the assert above
-		log("... place for arc source pin: " + self.toString());
+		log("... place for arc source pin: " + self.computeName() + " " + self.toString());
 		var sourcePlace : PlaceType := null;
 		if(self.requiresSimpleTransformation()) {
 			sourcePlace := self.resolveone(PlaceType); // This works for FCFS pins
