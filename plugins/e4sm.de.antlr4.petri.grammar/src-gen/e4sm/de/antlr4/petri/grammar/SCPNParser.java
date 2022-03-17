@@ -1,7 +1,10 @@
 // Generated from SCPN.g4 by ANTLR 4.9.3
 package e4sm.de.antlr4.petri.grammar;
 
-//Package is set in the build.gradle file
+//N.B. Package is set in the build.gradle file
+
+// DO NOT EDIT THIS .java FILE DIRECTLY, it will be overwritten! Edit the SCPN.g4 file only.
+
 /*import gpal.*;
 import gpal.parsers.ast.*;
 import gpal.parsers.expr.*;
@@ -55,8 +58,8 @@ public class SCPNParser extends Parser {
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, null, "'#'", "'''", null, null, null, null, null, null, null, null, 
-			null, null, null, "'?'", "':'", "'='", "'=='", "'!'", "'~'", "'!='", 
+			null, null, "'#'", "'''", null, null, null, null, null, "'UNI'", null, 
+			null, null, null, null, "'?'", "':'", "'='", "'=='", "'!'", "'~'", "'!='", 
 			"'/'", "'/='", "'+'", "'+='", "'++'", "'-'", "'-='", "'--'", "'*'", "'*='", 
 			"'%'", "'%='", "'>>'", "'>>='", "'>>>'", "'>>>='", "'>='", "'>'", "'<<'", 
 			"'<<='", "'<='", "'<'", "'^'", "'^='", "'|'", "'|='", "'||'", "'&'", 

@@ -1,7 +1,10 @@
 grammar SCPN ;
 
 @header {
-//Package is set in the build.gradle file
+//N.B. Package is set in the build.gradle file
+
+// DO NOT EDIT THIS .java FILE DIRECTLY, it will be overwritten! Edit the SCPN.g4 file only.
+
 /*import gpal.*;
 import gpal.parsers.ast.*;
 import gpal.parsers.expr.*;
@@ -90,14 +93,16 @@ EXTRACT : 'extract' | 'EXTRACT'
 							 ;
 
 // Time functions distributions
-EXP			: 'exp' | 'EXP' | 'Exp' ;
-DET			: 'det' | 'DET' | 'Det' ;
-UNI			: 'uni' | 'UNI' ;
-DUNI		: 'duni'	 | 'DUNI'	  | 'DUni'	 ;
-TRIANG		: 'triang'	 | 'TRIANG'	  | 'Triang' ;
-NORM		: 'norm'	 | 'NORM'	  | 'Norm'	 ;
-LONGNORM	: 'longnorm' | 'LONGNORM' | 'Longnorm' | 'LongNorm' ;
-WEI			: 'wei' | 'WEI' | 'Wei' ;
+// n.b. Currently, "exp" would not work on TimeNET, as that would get parsed to a variable.
+// if it starts with a capital letter, it works.
+EXP			: 'EXP' | 'Exp' ;
+DET			: 'DET' | 'Det' ;
+UNI			: 'UNI' ;
+DUNI		: 'DUNI'	  | 'DUni'	 ;
+TRIANG		: 'TRIANG'	  | 'Triang' ;
+NORM		: 'NORM'	  | 'Norm'	 ;
+LONGNORM	: 'LONGNORM' | 'Longnorm' | 'LongNorm' ;
+WEI			: 'WEI' | 'Wei' ;
 
 QUESTION	: '?' ;
 
