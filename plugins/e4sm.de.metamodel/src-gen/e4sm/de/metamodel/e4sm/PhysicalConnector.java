@@ -9,6 +9,10 @@ package e4sm.de.metamodel.e4sm;
  *
  * <!-- begin-model-doc -->
  * A phyisical connector is a connector which links 2 physical components.
+ * Constraints:
+ * - C1: A Physical Connector shall only connect Physical Components.
+ * - C2: An output pin shall only be connected to an input pin.
+ * - C3: An input pin shall only be connected to an output pin.
  * <!-- end-model-doc -->
  *
  * <p>

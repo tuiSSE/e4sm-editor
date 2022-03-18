@@ -2,9 +2,7 @@
  */
 package e4sm.de.metamodel.e4sm.provider;
 
-import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.PhysicalConnector;
-import e4sm.de.metamodel.e4sm.Pin;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
 import java.util.Collection;
@@ -12,7 +10,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -114,19 +112,9 @@ public class PhysicalConnectorItemProvider extends ConnectorItemProvider {
 	@Override
 	public String getText(Object object) {
 		PhysicalConnector connector = (PhysicalConnector) object;
-		Pin sourcePin = connector.getSource();
-		Pin targetPin = connector.getTarget();
-		Component sourceContainer = (Component) sourcePin.eContainer();
-		Component targetContainer = (Component) targetPin.eContainer();
-		String sourceName = sourceContainer.getName();
-		String targetName = targetContainer.getName();
-		String label = "";
-		if (sourceName == null || targetName == null || sourceName.length() == 0 || targetName.length() == 0) {
-			label = connector.getUuid();
-		} else {
-			label = ": " + sourceName + "->" + targetName;
-		}
-		return label == null || label.length() == 0 ? getString("_UI_PhysicalConnector_type")
+		String label = getLabelText(connector);
+		return label == null || label.length() == 0
+				? getString("_UI_PhysicalConnector_type") + " " + EcoreUtil.getID(connector)
 				: getString("_UI_PhysicalConnector_type") + " " + label;
 	}
 

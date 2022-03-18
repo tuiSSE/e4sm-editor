@@ -2,6 +2,9 @@
  */
 package e4sm.de.metamodel.e4sm;
 
+import e4sm.de.metamodel.e4sm.analysis.ParameterizableElement;
+import e4sm.de.metamodel.e4sm.core.NamedElement;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Connector</b></em>'.
@@ -25,18 +28,17 @@ package e4sm.de.metamodel.e4sm;
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='ConnectorC1'"
  * @generated
  */
-public interface Connector extends OptionallyNamedElement {
+public interface Connector extends ParameterizableElement, NamedElement {
 	/**
 	 * Returns the value of the '<em><b>Source</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link e4sm.de.metamodel.e4sm.Pin#getOutgoingConnectors <em>Outgoing Connectors</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The source pin of this connector
-	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Source</em>' reference.
 	 * @see #setSource(Pin)
 	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getConnector_Source()
-	 * @model required="true"
+	 * @see e4sm.de.metamodel.e4sm.Pin#getOutgoingConnectors
+	 * @model opposite="outgoingConnectors" required="true"
 	 * @generated
 	 */
 	Pin getSource();
@@ -53,15 +55,14 @@ public interface Connector extends OptionallyNamedElement {
 
 	/**
 	 * Returns the value of the '<em><b>Target</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link e4sm.de.metamodel.e4sm.Pin#getIncomingConnectors <em>Incoming Connectors</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The output pin of this connector
-	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Target</em>' reference.
 	 * @see #setTarget(Pin)
 	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getConnector_Target()
-	 * @model required="true"
+	 * @see e4sm.de.metamodel.e4sm.Pin#getIncomingConnectors
+	 * @model opposite="incomingConnectors" required="true"
 	 * @generated
 	 */
 	Pin getTarget();
@@ -75,5 +76,13 @@ public interface Connector extends OptionallyNamedElement {
 	 * @generated
 	 */
 	void setTarget(Pin value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	String computeName();
 
 } // Connector

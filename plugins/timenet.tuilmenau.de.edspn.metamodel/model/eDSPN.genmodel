@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/timenet.tuilmenau.de.edspn.metamodel/src-gen"
+    creationIcons="false" editDirectory="/timenet.tuilmenau.de.edspn.metamodel.edit/src-gen"
+    editorDirectory="/timenet.tuilmenau.de.edspn.metamodel.editor/src-gen" modelPluginID="timenet.tuilmenau.de.edspn.metamodel"
+    modelName="EDSPN" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.xsd.ecore.importer" complianceLevel="5.0"
+    copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>file:/C:/TimeNET/Development/TimeNET/etc/schemas/eDSPN.xsd</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="EDSPN" basePackage="de.ilmenau.tu.timenet.schema" resource="XML"
+      disposableProviderFactory="true" ecorePackage="eDSPN.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="eDSPN.ecore#//BooleanType">
+      <genEnumLiterals ecoreEnumLiteral="eDSPN.ecore#//BooleanType/true"/>
+      <genEnumLiterals ecoreEnumLiteral="eDSPN.ecore#//BooleanType/false"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="eDSPN.ecore#//DefTypeType">
+      <genEnumLiterals ecoreEnumLiteral="eDSPN.ecore#//DefTypeType/int"/>
+      <genEnumLiterals ecoreEnumLiteral="eDSPN.ecore#//DefTypeType/real"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="eDSPN.ecore#//PreemptionPolicyType">
+      <genEnumLiterals ecoreEnumLiteral="eDSPN.ecore#//PreemptionPolicyType/PRD"/>
+      <genEnumLiterals ecoreEnumLiteral="eDSPN.ecore#//PreemptionPolicyType/PRS"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="eDSPN.ecore#//ServerTypeType">
+      <genEnumLiterals ecoreEnumLiteral="eDSPN.ecore#//ServerTypeType/InfiniteServer"/>
+      <genEnumLiterals ecoreEnumLiteral="eDSPN.ecore#//ServerTypeType/ExclusiveServer"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="eDSPN.ecore#//Type">
+      <genEnumLiterals ecoreEnumLiteral="eDSPN.ecore#//Type/node"/>
+      <genEnumLiterals ecoreEnumLiteral="eDSPN.ecore#//Type/connector"/>
+      <genEnumLiterals ecoreEnumLiteral="eDSPN.ecore#//Type/text"/>
+      <genEnumLiterals ecoreEnumLiteral="eDSPN.ecore#//Type/inscriptionText"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="eDSPN.ecore#//BooleanTypeObject"/>
+    <genDataTypes ecoreDataType="eDSPN.ecore#//DefTypeTypeObject"/>
+    <genDataTypes ecoreDataType="eDSPN.ecore#//PreemptionPolicyTypeObject"/>
+    <genDataTypes ecoreDataType="eDSPN.ecore#//ServerTypeTypeObject"/>
+    <genDataTypes ecoreDataType="eDSPN.ecore#//TypeObject"/>
+    <genClasses ecoreClass="eDSPN.ecore#//AddDataType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eDSPN.ecore#//AddDataType/classname"/>
+    </genClasses>
+    <genClasses ecoreClass="eDSPN.ecore#//ArcType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eDSPN.ecore#//ArcType/inscription"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eDSPN.ecore#//ArcType/handle"/>
+    </genClasses>
+    <genClasses ecoreClass="eDSPN.ecore#//CommentType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eDSPN.ecore#//CommentType/commentText"/>
+    </genClasses>
+    <genClasses ecoreClass="eDSPN.ecore#//ConnectorType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eDSPN.ecore#//ConnectorType/fromNode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eDSPN.ecore#//ConnectorType/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eDSPN.ecore#//ConnectorType/toNode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eDSPN.ecore#//ConnectorType/type"/>
+    </genClasses>
+    <genClasses ecoreClass="eDSPN.ecore#//DefinitionType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eDSPN.ecore#//DefinitionType/additionalData"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eDSPN.ecore#//DefinitionType/defType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eDSPN.ecore#//DefinitionType/expression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eDSPN.ecore#//DefinitionType/name"/>
+    </genClasses>
+    <genClasses ecoreClass="eDSPN.ecore#//DeterministicTransitionType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eDSPN.ecore#//DeterministicTransitionType/delay"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eDSPN.ecore#//DeterministicTransitionType/preemptionPolicy"/>
+    </genClasses>
+    <genClasses ecoreClass="eDSPN.ecore#//DocumentRoot">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute eDSPN.ecore#//DocumentRoot/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference eDSPN.ecore#//DocumentRoot/xMLNSPrefixMap"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference eDSPN.ecore#//DocumentRoot/xSISchemaLocation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eDSPN.ecore#//DocumentRoot/net"/>
+    </genClasses>
+    <genClasses ecoreClass="eDSPN.ecore#//EDSPNNet">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eDSPN.ecore#//EDSPNNet/place"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eDSPN.ecore#//EDSPNNet/exponentialTransition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eDSPN.ecore#//EDSPNNet/immediateTransition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eDSPN.ecore#//EDSPNNet/deterministicTransition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eDSPN.ecore#//EDSPNNet/generalTransition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eDSPN.ecore#//EDSPNNet/arc"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eDSPN.ecore#//EDSPNNet/inhibit"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eDSPN.ecore#//EDSPNNet/measure"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eDSPN.ecore#//EDSPNNet/definition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eDSPN.ecore#//EDSPNNet/comment"/>
+    </genClasses>
+    <genClasses ecoreClass="eDSPN.ecore#//ExponentialTransitionType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eDSPN.ecore#//ExponentialTransitionType/delay"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eDSPN.ecore#//ExponentialTransitionType/preemptionPolicy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eDSPN.ecore#//ExponentialTransitionType/serverType"/>
+    </genClasses>
+    <genClasses ecoreClass="eDSPN.ecore#//GeneralTransitionType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eDSPN.ecore#//GeneralTransitionType/delay"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eDSPN.ecore#//GeneralTransitionType/preemptionPolicy"/>
+    </genClasses>
+    <genClasses ecoreClass="eDSPN.ecore#//GraphicsType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eDSPN.ecore#//GraphicsType/orientation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eDSPN.ecore#//GraphicsType/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eDSPN.ecore#//GraphicsType/y"/>
+    </genClasses>
+    <genClasses ecoreClass="eDSPN.ecore#//HandleType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eDSPN.ecore#//HandleType/graphics"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eDSPN.ecore#//HandleType/id"/>
+    </genClasses>
+    <genClasses ecoreClass="eDSPN.ecore#//ImmediateTransitionType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eDSPN.ecore#//ImmediateTransitionType/enablingFunction"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eDSPN.ecore#//ImmediateTransitionType/priority"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eDSPN.ecore#//ImmediateTransitionType/weight"/>
+    </genClasses>
+    <genClasses ecoreClass="eDSPN.ecore#//InhibitType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eDSPN.ecore#//InhibitType/inscription"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eDSPN.ecore#//InhibitType/handle"/>
+    </genClasses>
+    <genClasses ecoreClass="eDSPN.ecore#//InscriptionTextType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eDSPN.ecore#//InscriptionTextType/graphics"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eDSPN.ecore#//InscriptionTextType/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eDSPN.ecore#//InscriptionTextType/type"/>
+    </genClasses>
+    <genClasses ecoreClass="eDSPN.ecore#//InscriptionType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eDSPN.ecore#//InscriptionType/text"/>
+    </genClasses>
+    <genClasses ecoreClass="eDSPN.ecore#//LabelType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eDSPN.ecore#//LabelType/text"/>
+    </genClasses>
+    <genClasses ecoreClass="eDSPN.ecore#//MeasureType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eDSPN.ecore#//MeasureType/additionalData"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eDSPN.ecore#//MeasureType/expression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eDSPN.ecore#//MeasureType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eDSPN.ecore#//MeasureType/result"/>
+    </genClasses>
+    <genClasses ecoreClass="eDSPN.ecore#//NetType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eDSPN.ecore#//NetType/gridActive"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eDSPN.ecore#//NetType/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eDSPN.ecore#//NetType/netclass"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eDSPN.ecore#//NetType/sharpEdges"/>
+    </genClasses>
+    <genClasses ecoreClass="eDSPN.ecore#//NodeType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eDSPN.ecore#//NodeType/graphics"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eDSPN.ecore#//NodeType/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eDSPN.ecore#//NodeType/type"/>
+    </genClasses>
+    <genClasses ecoreClass="eDSPN.ecore#//PlaceType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eDSPN.ecore#//PlaceType/label"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eDSPN.ecore#//PlaceType/initialMarking"/>
+    </genClasses>
+    <genClasses ecoreClass="eDSPN.ecore#//TextType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eDSPN.ecore#//TextType/graphics"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eDSPN.ecore#//TextType/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eDSPN.ecore#//TextType/type"/>
+    </genClasses>
+    <genClasses ecoreClass="eDSPN.ecore#//TransitionType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eDSPN.ecore#//TransitionType/label"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

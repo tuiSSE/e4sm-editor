@@ -4,7 +4,7 @@ package e4sm.de.metamodel.e4sm.impl;
 
 import e4sm.de.metamodel.e4sm.Actor;
 import e4sm.de.metamodel.e4sm.e4smPackage;
-
+import e4sm.de.metamodel.e4sm.core.impl.NamedElementImpl;
 import org.eclipse.emf.ecore.EClass;
 
 /**

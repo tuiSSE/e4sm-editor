@@ -3,7 +3,6 @@
 package e4sm.de.metamodel.e4sm.provider;
 
 import e4sm.de.metamodel.e4sm.Function;
-
 import java.util.Collection;
 import java.util.List;
 

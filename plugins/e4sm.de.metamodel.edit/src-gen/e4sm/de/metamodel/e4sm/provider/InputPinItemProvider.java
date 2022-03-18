@@ -2,16 +2,20 @@
  */
 package e4sm.de.metamodel.e4sm.provider;
 
+import e4sm.de.metamodel.e4sm.InputPin;
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
-import e4sm.de.metamodel.e4sm.Component;
-import e4sm.de.metamodel.e4sm.InputPin;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
+import e4sm.de.metamodel.e4sm.Pin;
+import e4sm.de.metamodel.e4sm.e4smPackage;
 
 /**
  * This is the item provider adapter for a {@link e4sm.de.metamodel.e4sm.InputPin} object.
@@ -41,8 +45,25 @@ public class InputPinItemProvider extends PinItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addQueueTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Queue Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addQueueTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_InputPin_queueType_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_InputPin_queueType_feature",
+								"_UI_InputPin_type"),
+						e4smPackage.Literals.INPUT_PIN__QUEUE_TYPE, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -65,27 +86,15 @@ public class InputPinItemProvider extends PinItemProvider {
 	}
 
 	/**
-	 * This returns the label text for the adapted class. <!-- begin-user-doc -->
-	 * If the pin has a name, use that as label.
-	 * else, if the container has a name, use "of cName"
-	 * <!-- end-user-doc -->
+	 * This returns the label text for the adapted class. <!-- begin-user-doc --> If
+	 * the pin has a name, use that as label. else, if the container has a name, use
+	 * "of cName" <!-- end-user-doc -->
 	 * 
 	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = "";
-		InputPin inputPin = (InputPin) object;
-		final String name = inputPin.getName();
-		if (name != null && name.length() > 0) {
-			label = name;
-		} else {
-			Component component = (Component) inputPin.eContainer();
-			String componentName = component.getName();
-			if (componentName != null && componentName.length() > 0) {
-				label = "of " + component.getName();
-			}
-		}
+		String label = getLabelText((Pin) object);
 		return label == null || label.length() == 0 ? getString("_UI_InputPin_type")
 				: getString("_UI_InputPin_type") + " " + label;
 	}
@@ -99,6 +108,12 @@ public class InputPinItemProvider extends PinItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(InputPin.class)) {
+		case e4smPackage.INPUT_PIN__QUEUE_TYPE:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			return;
+		}
 		super.notifyChanged(notification);
 	}
 

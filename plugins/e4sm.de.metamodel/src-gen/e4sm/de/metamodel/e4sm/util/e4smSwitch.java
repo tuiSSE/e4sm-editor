@@ -6,7 +6,9 @@ import e4sm.de.metamodel.e4sm.Actor;
 import e4sm.de.metamodel.e4sm.Actuator;
 import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.Connector;
-import e4sm.de.metamodel.e4sm.Element;
+import e4sm.de.metamodel.e4sm.ConversionByConvention;
+import e4sm.de.metamodel.e4sm.ConversionByPrefix;
+import e4sm.de.metamodel.e4sm.DerivedUnit;
 import e4sm.de.metamodel.e4sm.ExternalDependency;
 import e4sm.de.metamodel.e4sm.Function;
 import e4sm.de.metamodel.e4sm.Heuristic;
@@ -14,9 +16,8 @@ import e4sm.de.metamodel.e4sm.Human;
 import e4sm.de.metamodel.e4sm.InputPin;
 import e4sm.de.metamodel.e4sm.LogicalConnector;
 import e4sm.de.metamodel.e4sm.MachineLearningComponent;
+import e4sm.de.metamodel.e4sm.MeasurementUnit;
 import e4sm.de.metamodel.e4sm.Model;
-import e4sm.de.metamodel.e4sm.NamedElement;
-import e4sm.de.metamodel.e4sm.OptionallyNamedElement;
 import e4sm.de.metamodel.e4sm.OutputPin;
 import e4sm.de.metamodel.e4sm.Person;
 import e4sm.de.metamodel.e4sm.PhysicalComponent;
@@ -25,9 +26,17 @@ import e4sm.de.metamodel.e4sm.Pin;
 import e4sm.de.metamodel.e4sm.Robot;
 import e4sm.de.metamodel.e4sm.Sector;
 import e4sm.de.metamodel.e4sm.Sensor;
+import e4sm.de.metamodel.e4sm.SimpleUnit;
 import e4sm.de.metamodel.e4sm.SoftwareComponent;
+import e4sm.de.metamodel.e4sm.UnitConversion;
+import e4sm.de.metamodel.e4sm.UnitPrefix;
+import e4sm.de.metamodel.e4sm.analysis.ParameterizableElement;
+
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
+import e4sm.de.metamodel.e4sm.core.Element;
+import e4sm.de.metamodel.e4sm.core.NamedElement;
+import e4sm.de.metamodel.e4sm.core.TypedElement;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -96,6 +105,8 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseNamedElement(component);
 			if (result == null)
+				result = caseParameterizableElement(component);
+			if (result == null)
 				result = caseElement(component);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -111,6 +122,8 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseNamedElement(machineLearningComponent);
 			if (result == null)
+				result = caseParameterizableElement(machineLearningComponent);
+			if (result == null)
 				result = caseElement(machineLearningComponent);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -120,7 +133,9 @@ public class e4smSwitch<T> extends Switch<T> {
 			Connector connector = (Connector) theEObject;
 			T result = caseConnector(connector);
 			if (result == null)
-				result = caseOptionallyNamedElement(connector);
+				result = caseParameterizableElement(connector);
+			if (result == null)
+				result = caseNamedElement(connector);
 			if (result == null)
 				result = caseElement(connector);
 			if (result == null)
@@ -133,7 +148,9 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseConnector(physicalConnector);
 			if (result == null)
-				result = caseOptionallyNamedElement(physicalConnector);
+				result = caseParameterizableElement(physicalConnector);
+			if (result == null)
+				result = caseNamedElement(physicalConnector);
 			if (result == null)
 				result = caseElement(physicalConnector);
 			if (result == null)
@@ -148,6 +165,8 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseNamedElement(physicalComponent);
 			if (result == null)
+				result = caseParameterizableElement(physicalComponent);
+			if (result == null)
 				result = caseElement(physicalComponent);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -161,6 +180,8 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseNamedElement(softwareComponent);
 			if (result == null)
+				result = caseParameterizableElement(softwareComponent);
+			if (result == null)
 				result = caseElement(softwareComponent);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -172,7 +193,9 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseConnector(logicalConnector);
 			if (result == null)
-				result = caseOptionallyNamedElement(logicalConnector);
+				result = caseParameterizableElement(logicalConnector);
+			if (result == null)
+				result = caseNamedElement(logicalConnector);
 			if (result == null)
 				result = caseElement(logicalConnector);
 			if (result == null)
@@ -189,6 +212,8 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseNamedElement(heuristic);
 			if (result == null)
+				result = caseParameterizableElement(heuristic);
+			if (result == null)
 				result = caseElement(heuristic);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -203,6 +228,8 @@ public class e4smSwitch<T> extends Switch<T> {
 				result = caseComponent(function);
 			if (result == null)
 				result = caseNamedElement(function);
+			if (result == null)
+				result = caseParameterizableElement(function);
 			if (result == null)
 				result = caseElement(function);
 			if (result == null)
@@ -219,6 +246,8 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseNamedElement(externalDependency);
 			if (result == null)
+				result = caseParameterizableElement(externalDependency);
+			if (result == null)
 				result = caseElement(externalDependency);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -229,6 +258,8 @@ public class e4smSwitch<T> extends Switch<T> {
 			T result = casePackage(package_);
 			if (result == null)
 				result = caseNamedElement(package_);
+			if (result == null)
+				result = caseParameterizableElement(package_);
 			if (result == null)
 				result = caseElement(package_);
 			if (result == null)
@@ -241,16 +272,9 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseNamedElement(model);
 			if (result == null)
+				result = caseParameterizableElement(model);
+			if (result == null)
 				result = caseElement(model);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case e4smPackage.NAMED_ELEMENT: {
-			NamedElement namedElement = (NamedElement) theEObject;
-			T result = caseNamedElement(namedElement);
-			if (result == null)
-				result = caseElement(namedElement);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -313,6 +337,8 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseNamedElement(sensor);
 			if (result == null)
+				result = caseParameterizableElement(sensor);
+			if (result == null)
 				result = caseElement(sensor);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -328,14 +354,9 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseNamedElement(actuator);
 			if (result == null)
-				result = caseElement(actuator);
+				result = caseParameterizableElement(actuator);
 			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case e4smPackage.ELEMENT: {
-			Element element = (Element) theEObject;
-			T result = caseElement(element);
+				result = caseElement(actuator);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -344,7 +365,11 @@ public class e4smSwitch<T> extends Switch<T> {
 			Pin pin = (Pin) theEObject;
 			T result = casePin(pin);
 			if (result == null)
-				result = caseOptionallyNamedElement(pin);
+				result = caseParameterizableElement(pin);
+			if (result == null)
+				result = caseTypedElement(pin);
+			if (result == null)
+				result = caseNamedElement(pin);
 			if (result == null)
 				result = caseElement(pin);
 			if (result == null)
@@ -357,7 +382,11 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = casePin(inputPin);
 			if (result == null)
-				result = caseOptionallyNamedElement(inputPin);
+				result = caseParameterizableElement(inputPin);
+			if (result == null)
+				result = caseTypedElement(inputPin);
+			if (result == null)
+				result = caseNamedElement(inputPin);
 			if (result == null)
 				result = caseElement(inputPin);
 			if (result == null)
@@ -370,7 +399,11 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = casePin(outputPin);
 			if (result == null)
-				result = caseOptionallyNamedElement(outputPin);
+				result = caseParameterizableElement(outputPin);
+			if (result == null)
+				result = caseTypedElement(outputPin);
+			if (result == null)
+				result = caseNamedElement(outputPin);
 			if (result == null)
 				result = caseElement(outputPin);
 			if (result == null)
@@ -392,11 +425,59 @@ public class e4smSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case e4smPackage.OPTIONALLY_NAMED_ELEMENT: {
-			OptionallyNamedElement optionallyNamedElement = (OptionallyNamedElement) theEObject;
-			T result = caseOptionallyNamedElement(optionallyNamedElement);
+		case e4smPackage.MEASUREMENT_UNIT: {
+			MeasurementUnit measurementUnit = (MeasurementUnit) theEObject;
+			T result = caseMeasurementUnit(measurementUnit);
 			if (result == null)
-				result = caseElement(optionallyNamedElement);
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case e4smPackage.SIMPLE_UNIT: {
+			SimpleUnit simpleUnit = (SimpleUnit) theEObject;
+			T result = caseSimpleUnit(simpleUnit);
+			if (result == null)
+				result = caseMeasurementUnit(simpleUnit);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case e4smPackage.DERIVED_UNIT: {
+			DerivedUnit derivedUnit = (DerivedUnit) theEObject;
+			T result = caseDerivedUnit(derivedUnit);
+			if (result == null)
+				result = caseMeasurementUnit(derivedUnit);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case e4smPackage.UNIT_CONVERSION: {
+			UnitConversion unitConversion = (UnitConversion) theEObject;
+			T result = caseUnitConversion(unitConversion);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case e4smPackage.CONVERSION_BY_PREFIX: {
+			ConversionByPrefix conversionByPrefix = (ConversionByPrefix) theEObject;
+			T result = caseConversionByPrefix(conversionByPrefix);
+			if (result == null)
+				result = caseUnitConversion(conversionByPrefix);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case e4smPackage.CONVERSION_BY_CONVENTION: {
+			ConversionByConvention conversionByConvention = (ConversionByConvention) theEObject;
+			T result = caseConversionByConvention(conversionByConvention);
+			if (result == null)
+				result = caseUnitConversion(conversionByConvention);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case e4smPackage.UNIT_PREFIX: {
+			UnitPrefix unitPrefix = (UnitPrefix) theEObject;
+			T result = caseUnitPrefix(unitPrefix);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -587,21 +668,6 @@ public class e4smSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Named Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Named Element</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseNamedElement(NamedElement object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Actor</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -692,21 +758,6 @@ public class e4smSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Element</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseElement(Element object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Pin</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -767,17 +818,167 @@ public class e4smSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Optionally Named Element</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Measurement Unit</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Optionally Named Element</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Measurement Unit</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseOptionallyNamedElement(OptionallyNamedElement object) {
+	public T caseMeasurementUnit(MeasurementUnit object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Simple Unit</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Simple Unit</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSimpleUnit(SimpleUnit object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Derived Unit</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Derived Unit</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDerivedUnit(DerivedUnit object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Unit Conversion</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Unit Conversion</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUnitConversion(UnitConversion object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Conversion By Prefix</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Conversion By Prefix</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseConversionByPrefix(ConversionByPrefix object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Conversion By Convention</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Conversion By Convention</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseConversionByConvention(ConversionByConvention object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Unit Prefix</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Unit Prefix</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUnitPrefix(UnitPrefix object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseElement(Element object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Named Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Named Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNamedElement(NamedElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Parameterizable Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Parameterizable Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseParameterizableElement(ParameterizableElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Typed Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Typed Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTypedElement(TypedElement object) {
 		return null;
 	}
 

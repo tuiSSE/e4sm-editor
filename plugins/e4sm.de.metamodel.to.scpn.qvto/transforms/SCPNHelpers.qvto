@@ -1,0 +1,12 @@
+transformation SCPNHelpers() {
+/** Helpers **/
+	//A helper is an operation that performs a computation on one or more source objects and provides a result. It is illegal to create or update object instances except for pre-defined types like sets, tuples, and for intermediate properties.
+	
+	helper safeString(s:String) : String{
+	assert warning (not s.oclIsUndefined()) with log("Safestring received a null parameter, one element in the model does not have a name., using a placeholder");
+	if(s.oclIsUndefined()){
+		return "placeholder";
+	}endif;
+		return s.replaceAll(" ", "_").replaceAll("\\.","_").replaceAll("\\(","").replaceAll("\\)","");
+	}
+}

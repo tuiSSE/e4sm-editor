@@ -6,7 +6,9 @@ import e4sm.de.metamodel.e4sm.Actor;
 import e4sm.de.metamodel.e4sm.Actuator;
 import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.Connector;
-import e4sm.de.metamodel.e4sm.Element;
+import e4sm.de.metamodel.e4sm.ConversionByConvention;
+import e4sm.de.metamodel.e4sm.ConversionByPrefix;
+import e4sm.de.metamodel.e4sm.DerivedUnit;
 import e4sm.de.metamodel.e4sm.ExternalDependency;
 import e4sm.de.metamodel.e4sm.Function;
 import e4sm.de.metamodel.e4sm.Heuristic;
@@ -14,9 +16,8 @@ import e4sm.de.metamodel.e4sm.Human;
 import e4sm.de.metamodel.e4sm.InputPin;
 import e4sm.de.metamodel.e4sm.LogicalConnector;
 import e4sm.de.metamodel.e4sm.MachineLearningComponent;
+import e4sm.de.metamodel.e4sm.MeasurementUnit;
 import e4sm.de.metamodel.e4sm.Model;
-import e4sm.de.metamodel.e4sm.NamedElement;
-import e4sm.de.metamodel.e4sm.OptionallyNamedElement;
 import e4sm.de.metamodel.e4sm.OutputPin;
 import e4sm.de.metamodel.e4sm.Person;
 import e4sm.de.metamodel.e4sm.PhysicalComponent;
@@ -25,14 +26,20 @@ import e4sm.de.metamodel.e4sm.Pin;
 import e4sm.de.metamodel.e4sm.Robot;
 import e4sm.de.metamodel.e4sm.Sector;
 import e4sm.de.metamodel.e4sm.Sensor;
+import e4sm.de.metamodel.e4sm.SimpleUnit;
 import e4sm.de.metamodel.e4sm.SoftwareComponent;
+import e4sm.de.metamodel.e4sm.UnitConversion;
+import e4sm.de.metamodel.e4sm.UnitPrefix;
+import e4sm.de.metamodel.e4sm.analysis.ParameterizableElement;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
+import e4sm.de.metamodel.e4sm.core.Element;
+import e4sm.de.metamodel.e4sm.core.NamedElement;
+import e4sm.de.metamodel.e4sm.core.TypedElement;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -151,11 +158,6 @@ public class e4smAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseNamedElement(NamedElement object) {
-			return createNamedElementAdapter();
-		}
-
-		@Override
 		public Adapter caseActor(Actor object) {
 			return createActorAdapter();
 		}
@@ -186,11 +188,6 @@ public class e4smAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseElement(Element object) {
-			return createElementAdapter();
-		}
-
-		@Override
 		public Adapter casePin(Pin object) {
 			return createPinAdapter();
 		}
@@ -211,8 +208,58 @@ public class e4smAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseOptionallyNamedElement(OptionallyNamedElement object) {
-			return createOptionallyNamedElementAdapter();
+		public Adapter caseMeasurementUnit(MeasurementUnit object) {
+			return createMeasurementUnitAdapter();
+		}
+
+		@Override
+		public Adapter caseSimpleUnit(SimpleUnit object) {
+			return createSimpleUnitAdapter();
+		}
+
+		@Override
+		public Adapter caseDerivedUnit(DerivedUnit object) {
+			return createDerivedUnitAdapter();
+		}
+
+		@Override
+		public Adapter caseUnitConversion(UnitConversion object) {
+			return createUnitConversionAdapter();
+		}
+
+		@Override
+		public Adapter caseConversionByPrefix(ConversionByPrefix object) {
+			return createConversionByPrefixAdapter();
+		}
+
+		@Override
+		public Adapter caseConversionByConvention(ConversionByConvention object) {
+			return createConversionByConventionAdapter();
+		}
+
+		@Override
+		public Adapter caseUnitPrefix(UnitPrefix object) {
+			return createUnitPrefixAdapter();
+		}
+
+		@Override
+		public Adapter caseElement(Element object) {
+			return createElementAdapter();
+		}
+
+		@Override
+		public Adapter caseNamedElement(NamedElement object) {
+			return createNamedElementAdapter();
+		}
+
+		@Override
+		public Adapter caseParameterizableElement(ParameterizableElement object) {
+			return createParameterizableElementAdapter();
+		}
+
+		@Override
+		public Adapter caseTypedElement(TypedElement object) {
+			return createTypedElementAdapter();
 		}
 
 		@Override
@@ -403,13 +450,13 @@ public class e4smAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.NamedElement <em>Named Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.core.NamedElement <em>Named Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see e4sm.de.metamodel.e4sm.NamedElement
+	 * @see e4sm.de.metamodel.e4sm.core.NamedElement
 	 * @generated
 	 */
 	public Adapter createNamedElementAdapter() {
@@ -501,13 +548,13 @@ public class e4smAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.Element <em>Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.core.Element <em>Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see e4sm.de.metamodel.e4sm.Element
+	 * @see e4sm.de.metamodel.e4sm.core.Element
 	 * @generated
 	 */
 	public Adapter createElementAdapter() {
@@ -571,16 +618,128 @@ public class e4smAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.OptionallyNamedElement <em>Optionally Named Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.analysis.ParameterizableElement <em>Parameterizable Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see e4sm.de.metamodel.e4sm.OptionallyNamedElement
+	 * @see e4sm.de.metamodel.e4sm.analysis.ParameterizableElement
 	 * @generated
 	 */
-	public Adapter createOptionallyNamedElementAdapter() {
+	public Adapter createParameterizableElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.MeasurementUnit <em>Measurement Unit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.MeasurementUnit
+	 * @generated
+	 */
+	public Adapter createMeasurementUnitAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.SimpleUnit <em>Simple Unit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.SimpleUnit
+	 * @generated
+	 */
+	public Adapter createSimpleUnitAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.DerivedUnit <em>Derived Unit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.DerivedUnit
+	 * @generated
+	 */
+	public Adapter createDerivedUnitAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.UnitConversion <em>Unit Conversion</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.UnitConversion
+	 * @generated
+	 */
+	public Adapter createUnitConversionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.ConversionByPrefix <em>Conversion By Prefix</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.ConversionByPrefix
+	 * @generated
+	 */
+	public Adapter createConversionByPrefixAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.ConversionByConvention <em>Conversion By Convention</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.ConversionByConvention
+	 * @generated
+	 */
+	public Adapter createConversionByConventionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.UnitPrefix <em>Unit Prefix</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.UnitPrefix
+	 * @generated
+	 */
+	public Adapter createUnitPrefixAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.core.TypedElement <em>Typed Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.core.TypedElement
+	 * @generated
+	 */
+	public Adapter createTypedElementAdapter() {
 		return null;
 	}
 

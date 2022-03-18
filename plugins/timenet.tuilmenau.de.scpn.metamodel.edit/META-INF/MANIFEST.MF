@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: timenet.tuilmenau.de.scpn.metamodel.edit;singleton:=true
+Automatic-Module-Name: timenet.tuilmenau.de.scpn.metamodel.edit
+Bundle-Version: 1.0.0.qualifier
+Bundle-ClassPath: .
+Bundle-Activator: de.ilmenau.tu.timenet.schema.scpn.provider.SCPNEditPlugin$Implementation
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Export-Package: de.ilmenau.tu.timenet.schema.scpn.provider
+Require-Bundle: org.eclipse.core.runtime,
+ timenet.tuilmenau.de.scpn.metamodel;visibility:=reexport,
+ org.eclipse.emf.edit;visibility:=reexport
+Bundle-ActivationPolicy: lazy

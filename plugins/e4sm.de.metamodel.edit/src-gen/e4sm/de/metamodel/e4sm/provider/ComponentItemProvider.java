@@ -3,15 +3,18 @@
 package e4sm.de.metamodel.e4sm.provider;
 
 import e4sm.de.metamodel.e4sm.Component;
+import e4sm.de.metamodel.e4sm.analysis.AnalysisFactory;
+import e4sm.de.metamodel.e4sm.analysis.AnalysisPackage;
 import e4sm.de.metamodel.e4sm.e4smFactory;
 import e4sm.de.metamodel.e4sm.e4smPackage;
-
+import e4sm.de.metamodel.e4sm.core.provider.NamedElementItemProvider;
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
@@ -47,8 +50,8 @@ public class ComponentItemProvider extends NamedElementItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addComponentsPropertyDescriptor(object);
-			addContainedByPropertyDescriptor(object);
 			addMainResponsiblePropertyDescriptor(object);
+			addSpecifiedInPackagePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -69,21 +72,6 @@ public class ComponentItemProvider extends NamedElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Contained By feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addContainedByPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Component_containedBy_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Component_containedBy_feature",
-								"_UI_Component_type"),
-						e4smPackage.Literals.COMPONENT__CONTAINED_BY, true, false, true, null, null, null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Main Responsible feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -99,6 +87,21 @@ public class ComponentItemProvider extends NamedElementItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Specified In Package feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSpecifiedInPackagePropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Component_specifiedInPackage_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Component_specifiedInPackage_feature",
+								"_UI_Component_type"),
+						e4smPackage.Literals.COMPONENT__SPECIFIED_IN_PACKAGE, true, false, true, null, null, null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -110,6 +113,7 @@ public class ComponentItemProvider extends NamedElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(AnalysisPackage.Literals.PARAMETERIZABLE_ELEMENT__PARAMETERS);
 			childrenFeatures.add(e4smPackage.Literals.COMPONENT__COMPONENTS);
 			childrenFeatures.add(e4smPackage.Literals.COMPONENT__PINS);
 		}
@@ -175,6 +179,7 @@ public class ComponentItemProvider extends NamedElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Component.class)) {
+		case e4smPackage.COMPONENT__PARAMETERS:
 		case e4smPackage.COMPONENT__COMPONENTS:
 		case e4smPackage.COMPONENT__PINS:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -193,6 +198,9 @@ public class ComponentItemProvider extends NamedElementItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add(createChildParameter(AnalysisPackage.Literals.PARAMETERIZABLE_ELEMENT__PARAMETERS,
+				AnalysisFactory.eINSTANCE.createParameter()));
 
 		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.COMPONENT__COMPONENTS,
 				e4smFactory.eINSTANCE.createComponent()));
@@ -226,6 +234,17 @@ public class ComponentItemProvider extends NamedElementItemProvider {
 
 		newChildDescriptors.add(
 				createChildParameter(e4smPackage.Literals.COMPONENT__PINS, e4smFactory.eINSTANCE.createOutputPin()));
+	}
+
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return e4smEditPlugin.INSTANCE;
 	}
 
 }

@@ -5,15 +5,17 @@ package e4sm.de.metamodel.e4sm.provider;
 import e4sm.de.metamodel.e4sm.Sector;
 import e4sm.de.metamodel.e4sm.e4smFactory;
 import e4sm.de.metamodel.e4sm.e4smPackage;
-
+import e4sm.de.metamodel.e4sm.core.provider.NamedElementItemProvider;
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -45,8 +47,24 @@ public class SectorItemProvider extends NamedElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addSectorsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Sectors feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSectorsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Sector_sectors_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Sector_sectors_feature",
+								"_UI_Sector_type"),
+						e4smPackage.Literals.SECTOR__SECTORS, true, false, true, null, null, null));
 	}
 
 	/**
@@ -62,6 +80,7 @@ public class SectorItemProvider extends NamedElementItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(e4smPackage.Literals.SECTOR__COMPONENTS);
+			childrenFeatures.add(e4smPackage.Literals.SECTOR__SECTORS);
 		}
 		return childrenFeatures;
 	}
@@ -126,6 +145,7 @@ public class SectorItemProvider extends NamedElementItemProvider {
 
 		switch (notification.getFeatureID(Sector.class)) {
 		case e4smPackage.SECTOR__COMPONENTS:
+		case e4smPackage.SECTOR__SECTORS:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -137,20 +157,52 @@ public class SectorItemProvider extends NamedElementItemProvider {
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
+		//		newChildDescriptors.add(
+		//				createChildParameter(e4smPackage.Literals.SECTOR__COMPONENTS, e4smFactory.eINSTANCE.createComponent()));
+		//
+		//		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.SECTOR__COMPONENTS,
+		//				e4smFactory.eINSTANCE.createSoftwareComponent()));
+		//
+		//		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.SECTOR__COMPONENTS,
+		//				e4smFactory.eINSTANCE.createMachineLearningComponent()));
+
 		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.SECTOR__COMPONENTS,
 				e4smFactory.eINSTANCE.createPhysicalComponent()));
+
+		//		newChildDescriptors.add(
+		//				createChildParameter(e4smPackage.Literals.SECTOR__COMPONENTS, e4smFactory.eINSTANCE.createHeuristic()));
+		//
+		//		newChildDescriptors.add(
+		//				createChildParameter(e4smPackage.Literals.SECTOR__COMPONENTS, e4smFactory.eINSTANCE.createFunction()));
+		//
+		//		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.SECTOR__COMPONENTS,
+		//				e4smFactory.eINSTANCE.createExternalDependency()));
 
 		newChildDescriptors.add(
 				createChildParameter(e4smPackage.Literals.SECTOR__COMPONENTS, e4smFactory.eINSTANCE.createSensor()));
 
 		newChildDescriptors.add(
 				createChildParameter(e4smPackage.Literals.SECTOR__COMPONENTS, e4smFactory.eINSTANCE.createActuator()));
+
+		newChildDescriptors
+				.add(createChildParameter(e4smPackage.Literals.SECTOR__SECTORS, e4smFactory.eINSTANCE.createSector()));
+	}
+
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return e4smEditPlugin.INSTANCE;
 	}
 
 }

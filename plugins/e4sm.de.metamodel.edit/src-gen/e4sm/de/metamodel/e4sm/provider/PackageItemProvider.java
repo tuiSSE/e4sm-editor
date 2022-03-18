@@ -2,15 +2,18 @@
  */
 package e4sm.de.metamodel.e4sm.provider;
 
+import e4sm.de.metamodel.e4sm.analysis.AnalysisFactory;
+import e4sm.de.metamodel.e4sm.analysis.AnalysisPackage;
 import e4sm.de.metamodel.e4sm.e4smFactory;
 import e4sm.de.metamodel.e4sm.e4smPackage;
-
+import e4sm.de.metamodel.e4sm.core.provider.NamedElementItemProvider;
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
@@ -45,41 +48,11 @@ public class PackageItemProvider extends NamedElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addSoftwareComponentsPropertyDescriptor(object);
-			addPhysicalComponentsPropertyDescriptor(object);
 			addMainResponsiblePropertyDescriptor(object);
+			addPackagesPropertyDescriptor(object);
+			addSpecifiesComponentPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Software Components feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSoftwareComponentsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Package_softwareComponents_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Package_softwareComponents_feature",
-								"_UI_Package_type"),
-						e4smPackage.Literals.PACKAGE__SOFTWARE_COMPONENTS, true, false, true, null, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Physical Components feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addPhysicalComponentsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Package_physicalComponents_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Package_physicalComponents_feature",
-								"_UI_Package_type"),
-						e4smPackage.Literals.PACKAGE__PHYSICAL_COMPONENTS, true, false, true, null, null, null));
 	}
 
 	/**
@@ -98,6 +71,36 @@ public class PackageItemProvider extends NamedElementItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Packages feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPackagesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Package_packages_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Package_packages_feature",
+								"_UI_Package_type"),
+						e4smPackage.Literals.PACKAGE__PACKAGES, true, false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Specifies Component feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSpecifiesComponentPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Package_specifiesComponent_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Package_specifiesComponent_feature",
+								"_UI_Package_type"),
+						e4smPackage.Literals.PACKAGE__SPECIFIES_COMPONENT, true, false, true, null, null, null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -109,9 +112,11 @@ public class PackageItemProvider extends NamedElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(AnalysisPackage.Literals.PARAMETERIZABLE_ELEMENT__PARAMETERS);
 			childrenFeatures.add(e4smPackage.Literals.PACKAGE__COMPONENTS);
 			childrenFeatures.add(e4smPackage.Literals.PACKAGE__CONNECTORS);
 			childrenFeatures.add(e4smPackage.Literals.PACKAGE__SECTORS);
+			childrenFeatures.add(e4smPackage.Literals.PACKAGE__PACKAGES);
 		}
 		return childrenFeatures;
 	}
@@ -175,9 +180,11 @@ public class PackageItemProvider extends NamedElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(e4sm.de.metamodel.e4sm.Package.class)) {
+		case e4smPackage.PACKAGE__PARAMETERS:
 		case e4smPackage.PACKAGE__COMPONENTS:
 		case e4smPackage.PACKAGE__CONNECTORS:
 		case e4smPackage.PACKAGE__SECTORS:
+		case e4smPackage.PACKAGE__PACKAGES:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -194,6 +201,9 @@ public class PackageItemProvider extends NamedElementItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add(createChildParameter(AnalysisPackage.Literals.PARAMETERIZABLE_ELEMENT__PARAMETERS,
+				AnalysisFactory.eINSTANCE.createParameter()));
 
 		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.PACKAGE__COMPONENTS,
 				e4smFactory.eINSTANCE.createComponent()));
@@ -233,6 +243,20 @@ public class PackageItemProvider extends NamedElementItemProvider {
 
 		newChildDescriptors
 				.add(createChildParameter(e4smPackage.Literals.PACKAGE__SECTORS, e4smFactory.eINSTANCE.createSector()));
+
+		newChildDescriptors.add(
+				createChildParameter(e4smPackage.Literals.PACKAGE__PACKAGES, e4smFactory.eINSTANCE.createPackage()));
+	}
+
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return e4smEditPlugin.INSTANCE;
 	}
 
 }

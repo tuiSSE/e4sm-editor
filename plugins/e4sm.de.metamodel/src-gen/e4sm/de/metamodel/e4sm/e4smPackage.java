@@ -2,9 +2,12 @@
  */
 package e4sm.de.metamodel.e4sm;
 
+import e4sm.de.metamodel.e4sm.analysis.AnalysisPackage;
+import e4sm.de.metamodel.e4sm.core.CorePackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -59,89 +62,6 @@ public interface e4smPackage extends EPackage {
 	e4smPackage eINSTANCE = e4sm.de.metamodel.e4sm.impl.e4smPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.ElementImpl <em>Element</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see e4sm.de.metamodel.e4sm.impl.ElementImpl
-	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getElement()
-	 * @generated
-	 */
-	int ELEMENT = 19;
-
-	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT__UUID = 0;
-
-	/**
-	 * The number of structural features of the '<em>Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.NamedElementImpl <em>Named Element</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see e4sm.de.metamodel.e4sm.impl.NamedElementImpl
-	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getNamedElement()
-	 * @generated
-	 */
-	int NAMED_ELEMENT = 12;
-
-	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NAMED_ELEMENT__UUID = ELEMENT__UUID;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NAMED_ELEMENT__NAME = ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Named Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NAMED_ELEMENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Named Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NAMED_ELEMENT_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.ComponentImpl <em>Component</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -152,22 +72,22 @@ public interface e4smPackage extends EPackage {
 	int COMPONENT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPONENT__UUID = NAMED_ELEMENT__UUID;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__NAME = NAMED_ELEMENT__NAME;
+	int COMPONENT__NAME = CorePackage.NAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT__PARAMETERS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
@@ -176,16 +96,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__COMPONENTS = NAMED_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Contained By</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPONENT__CONTAINED_BY = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int COMPONENT__COMPONENTS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Pins</b></em>' containment reference list.
@@ -194,7 +105,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__PINS = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int COMPONENT__PINS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Main Responsible</b></em>' reference.
@@ -203,7 +114,16 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__MAIN_RESPONSIBLE = NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int COMPONENT__MAIN_RESPONSIBLE = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Specified In Package</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT__SPECIFIED_IN_PACKAGE = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Component</em>' class.
@@ -212,7 +132,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
+	int COMPONENT_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Compute Main Responsible</em>' operation.
@@ -221,7 +141,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT___COMPUTE_MAIN_RESPONSIBLE = NAMED_ELEMENT_OPERATION_COUNT + 0;
+	int COMPONENT___COMPUTE_MAIN_RESPONSIBLE = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Component</em>' class.
@@ -230,7 +150,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 1;
+	int COMPONENT_OPERATION_COUNT = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.SoftwareComponentImpl <em>Software Component</em>}' class.
@@ -243,15 +163,6 @@ public interface e4smPackage extends EPackage {
 	int SOFTWARE_COMPONENT = 5;
 
 	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOFTWARE_COMPONENT__UUID = COMPONENT__UUID;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -261,6 +172,15 @@ public interface e4smPackage extends EPackage {
 	int SOFTWARE_COMPONENT__NAME = COMPONENT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOFTWARE_COMPONENT__PARAMETERS = COMPONENT__PARAMETERS;
+
+	/**
 	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -268,15 +188,6 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOFTWARE_COMPONENT__COMPONENTS = COMPONENT__COMPONENTS;
-
-	/**
-	 * The feature id for the '<em><b>Contained By</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOFTWARE_COMPONENT__CONTAINED_BY = COMPONENT__CONTAINED_BY;
 
 	/**
 	 * The feature id for the '<em><b>Pins</b></em>' containment reference list.
@@ -297,6 +208,15 @@ public interface e4smPackage extends EPackage {
 	int SOFTWARE_COMPONENT__MAIN_RESPONSIBLE = COMPONENT__MAIN_RESPONSIBLE;
 
 	/**
+	 * The feature id for the '<em><b>Specified In Package</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOFTWARE_COMPONENT__SPECIFIED_IN_PACKAGE = COMPONENT__SPECIFIED_IN_PACKAGE;
+
+	/**
 	 * The feature id for the '<em><b>Output Uncertainty</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -306,13 +226,31 @@ public interface e4smPackage extends EPackage {
 	int SOFTWARE_COMPONENT__OUTPUT_UNCERTAINTY = COMPONENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Synchronous</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOFTWARE_COMPONENT__SYNCHRONOUS = COMPONENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Number Of Servers</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOFTWARE_COMPONENT__NUMBER_OF_SERVERS = COMPONENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Software Component</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOFTWARE_COMPONENT_FEATURE_COUNT = COMPONENT_FEATURE_COUNT + 1;
+	int SOFTWARE_COMPONENT_FEATURE_COUNT = COMPONENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Compute Main Responsible</em>' operation.
@@ -324,13 +262,22 @@ public interface e4smPackage extends EPackage {
 	int SOFTWARE_COMPONENT___COMPUTE_MAIN_RESPONSIBLE = COMPONENT___COMPUTE_MAIN_RESPONSIBLE;
 
 	/**
+	 * The operation id for the '<em>Is Parallel</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOFTWARE_COMPONENT___IS_PARALLEL = COMPONENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Software Component</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOFTWARE_COMPONENT_OPERATION_COUNT = COMPONENT_OPERATION_COUNT + 0;
+	int SOFTWARE_COMPONENT_OPERATION_COUNT = COMPONENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.MachineLearningComponentImpl <em>Machine Learning Component</em>}' class.
@@ -343,15 +290,6 @@ public interface e4smPackage extends EPackage {
 	int MACHINE_LEARNING_COMPONENT = 1;
 
 	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MACHINE_LEARNING_COMPONENT__UUID = SOFTWARE_COMPONENT__UUID;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -361,6 +299,15 @@ public interface e4smPackage extends EPackage {
 	int MACHINE_LEARNING_COMPONENT__NAME = SOFTWARE_COMPONENT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MACHINE_LEARNING_COMPONENT__PARAMETERS = SOFTWARE_COMPONENT__PARAMETERS;
+
+	/**
 	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -368,15 +315,6 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int MACHINE_LEARNING_COMPONENT__COMPONENTS = SOFTWARE_COMPONENT__COMPONENTS;
-
-	/**
-	 * The feature id for the '<em><b>Contained By</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MACHINE_LEARNING_COMPONENT__CONTAINED_BY = SOFTWARE_COMPONENT__CONTAINED_BY;
 
 	/**
 	 * The feature id for the '<em><b>Pins</b></em>' containment reference list.
@@ -397,6 +335,15 @@ public interface e4smPackage extends EPackage {
 	int MACHINE_LEARNING_COMPONENT__MAIN_RESPONSIBLE = SOFTWARE_COMPONENT__MAIN_RESPONSIBLE;
 
 	/**
+	 * The feature id for the '<em><b>Specified In Package</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MACHINE_LEARNING_COMPONENT__SPECIFIED_IN_PACKAGE = SOFTWARE_COMPONENT__SPECIFIED_IN_PACKAGE;
+
+	/**
 	 * The feature id for the '<em><b>Output Uncertainty</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -404,6 +351,24 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int MACHINE_LEARNING_COMPONENT__OUTPUT_UNCERTAINTY = SOFTWARE_COMPONENT__OUTPUT_UNCERTAINTY;
+
+	/**
+	 * The feature id for the '<em><b>Synchronous</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MACHINE_LEARNING_COMPONENT__SYNCHRONOUS = SOFTWARE_COMPONENT__SYNCHRONOUS;
+
+	/**
+	 * The feature id for the '<em><b>Number Of Servers</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MACHINE_LEARNING_COMPONENT__NUMBER_OF_SERVERS = SOFTWARE_COMPONENT__NUMBER_OF_SERVERS;
 
 	/**
 	 * The number of structural features of the '<em>Machine Learning Component</em>' class.
@@ -424,6 +389,15 @@ public interface e4smPackage extends EPackage {
 	int MACHINE_LEARNING_COMPONENT___COMPUTE_MAIN_RESPONSIBLE = SOFTWARE_COMPONENT___COMPUTE_MAIN_RESPONSIBLE;
 
 	/**
+	 * The operation id for the '<em>Is Parallel</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MACHINE_LEARNING_COMPONENT___IS_PARALLEL = SOFTWARE_COMPONENT___IS_PARALLEL;
+
+	/**
 	 * The number of operations of the '<em>Machine Learning Component</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -431,52 +405,6 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int MACHINE_LEARNING_COMPONENT_OPERATION_COUNT = SOFTWARE_COMPONENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.OptionallyNamedElementImpl <em>Optionally Named Element</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see e4sm.de.metamodel.e4sm.impl.OptionallyNamedElementImpl
-	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getOptionallyNamedElement()
-	 * @generated
-	 */
-	int OPTIONALLY_NAMED_ELEMENT = 24;
-
-	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTIONALLY_NAMED_ELEMENT__UUID = ELEMENT__UUID;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTIONALLY_NAMED_ELEMENT__NAME = ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Optionally Named Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTIONALLY_NAMED_ELEMENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Optionally Named Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTIONALLY_NAMED_ELEMENT_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.ConnectorImpl <em>Connector</em>}' class.
@@ -489,60 +417,6 @@ public interface e4smPackage extends EPackage {
 	int CONNECTOR = 2;
 
 	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONNECTOR__UUID = OPTIONALLY_NAMED_ELEMENT__UUID;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONNECTOR__NAME = OPTIONALLY_NAMED_ELEMENT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Source</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONNECTOR__SOURCE = OPTIONALLY_NAMED_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Target</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONNECTOR__TARGET = OPTIONALLY_NAMED_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Connector</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONNECTOR_FEATURE_COUNT = OPTIONALLY_NAMED_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>Connector</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONNECTOR_OPERATION_COUNT = OPTIONALLY_NAMED_ELEMENT_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.PhysicalConnectorImpl <em>Physical Connector</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -553,13 +427,206 @@ public interface e4smPackage extends EPackage {
 	int PHYSICAL_CONNECTOR = 3;
 
 	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.PhysicalComponentImpl <em>Physical Component</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.PhysicalComponentImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getPhysicalComponent()
+	 * @generated
+	 */
+	int PHYSICAL_COMPONENT = 4;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.LogicalConnectorImpl <em>Logical Connector</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.LogicalConnectorImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getLogicalConnector()
+	 * @generated
+	 */
+	int LOGICAL_CONNECTOR = 6;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.HeuristicImpl <em>Heuristic</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.HeuristicImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getHeuristic()
+	 * @generated
+	 */
+	int HEURISTIC = 7;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.FunctionImpl <em>Function</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.FunctionImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getFunction()
+	 * @generated
+	 */
+	int FUNCTION = 8;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.ExternalDependencyImpl <em>External Dependency</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.ExternalDependencyImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getExternalDependency()
+	 * @generated
+	 */
+	int EXTERNAL_DEPENDENCY = 9;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.PackageImpl <em>Package</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.PackageImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getPackage()
+	 * @generated
+	 */
+	int PACKAGE = 10;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.ModelImpl <em>Model</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.ModelImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getModel()
+	 * @generated
+	 */
+	int MODEL = 11;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.ActorImpl <em>Actor</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.ActorImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getActor()
+	 * @generated
+	 */
+	int ACTOR = 12;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.HumanImpl <em>Human</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.HumanImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getHuman()
+	 * @generated
+	 */
+	int HUMAN = 13;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.RobotImpl <em>Robot</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.RobotImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getRobot()
+	 * @generated
+	 */
+	int ROBOT = 14;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.SectorImpl <em>Sector</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.SectorImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getSector()
+	 * @generated
+	 */
+	int SECTOR = 15;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.SensorImpl <em>Sensor</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.SensorImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getSensor()
+	 * @generated
+	 */
+	int SENSOR = 16;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.ActuatorImpl <em>Actuator</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.ActuatorImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getActuator()
+	 * @generated
+	 */
+	int ACTUATOR = 17;
+
+	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PHYSICAL_CONNECTOR__UUID = CONNECTOR__UUID;
+	int CONNECTOR__PARAMETERS = AnalysisPackage.PARAMETERIZABLE_ELEMENT__PARAMETERS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__NAME = AnalysisPackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__SOURCE = AnalysisPackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__TARGET = AnalysisPackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Connector</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR_FEATURE_COUNT = AnalysisPackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Compute Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR___COMPUTE_NAME = AnalysisPackage.PARAMETERIZABLE_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Connector</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR_OPERATION_COUNT = AnalysisPackage.PARAMETERIZABLE_ELEMENT_OPERATION_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PHYSICAL_CONNECTOR__PARAMETERS = CONNECTOR__PARAMETERS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -616,6 +683,15 @@ public interface e4smPackage extends EPackage {
 	int PHYSICAL_CONNECTOR_FEATURE_COUNT = CONNECTOR_FEATURE_COUNT + 2;
 
 	/**
+	 * The operation id for the '<em>Compute Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PHYSICAL_CONNECTOR___COMPUTE_NAME = CONNECTOR___COMPUTE_NAME;
+
+	/**
 	 * The number of operations of the '<em>Physical Connector</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -623,25 +699,6 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int PHYSICAL_CONNECTOR_OPERATION_COUNT = CONNECTOR_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.PhysicalComponentImpl <em>Physical Component</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see e4sm.de.metamodel.e4sm.impl.PhysicalComponentImpl
-	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getPhysicalComponent()
-	 * @generated
-	 */
-	int PHYSICAL_COMPONENT = 4;
-
-	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PHYSICAL_COMPONENT__UUID = COMPONENT__UUID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -653,6 +710,15 @@ public interface e4smPackage extends EPackage {
 	int PHYSICAL_COMPONENT__NAME = COMPONENT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PHYSICAL_COMPONENT__PARAMETERS = COMPONENT__PARAMETERS;
+
+	/**
 	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -660,15 +726,6 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int PHYSICAL_COMPONENT__COMPONENTS = COMPONENT__COMPONENTS;
-
-	/**
-	 * The feature id for the '<em><b>Contained By</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PHYSICAL_COMPONENT__CONTAINED_BY = COMPONENT__CONTAINED_BY;
 
 	/**
 	 * The feature id for the '<em><b>Pins</b></em>' containment reference list.
@@ -687,6 +744,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int PHYSICAL_COMPONENT__MAIN_RESPONSIBLE = COMPONENT__MAIN_RESPONSIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Specified In Package</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PHYSICAL_COMPONENT__SPECIFIED_IN_PACKAGE = COMPONENT__SPECIFIED_IN_PACKAGE;
 
 	/**
 	 * The number of structural features of the '<em>Physical Component</em>' class.
@@ -716,23 +782,13 @@ public interface e4smPackage extends EPackage {
 	int PHYSICAL_COMPONENT_OPERATION_COUNT = COMPONENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.LogicalConnectorImpl <em>Logical Connector</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see e4sm.de.metamodel.e4sm.impl.LogicalConnectorImpl
-	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getLogicalConnector()
-	 * @generated
-	 */
-	int LOGICAL_CONNECTOR = 6;
-
-	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LOGICAL_CONNECTOR__UUID = CONNECTOR__UUID;
+	int LOGICAL_CONNECTOR__PARAMETERS = CONNECTOR__PARAMETERS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -771,6 +827,15 @@ public interface e4smPackage extends EPackage {
 	int LOGICAL_CONNECTOR_FEATURE_COUNT = CONNECTOR_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Compute Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOGICAL_CONNECTOR___COMPUTE_NAME = CONNECTOR___COMPUTE_NAME;
+
+	/**
 	 * The number of operations of the '<em>Logical Connector</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -778,25 +843,6 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int LOGICAL_CONNECTOR_OPERATION_COUNT = CONNECTOR_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.HeuristicImpl <em>Heuristic</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see e4sm.de.metamodel.e4sm.impl.HeuristicImpl
-	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getHeuristic()
-	 * @generated
-	 */
-	int HEURISTIC = 7;
-
-	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HEURISTIC__UUID = SOFTWARE_COMPONENT__UUID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -808,6 +854,15 @@ public interface e4smPackage extends EPackage {
 	int HEURISTIC__NAME = SOFTWARE_COMPONENT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HEURISTIC__PARAMETERS = SOFTWARE_COMPONENT__PARAMETERS;
+
+	/**
 	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -815,15 +870,6 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int HEURISTIC__COMPONENTS = SOFTWARE_COMPONENT__COMPONENTS;
-
-	/**
-	 * The feature id for the '<em><b>Contained By</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HEURISTIC__CONTAINED_BY = SOFTWARE_COMPONENT__CONTAINED_BY;
 
 	/**
 	 * The feature id for the '<em><b>Pins</b></em>' containment reference list.
@@ -844,6 +890,15 @@ public interface e4smPackage extends EPackage {
 	int HEURISTIC__MAIN_RESPONSIBLE = SOFTWARE_COMPONENT__MAIN_RESPONSIBLE;
 
 	/**
+	 * The feature id for the '<em><b>Specified In Package</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HEURISTIC__SPECIFIED_IN_PACKAGE = SOFTWARE_COMPONENT__SPECIFIED_IN_PACKAGE;
+
+	/**
 	 * The feature id for the '<em><b>Output Uncertainty</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -851,6 +906,24 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int HEURISTIC__OUTPUT_UNCERTAINTY = SOFTWARE_COMPONENT__OUTPUT_UNCERTAINTY;
+
+	/**
+	 * The feature id for the '<em><b>Synchronous</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HEURISTIC__SYNCHRONOUS = SOFTWARE_COMPONENT__SYNCHRONOUS;
+
+	/**
+	 * The feature id for the '<em><b>Number Of Servers</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HEURISTIC__NUMBER_OF_SERVERS = SOFTWARE_COMPONENT__NUMBER_OF_SERVERS;
 
 	/**
 	 * The number of structural features of the '<em>Heuristic</em>' class.
@@ -871,6 +944,15 @@ public interface e4smPackage extends EPackage {
 	int HEURISTIC___COMPUTE_MAIN_RESPONSIBLE = SOFTWARE_COMPONENT___COMPUTE_MAIN_RESPONSIBLE;
 
 	/**
+	 * The operation id for the '<em>Is Parallel</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HEURISTIC___IS_PARALLEL = SOFTWARE_COMPONENT___IS_PARALLEL;
+
+	/**
 	 * The number of operations of the '<em>Heuristic</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -878,25 +960,6 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int HEURISTIC_OPERATION_COUNT = SOFTWARE_COMPONENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.FunctionImpl <em>Function</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see e4sm.de.metamodel.e4sm.impl.FunctionImpl
-	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getFunction()
-	 * @generated
-	 */
-	int FUNCTION = 8;
-
-	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FUNCTION__UUID = SOFTWARE_COMPONENT__UUID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -908,6 +971,15 @@ public interface e4smPackage extends EPackage {
 	int FUNCTION__NAME = SOFTWARE_COMPONENT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION__PARAMETERS = SOFTWARE_COMPONENT__PARAMETERS;
+
+	/**
 	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -915,15 +987,6 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int FUNCTION__COMPONENTS = SOFTWARE_COMPONENT__COMPONENTS;
-
-	/**
-	 * The feature id for the '<em><b>Contained By</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FUNCTION__CONTAINED_BY = SOFTWARE_COMPONENT__CONTAINED_BY;
 
 	/**
 	 * The feature id for the '<em><b>Pins</b></em>' containment reference list.
@@ -944,6 +1007,15 @@ public interface e4smPackage extends EPackage {
 	int FUNCTION__MAIN_RESPONSIBLE = SOFTWARE_COMPONENT__MAIN_RESPONSIBLE;
 
 	/**
+	 * The feature id for the '<em><b>Specified In Package</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION__SPECIFIED_IN_PACKAGE = SOFTWARE_COMPONENT__SPECIFIED_IN_PACKAGE;
+
+	/**
 	 * The feature id for the '<em><b>Output Uncertainty</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -951,6 +1023,24 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int FUNCTION__OUTPUT_UNCERTAINTY = SOFTWARE_COMPONENT__OUTPUT_UNCERTAINTY;
+
+	/**
+	 * The feature id for the '<em><b>Synchronous</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION__SYNCHRONOUS = SOFTWARE_COMPONENT__SYNCHRONOUS;
+
+	/**
+	 * The feature id for the '<em><b>Number Of Servers</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION__NUMBER_OF_SERVERS = SOFTWARE_COMPONENT__NUMBER_OF_SERVERS;
 
 	/**
 	 * The number of structural features of the '<em>Function</em>' class.
@@ -971,6 +1061,15 @@ public interface e4smPackage extends EPackage {
 	int FUNCTION___COMPUTE_MAIN_RESPONSIBLE = SOFTWARE_COMPONENT___COMPUTE_MAIN_RESPONSIBLE;
 
 	/**
+	 * The operation id for the '<em>Is Parallel</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION___IS_PARALLEL = SOFTWARE_COMPONENT___IS_PARALLEL;
+
+	/**
 	 * The number of operations of the '<em>Function</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -978,25 +1077,6 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int FUNCTION_OPERATION_COUNT = SOFTWARE_COMPONENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.ExternalDependencyImpl <em>External Dependency</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see e4sm.de.metamodel.e4sm.impl.ExternalDependencyImpl
-	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getExternalDependency()
-	 * @generated
-	 */
-	int EXTERNAL_DEPENDENCY = 9;
-
-	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTERNAL_DEPENDENCY__UUID = SOFTWARE_COMPONENT__UUID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1008,6 +1088,15 @@ public interface e4smPackage extends EPackage {
 	int EXTERNAL_DEPENDENCY__NAME = SOFTWARE_COMPONENT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_DEPENDENCY__PARAMETERS = SOFTWARE_COMPONENT__PARAMETERS;
+
+	/**
 	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1015,15 +1104,6 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXTERNAL_DEPENDENCY__COMPONENTS = SOFTWARE_COMPONENT__COMPONENTS;
-
-	/**
-	 * The feature id for the '<em><b>Contained By</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTERNAL_DEPENDENCY__CONTAINED_BY = SOFTWARE_COMPONENT__CONTAINED_BY;
 
 	/**
 	 * The feature id for the '<em><b>Pins</b></em>' containment reference list.
@@ -1044,6 +1124,15 @@ public interface e4smPackage extends EPackage {
 	int EXTERNAL_DEPENDENCY__MAIN_RESPONSIBLE = SOFTWARE_COMPONENT__MAIN_RESPONSIBLE;
 
 	/**
+	 * The feature id for the '<em><b>Specified In Package</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_DEPENDENCY__SPECIFIED_IN_PACKAGE = SOFTWARE_COMPONENT__SPECIFIED_IN_PACKAGE;
+
+	/**
 	 * The feature id for the '<em><b>Output Uncertainty</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1053,6 +1142,24 @@ public interface e4smPackage extends EPackage {
 	int EXTERNAL_DEPENDENCY__OUTPUT_UNCERTAINTY = SOFTWARE_COMPONENT__OUTPUT_UNCERTAINTY;
 
 	/**
+	 * The feature id for the '<em><b>Synchronous</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_DEPENDENCY__SYNCHRONOUS = SOFTWARE_COMPONENT__SYNCHRONOUS;
+
+	/**
+	 * The feature id for the '<em><b>Number Of Servers</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_DEPENDENCY__NUMBER_OF_SERVERS = SOFTWARE_COMPONENT__NUMBER_OF_SERVERS;
+
+	/**
 	 * The number of structural features of the '<em>External Dependency</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1060,6 +1167,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXTERNAL_DEPENDENCY_FEATURE_COUNT = SOFTWARE_COMPONENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Is Parallel</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_DEPENDENCY___IS_PARALLEL = SOFTWARE_COMPONENT___IS_PARALLEL;
 
 	/**
 	 * The operation id for the '<em>Compute Main Responsible</em>' operation.
@@ -1080,32 +1196,22 @@ public interface e4smPackage extends EPackage {
 	int EXTERNAL_DEPENDENCY_OPERATION_COUNT = SOFTWARE_COMPONENT_OPERATION_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.PackageImpl <em>Package</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see e4sm.de.metamodel.e4sm.impl.PackageImpl
-	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getPackage()
-	 * @generated
-	 */
-	int PACKAGE = 10;
-
-	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PACKAGE__UUID = NAMED_ELEMENT__UUID;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__NAME = NAMED_ELEMENT__NAME;
+	int PACKAGE__NAME = CorePackage.NAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__PARAMETERS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
@@ -1114,7 +1220,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__COMPONENTS = NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int PACKAGE__COMPONENTS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Software Components</b></em>' reference list.
@@ -1123,7 +1229,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__SOFTWARE_COMPONENTS = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int PACKAGE__SOFTWARE_COMPONENTS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Physical Components</b></em>' reference list.
@@ -1132,7 +1238,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__PHYSICAL_COMPONENTS = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int PACKAGE__PHYSICAL_COMPONENTS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Connectors</b></em>' containment reference list.
@@ -1141,7 +1247,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__CONNECTORS = NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int PACKAGE__CONNECTORS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Sectors</b></em>' containment reference list.
@@ -1150,7 +1256,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__SECTORS = NAMED_ELEMENT_FEATURE_COUNT + 4;
+	int PACKAGE__SECTORS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Main Responsible</b></em>' reference.
@@ -1159,53 +1265,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__MAIN_RESPONSIBLE = NAMED_ELEMENT_FEATURE_COUNT + 5;
-
-	/**
-	 * The number of structural features of the '<em>Package</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PACKAGE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 6;
-
-	/**
-	 * The number of operations of the '<em>Package</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PACKAGE_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.ModelImpl <em>Model</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see e4sm.de.metamodel.e4sm.impl.ModelImpl
-	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getModel()
-	 * @generated
-	 */
-	int MODEL = 11;
-
-	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL__UUID = NAMED_ELEMENT__UUID;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL__NAME = NAMED_ELEMENT__NAME;
+	int PACKAGE__MAIN_RESPONSIBLE = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Packages</b></em>' containment reference list.
@@ -1214,62 +1274,43 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__PACKAGES = NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int PACKAGE__PACKAGES = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
-	 * The feature id for the '<em><b>Actors</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Specifies Component</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__ACTORS = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int PACKAGE__SPECIFIES_COMPONENT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
-	 * The feature id for the '<em><b>Persons Pictures Path</b></em>' attribute.
+	 * The number of structural features of the '<em>Package</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__PERSONS_PICTURES_PATH = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int PACKAGE_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 9;
 
 	/**
-	 * The number of structural features of the '<em>Model</em>' class.
+	 * The operation id for the '<em>Get All Components</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int PACKAGE___GET_ALL_COMPONENTS = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Model</em>' class.
+	 * The number of operations of the '<em>Package</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.ActorImpl <em>Actor</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see e4sm.de.metamodel.e4sm.impl.ActorImpl
-	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getActor()
-	 * @generated
-	 */
-	int ACTOR = 13;
-
-	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTOR__UUID = NAMED_ELEMENT__UUID;
+	int PACKAGE_OPERATION_COUNT = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1278,7 +1319,88 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTOR__NAME = NAMED_ELEMENT__NAME;
+	int MODEL__NAME = CorePackage.NAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL__PARAMETERS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Packages</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL__PACKAGES = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Actors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL__ACTORS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Persons Pictures Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL__PERSONS_PICTURES_PATH = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Variants</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL__VARIANTS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of structural features of the '<em>Model</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
+	 * The operation id for the '<em>Is Person Picture Path Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL___IS_PERSON_PICTURE_PATH_VALID__DIAGNOSTICCHAIN_MAP = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Model</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL_OPERATION_COUNT = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR__NAME = CorePackage.NAMED_ELEMENT__NAME;
 
 	/**
 	 * The number of structural features of the '<em>Actor</em>' class.
@@ -1287,7 +1409,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTOR_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int ACTOR_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Actor</em>' class.
@@ -1296,26 +1418,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTOR_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.HumanImpl <em>Human</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see e4sm.de.metamodel.e4sm.impl.HumanImpl
-	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getHuman()
-	 * @generated
-	 */
-	int HUMAN = 14;
-
-	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HUMAN__UUID = ACTOR__UUID;
+	int ACTOR_OPERATION_COUNT = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1345,25 +1448,6 @@ public interface e4smPackage extends EPackage {
 	int HUMAN_OPERATION_COUNT = ACTOR_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.RobotImpl <em>Robot</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see e4sm.de.metamodel.e4sm.impl.RobotImpl
-	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getRobot()
-	 * @generated
-	 */
-	int ROBOT = 15;
-
-	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROBOT__UUID = ACTOR__UUID;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1391,32 +1475,13 @@ public interface e4smPackage extends EPackage {
 	int ROBOT_OPERATION_COUNT = ACTOR_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.SectorImpl <em>Sector</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see e4sm.de.metamodel.e4sm.impl.SectorImpl
-	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getSector()
-	 * @generated
-	 */
-	int SECTOR = 16;
-
-	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SECTOR__UUID = NAMED_ELEMENT__UUID;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SECTOR__NAME = NAMED_ELEMENT__NAME;
+	int SECTOR__NAME = CorePackage.NAMED_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
@@ -1425,7 +1490,16 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SECTOR__COMPONENTS = NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int SECTOR__COMPONENTS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Sectors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECTOR__SECTORS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Sector</em>' class.
@@ -1434,7 +1508,16 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SECTOR_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int SECTOR_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Get All Components</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECTOR___GET_ALL_COMPONENTS = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Sector</em>' class.
@@ -1443,26 +1526,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SECTOR_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.SensorImpl <em>Sensor</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see e4sm.de.metamodel.e4sm.impl.SensorImpl
-	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getSensor()
-	 * @generated
-	 */
-	int SENSOR = 17;
-
-	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SENSOR__UUID = PHYSICAL_COMPONENT__UUID;
+	int SECTOR_OPERATION_COUNT = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1474,6 +1538,15 @@ public interface e4smPackage extends EPackage {
 	int SENSOR__NAME = PHYSICAL_COMPONENT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENSOR__PARAMETERS = PHYSICAL_COMPONENT__PARAMETERS;
+
+	/**
 	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1481,15 +1554,6 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int SENSOR__COMPONENTS = PHYSICAL_COMPONENT__COMPONENTS;
-
-	/**
-	 * The feature id for the '<em><b>Contained By</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SENSOR__CONTAINED_BY = PHYSICAL_COMPONENT__CONTAINED_BY;
 
 	/**
 	 * The feature id for the '<em><b>Pins</b></em>' containment reference list.
@@ -1510,13 +1574,31 @@ public interface e4smPackage extends EPackage {
 	int SENSOR__MAIN_RESPONSIBLE = PHYSICAL_COMPONENT__MAIN_RESPONSIBLE;
 
 	/**
+	 * The feature id for the '<em><b>Specified In Package</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENSOR__SPECIFIED_IN_PACKAGE = PHYSICAL_COMPONENT__SPECIFIED_IN_PACKAGE;
+
+	/**
+	 * The feature id for the '<em><b>Time Function</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENSOR__TIME_FUNCTION = PHYSICAL_COMPONENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Sensor</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SENSOR_FEATURE_COUNT = PHYSICAL_COMPONENT_FEATURE_COUNT + 0;
+	int SENSOR_FEATURE_COUNT = PHYSICAL_COMPONENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Compute Main Responsible</em>' operation.
@@ -1537,25 +1619,6 @@ public interface e4smPackage extends EPackage {
 	int SENSOR_OPERATION_COUNT = PHYSICAL_COMPONENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.ActuatorImpl <em>Actuator</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see e4sm.de.metamodel.e4sm.impl.ActuatorImpl
-	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getActuator()
-	 * @generated
-	 */
-	int ACTUATOR = 18;
-
-	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTUATOR__UUID = PHYSICAL_COMPONENT__UUID;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1565,6 +1628,15 @@ public interface e4smPackage extends EPackage {
 	int ACTUATOR__NAME = PHYSICAL_COMPONENT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTUATOR__PARAMETERS = PHYSICAL_COMPONENT__PARAMETERS;
+
+	/**
 	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1572,15 +1644,6 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTUATOR__COMPONENTS = PHYSICAL_COMPONENT__COMPONENTS;
-
-	/**
-	 * The feature id for the '<em><b>Contained By</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTUATOR__CONTAINED_BY = PHYSICAL_COMPONENT__CONTAINED_BY;
 
 	/**
 	 * The feature id for the '<em><b>Pins</b></em>' containment reference list.
@@ -1599,6 +1662,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTUATOR__MAIN_RESPONSIBLE = PHYSICAL_COMPONENT__MAIN_RESPONSIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Specified In Package</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTUATOR__SPECIFIED_IN_PACKAGE = PHYSICAL_COMPONENT__SPECIFIED_IN_PACKAGE;
 
 	/**
 	 * The number of structural features of the '<em>Actuator</em>' class.
@@ -1635,43 +1707,7 @@ public interface e4smPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getPin()
 	 * @generated
 	 */
-	int PIN = 20;
-
-	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PIN__UUID = OPTIONALLY_NAMED_ELEMENT__UUID;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PIN__NAME = OPTIONALLY_NAMED_ELEMENT__NAME;
-
-	/**
-	 * The number of structural features of the '<em>Pin</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PIN_FEATURE_COUNT = OPTIONALLY_NAMED_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Pin</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PIN_OPERATION_COUNT = OPTIONALLY_NAMED_ELEMENT_OPERATION_COUNT + 0;
+	int PIN = 18;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.InputPinImpl <em>Input Pin</em>}' class.
@@ -1681,16 +1717,135 @@ public interface e4smPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getInputPin()
 	 * @generated
 	 */
-	int INPUT_PIN = 21;
+	int INPUT_PIN = 19;
 
 	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.OutputPinImpl <em>Output Pin</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.OutputPinImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getOutputPin()
+	 * @generated
+	 */
+	int OUTPUT_PIN = 20;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.PersonImpl <em>Person</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.PersonImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getPerson()
+	 * @generated
+	 */
+	int PERSON = 21;
+
+	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_PIN__UUID = PIN__UUID;
+	int PIN__PARAMETERS = AnalysisPackage.PARAMETERIZABLE_ELEMENT__PARAMETERS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIN__NAME = AnalysisPackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIN__TYPE = AnalysisPackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Outgoing Connectors</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIN__OUTGOING_CONNECTORS = AnalysisPackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Incoming Connectors</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIN__INCOMING_CONNECTORS = AnalysisPackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Gateway Pin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIN__GATEWAY_PIN = AnalysisPackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Stream</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIN__STREAM = AnalysisPackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Race Semantic</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIN__RACE_SEMANTIC = AnalysisPackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 6;
+
+	/**
+	 * The number of structural features of the '<em>Pin</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIN_FEATURE_COUNT = AnalysisPackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 7;
+
+	/**
+	 * The operation id for the '<em>Compute Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIN___COMPUTE_NAME = AnalysisPackage.PARAMETERIZABLE_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Pin</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIN_OPERATION_COUNT = AnalysisPackage.PARAMETERIZABLE_ELEMENT_OPERATION_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_PIN__PARAMETERS = PIN__PARAMETERS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1702,13 +1857,85 @@ public interface e4smPackage extends EPackage {
 	int INPUT_PIN__NAME = PIN__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_PIN__TYPE = PIN__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Outgoing Connectors</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_PIN__OUTGOING_CONNECTORS = PIN__OUTGOING_CONNECTORS;
+
+	/**
+	 * The feature id for the '<em><b>Incoming Connectors</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_PIN__INCOMING_CONNECTORS = PIN__INCOMING_CONNECTORS;
+
+	/**
+	 * The feature id for the '<em><b>Gateway Pin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_PIN__GATEWAY_PIN = PIN__GATEWAY_PIN;
+
+	/**
+	 * The feature id for the '<em><b>Stream</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_PIN__STREAM = PIN__STREAM;
+
+	/**
+	 * The feature id for the '<em><b>Race Semantic</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_PIN__RACE_SEMANTIC = PIN__RACE_SEMANTIC;
+
+	/**
+	 * The feature id for the '<em><b>Queue Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_PIN__QUEUE_TYPE = PIN_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Input Pin</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_PIN_FEATURE_COUNT = PIN_FEATURE_COUNT + 0;
+	int INPUT_PIN_FEATURE_COUNT = PIN_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Compute Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_PIN___COMPUTE_NAME = PIN_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Input Pin</em>' class.
@@ -1717,26 +1944,16 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_PIN_OPERATION_COUNT = PIN_OPERATION_COUNT + 0;
+	int INPUT_PIN_OPERATION_COUNT = PIN_OPERATION_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.OutputPinImpl <em>Output Pin</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see e4sm.de.metamodel.e4sm.impl.OutputPinImpl
-	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getOutputPin()
-	 * @generated
-	 */
-	int OUTPUT_PIN = 22;
-
-	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OUTPUT_PIN__UUID = PIN__UUID;
+	int OUTPUT_PIN__PARAMETERS = PIN__PARAMETERS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1748,6 +1965,60 @@ public interface e4smPackage extends EPackage {
 	int OUTPUT_PIN__NAME = PIN__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_PIN__TYPE = PIN__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Outgoing Connectors</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_PIN__OUTGOING_CONNECTORS = PIN__OUTGOING_CONNECTORS;
+
+	/**
+	 * The feature id for the '<em><b>Incoming Connectors</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_PIN__INCOMING_CONNECTORS = PIN__INCOMING_CONNECTORS;
+
+	/**
+	 * The feature id for the '<em><b>Gateway Pin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_PIN__GATEWAY_PIN = PIN__GATEWAY_PIN;
+
+	/**
+	 * The feature id for the '<em><b>Stream</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_PIN__STREAM = PIN__STREAM;
+
+	/**
+	 * The feature id for the '<em><b>Race Semantic</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_PIN__RACE_SEMANTIC = PIN__RACE_SEMANTIC;
+
+	/**
 	 * The number of structural features of the '<em>Output Pin</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1757,32 +2028,22 @@ public interface e4smPackage extends EPackage {
 	int OUTPUT_PIN_FEATURE_COUNT = PIN_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Compute Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_PIN___COMPUTE_NAME = PIN_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Output Pin</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OUTPUT_PIN_OPERATION_COUNT = PIN_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.PersonImpl <em>Person</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see e4sm.de.metamodel.e4sm.impl.PersonImpl
-	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getPerson()
-	 * @generated
-	 */
-	int PERSON = 23;
-
-	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PERSON__UUID = HUMAN__UUID;
+	int OUTPUT_PIN_OPERATION_COUNT = PIN_OPERATION_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1848,6 +2109,312 @@ public interface e4smPackage extends EPackage {
 	int PERSON_OPERATION_COUNT = HUMAN_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.MeasurementUnitImpl <em>Measurement Unit</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.MeasurementUnitImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getMeasurementUnit()
+	 * @generated
+	 */
+	int MEASUREMENT_UNIT = 22;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.SimpleUnitImpl <em>Simple Unit</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.SimpleUnitImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getSimpleUnit()
+	 * @generated
+	 */
+	int SIMPLE_UNIT = 23;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.DerivedUnitImpl <em>Derived Unit</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.DerivedUnitImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getDerivedUnit()
+	 * @generated
+	 */
+	int DERIVED_UNIT = 24;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.UnitConversionImpl <em>Unit Conversion</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.UnitConversionImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getUnitConversion()
+	 * @generated
+	 */
+	int UNIT_CONVERSION = 25;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.ConversionByPrefixImpl <em>Conversion By Prefix</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.ConversionByPrefixImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getConversionByPrefix()
+	 * @generated
+	 */
+	int CONVERSION_BY_PREFIX = 26;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.ConversionByConventionImpl <em>Conversion By Convention</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.ConversionByConventionImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getConversionByConvention()
+	 * @generated
+	 */
+	int CONVERSION_BY_CONVENTION = 27;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.UnitPrefixImpl <em>Unit Prefix</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.UnitPrefixImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getUnitPrefix()
+	 * @generated
+	 */
+	int UNIT_PREFIX = 28;
+
+	/**
+	 * The feature id for the '<em><b>Unit Conversion</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEASUREMENT_UNIT__UNIT_CONVERSION = 0;
+
+	/**
+	 * The number of structural features of the '<em>Measurement Unit</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEASUREMENT_UNIT_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Measurement Unit</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEASUREMENT_UNIT_OPERATION_COUNT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Unit Conversion</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_UNIT__UNIT_CONVERSION = MEASUREMENT_UNIT__UNIT_CONVERSION;
+
+	/**
+	 * The number of structural features of the '<em>Simple Unit</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_UNIT_FEATURE_COUNT = MEASUREMENT_UNIT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Simple Unit</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_UNIT_OPERATION_COUNT = MEASUREMENT_UNIT_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Unit Conversion</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DERIVED_UNIT__UNIT_CONVERSION = MEASUREMENT_UNIT__UNIT_CONVERSION;
+
+	/**
+	 * The number of structural features of the '<em>Derived Unit</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DERIVED_UNIT_FEATURE_COUNT = MEASUREMENT_UNIT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Derived Unit</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DERIVED_UNIT_OPERATION_COUNT = MEASUREMENT_UNIT_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Reference Unit</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_CONVERSION__REFERENCE_UNIT = 0;
+
+	/**
+	 * The number of structural features of the '<em>Unit Conversion</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_CONVERSION_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Unit Conversion</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_CONVERSION_OPERATION_COUNT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Reference Unit</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONVERSION_BY_PREFIX__REFERENCE_UNIT = UNIT_CONVERSION__REFERENCE_UNIT;
+
+	/**
+	 * The feature id for the '<em><b>Conversion Factor</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONVERSION_BY_PREFIX__CONVERSION_FACTOR = UNIT_CONVERSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Prefix</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONVERSION_BY_PREFIX__PREFIX = UNIT_CONVERSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Conversion By Prefix</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONVERSION_BY_PREFIX_FEATURE_COUNT = UNIT_CONVERSION_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Conversion By Prefix</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONVERSION_BY_PREFIX_OPERATION_COUNT = UNIT_CONVERSION_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Reference Unit</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONVERSION_BY_CONVENTION__REFERENCE_UNIT = UNIT_CONVERSION__REFERENCE_UNIT;
+
+	/**
+	 * The number of structural features of the '<em>Conversion By Convention</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONVERSION_BY_CONVENTION_FEATURE_COUNT = UNIT_CONVERSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Conversion By Convention</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONVERSION_BY_CONVENTION_OPERATION_COUNT = UNIT_CONVERSION_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Symbol</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_PREFIX__SYMBOL = 0;
+
+	/**
+	 * The feature id for the '<em><b>Conversion Factor</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_PREFIX__CONVERSION_FACTOR = 1;
+
+	/**
+	 * The number of structural features of the '<em>Unit Prefix</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_PREFIX_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Unit Prefix</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_PREFIX_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.QueueType <em>Queue Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.QueueType
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getQueueType()
+	 * @generated
+	 */
+	int QUEUE_TYPE = 29;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.RaceSemantic <em>Race Semantic</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.RaceSemantic
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getRaceSemantic()
+	 * @generated
+	 */
+	int RACE_SEMANTIC = 30;
+
+	/**
 	 * The meta object id for the '<em>Connectionspeed</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1855,7 +2422,27 @@ public interface e4smPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getConnectionspeed()
 	 * @generated
 	 */
-	int CONNECTIONSPEED = 25;
+	int CONNECTIONSPEED = 31;
+
+	/**
+	 * The meta object id for the '<em>JSON</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.lang.String
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getJSON()
+	 * @generated
+	 */
+	int JSON = 32;
+
+	/**
+	 * The meta object id for the '<em>Time Function</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.lang.String
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getTimeFunction()
+	 * @generated
+	 */
+	int TIME_FUNCTION = 33;
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.Component <em>Component</em>}'.
@@ -1879,17 +2466,6 @@ public interface e4smPackage extends EPackage {
 	EReference getComponent_Components();
 
 	/**
-	 * Returns the meta object for the container reference '{@link e4sm.de.metamodel.e4sm.Component#getContainedBy <em>Contained By</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Contained By</em>'.
-	 * @see e4sm.de.metamodel.e4sm.Component#getContainedBy()
-	 * @see #getComponent()
-	 * @generated
-	 */
-	EReference getComponent_ContainedBy();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link e4sm.de.metamodel.e4sm.Component#getPins <em>Pins</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1910,6 +2486,17 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getComponent_MainResponsible();
+
+	/**
+	 * Returns the meta object for the reference '{@link e4sm.de.metamodel.e4sm.Component#getSpecifiedInPackage <em>Specified In Package</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Specified In Package</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Component#getSpecifiedInPackage()
+	 * @see #getComponent()
+	 * @generated
+	 */
+	EReference getComponent_SpecifiedInPackage();
 
 	/**
 	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.Component#computeMainResponsible() <em>Compute Main Responsible</em>}' operation.
@@ -1962,6 +2549,16 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getConnector_Target();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.Connector#computeName() <em>Compute Name</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Compute Name</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.Connector#computeName()
+	 * @generated
+	 */
+	EOperation getConnector__ComputeName();
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.PhysicalConnector <em>Physical Connector</em>}'.
@@ -2025,6 +2622,38 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getSoftwareComponent_OutputUncertainty();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.SoftwareComponent#isSynchronous <em>Synchronous</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Synchronous</em>'.
+	 * @see e4sm.de.metamodel.e4sm.SoftwareComponent#isSynchronous()
+	 * @see #getSoftwareComponent()
+	 * @generated
+	 */
+	EAttribute getSoftwareComponent_Synchronous();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.SoftwareComponent#getNumberOfServers <em>Number Of Servers</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Number Of Servers</em>'.
+	 * @see e4sm.de.metamodel.e4sm.SoftwareComponent#getNumberOfServers()
+	 * @see #getSoftwareComponent()
+	 * @generated
+	 */
+	EAttribute getSoftwareComponent_NumberOfServers();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.SoftwareComponent#isParallel() <em>Is Parallel</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Parallel</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.SoftwareComponent#isParallel()
+	 * @generated
+	 */
+	EOperation getSoftwareComponent__IsParallel();
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.LogicalConnector <em>Logical Connector</em>}'.
@@ -2153,6 +2782,38 @@ public interface e4smPackage extends EPackage {
 	EReference getPackage_MainResponsible();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link e4sm.de.metamodel.e4sm.Package#getPackages <em>Packages</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Packages</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Package#getPackages()
+	 * @see #getPackage()
+	 * @generated
+	 */
+	EReference getPackage_Packages();
+
+	/**
+	 * Returns the meta object for the reference '{@link e4sm.de.metamodel.e4sm.Package#getSpecifiesComponent <em>Specifies Component</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Specifies Component</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Package#getSpecifiesComponent()
+	 * @see #getPackage()
+	 * @generated
+	 */
+	EReference getPackage_SpecifiesComponent();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.Package#getAllComponents() <em>Get All Components</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Components</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.Package#getAllComponents()
+	 * @generated
+	 */
+	EOperation getPackage__GetAllComponents();
+
+	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.Model <em>Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2196,25 +2857,25 @@ public interface e4smPackage extends EPackage {
 	EAttribute getModel_PersonsPicturesPath();
 
 	/**
-	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.NamedElement <em>Named Element</em>}'.
+	 * Returns the meta object for the containment reference list '{@link e4sm.de.metamodel.e4sm.Model#getVariants <em>Variants</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Named Element</em>'.
-	 * @see e4sm.de.metamodel.e4sm.NamedElement
+	 * @return the meta object for the containment reference list '<em>Variants</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Model#getVariants()
+	 * @see #getModel()
 	 * @generated
 	 */
-	EClass getNamedElement();
+	EReference getModel_Variants();
 
 	/**
-	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.NamedElement#getName <em>Name</em>}'.
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.Model#isPersonPicturePathValid(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Is Person Picture Path Valid</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see e4sm.de.metamodel.e4sm.NamedElement#getName()
-	 * @see #getNamedElement()
+	 * @return the meta object for the '<em>Is Person Picture Path Valid</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.Model#isPersonPicturePathValid(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
 	 * @generated
 	 */
-	EAttribute getNamedElement_Name();
+	EOperation getModel__IsPersonPicturePathValid__DiagnosticChain_Map();
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.Actor <em>Actor</em>}'.
@@ -2268,6 +2929,27 @@ public interface e4smPackage extends EPackage {
 	EReference getSector_Components();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link e4sm.de.metamodel.e4sm.Sector#getSectors <em>Sectors</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Sectors</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Sector#getSectors()
+	 * @see #getSector()
+	 * @generated
+	 */
+	EReference getSector_Sectors();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.Sector#getAllComponents() <em>Get All Components</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Components</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.Sector#getAllComponents()
+	 * @generated
+	 */
+	EOperation getSector__GetAllComponents();
+
+	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.Sensor <em>Sensor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2276,6 +2958,17 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getSensor();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.Sensor#getTimeFunction <em>Time Function</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Time Function</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Sensor#getTimeFunction()
+	 * @see #getSensor()
+	 * @generated
+	 */
+	EAttribute getSensor_TimeFunction();
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.Actuator <em>Actuator</em>}'.
@@ -2288,27 +2981,6 @@ public interface e4smPackage extends EPackage {
 	EClass getActuator();
 
 	/**
-	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.Element <em>Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Element</em>'.
-	 * @see e4sm.de.metamodel.e4sm.Element
-	 * @generated
-	 */
-	EClass getElement();
-
-	/**
-	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.Element#getUuid <em>Uuid</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Uuid</em>'.
-	 * @see e4sm.de.metamodel.e4sm.Element#getUuid()
-	 * @see #getElement()
-	 * @generated
-	 */
-	EAttribute getElement_Uuid();
-
-	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.Pin <em>Pin</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2317,6 +2989,71 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getPin();
+
+	/**
+	 * Returns the meta object for the reference list '{@link e4sm.de.metamodel.e4sm.Pin#getOutgoingConnectors <em>Outgoing Connectors</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Outgoing Connectors</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Pin#getOutgoingConnectors()
+	 * @see #getPin()
+	 * @generated
+	 */
+	EReference getPin_OutgoingConnectors();
+
+	/**
+	 * Returns the meta object for the reference list '{@link e4sm.de.metamodel.e4sm.Pin#getIncomingConnectors <em>Incoming Connectors</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Incoming Connectors</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Pin#getIncomingConnectors()
+	 * @see #getPin()
+	 * @generated
+	 */
+	EReference getPin_IncomingConnectors();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.Pin#isGatewayPin <em>Gateway Pin</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Gateway Pin</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Pin#isGatewayPin()
+	 * @see #getPin()
+	 * @generated
+	 */
+	EAttribute getPin_GatewayPin();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.Pin#isStream <em>Stream</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Stream</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Pin#isStream()
+	 * @see #getPin()
+	 * @generated
+	 */
+	EAttribute getPin_Stream();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.Pin#getRaceSemantic <em>Race Semantic</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Race Semantic</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Pin#getRaceSemantic()
+	 * @see #getPin()
+	 * @generated
+	 */
+	EAttribute getPin_RaceSemantic();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.Pin#computeName() <em>Compute Name</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Compute Name</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.Pin#computeName()
+	 * @generated
+	 */
+	EOperation getPin__ComputeName();
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.InputPin <em>Input Pin</em>}'.
@@ -2329,6 +3066,27 @@ public interface e4smPackage extends EPackage {
 	EClass getInputPin();
 
 	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.InputPin#getQueueType <em>Queue Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Queue Type</em>'.
+	 * @see e4sm.de.metamodel.e4sm.InputPin#getQueueType()
+	 * @see #getInputPin()
+	 * @generated
+	 */
+	EAttribute getInputPin_QueueType();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.InputPin#computeName() <em>Compute Name</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Compute Name</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.InputPin#computeName()
+	 * @generated
+	 */
+	EOperation getInputPin__ComputeName();
+
+	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.OutputPin <em>Output Pin</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2337,6 +3095,16 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getOutputPin();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.OutputPin#computeName() <em>Compute Name</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Compute Name</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.OutputPin#computeName()
+	 * @generated
+	 */
+	EOperation getOutputPin__ComputeName();
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.Person <em>Person</em>}'.
@@ -2393,25 +3161,160 @@ public interface e4smPackage extends EPackage {
 	EAttribute getPerson_PictureFileName();
 
 	/**
-	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.OptionallyNamedElement <em>Optionally Named Element</em>}'.
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.MeasurementUnit <em>Measurement Unit</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Optionally Named Element</em>'.
-	 * @see e4sm.de.metamodel.e4sm.OptionallyNamedElement
+	 * @return the meta object for class '<em>Measurement Unit</em>'.
+	 * @see e4sm.de.metamodel.e4sm.MeasurementUnit
 	 * @generated
 	 */
-	EClass getOptionallyNamedElement();
+	EClass getMeasurementUnit();
 
 	/**
-	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.OptionallyNamedElement#getName <em>Name</em>}'.
+	 * Returns the meta object for the containment reference '{@link e4sm.de.metamodel.e4sm.MeasurementUnit#getUnitConversion <em>Unit Conversion</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see e4sm.de.metamodel.e4sm.OptionallyNamedElement#getName()
-	 * @see #getOptionallyNamedElement()
+	 * @return the meta object for the containment reference '<em>Unit Conversion</em>'.
+	 * @see e4sm.de.metamodel.e4sm.MeasurementUnit#getUnitConversion()
+	 * @see #getMeasurementUnit()
 	 * @generated
 	 */
-	EAttribute getOptionallyNamedElement_Name();
+	EReference getMeasurementUnit_UnitConversion();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.SimpleUnit <em>Simple Unit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Simple Unit</em>'.
+	 * @see e4sm.de.metamodel.e4sm.SimpleUnit
+	 * @generated
+	 */
+	EClass getSimpleUnit();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.DerivedUnit <em>Derived Unit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Derived Unit</em>'.
+	 * @see e4sm.de.metamodel.e4sm.DerivedUnit
+	 * @generated
+	 */
+	EClass getDerivedUnit();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.UnitConversion <em>Unit Conversion</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Unit Conversion</em>'.
+	 * @see e4sm.de.metamodel.e4sm.UnitConversion
+	 * @generated
+	 */
+	EClass getUnitConversion();
+
+	/**
+	 * Returns the meta object for the reference '{@link e4sm.de.metamodel.e4sm.UnitConversion#getReferenceUnit <em>Reference Unit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Reference Unit</em>'.
+	 * @see e4sm.de.metamodel.e4sm.UnitConversion#getReferenceUnit()
+	 * @see #getUnitConversion()
+	 * @generated
+	 */
+	EReference getUnitConversion_ReferenceUnit();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.ConversionByPrefix <em>Conversion By Prefix</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Conversion By Prefix</em>'.
+	 * @see e4sm.de.metamodel.e4sm.ConversionByPrefix
+	 * @generated
+	 */
+	EClass getConversionByPrefix();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.ConversionByPrefix#getConversionFactor <em>Conversion Factor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Conversion Factor</em>'.
+	 * @see e4sm.de.metamodel.e4sm.ConversionByPrefix#getConversionFactor()
+	 * @see #getConversionByPrefix()
+	 * @generated
+	 */
+	EAttribute getConversionByPrefix_ConversionFactor();
+
+	/**
+	 * Returns the meta object for the reference '{@link e4sm.de.metamodel.e4sm.ConversionByPrefix#getPrefix <em>Prefix</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Prefix</em>'.
+	 * @see e4sm.de.metamodel.e4sm.ConversionByPrefix#getPrefix()
+	 * @see #getConversionByPrefix()
+	 * @generated
+	 */
+	EReference getConversionByPrefix_Prefix();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.ConversionByConvention <em>Conversion By Convention</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Conversion By Convention</em>'.
+	 * @see e4sm.de.metamodel.e4sm.ConversionByConvention
+	 * @generated
+	 */
+	EClass getConversionByConvention();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.UnitPrefix <em>Unit Prefix</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Unit Prefix</em>'.
+	 * @see e4sm.de.metamodel.e4sm.UnitPrefix
+	 * @generated
+	 */
+	EClass getUnitPrefix();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.UnitPrefix#getSymbol <em>Symbol</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Symbol</em>'.
+	 * @see e4sm.de.metamodel.e4sm.UnitPrefix#getSymbol()
+	 * @see #getUnitPrefix()
+	 * @generated
+	 */
+	EAttribute getUnitPrefix_Symbol();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.UnitPrefix#getConversionFactor <em>Conversion Factor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Conversion Factor</em>'.
+	 * @see e4sm.de.metamodel.e4sm.UnitPrefix#getConversionFactor()
+	 * @see #getUnitPrefix()
+	 * @generated
+	 */
+	EAttribute getUnitPrefix_ConversionFactor();
+
+	/**
+	 * Returns the meta object for enum '{@link e4sm.de.metamodel.e4sm.QueueType <em>Queue Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Queue Type</em>'.
+	 * @see e4sm.de.metamodel.e4sm.QueueType
+	 * @generated
+	 */
+	EEnum getQueueType();
+
+	/**
+	 * Returns the meta object for enum '{@link e4sm.de.metamodel.e4sm.RaceSemantic <em>Race Semantic</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Race Semantic</em>'.
+	 * @see e4sm.de.metamodel.e4sm.RaceSemantic
+	 * @generated
+	 */
+	EEnum getRaceSemantic();
 
 	/**
 	 * Returns the meta object for data type '{@link java.lang.Object <em>Connectionspeed</em>}'.
@@ -2423,6 +3326,32 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	EDataType getConnectionspeed();
+
+	/**
+	 * Returns the meta object for data type '{@link java.lang.String <em>JSON</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>JSON</em>'.
+	 * @see java.lang.String
+	 * @model instanceClass="java.lang.String"
+	 * @generated
+	 */
+	EDataType getJSON();
+
+	/**
+	 * Returns the meta object for data type '{@link java.lang.String <em>Time Function</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A string containing a valid TimeFunction, e.g. EXP(1.0)
+	 * <!-- end-model-doc -->
+	 * @return the meta object for data type '<em>Time Function</em>'.
+	 * @see java.lang.String
+	 * @model instanceClass="java.lang.String"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='TimeFunctionIsValid'"
+	 * @generated
+	 */
+	EDataType getTimeFunction();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -2466,14 +3395,6 @@ public interface e4smPackage extends EPackage {
 		EReference COMPONENT__COMPONENTS = eINSTANCE.getComponent_Components();
 
 		/**
-		 * The meta object literal for the '<em><b>Contained By</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference COMPONENT__CONTAINED_BY = eINSTANCE.getComponent_ContainedBy();
-
-		/**
 		 * The meta object literal for the '<em><b>Pins</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2488,6 +3409,14 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EReference COMPONENT__MAIN_RESPONSIBLE = eINSTANCE.getComponent_MainResponsible();
+
+		/**
+		 * The meta object literal for the '<em><b>Specified In Package</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPONENT__SPECIFIED_IN_PACKAGE = eINSTANCE.getComponent_SpecifiedInPackage();
 
 		/**
 		 * The meta object literal for the '<em><b>Compute Main Responsible</b></em>' operation.
@@ -2532,6 +3461,14 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CONNECTOR__TARGET = eINSTANCE.getConnector_Target();
+
+		/**
+		 * The meta object literal for the '<em><b>Compute Name</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CONNECTOR___COMPUTE_NAME = eINSTANCE.getConnector__ComputeName();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.PhysicalConnectorImpl <em>Physical Connector</em>}' class.
@@ -2586,6 +3523,30 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SOFTWARE_COMPONENT__OUTPUT_UNCERTAINTY = eINSTANCE.getSoftwareComponent_OutputUncertainty();
+
+		/**
+		 * The meta object literal for the '<em><b>Synchronous</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SOFTWARE_COMPONENT__SYNCHRONOUS = eINSTANCE.getSoftwareComponent_Synchronous();
+
+		/**
+		 * The meta object literal for the '<em><b>Number Of Servers</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SOFTWARE_COMPONENT__NUMBER_OF_SERVERS = eINSTANCE.getSoftwareComponent_NumberOfServers();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Parallel</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SOFTWARE_COMPONENT___IS_PARALLEL = eINSTANCE.getSoftwareComponent__IsParallel();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.LogicalConnectorImpl <em>Logical Connector</em>}' class.
@@ -2695,6 +3656,30 @@ public interface e4smPackage extends EPackage {
 		EReference PACKAGE__MAIN_RESPONSIBLE = eINSTANCE.getPackage_MainResponsible();
 
 		/**
+		 * The meta object literal for the '<em><b>Packages</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PACKAGE__PACKAGES = eINSTANCE.getPackage_Packages();
+
+		/**
+		 * The meta object literal for the '<em><b>Specifies Component</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PACKAGE__SPECIFIES_COMPONENT = eINSTANCE.getPackage_SpecifiesComponent();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Components</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PACKAGE___GET_ALL_COMPONENTS = eINSTANCE.getPackage__GetAllComponents();
+
+		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.ModelImpl <em>Model</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2729,22 +3714,21 @@ public interface e4smPackage extends EPackage {
 		EAttribute MODEL__PERSONS_PICTURES_PATH = eINSTANCE.getModel_PersonsPicturesPath();
 
 		/**
-		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.NamedElementImpl <em>Named Element</em>}' class.
+		 * The meta object literal for the '<em><b>Variants</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see e4sm.de.metamodel.e4sm.impl.NamedElementImpl
-		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getNamedElement()
 		 * @generated
 		 */
-		EClass NAMED_ELEMENT = eINSTANCE.getNamedElement();
+		EReference MODEL__VARIANTS = eINSTANCE.getModel_Variants();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Is Person Picture Path Valid</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute NAMED_ELEMENT__NAME = eINSTANCE.getNamedElement_Name();
+		EOperation MODEL___IS_PERSON_PICTURE_PATH_VALID__DIAGNOSTICCHAIN_MAP = eINSTANCE
+				.getModel__IsPersonPicturePathValid__DiagnosticChain_Map();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.ActorImpl <em>Actor</em>}' class.
@@ -2795,6 +3779,22 @@ public interface e4smPackage extends EPackage {
 		EReference SECTOR__COMPONENTS = eINSTANCE.getSector_Components();
 
 		/**
+		 * The meta object literal for the '<em><b>Sectors</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SECTOR__SECTORS = eINSTANCE.getSector_Sectors();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Components</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SECTOR___GET_ALL_COMPONENTS = eINSTANCE.getSector__GetAllComponents();
+
+		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.SensorImpl <em>Sensor</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2803,6 +3803,14 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EClass SENSOR = eINSTANCE.getSensor();
+
+		/**
+		 * The meta object literal for the '<em><b>Time Function</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SENSOR__TIME_FUNCTION = eINSTANCE.getSensor_TimeFunction();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.ActuatorImpl <em>Actuator</em>}' class.
@@ -2815,24 +3823,6 @@ public interface e4smPackage extends EPackage {
 		EClass ACTUATOR = eINSTANCE.getActuator();
 
 		/**
-		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.ElementImpl <em>Element</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see e4sm.de.metamodel.e4sm.impl.ElementImpl
-		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getElement()
-		 * @generated
-		 */
-		EClass ELEMENT = eINSTANCE.getElement();
-
-		/**
-		 * The meta object literal for the '<em><b>Uuid</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ELEMENT__UUID = eINSTANCE.getElement_Uuid();
-
-		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.PinImpl <em>Pin</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2841,6 +3831,54 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EClass PIN = eINSTANCE.getPin();
+
+		/**
+		 * The meta object literal for the '<em><b>Outgoing Connectors</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PIN__OUTGOING_CONNECTORS = eINSTANCE.getPin_OutgoingConnectors();
+
+		/**
+		 * The meta object literal for the '<em><b>Incoming Connectors</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PIN__INCOMING_CONNECTORS = eINSTANCE.getPin_IncomingConnectors();
+
+		/**
+		 * The meta object literal for the '<em><b>Gateway Pin</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PIN__GATEWAY_PIN = eINSTANCE.getPin_GatewayPin();
+
+		/**
+		 * The meta object literal for the '<em><b>Stream</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PIN__STREAM = eINSTANCE.getPin_Stream();
+
+		/**
+		 * The meta object literal for the '<em><b>Race Semantic</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PIN__RACE_SEMANTIC = eINSTANCE.getPin_RaceSemantic();
+
+		/**
+		 * The meta object literal for the '<em><b>Compute Name</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PIN___COMPUTE_NAME = eINSTANCE.getPin__ComputeName();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.InputPinImpl <em>Input Pin</em>}' class.
@@ -2853,6 +3891,22 @@ public interface e4smPackage extends EPackage {
 		EClass INPUT_PIN = eINSTANCE.getInputPin();
 
 		/**
+		 * The meta object literal for the '<em><b>Queue Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INPUT_PIN__QUEUE_TYPE = eINSTANCE.getInputPin_QueueType();
+
+		/**
+		 * The meta object literal for the '<em><b>Compute Name</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation INPUT_PIN___COMPUTE_NAME = eINSTANCE.getInputPin__ComputeName();
+
+		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.OutputPinImpl <em>Output Pin</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2861,6 +3915,14 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EClass OUTPUT_PIN = eINSTANCE.getOutputPin();
+
+		/**
+		 * The meta object literal for the '<em><b>Compute Name</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation OUTPUT_PIN___COMPUTE_NAME = eINSTANCE.getOutputPin__ComputeName();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.PersonImpl <em>Person</em>}' class.
@@ -2905,22 +3967,142 @@ public interface e4smPackage extends EPackage {
 		EAttribute PERSON__PICTURE_FILE_NAME = eINSTANCE.getPerson_PictureFileName();
 
 		/**
-		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.OptionallyNamedElementImpl <em>Optionally Named Element</em>}' class.
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.MeasurementUnitImpl <em>Measurement Unit</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see e4sm.de.metamodel.e4sm.impl.OptionallyNamedElementImpl
-		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getOptionallyNamedElement()
+		 * @see e4sm.de.metamodel.e4sm.impl.MeasurementUnitImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getMeasurementUnit()
 		 * @generated
 		 */
-		EClass OPTIONALLY_NAMED_ELEMENT = eINSTANCE.getOptionallyNamedElement();
+		EClass MEASUREMENT_UNIT = eINSTANCE.getMeasurementUnit();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Unit Conversion</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute OPTIONALLY_NAMED_ELEMENT__NAME = eINSTANCE.getOptionallyNamedElement_Name();
+		EReference MEASUREMENT_UNIT__UNIT_CONVERSION = eINSTANCE.getMeasurementUnit_UnitConversion();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.SimpleUnitImpl <em>Simple Unit</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.SimpleUnitImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getSimpleUnit()
+		 * @generated
+		 */
+		EClass SIMPLE_UNIT = eINSTANCE.getSimpleUnit();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.DerivedUnitImpl <em>Derived Unit</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.DerivedUnitImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getDerivedUnit()
+		 * @generated
+		 */
+		EClass DERIVED_UNIT = eINSTANCE.getDerivedUnit();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.UnitConversionImpl <em>Unit Conversion</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.UnitConversionImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getUnitConversion()
+		 * @generated
+		 */
+		EClass UNIT_CONVERSION = eINSTANCE.getUnitConversion();
+
+		/**
+		 * The meta object literal for the '<em><b>Reference Unit</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UNIT_CONVERSION__REFERENCE_UNIT = eINSTANCE.getUnitConversion_ReferenceUnit();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.ConversionByPrefixImpl <em>Conversion By Prefix</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.ConversionByPrefixImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getConversionByPrefix()
+		 * @generated
+		 */
+		EClass CONVERSION_BY_PREFIX = eINSTANCE.getConversionByPrefix();
+
+		/**
+		 * The meta object literal for the '<em><b>Conversion Factor</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONVERSION_BY_PREFIX__CONVERSION_FACTOR = eINSTANCE.getConversionByPrefix_ConversionFactor();
+
+		/**
+		 * The meta object literal for the '<em><b>Prefix</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONVERSION_BY_PREFIX__PREFIX = eINSTANCE.getConversionByPrefix_Prefix();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.ConversionByConventionImpl <em>Conversion By Convention</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.ConversionByConventionImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getConversionByConvention()
+		 * @generated
+		 */
+		EClass CONVERSION_BY_CONVENTION = eINSTANCE.getConversionByConvention();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.UnitPrefixImpl <em>Unit Prefix</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.UnitPrefixImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getUnitPrefix()
+		 * @generated
+		 */
+		EClass UNIT_PREFIX = eINSTANCE.getUnitPrefix();
+
+		/**
+		 * The meta object literal for the '<em><b>Symbol</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UNIT_PREFIX__SYMBOL = eINSTANCE.getUnitPrefix_Symbol();
+
+		/**
+		 * The meta object literal for the '<em><b>Conversion Factor</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UNIT_PREFIX__CONVERSION_FACTOR = eINSTANCE.getUnitPrefix_ConversionFactor();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.QueueType <em>Queue Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.QueueType
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getQueueType()
+		 * @generated
+		 */
+		EEnum QUEUE_TYPE = eINSTANCE.getQueueType();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.RaceSemantic <em>Race Semantic</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.RaceSemantic
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getRaceSemantic()
+		 * @generated
+		 */
+		EEnum RACE_SEMANTIC = eINSTANCE.getRaceSemantic();
 
 		/**
 		 * The meta object literal for the '<em>Connectionspeed</em>' data type.
@@ -2931,6 +4113,26 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType CONNECTIONSPEED = eINSTANCE.getConnectionspeed();
+
+		/**
+		 * The meta object literal for the '<em>JSON</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.lang.String
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getJSON()
+		 * @generated
+		 */
+		EDataType JSON = eINSTANCE.getJSON();
+
+		/**
+		 * The meta object literal for the '<em>Time Function</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.lang.String
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getTimeFunction()
+		 * @generated
+		 */
+		EDataType TIME_FUNCTION = eINSTANCE.getTimeFunction();
 
 	}
 

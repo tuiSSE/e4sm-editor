@@ -2,16 +2,13 @@
  */
 package e4sm.de.metamodel.e4sm.provider;
 
-import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.LogicalConnector;
-import e4sm.de.metamodel.e4sm.Pin;
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 /**
@@ -75,19 +72,9 @@ public class LogicalConnectorItemProvider extends ConnectorItemProvider {
 	@Override
 	public String getText(Object object) {
 		LogicalConnector connector = (LogicalConnector) object;
-		Pin sourcePin = connector.getSource();
-		Pin targetPin = connector.getTarget();
-		Component sourceContainer = (Component) sourcePin.eContainer();
-		Component targetContainer = (Component) targetPin.eContainer();
-		String sourceName = sourceContainer.getName();
-		String targetName = targetContainer.getName();
-		String label = "";
-		if (sourceName == null || targetName == null || sourceName.length() == 0 || targetName.length() == 0) {
-			label = connector.getUuid();
-		} else {
-			label = ": " + sourceName + "->" + targetName;
-		}
-		return label == null || label.length() == 0 ? getString("_UI_LogicalConnector_type")
+		String label = getLabelText(connector);
+		return label == null || label.length() == 0
+				? getString("_UI_LogicalConnector_type") + " " + EcoreUtil.getID(connector)
 				: getString("_UI_LogicalConnector_type") + " " + label;
 	}
 

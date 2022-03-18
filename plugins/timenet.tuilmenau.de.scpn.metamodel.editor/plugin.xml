@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated SCPN -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="de.ilmenau.tu.timenet.schema.scpn.presentation.scpnModelWizardID"
+            name="%_UI_scpnModelWizard_label"
+            class="de.ilmenau.tu.timenet.schema.scpn.presentation.scpnModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/scpnModelFile.gif">
+         <description>%_UI_scpnModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated SCPN -->
+      <editor
+            id="de.ilmenau.tu.timenet.schema.scpn.presentation.scpnEditorID"
+            name="%_UI_scpnEditor_label"
+            icon="icons/full/obj16/scpnModelFile.gif"
+            extensions="scpn"
+            class="de.ilmenau.tu.timenet.schema.scpn.presentation.scpnEditor"
+            contributorClass="de.ilmenau.tu.timenet.schema.scpn.presentation.scpnActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

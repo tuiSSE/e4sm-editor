@@ -10,8 +10,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
-import e4sm.de.metamodel.e4sm.Component;
-import e4sm.de.metamodel.e4sm.OutputPin;
+import e4sm.de.metamodel.e4sm.Pin;
 
 /**
  * This is the item provider adapter for a {@link e4sm.de.metamodel.e4sm.OutputPin} object.
@@ -74,18 +73,7 @@ public class OutputPinItemProvider extends PinItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = "";
-		OutputPin outputPin = (OutputPin) object;
-		final String name = outputPin.getName();
-		if (name != null && name.length() > 0) {
-			label = name;
-		} else {
-			Component component = (Component) outputPin.eContainer();
-			String componentName = component.getName();
-			if (componentName != null && componentName.length() > 0) {
-				label = "of " + component.getName();
-			}
-		}
+		String label = getLabelText((Pin) object);
 		return label == null || label.length() == 0 ? getString("_UI_OutputPin_type")
 				: getString("_UI_OutputPin_type") + " " + label;
 	}

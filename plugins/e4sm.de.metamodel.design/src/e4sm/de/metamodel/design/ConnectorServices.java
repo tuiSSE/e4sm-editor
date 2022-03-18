@@ -25,8 +25,8 @@ public class ConnectorServices {
 			return false;
 		}
 
-		// Not allowed: If the target is not a Physical Component
-		if (!(targetContainer instanceof PhysicalComponent)) {
+		// Not allowed: If the target is not a Physical Component or a container
+		if ((!(targetContainer instanceof PhysicalComponent) /*|| !targetContainer.getClass().equals(Component.class))*/)) {
 			return false;
 		}
 		

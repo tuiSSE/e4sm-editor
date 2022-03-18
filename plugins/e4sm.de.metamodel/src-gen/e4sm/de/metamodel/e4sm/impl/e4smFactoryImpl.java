@@ -6,6 +6,9 @@ import e4sm.de.metamodel.e4sm.Actor;
 import e4sm.de.metamodel.e4sm.Actuator;
 import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.Connector;
+import e4sm.de.metamodel.e4sm.ConversionByConvention;
+import e4sm.de.metamodel.e4sm.ConversionByPrefix;
+import e4sm.de.metamodel.e4sm.DerivedUnit;
 import e4sm.de.metamodel.e4sm.ExternalDependency;
 import e4sm.de.metamodel.e4sm.Function;
 import e4sm.de.metamodel.e4sm.Heuristic;
@@ -13,18 +16,23 @@ import e4sm.de.metamodel.e4sm.Human;
 import e4sm.de.metamodel.e4sm.InputPin;
 import e4sm.de.metamodel.e4sm.LogicalConnector;
 import e4sm.de.metamodel.e4sm.MachineLearningComponent;
+import e4sm.de.metamodel.e4sm.MeasurementUnit;
 import e4sm.de.metamodel.e4sm.Model;
 import e4sm.de.metamodel.e4sm.OutputPin;
 import e4sm.de.metamodel.e4sm.Person;
 import e4sm.de.metamodel.e4sm.PhysicalComponent;
 import e4sm.de.metamodel.e4sm.PhysicalConnector;
+import e4sm.de.metamodel.e4sm.QueueType;
+import e4sm.de.metamodel.e4sm.RaceSemantic;
 import e4sm.de.metamodel.e4sm.Robot;
 import e4sm.de.metamodel.e4sm.Sector;
 import e4sm.de.metamodel.e4sm.Sensor;
+import e4sm.de.metamodel.e4sm.SimpleUnit;
 import e4sm.de.metamodel.e4sm.SoftwareComponent;
+import e4sm.de.metamodel.e4sm.UnitConversion;
+import e4sm.de.metamodel.e4sm.UnitPrefix;
 import e4sm.de.metamodel.e4sm.e4smFactory;
 import e4sm.de.metamodel.e4sm.e4smPackage;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -119,6 +127,20 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 			return createOutputPin();
 		case e4smPackage.PERSON:
 			return createPerson();
+		case e4smPackage.MEASUREMENT_UNIT:
+			return createMeasurementUnit();
+		case e4smPackage.SIMPLE_UNIT:
+			return createSimpleUnit();
+		case e4smPackage.DERIVED_UNIT:
+			return createDerivedUnit();
+		case e4smPackage.UNIT_CONVERSION:
+			return createUnitConversion();
+		case e4smPackage.CONVERSION_BY_PREFIX:
+			return createConversionByPrefix();
+		case e4smPackage.CONVERSION_BY_CONVENTION:
+			return createConversionByConvention();
+		case e4smPackage.UNIT_PREFIX:
+			return createUnitPrefix();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -132,8 +154,16 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
+		case e4smPackage.QUEUE_TYPE:
+			return createQueueTypeFromString(eDataType, initialValue);
+		case e4smPackage.RACE_SEMANTIC:
+			return createRaceSemanticFromString(eDataType, initialValue);
 		case e4smPackage.CONNECTIONSPEED:
 			return createConnectionspeedFromString(eDataType, initialValue);
+		case e4smPackage.JSON:
+			return createJSONFromString(eDataType, initialValue);
+		case e4smPackage.TIME_FUNCTION:
+			return createTimeFunctionFromString(eDataType, initialValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -147,8 +177,16 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
+		case e4smPackage.QUEUE_TYPE:
+			return convertQueueTypeToString(eDataType, instanceValue);
+		case e4smPackage.RACE_SEMANTIC:
+			return convertRaceSemanticToString(eDataType, instanceValue);
 		case e4smPackage.CONNECTIONSPEED:
 			return convertConnectionspeedToString(eDataType, instanceValue);
+		case e4smPackage.JSON:
+			return convertJSONToString(eDataType, instanceValue);
+		case e4smPackage.TIME_FUNCTION:
+			return convertTimeFunctionToString(eDataType, instanceValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -390,6 +428,127 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public MeasurementUnit createMeasurementUnit() {
+		MeasurementUnitImpl measurementUnit = new MeasurementUnitImpl();
+		return measurementUnit;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public SimpleUnit createSimpleUnit() {
+		SimpleUnitImpl simpleUnit = new SimpleUnitImpl();
+		return simpleUnit;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public DerivedUnit createDerivedUnit() {
+		DerivedUnitImpl derivedUnit = new DerivedUnitImpl();
+		return derivedUnit;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public UnitConversion createUnitConversion() {
+		UnitConversionImpl unitConversion = new UnitConversionImpl();
+		return unitConversion;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ConversionByPrefix createConversionByPrefix() {
+		ConversionByPrefixImpl conversionByPrefix = new ConversionByPrefixImpl();
+		return conversionByPrefix;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ConversionByConvention createConversionByConvention() {
+		ConversionByConventionImpl conversionByConvention = new ConversionByConventionImpl();
+		return conversionByConvention;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public UnitPrefix createUnitPrefix() {
+		UnitPrefixImpl unitPrefix = new UnitPrefixImpl();
+		return unitPrefix;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QueueType createQueueTypeFromString(EDataType eDataType, String initialValue) {
+		QueueType result = QueueType.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException(
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertQueueTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RaceSemantic createRaceSemanticFromString(EDataType eDataType, String initialValue) {
+		RaceSemantic result = RaceSemantic.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException(
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertRaceSemanticToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Object createConnectionspeedFromString(EDataType eDataType, String initialValue) {
 		return super.createFromString(eDataType, initialValue);
 	}
@@ -400,6 +559,42 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 	 * @generated
 	 */
 	public String convertConnectionspeedToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String createJSONFromString(EDataType eDataType, String initialValue) {
+		return (String) super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertJSONToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String createTimeFunctionFromString(EDataType eDataType, String initialValue) {
+		return (String) super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertTimeFunctionToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
 

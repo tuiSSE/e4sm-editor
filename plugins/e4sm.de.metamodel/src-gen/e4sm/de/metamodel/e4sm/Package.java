@@ -2,6 +2,8 @@
  */
 package e4sm.de.metamodel.e4sm;
 
+import e4sm.de.metamodel.e4sm.analysis.ParameterizableElement;
+import e4sm.de.metamodel.e4sm.core.NamedElement;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -11,6 +13,8 @@ import org.eclipse.emf.common.util.EList;
  *
  * <!-- begin-model-doc -->
  * A package contains a set of Components and their connections.
+ * Constraints:
+ * - C1: all owned packages must have "specifiesComponent" set to a component owned by this package.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -23,13 +27,15 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link e4sm.de.metamodel.e4sm.Package#getConnectors <em>Connectors</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Package#getSectors <em>Sectors</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Package#getMainResponsible <em>Main Responsible</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.Package#getPackages <em>Packages</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.Package#getSpecifiesComponent <em>Specifies Component</em>}</li>
  * </ul>
  *
  * @see e4sm.de.metamodel.e4sm.e4smPackage#getPackage()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='PackageC1'"
  * @generated
  */
-public interface Package extends NamedElement {
+public interface Package extends NamedElement, ParameterizableElement {
 	/**
 	 * Returns the value of the '<em><b>Components</b></em>' containment reference list.
 	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.Component}.
@@ -55,7 +61,7 @@ public interface Package extends NamedElement {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Software Components</em>' reference list.
 	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getPackage_SoftwareComponents()
-	 * @model derived="true"
+	 * @model transient="true" volatile="true" derived="true"
 	 * @generated
 	 */
 	EList<SoftwareComponent> getSoftwareComponents();
@@ -70,7 +76,7 @@ public interface Package extends NamedElement {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Physical Components</em>' reference list.
 	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getPackage_PhysicalComponents()
-	 * @model derived="true"
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
 	EList<PhysicalComponent> getPhysicalComponents();
@@ -129,5 +135,58 @@ public interface Package extends NamedElement {
 	 * @generated
 	 */
 	void setMainResponsible(Person value);
+
+	/**
+	 * Returns the value of the '<em><b>Packages</b></em>' containment reference list.
+	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.Package}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A package may contains subpackages, which specify one of the components owned by this package
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Packages</em>' containment reference list.
+	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getPackage_Packages()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Package> getPackages();
+
+	/**
+	 * Returns the value of the '<em><b>Specifies Component</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link e4sm.de.metamodel.e4sm.Component#getSpecifiedInPackage <em>Specified In Package</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * This package is the detailed representation of another component (optional)
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Specifies Component</em>' reference.
+	 * @see #setSpecifiesComponent(Component)
+	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getPackage_SpecifiesComponent()
+	 * @see e4sm.de.metamodel.e4sm.Component#getSpecifiedInPackage
+	 * @model opposite="specifiedInPackage"
+	 * @generated
+	 */
+	Component getSpecifiesComponent();
+
+	/**
+	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.Package#getSpecifiesComponent <em>Specifies Component</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Specifies Component</em>' reference.
+	 * @see #getSpecifiesComponent()
+	 * @generated
+	 */
+	void setSpecifiesComponent(Component value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Returns all components directly contained by this package, including those inside sectors.
+	 * <!-- end-model-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	EList<Component> getAllComponents();
 
 } // Package

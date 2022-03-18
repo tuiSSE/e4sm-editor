@@ -4,7 +4,7 @@ package e4sm.de.metamodel.e4sm.presentation;
 
 import java.io.IOException;
 import java.io.InputStream;
-
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -38,7 +38,7 @@ import org.eclipse.jface.action.Separator;
 
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
-
+import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.util.LocalSelectionTransfer;
 
 import org.eclipse.jface.viewers.ColumnWeightData;
@@ -72,6 +72,7 @@ import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.layout.FillLayout;
 
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
@@ -125,7 +126,11 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 
 import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-
+import org.eclipse.emf.edapt.migration.MigrationException;
+import org.eclipse.emf.edapt.migration.ReleaseUtils;
+import org.eclipse.emf.edapt.migration.execution.Migrator;
+import org.eclipse.emf.edapt.migration.execution.MigratorRegistry;
+import org.eclipse.emf.edapt.spi.history.Release;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
@@ -155,6 +160,11 @@ import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 
 import e4sm.de.metamodel.e4sm.provider.e4smItemProviderAdapterFactory;
 
+import e4sm.de.metamodel.e4sm.analysis.provider.AnalysisItemProviderAdapterFactory;
+import e4sm.de.metamodel.e4sm.analysis.results.provider.ResultsItemProviderAdapterFactory;
+import e4sm.de.metamodel.e4sm.common.E4SMAdapterFactoryContentProvider;
+import e4sm.de.metamodel.e4sm.core.provider.CoreItemProviderAdapterFactory;
+import e4sm.de.metamodel.e4sm.guava.provider.GuavaItemProviderAdapterFactory;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
 /**
@@ -686,6 +696,10 @@ public class e4smEditor extends MultiPageEditorPart
 
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new e4smItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new CoreItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new AnalysisItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new ResultsItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new GuavaItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.
@@ -934,7 +948,7 @@ public class e4smEditor extends MultiPageEditorPart
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void createModel() {
+	public void createModelGen() {
 		URI resourceURI = EditUIUtil.getURI(getEditorInput(), editingDomain.getResourceSet().getURIConverter());
 		Exception exception = null;
 		Resource resource = null;
@@ -952,6 +966,71 @@ public class e4smEditor extends MultiPageEditorPart
 			resourceToDiagnosticMap.put(resource, analyzeResourceProblems(resource, exception));
 		}
 		editingDomain.getResourceSet().eAdapters().add(problemIndicationAdapter);
+	}
+
+	/**
+	 * This is the method called to load a resource into the editing domain's resource set based on the editor's input.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public void createModel() {
+		URI resourceURI = EditUIUtil.getURI(getEditorInput(), editingDomain.getResourceSet().getURIConverter());
+		checkMigration(resourceURI);
+		this.createModelGen();
+	}
+
+	/**
+	 * See https://www.eclipse.org/edapt/libraryexample.php
+	 * @param resourceURI
+	 */
+	private void checkMigration(final URI resourceURI) {
+		String nsURI = ReleaseUtils.getNamespaceURI(resourceURI);
+		final Migrator migrator = MigratorRegistry.getInstance().getMigrator(nsURI);
+		if (migrator != null) {
+			final Release release = migrator.getRelease(resourceURI).iterator().next();
+			if (!release.isLatestRelease()) {
+				// TODO: localization
+				if (MessageDialog.openQuestion(Display.getDefault().getActiveShell(), "Migration necessary",
+						"A migration of the model is necessary. " + "Do you want to proceed?")) {
+					performMigration(migrator, resourceURI, release);
+				}
+			}
+		} else {
+			MessageDialog.openError(Display.getDefault().getActiveShell(), "Error", "No migrator found");
+		}
+	}
+
+	/**
+	 * See https://www.eclipse.org/edapt/libraryexample.php
+	 * @param migrator
+	 * @param resourceURI
+	 * @param release
+	 */
+	private void performMigration(final Migrator migrator, final URI resourceURI, final Release release) {
+		IRunnableWithProgress runnable = new IRunnableWithProgress() {
+
+			public void run(IProgressMonitor monitor) throws InvocationTargetException {
+				try {
+					ResourceSet resourceSet = migrator.migrateAndLoad(Collections.singletonList(resourceURI), release,
+							null, monitor);
+					editingDomain.getResourceSet().getResources().addAll(resourceSet.getResources());
+				} catch (MigrationException e) {
+					throw new InvocationTargetException(e);
+				}
+			}
+
+		};
+		try {
+			new ProgressMonitorDialog(Display.getCurrent().getActiveShell()).run(false, false, runnable);
+		} catch (InvocationTargetException e) {
+			MessageDialog.openError(Display.getDefault().getActiveShell(), "Migration error",
+					"An error occured during migration of the model. "
+							+ "More information on the error can be found in the error log.");
+			e4smEditorPlugin.getPlugin().log(e.getCause());
+		} catch (InterruptedException e) {
+			e4smEditorPlugin.getPlugin().log(e);
+		}
 	}
 
 	/**
@@ -1370,7 +1449,7 @@ public class e4smEditor extends MultiPageEditorPart
 	 * This accesses a cached version of the property sheet.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public IPropertySheetPage getPropertySheetPage() {
 		PropertySheetPage propertySheetPage = new ExtendedPropertySheetPage(editingDomain,
@@ -1387,7 +1466,7 @@ public class e4smEditor extends MultiPageEditorPart
 				getActionBarContributor().shareGlobalActions(this, actionBars);
 			}
 		};
-		propertySheetPage.setPropertySourceProvider(new AdapterFactoryContentProvider(adapterFactory));
+		propertySheetPage.setPropertySourceProvider(new E4SMAdapterFactoryContentProvider(adapterFactory)); //<--
 		propertySheetPages.add(propertySheetPage);
 
 		return propertySheetPage;

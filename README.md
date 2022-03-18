@@ -22,6 +22,9 @@ In order to be executable, all model elements need to have a *precise formal sem
 - **Security**: The editor should consider and analyze security aspects too, but this currently out of focus due to the lack of a specialized employee.
 
 ## Plugins overview
+### [e4sm.de.antlr4.petri.grammar](plugins/e4sm.de.antlr4.petri.grammar)
+Contains an ANTLR grammar which specifies which strings are valid inside TimeNET's SCPN models. It should be used to parse and validate the content of the strings which are manually inserted in the model editors.
+
 ### [e4sm.de.metamodel](plugins/e4sm.de.metamodel)
 It contains the **ecore metamodel specification** for the E4SM data model. It includes Java interfaces and implementation classes for all the classes in the model, plus a factory and package (metadata) implementation class.
 
@@ -51,5 +54,9 @@ This work has received funding from the _[Carl Zeiss Foundation](https://www.car
 - **Security**: ISO/IEC 27001 is an international standard on how to manage information security.
 
 #### Eclipse Tools
-- *Eclipse Modeling Tools* - Tested with version 2021-03 R [download the package from here](https://www.eclipse.org/downloads/packages/). We recommend not using the installer.
-- [Eclipse Sirius](https://www.eclipse.org/sirius)
+- *Eclipse Modeling Tools* - Tested with version 2022-03 [download the package from here](https://www.eclipse.org/downloads/packages/). We recommend not using the installer.
+##### Eclipse Modeling Tools Already includes
+- [Eclipse Modeling Framework (EMF)](https://www.eclipse.org/modeling/emf/)
+##### To be installed additionally
+- [Eclipse Sirius](https://www.eclipse.org/sirius) - Used to create the drag-and-drop model editor. Tested with v. 7.0.0
+- [QVTo](https://projects.eclipse.org/projects/modeling.mmt.qvt-oml)

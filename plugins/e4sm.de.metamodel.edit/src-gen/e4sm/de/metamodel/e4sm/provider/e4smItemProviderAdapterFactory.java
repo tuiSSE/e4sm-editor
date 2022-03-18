@@ -556,6 +556,167 @@ public class e4smItemProviderAdapterFactory extends e4smAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.MeasurementUnit} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MeasurementUnitItemProvider measurementUnitItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.MeasurementUnit}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMeasurementUnitAdapter() {
+		if (measurementUnitItemProvider == null) {
+			measurementUnitItemProvider = new MeasurementUnitItemProvider(this);
+		}
+
+		return measurementUnitItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.SimpleUnit} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SimpleUnitItemProvider simpleUnitItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.SimpleUnit}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSimpleUnitAdapter() {
+		if (simpleUnitItemProvider == null) {
+			simpleUnitItemProvider = new SimpleUnitItemProvider(this);
+		}
+
+		return simpleUnitItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.DerivedUnit} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DerivedUnitItemProvider derivedUnitItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.DerivedUnit}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDerivedUnitAdapter() {
+		if (derivedUnitItemProvider == null) {
+			derivedUnitItemProvider = new DerivedUnitItemProvider(this);
+		}
+
+		return derivedUnitItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.UnitConversion} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected UnitConversionItemProvider unitConversionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.UnitConversion}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createUnitConversionAdapter() {
+		if (unitConversionItemProvider == null) {
+			unitConversionItemProvider = new UnitConversionItemProvider(this);
+		}
+
+		return unitConversionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.ConversionByPrefix} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ConversionByPrefixItemProvider conversionByPrefixItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.ConversionByPrefix}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createConversionByPrefixAdapter() {
+		if (conversionByPrefixItemProvider == null) {
+			conversionByPrefixItemProvider = new ConversionByPrefixItemProvider(this);
+		}
+
+		return conversionByPrefixItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.ConversionByConvention} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ConversionByConventionItemProvider conversionByConventionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.ConversionByConvention}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createConversionByConventionAdapter() {
+		if (conversionByConventionItemProvider == null) {
+			conversionByConventionItemProvider = new ConversionByConventionItemProvider(this);
+		}
+
+		return conversionByConventionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.UnitPrefix} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected UnitPrefixItemProvider unitPrefixItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.UnitPrefix}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createUnitPrefixAdapter() {
+		if (unitPrefixItemProvider == null) {
+			unitPrefixItemProvider = new UnitPrefixItemProvider(this);
+		}
+
+		return unitPrefixItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -702,6 +863,20 @@ public class e4smItemProviderAdapterFactory extends e4smAdapterFactory
 			outputPinItemProvider.dispose();
 		if (personItemProvider != null)
 			personItemProvider.dispose();
+		if (measurementUnitItemProvider != null)
+			measurementUnitItemProvider.dispose();
+		if (simpleUnitItemProvider != null)
+			simpleUnitItemProvider.dispose();
+		if (derivedUnitItemProvider != null)
+			derivedUnitItemProvider.dispose();
+		if (unitConversionItemProvider != null)
+			unitConversionItemProvider.dispose();
+		if (conversionByPrefixItemProvider != null)
+			conversionByPrefixItemProvider.dispose();
+		if (conversionByConventionItemProvider != null)
+			conversionByConventionItemProvider.dispose();
+		if (unitPrefixItemProvider != null)
+			unitPrefixItemProvider.dispose();
 	}
 
 }

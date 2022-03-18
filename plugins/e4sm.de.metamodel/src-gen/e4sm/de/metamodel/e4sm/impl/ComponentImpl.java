@@ -3,10 +3,14 @@
 package e4sm.de.metamodel.e4sm.impl;
 
 import e4sm.de.metamodel.e4sm.Component;
+import e4sm.de.metamodel.e4sm.core.NamedElement;
 import e4sm.de.metamodel.e4sm.Person;
 import e4sm.de.metamodel.e4sm.Pin;
+import e4sm.de.metamodel.e4sm.analysis.AnalysisPackage;
+import e4sm.de.metamodel.e4sm.analysis.Parameter;
+import e4sm.de.metamodel.e4sm.analysis.ParameterizableElement;
 import e4sm.de.metamodel.e4sm.e4smPackage;
-
+import e4sm.de.metamodel.e4sm.core.impl.NamedElementImpl;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
@@ -21,8 +25,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -33,15 +35,26 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.ComponentImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ComponentImpl#getComponents <em>Components</em>}</li>
- *   <li>{@link e4sm.de.metamodel.e4sm.impl.ComponentImpl#getContainedBy <em>Contained By</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ComponentImpl#getPins <em>Pins</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ComponentImpl#getMainResponsible <em>Main Responsible</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.ComponentImpl#getSpecifiedInPackage <em>Specified In Package</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ComponentImpl extends NamedElementImpl implements Component {
+	/**
+	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParameters()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Parameter> parameters;
+
 	/**
 	 * The cached value of the '{@link #getComponents() <em>Components</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -73,6 +86,16 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 	protected Person mainResponsible;
 
 	/**
+	 * The cached value of the '{@link #getSpecifiedInPackage() <em>Specified In Package</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSpecifiedInPackage()
+	 * @generated
+	 * @ordered
+	 */
+	protected e4sm.de.metamodel.e4sm.Package specifiedInPackage;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -97,59 +120,26 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 	 * @generated
 	 */
 	@Override
+	public EList<Parameter> getParameters() {
+		if (parameters == null) {
+			parameters = new EObjectContainmentEList<Parameter>(Parameter.class, this,
+					e4smPackage.COMPONENT__PARAMETERS);
+		}
+		return parameters;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EList<Component> getComponents() {
 		if (components == null) {
-			components = new EObjectContainmentWithInverseEList<Component>(Component.class, this,
-					e4smPackage.COMPONENT__COMPONENTS, e4smPackage.COMPONENT__CONTAINED_BY);
+			components = new EObjectContainmentEList<Component>(Component.class, this,
+					e4smPackage.COMPONENT__COMPONENTS);
 		}
 		return components;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Component getContainedBy() {
-		if (eContainerFeatureID() != e4smPackage.COMPONENT__CONTAINED_BY)
-			return null;
-		return (Component) eInternalContainer();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetContainedBy(Component newContainedBy, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject) newContainedBy, e4smPackage.COMPONENT__CONTAINED_BY, msgs);
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setContainedBy(Component newContainedBy) {
-		if (newContainedBy != eInternalContainer()
-				|| (eContainerFeatureID() != e4smPackage.COMPONENT__CONTAINED_BY && newContainedBy != null)) {
-			if (EcoreUtil.isAncestor(this, newContainedBy))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			if (newContainedBy != null)
-				msgs = ((InternalEObject) newContainedBy).eInverseAdd(this, e4smPackage.COMPONENT__COMPONENTS,
-						Component.class, msgs);
-			msgs = basicSetContainedBy(newContainedBy, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.COMPONENT__CONTAINED_BY, newContainedBy,
-					newContainedBy));
 	}
 
 	/**
@@ -241,16 +231,87 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 	 * @generated
 	 */
 	@Override
+	public e4sm.de.metamodel.e4sm.Package getSpecifiedInPackage() {
+		if (specifiedInPackage != null && specifiedInPackage.eIsProxy()) {
+			InternalEObject oldSpecifiedInPackage = (InternalEObject) specifiedInPackage;
+			specifiedInPackage = (e4sm.de.metamodel.e4sm.Package) eResolveProxy(oldSpecifiedInPackage);
+			if (specifiedInPackage != oldSpecifiedInPackage) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+							e4smPackage.COMPONENT__SPECIFIED_IN_PACKAGE, oldSpecifiedInPackage, specifiedInPackage));
+			}
+		}
+		return specifiedInPackage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public e4sm.de.metamodel.e4sm.Package basicGetSpecifiedInPackage() {
+		return specifiedInPackage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSpecifiedInPackage(e4sm.de.metamodel.e4sm.Package newSpecifiedInPackage,
+			NotificationChain msgs) {
+		e4sm.de.metamodel.e4sm.Package oldSpecifiedInPackage = specifiedInPackage;
+		specifiedInPackage = newSpecifiedInPackage;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					e4smPackage.COMPONENT__SPECIFIED_IN_PACKAGE, oldSpecifiedInPackage, newSpecifiedInPackage);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setSpecifiedInPackage(e4sm.de.metamodel.e4sm.Package newSpecifiedInPackage) {
+		if (newSpecifiedInPackage != specifiedInPackage) {
+			NotificationChain msgs = null;
+			if (specifiedInPackage != null)
+				msgs = ((InternalEObject) specifiedInPackage).eInverseRemove(this,
+						e4smPackage.PACKAGE__SPECIFIES_COMPONENT, e4sm.de.metamodel.e4sm.Package.class, msgs);
+			if (newSpecifiedInPackage != null)
+				msgs = ((InternalEObject) newSpecifiedInPackage).eInverseAdd(this,
+						e4smPackage.PACKAGE__SPECIFIES_COMPONENT, e4sm.de.metamodel.e4sm.Package.class, msgs);
+			msgs = basicSetSpecifiedInPackage(newSpecifiedInPackage, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.COMPONENT__SPECIFIED_IN_PACKAGE,
+					newSpecifiedInPackage, newSpecifiedInPackage));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Person computeMainResponsible() {
 		Person resp = this.getMainResponsible();
 		if (resp != null) {
 			return resp;
 		}
-		Component c = this.getContainedBy();
-		if (c == null) {
+		NamedElement c = (NamedElement) this.eContainer();
+		if (!(c instanceof Component)) {
 			return null;
 		}
-		return c.getMainResponsible();
+		return ((Component) c).getMainResponsible();
 	}
 
 	/**
@@ -262,17 +323,16 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case e4smPackage.COMPONENT__COMPONENTS:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getComponents()).basicAdd(otherEnd, msgs);
-		case e4smPackage.COMPONENT__CONTAINED_BY:
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			return basicSetContainedBy((Component) otherEnd, msgs);
 		case e4smPackage.COMPONENT__MAIN_RESPONSIBLE:
 			if (mainResponsible != null)
 				msgs = ((InternalEObject) mainResponsible).eInverseRemove(this,
 						e4smPackage.PERSON__RESPONSIBLE_FOR_COMPONENTS, Person.class, msgs);
 			return basicSetMainResponsible((Person) otherEnd, msgs);
+		case e4smPackage.COMPONENT__SPECIFIED_IN_PACKAGE:
+			if (specifiedInPackage != null)
+				msgs = ((InternalEObject) specifiedInPackage).eInverseRemove(this,
+						e4smPackage.PACKAGE__SPECIFIES_COMPONENT, e4sm.de.metamodel.e4sm.Package.class, msgs);
+			return basicSetSpecifiedInPackage((e4sm.de.metamodel.e4sm.Package) otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -285,14 +345,16 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+		case e4smPackage.COMPONENT__PARAMETERS:
+			return ((InternalEList<?>) getParameters()).basicRemove(otherEnd, msgs);
 		case e4smPackage.COMPONENT__COMPONENTS:
 			return ((InternalEList<?>) getComponents()).basicRemove(otherEnd, msgs);
-		case e4smPackage.COMPONENT__CONTAINED_BY:
-			return basicSetContainedBy(null, msgs);
 		case e4smPackage.COMPONENT__PINS:
 			return ((InternalEList<?>) getPins()).basicRemove(otherEnd, msgs);
 		case e4smPackage.COMPONENT__MAIN_RESPONSIBLE:
 			return basicSetMainResponsible(null, msgs);
+		case e4smPackage.COMPONENT__SPECIFIED_IN_PACKAGE:
+			return basicSetSpecifiedInPackage(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -303,32 +365,22 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID()) {
-		case e4smPackage.COMPONENT__CONTAINED_BY:
-			return eInternalContainer().eInverseRemove(this, e4smPackage.COMPONENT__COMPONENTS, Component.class, msgs);
-		}
-		return super.eBasicRemoveFromContainerFeature(msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+		case e4smPackage.COMPONENT__PARAMETERS:
+			return getParameters();
 		case e4smPackage.COMPONENT__COMPONENTS:
 			return getComponents();
-		case e4smPackage.COMPONENT__CONTAINED_BY:
-			return getContainedBy();
 		case e4smPackage.COMPONENT__PINS:
 			return getPins();
 		case e4smPackage.COMPONENT__MAIN_RESPONSIBLE:
 			if (resolve)
 				return getMainResponsible();
 			return basicGetMainResponsible();
+		case e4smPackage.COMPONENT__SPECIFIED_IN_PACKAGE:
+			if (resolve)
+				return getSpecifiedInPackage();
+			return basicGetSpecifiedInPackage();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -342,12 +394,13 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+		case e4smPackage.COMPONENT__PARAMETERS:
+			getParameters().clear();
+			getParameters().addAll((Collection<? extends Parameter>) newValue);
+			return;
 		case e4smPackage.COMPONENT__COMPONENTS:
 			getComponents().clear();
 			getComponents().addAll((Collection<? extends Component>) newValue);
-			return;
-		case e4smPackage.COMPONENT__CONTAINED_BY:
-			setContainedBy((Component) newValue);
 			return;
 		case e4smPackage.COMPONENT__PINS:
 			getPins().clear();
@@ -355,6 +408,9 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 			return;
 		case e4smPackage.COMPONENT__MAIN_RESPONSIBLE:
 			setMainResponsible((Person) newValue);
+			return;
+		case e4smPackage.COMPONENT__SPECIFIED_IN_PACKAGE:
+			setSpecifiedInPackage((e4sm.de.metamodel.e4sm.Package) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -368,17 +424,20 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+		case e4smPackage.COMPONENT__PARAMETERS:
+			getParameters().clear();
+			return;
 		case e4smPackage.COMPONENT__COMPONENTS:
 			getComponents().clear();
-			return;
-		case e4smPackage.COMPONENT__CONTAINED_BY:
-			setContainedBy((Component) null);
 			return;
 		case e4smPackage.COMPONENT__PINS:
 			getPins().clear();
 			return;
 		case e4smPackage.COMPONENT__MAIN_RESPONSIBLE:
 			setMainResponsible((Person) null);
+			return;
+		case e4smPackage.COMPONENT__SPECIFIED_IN_PACKAGE:
+			setSpecifiedInPackage((e4sm.de.metamodel.e4sm.Package) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -392,16 +451,54 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+		case e4smPackage.COMPONENT__PARAMETERS:
+			return parameters != null && !parameters.isEmpty();
 		case e4smPackage.COMPONENT__COMPONENTS:
 			return components != null && !components.isEmpty();
-		case e4smPackage.COMPONENT__CONTAINED_BY:
-			return getContainedBy() != null;
 		case e4smPackage.COMPONENT__PINS:
 			return pins != null && !pins.isEmpty();
 		case e4smPackage.COMPONENT__MAIN_RESPONSIBLE:
 			return mainResponsible != null;
+		case e4smPackage.COMPONENT__SPECIFIED_IN_PACKAGE:
+			return specifiedInPackage != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == ParameterizableElement.class) {
+			switch (derivedFeatureID) {
+			case e4smPackage.COMPONENT__PARAMETERS:
+				return AnalysisPackage.PARAMETERIZABLE_ELEMENT__PARAMETERS;
+			default:
+				return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == ParameterizableElement.class) {
+			switch (baseFeatureID) {
+			case AnalysisPackage.PARAMETERIZABLE_ELEMENT__PARAMETERS:
+				return e4smPackage.COMPONENT__PARAMETERS;
+			default:
+				return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**

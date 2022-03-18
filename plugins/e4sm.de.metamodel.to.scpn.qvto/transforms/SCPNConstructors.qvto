@@ -1,0 +1,190 @@
+import SCPNHelpers;
+
+modeltype scpn "strict" uses scpn("http://timenet.tu-ilmenau.de/schema/SCPN");
+
+library SCPNConstructors(){
+
+/** Constructors **/
+constructor LabelType::LabelType(given_text : String) {
+	text := safeString(given_text);
+	type:= scpn::Type::text;
+	id := safeString(given_text) + "_id";
+	graphics := new GraphicsType(false);
+	log("Created Label called: " + text);
+}
+
+constructor PlaceType::PlaceType(given_label : String) {
+	//Attributes
+	id := safeString(given_label) + "_place_id";
+	capacity := "0";
+	queue:= scpn::QueueType::Random;
+	tokentype:= "int";
+	type := scpn::Type::node;
+	watch := false;
+	initialMarking := "";
+	
+	//Children
+	graphics := new GraphicsType(true);
+	label := new LabelType(given_label);
+	
+	log("Created Place called: " + label.text);
+}
+
+constructor PlaceType::PlaceType(given_label : String, initial_marking : String) {
+	//Attributes
+	id := safeString(given_label) + "_place_id";
+	capacity := "0";
+	queue:= scpn::QueueType::Random;
+	tokentype:= "int";
+	type := scpn::Type::node;
+	watch := false;
+	initialMarking := initial_marking;
+	
+	//Children
+	graphics := new GraphicsType(true);
+	label := new LabelType(given_label);
+	
+	log("Created Place called: " + label.text);
+}
+
+constructor GraphicsType::GraphicsType(create_orientation:Boolean){
+	x := 30;
+	y := 30;
+	if(create_orientation){
+		orientation := 0;
+	};
+	log("Created Graphics");
+}
+
+constructor InscriptionType::InscriptionType(){
+	//Attributes
+	id := "anonymous_inscription_id";
+	text := "x";
+	type:=scpn::Type::inscriptionText;
+	
+	//Children
+	graphics := new GraphicsType(false);
+		
+	log("Created unnamed Inscription");
+}
+
+constructor InscriptionType::InscriptionType(g : GraphicsType){
+	var inscr := new InscriptionType();
+	//Attributes
+	id := inscr.id;
+	text := inscr.text;
+	type:= inscr.type;
+	
+	//Children
+	graphics := g.clone();
+	log("Created Inscription with given graphics");
+}
+
+
+constructor ArcType::ArcType(name : String){
+	//Attributes
+	id := safeString(name) + "_arc_id";
+	type := scpn::Type::connector;
+	//fromNode := t.id;
+	//toNode := p.id;
+	
+	//Children
+	inscription := new InscriptionType();
+	log("Created Arc named " + inscription.text);
+}
+
+constructor ImmediateTransitionType::ImmediateTransitionType() {
+	//Attributes
+	id := "it_id";
+	priority := 1;
+	weight := "1.0";
+	specType := SpecTypeType::Automatic;
+	type := scpn::Type::node;
+	takeFirst := false;
+	watch := false;
+	
+	//Children
+	graphics := new GraphicsType(true);
+	label := new LabelType("it");
+	log("Created Immediate Transition");
+}
+
+constructor ImmediateTransitionType::ImmediateTransitionType(name:String) {
+	//Attributes
+	id := safeString(name) + "_imm_tran_id";
+	priority := 1;
+	serverType := scpn::ServerTypeType::ExclusiveServer;
+	weight := "1.0";
+	specType := SpecTypeType::Automatic;
+	type := type := scpn::Type::node;
+	takeFirst := false;
+	watch := false;
+	
+	//Children
+	graphics := new GraphicsType(true);
+	label := new LabelType(name);
+	
+	log("Created Immediate Transition with id: "+ id);
+}
+
+constructor TimedTransitionType::TimedTransitionType(name : String) {
+    assert fatal (name->size()>0);
+    //Attributes
+	id := safeString(name) + "_timed_trans_id";
+	serverType := scpn::ServerTypeType::ExclusiveServer;
+	specType := SpecTypeType::Automatic;
+	timeFunction := "EXP(1.0)";
+    type := scpn::Type::node;
+	takeFirst := false;
+	watch := false;
+	
+	label := new LabelType(name);
+	graphics := new GraphicsType(true);
+
+    log("Created Deterministic transition called: " + label.text);
+}
+
+constructor SubstitutionTransitionType::SubstitutionTransitionType(name : String) {
+    //Attributes
+	id := safeString(name) + "_substitution_trans_id";
+	replication := 0;
+    type:=scpn::Type::node;
+	serverType := scpn::ServerTypeType::ExclusiveServer;
+	specType := SpecTypeType::Automatic;
+	takeFirst := false;
+	watch := false;
+	
+	//Children
+	label := new LabelType(name);
+	graphics := new GraphicsType(true);
+	net += object ReplicationType {  //TODO: should this also have a constructor?
+    	gridActive := true;
+    	netclass:="SCPN";
+    	sharpEdges := false;
+    	id:= safeString(name) + "_subnet";
+    };    
+
+    log("Created Substitution transition called: " + label.text);
+}
+
+constructor MeasureType::MeasureType(name:String) {
+	//Attributes
+	id:= safeString(name) + "_measure_id";
+	eval:=scpn::MeasureEvalType::TimeAverage;
+	expression:="";
+	type:=scpn::Type::text;
+	watch := true;
+
+	//Children
+	graphics := new GraphicsType(false);
+}
+
+constructor CommentType::CommentType(text:String) {
+	//Attributes
+	commentText := text;
+	type:=scpn::Type::text;
+
+	//Children
+	graphics := new GraphicsType(false);
+}
+}

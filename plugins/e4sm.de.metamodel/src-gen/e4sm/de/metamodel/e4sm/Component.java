@@ -2,6 +2,8 @@
  */
 package e4sm.de.metamodel.e4sm;
 
+import e4sm.de.metamodel.e4sm.analysis.ParameterizableElement;
+import e4sm.de.metamodel.e4sm.core.NamedElement;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -11,6 +13,10 @@ import org.eclipse.emf.common.util.EList;
  *
  * <!-- begin-model-doc -->
  * Generic component, which should be used to temporally specify an element before deciding how it will be realised.
+ * 
+ * Constraints:
+ * - C1: no loops allowed between the component container (Package) and component "specifiedInPackage"
+ * - C2: components->size()>0, then specifiedInPackage=null - If the component contains other components, it can't be specified in a package.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -18,20 +24,19 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link e4sm.de.metamodel.e4sm.Component#getComponents <em>Components</em>}</li>
- *   <li>{@link e4sm.de.metamodel.e4sm.Component#getContainedBy <em>Contained By</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Component#getPins <em>Pins</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Component#getMainResponsible <em>Main Responsible</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.Component#getSpecifiedInPackage <em>Specified In Package</em>}</li>
  * </ul>
  *
  * @see e4sm.de.metamodel.e4sm.e4smPackage#getComponent()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='ComponentC1 ComponentC2'"
  * @generated
  */
-public interface Component extends NamedElement {
+public interface Component extends NamedElement, ParameterizableElement {
 	/**
 	 * Returns the value of the '<em><b>Components</b></em>' containment reference list.
 	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.Component}.
-	 * It is bidirectional and its opposite is '{@link e4sm.de.metamodel.e4sm.Component#getContainedBy <em>Contained By</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -39,38 +44,10 @@ public interface Component extends NamedElement {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Components</em>' containment reference list.
 	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getComponent_Components()
-	 * @see e4sm.de.metamodel.e4sm.Component#getContainedBy
-	 * @model opposite="containedBy" containment="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Component> getComponents();
-
-	/**
-	 * Returns the value of the '<em><b>Contained By</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link e4sm.de.metamodel.e4sm.Component#getComponents <em>Components</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The parent component which contains this component
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Contained By</em>' container reference.
-	 * @see #setContainedBy(Component)
-	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getComponent_ContainedBy()
-	 * @see e4sm.de.metamodel.e4sm.Component#getComponents
-	 * @model opposite="components" transient="false"
-	 * @generated
-	 */
-	Component getContainedBy();
-
-	/**
-	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.Component#getContainedBy <em>Contained By</em>}' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Contained By</em>' container reference.
-	 * @see #getContainedBy()
-	 * @generated
-	 */
-	void setContainedBy(Component value);
 
 	/**
 	 * Returns the value of the '<em><b>Pins</b></em>' containment reference list.
@@ -113,6 +90,35 @@ public interface Component extends NamedElement {
 	 * @generated
 	 */
 	void setMainResponsible(Person value);
+
+	/**
+	 * Returns the value of the '<em><b>Specified In Package</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link e4sm.de.metamodel.e4sm.Package#getSpecifiesComponent <em>Specifies Component</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A component may get specified further in a package
+	 * Constraints:
+	 * - C1: no loops allowed (implemented in Component)
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Specified In Package</em>' reference.
+	 * @see #setSpecifiedInPackage(e4sm.de.metamodel.e4sm.Package)
+	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getComponent_SpecifiedInPackage()
+	 * @see e4sm.de.metamodel.e4sm.Package#getSpecifiesComponent
+	 * @model opposite="specifiesComponent"
+	 * @generated
+	 */
+	e4sm.de.metamodel.e4sm.Package getSpecifiedInPackage();
+
+	/**
+	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.Component#getSpecifiedInPackage <em>Specified In Package</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Specified In Package</em>' reference.
+	 * @see #getSpecifiedInPackage()
+	 * @generated
+	 */
+	void setSpecifiedInPackage(e4sm.de.metamodel.e4sm.Package value);
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -211,6 +211,69 @@ public interface e4smFactory extends EFactory {
 	Person createPerson();
 
 	/**
+	 * Returns a new object of class '<em>Measurement Unit</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Measurement Unit</em>'.
+	 * @generated
+	 */
+	MeasurementUnit createMeasurementUnit();
+
+	/**
+	 * Returns a new object of class '<em>Simple Unit</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Simple Unit</em>'.
+	 * @generated
+	 */
+	SimpleUnit createSimpleUnit();
+
+	/**
+	 * Returns a new object of class '<em>Derived Unit</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Derived Unit</em>'.
+	 * @generated
+	 */
+	DerivedUnit createDerivedUnit();
+
+	/**
+	 * Returns a new object of class '<em>Unit Conversion</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Unit Conversion</em>'.
+	 * @generated
+	 */
+	UnitConversion createUnitConversion();
+
+	/**
+	 * Returns a new object of class '<em>Conversion By Prefix</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Conversion By Prefix</em>'.
+	 * @generated
+	 */
+	ConversionByPrefix createConversionByPrefix();
+
+	/**
+	 * Returns a new object of class '<em>Conversion By Convention</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Conversion By Convention</em>'.
+	 * @generated
+	 */
+	ConversionByConvention createConversionByConvention();
+
+	/**
+	 * Returns a new object of class '<em>Unit Prefix</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Unit Prefix</em>'.
+	 * @generated
+	 */
+	UnitPrefix createUnitPrefix();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

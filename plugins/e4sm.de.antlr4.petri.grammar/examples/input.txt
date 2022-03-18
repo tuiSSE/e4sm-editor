@@ -1,0 +1,29 @@
+varname
+3'varname
+5.7'varname
+a
+1'a
+2'copy a
+2'copy a (value=a.value)
+3'new({value=a.value})
+new(95)
+extract a.b
+$varname
+3+$varname
+(5*$chunksize)
+!(56 == $param1)
+3.5
+"foo bar"
+$chunksize
+12, 34, 56
+{}
+{id=0},{id=1}
+{label="My token"}
+{id=0; label="unit vector x"; pos={x=1; y=0; z=0}; draw=$drawVector}
+12, 34, 56
+NOW, a.time
+$varname
+3+$varname
+EXP(5 * #P1)
+Det(5 * #P1)
+Uni(3 * #P1, 6 * #P1)

@@ -14,4 +14,63 @@
             genModel="model/e4sm.genmodel"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated e4sm -->
+      <parser
+            type="e4sm"
+            class="e4sm.de.metamodel.e4sm.util.e4smResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated e4sm -->
+      <package
+            uri="http://de.tu-ilmenau/e4sm/core/1.0.0"
+            class="e4sm.de.metamodel.e4sm.core.CorePackage"
+            genModel="model/e4sm.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated e4sm -->
+      <package
+            uri="http://de.tu-ilmenau/e4sm/analysis/1.0.0"
+            class="e4sm.de.metamodel.e4sm.analysis.AnalysisPackage"
+            genModel="model/e4sm.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated e4sm -->
+      <parser
+            type="analysis"
+            class="e4sm.de.metamodel.e4sm.analysis.util.AnalysisResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated e4sm -->
+      <package
+            uri="http://de.tu-ilmenau/e4sm/analysis/results/1.0.0"
+            class="e4sm.de.metamodel.e4sm.analysis.results.ResultsPackage"
+            genModel="model/e4sm.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated e4sm -->
+      <parser
+            type="results"
+            class="e4sm.de.metamodel.e4sm.analysis.results.util.ResultsResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated e4sm -->
+      <package
+            uri="https://guava.dev/releases/30.1"
+            class="e4sm.de.metamodel.e4sm.guava.GuavaPackage"
+            genModel="model/e4sm.genmodel"/>
+   </extension>
+   <extension
+         point="org.eclipse.emf.edapt.migrators">
+      <migrator
+            path="model/e4sm.history">
+      </migrator>
+   </extension>
+
 </plugin>
