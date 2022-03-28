@@ -40,6 +40,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ComponentImpl#getPins <em>Pins</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ComponentImpl#getMainResponsible <em>Main Responsible</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ComponentImpl#getSpecifiedInPackage <em>Specified In Package</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.ComponentImpl#getCodeSpecification <em>Code Specification</em>}</li>
  * </ul>
  *
  * @generated
@@ -94,6 +95,26 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 	 * @ordered
 	 */
 	protected e4sm.de.metamodel.e4sm.Package specifiedInPackage;
+
+	/**
+	 * The default value of the '{@link #getCodeSpecification() <em>Code Specification</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCodeSpecification()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CODE_SPECIFICATION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getCodeSpecification() <em>Code Specification</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCodeSpecification()
+	 * @generated
+	 * @ordered
+	 */
+	protected String codeSpecification = CODE_SPECIFICATION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -302,6 +323,30 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 	 * @generated
 	 */
 	@Override
+	public String getCodeSpecification() {
+		return codeSpecification;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setCodeSpecification(String newCodeSpecification) {
+		String oldCodeSpecification = codeSpecification;
+		codeSpecification = newCodeSpecification;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.COMPONENT__CODE_SPECIFICATION,
+					oldCodeSpecification, codeSpecification));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Person computeMainResponsible() {
 		Person resp = this.getMainResponsible();
 		if (resp != null) {
@@ -381,6 +426,8 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 			if (resolve)
 				return getSpecifiedInPackage();
 			return basicGetSpecifiedInPackage();
+		case e4smPackage.COMPONENT__CODE_SPECIFICATION:
+			return getCodeSpecification();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -412,6 +459,9 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 		case e4smPackage.COMPONENT__SPECIFIED_IN_PACKAGE:
 			setSpecifiedInPackage((e4sm.de.metamodel.e4sm.Package) newValue);
 			return;
+		case e4smPackage.COMPONENT__CODE_SPECIFICATION:
+			setCodeSpecification((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -439,6 +489,9 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 		case e4smPackage.COMPONENT__SPECIFIED_IN_PACKAGE:
 			setSpecifiedInPackage((e4sm.de.metamodel.e4sm.Package) null);
 			return;
+		case e4smPackage.COMPONENT__CODE_SPECIFICATION:
+			setCodeSpecification(CODE_SPECIFICATION_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -461,6 +514,9 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 			return mainResponsible != null;
 		case e4smPackage.COMPONENT__SPECIFIED_IN_PACKAGE:
 			return specifiedInPackage != null;
+		case e4smPackage.COMPONENT__CODE_SPECIFICATION:
+			return CODE_SPECIFICATION_EDEFAULT == null ? codeSpecification != null
+					: !CODE_SPECIFICATION_EDEFAULT.equals(codeSpecification);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -513,6 +569,23 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 			return computeMainResponsible();
 		}
 		return super.eInvoke(operationID, arguments);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy())
+			return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (codeSpecification: ");
+		result.append(codeSpecification);
+		result.append(')');
+		return result.toString();
 	}
 
 } //ComponentImpl

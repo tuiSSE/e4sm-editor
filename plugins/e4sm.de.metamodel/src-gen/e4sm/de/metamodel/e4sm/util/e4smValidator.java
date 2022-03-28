@@ -194,6 +194,8 @@ public class e4smValidator extends EObjectValidator {
 			return validateJSON((String) value, diagnostics, context);
 		case e4smPackage.TIME_FUNCTION:
 			return validateTimeFunction((String) value, diagnostics, context);
+		case e4smPackage.CODE_SPECIFICATION:
+			return validateCodeSpecification((String) value, diagnostics, context);
 		default:
 			return true;
 		}
@@ -225,6 +227,8 @@ public class e4smValidator extends EObjectValidator {
 			result &= validateComponent_ComponentC1(component, diagnostics, context);
 		if (result || diagnostics != null)
 			result &= validateComponent_ComponentC2(component, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateComponent_ComponentC3(component, diagnostics, context);
 		return result;
 	}
 
@@ -287,6 +291,29 @@ public class e4smValidator extends EObjectValidator {
 	}
 
 	/**
+	 * Validates the ComponentC3 constraint of '<em>Component</em>'.
+	 * <!-- begin-user-doc -->
+	 * If the component has a code specification, it shall not contain other components, nor be specified by a package.
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean validateComponent_ComponentC3(Component component, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		if (component.getCodeSpecification()!= null && component.getCodeSpecification().length()>0 && (component.getComponents().size() > 0 || component.getSpecifiedInPackage() != null)) {
+			if (diagnostics != null) {
+				diagnostics.add(createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0,
+						"_UI_GenericConstraint_diagnostic",
+						new Object[] {
+								"C3: If the component has a text specification, it shall not contain other components, nor be specified by a package",
+								getObjectLabel(component, context) },
+						new Object[] { component }, context));
+			}
+			return false;
+		}
+		return true;
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -313,6 +340,8 @@ public class e4smValidator extends EObjectValidator {
 			result &= validateComponent_ComponentC1(machineLearningComponent, diagnostics, context);
 		if (result || diagnostics != null)
 			result &= validateComponent_ComponentC2(machineLearningComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateComponent_ComponentC3(machineLearningComponent, diagnostics, context);
 		if (result || diagnostics != null)
 			result &= validateSoftwareComponent_SoftwareComponentC1(machineLearningComponent, diagnostics, context);
 		return result;
@@ -513,6 +542,8 @@ public class e4smValidator extends EObjectValidator {
 			result &= validateComponent_ComponentC1(physicalComponent, diagnostics, context);
 		if (result || diagnostics != null)
 			result &= validateComponent_ComponentC2(physicalComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateComponent_ComponentC3(physicalComponent, diagnostics, context);
 		return result;
 	}
 
@@ -543,6 +574,8 @@ public class e4smValidator extends EObjectValidator {
 			result &= validateComponent_ComponentC1(softwareComponent, diagnostics, context);
 		if (result || diagnostics != null)
 			result &= validateComponent_ComponentC2(softwareComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateComponent_ComponentC3(softwareComponent, diagnostics, context);
 		if (result || diagnostics != null)
 			result &= validateSoftwareComponent_SoftwareComponentC1(softwareComponent, diagnostics, context);
 		return result;
@@ -627,6 +660,8 @@ public class e4smValidator extends EObjectValidator {
 		if (result || diagnostics != null)
 			result &= validateComponent_ComponentC2(heuristic, diagnostics, context);
 		if (result || diagnostics != null)
+			result &= validateComponent_ComponentC3(heuristic, diagnostics, context);
+		if (result || diagnostics != null)
 			result &= validateSoftwareComponent_SoftwareComponentC1(heuristic, diagnostics, context);
 		return result;
 	}
@@ -657,6 +692,8 @@ public class e4smValidator extends EObjectValidator {
 			result &= validateComponent_ComponentC1(function, diagnostics, context);
 		if (result || diagnostics != null)
 			result &= validateComponent_ComponentC2(function, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateComponent_ComponentC3(function, diagnostics, context);
 		if (result || diagnostics != null)
 			result &= validateSoftwareComponent_SoftwareComponentC1(function, diagnostics, context);
 		return result;
@@ -689,6 +726,8 @@ public class e4smValidator extends EObjectValidator {
 			result &= validateComponent_ComponentC1(externalDependency, diagnostics, context);
 		if (result || diagnostics != null)
 			result &= validateComponent_ComponentC2(externalDependency, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateComponent_ComponentC3(externalDependency, diagnostics, context);
 		if (result || diagnostics != null)
 			result &= validateSoftwareComponent_SoftwareComponentC1(externalDependency, diagnostics, context);
 		return result;
@@ -842,6 +881,8 @@ public class e4smValidator extends EObjectValidator {
 		if (result || diagnostics != null)
 			result &= validateComponent_ComponentC2(sensor, diagnostics, context);
 		if (result || diagnostics != null)
+			result &= validateComponent_ComponentC3(sensor, diagnostics, context);
+		if (result || diagnostics != null)
 			result &= validateSensor_SensorC1(sensor, diagnostics, context);
 		return result;
 	}
@@ -892,6 +933,8 @@ public class e4smValidator extends EObjectValidator {
 			result &= validateComponent_ComponentC1(actuator, diagnostics, context);
 		if (result || diagnostics != null)
 			result &= validateComponent_ComponentC2(actuator, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateComponent_ComponentC3(actuator, diagnostics, context);
 		if (result || diagnostics != null)
 			result &= validateActuator_ActuatorC1(actuator, diagnostics, context);
 		return result;
@@ -1157,6 +1200,42 @@ public class e4smValidator extends EObjectValidator {
 								new Object[] { "TimeFunctionIsValid",
 										getValueLabel(e4smPackage.Literals.TIME_FUNCTION, timeFunction, context) },
 								new Object[] { timeFunction }, context));
+			}
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateCodeSpecification(String codeSpecification, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		boolean result = validateCodeSpecification_CodeSpecificationIsValid(codeSpecification, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the CodeSpecificationIsValid constraint of '<em>Code Specification</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateCodeSpecification_CodeSpecificationIsValid(String codeSpecification,
+			DiagnosticChain diagnostics, Map<Object, Object> context) {
+		// TODO implement the constraint
+		// -> specify the condition that violates the constraint
+		// -> verify the diagnostic details, including severity, code, and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
+			if (diagnostics != null) {
+				diagnostics.add(createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0,
+						"_UI_GenericConstraint_diagnostic",
+						new Object[] { "CodeSpecificationIsValid",
+								getValueLabel(e4smPackage.Literals.CODE_SPECIFICATION, codeSpecification, context) },
+						new Object[] { codeSpecification }, context));
 			}
 			return false;
 		}

@@ -26,12 +26,14 @@
     <genDataTypes ecoreDataType="e4sm.ecore#//Connectionspeed"/>
     <genDataTypes ecoreDataType="e4sm.ecore#//JSON"/>
     <genDataTypes ecoreDataType="e4sm.ecore#//TimeFunction"/>
+    <genDataTypes ecoreDataType="e4sm.ecore#//CodeSpecification"/>
     <genClasses ecoreClass="e4sm.ecore#//Component">
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//Component/components"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//Component/pins"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//Component/mainResponsible"/>
       <genFeatures documentation="A component may get specified further in a package&#xD;&#xA;Constraints:&#xD;&#xA;- C1: no loops allowed (implemented in Component)"
           notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//Component/specifiedInPackage"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//Component/codeSpecification"/>
       <genOperations ecoreOperation="e4sm.ecore#//Component/computeMainResponsible"
           body="&#x9;&#x9;Person resp = this.getMainResponsible();&#xD;&#xA;&#x9;&#x9;if (resp != null) {&#xD;&#xA;&#x9;&#x9;&#x9;return resp;&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;NamedElement c = (NamedElement) this.eContainer();&#xD;&#xA;&#x9;&#x9;if (!(c instanceof Component)) {&#xD;&#xA;&#x9;&#x9;&#x9;return null;&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;return ((Component)c).getMainResponsible();"/>
     </genClasses>

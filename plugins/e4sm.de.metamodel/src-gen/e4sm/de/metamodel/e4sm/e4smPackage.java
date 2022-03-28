@@ -26,6 +26,7 @@ import org.eclipse.emf.ecore.EReference;
  * <!-- end-user-doc -->
  * @see e4sm.de.metamodel.e4sm.e4smFactory
  * @model kind="package"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore"
  * @generated
  */
 public interface e4smPackage extends EPackage {
@@ -126,13 +127,22 @@ public interface e4smPackage extends EPackage {
 	int COMPONENT__SPECIFIED_IN_PACKAGE = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Code Specification</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT__CODE_SPECIFICATION = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Component</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 5;
+	int COMPONENT_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Compute Main Responsible</em>' operation.
@@ -215,6 +225,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOFTWARE_COMPONENT__SPECIFIED_IN_PACKAGE = COMPONENT__SPECIFIED_IN_PACKAGE;
+
+	/**
+	 * The feature id for the '<em><b>Code Specification</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOFTWARE_COMPONENT__CODE_SPECIFICATION = COMPONENT__CODE_SPECIFICATION;
 
 	/**
 	 * The feature id for the '<em><b>Output Uncertainty</b></em>' attribute.
@@ -342,6 +361,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int MACHINE_LEARNING_COMPONENT__SPECIFIED_IN_PACKAGE = SOFTWARE_COMPONENT__SPECIFIED_IN_PACKAGE;
+
+	/**
+	 * The feature id for the '<em><b>Code Specification</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MACHINE_LEARNING_COMPONENT__CODE_SPECIFICATION = SOFTWARE_COMPONENT__CODE_SPECIFICATION;
 
 	/**
 	 * The feature id for the '<em><b>Output Uncertainty</b></em>' attribute.
@@ -755,6 +783,15 @@ public interface e4smPackage extends EPackage {
 	int PHYSICAL_COMPONENT__SPECIFIED_IN_PACKAGE = COMPONENT__SPECIFIED_IN_PACKAGE;
 
 	/**
+	 * The feature id for the '<em><b>Code Specification</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PHYSICAL_COMPONENT__CODE_SPECIFICATION = COMPONENT__CODE_SPECIFICATION;
+
+	/**
 	 * The number of structural features of the '<em>Physical Component</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -899,6 +936,15 @@ public interface e4smPackage extends EPackage {
 	int HEURISTIC__SPECIFIED_IN_PACKAGE = SOFTWARE_COMPONENT__SPECIFIED_IN_PACKAGE;
 
 	/**
+	 * The feature id for the '<em><b>Code Specification</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HEURISTIC__CODE_SPECIFICATION = SOFTWARE_COMPONENT__CODE_SPECIFICATION;
+
+	/**
 	 * The feature id for the '<em><b>Output Uncertainty</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1016,6 +1062,15 @@ public interface e4smPackage extends EPackage {
 	int FUNCTION__SPECIFIED_IN_PACKAGE = SOFTWARE_COMPONENT__SPECIFIED_IN_PACKAGE;
 
 	/**
+	 * The feature id for the '<em><b>Code Specification</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION__CODE_SPECIFICATION = SOFTWARE_COMPONENT__CODE_SPECIFICATION;
+
+	/**
 	 * The feature id for the '<em><b>Output Uncertainty</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1131,6 +1186,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXTERNAL_DEPENDENCY__SPECIFIED_IN_PACKAGE = SOFTWARE_COMPONENT__SPECIFIED_IN_PACKAGE;
+
+	/**
+	 * The feature id for the '<em><b>Code Specification</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_DEPENDENCY__CODE_SPECIFICATION = SOFTWARE_COMPONENT__CODE_SPECIFICATION;
 
 	/**
 	 * The feature id for the '<em><b>Output Uncertainty</b></em>' attribute.
@@ -1583,6 +1647,15 @@ public interface e4smPackage extends EPackage {
 	int SENSOR__SPECIFIED_IN_PACKAGE = PHYSICAL_COMPONENT__SPECIFIED_IN_PACKAGE;
 
 	/**
+	 * The feature id for the '<em><b>Code Specification</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENSOR__CODE_SPECIFICATION = PHYSICAL_COMPONENT__CODE_SPECIFICATION;
+
+	/**
 	 * The feature id for the '<em><b>Time Function</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1671,6 +1744,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTUATOR__SPECIFIED_IN_PACKAGE = PHYSICAL_COMPONENT__SPECIFIED_IN_PACKAGE;
+
+	/**
+	 * The feature id for the '<em><b>Code Specification</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTUATOR__CODE_SPECIFICATION = PHYSICAL_COMPONENT__CODE_SPECIFICATION;
 
 	/**
 	 * The number of structural features of the '<em>Actuator</em>' class.
@@ -2445,6 +2527,16 @@ public interface e4smPackage extends EPackage {
 	int TIME_FUNCTION = 33;
 
 	/**
+	 * The meta object id for the '<em>Code Specification</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.lang.String
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getCodeSpecification()
+	 * @generated
+	 */
+	int CODE_SPECIFICATION = 34;
+
+	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.Component <em>Component</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2497,6 +2589,17 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getComponent_SpecifiedInPackage();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.Component#getCodeSpecification <em>Code Specification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Code Specification</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Component#getCodeSpecification()
+	 * @see #getComponent()
+	 * @generated
+	 */
+	EAttribute getComponent_CodeSpecification();
 
 	/**
 	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.Component#computeMainResponsible() <em>Compute Main Responsible</em>}' operation.
@@ -3354,6 +3457,18 @@ public interface e4smPackage extends EPackage {
 	EDataType getTimeFunction();
 
 	/**
+	 * Returns the meta object for data type '{@link java.lang.String <em>Code Specification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Code Specification</em>'.
+	 * @see java.lang.String
+	 * @model instanceClass="java.lang.String"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='CodeSpecificationIsValid'"
+	 * @generated
+	 */
+	EDataType getCodeSpecification();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3417,6 +3532,14 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EReference COMPONENT__SPECIFIED_IN_PACKAGE = eINSTANCE.getComponent_SpecifiedInPackage();
+
+		/**
+		 * The meta object literal for the '<em><b>Code Specification</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPONENT__CODE_SPECIFICATION = eINSTANCE.getComponent_CodeSpecification();
 
 		/**
 		 * The meta object literal for the '<em><b>Compute Main Responsible</b></em>' operation.
@@ -4133,6 +4256,16 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType TIME_FUNCTION = eINSTANCE.getTimeFunction();
+
+		/**
+		 * The meta object literal for the '<em>Code Specification</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.lang.String
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getCodeSpecification()
+		 * @generated
+		 */
+		EDataType CODE_SPECIFICATION = eINSTANCE.getCodeSpecification();
 
 	}
 

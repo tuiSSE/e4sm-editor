@@ -300,6 +300,13 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	private EDataType timeFunctionEDataType = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType codeSpecificationEDataType = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -445,6 +452,16 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	@Override
 	public EReference getComponent_SpecifiedInPackage() {
 		return (EReference) componentEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getComponent_CodeSpecification() {
+		return (EAttribute) componentEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1263,6 +1280,16 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
+	public EDataType getCodeSpecification() {
+		return codeSpecificationEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public e4smFactory gete4smFactory() {
 		return (e4smFactory) getEFactoryInstance();
 	}
@@ -1292,6 +1319,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		createEReference(componentEClass, COMPONENT__PINS);
 		createEReference(componentEClass, COMPONENT__MAIN_RESPONSIBLE);
 		createEReference(componentEClass, COMPONENT__SPECIFIED_IN_PACKAGE);
+		createEAttribute(componentEClass, COMPONENT__CODE_SPECIFICATION);
 		createEOperation(componentEClass, COMPONENT___COMPUTE_MAIN_RESPONSIBLE);
 
 		machineLearningComponentEClass = createEClass(MACHINE_LEARNING_COMPONENT);
@@ -1405,6 +1433,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		connectionspeedEDataType = createEDataType(CONNECTIONSPEED);
 		jsonEDataType = createEDataType(JSON);
 		timeFunctionEDataType = createEDataType(TIME_FUNCTION);
+		codeSpecificationEDataType = createEDataType(CODE_SPECIFICATION);
 	}
 
 	/**
@@ -1494,6 +1523,9 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		initEReference(getComponent_SpecifiedInPackage(), this.getPackage(), this.getPackage_SpecifiesComponent(),
 				"specifiedInPackage", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
 				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getComponent_CodeSpecification(), this.getCodeSpecification(), "codeSpecification", null, 0, 1,
+				Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getComponent__ComputeMainResponsible(), this.getPerson(), "computeMainResponsible", 0, 1,
 				IS_UNIQUE, IS_ORDERED);
@@ -1729,6 +1761,8 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		initEDataType(jsonEDataType, String.class, "JSON", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(timeFunctionEDataType, String.class, "TimeFunction", IS_SERIALIZABLE,
 				!IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(codeSpecificationEDataType, String.class, "CodeSpecification", IS_SERIALIZABLE,
+				!IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -1748,7 +1782,8 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 */
 	protected void createEcoreAnnotations() {
 		String source = "http://www.eclipse.org/emf/2002/Ecore";
-		addAnnotation(componentEClass, source, new String[] { "constraints", "ComponentC1 ComponentC2" });
+		addAnnotation(this, source, new String[] {});
+		addAnnotation(componentEClass, source, new String[] { "constraints", "ComponentC1 ComponentC2 ComponentC3" });
 		addAnnotation(connectorEClass, source, new String[] { "constraints", "ConnectorC1" });
 		addAnnotation(physicalConnectorEClass, source,
 				new String[] { "constraints", "PhysicalConnectorC1 PhysicalConnectorC2 PhysicalConnectorC3" });
@@ -1758,6 +1793,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		addAnnotation(actuatorEClass, source, new String[] { "constraints", "ActuatorC1" });
 		addAnnotation(pinEClass, source, new String[] { "constraints", "PinC1" });
 		addAnnotation(timeFunctionEDataType, source, new String[] { "constraints", "TimeFunctionIsValid" });
+		addAnnotation(codeSpecificationEDataType, source, new String[] { "constraints", "CodeSpecificationIsValid" });
 	}
 
 	/**

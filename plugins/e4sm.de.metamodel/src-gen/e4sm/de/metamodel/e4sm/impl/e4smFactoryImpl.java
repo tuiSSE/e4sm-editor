@@ -164,6 +164,8 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 			return createJSONFromString(eDataType, initialValue);
 		case e4smPackage.TIME_FUNCTION:
 			return createTimeFunctionFromString(eDataType, initialValue);
+		case e4smPackage.CODE_SPECIFICATION:
+			return createCodeSpecificationFromString(eDataType, initialValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -187,6 +189,8 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 			return convertJSONToString(eDataType, instanceValue);
 		case e4smPackage.TIME_FUNCTION:
 			return convertTimeFunctionToString(eDataType, instanceValue);
+		case e4smPackage.CODE_SPECIFICATION:
+			return convertCodeSpecificationToString(eDataType, instanceValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -595,6 +599,24 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 	 * @generated
 	 */
 	public String convertTimeFunctionToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String createCodeSpecificationFromString(EDataType eDataType, String initialValue) {
+		return (String) super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertCodeSpecificationToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
 
