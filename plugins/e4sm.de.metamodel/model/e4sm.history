@@ -4116,5 +4116,779 @@
       </changes>
     </changes>
   </releases>
-  <releases xmi:id="_poVgUIBfEeyzqsUCyRmHHA"/>
+  <releases xmi:id="_poVgUIBfEeyzqsUCyRmHHA">
+    <changes xsi:type="history:CompositeChange" xmi:id="_0LSTwK6YEeyZbtNF_uLUAQ">
+      <changes xsi:type="history:Create" xmi:id="_0LSTwa6YEeyZbtNF_uLUAQ">
+        <element href="core.ecore#/"/>
+        <changes xsi:type="history:Set" xmi:id="_0LSTwq6YEeyZbtNF_uLUAQ" featureName="name" dataValue="core">
+          <element href="core.ecore#/"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LSTw66YEeyZbtNF_uLUAQ" featureName="nsURI" dataValue="http://de.tu-ilmenau/e4sm/core/1.0.0">
+          <element href="core.ecore#/"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LSTxK6YEeyZbtNF_uLUAQ" featureName="nsPrefix" dataValue="core">
+          <element href="core.ecore#/"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LSTxa6YEeyZbtNF_uLUAQ" referenceName="eAnnotations">
+        <target href="core.ecore#/"/>
+        <element href="core.ecore#//%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FEcore%"/>
+        <changes xsi:type="history:Set" xmi:id="_0LSTxq6YEeyZbtNF_uLUAQ" featureName="source" dataValue="http://www.eclipse.org/emf/2002/Ecore">
+          <element href="core.ecore#//%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FEcore%"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LSTx66YEeyZbtNF_uLUAQ" referenceName="eAnnotations">
+        <target href="core.ecore#/"/>
+        <element href="core.ecore#//%http:%2F%2Fwww.eclipse.org%2Fedapt%"/>
+        <changes xsi:type="history:Set" xmi:id="_0LSTyK6YEeyZbtNF_uLUAQ" featureName="source" dataValue="http://www.eclipse.org/edapt">
+          <element href="core.ecore#//%http:%2F%2Fwww.eclipse.org%2Fedapt%"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LSTya6YEeyZbtNF_uLUAQ" referenceName="details">
+        <target href="core.ecore#//%http:%2F%2Fwww.eclipse.org%2Fedapt%"/>
+        <element href="core.ecore#//%http:%2F%2Fwww.eclipse.org%2Fedapt%/@details.0"/>
+        <changes xsi:type="history:Set" xmi:id="_0LSTyq6YEeyZbtNF_uLUAQ" featureName="key" dataValue="historyURI">
+          <element href="core.ecore#//%http:%2F%2Fwww.eclipse.org%2Fedapt%/@details.0"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LSTy66YEeyZbtNF_uLUAQ" featureName="value" dataValue="e4sm.history">
+          <element href="core.ecore#//%http:%2F%2Fwww.eclipse.org%2Fedapt%/@details.0"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LSTzK6YEeyZbtNF_uLUAQ" referenceName="eClassifiers">
+        <target href="core.ecore#/"/>
+        <element href="core.ecore#//Boolean"/>
+        <changes xsi:type="history:Set" xmi:id="_0LSTza6YEeyZbtNF_uLUAQ" featureName="name" dataValue="Boolean">
+          <element href="core.ecore#//Boolean"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LSTzq6YEeyZbtNF_uLUAQ" featureName="instanceClassName" dataValue="boolean">
+          <element href="core.ecore#//Boolean"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LSTz66YEeyZbtNF_uLUAQ" featureName="instanceTypeName" dataValue="boolean">
+          <element href="core.ecore#//Boolean"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LST0K6YEeyZbtNF_uLUAQ" referenceName="eClassifiers">
+        <target href="core.ecore#/"/>
+        <element href="core.ecore#//String"/>
+        <changes xsi:type="history:Set" xmi:id="_0LST0a6YEeyZbtNF_uLUAQ" featureName="name" dataValue="String">
+          <element href="core.ecore#//String"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LST0q6YEeyZbtNF_uLUAQ" featureName="instanceClassName" dataValue="java.lang.String">
+          <element href="core.ecore#//String"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LST066YEeyZbtNF_uLUAQ" featureName="instanceTypeName" dataValue="java.lang.String">
+          <element href="core.ecore#//String"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LST1K6YEeyZbtNF_uLUAQ" referenceName="eClassifiers">
+        <target href="core.ecore#/"/>
+        <element href="core.ecore#//Integer"/>
+        <changes xsi:type="history:Set" xmi:id="_0LST1a6YEeyZbtNF_uLUAQ" featureName="name" dataValue="Integer">
+          <element href="core.ecore#//Integer"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LST1q6YEeyZbtNF_uLUAQ" featureName="instanceClassName" dataValue="int">
+          <element href="core.ecore#//Integer"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LST166YEeyZbtNF_uLUAQ" featureName="instanceTypeName" dataValue="int">
+          <element href="core.ecore#//Integer"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LST2K6YEeyZbtNF_uLUAQ" referenceName="eClassifiers">
+        <target href="core.ecore#/"/>
+        <element href="core.ecore#//Float"/>
+        <changes xsi:type="history:Set" xmi:id="_0LST2a6YEeyZbtNF_uLUAQ" featureName="name" dataValue="Float">
+          <element href="core.ecore#//Float"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LST2q6YEeyZbtNF_uLUAQ" featureName="instanceClassName" dataValue="float">
+          <element href="core.ecore#//Float"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LST266YEeyZbtNF_uLUAQ" featureName="instanceTypeName" dataValue="float">
+          <element href="core.ecore#//Float"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LST3K6YEeyZbtNF_uLUAQ" referenceName="eClassifiers">
+        <target href="core.ecore#/"/>
+        <element href="core.ecore#//Double"/>
+        <changes xsi:type="history:Set" xmi:id="_0LST3a6YEeyZbtNF_uLUAQ" featureName="name" dataValue="Double">
+          <element href="core.ecore#//Double"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LST3q6YEeyZbtNF_uLUAQ" featureName="instanceClassName" dataValue="double">
+          <element href="core.ecore#//Double"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LST366YEeyZbtNF_uLUAQ" featureName="instanceTypeName" dataValue="double">
+          <element href="core.ecore#//Double"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LST4K6YEeyZbtNF_uLUAQ" referenceName="eClassifiers">
+        <target href="core.ecore#/"/>
+        <element href="core.ecore#//Long"/>
+        <changes xsi:type="history:Set" xmi:id="_0LST4a6YEeyZbtNF_uLUAQ" featureName="name" dataValue="Long">
+          <element href="core.ecore#//Long"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LST4q6YEeyZbtNF_uLUAQ" featureName="instanceClassName" dataValue="long">
+          <element href="core.ecore#//Long"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LST466YEeyZbtNF_uLUAQ" featureName="instanceTypeName" dataValue="long">
+          <element href="core.ecore#//Long"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LST5K6YEeyZbtNF_uLUAQ" referenceName="eClassifiers">
+        <target href="core.ecore#/"/>
+        <element href="core.ecore#//Short"/>
+        <changes xsi:type="history:Set" xmi:id="_0LST5a6YEeyZbtNF_uLUAQ" featureName="name" dataValue="Short">
+          <element href="core.ecore#//Short"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LST5q6YEeyZbtNF_uLUAQ" featureName="instanceClassName" dataValue="short">
+          <element href="core.ecore#//Short"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LST566YEeyZbtNF_uLUAQ" featureName="instanceTypeName" dataValue="short">
+          <element href="core.ecore#//Short"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LST6K6YEeyZbtNF_uLUAQ" referenceName="eClassifiers">
+        <target href="core.ecore#/"/>
+        <element href="core.ecore#//Character"/>
+        <changes xsi:type="history:Set" xmi:id="_0LST6a6YEeyZbtNF_uLUAQ" featureName="name" dataValue="Character">
+          <element href="core.ecore#//Character"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LST6q6YEeyZbtNF_uLUAQ" featureName="instanceClassName" dataValue="char">
+          <element href="core.ecore#//Character"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LST666YEeyZbtNF_uLUAQ" featureName="instanceTypeName" dataValue="char">
+          <element href="core.ecore#//Character"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LST7K6YEeyZbtNF_uLUAQ" referenceName="eClassifiers">
+        <target href="core.ecore#/"/>
+        <element href="core.ecore#//Byte"/>
+        <changes xsi:type="history:Set" xmi:id="_0LST7a6YEeyZbtNF_uLUAQ" featureName="name" dataValue="Byte">
+          <element href="core.ecore#//Byte"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LST7q6YEeyZbtNF_uLUAQ" featureName="instanceClassName" dataValue="byte">
+          <element href="core.ecore#//Byte"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LST766YEeyZbtNF_uLUAQ" featureName="instanceTypeName" dataValue="byte">
+          <element href="core.ecore#//Byte"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LST8K6YEeyZbtNF_uLUAQ" referenceName="eClassifiers">
+        <target href="core.ecore#/"/>
+        <element href="core.ecore#//Date"/>
+        <changes xsi:type="history:Set" xmi:id="_0LST8a6YEeyZbtNF_uLUAQ" featureName="name" dataValue="Date">
+          <element href="core.ecore#//Date"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LST8q6YEeyZbtNF_uLUAQ" featureName="instanceClassName" dataValue="java.time.LocalDate">
+          <element href="core.ecore#//Date"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LST866YEeyZbtNF_uLUAQ" featureName="instanceTypeName" dataValue="java.time.LocalDate">
+          <element href="core.ecore#//Date"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LST9K6YEeyZbtNF_uLUAQ" referenceName="eClassifiers">
+        <target href="core.ecore#/"/>
+        <element href="core.ecore#//Timestamp"/>
+        <changes xsi:type="history:Set" xmi:id="_0LST9a6YEeyZbtNF_uLUAQ" featureName="name" dataValue="Timestamp">
+          <element href="core.ecore#//Timestamp"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LST9q6YEeyZbtNF_uLUAQ" featureName="instanceClassName" dataValue="java.time.LocalDateTime">
+          <element href="core.ecore#//Timestamp"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LST966YEeyZbtNF_uLUAQ" featureName="instanceTypeName" dataValue="java.time.LocalDateTime">
+          <element href="core.ecore#//Timestamp"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LST-K6YEeyZbtNF_uLUAQ" referenceName="eClassifiers">
+        <target href="core.ecore#/"/>
+        <element href="core.ecore#//Time"/>
+        <changes xsi:type="history:Set" xmi:id="_0LST-a6YEeyZbtNF_uLUAQ" featureName="name" dataValue="Time">
+          <element href="core.ecore#//Time"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LST-q6YEeyZbtNF_uLUAQ" featureName="instanceClassName" dataValue="java.time.LocalTime">
+          <element href="core.ecore#//Time"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LST-66YEeyZbtNF_uLUAQ" featureName="instanceTypeName" dataValue="java.time.LocalTime">
+          <element href="core.ecore#//Time"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LST_K6YEeyZbtNF_uLUAQ" referenceName="eClassifiers">
+        <target href="core.ecore#/"/>
+        <element href="core.ecore#//Element"/>
+        <changes xsi:type="history:Set" xmi:id="_0LST_a6YEeyZbtNF_uLUAQ" featureName="name" dataValue="Element">
+          <element href="core.ecore#//Element"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LST_q6YEeyZbtNF_uLUAQ" featureName="abstract" dataValue="true" oldDataValue="false">
+          <element href="core.ecore#//Element"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LST_66YEeyZbtNF_uLUAQ" referenceName="eClassifiers">
+        <target href="core.ecore#/"/>
+        <element href="core.ecore#//NamedElement"/>
+        <changes xsi:type="history:Set" xmi:id="_0LSUAK6YEeyZbtNF_uLUAQ" featureName="name" dataValue="NamedElement">
+          <element href="core.ecore#//NamedElement"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LSUAa6YEeyZbtNF_uLUAQ" featureName="abstract" dataValue="true" oldDataValue="false">
+          <element href="core.ecore#//NamedElement"/>
+        </changes>
+        <changes xsi:type="history:Add" xmi:id="_0LSUAq6YEeyZbtNF_uLUAQ" featureName="eSuperTypes">
+          <element href="core.ecore#//NamedElement"/>
+          <referenceValue href="core.ecore#//Element"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LSUA66YEeyZbtNF_uLUAQ" referenceName="eAnnotations">
+        <target href="core.ecore#//NamedElement"/>
+        <element href="core.ecore#//NamedElement/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%"/>
+        <changes xsi:type="history:Set" xmi:id="_0LSUBK6YEeyZbtNF_uLUAQ" featureName="source" dataValue="http://www.eclipse.org/emf/2002/GenModel">
+          <element href="core.ecore#//NamedElement/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LSUBa6YEeyZbtNF_uLUAQ" referenceName="details">
+        <target href="core.ecore#//NamedElement/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%"/>
+        <element href="core.ecore#//NamedElement/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <changes xsi:type="history:Set" xmi:id="_0LSUBq6YEeyZbtNF_uLUAQ" featureName="key" dataValue="documentation">
+          <element href="core.ecore#//NamedElement/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LSUB66YEeyZbtNF_uLUAQ" featureName="value" dataValue="An Element which has a name">
+          <element href="core.ecore#//NamedElement/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LSUCK6YEeyZbtNF_uLUAQ" referenceName="eStructuralFeatures">
+        <target href="core.ecore#//NamedElement"/>
+        <element href="core.ecore#//NamedElement/name"/>
+        <changes xsi:type="history:Set" xmi:id="_0LSUCa6YEeyZbtNF_uLUAQ" featureName="name" dataValue="name">
+          <element href="core.ecore#//NamedElement/name"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LSUCq6YEeyZbtNF_uLUAQ" featureName="eType">
+          <element href="core.ecore#//NamedElement/name"/>
+          <referenceValue href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LSUC66YEeyZbtNF_uLUAQ" referenceName="eAnnotations">
+        <target href="core.ecore#//NamedElement/name"/>
+        <element href="core.ecore#//NamedElement/name/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%"/>
+        <changes xsi:type="history:Set" xmi:id="_0LSUDK6YEeyZbtNF_uLUAQ" featureName="source" dataValue="http://www.eclipse.org/emf/2002/GenModel">
+          <element href="core.ecore#//NamedElement/name/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LSUDa6YEeyZbtNF_uLUAQ" referenceName="details">
+        <target href="core.ecore#//NamedElement/name/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%"/>
+        <element href="core.ecore#//NamedElement/name/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <changes xsi:type="history:Set" xmi:id="_0LSUDq6YEeyZbtNF_uLUAQ" featureName="key" dataValue="documentation">
+          <element href="core.ecore#//NamedElement/name/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LSUD66YEeyZbtNF_uLUAQ" featureName="value" dataValue="The name of the element">
+          <element href="core.ecore#//NamedElement/name/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LSUEK6YEeyZbtNF_uLUAQ" referenceName="eAnnotations">
+        <target href="core.ecore#//Element"/>
+        <element href="core.ecore#//Element/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%"/>
+        <changes xsi:type="history:Set" xmi:id="_0LSUEa6YEeyZbtNF_uLUAQ" featureName="source" dataValue="http://www.eclipse.org/emf/2002/GenModel">
+          <element href="core.ecore#//Element/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LSUEq6YEeyZbtNF_uLUAQ" referenceName="details">
+        <target href="core.ecore#//Element/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%"/>
+        <element href="core.ecore#//Element/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <changes xsi:type="history:Set" xmi:id="_0LSUE66YEeyZbtNF_uLUAQ" featureName="key" dataValue="documentation">
+          <element href="core.ecore#//Element/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LSUFK6YEeyZbtNF_uLUAQ" featureName="value" dataValue="A model element">
+          <element href="core.ecore#//Element/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LSUFa6YEeyZbtNF_uLUAQ" referenceName="eClassifiers">
+        <target href="core.ecore#/"/>
+        <element href="core.ecore#//TypedElement"/>
+        <changes xsi:type="history:Set" xmi:id="_0LSUFq6YEeyZbtNF_uLUAQ" featureName="name" dataValue="TypedElement">
+          <element href="core.ecore#//TypedElement"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LSUF66YEeyZbtNF_uLUAQ" featureName="abstract" dataValue="true" oldDataValue="false">
+          <element href="core.ecore#//TypedElement"/>
+        </changes>
+        <changes xsi:type="history:Add" xmi:id="_0LSUGK6YEeyZbtNF_uLUAQ" featureName="eSuperTypes">
+          <element href="core.ecore#//TypedElement"/>
+          <referenceValue href="core.ecore#//NamedElement"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LSUGa6YEeyZbtNF_uLUAQ" referenceName="eClassifiers">
+        <target href="core.ecore#/"/>
+        <element href="core.ecore#//ValueSpecification"/>
+        <changes xsi:type="history:Set" xmi:id="_0LSUGq6YEeyZbtNF_uLUAQ" featureName="name" dataValue="ValueSpecification">
+          <element href="core.ecore#//ValueSpecification"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LSUG66YEeyZbtNF_uLUAQ" featureName="abstract" dataValue="true" oldDataValue="false">
+          <element href="core.ecore#//ValueSpecification"/>
+        </changes>
+        <changes xsi:type="history:Add" xmi:id="_0LSUHK6YEeyZbtNF_uLUAQ" featureName="eSuperTypes">
+          <element href="core.ecore#//ValueSpecification"/>
+          <referenceValue href="core.ecore#//TypedElement"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LSUHa6YEeyZbtNF_uLUAQ" referenceName="eClassifiers">
+        <target href="core.ecore#/"/>
+        <element href="core.ecore#//LiteralSpecification"/>
+        <changes xsi:type="history:Set" xmi:id="_0LSUHq6YEeyZbtNF_uLUAQ" featureName="name" dataValue="LiteralSpecification">
+          <element href="core.ecore#//LiteralSpecification"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LSUH66YEeyZbtNF_uLUAQ" featureName="abstract" dataValue="true" oldDataValue="false">
+          <element href="core.ecore#//LiteralSpecification"/>
+        </changes>
+        <changes xsi:type="history:Add" xmi:id="_0LSUIK6YEeyZbtNF_uLUAQ" featureName="eSuperTypes">
+          <element href="core.ecore#//LiteralSpecification"/>
+          <referenceValue href="core.ecore#//ValueSpecification"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LSUIa6YEeyZbtNF_uLUAQ" referenceName="eClassifiers">
+        <target href="core.ecore#/"/>
+        <element href="core.ecore#//LiteralNull"/>
+        <changes xsi:type="history:Set" xmi:id="_0LSUIq6YEeyZbtNF_uLUAQ" featureName="name" dataValue="LiteralNull">
+          <element href="core.ecore#//LiteralNull"/>
+        </changes>
+        <changes xsi:type="history:Add" xmi:id="_0LSUI66YEeyZbtNF_uLUAQ" featureName="eSuperTypes">
+          <element href="core.ecore#//LiteralNull"/>
+          <referenceValue href="core.ecore#//LiteralSpecification"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LSUJK6YEeyZbtNF_uLUAQ" referenceName="eClassifiers">
+        <target href="core.ecore#/"/>
+        <element href="core.ecore#//LiteralString"/>
+        <changes xsi:type="history:Set" xmi:id="_0LSUJa6YEeyZbtNF_uLUAQ" featureName="name" dataValue="LiteralString">
+          <element href="core.ecore#//LiteralString"/>
+        </changes>
+        <changes xsi:type="history:Add" xmi:id="_0LSUJq6YEeyZbtNF_uLUAQ" featureName="eSuperTypes">
+          <element href="core.ecore#//LiteralString"/>
+          <referenceValue href="core.ecore#//LiteralSpecification"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LSUJ66YEeyZbtNF_uLUAQ" referenceName="eStructuralFeatures">
+        <target href="core.ecore#//LiteralString"/>
+        <element href="core.ecore#//LiteralString/value"/>
+        <changes xsi:type="history:Set" xmi:id="_0LSUKK6YEeyZbtNF_uLUAQ" featureName="name" dataValue="value">
+          <element href="core.ecore#//LiteralString/value"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LSUKa6YEeyZbtNF_uLUAQ" featureName="eType">
+          <element href="core.ecore#//LiteralString/value"/>
+          <referenceValue href="core.ecore#//String"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LSUKq6YEeyZbtNF_uLUAQ" referenceName="eClassifiers">
+        <target href="core.ecore#/"/>
+        <element href="core.ecore#//LiteralInteger"/>
+        <changes xsi:type="history:Set" xmi:id="_0LSUK66YEeyZbtNF_uLUAQ" featureName="name" dataValue="LiteralInteger">
+          <element href="core.ecore#//LiteralInteger"/>
+        </changes>
+        <changes xsi:type="history:Add" xmi:id="_0LSULK6YEeyZbtNF_uLUAQ" featureName="eSuperTypes">
+          <element href="core.ecore#//LiteralInteger"/>
+          <referenceValue href="core.ecore#//LiteralSpecification"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LSULa6YEeyZbtNF_uLUAQ" referenceName="eStructuralFeatures">
+        <target href="core.ecore#//LiteralInteger"/>
+        <element href="core.ecore#//LiteralInteger/value"/>
+        <changes xsi:type="history:Set" xmi:id="_0LSULq6YEeyZbtNF_uLUAQ" featureName="name" dataValue="value">
+          <element href="core.ecore#//LiteralInteger/value"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LSUL66YEeyZbtNF_uLUAQ" featureName="eType">
+          <element href="core.ecore#//LiteralInteger/value"/>
+          <referenceValue href="core.ecore#//Integer"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LSUMK6YEeyZbtNF_uLUAQ" referenceName="eClassifiers">
+        <target href="core.ecore#/"/>
+        <element href="core.ecore#//LiteralBoolean"/>
+        <changes xsi:type="history:Set" xmi:id="_0LSUMa6YEeyZbtNF_uLUAQ" featureName="name" dataValue="LiteralBoolean">
+          <element href="core.ecore#//LiteralBoolean"/>
+        </changes>
+        <changes xsi:type="history:Add" xmi:id="_0LSUMq6YEeyZbtNF_uLUAQ" featureName="eSuperTypes">
+          <element href="core.ecore#//LiteralBoolean"/>
+          <referenceValue href="core.ecore#//LiteralSpecification"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LSUM66YEeyZbtNF_uLUAQ" referenceName="eOperations">
+        <target href="core.ecore#//LiteralBoolean"/>
+        <element href="core.ecore#//LiteralBoolean/getValue"/>
+        <changes xsi:type="history:Set" xmi:id="_0LSUNK6YEeyZbtNF_uLUAQ" featureName="name" dataValue="getValue">
+          <element href="core.ecore#//LiteralBoolean/getValue"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LSUNa6YEeyZbtNF_uLUAQ" featureName="eType">
+          <element href="core.ecore#//LiteralBoolean/getValue"/>
+          <referenceValue href="core.ecore#//Boolean"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LSUNq6YEeyZbtNF_uLUAQ" referenceName="eStructuralFeatures">
+        <target href="core.ecore#//LiteralBoolean"/>
+        <element href="core.ecore#//LiteralBoolean/value"/>
+        <changes xsi:type="history:Set" xmi:id="_0LSUN66YEeyZbtNF_uLUAQ" featureName="name" dataValue="value">
+          <element href="core.ecore#//LiteralBoolean/value"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LSUOK6YEeyZbtNF_uLUAQ" featureName="eType">
+          <element href="core.ecore#//LiteralBoolean/value"/>
+          <referenceValue href="core.ecore#//Boolean"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LSUOa6YEeyZbtNF_uLUAQ" referenceName="eClassifiers">
+        <target href="core.ecore#/"/>
+        <element href="core.ecore#//LiteralFloat"/>
+        <changes xsi:type="history:Set" xmi:id="_0LSUOq6YEeyZbtNF_uLUAQ" featureName="name" dataValue="LiteralFloat">
+          <element href="core.ecore#//LiteralFloat"/>
+        </changes>
+        <changes xsi:type="history:Add" xmi:id="_0LSUO66YEeyZbtNF_uLUAQ" featureName="eSuperTypes">
+          <element href="core.ecore#//LiteralFloat"/>
+          <referenceValue href="core.ecore#//LiteralSpecification"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LSUPK6YEeyZbtNF_uLUAQ" referenceName="eStructuralFeatures">
+        <target href="core.ecore#//LiteralFloat"/>
+        <element href="core.ecore#//LiteralFloat/value"/>
+        <changes xsi:type="history:Set" xmi:id="_0LSUPa6YEeyZbtNF_uLUAQ" featureName="name" dataValue="value">
+          <element href="core.ecore#//LiteralFloat/value"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LSUPq6YEeyZbtNF_uLUAQ" featureName="eType">
+          <element href="core.ecore#//LiteralFloat/value"/>
+          <referenceValue href="core.ecore#//Float"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LSUP66YEeyZbtNF_uLUAQ" referenceName="eClassifiers">
+        <target href="core.ecore#/"/>
+        <element href="core.ecore#//LiteralDouble"/>
+        <changes xsi:type="history:Set" xmi:id="_0LSUQK6YEeyZbtNF_uLUAQ" featureName="name" dataValue="LiteralDouble">
+          <element href="core.ecore#//LiteralDouble"/>
+        </changes>
+        <changes xsi:type="history:Add" xmi:id="_0LSUQa6YEeyZbtNF_uLUAQ" featureName="eSuperTypes">
+          <element href="core.ecore#//LiteralDouble"/>
+          <referenceValue href="core.ecore#//LiteralSpecification"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LSUQq6YEeyZbtNF_uLUAQ" referenceName="eStructuralFeatures">
+        <target href="core.ecore#//LiteralDouble"/>
+        <element href="core.ecore#//LiteralDouble/value"/>
+        <changes xsi:type="history:Set" xmi:id="_0LSUQ66YEeyZbtNF_uLUAQ" featureName="name" dataValue="value">
+          <element href="core.ecore#//LiteralDouble/value"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LSURK6YEeyZbtNF_uLUAQ" featureName="defaultValueLiteral" dataValue="0.0">
+          <element href="core.ecore#//LiteralDouble/value"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LSURa6YEeyZbtNF_uLUAQ" featureName="eType">
+          <element href="core.ecore#//LiteralDouble/value"/>
+          <referenceValue href="core.ecore#//Double"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LSURq6YEeyZbtNF_uLUAQ" referenceName="eClassifiers">
+        <target href="core.ecore#/"/>
+        <element href="core.ecore#//LiteralLong"/>
+        <changes xsi:type="history:Set" xmi:id="_0LSUR66YEeyZbtNF_uLUAQ" featureName="name" dataValue="LiteralLong">
+          <element href="core.ecore#//LiteralLong"/>
+        </changes>
+        <changes xsi:type="history:Add" xmi:id="_0LSUSK6YEeyZbtNF_uLUAQ" featureName="eSuperTypes">
+          <element href="core.ecore#//LiteralLong"/>
+          <referenceValue href="core.ecore#//LiteralSpecification"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LSUSa6YEeyZbtNF_uLUAQ" referenceName="eStructuralFeatures">
+        <target href="core.ecore#//LiteralLong"/>
+        <element href="core.ecore#//LiteralLong/value"/>
+        <changes xsi:type="history:Set" xmi:id="_0LSUSq6YEeyZbtNF_uLUAQ" featureName="name" dataValue="value">
+          <element href="core.ecore#//LiteralLong/value"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LSUS66YEeyZbtNF_uLUAQ" featureName="defaultValueLiteral" dataValue="0">
+          <element href="core.ecore#//LiteralLong/value"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LSUTK6YEeyZbtNF_uLUAQ" featureName="eType">
+          <element href="core.ecore#//LiteralLong/value"/>
+          <referenceValue href="core.ecore#//Long"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LSUTa6YEeyZbtNF_uLUAQ" referenceName="eClassifiers">
+        <target href="core.ecore#/"/>
+        <element href="core.ecore#//LiteralShort"/>
+        <changes xsi:type="history:Set" xmi:id="_0LSUTq6YEeyZbtNF_uLUAQ" featureName="name" dataValue="LiteralShort">
+          <element href="core.ecore#//LiteralShort"/>
+        </changes>
+        <changes xsi:type="history:Add" xmi:id="_0LSUT66YEeyZbtNF_uLUAQ" featureName="eSuperTypes">
+          <element href="core.ecore#//LiteralShort"/>
+          <referenceValue href="core.ecore#//LiteralSpecification"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LSUUK6YEeyZbtNF_uLUAQ" referenceName="eStructuralFeatures">
+        <target href="core.ecore#//LiteralShort"/>
+        <element href="core.ecore#//LiteralShort/value"/>
+        <changes xsi:type="history:Set" xmi:id="_0LSUUa6YEeyZbtNF_uLUAQ" featureName="name" dataValue="value">
+          <element href="core.ecore#//LiteralShort/value"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LSUUq6YEeyZbtNF_uLUAQ" featureName="defaultValueLiteral" dataValue="0">
+          <element href="core.ecore#//LiteralShort/value"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LSUU66YEeyZbtNF_uLUAQ" featureName="eType">
+          <element href="core.ecore#//LiteralShort/value"/>
+          <referenceValue href="core.ecore#//Short"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LSUVK6YEeyZbtNF_uLUAQ" referenceName="eClassifiers">
+        <target href="core.ecore#/"/>
+        <element href="core.ecore#//LiteralByte"/>
+        <changes xsi:type="history:Set" xmi:id="_0LSUVa6YEeyZbtNF_uLUAQ" featureName="name" dataValue="LiteralByte">
+          <element href="core.ecore#//LiteralByte"/>
+        </changes>
+        <changes xsi:type="history:Add" xmi:id="_0LSUVq6YEeyZbtNF_uLUAQ" featureName="eSuperTypes">
+          <element href="core.ecore#//LiteralByte"/>
+          <referenceValue href="core.ecore#//LiteralSpecification"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LSUV66YEeyZbtNF_uLUAQ" referenceName="eStructuralFeatures">
+        <target href="core.ecore#//LiteralByte"/>
+        <element href="core.ecore#//LiteralByte/value"/>
+        <changes xsi:type="history:Set" xmi:id="_0LSUWK6YEeyZbtNF_uLUAQ" featureName="name" dataValue="value">
+          <element href="core.ecore#//LiteralByte/value"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LSUWa6YEeyZbtNF_uLUAQ" featureName="defaultValueLiteral" dataValue="0">
+          <element href="core.ecore#//LiteralByte/value"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LSUWq6YEeyZbtNF_uLUAQ" featureName="eType">
+          <element href="core.ecore#//LiteralByte/value"/>
+          <referenceValue href="core.ecore#//Byte"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LSUW66YEeyZbtNF_uLUAQ" referenceName="eClassifiers">
+        <target href="core.ecore#/"/>
+        <element href="core.ecore#//LiteralCharacter"/>
+        <changes xsi:type="history:Set" xmi:id="_0LSUXK6YEeyZbtNF_uLUAQ" featureName="name" dataValue="LiteralCharacter">
+          <element href="core.ecore#//LiteralCharacter"/>
+        </changes>
+        <changes xsi:type="history:Add" xmi:id="_0LSUXa6YEeyZbtNF_uLUAQ" featureName="eSuperTypes">
+          <element href="core.ecore#//LiteralCharacter"/>
+          <referenceValue href="core.ecore#//LiteralSpecification"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LSUXq6YEeyZbtNF_uLUAQ" referenceName="eStructuralFeatures">
+        <target href="core.ecore#//LiteralCharacter"/>
+        <element href="core.ecore#//LiteralCharacter/value"/>
+        <changes xsi:type="history:Set" xmi:id="_0LSUX66YEeyZbtNF_uLUAQ" featureName="name" dataValue="value">
+          <element href="core.ecore#//LiteralCharacter/value"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LSUYK6YEeyZbtNF_uLUAQ" featureName="eType">
+          <element href="core.ecore#//LiteralCharacter/value"/>
+          <referenceValue href="core.ecore#//Character"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LSUYa6YEeyZbtNF_uLUAQ" referenceName="eClassifiers">
+        <target href="core.ecore#/"/>
+        <element href="core.ecore#//LiteralDate"/>
+        <changes xsi:type="history:Set" xmi:id="_0LSUYq6YEeyZbtNF_uLUAQ" featureName="name" dataValue="LiteralDate">
+          <element href="core.ecore#//LiteralDate"/>
+        </changes>
+        <changes xsi:type="history:Add" xmi:id="_0LSUY66YEeyZbtNF_uLUAQ" featureName="eSuperTypes">
+          <element href="core.ecore#//LiteralDate"/>
+          <referenceValue href="core.ecore#//LiteralSpecification"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LSUZK6YEeyZbtNF_uLUAQ" referenceName="eStructuralFeatures">
+        <target href="core.ecore#//LiteralDate"/>
+        <element href="core.ecore#//LiteralDate/value"/>
+        <changes xsi:type="history:Set" xmi:id="_0LSUZa6YEeyZbtNF_uLUAQ" featureName="name" dataValue="value">
+          <element href="core.ecore#//LiteralDate/value"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LSUZq6YEeyZbtNF_uLUAQ" featureName="eType">
+          <element href="core.ecore#//LiteralDate/value"/>
+          <referenceValue href="core.ecore#//Date"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LSUZ66YEeyZbtNF_uLUAQ" referenceName="eOperations">
+        <target href="core.ecore#//ValueSpecification"/>
+        <element href="core.ecore#//ValueSpecification/booleanValue"/>
+        <changes xsi:type="history:Set" xmi:id="_0LSUaK6YEeyZbtNF_uLUAQ" featureName="name" dataValue="booleanValue">
+          <element href="core.ecore#//ValueSpecification/booleanValue"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LSUaa6YEeyZbtNF_uLUAQ" featureName="eType">
+          <element href="core.ecore#//ValueSpecification/booleanValue"/>
+          <referenceValue href="core.ecore#//Boolean"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LSUaq6YEeyZbtNF_uLUAQ" referenceName="eOperations">
+        <target href="core.ecore#//ValueSpecification"/>
+        <element href="core.ecore#//ValueSpecification/integerValue"/>
+        <changes xsi:type="history:Set" xmi:id="_0LSUa66YEeyZbtNF_uLUAQ" featureName="name" dataValue="integerValue">
+          <element href="core.ecore#//ValueSpecification/integerValue"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LSUbK6YEeyZbtNF_uLUAQ" featureName="eType">
+          <element href="core.ecore#//ValueSpecification/integerValue"/>
+          <referenceValue href="core.ecore#//Integer"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LSUba6YEeyZbtNF_uLUAQ" referenceName="eOperations">
+        <target href="core.ecore#//ValueSpecification"/>
+        <element href="core.ecore#//ValueSpecification/isComputable"/>
+        <changes xsi:type="history:Set" xmi:id="_0LSUbq6YEeyZbtNF_uLUAQ" featureName="name" dataValue="isComputable">
+          <element href="core.ecore#//ValueSpecification/isComputable"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LSUb66YEeyZbtNF_uLUAQ" featureName="eType">
+          <element href="core.ecore#//ValueSpecification/isComputable"/>
+          <referenceValue href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LSUcK6YEeyZbtNF_uLUAQ" referenceName="eOperations">
+        <target href="core.ecore#//ValueSpecification"/>
+        <element href="core.ecore#//ValueSpecification/toString"/>
+        <changes xsi:type="history:Set" xmi:id="_0LSUca6YEeyZbtNF_uLUAQ" featureName="name" dataValue="toString">
+          <element href="core.ecore#//ValueSpecification/toString"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LSUcq6YEeyZbtNF_uLUAQ" featureName="eType">
+          <element href="core.ecore#//ValueSpecification/toString"/>
+          <referenceValue href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LSUc66YEeyZbtNF_uLUAQ" referenceName="eStructuralFeatures">
+        <target href="core.ecore#//TypedElement"/>
+        <element href="core.ecore#//TypedElement/type"/>
+        <changes xsi:type="history:Set" xmi:id="_0LSUdK6YEeyZbtNF_uLUAQ" featureName="name" dataValue="type">
+          <element href="core.ecore#//TypedElement/type"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LSUda6YEeyZbtNF_uLUAQ" featureName="eType">
+          <element href="core.ecore#//TypedElement/type"/>
+          <referenceValue href="http://www.eclipse.org/emf/2002/Ecore#//EDataType"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LSUdq6YEeyZbtNF_uLUAQ" referenceName="eClassifiers">
+        <target href="core.ecore#/"/>
+        <element href="core.ecore#//UnitOfMeasurement"/>
+        <changes xsi:type="history:Set" xmi:id="_0LSUd66YEeyZbtNF_uLUAQ" featureName="name" dataValue="UnitOfMeasurement">
+          <element href="core.ecore#//UnitOfMeasurement"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LSUeK6YEeyZbtNF_uLUAQ" referenceName="eLiterals">
+        <target href="core.ecore#//UnitOfMeasurement"/>
+        <element href="core.ecore#//UnitOfMeasurement/cm"/>
+        <changes xsi:type="history:Set" xmi:id="_0LSUea6YEeyZbtNF_uLUAQ" featureName="name" dataValue="cm">
+          <element href="core.ecore#//UnitOfMeasurement/cm"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LSUeq6YEeyZbtNF_uLUAQ" featureName="value" dataValue="9" oldDataValue="0">
+          <element href="core.ecore#//UnitOfMeasurement/cm"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LSUe66YEeyZbtNF_uLUAQ" featureName="literal" dataValue="cm">
+          <element href="core.ecore#//UnitOfMeasurement/cm"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LSUfK6YEeyZbtNF_uLUAQ" referenceName="eLiterals">
+        <target href="core.ecore#//UnitOfMeasurement"/>
+        <element href="core.ecore#//UnitOfMeasurement/m"/>
+        <changes xsi:type="history:Set" xmi:id="_0LSUfa6YEeyZbtNF_uLUAQ" featureName="name" dataValue="m">
+          <element href="core.ecore#//UnitOfMeasurement/m"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LSUfq6YEeyZbtNF_uLUAQ" featureName="value" dataValue="1" oldDataValue="0">
+          <element href="core.ecore#//UnitOfMeasurement/m"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LSUf66YEeyZbtNF_uLUAQ" featureName="literal" dataValue="m">
+          <element href="core.ecore#//UnitOfMeasurement/m"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LSUgK6YEeyZbtNF_uLUAQ" referenceName="eLiterals">
+        <target href="core.ecore#//UnitOfMeasurement"/>
+        <element href="core.ecore#//UnitOfMeasurement/mm"/>
+        <changes xsi:type="history:Set" xmi:id="_0LSUga6YEeyZbtNF_uLUAQ" featureName="name" dataValue="mm">
+          <element href="core.ecore#//UnitOfMeasurement/mm"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LSUgq6YEeyZbtNF_uLUAQ" featureName="value" dataValue="2" oldDataValue="0">
+          <element href="core.ecore#//UnitOfMeasurement/mm"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LSUg66YEeyZbtNF_uLUAQ" featureName="literal" dataValue="mm">
+          <element href="core.ecore#//UnitOfMeasurement/mm"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LSUhK6YEeyZbtNF_uLUAQ" referenceName="eLiterals">
+        <target href="core.ecore#//UnitOfMeasurement"/>
+        <element href="core.ecore#//UnitOfMeasurement/percentage"/>
+        <changes xsi:type="history:Set" xmi:id="_0LSUha6YEeyZbtNF_uLUAQ" featureName="name" dataValue="percentage">
+          <element href="core.ecore#//UnitOfMeasurement/percentage"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LSUhq6YEeyZbtNF_uLUAQ" featureName="value" dataValue="3" oldDataValue="0">
+          <element href="core.ecore#//UnitOfMeasurement/percentage"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LSUh66YEeyZbtNF_uLUAQ" featureName="literal" dataValue="percentage">
+          <element href="core.ecore#//UnitOfMeasurement/percentage"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LSUiK6YEeyZbtNF_uLUAQ" referenceName="eLiterals">
+        <target href="core.ecore#//UnitOfMeasurement"/>
+        <element href="core.ecore#//UnitOfMeasurement/s"/>
+        <changes xsi:type="history:Set" xmi:id="_0LSUia6YEeyZbtNF_uLUAQ" featureName="name" dataValue="s">
+          <element href="core.ecore#//UnitOfMeasurement/s"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LSUiq6YEeyZbtNF_uLUAQ" featureName="value" dataValue="4" oldDataValue="0">
+          <element href="core.ecore#//UnitOfMeasurement/s"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LSUi66YEeyZbtNF_uLUAQ" featureName="literal" dataValue="s">
+          <element href="core.ecore#//UnitOfMeasurement/s"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LSUjK6YEeyZbtNF_uLUAQ" referenceName="eLiterals">
+        <target href="core.ecore#//UnitOfMeasurement"/>
+        <element href="core.ecore#//UnitOfMeasurement/ms"/>
+        <changes xsi:type="history:Set" xmi:id="_0LSUja6YEeyZbtNF_uLUAQ" featureName="name" dataValue="ms">
+          <element href="core.ecore#//UnitOfMeasurement/ms"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LSUjq6YEeyZbtNF_uLUAQ" featureName="value" dataValue="5" oldDataValue="0">
+          <element href="core.ecore#//UnitOfMeasurement/ms"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LSUj66YEeyZbtNF_uLUAQ" featureName="literal" dataValue="ms">
+          <element href="core.ecore#//UnitOfMeasurement/ms"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LSUkK6YEeyZbtNF_uLUAQ" referenceName="eLiterals">
+        <target href="core.ecore#//UnitOfMeasurement"/>
+        <element href="core.ecore#//UnitOfMeasurement/minutes"/>
+        <changes xsi:type="history:Set" xmi:id="_0LSUka6YEeyZbtNF_uLUAQ" featureName="name" dataValue="minutes">
+          <element href="core.ecore#//UnitOfMeasurement/minutes"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LSUkq6YEeyZbtNF_uLUAQ" featureName="value" dataValue="6" oldDataValue="0">
+          <element href="core.ecore#//UnitOfMeasurement/minutes"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LSUk66YEeyZbtNF_uLUAQ" featureName="literal" dataValue="minutes">
+          <element href="core.ecore#//UnitOfMeasurement/minutes"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LSUlK6YEeyZbtNF_uLUAQ" referenceName="eLiterals">
+        <target href="core.ecore#//UnitOfMeasurement"/>
+        <element href="core.ecore#//UnitOfMeasurement/hours"/>
+        <changes xsi:type="history:Set" xmi:id="_0LSUla6YEeyZbtNF_uLUAQ" featureName="name" dataValue="hours">
+          <element href="core.ecore#//UnitOfMeasurement/hours"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LSUlq6YEeyZbtNF_uLUAQ" featureName="value" dataValue="7" oldDataValue="0">
+          <element href="core.ecore#//UnitOfMeasurement/hours"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LSUl66YEeyZbtNF_uLUAQ" featureName="literal" dataValue="hours">
+          <element href="core.ecore#//UnitOfMeasurement/hours"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LSUmK6YEeyZbtNF_uLUAQ" referenceName="eLiterals">
+        <target href="core.ecore#//UnitOfMeasurement"/>
+        <element href="core.ecore#//UnitOfMeasurement/mbps"/>
+        <changes xsi:type="history:Set" xmi:id="_0LSUma6YEeyZbtNF_uLUAQ" featureName="name" dataValue="mbps">
+          <element href="core.ecore#//UnitOfMeasurement/mbps"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LSUmq6YEeyZbtNF_uLUAQ" featureName="value" dataValue="8" oldDataValue="0">
+          <element href="core.ecore#//UnitOfMeasurement/mbps"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LSUm66YEeyZbtNF_uLUAQ" featureName="literal" dataValue="mbps">
+          <element href="core.ecore#//UnitOfMeasurement/mbps"/>
+        </changes>
+      </changes>
+      <changes xsi:type="history:Create" xmi:id="_0LSUnK6YEeyZbtNF_uLUAQ" referenceName="eLiterals">
+        <target href="core.ecore#//UnitOfMeasurement"/>
+        <element href="core.ecore#//UnitOfMeasurement/none"/>
+        <changes xsi:type="history:Set" xmi:id="_0LSUna6YEeyZbtNF_uLUAQ" featureName="name" dataValue="none">
+          <element href="core.ecore#//UnitOfMeasurement/none"/>
+        </changes>
+        <changes xsi:type="history:Set" xmi:id="_0LSUnq6YEeyZbtNF_uLUAQ" featureName="literal" dataValue="none">
+          <element href="core.ecore#//UnitOfMeasurement/none"/>
+        </changes>
+      </changes>
+    </changes>
+    <changes xsi:type="history:Remove" xmi:id="_8E5UUK6YEeyZbtNF_uLUAQ" featureName="eSuperTypes">
+      <element href="e4sm.ecore#//Pin"/>
+      <referenceValue href="e4sm.ecore#//core/TypedElement"/>
+    </changes>
+    <changes xsi:type="history:Add" xmi:id="_8E5UUa6YEeyZbtNF_uLUAQ" featureName="eSuperTypes">
+      <element href="e4sm.ecore#//Pin"/>
+      <referenceValue href="core.ecore#//TypedElement"/>
+    </changes>
+  </releases>
 </history:History>

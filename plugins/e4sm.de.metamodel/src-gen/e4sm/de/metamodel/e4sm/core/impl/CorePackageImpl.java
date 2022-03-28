@@ -1061,9 +1061,14 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 				!IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(timeEDataType, LocalTime.class, "Time", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
+		// Create resource
+		createResource(eNS_URI);
+
 		// Create annotations
 		// http://www.eclipse.org/emf/2002/Ecore
 		createEcoreAnnotations();
+		// http://www.eclipse.org/edapt
+		createEdaptAnnotations();
 	}
 
 	/**
@@ -1075,6 +1080,17 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	protected void createEcoreAnnotations() {
 		String source = "http://www.eclipse.org/emf/2002/Ecore";
 		addAnnotation(this, source, new String[] {});
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/edapt</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createEdaptAnnotations() {
+		String source = "http://www.eclipse.org/edapt";
+		addAnnotation(this, source, new String[] { "historyURI", "e4sm.history" });
 	}
 
 } //CorePackageImpl

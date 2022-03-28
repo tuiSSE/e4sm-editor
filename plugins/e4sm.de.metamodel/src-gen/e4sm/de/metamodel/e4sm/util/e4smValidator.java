@@ -299,7 +299,8 @@ public class e4smValidator extends EObjectValidator {
 	 */
 	public boolean validateComponent_ComponentC3(Component component, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
-		if (component.getCodeSpecification()!= null && component.getCodeSpecification().length()>0 && (component.getComponents().size() > 0 || component.getSpecifiedInPackage() != null)) {
+		if (component.getCodeSpecification() != null && component.getCodeSpecification().length() > 0
+				&& (component.getComponents().size() > 0 || component.getSpecifiedInPackage() != null)) {
 			if (diagnostics != null) {
 				diagnostics.add(createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0,
 						"_UI_GenericConstraint_diagnostic",

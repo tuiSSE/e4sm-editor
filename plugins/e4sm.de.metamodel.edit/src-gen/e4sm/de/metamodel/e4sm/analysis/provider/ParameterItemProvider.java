@@ -54,7 +54,6 @@ public class ParameterItemProvider extends ElementItemProvider {
 			addParameterDefinitionPropertyDescriptor(object);
 			addAppliesOnlyOnVariantsPropertyDescriptor(object);
 			addDoesNotApplyOnVariantsPropertyDescriptor(object);
-			addInitialValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -104,21 +103,6 @@ public class ParameterItemProvider extends ElementItemProvider {
 								"_UI_Parameter_type"),
 						AnalysisPackage.Literals.PARAMETER__DOES_NOT_APPLY_ON_VARIANTS, true, false, true, null, null,
 						null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Initial Value feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addInitialValuePropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Parameter_initialValue_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Parameter_initialValue_feature",
-								"_UI_Parameter_type"),
-						AnalysisPackage.Literals.PARAMETER__INITIAL_VALUE, false, false, false, null, null, null));
 	}
 
 	/**
@@ -256,6 +240,60 @@ public class ParameterItemProvider extends ElementItemProvider {
 
 		newChildDescriptors.add(createChildParameter(AnalysisPackage.Literals.PARAMETER__INITIAL_VALUE,
 				CoreFactory.eINSTANCE.createLiteralDate()));
+
+		newChildDescriptors.add(createChildParameter(AnalysisPackage.Literals.PARAMETER__CURRENT_VALUE,
+				CoreFactory.eINSTANCE.createLiteralNull()));
+
+		newChildDescriptors.add(createChildParameter(AnalysisPackage.Literals.PARAMETER__CURRENT_VALUE,
+				CoreFactory.eINSTANCE.createLiteralString()));
+
+		newChildDescriptors.add(createChildParameter(AnalysisPackage.Literals.PARAMETER__CURRENT_VALUE,
+				CoreFactory.eINSTANCE.createLiteralInteger()));
+
+		newChildDescriptors.add(createChildParameter(AnalysisPackage.Literals.PARAMETER__CURRENT_VALUE,
+				CoreFactory.eINSTANCE.createLiteralBoolean()));
+
+		newChildDescriptors.add(createChildParameter(AnalysisPackage.Literals.PARAMETER__CURRENT_VALUE,
+				CoreFactory.eINSTANCE.createLiteralFloat()));
+
+		newChildDescriptors.add(createChildParameter(AnalysisPackage.Literals.PARAMETER__CURRENT_VALUE,
+				CoreFactory.eINSTANCE.createLiteralDouble()));
+
+		newChildDescriptors.add(createChildParameter(AnalysisPackage.Literals.PARAMETER__CURRENT_VALUE,
+				CoreFactory.eINSTANCE.createLiteralLong()));
+
+		newChildDescriptors.add(createChildParameter(AnalysisPackage.Literals.PARAMETER__CURRENT_VALUE,
+				CoreFactory.eINSTANCE.createLiteralShort()));
+
+		newChildDescriptors.add(createChildParameter(AnalysisPackage.Literals.PARAMETER__CURRENT_VALUE,
+				CoreFactory.eINSTANCE.createLiteralByte()));
+
+		newChildDescriptors.add(createChildParameter(AnalysisPackage.Literals.PARAMETER__CURRENT_VALUE,
+				CoreFactory.eINSTANCE.createLiteralCharacter()));
+
+		newChildDescriptors.add(createChildParameter(AnalysisPackage.Literals.PARAMETER__CURRENT_VALUE,
+				CoreFactory.eINSTANCE.createLiteralDate()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify = childFeature == AnalysisPackage.Literals.PARAMETER__INITIAL_VALUE
+				|| childFeature == AnalysisPackage.Literals.PARAMETER__CURRENT_VALUE;
+
+		if (qualify) {
+			return getString("_UI_CreateChild_text2",
+					new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 	/**

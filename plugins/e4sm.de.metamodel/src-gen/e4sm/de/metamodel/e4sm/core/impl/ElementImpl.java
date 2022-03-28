@@ -2,9 +2,8 @@
  */
 package e4sm.de.metamodel.e4sm.core.impl;
 
-import e4sm.de.metamodel.e4sm.core.Element;
 import e4sm.de.metamodel.e4sm.core.CorePackage;
-
+import e4sm.de.metamodel.e4sm.core.Element;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;

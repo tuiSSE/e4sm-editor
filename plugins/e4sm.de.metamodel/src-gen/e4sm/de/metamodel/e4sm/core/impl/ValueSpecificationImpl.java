@@ -5,7 +5,6 @@ package e4sm.de.metamodel.e4sm.core.impl;
 import e4sm.de.metamodel.e4sm.core.CorePackage;
 import e4sm.de.metamodel.e4sm.core.LiteralInteger;
 import e4sm.de.metamodel.e4sm.core.ValueSpecification;
-
 import java.lang.reflect.InvocationTargetException;
 
 import org.eclipse.emf.common.util.EList;

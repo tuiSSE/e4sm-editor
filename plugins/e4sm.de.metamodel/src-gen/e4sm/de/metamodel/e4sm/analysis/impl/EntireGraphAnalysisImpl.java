@@ -4,7 +4,6 @@ package e4sm.de.metamodel.e4sm.analysis.impl;
 
 import e4sm.de.metamodel.e4sm.analysis.AnalysisPackage;
 import e4sm.de.metamodel.e4sm.analysis.EntireGraphAnalysis;
-
 import org.eclipse.emf.ecore.EClass;
 
 /**

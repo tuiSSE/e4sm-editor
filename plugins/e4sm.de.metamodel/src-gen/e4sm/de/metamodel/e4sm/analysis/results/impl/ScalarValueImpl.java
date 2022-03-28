@@ -4,7 +4,6 @@ package e4sm.de.metamodel.e4sm.analysis.results.impl;
 
 import e4sm.de.metamodel.e4sm.analysis.results.ResultsPackage;
 import e4sm.de.metamodel.e4sm.analysis.results.ScalarValue;
-
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;

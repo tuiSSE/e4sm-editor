@@ -70,6 +70,16 @@ public class AnalysisAdapterFactory extends AdapterFactoryImpl {
 	 */
 	protected AnalysisSwitch<Adapter> modelSwitch = new AnalysisSwitch<Adapter>() {
 		@Override
+		public Adapter caseVariant(Variant object) {
+			return createVariantAdapter();
+		}
+
+		@Override
+		public Adapter caseAnalysis(Analysis object) {
+			return createAnalysisAdapter();
+		}
+
+		@Override
 		public Adapter caseAnalysisManager(AnalysisManager object) {
 			return createAnalysisManagerAdapter();
 		}
@@ -92,11 +102,6 @@ public class AnalysisAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseParameterizableElement(ParameterizableElement object) {
 			return createParameterizableElementAdapter();
-		}
-
-		@Override
-		public Adapter caseAnalysis(Analysis object) {
-			return createAnalysisAdapter();
 		}
 
 		@Override
@@ -127,11 +132,6 @@ public class AnalysisAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public <C> Adapter casePreviousNodeGraphAnalysis(PreviousNodeGraphAnalysis<C> object) {
 			return createPreviousNodeGraphAnalysisAdapter();
-		}
-
-		@Override
-		public Adapter caseVariant(Variant object) {
-			return createVariantAdapter();
 		}
 
 		@Override

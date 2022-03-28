@@ -36,11 +36,11 @@ import e4sm.de.metamodel.e4sm.analysis.AnalysisPackage;
 import e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl;
 import e4sm.de.metamodel.e4sm.analysis.results.ResultsPackage;
 import e4sm.de.metamodel.e4sm.analysis.results.impl.ResultsPackageImpl;
+import e4sm.de.metamodel.e4sm.core.CorePackage;
 import e4sm.de.metamodel.e4sm.e4smFactory;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 import e4sm.de.metamodel.e4sm.guava.GuavaPackage;
 import e4sm.de.metamodel.e4sm.guava.impl.GuavaPackageImpl;
-import e4sm.de.metamodel.e4sm.core.CorePackage;
 import e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl;
 import e4sm.de.metamodel.e4sm.util.e4smValidator;
 import org.eclipse.emf.ecore.EAttribute;
@@ -358,35 +358,35 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 
 		// Obtain or create and register interdependencies
 		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
-		CorePackageImpl theCorePackage = (CorePackageImpl) (registeredPackage instanceof CorePackageImpl
+		CorePackageImpl thecorePackage = (CorePackageImpl) (registeredPackage instanceof CorePackageImpl
 				? registeredPackage
 				: CorePackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(AnalysisPackage.eNS_URI);
-		AnalysisPackageImpl theAnalysisPackage = (AnalysisPackageImpl) (registeredPackage instanceof AnalysisPackageImpl
+		AnalysisPackageImpl theanalysisPackage = (AnalysisPackageImpl) (registeredPackage instanceof AnalysisPackageImpl
 				? registeredPackage
 				: AnalysisPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ResultsPackage.eNS_URI);
-		ResultsPackageImpl theResultsPackage = (ResultsPackageImpl) (registeredPackage instanceof ResultsPackageImpl
+		ResultsPackageImpl theresultsPackage = (ResultsPackageImpl) (registeredPackage instanceof ResultsPackageImpl
 				? registeredPackage
 				: ResultsPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(GuavaPackage.eNS_URI);
-		GuavaPackageImpl theGuavaPackage = (GuavaPackageImpl) (registeredPackage instanceof GuavaPackageImpl
+		GuavaPackageImpl theguavaPackage = (GuavaPackageImpl) (registeredPackage instanceof GuavaPackageImpl
 				? registeredPackage
 				: GuavaPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		thee4smPackage.createPackageContents();
-		theCorePackage.createPackageContents();
-		theAnalysisPackage.createPackageContents();
-		theResultsPackage.createPackageContents();
-		theGuavaPackage.createPackageContents();
+		thecorePackage.createPackageContents();
+		theanalysisPackage.createPackageContents();
+		theresultsPackage.createPackageContents();
+		theguavaPackage.createPackageContents();
 
 		// Initialize created meta-data
 		thee4smPackage.initializePackageContents();
-		theCorePackage.initializePackageContents();
-		theAnalysisPackage.initializePackageContents();
-		theResultsPackage.initializePackageContents();
-		theGuavaPackage.initializePackageContents();
+		thecorePackage.initializePackageContents();
+		theanalysisPackage.initializePackageContents();
+		theresultsPackage.initializePackageContents();
+		theguavaPackage.initializePackageContents();
 
 		// Register package validator
 		EValidator.Registry.INSTANCE.put(thee4smPackage, new EValidator.Descriptor() {
@@ -1461,26 +1461,20 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		CorePackage theCorePackage = (CorePackage) EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
-		AnalysisPackage theAnalysisPackage = (AnalysisPackage) EPackage.Registry.INSTANCE
+		CorePackage thecorePackage = (CorePackage) EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
+		AnalysisPackage theanalysisPackage = (AnalysisPackage) EPackage.Registry.INSTANCE
 				.getEPackage(AnalysisPackage.eNS_URI);
-		GuavaPackage theGuavaPackage = (GuavaPackage) EPackage.Registry.INSTANCE.getEPackage(GuavaPackage.eNS_URI);
-
-		// Add subpackages
-		getESubpackages().add(theCorePackage);
-		getESubpackages().add(theAnalysisPackage);
-		getESubpackages().add(theGuavaPackage);
 
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		componentEClass.getESuperTypes().add(theCorePackage.getNamedElement());
-		componentEClass.getESuperTypes().add(theAnalysisPackage.getParameterizableElement());
+		componentEClass.getESuperTypes().add(thecorePackage.getNamedElement());
+		componentEClass.getESuperTypes().add(theanalysisPackage.getParameterizableElement());
 		machineLearningComponentEClass.getESuperTypes().add(this.getSoftwareComponent());
-		connectorEClass.getESuperTypes().add(theAnalysisPackage.getParameterizableElement());
-		connectorEClass.getESuperTypes().add(theCorePackage.getNamedElement());
+		connectorEClass.getESuperTypes().add(theanalysisPackage.getParameterizableElement());
+		connectorEClass.getESuperTypes().add(thecorePackage.getNamedElement());
 		physicalConnectorEClass.getESuperTypes().add(this.getConnector());
 		physicalComponentEClass.getESuperTypes().add(this.getComponent());
 		softwareComponentEClass.getESuperTypes().add(this.getComponent());
@@ -1488,18 +1482,18 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		heuristicEClass.getESuperTypes().add(this.getSoftwareComponent());
 		functionEClass.getESuperTypes().add(this.getSoftwareComponent());
 		externalDependencyEClass.getESuperTypes().add(this.getSoftwareComponent());
-		packageEClass.getESuperTypes().add(theCorePackage.getNamedElement());
-		packageEClass.getESuperTypes().add(theAnalysisPackage.getParameterizableElement());
-		modelEClass.getESuperTypes().add(theCorePackage.getNamedElement());
-		modelEClass.getESuperTypes().add(theAnalysisPackage.getParameterizableElement());
-		actorEClass.getESuperTypes().add(theCorePackage.getNamedElement());
+		packageEClass.getESuperTypes().add(thecorePackage.getNamedElement());
+		packageEClass.getESuperTypes().add(theanalysisPackage.getParameterizableElement());
+		modelEClass.getESuperTypes().add(thecorePackage.getNamedElement());
+		modelEClass.getESuperTypes().add(theanalysisPackage.getParameterizableElement());
+		actorEClass.getESuperTypes().add(thecorePackage.getNamedElement());
 		humanEClass.getESuperTypes().add(this.getActor());
 		robotEClass.getESuperTypes().add(this.getActor());
-		sectorEClass.getESuperTypes().add(theCorePackage.getNamedElement());
+		sectorEClass.getESuperTypes().add(thecorePackage.getNamedElement());
 		sensorEClass.getESuperTypes().add(this.getPhysicalComponent());
 		actuatorEClass.getESuperTypes().add(this.getPhysicalComponent());
-		pinEClass.getESuperTypes().add(theAnalysisPackage.getParameterizableElement());
-		pinEClass.getESuperTypes().add(theCorePackage.getTypedElement());
+		pinEClass.getESuperTypes().add(theanalysisPackage.getParameterizableElement());
+		pinEClass.getESuperTypes().add(thecorePackage.getTypedElement());
 		inputPinEClass.getESuperTypes().add(this.getPin());
 		outputPinEClass.getESuperTypes().add(this.getPin());
 		personEClass.getESuperTypes().add(this.getHuman());
@@ -1627,7 +1621,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		initEAttribute(getModel_PersonsPicturesPath(), ecorePackage.getEString(), "personsPicturesPath", null, 0, 1,
 				Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
-		initEReference(getModel_Variants(), theAnalysisPackage.getVariant(), null, "variants", null, 0, -1, Model.class,
+		initEReference(getModel_Variants(), theanalysisPackage.getVariant(), null, "variants", null, 0, -1, Model.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

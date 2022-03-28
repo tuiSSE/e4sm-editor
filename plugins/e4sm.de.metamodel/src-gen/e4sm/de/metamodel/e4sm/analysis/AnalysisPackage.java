@@ -66,7 +66,208 @@ public interface AnalysisPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl#getAnalysisManager()
 	 * @generated
 	 */
-	int ANALYSIS_MANAGER = 0;
+	int ANALYSIS_MANAGER = 2;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.analysis.impl.AnalysisDefinitionImpl <em>Definition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisDefinitionImpl
+	 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl#getAnalysisDefinition()
+	 * @generated
+	 */
+	int ANALYSIS_DEFINITION = 3;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.analysis.impl.ParameterDefinitionImpl <em>Parameter Definition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.analysis.impl.ParameterDefinitionImpl
+	 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl#getParameterDefinition()
+	 * @generated
+	 */
+	int PARAMETER_DEFINITION = 4;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.analysis.impl.ParameterImpl <em>Parameter</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.analysis.impl.ParameterImpl
+	 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl#getParameter()
+	 * @generated
+	 */
+	int PARAMETER = 5;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.analysis.ParameterizableElement <em>Parameterizable Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.analysis.ParameterizableElement
+	 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl#getParameterizableElement()
+	 * @generated
+	 */
+	int PARAMETERIZABLE_ELEMENT = 6;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.analysis.impl.AnalysisImpl <em>Analysis</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisImpl
+	 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl#getAnalysis()
+	 * @generated
+	 */
+	int ANALYSIS = 1;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.analysis.impl.ModelAnalysisImpl <em>Model Analysis</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.analysis.impl.ModelAnalysisImpl
+	 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl#getModelAnalysis()
+	 * @generated
+	 */
+	int MODEL_ANALYSIS = 7;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.analysis.impl.GraphAnalysisImpl <em>Graph Analysis</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.analysis.impl.GraphAnalysisImpl
+	 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl#getGraphAnalysis()
+	 * @generated
+	 */
+	int GRAPH_ANALYSIS = 8;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.analysis.impl.MemoryLessGraphAnalysisImpl <em>Memory Less Graph Analysis</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.analysis.impl.MemoryLessGraphAnalysisImpl
+	 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl#getMemoryLessGraphAnalysis()
+	 * @generated
+	 */
+	int MEMORY_LESS_GRAPH_ANALYSIS = 9;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.analysis.impl.EntireGraphAnalysisImpl <em>Entire Graph Analysis</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.analysis.impl.EntireGraphAnalysisImpl
+	 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl#getEntireGraphAnalysis()
+	 * @generated
+	 */
+	int ENTIRE_GRAPH_ANALYSIS = 10;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.analysis.impl.PackageAnalysisImpl <em>Package Analysis</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.analysis.impl.PackageAnalysisImpl
+	 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl#getPackageAnalysis()
+	 * @generated
+	 */
+	int PACKAGE_ANALYSIS = 11;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.analysis.impl.PreviousNodeGraphAnalysisImpl <em>Previous Node Graph Analysis</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.analysis.impl.PreviousNodeGraphAnalysisImpl
+	 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl#getPreviousNodeGraphAnalysis()
+	 * @generated
+	 */
+	int PREVIOUS_NODE_GRAPH_ANALYSIS = 12;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.analysis.impl.VariantImpl <em>Variant</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.analysis.impl.VariantImpl
+	 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl#getVariant()
+	 * @generated
+	 */
+	int VARIANT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIANT__NAME = CorePackage.NAMED_ELEMENT__NAME;
+
+	/**
+	 * The number of structural features of the '<em>Variant</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIANT_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Variant</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIANT_OPERATION_COUNT = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Analysis</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS_FEATURE_COUNT = 0;
+
+	/**
+	 * The operation id for the '<em>Exec</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS___EXEC = 0;
+
+	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS___INIT = 1;
+
+	/**
+	 * The operation id for the '<em>Post Execution</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS___POST_EXECUTION = 2;
+
+	/**
+	 * The operation id for the '<em>Run</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS___RUN = 3;
+
+	/**
+	 * The number of operations of the '<em>Analysis</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS_OPERATION_COUNT = 4;
 
 	/**
 	 * The number of structural features of the '<em>Manager</em>' class.
@@ -103,16 +304,6 @@ public interface AnalysisPackage extends EPackage {
 	 * @ordered
 	 */
 	int ANALYSIS_MANAGER_OPERATION_COUNT = 2;
-
-	/**
-	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.analysis.impl.AnalysisDefinitionImpl <em>Definition</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisDefinitionImpl
-	 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl#getAnalysisDefinition()
-	 * @generated
-	 */
-	int ANALYSIS_DEFINITION = 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -158,16 +349,6 @@ public interface AnalysisPackage extends EPackage {
 	 * @ordered
 	 */
 	int ANALYSIS_DEFINITION_OPERATION_COUNT = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.analysis.impl.ParameterDefinitionImpl <em>Parameter Definition</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see e4sm.de.metamodel.e4sm.analysis.impl.ParameterDefinitionImpl
-	 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl#getParameterDefinition()
-	 * @generated
-	 */
-	int PARAMETER_DEFINITION = 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -260,16 +441,6 @@ public interface AnalysisPackage extends EPackage {
 	int PARAMETER_DEFINITION_OPERATION_COUNT = CorePackage.TYPED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.analysis.impl.ParameterImpl <em>Parameter</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see e4sm.de.metamodel.e4sm.analysis.impl.ParameterImpl
-	 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl#getParameter()
-	 * @generated
-	 */
-	int PARAMETER = 3;
-
-	/**
 	 * The feature id for the '<em><b>Parameter Definition</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -342,16 +513,6 @@ public interface AnalysisPackage extends EPackage {
 	int PARAMETER_OPERATION_COUNT = CorePackage.ELEMENT_OPERATION_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.analysis.ParameterizableElement <em>Parameterizable Element</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see e4sm.de.metamodel.e4sm.analysis.ParameterizableElement
-	 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl#getParameterizableElement()
-	 * @generated
-	 */
-	int PARAMETERIZABLE_ELEMENT = 4;
-
-	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -377,80 +538,6 @@ public interface AnalysisPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARAMETERIZABLE_ELEMENT_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.analysis.impl.AnalysisImpl <em>Analysis</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisImpl
-	 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl#getAnalysis()
-	 * @generated
-	 */
-	int ANALYSIS = 5;
-
-	/**
-	 * The number of structural features of the '<em>Analysis</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ANALYSIS_FEATURE_COUNT = 0;
-
-	/**
-	 * The operation id for the '<em>Exec</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ANALYSIS___EXEC = 0;
-
-	/**
-	 * The operation id for the '<em>Init</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ANALYSIS___INIT = 1;
-
-	/**
-	 * The operation id for the '<em>Post Execution</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ANALYSIS___POST_EXECUTION = 2;
-
-	/**
-	 * The operation id for the '<em>Run</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ANALYSIS___RUN = 3;
-
-	/**
-	 * The number of operations of the '<em>Analysis</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ANALYSIS_OPERATION_COUNT = 4;
-
-	/**
-	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.analysis.impl.ModelAnalysisImpl <em>Model Analysis</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see e4sm.de.metamodel.e4sm.analysis.impl.ModelAnalysisImpl
-	 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl#getModelAnalysis()
-	 * @generated
-	 */
-	int MODEL_ANALYSIS = 6;
 
 	/**
 	 * The number of structural features of the '<em>Model Analysis</em>' class.
@@ -505,16 +592,6 @@ public interface AnalysisPackage extends EPackage {
 	 * @ordered
 	 */
 	int MODEL_ANALYSIS_OPERATION_COUNT = ANALYSIS_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.analysis.impl.GraphAnalysisImpl <em>Graph Analysis</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see e4sm.de.metamodel.e4sm.analysis.impl.GraphAnalysisImpl
-	 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl#getGraphAnalysis()
-	 * @generated
-	 */
-	int GRAPH_ANALYSIS = 7;
 
 	/**
 	 * The feature id for the '<em><b>Graph</b></em>' reference.
@@ -589,16 +666,6 @@ public interface AnalysisPackage extends EPackage {
 	int GRAPH_ANALYSIS_OPERATION_COUNT = ANALYSIS_OPERATION_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.analysis.impl.MemoryLessGraphAnalysisImpl <em>Memory Less Graph Analysis</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see e4sm.de.metamodel.e4sm.analysis.impl.MemoryLessGraphAnalysisImpl
-	 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl#getMemoryLessGraphAnalysis()
-	 * @generated
-	 */
-	int MEMORY_LESS_GRAPH_ANALYSIS = 8;
-
-	/**
 	 * The feature id for the '<em><b>Graph</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -669,16 +736,6 @@ public interface AnalysisPackage extends EPackage {
 	 * @ordered
 	 */
 	int MEMORY_LESS_GRAPH_ANALYSIS_OPERATION_COUNT = GRAPH_ANALYSIS_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.analysis.impl.EntireGraphAnalysisImpl <em>Entire Graph Analysis</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see e4sm.de.metamodel.e4sm.analysis.impl.EntireGraphAnalysisImpl
-	 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl#getEntireGraphAnalysis()
-	 * @generated
-	 */
-	int ENTIRE_GRAPH_ANALYSIS = 9;
 
 	/**
 	 * The feature id for the '<em><b>Graph</b></em>' reference.
@@ -753,16 +810,6 @@ public interface AnalysisPackage extends EPackage {
 	int ENTIRE_GRAPH_ANALYSIS_OPERATION_COUNT = GRAPH_ANALYSIS_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.analysis.impl.PackageAnalysisImpl <em>Package Analysis</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see e4sm.de.metamodel.e4sm.analysis.impl.PackageAnalysisImpl
-	 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl#getPackageAnalysis()
-	 * @generated
-	 */
-	int PACKAGE_ANALYSIS = 10;
-
-	/**
 	 * The number of structural features of the '<em>Package Analysis</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -815,16 +862,6 @@ public interface AnalysisPackage extends EPackage {
 	 * @ordered
 	 */
 	int PACKAGE_ANALYSIS_OPERATION_COUNT = ANALYSIS_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.analysis.impl.PreviousNodeGraphAnalysisImpl <em>Previous Node Graph Analysis</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see e4sm.de.metamodel.e4sm.analysis.impl.PreviousNodeGraphAnalysisImpl
-	 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl#getPreviousNodeGraphAnalysis()
-	 * @generated
-	 */
-	int PREVIOUS_NODE_GRAPH_ANALYSIS = 11;
 
 	/**
 	 * The feature id for the '<em><b>Graph</b></em>' reference.
@@ -897,43 +934,6 @@ public interface AnalysisPackage extends EPackage {
 	 * @ordered
 	 */
 	int PREVIOUS_NODE_GRAPH_ANALYSIS_OPERATION_COUNT = GRAPH_ANALYSIS_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.analysis.impl.VariantImpl <em>Variant</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see e4sm.de.metamodel.e4sm.analysis.impl.VariantImpl
-	 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl#getVariant()
-	 * @generated
-	 */
-	int VARIANT = 12;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VARIANT__NAME = CorePackage.NAMED_ELEMENT__NAME;
-
-	/**
-	 * The number of structural features of the '<em>Variant</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VARIANT_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Variant</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VARIANT_OPERATION_COUNT = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.analysis.impl.NetworkGeneratorImpl <em>Network Generator</em>}' class.

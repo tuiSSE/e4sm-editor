@@ -6,10 +6,8 @@ import com.google.common.graph.ImmutableNetwork;
 import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.Connector;
 import e4sm.de.metamodel.e4sm.Model;
-
 import e4sm.de.metamodel.e4sm.analysis.AnalysisPackage;
 import e4sm.de.metamodel.e4sm.analysis.NetworkGenerator;
-
 import java.lang.reflect.InvocationTargetException;
 
 import org.eclipse.emf.common.util.EList;

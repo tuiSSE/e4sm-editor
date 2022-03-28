@@ -90,6 +90,22 @@
       </editor>
    </extension>
 
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated e4sm -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="e4sm.de.metamodel.e4sm.analysis.results.presentation.ResultsModelWizardID"
+            name="%_UI_ResultsModelWizard_label"
+            class="e4sm.de.metamodel.e4sm.analysis.results.presentation.ResultsModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ResultsModelFile.gif">
+         <description>%_UI_ResultsModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
    <extension point="org.eclipse.ui.editors">
       <!-- @generated e4sm -->
       <editor

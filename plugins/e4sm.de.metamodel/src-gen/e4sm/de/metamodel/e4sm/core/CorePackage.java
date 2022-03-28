@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.EReference;
  * @see e4sm.de.metamodel.e4sm.core.CoreFactory
  * @model kind="package"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore"
+ *        annotation="http://www.eclipse.org/edapt historyURI='e4sm.history'"
  * @generated
  */
 public interface CorePackage extends EPackage {

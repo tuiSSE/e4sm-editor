@@ -535,6 +535,9 @@ public class GuavaPackageImpl extends EPackageImpl implements GuavaPackage {
 
 		initEClass(successorsFunctionEClass, SuccessorsFunction.class, "SuccessorsFunction", IS_ABSTRACT, IS_INTERFACE,
 				!IS_GENERATED_INSTANCE_CLASS);
+
+		// Create resource
+		createResource(eNS_URI);
 	}
 
 } //GuavaPackageImpl

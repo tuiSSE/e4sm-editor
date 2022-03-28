@@ -5,12 +5,12 @@ package e4sm.de.metamodel.e4sm.impl;
 import e4sm.de.metamodel.e4sm.Connector;
 import e4sm.de.metamodel.e4sm.Pin;
 import e4sm.de.metamodel.e4sm.analysis.Parameter;
+import e4sm.de.metamodel.e4sm.core.CorePackage;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
 import java.lang.reflect.InvocationTargetException;
 import e4sm.de.metamodel.e4sm.core.Element;
 import e4sm.de.metamodel.e4sm.core.NamedElement;
-import e4sm.de.metamodel.e4sm.core.CorePackage;
 import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 

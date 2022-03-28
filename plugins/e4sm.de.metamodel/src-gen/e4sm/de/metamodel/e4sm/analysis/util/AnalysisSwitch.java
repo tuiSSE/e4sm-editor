@@ -69,6 +69,24 @@ public class AnalysisSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
+		case AnalysisPackage.VARIANT: {
+			Variant variant = (Variant) theEObject;
+			T result = caseVariant(variant);
+			if (result == null)
+				result = caseNamedElement(variant);
+			if (result == null)
+				result = caseElement(variant);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case AnalysisPackage.ANALYSIS: {
+			Analysis analysis = (Analysis) theEObject;
+			T result = caseAnalysis(analysis);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		case AnalysisPackage.ANALYSIS_MANAGER: {
 			AnalysisManager analysisManager = (AnalysisManager) theEObject;
 			T result = caseAnalysisManager(analysisManager);
@@ -112,13 +130,6 @@ public class AnalysisSwitch<T> extends Switch<T> {
 		case AnalysisPackage.PARAMETERIZABLE_ELEMENT: {
 			ParameterizableElement parameterizableElement = (ParameterizableElement) theEObject;
 			T result = caseParameterizableElement(parameterizableElement);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case AnalysisPackage.ANALYSIS: {
-			Analysis analysis = (Analysis) theEObject;
-			T result = caseAnalysis(analysis);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -179,17 +190,6 @@ public class AnalysisSwitch<T> extends Switch<T> {
 				result = caseGraphAnalysis(previousNodeGraphAnalysis);
 			if (result == null)
 				result = caseAnalysis(previousNodeGraphAnalysis);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case AnalysisPackage.VARIANT: {
-			Variant variant = (Variant) theEObject;
-			T result = caseVariant(variant);
-			if (result == null)
-				result = caseNamedElement(variant);
-			if (result == null)
-				result = caseElement(variant);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;

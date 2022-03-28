@@ -4,7 +4,6 @@ package e4sm.de.metamodel.e4sm.analysis.impl;
 
 import e4sm.de.metamodel.e4sm.analysis.Analysis;
 import e4sm.de.metamodel.e4sm.analysis.AnalysisPackage;
-
 import java.lang.reflect.InvocationTargetException;
 
 import org.eclipse.emf.common.util.EList;
@@ -47,7 +46,9 @@ public abstract class AnalysisImpl extends MinimalEObjectImpl.Container implemen
 	 */
 	@Override
 	public void exec() {
-
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**

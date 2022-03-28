@@ -2,9 +2,8 @@
  */
 package e4sm.de.metamodel.e4sm.core.impl;
 
-import e4sm.de.metamodel.e4sm.core.LiteralFloat;
 import e4sm.de.metamodel.e4sm.core.CorePackage;
-
+import e4sm.de.metamodel.e4sm.core.LiteralFloat;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;

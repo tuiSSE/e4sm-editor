@@ -684,4 +684,160 @@ public interface GuavaPackage extends EPackage {
 	 */
 	GuavaFactory getGuavaFactory();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * Defines literals for the meta objects that represent
+	 * <ul>
+	 *   <li>each class,</li>
+	 *   <li>each feature of each class,</li>
+	 *   <li>each operation of each class,</li>
+	 *   <li>each enum,</li>
+	 *   <li>and each data type</li>
+	 * </ul>
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	interface Literals {
+		/**
+		 * The meta object literal for the '{@link com.google.common.graph.Graph <em>Graph</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.google.common.graph.Graph
+		 * @see e4sm.de.metamodel.e4sm.guava.impl.GuavaPackageImpl#getGraph()
+		 * @generated
+		 */
+		EClass GRAPH = eINSTANCE.getGraph();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Directed</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GRAPH___IS_DIRECTED = eINSTANCE.getGraph__IsDirected();
+
+		/**
+		 * The meta object literal for the '<em><b>In Degree</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GRAPH___IN_DEGREE__OBJECT = eINSTANCE.getGraph__InDegree__Object();
+
+		/**
+		 * The meta object literal for the '<em><b>Hash Code</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GRAPH___HASH_CODE = eINSTANCE.getGraph__HashCode();
+
+		/**
+		 * The meta object literal for the '<em><b>Allows Self Loops</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GRAPH___ALLOWS_SELF_LOOPS = eINSTANCE.getGraph__AllowsSelfLoops();
+
+		/**
+		 * The meta object literal for the '{@link com.google.common.graph.AbstractGraph <em>Abstract Graph</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.google.common.graph.AbstractGraph
+		 * @see e4sm.de.metamodel.e4sm.guava.impl.GuavaPackageImpl#getAbstractGraph()
+		 * @generated
+		 */
+		EClass ABSTRACT_GRAPH = eINSTANCE.getAbstractGraph();
+
+		/**
+		 * The meta object literal for the '{@link com.google.common.graph.ImmutableGraph <em>Immutable Graph</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.google.common.graph.ImmutableGraph
+		 * @see e4sm.de.metamodel.e4sm.guava.impl.GuavaPackageImpl#getImmutableGraph()
+		 * @generated
+		 */
+		EClass IMMUTABLE_GRAPH = eINSTANCE.getImmutableGraph();
+
+		/**
+		 * The meta object literal for the '{@link com.google.common.graph.MutableGraph <em>Mutable Graph</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.google.common.graph.MutableGraph
+		 * @see e4sm.de.metamodel.e4sm.guava.impl.GuavaPackageImpl#getMutableGraph()
+		 * @generated
+		 */
+		EClass MUTABLE_GRAPH = eINSTANCE.getMutableGraph();
+
+		/**
+		 * The meta object literal for the '{@link com.google.common.graph.PredecessorsFunction <em>Predecessors Function</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.google.common.graph.PredecessorsFunction
+		 * @see e4sm.de.metamodel.e4sm.guava.impl.GuavaPackageImpl#getPredecessorsFunction()
+		 * @generated
+		 */
+		EClass PREDECESSORS_FUNCTION = eINSTANCE.getPredecessorsFunction();
+
+		/**
+		 * The meta object literal for the '{@link com.google.common.graph.Network <em>Network</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.google.common.graph.Network
+		 * @see e4sm.de.metamodel.e4sm.guava.impl.GuavaPackageImpl#getNetwork()
+		 * @generated
+		 */
+		EClass NETWORK = eINSTANCE.getNetwork();
+
+		/**
+		 * The meta object literal for the '<em><b>Hash Code</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NETWORK___HASH_CODE = eINSTANCE.getNetwork__HashCode();
+
+		/**
+		 * The meta object literal for the '{@link com.google.common.graph.MutableNetwork <em>Mutable Network</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.google.common.graph.MutableNetwork
+		 * @see e4sm.de.metamodel.e4sm.guava.impl.GuavaPackageImpl#getMutableNetwork()
+		 * @generated
+		 */
+		EClass MUTABLE_NETWORK = eINSTANCE.getMutableNetwork();
+
+		/**
+		 * The meta object literal for the '{@link com.google.common.graph.AbstractNetwork <em>Abstract Network</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.google.common.graph.AbstractNetwork
+		 * @see e4sm.de.metamodel.e4sm.guava.impl.GuavaPackageImpl#getAbstractNetwork()
+		 * @generated
+		 */
+		EClass ABSTRACT_NETWORK = eINSTANCE.getAbstractNetwork();
+
+		/**
+		 * The meta object literal for the '{@link com.google.common.graph.ImmutableNetwork <em>Immutable Network</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.google.common.graph.ImmutableNetwork
+		 * @see e4sm.de.metamodel.e4sm.guava.impl.GuavaPackageImpl#getImmutableNetwork()
+		 * @generated
+		 */
+		EClass IMMUTABLE_NETWORK = eINSTANCE.getImmutableNetwork();
+
+		/**
+		 * The meta object literal for the '{@link com.google.common.graph.SuccessorsFunction <em>Successors Function</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.google.common.graph.SuccessorsFunction
+		 * @see e4sm.de.metamodel.e4sm.guava.impl.GuavaPackageImpl#getSuccessorsFunction()
+		 * @generated
+		 */
+		EClass SUCCESSORS_FUNCTION = eINSTANCE.getSuccessorsFunction();
+
+	}
+
 } //GuavaPackage

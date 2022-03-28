@@ -664,6 +664,14 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		isCreated = true;
 
 		// Create classes and their features
+		variantEClass = createEClass(VARIANT);
+
+		analysisEClass = createEClass(ANALYSIS);
+		createEOperation(analysisEClass, ANALYSIS___EXEC);
+		createEOperation(analysisEClass, ANALYSIS___INIT);
+		createEOperation(analysisEClass, ANALYSIS___POST_EXECUTION);
+		createEOperation(analysisEClass, ANALYSIS___RUN);
+
 		analysisManagerEClass = createEClass(ANALYSIS_MANAGER);
 		createEOperation(analysisManagerEClass, ANALYSIS_MANAGER___START__ELIST);
 		createEOperation(analysisManagerEClass, ANALYSIS_MANAGER___STORE_RESULT__ANALYSISEXECUTION);
@@ -691,12 +699,6 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		parameterizableElementEClass = createEClass(PARAMETERIZABLE_ELEMENT);
 		createEReference(parameterizableElementEClass, PARAMETERIZABLE_ELEMENT__PARAMETERS);
 
-		analysisEClass = createEClass(ANALYSIS);
-		createEOperation(analysisEClass, ANALYSIS___EXEC);
-		createEOperation(analysisEClass, ANALYSIS___INIT);
-		createEOperation(analysisEClass, ANALYSIS___POST_EXECUTION);
-		createEOperation(analysisEClass, ANALYSIS___RUN);
-
 		modelAnalysisEClass = createEClass(MODEL_ANALYSIS);
 
 		graphAnalysisEClass = createEClass(GRAPH_ANALYSIS);
@@ -711,8 +713,6 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		packageAnalysisEClass = createEClass(PACKAGE_ANALYSIS);
 
 		previousNodeGraphAnalysisEClass = createEClass(PREVIOUS_NODE_GRAPH_ANALYSIS);
-
-		variantEClass = createEClass(VARIANT);
 
 		networkGeneratorEClass = createEClass(NETWORK_GENERATOR);
 		createEOperation(networkGeneratorEClass, NETWORK_GENERATOR___GENERATE_NETWORK__MODEL);
@@ -744,14 +744,11 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
+		CorePackage theCorePackage = (CorePackage) EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
 		ResultsPackage theResultsPackage = (ResultsPackage) EPackage.Registry.INSTANCE
 				.getEPackage(ResultsPackage.eNS_URI);
-		CorePackage theCorePackage = (CorePackage) EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
 		GuavaPackage theGuavaPackage = (GuavaPackage) EPackage.Registry.INSTANCE.getEPackage(GuavaPackage.eNS_URI);
 		e4smPackage thee4smPackage = (e4smPackage) EPackage.Registry.INSTANCE.getEPackage(e4smPackage.eNS_URI);
-
-		// Add subpackages
-		getESubpackages().add(theResultsPackage);
 
 		// Create type parameters
 		ETypeParameter graphAnalysisEClass_C = addETypeParameter(graphAnalysisEClass, "C");
@@ -762,6 +759,7 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		variantEClass.getESuperTypes().add(theCorePackage.getNamedElement());
 		analysisDefinitionEClass.getESuperTypes().add(theCorePackage.getNamedElement());
 		parameterDefinitionEClass.getESuperTypes().add(theCorePackage.getTypedElement());
 		parameterEClass.getESuperTypes().add(theCorePackage.getElement());
@@ -780,9 +778,20 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		g2 = createEGenericType(previousNodeGraphAnalysisEClass_C);
 		g1.getETypeArguments().add(g2);
 		previousNodeGraphAnalysisEClass.getEGenericSuperTypes().add(g1);
-		variantEClass.getESuperTypes().add(theCorePackage.getNamedElement());
 
 		// Initialize classes, features, and operations; add parameters
+		initEClass(variantEClass, Variant.class, "Variant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(analysisEClass, Analysis.class, "Analysis", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEOperation(getAnalysis__Exec(), null, "exec", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getAnalysis__Init(), ecorePackage.getEBoolean(), "init", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getAnalysis__PostExecution(), null, "postExecution", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getAnalysis__Run(), ecorePackage.getEBoolean(), "run", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(analysisManagerEClass, AnalysisManager.class, "AnalysisManager", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 
@@ -852,16 +861,6 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 				ParameterizableElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(analysisEClass, Analysis.class, "Analysis", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEOperation(getAnalysis__Exec(), null, "exec", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getAnalysis__Init(), ecorePackage.getEBoolean(), "init", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getAnalysis__PostExecution(), null, "postExecution", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getAnalysis__Run(), ecorePackage.getEBoolean(), "run", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(modelAnalysisEClass, ModelAnalysis.class, "ModelAnalysis", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 
@@ -890,8 +889,6 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		initEClass(previousNodeGraphAnalysisEClass, PreviousNodeGraphAnalysis.class, "PreviousNodeGraphAnalysis",
 				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(variantEClass, Variant.class, "Variant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
 		initEClass(networkGeneratorEClass, NetworkGenerator.class, "NetworkGenerator", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 
@@ -914,6 +911,9 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		g2 = createEGenericType(thee4smPackage.getConnector());
 		g1.getETypeArguments().add(g2);
 		initEOperation(op, g1);
+
+		// Create resource
+		createResource(eNS_URI);
 	}
 
 } //AnalysisPackageImpl

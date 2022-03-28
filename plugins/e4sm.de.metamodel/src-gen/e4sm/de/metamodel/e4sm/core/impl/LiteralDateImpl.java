@@ -2,9 +2,8 @@
  */
 package e4sm.de.metamodel.e4sm.core.impl;
 
-import e4sm.de.metamodel.e4sm.core.LiteralDate;
 import e4sm.de.metamodel.e4sm.core.CorePackage;
-
+import e4sm.de.metamodel.e4sm.core.LiteralDate;
 import java.time.LocalDate;
 import org.eclipse.emf.common.notify.Notification;
 

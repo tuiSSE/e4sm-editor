@@ -5,7 +5,6 @@ package e4sm.de.metamodel.e4sm.analysis.impl;
 import com.google.common.graph.Graph;
 import e4sm.de.metamodel.e4sm.analysis.AnalysisPackage;
 import e4sm.de.metamodel.e4sm.analysis.GraphAnalysis;
-
 import java.lang.reflect.InvocationTargetException;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -122,17 +121,6 @@ public abstract class GraphAnalysisImpl<C> extends AnalysisImpl implements Graph
 	 * @generated
 	 */
 	@Override
-	public boolean init() {
-		this.initGraph();
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case AnalysisPackage.GRAPH_ANALYSIS__GRAPH:
@@ -199,8 +187,6 @@ public abstract class GraphAnalysisImpl<C> extends AnalysisImpl implements Graph
 		case AnalysisPackage.GRAPH_ANALYSIS___INIT_GRAPH:
 			initGraph();
 			return null;
-		case AnalysisPackage.GRAPH_ANALYSIS___INIT:
-			return init();
 		}
 		return super.eInvoke(operationID, arguments);
 	}
