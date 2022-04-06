@@ -79,6 +79,20 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 			return createLiteralCharacter();
 		case CorePackage.LITERAL_DATE:
 			return createLiteralDate();
+		case CorePackage.VARIANT:
+			return createVariant();
+		case CorePackage.TYPE_SPECIFICATION:
+			return createTypeSpecification();
+		case CorePackage.INTEGER_ATTRIBUTE:
+			return createIntegerAttribute();
+		case CorePackage.DOUBLE_ATTRIBUTE:
+			return createDoubleAttribute();
+		case CorePackage.STRING_ATTRIBUTE:
+			return createStringAttribute();
+		case CorePackage.BOOLEAN_ATTRIBUTE:
+			return createBooleanAttribute();
+		case CorePackage.CLASS_ATTRIBUTE:
+			return createClassAttribute();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -279,6 +293,83 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	public LiteralDate createLiteralDate() {
 		LiteralDateImpl literalDate = new LiteralDateImpl();
 		return literalDate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Variant createVariant() {
+		VariantImpl variant = new VariantImpl();
+		return variant;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public TypeSpecification createTypeSpecification() {
+		TypeSpecificationImpl typeSpecification = new TypeSpecificationImpl();
+		return typeSpecification;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public IntegerAttribute createIntegerAttribute() {
+		IntegerAttributeImpl integerAttribute = new IntegerAttributeImpl();
+		return integerAttribute;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public DoubleAttribute createDoubleAttribute() {
+		DoubleAttributeImpl doubleAttribute = new DoubleAttributeImpl();
+		return doubleAttribute;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public StringAttribute createStringAttribute() {
+		StringAttributeImpl stringAttribute = new StringAttributeImpl();
+		return stringAttribute;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public BooleanAttribute createBooleanAttribute() {
+		BooleanAttributeImpl booleanAttribute = new BooleanAttributeImpl();
+		return booleanAttribute;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ClassAttribute createClassAttribute() {
+		ClassAttributeImpl classAttribute = new ClassAttributeImpl();
+		return classAttribute;
 	}
 
 	/**

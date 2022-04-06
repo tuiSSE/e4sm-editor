@@ -2,8 +2,9 @@
  */
 package e4sm.de.metamodel.e4sm;
 
-import e4sm.de.metamodel.e4sm.analysis.ParameterizableElement;
 import e4sm.de.metamodel.e4sm.core.NamedElement;
+import e4sm.de.metamodel.e4sm.core.ParameterizableElement;
+import e4sm.de.metamodel.e4sm.execution.Execution;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -28,6 +29,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link e4sm.de.metamodel.e4sm.Component#getMainResponsible <em>Main Responsible</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Component#getSpecifiedInPackage <em>Specified In Package</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Component#getCodeSpecification <em>Code Specification</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.Component#getExecution <em>Execution</em>}</li>
  * </ul>
  *
  * @see e4sm.de.metamodel.e4sm.e4smPackage#getComponent()
@@ -144,11 +146,41 @@ public interface Component extends NamedElement, ParameterizableElement {
 	void setCodeSpecification(String value);
 
 	/**
+	 * Returns the value of the '<em><b>Execution</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Execution</em>' containment reference.
+	 * @see #setExecution(Execution)
+	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getComponent_Execution()
+	 * @model containment="true"
+	 * @generated
+	 */
+	Execution getExecution();
+
+	/**
+	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.Component#getExecution <em>Execution</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Execution</em>' containment reference.
+	 * @see #getExecution()
+	 * @generated
+	 */
+	void setExecution(Execution value);
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
 	 */
 	Person computeMainResponsible();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void newOperation2();
 
 } // Component

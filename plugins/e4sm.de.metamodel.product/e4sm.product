@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?pde version="3.5"?>
+
+<product name="E4SM Product" uid="e4sm.product" id="e4sm.de.metamodel.branding.product" application="org.eclipse.ui.ide.workbench" version="1.0.0.qualifier" useFeatures="true" includeLaunchers="true">
+
+   <aboutInfo>
+      <image path="/icons/about.bmp"/>
+       <text>
+         E4SM Editor
+
+		 Version  1.0.0
+		
+		Technische Universität Ilmenau
+		
+		Visit https://www.e4sm-projekt.de
+      </text>
+   </aboutInfo>
+
+   <configIni use="default">
+   </configIni>
+
+   <launcherArgs>
+      <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts
+      </vmArgsMac>
+   </launcherArgs>
+
+   <windowImages i16="/e4sm.de.metamodel.branding/icons/logo_16.gif" i32="/e4sm.de.metamodel.branding/icons/logo_32.gif" i64="/e4sm.de.metamodel.branding/icons/logo_64.gif"/>
+
+   <splash
+      location="e4sm.de.metamodel.branding" />
+   <launcher name="E4SM_editor">
+      <win useIco="false">
+         <ico path="/e4sm.de.metamodel.branding/icons/icon.ico"/>
+         <bmp
+            winSmallHigh="/e4sm.de.metamodel.branding/icons/logo_16.bmp"
+            winSmallLow="/e4sm.de.metamodel.branding/icons/logo_16_8.bmp"
+            winMediumHigh="/e4sm.de.metamodel.branding/icons/logo_32.gif"
+            winMediumLow="/e4sm.de.metamodel.branding/icons/logo_32.gif"/>
+      </win>
+   </launcher>
+
+   <vm>
+      <windows include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17</windows>
+   </vm>
+
+   <plugins>
+   </plugins>
+
+   <features>
+      <feature id="org.eclipse.e4.rcp" installMode="root"/>
+      <feature id="org.eclipse.platform" installMode="root"/>
+      <feature id="org.eclipse.emf.ecore" installMode="root"/>
+      <feature id="org.eclipse.emf.common" installMode="root"/>
+      <feature id="org.eclipse.equinox.p2.core.feature" installMode="root"/>
+      <feature id="e4sm.de.metamodel.feature" installMode="root"/>
+      <feature id="e4sm.de.metamodel.design.feature" installMode="root"/>
+      <feature id="e4sm.de.metamodel.to.scpn.qvto.feature" installMode="root"/>
+   </features>
+
+   <configurations>
+      <plugin id="org.apache.felix.scr" autoStart="true" startLevel="2" />
+      <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" />
+      <plugin id="org.eclipse.equinox.event" autoStart="true" startLevel="2" />
+      <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="1" />
+   </configurations>
+
+   <preferencesInfo>
+      <targetfile overwrite="false"/>
+   </preferencesInfo>
+
+   <cssInfo>
+   </cssInfo>
+
+</product>

@@ -2,6 +2,8 @@
  */
 package e4sm.de.metamodel.e4sm.core;
 
+import e4sm.de.metamodel.e4sm.execution.Expression;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Literal Integer</b></em>'.
@@ -40,5 +42,13 @@ public interface LiteralInteger extends LiteralSpecification {
 	 * @generated
 	 */
 	void setValue(int value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	Expression getTangibleChild();
 
 } // LiteralInteger

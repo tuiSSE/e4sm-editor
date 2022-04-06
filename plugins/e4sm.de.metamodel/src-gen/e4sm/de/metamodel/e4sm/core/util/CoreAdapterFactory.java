@@ -4,6 +4,7 @@ package e4sm.de.metamodel.e4sm.core.util;
 
 import e4sm.de.metamodel.e4sm.core.*;
 
+import e4sm.de.metamodel.e4sm.execution.Expression;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
@@ -144,6 +145,61 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseTypedElement(TypedElement object) {
 			return createTypedElementAdapter();
+		}
+
+		@Override
+		public Adapter caseVariant(Variant object) {
+			return createVariantAdapter();
+		}
+
+		@Override
+		public Adapter caseParameterizableElement(ParameterizableElement object) {
+			return createParameterizableElementAdapter();
+		}
+
+		@Override
+		public Adapter caseTypeSpecification(TypeSpecification object) {
+			return createTypeSpecificationAdapter();
+		}
+
+		@Override
+		public Adapter caseAttributeSpecification(AttributeSpecification object) {
+			return createAttributeSpecificationAdapter();
+		}
+
+		@Override
+		public Adapter caseIntegerAttribute(IntegerAttribute object) {
+			return createIntegerAttributeAdapter();
+		}
+
+		@Override
+		public Adapter caseDoubleAttribute(DoubleAttribute object) {
+			return createDoubleAttributeAdapter();
+		}
+
+		@Override
+		public Adapter caseStringAttribute(StringAttribute object) {
+			return createStringAttributeAdapter();
+		}
+
+		@Override
+		public Adapter caseBooleanAttribute(BooleanAttribute object) {
+			return createBooleanAttributeAdapter();
+		}
+
+		@Override
+		public Adapter caseClassAttribute(ClassAttribute object) {
+			return createClassAttributeAdapter();
+		}
+
+		@Override
+		public Adapter caseExecution_Element(e4sm.de.metamodel.e4sm.execution.Element object) {
+			return createExecution_ElementAdapter();
+		}
+
+		@Override
+		public Adapter caseExpression(Expression object) {
+			return createExpressionAdapter();
 		}
 
 		@Override
@@ -386,6 +442,160 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTypedElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.core.Variant <em>Variant</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.core.Variant
+	 * @generated
+	 */
+	public Adapter createVariantAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.core.ParameterizableElement <em>Parameterizable Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.core.ParameterizableElement
+	 * @generated
+	 */
+	public Adapter createParameterizableElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.core.TypeSpecification <em>Type Specification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.core.TypeSpecification
+	 * @generated
+	 */
+	public Adapter createTypeSpecificationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.core.AttributeSpecification <em>Attribute Specification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.core.AttributeSpecification
+	 * @generated
+	 */
+	public Adapter createAttributeSpecificationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.core.IntegerAttribute <em>Integer Attribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.core.IntegerAttribute
+	 * @generated
+	 */
+	public Adapter createIntegerAttributeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.core.DoubleAttribute <em>Double Attribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.core.DoubleAttribute
+	 * @generated
+	 */
+	public Adapter createDoubleAttributeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.core.StringAttribute <em>String Attribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.core.StringAttribute
+	 * @generated
+	 */
+	public Adapter createStringAttributeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.core.BooleanAttribute <em>Boolean Attribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.core.BooleanAttribute
+	 * @generated
+	 */
+	public Adapter createBooleanAttributeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.core.ClassAttribute <em>Class Attribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.core.ClassAttribute
+	 * @generated
+	 */
+	public Adapter createClassAttributeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.execution.Element <em>Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.execution.Element
+	 * @generated
+	 */
+	public Adapter createExecution_ElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.execution.Expression <em>Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.execution.Expression
+	 * @generated
+	 */
+	public Adapter createExpressionAdapter() {
 		return null;
 	}
 

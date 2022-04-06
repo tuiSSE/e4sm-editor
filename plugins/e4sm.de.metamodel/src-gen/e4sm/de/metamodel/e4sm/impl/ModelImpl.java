@@ -3,11 +3,13 @@
 package e4sm.de.metamodel.e4sm.impl;
 
 import e4sm.de.metamodel.e4sm.Actor;
+import e4sm.de.metamodel.e4sm.Import;
 import e4sm.de.metamodel.e4sm.Model;
-import e4sm.de.metamodel.e4sm.analysis.AnalysisPackage;
 import e4sm.de.metamodel.e4sm.analysis.Parameter;
-import e4sm.de.metamodel.e4sm.analysis.ParameterizableElement;
-import e4sm.de.metamodel.e4sm.analysis.Variant;
+import e4sm.de.metamodel.e4sm.core.CorePackage;
+import e4sm.de.metamodel.e4sm.core.ParameterizableElement;
+import e4sm.de.metamodel.e4sm.core.TypeSpecification;
+import e4sm.de.metamodel.e4sm.core.Variant;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 import e4sm.de.metamodel.e4sm.core.impl.NamedElementImpl;
 import e4sm.de.metamodel.e4sm.util.e4smValidator;
@@ -34,9 +36,8 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Model</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object
+ * '<em><b>Model</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
@@ -46,6 +47,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ModelImpl#getActors <em>Actors</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ModelImpl#getPersonsPicturesPath <em>Persons Pictures Path</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ModelImpl#getVariants <em>Variants</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.ModelImpl#getTypes <em>Types</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.ModelImpl#getImports <em>Imports</em>}</li>
  * </ul>
  *
  * @generated
@@ -53,8 +56,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class ModelImpl extends NamedElementImpl implements Model {
 	/**
 	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getParameters()
 	 * @generated
 	 * @ordered
@@ -63,8 +65,7 @@ public class ModelImpl extends NamedElementImpl implements Model {
 
 	/**
 	 * The cached value of the '{@link #getPackages() <em>Packages</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getPackages()
 	 * @generated
 	 * @ordered
@@ -73,8 +74,7 @@ public class ModelImpl extends NamedElementImpl implements Model {
 
 	/**
 	 * The cached value of the '{@link #getActors() <em>Actors</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getActors()
 	 * @generated
 	 * @ordered
@@ -83,8 +83,7 @@ public class ModelImpl extends NamedElementImpl implements Model {
 
 	/**
 	 * The default value of the '{@link #getPersonsPicturesPath() <em>Persons Pictures Path</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getPersonsPicturesPath()
 	 * @generated
 	 * @ordered
@@ -93,8 +92,7 @@ public class ModelImpl extends NamedElementImpl implements Model {
 
 	/**
 	 * The cached value of the '{@link #getPersonsPicturesPath() <em>Persons Pictures Path</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getPersonsPicturesPath()
 	 * @generated
 	 * @ordered
@@ -103,8 +101,7 @@ public class ModelImpl extends NamedElementImpl implements Model {
 
 	/**
 	 * The cached value of the '{@link #getVariants() <em>Variants</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getVariants()
 	 * @generated
 	 * @ordered
@@ -112,8 +109,27 @@ public class ModelImpl extends NamedElementImpl implements Model {
 	protected EList<Variant> variants;
 
 	/**
+	 * The cached value of the '{@link #getTypes() <em>Types</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see #getTypes()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<TypeSpecification> types;
+
+	/**
+	 * The cached value of the '{@link #getImports() <em>Imports</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getImports()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Import> imports;
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected ModelImpl() {
@@ -121,8 +137,7 @@ public class ModelImpl extends NamedElementImpl implements Model {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -131,8 +146,7 @@ public class ModelImpl extends NamedElementImpl implements Model {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -144,8 +158,7 @@ public class ModelImpl extends NamedElementImpl implements Model {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -158,8 +171,7 @@ public class ModelImpl extends NamedElementImpl implements Model {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -171,8 +183,7 @@ public class ModelImpl extends NamedElementImpl implements Model {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -181,8 +192,7 @@ public class ModelImpl extends NamedElementImpl implements Model {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -195,8 +205,7 @@ public class ModelImpl extends NamedElementImpl implements Model {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -210,26 +219,50 @@ public class ModelImpl extends NamedElementImpl implements Model {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<TypeSpecification> getTypes() {
+		if (types == null) {
+			types = new EObjectContainmentEList<TypeSpecification>(TypeSpecification.class, this,
+					e4smPackage.MODEL__TYPES);
+		}
+		return types;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<Import> getImports() {
+		if (imports == null) {
+			imports = new EObjectContainmentEList<Import>(Import.class, this, e4smPackage.MODEL__IMPORTS);
+		}
+		return imports;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
 	@Override
 	public boolean isPersonPicturePathValid(DiagnosticChain diagnostics, Map context) {
-		// TODO: implement this method! Remove if(false from the first if and find out why it doesn't work
-		// -> specify the condition that violates the invariant
-		// -> verify the details of the diagnostic, including severity and message
-		// Ensure that you remove @generated or mark it @generated NOT
 		boolean validationFailed = false;
 		URI uri = null;
 		if (personsPicturesPath == null || personsPicturesPath.length() == 0) {
-			validationFailed = true;
+			return true; // The path is not valid, but is also not set
 		} else {
 			uri = URI.createURI(personsPicturesPath);
 		}
-		if (validationFailed || Files.notExists(Paths.get(uri.toPlatformString(false)))) {
+		if (validationFailed || (uri != null && !Files.isDirectory(Paths.get(uri.toPlatformString(false))))) {
 			if (diagnostics != null) {
 				diagnostics.add(new BasicDiagnostic(Diagnostic.WARNING, e4smValidator.DIAGNOSTIC_SOURCE,
 						e4smValidator.MODEL__IS_PERSON_PICTURE_PATH_VALID,
-						"The given path does not exists in this system or is not accessible",
+						"The given path \"" + personsPicturesPath
+								+ "\" does not exists in this system or is not accessible",
 						new Object[] { this, this.getPersonsPicturesPath() }));
 			}
 			return false;
@@ -238,8 +271,7 @@ public class ModelImpl extends NamedElementImpl implements Model {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -253,13 +285,16 @@ public class ModelImpl extends NamedElementImpl implements Model {
 			return ((InternalEList<?>) getActors()).basicRemove(otherEnd, msgs);
 		case e4smPackage.MODEL__VARIANTS:
 			return ((InternalEList<?>) getVariants()).basicRemove(otherEnd, msgs);
+		case e4smPackage.MODEL__TYPES:
+			return ((InternalEList<?>) getTypes()).basicRemove(otherEnd, msgs);
+		case e4smPackage.MODEL__IMPORTS:
+			return ((InternalEList<?>) getImports()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -275,13 +310,16 @@ public class ModelImpl extends NamedElementImpl implements Model {
 			return getPersonsPicturesPath();
 		case e4smPackage.MODEL__VARIANTS:
 			return getVariants();
+		case e4smPackage.MODEL__TYPES:
+			return getTypes();
+		case e4smPackage.MODEL__IMPORTS:
+			return getImports();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -307,13 +345,20 @@ public class ModelImpl extends NamedElementImpl implements Model {
 			getVariants().clear();
 			getVariants().addAll((Collection<? extends Variant>) newValue);
 			return;
+		case e4smPackage.MODEL__TYPES:
+			getTypes().clear();
+			getTypes().addAll((Collection<? extends TypeSpecification>) newValue);
+			return;
+		case e4smPackage.MODEL__IMPORTS:
+			getImports().clear();
+			getImports().addAll((Collection<? extends Import>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -334,13 +379,18 @@ public class ModelImpl extends NamedElementImpl implements Model {
 		case e4smPackage.MODEL__VARIANTS:
 			getVariants().clear();
 			return;
+		case e4smPackage.MODEL__TYPES:
+			getTypes().clear();
+			return;
+		case e4smPackage.MODEL__IMPORTS:
+			getImports().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -357,13 +407,16 @@ public class ModelImpl extends NamedElementImpl implements Model {
 					: !PERSONS_PICTURES_PATH_EDEFAULT.equals(personsPicturesPath);
 		case e4smPackage.MODEL__VARIANTS:
 			return variants != null && !variants.isEmpty();
+		case e4smPackage.MODEL__TYPES:
+			return types != null && !types.isEmpty();
+		case e4smPackage.MODEL__IMPORTS:
+			return imports != null && !imports.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -371,7 +424,7 @@ public class ModelImpl extends NamedElementImpl implements Model {
 		if (baseClass == ParameterizableElement.class) {
 			switch (derivedFeatureID) {
 			case e4smPackage.MODEL__PARAMETERS:
-				return AnalysisPackage.PARAMETERIZABLE_ELEMENT__PARAMETERS;
+				return CorePackage.PARAMETERIZABLE_ELEMENT__PARAMETERS;
 			default:
 				return -1;
 			}
@@ -380,15 +433,14 @@ public class ModelImpl extends NamedElementImpl implements Model {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == ParameterizableElement.class) {
 			switch (baseFeatureID) {
-			case AnalysisPackage.PARAMETERIZABLE_ELEMENT__PARAMETERS:
+			case CorePackage.PARAMETERIZABLE_ELEMENT__PARAMETERS:
 				return e4smPackage.MODEL__PARAMETERS;
 			default:
 				return -1;
@@ -398,8 +450,7 @@ public class ModelImpl extends NamedElementImpl implements Model {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -413,8 +464,7 @@ public class ModelImpl extends NamedElementImpl implements Model {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -429,4 +479,4 @@ public class ModelImpl extends NamedElementImpl implements Model {
 		return result.toString();
 	}
 
-} //ModelImpl
+} // ModelImpl

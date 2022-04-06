@@ -21,7 +21,11 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.sirius.common.ui;bundle-version="6.4.2",
  org.eclipse.m2m.qvt.oml;bundle-version="3.10.4",
  timenet.tuilmenau.de.scpn.metamodel;bundle-version="0.1.0",
- org.antlr.runtime;bundle-version="4.7.2"
+ org.antlr.runtime;bundle-version="4.7.2",
+ e4sm.de.metamodel.xtext;bundle-version="1.0.0",
+ e4sm.de.metamodel.xtext.ui;bundle-version="1.0.0",
+ org.obeonetwork.dsl.viewpoint.xtext.support;bundle-version="1.0.1",
+ org.eclipse.m2e.maven.runtime
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-Vendor: %providerName

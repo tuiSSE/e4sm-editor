@@ -4,9 +4,10 @@ package e4sm.de.metamodel.e4sm.provider;
 
 import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.analysis.AnalysisFactory;
-import e4sm.de.metamodel.e4sm.analysis.AnalysisPackage;
+import e4sm.de.metamodel.e4sm.core.CorePackage;
 import e4sm.de.metamodel.e4sm.e4smFactory;
 import e4sm.de.metamodel.e4sm.e4smPackage;
+import e4sm.de.metamodel.e4sm.execution.ExecutionFactory;
 import e4sm.de.metamodel.e4sm.core.provider.NamedElementItemProvider;
 import java.util.Collection;
 import java.util.List;
@@ -131,9 +132,10 @@ public class ComponentItemProvider extends NamedElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(AnalysisPackage.Literals.PARAMETERIZABLE_ELEMENT__PARAMETERS);
+			childrenFeatures.add(CorePackage.Literals.PARAMETERIZABLE_ELEMENT__PARAMETERS);
 			childrenFeatures.add(e4smPackage.Literals.COMPONENT__COMPONENTS);
 			childrenFeatures.add(e4smPackage.Literals.COMPONENT__PINS);
+			childrenFeatures.add(e4smPackage.Literals.COMPONENT__EXECUTION);
 		}
 		return childrenFeatures;
 	}
@@ -203,6 +205,7 @@ public class ComponentItemProvider extends NamedElementItemProvider {
 		case e4smPackage.COMPONENT__PARAMETERS:
 		case e4smPackage.COMPONENT__COMPONENTS:
 		case e4smPackage.COMPONENT__PINS:
+		case e4smPackage.COMPONENT__EXECUTION:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -220,7 +223,7 @@ public class ComponentItemProvider extends NamedElementItemProvider {
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(AnalysisPackage.Literals.PARAMETERIZABLE_ELEMENT__PARAMETERS,
+		newChildDescriptors.add(createChildParameter(CorePackage.Literals.PARAMETERIZABLE_ELEMENT__PARAMETERS,
 				AnalysisFactory.eINSTANCE.createParameter()));
 
 		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.COMPONENT__COMPONENTS,
@@ -255,6 +258,9 @@ public class ComponentItemProvider extends NamedElementItemProvider {
 
 		newChildDescriptors.add(
 				createChildParameter(e4smPackage.Literals.COMPONENT__PINS, e4smFactory.eINSTANCE.createOutputPin()));
+
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.COMPONENT__EXECUTION,
+				ExecutionFactory.eINSTANCE.createExecution()));
 	}
 
 	/**

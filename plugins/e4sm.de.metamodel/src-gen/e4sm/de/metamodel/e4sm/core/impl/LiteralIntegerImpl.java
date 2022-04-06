@@ -4,8 +4,11 @@ package e4sm.de.metamodel.e4sm.core.impl;
 
 import e4sm.de.metamodel.e4sm.core.CorePackage;
 import e4sm.de.metamodel.e4sm.core.LiteralInteger;
+import e4sm.de.metamodel.e4sm.execution.Expression;
+import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -92,6 +95,17 @@ public class LiteralIntegerImpl extends LiteralSpecificationImpl implements Lite
 	 * @generated
 	 */
 	@Override
+	public Expression getTangibleChild() {
+		// a literal is always tangible
+		return this;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case CorePackage.LITERAL_INTEGER__VALUE:
@@ -142,6 +156,20 @@ public class LiteralIntegerImpl extends LiteralSpecificationImpl implements Lite
 			return value != VALUE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+		case CorePackage.LITERAL_INTEGER___GET_TANGIBLE_CHILD:
+			return getTangibleChild();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

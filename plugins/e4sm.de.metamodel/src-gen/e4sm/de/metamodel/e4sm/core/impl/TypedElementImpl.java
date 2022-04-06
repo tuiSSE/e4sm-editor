@@ -3,11 +3,11 @@
 package e4sm.de.metamodel.e4sm.core.impl;
 
 import e4sm.de.metamodel.e4sm.core.CorePackage;
+import e4sm.de.metamodel.e4sm.core.TypeSpecification;
 import e4sm.de.metamodel.e4sm.core.TypedElement;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -34,7 +34,7 @@ public abstract class TypedElementImpl extends NamedElementImpl implements Typed
 	 * @generated
 	 * @ordered
 	 */
-	protected EDataType type;
+	protected TypeSpecification type;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -61,10 +61,10 @@ public abstract class TypedElementImpl extends NamedElementImpl implements Typed
 	 * @generated
 	 */
 	@Override
-	public EDataType getType() {
+	public TypeSpecification getType() {
 		if (type != null && type.eIsProxy()) {
 			InternalEObject oldType = (InternalEObject) type;
-			type = (EDataType) eResolveProxy(oldType);
+			type = (TypeSpecification) eResolveProxy(oldType);
 			if (type != oldType) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CorePackage.TYPED_ELEMENT__TYPE, oldType,
@@ -79,7 +79,7 @@ public abstract class TypedElementImpl extends NamedElementImpl implements Typed
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType basicGetType() {
+	public TypeSpecification basicGetType() {
 		return type;
 	}
 
@@ -89,8 +89,8 @@ public abstract class TypedElementImpl extends NamedElementImpl implements Typed
 	 * @generated
 	 */
 	@Override
-	public void setType(EDataType newType) {
-		EDataType oldType = type;
+	public void setType(TypeSpecification newType) {
+		TypeSpecification oldType = type;
 		type = newType;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.TYPED_ELEMENT__TYPE, oldType, type));
@@ -121,7 +121,7 @@ public abstract class TypedElementImpl extends NamedElementImpl implements Typed
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 		case CorePackage.TYPED_ELEMENT__TYPE:
-			setType((EDataType) newValue);
+			setType((TypeSpecification) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -136,7 +136,7 @@ public abstract class TypedElementImpl extends NamedElementImpl implements Typed
 	public void eUnset(int featureID) {
 		switch (featureID) {
 		case CorePackage.TYPED_ELEMENT__TYPE:
-			setType((EDataType) null);
+			setType((TypeSpecification) null);
 			return;
 		}
 		super.eUnset(featureID);

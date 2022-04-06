@@ -2,6 +2,9 @@
  */
 package e4sm.de.metamodel.e4sm.core;
 
+import e4sm.de.metamodel.e4sm.execution.Element;
+import e4sm.de.metamodel.e4sm.execution.Expression;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Value Specification</b></em>'.
@@ -12,7 +15,7 @@ package e4sm.de.metamodel.e4sm.core;
  * @model abstract="true"
  * @generated
  */
-public interface ValueSpecification extends TypedElement {
+public interface ValueSpecification extends TypedElement, Expression {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -44,5 +47,21 @@ public interface ValueSpecification extends TypedElement {
 	 * @generated
 	 */
 	String toString();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	Expression getTangibleChild();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	Element getActualParent();
 
 } // ValueSpecification

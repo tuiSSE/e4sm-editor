@@ -81,6 +81,9 @@ Export-Package: e4sm.de.metamodel.e4sm;
    org.eclipse.emf.common.notify,
    org.eclipse.emf.common.notify.impl,
    org.eclipse.emf.ecore.util",
+ e4sm.de.metamodel.e4sm.execution,
+ e4sm.de.metamodel.e4sm.execution.impl,
+ e4sm.de.metamodel.e4sm.execution.util,
  e4sm.de.metamodel.e4sm.guava;
   uses:="org.eclipse.emf.ecore",
  e4sm.de.metamodel.e4sm.guava.impl;

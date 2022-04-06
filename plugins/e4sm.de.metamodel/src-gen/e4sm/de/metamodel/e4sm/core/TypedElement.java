@@ -2,8 +2,6 @@
  */
 package e4sm.de.metamodel.e4sm.core;
 
-import org.eclipse.emf.ecore.EDataType;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Typed Element</b></em>'.
@@ -26,12 +24,12 @@ public interface TypedElement extends NamedElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Type</em>' reference.
-	 * @see #setType(EDataType)
+	 * @see #setType(TypeSpecification)
 	 * @see e4sm.de.metamodel.e4sm.core.CorePackage#getTypedElement_Type()
 	 * @model
 	 * @generated
 	 */
-	EDataType getType();
+	TypeSpecification getType();
 
 	/**
 	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.core.TypedElement#getType <em>Type</em>}' reference.
@@ -41,6 +39,6 @@ public interface TypedElement extends NamedElement {
 	 * @see #getType()
 	 * @generated
 	 */
-	void setType(EDataType value);
+	void setType(TypeSpecification value);
 
 } // TypedElement

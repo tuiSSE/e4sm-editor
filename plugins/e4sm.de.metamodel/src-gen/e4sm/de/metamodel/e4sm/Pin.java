@@ -2,8 +2,9 @@
  */
 package e4sm.de.metamodel.e4sm;
 
-import e4sm.de.metamodel.e4sm.analysis.ParameterizableElement;
+import e4sm.de.metamodel.e4sm.core.ParameterizableElement;
 import e4sm.de.metamodel.e4sm.core.TypedElement;
+import e4sm.de.metamodel.e4sm.execution.ConnectableNode;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -31,7 +32,7 @@ import org.eclipse.emf.common.util.EList;
  *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='PinC1'"
  * @generated
  */
-public interface Pin extends ParameterizableElement, TypedElement {
+public interface Pin extends ParameterizableElement, ConnectableNode, TypedElement {
 
 	/**
 	 * Returns the value of the '<em><b>Outgoing Connectors</b></em>' reference list.

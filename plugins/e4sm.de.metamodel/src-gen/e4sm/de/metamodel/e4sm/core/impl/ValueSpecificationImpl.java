@@ -5,6 +5,10 @@ package e4sm.de.metamodel.e4sm.core.impl;
 import e4sm.de.metamodel.e4sm.core.CorePackage;
 import e4sm.de.metamodel.e4sm.core.LiteralInteger;
 import e4sm.de.metamodel.e4sm.core.ValueSpecification;
+import e4sm.de.metamodel.e4sm.execution.BinaryExpression;
+import e4sm.de.metamodel.e4sm.execution.Element;
+import e4sm.de.metamodel.e4sm.execution.ExecutionPackage;
+import e4sm.de.metamodel.e4sm.execution.Expression;
 import java.lang.reflect.InvocationTargetException;
 
 import org.eclipse.emf.common.util.EList;
@@ -84,6 +88,65 @@ public abstract class ValueSpecificationImpl extends TypedElementImpl implements
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public Expression getTangibleChild() {
+		// a Value specification is always tangible
+		return this;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public Element getActualParent() {
+		var c = this.eContainer();
+		if (c instanceof BinaryExpression) {
+			BinaryExpression b = (BinaryExpression) c;
+			if (b.isRealOperation()) {
+				return b;
+			}
+			return b.getActualParent();
+		}
+		if (c instanceof Expression) {
+			Expression e = (Expression) c;
+			return e.getActualParent();
+		}
+		return null;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
+		if (baseClass == Element.class) {
+			switch (baseOperationID) {
+			default:
+				return -1;
+			}
+		}
+		if (baseClass == Expression.class) {
+			switch (baseOperationID) {
+			case ExecutionPackage.EXPRESSION___GET_TANGIBLE_CHILD:
+				return CorePackage.VALUE_SPECIFICATION___GET_TANGIBLE_CHILD;
+			case ExecutionPackage.EXPRESSION___GET_ACTUAL_PARENT:
+				return CorePackage.VALUE_SPECIFICATION___GET_ACTUAL_PARENT;
+			default:
+				return -1;
+			}
+		}
+		return super.eDerivedOperationID(baseOperationID, baseClass);
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -98,6 +161,10 @@ public abstract class ValueSpecificationImpl extends TypedElementImpl implements
 			return isComputable();
 		case CorePackage.VALUE_SPECIFICATION___TO_STRING:
 			return toString();
+		case CorePackage.VALUE_SPECIFICATION___GET_TANGIBLE_CHILD:
+			return getTangibleChild();
+		case CorePackage.VALUE_SPECIFICATION___GET_ACTUAL_PARENT:
+			return getActualParent();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

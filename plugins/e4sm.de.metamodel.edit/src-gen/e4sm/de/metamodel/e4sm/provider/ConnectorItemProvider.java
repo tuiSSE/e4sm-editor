@@ -7,7 +7,6 @@ import e4sm.de.metamodel.e4sm.Connector;
 import e4sm.de.metamodel.e4sm.Package;
 import e4sm.de.metamodel.e4sm.Pin;
 import e4sm.de.metamodel.e4sm.analysis.AnalysisFactory;
-import e4sm.de.metamodel.e4sm.analysis.AnalysisPackage;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
 import e4sm.de.metamodel.e4sm.core.CorePackage;
@@ -177,7 +176,7 @@ public class ConnectorItemProvider extends ItemProviderAdapter implements IEditi
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(AnalysisPackage.Literals.PARAMETERIZABLE_ELEMENT__PARAMETERS);
+			childrenFeatures.add(CorePackage.Literals.PARAMETERIZABLE_ELEMENT__PARAMETERS);
 		}
 		return childrenFeatures;
 	}
@@ -283,7 +282,7 @@ public class ConnectorItemProvider extends ItemProviderAdapter implements IEditi
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(AnalysisPackage.Literals.PARAMETERIZABLE_ELEMENT__PARAMETERS,
+		newChildDescriptors.add(createChildParameter(CorePackage.Literals.PARAMETERIZABLE_ELEMENT__PARAMETERS,
 				AnalysisFactory.eINSTANCE.createParameter()));
 	}
 

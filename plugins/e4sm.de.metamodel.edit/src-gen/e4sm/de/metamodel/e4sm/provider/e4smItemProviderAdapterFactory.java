@@ -717,6 +717,29 @@ public class e4smItemProviderAdapterFactory extends e4smAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.Import} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ImportItemProvider importItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.Import}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createImportAdapter() {
+		if (importItemProvider == null) {
+			importItemProvider = new ImportItemProvider(this);
+		}
+
+		return importItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -877,6 +900,8 @@ public class e4smItemProviderAdapterFactory extends e4smAdapterFactory
 			conversionByConventionItemProvider.dispose();
 		if (unitPrefixItemProvider != null)
 			unitPrefixItemProvider.dispose();
+		if (importItemProvider != null)
+			importItemProvider.dispose();
 	}
 
 }

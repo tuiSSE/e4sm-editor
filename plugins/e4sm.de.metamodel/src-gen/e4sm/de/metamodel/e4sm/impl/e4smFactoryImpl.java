@@ -13,6 +13,7 @@ import e4sm.de.metamodel.e4sm.ExternalDependency;
 import e4sm.de.metamodel.e4sm.Function;
 import e4sm.de.metamodel.e4sm.Heuristic;
 import e4sm.de.metamodel.e4sm.Human;
+import e4sm.de.metamodel.e4sm.Import;
 import e4sm.de.metamodel.e4sm.InputPin;
 import e4sm.de.metamodel.e4sm.LogicalConnector;
 import e4sm.de.metamodel.e4sm.MachineLearningComponent;
@@ -141,6 +142,8 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 			return createConversionByConvention();
 		case e4smPackage.UNIT_PREFIX:
 			return createUnitPrefix();
+		case e4smPackage.IMPORT:
+			return createImport();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -502,6 +505,17 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 	public UnitPrefix createUnitPrefix() {
 		UnitPrefixImpl unitPrefix = new UnitPrefixImpl();
 		return unitPrefix;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Import createImport() {
+		ImportImpl import_ = new ImportImpl();
+		return import_;
 	}
 
 	/**

@@ -13,6 +13,7 @@ import e4sm.de.metamodel.e4sm.ExternalDependency;
 import e4sm.de.metamodel.e4sm.Function;
 import e4sm.de.metamodel.e4sm.Heuristic;
 import e4sm.de.metamodel.e4sm.Human;
+import e4sm.de.metamodel.e4sm.Import;
 import e4sm.de.metamodel.e4sm.InputPin;
 import e4sm.de.metamodel.e4sm.LogicalConnector;
 import e4sm.de.metamodel.e4sm.MachineLearningComponent;
@@ -30,11 +31,12 @@ import e4sm.de.metamodel.e4sm.SimpleUnit;
 import e4sm.de.metamodel.e4sm.SoftwareComponent;
 import e4sm.de.metamodel.e4sm.UnitConversion;
 import e4sm.de.metamodel.e4sm.UnitPrefix;
-import e4sm.de.metamodel.e4sm.analysis.ParameterizableElement;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
+import e4sm.de.metamodel.e4sm.execution.ConnectableNode;
 import e4sm.de.metamodel.e4sm.core.Element;
 import e4sm.de.metamodel.e4sm.core.NamedElement;
+import e4sm.de.metamodel.e4sm.core.ParameterizableElement;
 import e4sm.de.metamodel.e4sm.core.TypedElement;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -243,6 +245,11 @@ public class e4smAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseImport(Import object) {
+			return createImportAdapter();
+		}
+
+		@Override
 		public Adapter caseElement(Element object) {
 			return createElementAdapter();
 		}
@@ -255,6 +262,16 @@ public class e4smAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseParameterizableElement(ParameterizableElement object) {
 			return createParameterizableElementAdapter();
+		}
+
+		@Override
+		public Adapter caseExecution_Element(e4sm.de.metamodel.e4sm.execution.Element object) {
+			return createExecution_ElementAdapter();
+		}
+
+		@Override
+		public Adapter caseConnectableNode(ConnectableNode object) {
+			return createConnectableNodeAdapter();
 		}
 
 		@Override
@@ -618,13 +635,13 @@ public class e4smAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.analysis.ParameterizableElement <em>Parameterizable Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.core.ParameterizableElement <em>Parameterizable Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see e4sm.de.metamodel.e4sm.analysis.ParameterizableElement
+	 * @see e4sm.de.metamodel.e4sm.core.ParameterizableElement
 	 * @generated
 	 */
 	public Adapter createParameterizableElementAdapter() {
@@ -726,6 +743,48 @@ public class e4smAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUnitPrefixAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.Import <em>Import</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.Import
+	 * @generated
+	 */
+	public Adapter createImportAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.execution.Element <em>Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.execution.Element
+	 * @generated
+	 */
+	public Adapter createExecution_ElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.execution.ConnectableNode <em>Connectable Node</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.execution.ConnectableNode
+	 * @generated
+	 */
+	public Adapter createConnectableNodeAdapter() {
 		return null;
 	}
 

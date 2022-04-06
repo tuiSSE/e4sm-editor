@@ -31,4 +31,11 @@
 		<nature>net.certiv.antlr.dt.core.nature</nature>
 		<nature>org.eclipse.buildship.core.gradleprojectnature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>gen-src</name>
+			<type>2</type>
+			<location>C:/Projekte/E4SM/EDITOR/plugins/e4sm.de.antlr4.petri.grammar/build/gen-src/antlr/main</location>
+		</link>
+	</linkedResources>
 </projectDescription>

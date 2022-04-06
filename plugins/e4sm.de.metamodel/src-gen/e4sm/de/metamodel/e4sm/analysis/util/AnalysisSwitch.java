@@ -69,17 +69,6 @@ public class AnalysisSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-		case AnalysisPackage.VARIANT: {
-			Variant variant = (Variant) theEObject;
-			T result = caseVariant(variant);
-			if (result == null)
-				result = caseNamedElement(variant);
-			if (result == null)
-				result = caseElement(variant);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
 		case AnalysisPackage.ANALYSIS: {
 			Analysis analysis = (Analysis) theEObject;
 			T result = caseAnalysis(analysis);
@@ -123,13 +112,6 @@ public class AnalysisSwitch<T> extends Switch<T> {
 			T result = caseParameter(parameter);
 			if (result == null)
 				result = caseElement(parameter);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case AnalysisPackage.PARAMETERIZABLE_ELEMENT: {
-			ParameterizableElement parameterizableElement = (ParameterizableElement) theEObject;
-			T result = caseParameterizableElement(parameterizableElement);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -267,21 +249,6 @@ public class AnalysisSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Parameterizable Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Parameterizable Element</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseParameterizableElement(ParameterizableElement object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Analysis</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -383,21 +350,6 @@ public class AnalysisSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public <C> T casePreviousNodeGraphAnalysis(PreviousNodeGraphAnalysis<C> object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Variant</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Variant</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseVariant(Variant object) {
 		return null;
 	}
 

@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EPackage;
  * <!-- end-user-doc -->
  * @see e4sm.de.metamodel.e4sm.guava.GuavaFactory
  * @model kind="package"
+ *        annotation="http://www.eclipse.org/edapt historyURI='e4sm.history'"
  * @generated
  */
 public interface GuavaPackage extends EPackage {

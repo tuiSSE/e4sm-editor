@@ -26,17 +26,19 @@ import e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl;
 
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
+import e4sm.de.metamodel.e4sm.execution.ExecutionPackage;
+import e4sm.de.metamodel.e4sm.execution.impl.ExecutionPackageImpl;
 import e4sm.de.metamodel.e4sm.guava.GuavaFactory;
 import e4sm.de.metamodel.e4sm.guava.GuavaPackage;
 
 import e4sm.de.metamodel.e4sm.impl.e4smPackageImpl;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.ETypeParameter;
 
+import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -166,6 +168,9 @@ public class GuavaPackageImpl extends EPackageImpl implements GuavaPackage {
 
 		isInited = true;
 
+		// Initialize simple dependencies
+		EcorePackage.eINSTANCE.eClass();
+
 		// Obtain or create and register interdependencies
 		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(e4smPackage.eNS_URI);
 		e4smPackageImpl thee4smPackage = (e4smPackageImpl) (registeredPackage instanceof e4smPackageImpl
@@ -175,6 +180,10 @@ public class GuavaPackageImpl extends EPackageImpl implements GuavaPackage {
 		CorePackageImpl theCorePackage = (CorePackageImpl) (registeredPackage instanceof CorePackageImpl
 				? registeredPackage
 				: CorePackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ExecutionPackage.eNS_URI);
+		ExecutionPackageImpl theExecutionPackage = (ExecutionPackageImpl) (registeredPackage instanceof ExecutionPackageImpl
+				? registeredPackage
+				: ExecutionPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(AnalysisPackage.eNS_URI);
 		AnalysisPackageImpl theAnalysisPackage = (AnalysisPackageImpl) (registeredPackage instanceof AnalysisPackageImpl
 				? registeredPackage
@@ -188,6 +197,7 @@ public class GuavaPackageImpl extends EPackageImpl implements GuavaPackage {
 		theGuavaPackage.createPackageContents();
 		thee4smPackage.createPackageContents();
 		theCorePackage.createPackageContents();
+		theExecutionPackage.createPackageContents();
 		theAnalysisPackage.createPackageContents();
 		theResultsPackage.createPackageContents();
 
@@ -195,6 +205,7 @@ public class GuavaPackageImpl extends EPackageImpl implements GuavaPackage {
 		theGuavaPackage.initializePackageContents();
 		thee4smPackage.initializePackageContents();
 		theCorePackage.initializePackageContents();
+		theExecutionPackage.initializePackageContents();
 		theAnalysisPackage.initializePackageContents();
 		theResultsPackage.initializePackageContents();
 
@@ -538,6 +549,21 @@ public class GuavaPackageImpl extends EPackageImpl implements GuavaPackage {
 
 		// Create resource
 		createResource(eNS_URI);
+
+		// Create annotations
+		// http://www.eclipse.org/edapt
+		createEdaptAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/edapt</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createEdaptAnnotations() {
+		String source = "http://www.eclipse.org/edapt";
+		addAnnotation(this, source, new String[] { "historyURI", "e4sm.history" });
 	}
 
 } //GuavaPackageImpl

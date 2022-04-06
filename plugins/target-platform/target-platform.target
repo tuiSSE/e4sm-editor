@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde version="3.8"?>
+<target name="Running Platform">
+	<locations>
+		<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+			<repository location="http://download.eclipse.org/releases/latest"/>
+			<unit id="org.eclipse.equinox.executable.feature.group" version="3.8.1500.v20220210-1108"/>
+			<unit id="org.eclipse.rcp.sdk.id" version="4.23.0.I20220308-0310"/>
+		</location>
+	</locations>
+	<environment>
+		<arch>x86_64</arch>
+		<os>win32</os>
+		<ws>win32</ws>
+		<nl>en_US</nl>
+	</environment>
+</target>

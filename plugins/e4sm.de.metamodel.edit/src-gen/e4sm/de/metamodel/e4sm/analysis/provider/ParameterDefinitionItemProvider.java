@@ -7,6 +7,7 @@ import e4sm.de.metamodel.e4sm.analysis.ParameterDefinition;
 import e4sm.de.metamodel.e4sm.provider.e4smEditPlugin;
 
 import e4sm.de.metamodel.e4sm.core.CoreFactory;
+import e4sm.de.metamodel.e4sm.core.CorePackage;
 import e4sm.de.metamodel.e4sm.core.provider.TypedElementItemProvider;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -110,11 +111,11 @@ public class ParameterDefinitionItemProvider extends TypedElementItemProvider {
 					@Override
 					public Collection<?> getChoiceOfValues(Object object) {
 						List<EClass> choiceOfValues = new ArrayList<EClass>();
-						EList<EClassifier> classifiers = AnalysisPackage.eINSTANCE.getEClassifiers();
+						EList<EClassifier> classifiers = CorePackage.eINSTANCE.getEClassifiers();
 						classifiers.forEach(c -> {
 							if (c instanceof EClass) {
-								if (((EClass) c).getEAllSuperTypes().stream().anyMatch(
-										e -> e.equals(AnalysisPackage.eINSTANCE.getParameterizableElement()))) {
+								if (((EClass) c).getEAllSuperTypes().stream()
+										.anyMatch(e -> e.equals(CorePackage.eINSTANCE.getParameterizableElement()))) {
 									choiceOfValues.add((EClass) c);
 								}
 							}
@@ -140,11 +141,11 @@ public class ParameterDefinitionItemProvider extends TypedElementItemProvider {
 			@Override
 			public Collection<?> getChoiceOfValues(Object object) {
 				List<EClass> choiceOfValues = new ArrayList<EClass>();
-				EList<EClassifier> classifiers = AnalysisPackage.eINSTANCE.getEClassifiers();
+				EList<EClassifier> classifiers = CorePackage.eINSTANCE.getEClassifiers();
 				classifiers.forEach(c -> {
 					if (c instanceof EClass) {
 						if (((EClass) c).getEAllSuperTypes().stream()
-								.anyMatch(e -> e.equals(AnalysisPackage.eINSTANCE.getParameterizableElement()))) {
+								.anyMatch(e -> e.equals(CorePackage.eINSTANCE.getParameterizableElement()))) {
 							choiceOfValues.add((EClass) c);
 						}
 					}
@@ -171,11 +172,11 @@ public class ParameterDefinitionItemProvider extends TypedElementItemProvider {
 					@Override
 					public Collection<?> getChoiceOfValues(Object object) {
 						List<EClass> choiceOfValues = new ArrayList<EClass>();
-						EList<EClassifier> classifiers = AnalysisPackage.eINSTANCE.getEClassifiers();
+						EList<EClassifier> classifiers = CorePackage.eINSTANCE.getEClassifiers();
 						classifiers.forEach(c -> {
 							if (c instanceof EClass) {
-								if (((EClass) c).getEAllSuperTypes().stream().anyMatch(
-										e -> e.equals(AnalysisPackage.eINSTANCE.getParameterizableElement()))) {
+								if (((EClass) c).getEAllSuperTypes().stream()
+										.anyMatch(e -> e.equals(CorePackage.eINSTANCE.getParameterizableElement()))) {
 									choiceOfValues.add((EClass) c);
 								}
 							}

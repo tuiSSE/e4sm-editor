@@ -5,7 +5,6 @@ import org.eclipse.emf.ecore.EObject;
 import e4sm.de.metamodel.e4sm.Model;
 import e4sm.de.metamodel.e4sm.Package;
 import e4sm.de.metamodel.e4sm.Sensor;
-import e4sm.de.metamodel.e4sm.e4smPackage;
 import e4sm.de.metamodel.e4sm.util.e4smValidator;
 
 final public class Utils {

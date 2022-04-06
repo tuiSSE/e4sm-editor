@@ -7,18 +7,18 @@ import e4sm.de.metamodel.e4sm.Pin;
 import e4sm.de.metamodel.e4sm.RaceSemantic;
 import e4sm.de.metamodel.e4sm.analysis.Parameter;
 import e4sm.de.metamodel.e4sm.core.CorePackage;
-import e4sm.de.metamodel.e4sm.e4smPackage;
-
-import java.lang.reflect.InvocationTargetException;
-import e4sm.de.metamodel.e4sm.core.Element;
 import e4sm.de.metamodel.e4sm.core.NamedElement;
+import e4sm.de.metamodel.e4sm.core.TypeSpecification;
 import e4sm.de.metamodel.e4sm.core.TypedElement;
+import e4sm.de.metamodel.e4sm.e4smPackage;
+import e4sm.de.metamodel.e4sm.execution.ConnectableNode;
+import e4sm.de.metamodel.e4sm.execution.Element;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -85,7 +85,7 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 	 * @generated
 	 * @ordered
 	 */
-	protected EDataType type;
+	protected TypeSpecification type;
 
 	/**
 	 * The cached value of the '{@link #getOutgoingConnectors() <em>Outgoing Connectors</em>}' reference list.
@@ -218,10 +218,10 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 	 * @generated
 	 */
 	@Override
-	public EDataType getType() {
+	public TypeSpecification getType() {
 		if (type != null && type.eIsProxy()) {
 			InternalEObject oldType = (InternalEObject) type;
-			type = (EDataType) eResolveProxy(oldType);
+			type = (TypeSpecification) eResolveProxy(oldType);
 			if (type != oldType) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, e4smPackage.PIN__TYPE, oldType, type));
@@ -235,7 +235,7 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType basicGetType() {
+	public TypeSpecification basicGetType() {
 		return type;
 	}
 
@@ -245,8 +245,8 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 	 * @generated
 	 */
 	@Override
-	public void setType(EDataType newType) {
-		EDataType oldType = type;
+	public void setType(TypeSpecification newType) {
+		TypeSpecification oldType = type;
 		type = newType;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.PIN__TYPE, oldType, type));
@@ -433,7 +433,7 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 			setName((String) newValue);
 			return;
 		case e4smPackage.PIN__TYPE:
-			setType((EDataType) newValue);
+			setType((TypeSpecification) newValue);
 			return;
 		case e4smPackage.PIN__OUTGOING_CONNECTORS:
 			getOutgoingConnectors().clear();
@@ -468,7 +468,7 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 			setName(NAME_EDEFAULT);
 			return;
 		case e4smPackage.PIN__TYPE:
-			setType((EDataType) null);
+			setType((TypeSpecification) null);
 			return;
 		case e4smPackage.PIN__OUTGOING_CONNECTORS:
 			getOutgoingConnectors().clear();
@@ -527,6 +527,18 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 				return -1;
 			}
 		}
+		if (baseClass == ConnectableNode.class) {
+			switch (derivedFeatureID) {
+			default:
+				return -1;
+			}
+		}
+		if (baseClass == e4sm.de.metamodel.e4sm.core.Element.class) {
+			switch (derivedFeatureID) {
+			default:
+				return -1;
+			}
+		}
 		if (baseClass == NamedElement.class) {
 			switch (derivedFeatureID) {
 			case e4smPackage.PIN__NAME:
@@ -554,6 +566,18 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == Element.class) {
+			switch (baseFeatureID) {
+			default:
+				return -1;
+			}
+		}
+		if (baseClass == ConnectableNode.class) {
+			switch (baseFeatureID) {
+			default:
+				return -1;
+			}
+		}
+		if (baseClass == e4sm.de.metamodel.e4sm.core.Element.class) {
 			switch (baseFeatureID) {
 			default:
 				return -1;

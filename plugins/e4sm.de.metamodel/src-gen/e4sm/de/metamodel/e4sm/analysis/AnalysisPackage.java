@@ -66,7 +66,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl#getAnalysisManager()
 	 * @generated
 	 */
-	int ANALYSIS_MANAGER = 2;
+	int ANALYSIS_MANAGER = 1;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.analysis.impl.AnalysisDefinitionImpl <em>Definition</em>}' class.
@@ -76,7 +76,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl#getAnalysisDefinition()
 	 * @generated
 	 */
-	int ANALYSIS_DEFINITION = 3;
+	int ANALYSIS_DEFINITION = 2;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.analysis.impl.ParameterDefinitionImpl <em>Parameter Definition</em>}' class.
@@ -86,7 +86,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl#getParameterDefinition()
 	 * @generated
 	 */
-	int PARAMETER_DEFINITION = 4;
+	int PARAMETER_DEFINITION = 3;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.analysis.impl.ParameterImpl <em>Parameter</em>}' class.
@@ -96,17 +96,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl#getParameter()
 	 * @generated
 	 */
-	int PARAMETER = 5;
-
-	/**
-	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.analysis.ParameterizableElement <em>Parameterizable Element</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see e4sm.de.metamodel.e4sm.analysis.ParameterizableElement
-	 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl#getParameterizableElement()
-	 * @generated
-	 */
-	int PARAMETERIZABLE_ELEMENT = 6;
+	int PARAMETER = 4;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.analysis.impl.AnalysisImpl <em>Analysis</em>}' class.
@@ -116,7 +106,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl#getAnalysis()
 	 * @generated
 	 */
-	int ANALYSIS = 1;
+	int ANALYSIS = 0;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.analysis.impl.ModelAnalysisImpl <em>Model Analysis</em>}' class.
@@ -126,7 +116,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl#getModelAnalysis()
 	 * @generated
 	 */
-	int MODEL_ANALYSIS = 7;
+	int MODEL_ANALYSIS = 5;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.analysis.impl.GraphAnalysisImpl <em>Graph Analysis</em>}' class.
@@ -136,7 +126,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl#getGraphAnalysis()
 	 * @generated
 	 */
-	int GRAPH_ANALYSIS = 8;
+	int GRAPH_ANALYSIS = 6;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.analysis.impl.MemoryLessGraphAnalysisImpl <em>Memory Less Graph Analysis</em>}' class.
@@ -146,7 +136,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl#getMemoryLessGraphAnalysis()
 	 * @generated
 	 */
-	int MEMORY_LESS_GRAPH_ANALYSIS = 9;
+	int MEMORY_LESS_GRAPH_ANALYSIS = 7;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.analysis.impl.EntireGraphAnalysisImpl <em>Entire Graph Analysis</em>}' class.
@@ -156,7 +146,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl#getEntireGraphAnalysis()
 	 * @generated
 	 */
-	int ENTIRE_GRAPH_ANALYSIS = 10;
+	int ENTIRE_GRAPH_ANALYSIS = 8;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.analysis.impl.PackageAnalysisImpl <em>Package Analysis</em>}' class.
@@ -166,7 +156,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl#getPackageAnalysis()
 	 * @generated
 	 */
-	int PACKAGE_ANALYSIS = 11;
+	int PACKAGE_ANALYSIS = 9;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.analysis.impl.PreviousNodeGraphAnalysisImpl <em>Previous Node Graph Analysis</em>}' class.
@@ -176,44 +166,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl#getPreviousNodeGraphAnalysis()
 	 * @generated
 	 */
-	int PREVIOUS_NODE_GRAPH_ANALYSIS = 12;
-
-	/**
-	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.analysis.impl.VariantImpl <em>Variant</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see e4sm.de.metamodel.e4sm.analysis.impl.VariantImpl
-	 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl#getVariant()
-	 * @generated
-	 */
-	int VARIANT = 0;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VARIANT__NAME = CorePackage.NAMED_ELEMENT__NAME;
-
-	/**
-	 * The number of structural features of the '<em>Variant</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VARIANT_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Variant</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VARIANT_OPERATION_COUNT = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 0;
+	int PREVIOUS_NODE_GRAPH_ANALYSIS = 10;
 
 	/**
 	 * The number of structural features of the '<em>Analysis</em>' class.
@@ -511,33 +464,6 @@ public interface AnalysisPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARAMETER_OPERATION_COUNT = CorePackage.ELEMENT_OPERATION_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETERIZABLE_ELEMENT__PARAMETERS = 0;
-
-	/**
-	 * The number of structural features of the '<em>Parameterizable Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETERIZABLE_ELEMENT_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>Parameterizable Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETERIZABLE_ELEMENT_OPERATION_COUNT = 0;
 
 	/**
 	 * The number of structural features of the '<em>Model Analysis</em>' class.
@@ -943,7 +869,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl#getNetworkGenerator()
 	 * @generated
 	 */
-	int NETWORK_GENERATOR = 13;
+	int NETWORK_GENERATOR = 11;
 
 	/**
 	 * The number of structural features of the '<em>Network Generator</em>' class.
@@ -1195,27 +1121,6 @@ public interface AnalysisPackage extends EPackage {
 	EOperation getParameter__IsValid();
 
 	/**
-	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.analysis.ParameterizableElement <em>Parameterizable Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Parameterizable Element</em>'.
-	 * @see e4sm.de.metamodel.e4sm.analysis.ParameterizableElement
-	 * @generated
-	 */
-	EClass getParameterizableElement();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link e4sm.de.metamodel.e4sm.analysis.ParameterizableElement#getParameters <em>Parameters</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Parameters</em>'.
-	 * @see e4sm.de.metamodel.e4sm.analysis.ParameterizableElement#getParameters()
-	 * @see #getParameterizableElement()
-	 * @generated
-	 */
-	EReference getParameterizableElement_Parameters();
-
-	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.analysis.Analysis <em>Analysis</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1355,16 +1260,6 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getPreviousNodeGraphAnalysis();
-
-	/**
-	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.analysis.Variant <em>Variant</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Variant</em>'.
-	 * @see e4sm.de.metamodel.e4sm.analysis.Variant
-	 * @generated
-	 */
-	EClass getVariant();
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.analysis.NetworkGenerator <em>Network Generator</em>}'.
@@ -1590,24 +1485,6 @@ public interface AnalysisPackage extends EPackage {
 		EOperation PARAMETER___IS_VALID = eINSTANCE.getParameter__IsValid();
 
 		/**
-		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.analysis.ParameterizableElement <em>Parameterizable Element</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see e4sm.de.metamodel.e4sm.analysis.ParameterizableElement
-		 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl#getParameterizableElement()
-		 * @generated
-		 */
-		EClass PARAMETERIZABLE_ELEMENT = eINSTANCE.getParameterizableElement();
-
-		/**
-		 * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PARAMETERIZABLE_ELEMENT__PARAMETERS = eINSTANCE.getParameterizableElement_Parameters();
-
-		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.analysis.impl.AnalysisImpl <em>Analysis</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1732,16 +1609,6 @@ public interface AnalysisPackage extends EPackage {
 		 * @generated
 		 */
 		EClass PREVIOUS_NODE_GRAPH_ANALYSIS = eINSTANCE.getPreviousNodeGraphAnalysis();
-
-		/**
-		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.analysis.impl.VariantImpl <em>Variant</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see e4sm.de.metamodel.e4sm.analysis.impl.VariantImpl
-		 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl#getVariant()
-		 * @generated
-		 */
-		EClass VARIANT = eINSTANCE.getVariant();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.analysis.impl.NetworkGeneratorImpl <em>Network Generator</em>}' class.

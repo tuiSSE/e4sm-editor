@@ -4,7 +4,8 @@ package e4sm.de.metamodel.e4sm.provider;
 
 import e4sm.de.metamodel.e4sm.Model;
 import e4sm.de.metamodel.e4sm.analysis.AnalysisFactory;
-import e4sm.de.metamodel.e4sm.analysis.AnalysisPackage;
+import e4sm.de.metamodel.e4sm.core.CoreFactory;
+import e4sm.de.metamodel.e4sm.core.CorePackage;
 import e4sm.de.metamodel.e4sm.e4smFactory;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 import e4sm.de.metamodel.e4sm.core.provider.NamedElementItemProvider;
@@ -83,10 +84,12 @@ public class ModelItemProvider extends NamedElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(AnalysisPackage.Literals.PARAMETERIZABLE_ELEMENT__PARAMETERS);
+			childrenFeatures.add(CorePackage.Literals.PARAMETERIZABLE_ELEMENT__PARAMETERS);
 			childrenFeatures.add(e4smPackage.Literals.MODEL__PACKAGES);
 			childrenFeatures.add(e4smPackage.Literals.MODEL__ACTORS);
 			childrenFeatures.add(e4smPackage.Literals.MODEL__VARIANTS);
+			childrenFeatures.add(e4smPackage.Literals.MODEL__TYPES);
+			childrenFeatures.add(e4smPackage.Literals.MODEL__IMPORTS);
 		}
 		return childrenFeatures;
 	}
@@ -157,6 +160,8 @@ public class ModelItemProvider extends NamedElementItemProvider {
 		case e4smPackage.MODEL__PACKAGES:
 		case e4smPackage.MODEL__ACTORS:
 		case e4smPackage.MODEL__VARIANTS:
+		case e4smPackage.MODEL__TYPES:
+		case e4smPackage.MODEL__IMPORTS:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -174,7 +179,7 @@ public class ModelItemProvider extends NamedElementItemProvider {
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(AnalysisPackage.Literals.PARAMETERIZABLE_ELEMENT__PARAMETERS,
+		newChildDescriptors.add(createChildParameter(CorePackage.Literals.PARAMETERIZABLE_ELEMENT__PARAMETERS,
 				AnalysisFactory.eINSTANCE.createParameter()));
 
 		newChildDescriptors
@@ -192,8 +197,14 @@ public class ModelItemProvider extends NamedElementItemProvider {
 		newChildDescriptors
 				.add(createChildParameter(e4smPackage.Literals.MODEL__ACTORS, e4smFactory.eINSTANCE.createPerson()));
 
-		newChildDescriptors.add(
-				createChildParameter(e4smPackage.Literals.MODEL__VARIANTS, AnalysisFactory.eINSTANCE.createVariant()));
+		newChildDescriptors
+				.add(createChildParameter(e4smPackage.Literals.MODEL__VARIANTS, CoreFactory.eINSTANCE.createVariant()));
+
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.MODEL__TYPES,
+				CoreFactory.eINSTANCE.createTypeSpecification()));
+
+		newChildDescriptors
+				.add(createChildParameter(e4smPackage.Literals.MODEL__IMPORTS, e4smFactory.eINSTANCE.createImport()));
 	}
 
 	/**

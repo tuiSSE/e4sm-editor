@@ -159,12 +159,13 @@ import e4sm.de.metamodel.e4sm.analysis.results.provider.ResultsItemProviderAdapt
 
 import e4sm.de.metamodel.e4sm.core.provider.CoreItemProviderAdapterFactory;
 
+import e4sm.de.metamodel.e4sm.execution.provider.ExecutionItemProviderAdapterFactory;
 import e4sm.de.metamodel.e4sm.guava.provider.GuavaItemProviderAdapterFactory;
 
 import e4sm.de.metamodel.e4sm.presentation.e4smEditorPlugin;
 
 import e4sm.de.metamodel.e4sm.provider.e4smItemProviderAdapterFactory;
-
+import org.eclipse.emf.ecore.provider.EcoreItemProviderAdapterFactory;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
 /**
@@ -697,9 +698,11 @@ public class AnalysisEditor extends MultiPageEditorPart
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new e4smItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new CoreItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new ExecutionItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new AnalysisItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ResultsItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new GuavaItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new EcoreItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.

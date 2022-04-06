@@ -94,15 +94,6 @@ public interface AnalysisFactory extends EFactory {
 	<C> PreviousNodeGraphAnalysis<C> createPreviousNodeGraphAnalysis();
 
 	/**
-	 * Returns a new object of class '<em>Variant</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Variant</em>'.
-	 * @generated
-	 */
-	Variant createVariant();
-
-	/**
 	 * Returns a new object of class '<em>Network Generator</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

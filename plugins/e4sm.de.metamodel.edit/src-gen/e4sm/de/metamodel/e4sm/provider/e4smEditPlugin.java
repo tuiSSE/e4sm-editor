@@ -5,6 +5,7 @@ package e4sm.de.metamodel.e4sm.provider;
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
 
 /**
  * This is the central singleton for the e4sm edit plugin.
@@ -36,7 +37,7 @@ public final class e4smEditPlugin extends EMFPlugin {
 	 * @generated
 	 */
 	public e4smEditPlugin() {
-		super(new ResourceLocator[] {});
+		super(new ResourceLocator[] { EcoreEditPlugin.INSTANCE, });
 	}
 
 	/**

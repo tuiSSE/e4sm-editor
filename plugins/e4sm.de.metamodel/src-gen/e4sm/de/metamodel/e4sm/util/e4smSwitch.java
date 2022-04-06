@@ -13,6 +13,7 @@ import e4sm.de.metamodel.e4sm.ExternalDependency;
 import e4sm.de.metamodel.e4sm.Function;
 import e4sm.de.metamodel.e4sm.Heuristic;
 import e4sm.de.metamodel.e4sm.Human;
+import e4sm.de.metamodel.e4sm.Import;
 import e4sm.de.metamodel.e4sm.InputPin;
 import e4sm.de.metamodel.e4sm.LogicalConnector;
 import e4sm.de.metamodel.e4sm.MachineLearningComponent;
@@ -30,12 +31,12 @@ import e4sm.de.metamodel.e4sm.SimpleUnit;
 import e4sm.de.metamodel.e4sm.SoftwareComponent;
 import e4sm.de.metamodel.e4sm.UnitConversion;
 import e4sm.de.metamodel.e4sm.UnitPrefix;
-import e4sm.de.metamodel.e4sm.analysis.ParameterizableElement;
-
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
+import e4sm.de.metamodel.e4sm.execution.ConnectableNode;
 import e4sm.de.metamodel.e4sm.core.Element;
 import e4sm.de.metamodel.e4sm.core.NamedElement;
+import e4sm.de.metamodel.e4sm.core.ParameterizableElement;
 import e4sm.de.metamodel.e4sm.core.TypedElement;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -367,7 +368,11 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseParameterizableElement(pin);
 			if (result == null)
+				result = caseConnectableNode(pin);
+			if (result == null)
 				result = caseTypedElement(pin);
+			if (result == null)
+				result = caseExecution_Element(pin);
 			if (result == null)
 				result = caseNamedElement(pin);
 			if (result == null)
@@ -384,7 +389,11 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseParameterizableElement(inputPin);
 			if (result == null)
+				result = caseConnectableNode(inputPin);
+			if (result == null)
 				result = caseTypedElement(inputPin);
+			if (result == null)
+				result = caseExecution_Element(inputPin);
 			if (result == null)
 				result = caseNamedElement(inputPin);
 			if (result == null)
@@ -401,7 +410,11 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseParameterizableElement(outputPin);
 			if (result == null)
+				result = caseConnectableNode(outputPin);
+			if (result == null)
 				result = caseTypedElement(outputPin);
+			if (result == null)
+				result = caseExecution_Element(outputPin);
 			if (result == null)
 				result = caseNamedElement(outputPin);
 			if (result == null)
@@ -478,6 +491,13 @@ public class e4smSwitch<T> extends Switch<T> {
 		case e4smPackage.UNIT_PREFIX: {
 			UnitPrefix unitPrefix = (UnitPrefix) theEObject;
 			T result = caseUnitPrefix(unitPrefix);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case e4smPackage.IMPORT: {
+			Import import_ = (Import) theEObject;
+			T result = caseImport(import_);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -923,6 +943,21 @@ public class e4smSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Import</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Import</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseImport(Import object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -964,6 +999,36 @@ public class e4smSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseParameterizableElement(ParameterizableElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExecution_Element(e4sm.de.metamodel.e4sm.execution.Element object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Connectable Node</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Connectable Node</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseConnectableNode(ConnectableNode object) {
 		return null;
 	}
 

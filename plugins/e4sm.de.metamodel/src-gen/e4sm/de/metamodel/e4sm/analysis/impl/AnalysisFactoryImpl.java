@@ -53,8 +53,6 @@ public class AnalysisFactoryImpl extends EFactoryImpl implements AnalysisFactory
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-		case AnalysisPackage.VARIANT:
-			return createVariant();
 		case AnalysisPackage.ANALYSIS_MANAGER:
 			return createAnalysisManager();
 		case AnalysisPackage.ANALYSIS_DEFINITION:
@@ -159,17 +157,6 @@ public class AnalysisFactoryImpl extends EFactoryImpl implements AnalysisFactory
 	public <C> PreviousNodeGraphAnalysis<C> createPreviousNodeGraphAnalysis() {
 		PreviousNodeGraphAnalysisImpl<C> previousNodeGraphAnalysis = new PreviousNodeGraphAnalysisImpl<C>();
 		return previousNodeGraphAnalysis;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Variant createVariant() {
-		VariantImpl variant = new VariantImpl();
-		return variant;
 	}
 
 	/**

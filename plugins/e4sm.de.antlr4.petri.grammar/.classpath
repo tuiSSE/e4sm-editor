@@ -6,20 +6,9 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
-	<classpathentry kind="src" output="bin/generated" path="src-gen">
-		<attributes>
-			<attribute name="gradle_scope" value="generated"/>
-			<attribute name="gradle_used_by_scope" value="generated"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry excluding="e4sm/de/antlr4/petri/grammar/|main/antlr/" kind="src" path="src"/>
-	<classpathentry kind="src" output="target/test-classes" path="src-tests">
-		<attributes>
-			<attribute name="test" value="true"/>
-		</attributes>
-	</classpathentry>
+	<classpathentry kind="src" path="gen-src"/>
 	<classpathentry kind="con" path="org.eclipse.buildship.core.gradleclasspathcontainer"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="lib" path="gradle-libs/antlr4-4.9.3.jar"/>
 	<classpathentry exported="true" kind="lib" path="gradle-libs/antlr4-runtime-4.9.3.jar"/>
 	<classpathentry exported="true" kind="lib" path="gradle-libs" sourcepath="gradle-libs"/>

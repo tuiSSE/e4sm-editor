@@ -70,11 +70,6 @@ public class AnalysisAdapterFactory extends AdapterFactoryImpl {
 	 */
 	protected AnalysisSwitch<Adapter> modelSwitch = new AnalysisSwitch<Adapter>() {
 		@Override
-		public Adapter caseVariant(Variant object) {
-			return createVariantAdapter();
-		}
-
-		@Override
 		public Adapter caseAnalysis(Analysis object) {
 			return createAnalysisAdapter();
 		}
@@ -97,11 +92,6 @@ public class AnalysisAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseParameter(Parameter object) {
 			return createParameterAdapter();
-		}
-
-		@Override
-		public Adapter caseParameterizableElement(ParameterizableElement object) {
-			return createParameterizableElementAdapter();
 		}
 
 		@Override
@@ -230,20 +220,6 @@ public class AnalysisAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.analysis.ParameterizableElement <em>Parameterizable Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see e4sm.de.metamodel.e4sm.analysis.ParameterizableElement
-	 * @generated
-	 */
-	public Adapter createParameterizableElementAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.analysis.Analysis <em>Analysis</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -338,20 +314,6 @@ public class AnalysisAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPreviousNodeGraphAnalysisAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.analysis.Variant <em>Variant</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see e4sm.de.metamodel.e4sm.analysis.Variant
-	 * @generated
-	 */
-	public Adapter createVariantAdapter() {
 		return null;
 	}
 

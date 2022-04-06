@@ -216,7 +216,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_SPECIFICATION___BOOLEAN_VALUE = TYPED_ELEMENT_OPERATION_COUNT + 0;
+	int VALUE_SPECIFICATION___BOOLEAN_VALUE = TYPED_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Integer Value</em>' operation.
@@ -225,7 +225,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_SPECIFICATION___INTEGER_VALUE = TYPED_ELEMENT_OPERATION_COUNT + 1;
+	int VALUE_SPECIFICATION___INTEGER_VALUE = TYPED_ELEMENT_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Is Computable</em>' operation.
@@ -234,7 +234,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_SPECIFICATION___IS_COMPUTABLE = TYPED_ELEMENT_OPERATION_COUNT + 2;
+	int VALUE_SPECIFICATION___IS_COMPUTABLE = TYPED_ELEMENT_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>To String</em>' operation.
@@ -243,7 +243,25 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_SPECIFICATION___TO_STRING = TYPED_ELEMENT_OPERATION_COUNT + 3;
+	int VALUE_SPECIFICATION___TO_STRING = TYPED_ELEMENT_OPERATION_COUNT + 5;
+
+	/**
+	 * The operation id for the '<em>Get Tangible Child</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_SPECIFICATION___GET_TANGIBLE_CHILD = TYPED_ELEMENT_OPERATION_COUNT + 6;
+
+	/**
+	 * The operation id for the '<em>Get Actual Parent</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_SPECIFICATION___GET_ACTUAL_PARENT = TYPED_ELEMENT_OPERATION_COUNT + 7;
 
 	/**
 	 * The number of operations of the '<em>Value Specification</em>' class.
@@ -252,7 +270,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_SPECIFICATION_OPERATION_COUNT = TYPED_ELEMENT_OPERATION_COUNT + 4;
+	int VALUE_SPECIFICATION_OPERATION_COUNT = TYPED_ELEMENT_OPERATION_COUNT + 8;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.core.impl.LiteralSpecificationImpl <em>Literal Specification</em>}' class.
@@ -326,6 +344,24 @@ public interface CorePackage extends EPackage {
 	 * @ordered
 	 */
 	int LITERAL_SPECIFICATION___TO_STRING = VALUE_SPECIFICATION___TO_STRING;
+
+	/**
+	 * The operation id for the '<em>Get Tangible Child</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_SPECIFICATION___GET_TANGIBLE_CHILD = VALUE_SPECIFICATION___GET_TANGIBLE_CHILD;
+
+	/**
+	 * The operation id for the '<em>Get Actual Parent</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_SPECIFICATION___GET_ACTUAL_PARENT = VALUE_SPECIFICATION___GET_ACTUAL_PARENT;
 
 	/**
 	 * The number of operations of the '<em>Literal Specification</em>' class.
@@ -408,6 +444,24 @@ public interface CorePackage extends EPackage {
 	 * @ordered
 	 */
 	int LITERAL_NULL___TO_STRING = LITERAL_SPECIFICATION___TO_STRING;
+
+	/**
+	 * The operation id for the '<em>Get Tangible Child</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_NULL___GET_TANGIBLE_CHILD = LITERAL_SPECIFICATION___GET_TANGIBLE_CHILD;
+
+	/**
+	 * The operation id for the '<em>Get Actual Parent</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_NULL___GET_ACTUAL_PARENT = LITERAL_SPECIFICATION___GET_ACTUAL_PARENT;
 
 	/**
 	 * The number of operations of the '<em>Literal Null</em>' class.
@@ -501,6 +555,24 @@ public interface CorePackage extends EPackage {
 	int LITERAL_STRING___TO_STRING = LITERAL_SPECIFICATION___TO_STRING;
 
 	/**
+	 * The operation id for the '<em>Get Tangible Child</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_STRING___GET_TANGIBLE_CHILD = LITERAL_SPECIFICATION___GET_TANGIBLE_CHILD;
+
+	/**
+	 * The operation id for the '<em>Get Actual Parent</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_STRING___GET_ACTUAL_PARENT = LITERAL_SPECIFICATION___GET_ACTUAL_PARENT;
+
+	/**
 	 * The number of operations of the '<em>Literal String</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -592,13 +664,31 @@ public interface CorePackage extends EPackage {
 	int LITERAL_INTEGER___TO_STRING = LITERAL_SPECIFICATION___TO_STRING;
 
 	/**
+	 * The operation id for the '<em>Get Actual Parent</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_INTEGER___GET_ACTUAL_PARENT = LITERAL_SPECIFICATION___GET_ACTUAL_PARENT;
+
+	/**
+	 * The operation id for the '<em>Get Tangible Child</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_INTEGER___GET_TANGIBLE_CHILD = LITERAL_SPECIFICATION_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Literal Integer</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LITERAL_INTEGER_OPERATION_COUNT = LITERAL_SPECIFICATION_OPERATION_COUNT + 0;
+	int LITERAL_INTEGER_OPERATION_COUNT = LITERAL_SPECIFICATION_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.core.impl.LiteralBooleanImpl <em>Literal Boolean</em>}' class.
@@ -681,6 +771,24 @@ public interface CorePackage extends EPackage {
 	 * @ordered
 	 */
 	int LITERAL_BOOLEAN___TO_STRING = LITERAL_SPECIFICATION___TO_STRING;
+
+	/**
+	 * The operation id for the '<em>Get Tangible Child</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_BOOLEAN___GET_TANGIBLE_CHILD = LITERAL_SPECIFICATION___GET_TANGIBLE_CHILD;
+
+	/**
+	 * The operation id for the '<em>Get Actual Parent</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_BOOLEAN___GET_ACTUAL_PARENT = LITERAL_SPECIFICATION___GET_ACTUAL_PARENT;
 
 	/**
 	 * The operation id for the '<em>Get Value</em>' operation.
@@ -783,6 +891,24 @@ public interface CorePackage extends EPackage {
 	int LITERAL_FLOAT___TO_STRING = LITERAL_SPECIFICATION___TO_STRING;
 
 	/**
+	 * The operation id for the '<em>Get Tangible Child</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_FLOAT___GET_TANGIBLE_CHILD = LITERAL_SPECIFICATION___GET_TANGIBLE_CHILD;
+
+	/**
+	 * The operation id for the '<em>Get Actual Parent</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_FLOAT___GET_ACTUAL_PARENT = LITERAL_SPECIFICATION___GET_ACTUAL_PARENT;
+
+	/**
 	 * The number of operations of the '<em>Literal Float</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -872,6 +998,24 @@ public interface CorePackage extends EPackage {
 	 * @ordered
 	 */
 	int LITERAL_DOUBLE___TO_STRING = LITERAL_SPECIFICATION___TO_STRING;
+
+	/**
+	 * The operation id for the '<em>Get Tangible Child</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_DOUBLE___GET_TANGIBLE_CHILD = LITERAL_SPECIFICATION___GET_TANGIBLE_CHILD;
+
+	/**
+	 * The operation id for the '<em>Get Actual Parent</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_DOUBLE___GET_ACTUAL_PARENT = LITERAL_SPECIFICATION___GET_ACTUAL_PARENT;
 
 	/**
 	 * The number of operations of the '<em>Literal Double</em>' class.
@@ -965,6 +1109,24 @@ public interface CorePackage extends EPackage {
 	int LITERAL_LONG___TO_STRING = LITERAL_SPECIFICATION___TO_STRING;
 
 	/**
+	 * The operation id for the '<em>Get Tangible Child</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_LONG___GET_TANGIBLE_CHILD = LITERAL_SPECIFICATION___GET_TANGIBLE_CHILD;
+
+	/**
+	 * The operation id for the '<em>Get Actual Parent</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_LONG___GET_ACTUAL_PARENT = LITERAL_SPECIFICATION___GET_ACTUAL_PARENT;
+
+	/**
 	 * The number of operations of the '<em>Literal Long</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1054,6 +1216,24 @@ public interface CorePackage extends EPackage {
 	 * @ordered
 	 */
 	int LITERAL_SHORT___TO_STRING = LITERAL_SPECIFICATION___TO_STRING;
+
+	/**
+	 * The operation id for the '<em>Get Tangible Child</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_SHORT___GET_TANGIBLE_CHILD = LITERAL_SPECIFICATION___GET_TANGIBLE_CHILD;
+
+	/**
+	 * The operation id for the '<em>Get Actual Parent</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_SHORT___GET_ACTUAL_PARENT = LITERAL_SPECIFICATION___GET_ACTUAL_PARENT;
 
 	/**
 	 * The number of operations of the '<em>Literal Short</em>' class.
@@ -1147,6 +1327,24 @@ public interface CorePackage extends EPackage {
 	int LITERAL_BYTE___TO_STRING = LITERAL_SPECIFICATION___TO_STRING;
 
 	/**
+	 * The operation id for the '<em>Get Tangible Child</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_BYTE___GET_TANGIBLE_CHILD = LITERAL_SPECIFICATION___GET_TANGIBLE_CHILD;
+
+	/**
+	 * The operation id for the '<em>Get Actual Parent</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_BYTE___GET_ACTUAL_PARENT = LITERAL_SPECIFICATION___GET_ACTUAL_PARENT;
+
+	/**
 	 * The number of operations of the '<em>Literal Byte</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1236,6 +1434,24 @@ public interface CorePackage extends EPackage {
 	 * @ordered
 	 */
 	int LITERAL_CHARACTER___TO_STRING = LITERAL_SPECIFICATION___TO_STRING;
+
+	/**
+	 * The operation id for the '<em>Get Tangible Child</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_CHARACTER___GET_TANGIBLE_CHILD = LITERAL_SPECIFICATION___GET_TANGIBLE_CHILD;
+
+	/**
+	 * The operation id for the '<em>Get Actual Parent</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_CHARACTER___GET_ACTUAL_PARENT = LITERAL_SPECIFICATION___GET_ACTUAL_PARENT;
 
 	/**
 	 * The number of operations of the '<em>Literal Character</em>' class.
@@ -1329,6 +1545,24 @@ public interface CorePackage extends EPackage {
 	int LITERAL_DATE___TO_STRING = LITERAL_SPECIFICATION___TO_STRING;
 
 	/**
+	 * The operation id for the '<em>Get Tangible Child</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_DATE___GET_TANGIBLE_CHILD = LITERAL_SPECIFICATION___GET_TANGIBLE_CHILD;
+
+	/**
+	 * The operation id for the '<em>Get Actual Parent</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_DATE___GET_ACTUAL_PARENT = LITERAL_SPECIFICATION___GET_ACTUAL_PARENT;
+
+	/**
 	 * The number of operations of the '<em>Literal Date</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1338,6 +1572,465 @@ public interface CorePackage extends EPackage {
 	int LITERAL_DATE_OPERATION_COUNT = LITERAL_SPECIFICATION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.core.impl.VariantImpl <em>Variant</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.core.impl.VariantImpl
+	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getVariant()
+	 * @generated
+	 */
+	int VARIANT = 16;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIANT__NAME = NAMED_ELEMENT__NAME;
+
+	/**
+	 * The number of structural features of the '<em>Variant</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIANT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Variant</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIANT_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.core.ParameterizableElement <em>Parameterizable Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.core.ParameterizableElement
+	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getParameterizableElement()
+	 * @generated
+	 */
+	int PARAMETERIZABLE_ELEMENT = 17;
+
+	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETERIZABLE_ELEMENT__PARAMETERS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Parameterizable Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETERIZABLE_ELEMENT_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Parameterizable Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETERIZABLE_ELEMENT_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.core.impl.TypeSpecificationImpl <em>Type Specification</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.core.impl.TypeSpecificationImpl
+	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getTypeSpecification()
+	 * @generated
+	 */
+	int TYPE_SPECIFICATION = 18;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_SPECIFICATION__NAME = NAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_SPECIFICATION__ATTRIBUTES = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Super Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_SPECIFICATION__SUPER_TYPE = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Abstract</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_SPECIFICATION__ABSTRACT = NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Type Specification</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_SPECIFICATION_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of operations of the '<em>Type Specification</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_SPECIFICATION_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.core.impl.AttributeSpecificationImpl <em>Attribute Specification</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.core.impl.AttributeSpecificationImpl
+	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getAttributeSpecification()
+	 * @generated
+	 */
+	int ATTRIBUTE_SPECIFICATION = 19;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE_SPECIFICATION__NAME = NAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Array</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE_SPECIFICATION__ARRAY = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Attribute Specification</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE_SPECIFICATION_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Attribute Specification</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE_SPECIFICATION_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.core.impl.IntegerAttributeImpl <em>Integer Attribute</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.core.impl.IntegerAttributeImpl
+	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getIntegerAttribute()
+	 * @generated
+	 */
+	int INTEGER_ATTRIBUTE = 20;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGER_ATTRIBUTE__NAME = ATTRIBUTE_SPECIFICATION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Array</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGER_ATTRIBUTE__ARRAY = ATTRIBUTE_SPECIFICATION__ARRAY;
+
+	/**
+	 * The feature id for the '<em><b>Default Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGER_ATTRIBUTE__DEFAULT_VALUE = ATTRIBUTE_SPECIFICATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Integer Attribute</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGER_ATTRIBUTE_FEATURE_COUNT = ATTRIBUTE_SPECIFICATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Integer Attribute</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGER_ATTRIBUTE_OPERATION_COUNT = ATTRIBUTE_SPECIFICATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.core.impl.DoubleAttributeImpl <em>Double Attribute</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.core.impl.DoubleAttributeImpl
+	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getDoubleAttribute()
+	 * @generated
+	 */
+	int DOUBLE_ATTRIBUTE = 21;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOUBLE_ATTRIBUTE__NAME = ATTRIBUTE_SPECIFICATION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Array</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOUBLE_ATTRIBUTE__ARRAY = ATTRIBUTE_SPECIFICATION__ARRAY;
+
+	/**
+	 * The feature id for the '<em><b>Default Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOUBLE_ATTRIBUTE__DEFAULT_VALUE = ATTRIBUTE_SPECIFICATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Double Attribute</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOUBLE_ATTRIBUTE_FEATURE_COUNT = ATTRIBUTE_SPECIFICATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Double Attribute</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOUBLE_ATTRIBUTE_OPERATION_COUNT = ATTRIBUTE_SPECIFICATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.core.impl.StringAttributeImpl <em>String Attribute</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.core.impl.StringAttributeImpl
+	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getStringAttribute()
+	 * @generated
+	 */
+	int STRING_ATTRIBUTE = 22;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_ATTRIBUTE__NAME = ATTRIBUTE_SPECIFICATION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Array</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_ATTRIBUTE__ARRAY = ATTRIBUTE_SPECIFICATION__ARRAY;
+
+	/**
+	 * The feature id for the '<em><b>Default Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_ATTRIBUTE__DEFAULT_VALUE = ATTRIBUTE_SPECIFICATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>String Attribute</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_ATTRIBUTE_FEATURE_COUNT = ATTRIBUTE_SPECIFICATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>String Attribute</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_ATTRIBUTE_OPERATION_COUNT = ATTRIBUTE_SPECIFICATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.core.impl.BooleanAttributeImpl <em>Boolean Attribute</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.core.impl.BooleanAttributeImpl
+	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getBooleanAttribute()
+	 * @generated
+	 */
+	int BOOLEAN_ATTRIBUTE = 23;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_ATTRIBUTE__NAME = ATTRIBUTE_SPECIFICATION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Array</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_ATTRIBUTE__ARRAY = ATTRIBUTE_SPECIFICATION__ARRAY;
+
+	/**
+	 * The feature id for the '<em><b>Default Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_ATTRIBUTE__DEFAULT_VALUE = ATTRIBUTE_SPECIFICATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Boolean Attribute</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_ATTRIBUTE_FEATURE_COUNT = ATTRIBUTE_SPECIFICATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Boolean Attribute</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_ATTRIBUTE_OPERATION_COUNT = ATTRIBUTE_SPECIFICATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.core.impl.ClassAttributeImpl <em>Class Attribute</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.core.impl.ClassAttributeImpl
+	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getClassAttribute()
+	 * @generated
+	 */
+	int CLASS_ATTRIBUTE = 24;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_ATTRIBUTE__NAME = ATTRIBUTE_SPECIFICATION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Array</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_ATTRIBUTE__ARRAY = ATTRIBUTE_SPECIFICATION__ARRAY;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_ATTRIBUTE__TYPE = ATTRIBUTE_SPECIFICATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Class Attribute</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_ATTRIBUTE_FEATURE_COUNT = ATTRIBUTE_SPECIFICATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Class Attribute</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_ATTRIBUTE_OPERATION_COUNT = ATTRIBUTE_SPECIFICATION_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.core.UnitOfMeasurement <em>Unit Of Measurement</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1345,7 +2038,7 @@ public interface CorePackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getUnitOfMeasurement()
 	 * @generated
 	 */
-	int UNIT_OF_MEASUREMENT = 16;
+	int UNIT_OF_MEASUREMENT = 25;
 
 	/**
 	 * The meta object id for the '<em>Date</em>' data type.
@@ -1355,7 +2048,7 @@ public interface CorePackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getDate()
 	 * @generated
 	 */
-	int DATE = 26;
+	int DATE = 35;
 
 	/**
 	 * The meta object id for the '<em>Timestamp</em>' data type.
@@ -1365,7 +2058,7 @@ public interface CorePackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getTimestamp()
 	 * @generated
 	 */
-	int TIMESTAMP = 27;
+	int TIMESTAMP = 36;
 
 	/**
 	 * The meta object id for the '<em>Time</em>' data type.
@@ -1375,7 +2068,7 @@ public interface CorePackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getTime()
 	 * @generated
 	 */
-	int TIME = 28;
+	int TIME = 37;
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.core.NamedElement <em>Named Element</em>}'.
@@ -1469,6 +2162,16 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getLiteralInteger_Value();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.core.LiteralInteger#getTangibleChild() <em>Get Tangible Child</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Tangible Child</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.core.LiteralInteger#getTangibleChild()
+	 * @generated
+	 */
+	EOperation getLiteralInteger__GetTangibleChild();
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.core.LiteralBoolean <em>Literal Boolean</em>}'.
@@ -1699,6 +2402,26 @@ public interface CorePackage extends EPackage {
 	EOperation getValueSpecification__ToString();
 
 	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.core.ValueSpecification#getTangibleChild() <em>Get Tangible Child</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Tangible Child</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.core.ValueSpecification#getTangibleChild()
+	 * @generated
+	 */
+	EOperation getValueSpecification__GetTangibleChild();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.core.ValueSpecification#getActualParent() <em>Get Actual Parent</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Actual Parent</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.core.ValueSpecification#getActualParent()
+	 * @generated
+	 */
+	EOperation getValueSpecification__GetActualParent();
+
+	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.core.TypedElement <em>Typed Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1720,6 +2443,206 @@ public interface CorePackage extends EPackage {
 	EReference getTypedElement_Type();
 
 	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.core.Variant <em>Variant</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Variant</em>'.
+	 * @see e4sm.de.metamodel.e4sm.core.Variant
+	 * @generated
+	 */
+	EClass getVariant();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.core.ParameterizableElement <em>Parameterizable Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Parameterizable Element</em>'.
+	 * @see e4sm.de.metamodel.e4sm.core.ParameterizableElement
+	 * @generated
+	 */
+	EClass getParameterizableElement();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link e4sm.de.metamodel.e4sm.core.ParameterizableElement#getParameters <em>Parameters</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Parameters</em>'.
+	 * @see e4sm.de.metamodel.e4sm.core.ParameterizableElement#getParameters()
+	 * @see #getParameterizableElement()
+	 * @generated
+	 */
+	EReference getParameterizableElement_Parameters();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.core.TypeSpecification <em>Type Specification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Type Specification</em>'.
+	 * @see e4sm.de.metamodel.e4sm.core.TypeSpecification
+	 * @generated
+	 */
+	EClass getTypeSpecification();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link e4sm.de.metamodel.e4sm.core.TypeSpecification#getAttributes <em>Attributes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Attributes</em>'.
+	 * @see e4sm.de.metamodel.e4sm.core.TypeSpecification#getAttributes()
+	 * @see #getTypeSpecification()
+	 * @generated
+	 */
+	EReference getTypeSpecification_Attributes();
+
+	/**
+	 * Returns the meta object for the reference '{@link e4sm.de.metamodel.e4sm.core.TypeSpecification#getSuperType <em>Super Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Super Type</em>'.
+	 * @see e4sm.de.metamodel.e4sm.core.TypeSpecification#getSuperType()
+	 * @see #getTypeSpecification()
+	 * @generated
+	 */
+	EReference getTypeSpecification_SuperType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.core.TypeSpecification#isAbstract <em>Abstract</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Abstract</em>'.
+	 * @see e4sm.de.metamodel.e4sm.core.TypeSpecification#isAbstract()
+	 * @see #getTypeSpecification()
+	 * @generated
+	 */
+	EAttribute getTypeSpecification_Abstract();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.core.AttributeSpecification <em>Attribute Specification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Attribute Specification</em>'.
+	 * @see e4sm.de.metamodel.e4sm.core.AttributeSpecification
+	 * @generated
+	 */
+	EClass getAttributeSpecification();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.core.AttributeSpecification#isArray <em>Array</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Array</em>'.
+	 * @see e4sm.de.metamodel.e4sm.core.AttributeSpecification#isArray()
+	 * @see #getAttributeSpecification()
+	 * @generated
+	 */
+	EAttribute getAttributeSpecification_Array();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.core.IntegerAttribute <em>Integer Attribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Integer Attribute</em>'.
+	 * @see e4sm.de.metamodel.e4sm.core.IntegerAttribute
+	 * @generated
+	 */
+	EClass getIntegerAttribute();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.core.IntegerAttribute#getDefaultValue <em>Default Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Default Value</em>'.
+	 * @see e4sm.de.metamodel.e4sm.core.IntegerAttribute#getDefaultValue()
+	 * @see #getIntegerAttribute()
+	 * @generated
+	 */
+	EAttribute getIntegerAttribute_DefaultValue();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.core.DoubleAttribute <em>Double Attribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Double Attribute</em>'.
+	 * @see e4sm.de.metamodel.e4sm.core.DoubleAttribute
+	 * @generated
+	 */
+	EClass getDoubleAttribute();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.core.DoubleAttribute#getDefaultValue <em>Default Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Default Value</em>'.
+	 * @see e4sm.de.metamodel.e4sm.core.DoubleAttribute#getDefaultValue()
+	 * @see #getDoubleAttribute()
+	 * @generated
+	 */
+	EAttribute getDoubleAttribute_DefaultValue();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.core.StringAttribute <em>String Attribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>String Attribute</em>'.
+	 * @see e4sm.de.metamodel.e4sm.core.StringAttribute
+	 * @generated
+	 */
+	EClass getStringAttribute();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.core.StringAttribute#getDefaultValue <em>Default Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Default Value</em>'.
+	 * @see e4sm.de.metamodel.e4sm.core.StringAttribute#getDefaultValue()
+	 * @see #getStringAttribute()
+	 * @generated
+	 */
+	EAttribute getStringAttribute_DefaultValue();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.core.BooleanAttribute <em>Boolean Attribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Boolean Attribute</em>'.
+	 * @see e4sm.de.metamodel.e4sm.core.BooleanAttribute
+	 * @generated
+	 */
+	EClass getBooleanAttribute();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.core.BooleanAttribute#isDefaultValue <em>Default Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Default Value</em>'.
+	 * @see e4sm.de.metamodel.e4sm.core.BooleanAttribute#isDefaultValue()
+	 * @see #getBooleanAttribute()
+	 * @generated
+	 */
+	EAttribute getBooleanAttribute_DefaultValue();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.core.ClassAttribute <em>Class Attribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Class Attribute</em>'.
+	 * @see e4sm.de.metamodel.e4sm.core.ClassAttribute
+	 * @generated
+	 */
+	EClass getClassAttribute();
+
+	/**
+	 * Returns the meta object for the reference '{@link e4sm.de.metamodel.e4sm.core.ClassAttribute#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Type</em>'.
+	 * @see e4sm.de.metamodel.e4sm.core.ClassAttribute#getType()
+	 * @see #getClassAttribute()
+	 * @generated
+	 */
+	EReference getClassAttribute_Type();
+
+	/**
 	 * Returns the meta object for enum '{@link e4sm.de.metamodel.e4sm.core.UnitOfMeasurement <em>Unit Of Measurement</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1736,7 +2659,7 @@ public interface CorePackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getLong()
 	 * @generated
 	 */
-	int LONG = 22;
+	int LONG = 31;
 
 	/**
 	 * The meta object id for the '<em>Short</em>' data type.
@@ -1745,7 +2668,7 @@ public interface CorePackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getShort()
 	 * @generated
 	 */
-	int SHORT = 23;
+	int SHORT = 32;
 
 	/**
 	 * The meta object id for the '<em>Character</em>' data type.
@@ -1754,7 +2677,7 @@ public interface CorePackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getCharacter()
 	 * @generated
 	 */
-	int CHARACTER = 24;
+	int CHARACTER = 33;
 
 	/**
 	 * The meta object id for the '<em>Byte</em>' data type.
@@ -1763,7 +2686,7 @@ public interface CorePackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getByte()
 	 * @generated
 	 */
-	int BYTE = 25;
+	int BYTE = 34;
 
 	/**
 	 * The meta object id for the '<em>Boolean</em>' data type.
@@ -1772,7 +2695,7 @@ public interface CorePackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getBoolean()
 	 * @generated
 	 */
-	int BOOLEAN = 17;
+	int BOOLEAN = 26;
 
 	/**
 	 * The meta object id for the '<em>String</em>' data type.
@@ -1782,7 +2705,7 @@ public interface CorePackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getString()
 	 * @generated
 	 */
-	int STRING = 18;
+	int STRING = 27;
 
 	/**
 	 * The meta object id for the '<em>Integer</em>' data type.
@@ -1791,7 +2714,7 @@ public interface CorePackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getInteger()
 	 * @generated
 	 */
-	int INTEGER = 19;
+	int INTEGER = 28;
 
 	/**
 	 * The meta object id for the '<em>Float</em>' data type.
@@ -1800,7 +2723,7 @@ public interface CorePackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getFloat()
 	 * @generated
 	 */
-	int FLOAT = 20;
+	int FLOAT = 29;
 
 	/**
 	 * The meta object id for the '<em>Double</em>' data type.
@@ -1809,7 +2732,7 @@ public interface CorePackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getDouble()
 	 * @generated
 	 */
-	int DOUBLE = 21;
+	int DOUBLE = 30;
 
 	/**
 	 * Returns the meta object for data type '{@link java.time.LocalDate <em>Date</em>}'.
@@ -2043,6 +2966,14 @@ public interface CorePackage extends EPackage {
 		EAttribute LITERAL_INTEGER__VALUE = eINSTANCE.getLiteralInteger_Value();
 
 		/**
+		 * The meta object literal for the '<em><b>Get Tangible Child</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation LITERAL_INTEGER___GET_TANGIBLE_CHILD = eINSTANCE.getLiteralInteger__GetTangibleChild();
+
+		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.core.impl.LiteralBooleanImpl <em>Literal Boolean</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2237,6 +3168,22 @@ public interface CorePackage extends EPackage {
 		EOperation VALUE_SPECIFICATION___TO_STRING = eINSTANCE.getValueSpecification__ToString();
 
 		/**
+		 * The meta object literal for the '<em><b>Get Tangible Child</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation VALUE_SPECIFICATION___GET_TANGIBLE_CHILD = eINSTANCE.getValueSpecification__GetTangibleChild();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Actual Parent</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation VALUE_SPECIFICATION___GET_ACTUAL_PARENT = eINSTANCE.getValueSpecification__GetActualParent();
+
+		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.core.impl.TypedElementImpl <em>Typed Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2253,6 +3200,176 @@ public interface CorePackage extends EPackage {
 		 * @generated
 		 */
 		EReference TYPED_ELEMENT__TYPE = eINSTANCE.getTypedElement_Type();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.core.impl.VariantImpl <em>Variant</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.core.impl.VariantImpl
+		 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getVariant()
+		 * @generated
+		 */
+		EClass VARIANT = eINSTANCE.getVariant();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.core.ParameterizableElement <em>Parameterizable Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.core.ParameterizableElement
+		 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getParameterizableElement()
+		 * @generated
+		 */
+		EClass PARAMETERIZABLE_ELEMENT = eINSTANCE.getParameterizableElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARAMETERIZABLE_ELEMENT__PARAMETERS = eINSTANCE.getParameterizableElement_Parameters();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.core.impl.TypeSpecificationImpl <em>Type Specification</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.core.impl.TypeSpecificationImpl
+		 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getTypeSpecification()
+		 * @generated
+		 */
+		EClass TYPE_SPECIFICATION = eINSTANCE.getTypeSpecification();
+
+		/**
+		 * The meta object literal for the '<em><b>Attributes</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TYPE_SPECIFICATION__ATTRIBUTES = eINSTANCE.getTypeSpecification_Attributes();
+
+		/**
+		 * The meta object literal for the '<em><b>Super Type</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TYPE_SPECIFICATION__SUPER_TYPE = eINSTANCE.getTypeSpecification_SuperType();
+
+		/**
+		 * The meta object literal for the '<em><b>Abstract</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TYPE_SPECIFICATION__ABSTRACT = eINSTANCE.getTypeSpecification_Abstract();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.core.impl.AttributeSpecificationImpl <em>Attribute Specification</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.core.impl.AttributeSpecificationImpl
+		 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getAttributeSpecification()
+		 * @generated
+		 */
+		EClass ATTRIBUTE_SPECIFICATION = eINSTANCE.getAttributeSpecification();
+
+		/**
+		 * The meta object literal for the '<em><b>Array</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ATTRIBUTE_SPECIFICATION__ARRAY = eINSTANCE.getAttributeSpecification_Array();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.core.impl.IntegerAttributeImpl <em>Integer Attribute</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.core.impl.IntegerAttributeImpl
+		 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getIntegerAttribute()
+		 * @generated
+		 */
+		EClass INTEGER_ATTRIBUTE = eINSTANCE.getIntegerAttribute();
+
+		/**
+		 * The meta object literal for the '<em><b>Default Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INTEGER_ATTRIBUTE__DEFAULT_VALUE = eINSTANCE.getIntegerAttribute_DefaultValue();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.core.impl.DoubleAttributeImpl <em>Double Attribute</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.core.impl.DoubleAttributeImpl
+		 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getDoubleAttribute()
+		 * @generated
+		 */
+		EClass DOUBLE_ATTRIBUTE = eINSTANCE.getDoubleAttribute();
+
+		/**
+		 * The meta object literal for the '<em><b>Default Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DOUBLE_ATTRIBUTE__DEFAULT_VALUE = eINSTANCE.getDoubleAttribute_DefaultValue();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.core.impl.StringAttributeImpl <em>String Attribute</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.core.impl.StringAttributeImpl
+		 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getStringAttribute()
+		 * @generated
+		 */
+		EClass STRING_ATTRIBUTE = eINSTANCE.getStringAttribute();
+
+		/**
+		 * The meta object literal for the '<em><b>Default Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STRING_ATTRIBUTE__DEFAULT_VALUE = eINSTANCE.getStringAttribute_DefaultValue();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.core.impl.BooleanAttributeImpl <em>Boolean Attribute</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.core.impl.BooleanAttributeImpl
+		 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getBooleanAttribute()
+		 * @generated
+		 */
+		EClass BOOLEAN_ATTRIBUTE = eINSTANCE.getBooleanAttribute();
+
+		/**
+		 * The meta object literal for the '<em><b>Default Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BOOLEAN_ATTRIBUTE__DEFAULT_VALUE = eINSTANCE.getBooleanAttribute_DefaultValue();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.core.impl.ClassAttributeImpl <em>Class Attribute</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.core.impl.ClassAttributeImpl
+		 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getClassAttribute()
+		 * @generated
+		 */
+		EClass CLASS_ATTRIBUTE = eINSTANCE.getClassAttribute();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CLASS_ATTRIBUTE__TYPE = eINSTANCE.getClassAttribute_Type();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.core.UnitOfMeasurement <em>Unit Of Measurement</em>}' enum.

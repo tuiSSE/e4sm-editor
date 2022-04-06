@@ -4,6 +4,7 @@ package e4sm.de.metamodel.e4sm.analysis;
 
 import e4sm.de.metamodel.e4sm.core.Element;
 import e4sm.de.metamodel.e4sm.core.ValueSpecification;
+import e4sm.de.metamodel.e4sm.core.Variant;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -53,7 +54,7 @@ public interface Parameter extends Element {
 
 	/**
 	 * Returns the value of the '<em><b>Applies Only On Variants</b></em>' reference list.
-	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.analysis.Variant}.
+	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.core.Variant}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Applies Only On Variants</em>' reference list.
@@ -65,7 +66,7 @@ public interface Parameter extends Element {
 
 	/**
 	 * Returns the value of the '<em><b>Does Not Apply On Variants</b></em>' reference list.
-	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.analysis.Variant}.
+	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.core.Variant}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Does Not Apply On Variants</em>' reference list.

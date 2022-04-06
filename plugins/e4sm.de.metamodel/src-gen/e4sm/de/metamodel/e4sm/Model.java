@@ -2,9 +2,10 @@
  */
 package e4sm.de.metamodel.e4sm;
 
-import e4sm.de.metamodel.e4sm.analysis.ParameterizableElement;
-import e4sm.de.metamodel.e4sm.analysis.Variant;
 import e4sm.de.metamodel.e4sm.core.NamedElement;
+import e4sm.de.metamodel.e4sm.core.ParameterizableElement;
+import e4sm.de.metamodel.e4sm.core.TypeSpecification;
+import e4sm.de.metamodel.e4sm.core.Variant;
 import java.util.Map;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
@@ -26,6 +27,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link e4sm.de.metamodel.e4sm.Model#getActors <em>Actors</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Model#getPersonsPicturesPath <em>Persons Pictures Path</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Model#getVariants <em>Variants</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.Model#getTypes <em>Types</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.Model#getImports <em>Imports</em>}</li>
  * </ul>
  *
  * @see e4sm.de.metamodel.e4sm.e4smPackage#getModel()
@@ -90,7 +93,7 @@ public interface Model extends NamedElement, ParameterizableElement {
 
 	/**
 	 * Returns the value of the '<em><b>Variants</b></em>' containment reference list.
-	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.analysis.Variant}.
+	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.core.Variant}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Variants</em>' containment reference list.
@@ -99,6 +102,30 @@ public interface Model extends NamedElement, ParameterizableElement {
 	 * @generated
 	 */
 	EList<Variant> getVariants();
+
+	/**
+	 * Returns the value of the '<em><b>Types</b></em>' containment reference list.
+	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.core.TypeSpecification}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Types</em>' containment reference list.
+	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getModel_Types()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<TypeSpecification> getTypes();
+
+	/**
+	 * Returns the value of the '<em><b>Imports</b></em>' containment reference list.
+	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.Import}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Imports</em>' containment reference list.
+	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getModel_Imports()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Import> getImports();
 
 	/**
 	 * <!-- begin-user-doc -->

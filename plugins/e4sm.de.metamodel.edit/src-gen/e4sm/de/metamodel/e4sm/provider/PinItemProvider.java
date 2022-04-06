@@ -5,7 +5,6 @@ package e4sm.de.metamodel.e4sm.provider;
 import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.Pin;
 import e4sm.de.metamodel.e4sm.analysis.AnalysisFactory;
-import e4sm.de.metamodel.e4sm.analysis.AnalysisPackage;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 import e4sm.de.metamodel.e4sm.core.CorePackage;
 import java.util.Collection;
@@ -182,7 +181,7 @@ public class PinItemProvider extends ItemProviderAdapter implements IEditingDoma
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(AnalysisPackage.Literals.PARAMETERIZABLE_ELEMENT__PARAMETERS);
+			childrenFeatures.add(CorePackage.Literals.PARAMETERIZABLE_ELEMENT__PARAMETERS);
 		}
 		return childrenFeatures;
 	}
@@ -283,7 +282,7 @@ public class PinItemProvider extends ItemProviderAdapter implements IEditingDoma
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(AnalysisPackage.Literals.PARAMETERIZABLE_ELEMENT__PARAMETERS,
+		newChildDescriptors.add(createChildParameter(CorePackage.Literals.PARAMETERIZABLE_ELEMENT__PARAMETERS,
 				AnalysisFactory.eINSTANCE.createParameter()));
 	}
 

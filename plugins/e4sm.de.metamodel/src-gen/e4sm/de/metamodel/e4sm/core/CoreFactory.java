@@ -121,6 +121,69 @@ public interface CoreFactory extends EFactory {
 	LiteralDate createLiteralDate();
 
 	/**
+	 * Returns a new object of class '<em>Variant</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Variant</em>'.
+	 * @generated
+	 */
+	Variant createVariant();
+
+	/**
+	 * Returns a new object of class '<em>Type Specification</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Type Specification</em>'.
+	 * @generated
+	 */
+	TypeSpecification createTypeSpecification();
+
+	/**
+	 * Returns a new object of class '<em>Integer Attribute</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Integer Attribute</em>'.
+	 * @generated
+	 */
+	IntegerAttribute createIntegerAttribute();
+
+	/**
+	 * Returns a new object of class '<em>Double Attribute</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Double Attribute</em>'.
+	 * @generated
+	 */
+	DoubleAttribute createDoubleAttribute();
+
+	/**
+	 * Returns a new object of class '<em>String Attribute</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>String Attribute</em>'.
+	 * @generated
+	 */
+	StringAttribute createStringAttribute();
+
+	/**
+	 * Returns a new object of class '<em>Boolean Attribute</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Boolean Attribute</em>'.
+	 * @generated
+	 */
+	BooleanAttribute createBooleanAttribute();
+
+	/**
+	 * Returns a new object of class '<em>Class Attribute</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Class Attribute</em>'.
+	 * @generated
+	 */
+	ClassAttribute createClassAttribute();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

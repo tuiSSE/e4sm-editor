@@ -316,6 +316,7 @@ mapping Component::transformComponent() : pl: List(PlaceType), iTr : List(Transi
 					var arcFromTransition = new ArcType(outputPinPlace.id + "_from_" + self.name);
 					arcFromTransition.fromNode := timedTran.id;
 					arcFromTransition.toNode := outputPinPlace.id;
+					arcFromTransition.inscription.text := "new(1)"; //TODO: improve specification
 					arcs->add(arcFromTransition);
 				}; // else this component is redefined and not generated completely
 				if(simpleComponent and op.oclIsTypeOf(InputPin)) {
@@ -348,6 +349,7 @@ mapping Component::transformComponent() : pl: List(PlaceType), iTr : List(Transi
 			    var arcFromTransition = new ArcType(outputPin.pl->first().id + "_from_" + self.name);
 					arcFromTransition.fromNode := timedTran.id;
 					arcFromTransition.toNode := outputPin.pl->first().id;
+					arcFromTransition.inscription.text :=  "new(1)"; //TODO: improve specification
 					arcs->add(arcFromTransition);
 			    };
 			} else if(op.requiresMergeAndDuplicate())

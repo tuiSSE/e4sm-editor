@@ -4,6 +4,7 @@ package e4sm.de.metamodel.e4sm.core.util;
 
 import e4sm.de.metamodel.e4sm.core.*;
 
+import e4sm.de.metamodel.e4sm.execution.Expression;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -90,7 +91,11 @@ public class CoreSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseTypedElement(literalSpecification);
 			if (result == null)
+				result = caseExpression(literalSpecification);
+			if (result == null)
 				result = caseNamedElement(literalSpecification);
+			if (result == null)
+				result = caseExecution_Element(literalSpecification);
 			if (result == null)
 				result = caseElement(literalSpecification);
 			if (result == null)
@@ -107,7 +112,11 @@ public class CoreSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseTypedElement(literalNull);
 			if (result == null)
+				result = caseExpression(literalNull);
+			if (result == null)
 				result = caseNamedElement(literalNull);
+			if (result == null)
+				result = caseExecution_Element(literalNull);
 			if (result == null)
 				result = caseElement(literalNull);
 			if (result == null)
@@ -124,7 +133,11 @@ public class CoreSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseTypedElement(literalString);
 			if (result == null)
+				result = caseExpression(literalString);
+			if (result == null)
 				result = caseNamedElement(literalString);
+			if (result == null)
+				result = caseExecution_Element(literalString);
 			if (result == null)
 				result = caseElement(literalString);
 			if (result == null)
@@ -141,7 +154,11 @@ public class CoreSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseTypedElement(literalInteger);
 			if (result == null)
+				result = caseExpression(literalInteger);
+			if (result == null)
 				result = caseNamedElement(literalInteger);
+			if (result == null)
+				result = caseExecution_Element(literalInteger);
 			if (result == null)
 				result = caseElement(literalInteger);
 			if (result == null)
@@ -158,7 +175,11 @@ public class CoreSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseTypedElement(literalBoolean);
 			if (result == null)
+				result = caseExpression(literalBoolean);
+			if (result == null)
 				result = caseNamedElement(literalBoolean);
+			if (result == null)
+				result = caseExecution_Element(literalBoolean);
 			if (result == null)
 				result = caseElement(literalBoolean);
 			if (result == null)
@@ -175,7 +196,11 @@ public class CoreSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseTypedElement(literalFloat);
 			if (result == null)
+				result = caseExpression(literalFloat);
+			if (result == null)
 				result = caseNamedElement(literalFloat);
+			if (result == null)
+				result = caseExecution_Element(literalFloat);
 			if (result == null)
 				result = caseElement(literalFloat);
 			if (result == null)
@@ -192,7 +217,11 @@ public class CoreSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseTypedElement(literalDouble);
 			if (result == null)
+				result = caseExpression(literalDouble);
+			if (result == null)
 				result = caseNamedElement(literalDouble);
+			if (result == null)
+				result = caseExecution_Element(literalDouble);
 			if (result == null)
 				result = caseElement(literalDouble);
 			if (result == null)
@@ -209,7 +238,11 @@ public class CoreSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseTypedElement(literalLong);
 			if (result == null)
+				result = caseExpression(literalLong);
+			if (result == null)
 				result = caseNamedElement(literalLong);
+			if (result == null)
+				result = caseExecution_Element(literalLong);
 			if (result == null)
 				result = caseElement(literalLong);
 			if (result == null)
@@ -226,7 +259,11 @@ public class CoreSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseTypedElement(literalShort);
 			if (result == null)
+				result = caseExpression(literalShort);
+			if (result == null)
 				result = caseNamedElement(literalShort);
+			if (result == null)
+				result = caseExecution_Element(literalShort);
 			if (result == null)
 				result = caseElement(literalShort);
 			if (result == null)
@@ -243,7 +280,11 @@ public class CoreSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseTypedElement(literalByte);
 			if (result == null)
+				result = caseExpression(literalByte);
+			if (result == null)
 				result = caseNamedElement(literalByte);
+			if (result == null)
+				result = caseExecution_Element(literalByte);
 			if (result == null)
 				result = caseElement(literalByte);
 			if (result == null)
@@ -260,7 +301,11 @@ public class CoreSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseTypedElement(literalCharacter);
 			if (result == null)
+				result = caseExpression(literalCharacter);
+			if (result == null)
 				result = caseNamedElement(literalCharacter);
+			if (result == null)
+				result = caseExecution_Element(literalCharacter);
 			if (result == null)
 				result = caseElement(literalCharacter);
 			if (result == null)
@@ -277,7 +322,11 @@ public class CoreSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseTypedElement(literalDate);
 			if (result == null)
+				result = caseExpression(literalDate);
+			if (result == null)
 				result = caseNamedElement(literalDate);
+			if (result == null)
+				result = caseExecution_Element(literalDate);
 			if (result == null)
 				result = caseElement(literalDate);
 			if (result == null)
@@ -290,7 +339,11 @@ public class CoreSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseTypedElement(valueSpecification);
 			if (result == null)
+				result = caseExpression(valueSpecification);
+			if (result == null)
 				result = caseNamedElement(valueSpecification);
+			if (result == null)
+				result = caseExecution_Element(valueSpecification);
 			if (result == null)
 				result = caseElement(valueSpecification);
 			if (result == null)
@@ -304,6 +357,111 @@ public class CoreSwitch<T> extends Switch<T> {
 				result = caseNamedElement(typedElement);
 			if (result == null)
 				result = caseElement(typedElement);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case CorePackage.VARIANT: {
+			Variant variant = (Variant) theEObject;
+			T result = caseVariant(variant);
+			if (result == null)
+				result = caseNamedElement(variant);
+			if (result == null)
+				result = caseElement(variant);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case CorePackage.PARAMETERIZABLE_ELEMENT: {
+			ParameterizableElement parameterizableElement = (ParameterizableElement) theEObject;
+			T result = caseParameterizableElement(parameterizableElement);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case CorePackage.TYPE_SPECIFICATION: {
+			TypeSpecification typeSpecification = (TypeSpecification) theEObject;
+			T result = caseTypeSpecification(typeSpecification);
+			if (result == null)
+				result = caseNamedElement(typeSpecification);
+			if (result == null)
+				result = caseElement(typeSpecification);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case CorePackage.ATTRIBUTE_SPECIFICATION: {
+			AttributeSpecification attributeSpecification = (AttributeSpecification) theEObject;
+			T result = caseAttributeSpecification(attributeSpecification);
+			if (result == null)
+				result = caseNamedElement(attributeSpecification);
+			if (result == null)
+				result = caseElement(attributeSpecification);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case CorePackage.INTEGER_ATTRIBUTE: {
+			IntegerAttribute integerAttribute = (IntegerAttribute) theEObject;
+			T result = caseIntegerAttribute(integerAttribute);
+			if (result == null)
+				result = caseAttributeSpecification(integerAttribute);
+			if (result == null)
+				result = caseNamedElement(integerAttribute);
+			if (result == null)
+				result = caseElement(integerAttribute);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case CorePackage.DOUBLE_ATTRIBUTE: {
+			DoubleAttribute doubleAttribute = (DoubleAttribute) theEObject;
+			T result = caseDoubleAttribute(doubleAttribute);
+			if (result == null)
+				result = caseAttributeSpecification(doubleAttribute);
+			if (result == null)
+				result = caseNamedElement(doubleAttribute);
+			if (result == null)
+				result = caseElement(doubleAttribute);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case CorePackage.STRING_ATTRIBUTE: {
+			StringAttribute stringAttribute = (StringAttribute) theEObject;
+			T result = caseStringAttribute(stringAttribute);
+			if (result == null)
+				result = caseAttributeSpecification(stringAttribute);
+			if (result == null)
+				result = caseNamedElement(stringAttribute);
+			if (result == null)
+				result = caseElement(stringAttribute);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case CorePackage.BOOLEAN_ATTRIBUTE: {
+			BooleanAttribute booleanAttribute = (BooleanAttribute) theEObject;
+			T result = caseBooleanAttribute(booleanAttribute);
+			if (result == null)
+				result = caseAttributeSpecification(booleanAttribute);
+			if (result == null)
+				result = caseNamedElement(booleanAttribute);
+			if (result == null)
+				result = caseElement(booleanAttribute);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case CorePackage.CLASS_ATTRIBUTE: {
+			ClassAttribute classAttribute = (ClassAttribute) theEObject;
+			T result = caseClassAttribute(classAttribute);
+			if (result == null)
+				result = caseAttributeSpecification(classAttribute);
+			if (result == null)
+				result = caseNamedElement(classAttribute);
+			if (result == null)
+				result = caseElement(classAttribute);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -550,6 +708,171 @@ public class CoreSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseTypedElement(TypedElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Variant</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Variant</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseVariant(Variant object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Parameterizable Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Parameterizable Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseParameterizableElement(ParameterizableElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Type Specification</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Type Specification</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTypeSpecification(TypeSpecification object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Attribute Specification</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Attribute Specification</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAttributeSpecification(AttributeSpecification object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Integer Attribute</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Integer Attribute</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIntegerAttribute(IntegerAttribute object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Double Attribute</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Double Attribute</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDoubleAttribute(DoubleAttribute object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>String Attribute</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>String Attribute</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseStringAttribute(StringAttribute object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Boolean Attribute</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Boolean Attribute</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBooleanAttribute(BooleanAttribute object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Class Attribute</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Class Attribute</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseClassAttribute(ClassAttribute object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExecution_Element(e4sm.de.metamodel.e4sm.execution.Element object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Expression</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExpression(Expression object) {
 		return null;
 	}
 

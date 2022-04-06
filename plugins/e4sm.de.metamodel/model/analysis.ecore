@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="analysis" nsURI="http://de.tu-ilmenau/e4sm/analysis/1.0.0" nsPrefix="analysis">
-  <eClassifiers xsi:type="ecore:EClass" name="Variant" eSuperTypes="core.ecore#//NamedElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="Analysis" abstract="true">
     <eOperations name="exec"/>
     <eOperations name="init" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
@@ -28,11 +27,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="unit" eType="ecore:EEnum core.ecore#//UnitOfMeasurement"
         defaultValueLiteral="none"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mustBeDefinedOn" upperBound="-1"
-        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+        eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EClass"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="canBeDefinedOn" upperBound="-1"
-        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+        eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EClass"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="shallNotBeDefinedOn" upperBound="-1"
-        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+        eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EClass"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="defaultValue" eType="ecore:EClass core.ecore#//ValueSpecification"
         containment="true"/>
   </eClassifiers>
@@ -41,18 +40,13 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameterDefinition" lowerBound="1"
         eType="#//ParameterDefinition" eOpposite="#//ParameterDefinition/parameters"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="appliesOnlyOnVariants"
-        upperBound="-1" eType="#//Variant"/>
+        upperBound="-1" eType="ecore:EClass core.ecore#//Variant"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="doesNotApplyOnVariants"
-        upperBound="-1" eType="#//Variant"/>
+        upperBound="-1" eType="ecore:EClass core.ecore#//Variant"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="initialValue" eType="ecore:EClass core.ecore#//ValueSpecification"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="currentValue" eType="ecore:EClass core.ecore#//ValueSpecification"
         containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ParameterizableElement" abstract="true"
-      interface="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
-        eType="#//Parameter" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ModelAnalysis" abstract="true" eSuperTypes="#//Analysis"/>
   <eClassifiers xsi:type="ecore:EClass" name="GraphAnalysis" abstract="true" eSuperTypes="#//Analysis">

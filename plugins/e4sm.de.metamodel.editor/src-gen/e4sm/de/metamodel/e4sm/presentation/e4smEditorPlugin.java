@@ -7,6 +7,7 @@ import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.ui.EclipseUIPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
 
 /**
  * This is the central singleton for the e4sm editor plugin.
@@ -38,7 +39,7 @@ public final class e4smEditorPlugin extends EMFPlugin {
 	 * @generated
 	 */
 	public e4smEditorPlugin() {
-		super(new ResourceLocator[] {});
+		super(new ResourceLocator[] { EcoreEditPlugin.INSTANCE, });
 	}
 
 	/**

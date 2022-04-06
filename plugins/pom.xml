@@ -1,0 +1,144 @@
+<project>
+ <modelVersion>4.0.0</modelVersion>
+ <groupId>e4sm.de.metamodel</groupId>
+ <artifactId>e4smEditor</artifactId>
+ <version>1.0.0-SNAPSHOT</version>
+ <packaging>pom</packaging>
+
+ <properties>
+  <tycho.version>2.7.0</tycho.version>
+  <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+ </properties>
+ 
+ <!-- This could be removed if everything is set inside target-platform correctly -->
+ <repositories>
+ <repository>
+   <id>eclipse-latest</id>
+   <url>http://download.eclipse.org/releases/2022-03</url>
+   <layout>p2</layout>
+</repository>
+<repository>
+	<id>edapt</id>
+	<url>https://download.eclipse.org/edapt/releases/14x/</url>
+	<layout>p2</layout>
+</repository>
+  <!-- ^^ This could be removed if everything is set inside target-platform correctly -->
+<repository>
+      <id>justj</id>
+      <url>https://download.eclipse.org/justj/jres/17/updates/release/latest/</url>
+      <layout>p2</layout>
+ </repository>
+ </repositories>
+
+ <build>
+   <pluginManagement>
+     <plugins>
+       <plugin>
+         <groupId>org.eclipse.tycho</groupId>
+         <artifactId>tycho-p2-director-plugin</artifactId>
+         <version>${tycho.version}</version>
+       </plugin>
+	   <plugin>
+        <groupId>org.antlr</groupId>
+        <artifactId>antlr4-maven-plugin</artifactId>
+        <version>4.9.3</version>
+        <executions>
+          <execution>
+            <id>antlr</id>
+            <goals>
+              <goal>antlr4</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+	  <plugin>
+    <groupId>org.eclipse.tycho</groupId>
+    <artifactId>tycho-compiler-plugin</artifactId>
+    <version>${tycho.version}</version>
+    <configuration>
+        <compilerArgument>-warn:+discouraged,forbidden</compilerArgument>
+    </configuration>
+</plugin>
+     </plugins>
+   </pluginManagement>
+
+  <plugins>
+           <plugin>
+            <groupId>org.eclipse.tycho</groupId>
+            <artifactId>tycho-surefire-plugin</artifactId>
+            <version>${tycho.version}</version>
+            <configuration>
+                <useUIHarness>true</useUIHarness>
+            </configuration>
+         </plugin>
+   <plugin>
+    <groupId>org.eclipse.tycho</groupId>
+    <artifactId>tycho-maven-plugin</artifactId>
+    <version>${tycho.version}</version>
+    <extensions>true</extensions>
+   </plugin>
+   <!--Enable the replacement of the SNAPSHOT version in the final product configuration-->
+   <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+            <artifactId>tycho-packaging-plugin</artifactId>
+             <version>${tycho.version}</version>
+             <executions>
+              <execution>
+                <phase>package</phase>
+                <id>package-feature</id>
+                    <configuration>
+                        <finalName>${project.artifactId}_${unqualifiedVersion}.${buildQualifier}</finalName>
+                    </configuration>
+            </execution>
+        </executions>
+    </plugin>
+    <plugin>
+    <groupId>org.eclipse.tycho</groupId>
+    <artifactId>target-platform-configuration</artifactId>
+    <version>${tycho.version}</version>
+    <configuration>
+	 <target>
+      <file>../target-platform/target-platform.target</file>
+    </target>
+     <executionEnvironment>org.eclipse.justj.openjdk.hotspot.jre.full-17</executionEnvironment>
+     <!-- Optional set the Java version your are using-->
+     <executionEnvironment>JavaSE-17</executionEnvironment>
+     <environments>
+	   <environment>
+       <os>win32</os>
+       <ws>win32</ws>
+       <arch>x86_64</arch>
+      </environment>
+      <!--environment>
+       <os>linux</os>
+       <ws>gtk</ws>
+       <arch>x86_64</arch>
+      </environment>
+
+      <environment>
+       <os>macosx</os>
+       <ws>cocoa</ws>
+       <arch>x86_64</arch>
+      </environment-->
+     </environments>
+    </configuration>
+   </plugin>
+  </plugins>
+ </build>
+  <modules>
+   <!--TODO ADD YOUR MODULES HERE-->
+   <module>e4sm.de.antlr4.petri.grammar</module>
+   <module>e4sm.de.metamodel</module>
+   <module>e4sm.de.metamodel.edit</module>
+   <module>e4sm.de.metamodel.editor</module>
+   <module>e4sm.de.metamodel.feature</module>
+   <module>e4sm.de.metamodel.to.scpn.qvto.feature</module>
+   <module>e4sm.de.metamodel.design.feature</module>
+   <module>timenet.tuilmenau.de.scpn.metamodel</module>
+   <module>e4sm.de.metamodel.to.scpn.qvto</module>
+   <module>e4sm.de.metamodel.xtext/e4sm.de.metamodel.xtext.parent</module>
+   <module>e4sm.de.metamodel.design</module>
+   <module>e4sm.de.metamodel.branding</module>
+   <module>e4sm.de.metamodel.product</module>
+ </modules>
+</project>

@@ -15,14 +15,13 @@ import e4sm.de.metamodel.e4sm.analysis.NetworkGenerator;
 import e4sm.de.metamodel.e4sm.analysis.PackageAnalysis;
 import e4sm.de.metamodel.e4sm.analysis.Parameter;
 import e4sm.de.metamodel.e4sm.analysis.ParameterDefinition;
-import e4sm.de.metamodel.e4sm.analysis.ParameterizableElement;
 import e4sm.de.metamodel.e4sm.analysis.PreviousNodeGraphAnalysis;
-
-import e4sm.de.metamodel.e4sm.analysis.Variant;
 import e4sm.de.metamodel.e4sm.analysis.results.ResultsPackage;
 import e4sm.de.metamodel.e4sm.analysis.results.impl.ResultsPackageImpl;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
+import e4sm.de.metamodel.e4sm.execution.ExecutionPackage;
+import e4sm.de.metamodel.e4sm.execution.impl.ExecutionPackageImpl;
 import e4sm.de.metamodel.e4sm.guava.GuavaPackage;
 import e4sm.de.metamodel.e4sm.guava.impl.GuavaPackageImpl;
 import e4sm.de.metamodel.e4sm.impl.e4smPackageImpl;
@@ -37,6 +36,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.ETypeParameter;
+import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -73,13 +73,6 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 * @generated
 	 */
 	private EClass parameterEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass parameterizableElementEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -129,13 +122,6 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 * @generated
 	 */
 	private EClass previousNodeGraphAnalysisEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass variantEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -194,6 +180,9 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 
 		isInited = true;
 
+		// Initialize simple dependencies
+		EcorePackage.eINSTANCE.eClass();
+
 		// Obtain or create and register interdependencies
 		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(e4smPackage.eNS_URI);
 		e4smPackageImpl thee4smPackage = (e4smPackageImpl) (registeredPackage instanceof e4smPackageImpl
@@ -203,6 +192,10 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		CorePackageImpl theCorePackage = (CorePackageImpl) (registeredPackage instanceof CorePackageImpl
 				? registeredPackage
 				: CorePackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ExecutionPackage.eNS_URI);
+		ExecutionPackageImpl theExecutionPackage = (ExecutionPackageImpl) (registeredPackage instanceof ExecutionPackageImpl
+				? registeredPackage
+				: ExecutionPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ResultsPackage.eNS_URI);
 		ResultsPackageImpl theResultsPackage = (ResultsPackageImpl) (registeredPackage instanceof ResultsPackageImpl
 				? registeredPackage
@@ -216,6 +209,7 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		theAnalysisPackage.createPackageContents();
 		thee4smPackage.createPackageContents();
 		theCorePackage.createPackageContents();
+		theExecutionPackage.createPackageContents();
 		theResultsPackage.createPackageContents();
 		theGuavaPackage.createPackageContents();
 
@@ -223,6 +217,7 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		theAnalysisPackage.initializePackageContents();
 		thee4smPackage.initializePackageContents();
 		theCorePackage.initializePackageContents();
+		theExecutionPackage.initializePackageContents();
 		theResultsPackage.initializePackageContents();
 		theGuavaPackage.initializePackageContents();
 
@@ -440,26 +435,6 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getParameterizableElement() {
-		return parameterizableElementEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getParameterizableElement_Parameters() {
-		return (EReference) parameterizableElementEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getAnalysis() {
 		return analysisEClass;
 	}
@@ -600,16 +575,6 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getVariant() {
-		return variantEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getNetworkGenerator() {
 		return networkGeneratorEClass;
 	}
@@ -664,8 +629,6 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		isCreated = true;
 
 		// Create classes and their features
-		variantEClass = createEClass(VARIANT);
-
 		analysisEClass = createEClass(ANALYSIS);
 		createEOperation(analysisEClass, ANALYSIS___EXEC);
 		createEOperation(analysisEClass, ANALYSIS___INIT);
@@ -695,9 +658,6 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		createEReference(parameterEClass, PARAMETER__INITIAL_VALUE);
 		createEReference(parameterEClass, PARAMETER__CURRENT_VALUE);
 		createEOperation(parameterEClass, PARAMETER___IS_VALID);
-
-		parameterizableElementEClass = createEClass(PARAMETERIZABLE_ELEMENT);
-		createEReference(parameterizableElementEClass, PARAMETERIZABLE_ELEMENT__PARAMETERS);
 
 		modelAnalysisEClass = createEClass(MODEL_ANALYSIS);
 
@@ -744,9 +704,10 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		CorePackage theCorePackage = (CorePackage) EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
 		ResultsPackage theResultsPackage = (ResultsPackage) EPackage.Registry.INSTANCE
 				.getEPackage(ResultsPackage.eNS_URI);
+		CorePackage theCorePackage = (CorePackage) EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
+		EcorePackage theEcorePackage = (EcorePackage) EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
 		GuavaPackage theGuavaPackage = (GuavaPackage) EPackage.Registry.INSTANCE.getEPackage(GuavaPackage.eNS_URI);
 		e4smPackage thee4smPackage = (e4smPackage) EPackage.Registry.INSTANCE.getEPackage(e4smPackage.eNS_URI);
 
@@ -759,7 +720,6 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		variantEClass.getESuperTypes().add(theCorePackage.getNamedElement());
 		analysisDefinitionEClass.getESuperTypes().add(theCorePackage.getNamedElement());
 		parameterDefinitionEClass.getESuperTypes().add(theCorePackage.getTypedElement());
 		parameterEClass.getESuperTypes().add(theCorePackage.getElement());
@@ -780,8 +740,6 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		previousNodeGraphAnalysisEClass.getEGenericSuperTypes().add(g1);
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(variantEClass, Variant.class, "Variant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
 		initEClass(analysisEClass, Analysis.class, "Analysis", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEOperation(getAnalysis__Exec(), null, "exec", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -821,13 +779,13 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		initEAttribute(getParameterDefinition_Unit(), theCorePackage.getUnitOfMeasurement(), "unit", "none", 0, 1,
 				ParameterDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getParameterDefinition_MustBeDefinedOn(), ecorePackage.getEClass(), null, "mustBeDefinedOn",
+		initEReference(getParameterDefinition_MustBeDefinedOn(), theEcorePackage.getEClass(), null, "mustBeDefinedOn",
 				null, 0, -1, ParameterDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
 				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getParameterDefinition_CanBeDefinedOn(), ecorePackage.getEClass(), null, "canBeDefinedOn", null,
-				0, -1, ParameterDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+		initEReference(getParameterDefinition_CanBeDefinedOn(), theEcorePackage.getEClass(), null, "canBeDefinedOn",
+				null, 0, -1, ParameterDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
 				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getParameterDefinition_ShallNotBeDefinedOn(), ecorePackage.getEClass(), null,
+		initEReference(getParameterDefinition_ShallNotBeDefinedOn(), theEcorePackage.getEClass(), null,
 				"shallNotBeDefinedOn", null, 0, -1, ParameterDefinition.class, !IS_TRANSIENT, !IS_VOLATILE,
 				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getParameterDefinition_DefaultValue(), theCorePackage.getValueSpecification(), null,
@@ -840,12 +798,12 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 				this.getParameterDefinition_Parameters(), "parameterDefinition", null, 1, 1, Parameter.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getParameter_AppliesOnlyOnVariants(), this.getVariant(), null, "appliesOnlyOnVariants", null, 0,
-				-1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getParameter_DoesNotApplyOnVariants(), this.getVariant(), null, "doesNotApplyOnVariants", null,
-				0, -1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getParameter_AppliesOnlyOnVariants(), theCorePackage.getVariant(), null, "appliesOnlyOnVariants",
+				null, 0, -1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getParameter_DoesNotApplyOnVariants(), theCorePackage.getVariant(), null,
+				"doesNotApplyOnVariants", null, 0, -1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getParameter_InitialValue(), theCorePackage.getValueSpecification(), null, "initialValue", null,
 				0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -854,12 +812,6 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getParameter__IsValid(), ecorePackage.getEBoolean(), "isValid", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEClass(parameterizableElementEClass, ParameterizableElement.class, "ParameterizableElement", IS_ABSTRACT,
-				IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getParameterizableElement_Parameters(), this.getParameter(), null, "parameters", null, 0, -1,
-				ParameterizableElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(modelAnalysisEClass, ModelAnalysis.class, "ModelAnalysis", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);

@@ -19,10 +19,11 @@ import e4sm.de.metamodel.e4sm.analysis.results.TwoDimensionalPlot;
 
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
+import e4sm.de.metamodel.e4sm.execution.ExecutionPackage;
+import e4sm.de.metamodel.e4sm.execution.impl.ExecutionPackageImpl;
 import e4sm.de.metamodel.e4sm.guava.GuavaPackage;
 import e4sm.de.metamodel.e4sm.guava.impl.GuavaPackageImpl;
 import e4sm.de.metamodel.e4sm.impl.e4smPackageImpl;
-
 import e4sm.de.metamodel.e4sm.core.CorePackage;
 
 import e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl;
@@ -32,6 +33,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
+import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -147,6 +149,9 @@ public class ResultsPackageImpl extends EPackageImpl implements ResultsPackage {
 
 		isInited = true;
 
+		// Initialize simple dependencies
+		EcorePackage.eINSTANCE.eClass();
+
 		// Obtain or create and register interdependencies
 		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(e4smPackage.eNS_URI);
 		e4smPackageImpl thee4smPackage = (e4smPackageImpl) (registeredPackage instanceof e4smPackageImpl
@@ -156,6 +161,10 @@ public class ResultsPackageImpl extends EPackageImpl implements ResultsPackage {
 		CorePackageImpl theCorePackage = (CorePackageImpl) (registeredPackage instanceof CorePackageImpl
 				? registeredPackage
 				: CorePackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ExecutionPackage.eNS_URI);
+		ExecutionPackageImpl theExecutionPackage = (ExecutionPackageImpl) (registeredPackage instanceof ExecutionPackageImpl
+				? registeredPackage
+				: ExecutionPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(AnalysisPackage.eNS_URI);
 		AnalysisPackageImpl theAnalysisPackage = (AnalysisPackageImpl) (registeredPackage instanceof AnalysisPackageImpl
 				? registeredPackage
@@ -169,6 +178,7 @@ public class ResultsPackageImpl extends EPackageImpl implements ResultsPackage {
 		theResultsPackage.createPackageContents();
 		thee4smPackage.createPackageContents();
 		theCorePackage.createPackageContents();
+		theExecutionPackage.createPackageContents();
 		theAnalysisPackage.createPackageContents();
 		theGuavaPackage.createPackageContents();
 
@@ -176,6 +186,7 @@ public class ResultsPackageImpl extends EPackageImpl implements ResultsPackage {
 		theResultsPackage.initializePackageContents();
 		thee4smPackage.initializePackageContents();
 		theCorePackage.initializePackageContents();
+		theExecutionPackage.initializePackageContents();
 		theAnalysisPackage.initializePackageContents();
 		theGuavaPackage.initializePackageContents();
 
@@ -506,6 +517,21 @@ public class ResultsPackageImpl extends EPackageImpl implements ResultsPackage {
 
 		// Create resource
 		createResource(eNS_URI);
+
+		// Create annotations
+		// http://www.eclipse.org/edapt
+		createEdaptAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/edapt</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createEdaptAnnotations() {
+		String source = "http://www.eclipse.org/edapt";
+		addAnnotation(this, source, new String[] { "historyURI", "e4sm.history" });
 	}
 
 } //ResultsPackageImpl

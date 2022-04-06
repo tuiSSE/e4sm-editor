@@ -256,29 +256,6 @@ public class AnalysisItemProviderAdapterFactory extends AnalysisAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.analysis.Variant} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected VariantItemProvider variantItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.analysis.Variant}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createVariantAdapter() {
-		if (variantItemProvider == null) {
-			variantItemProvider = new VariantItemProvider(this);
-		}
-
-		return variantItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.analysis.NetworkGenerator} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

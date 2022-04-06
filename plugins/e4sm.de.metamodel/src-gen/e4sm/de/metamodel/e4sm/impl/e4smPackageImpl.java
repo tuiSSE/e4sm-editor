@@ -13,6 +13,7 @@ import e4sm.de.metamodel.e4sm.ExternalDependency;
 import e4sm.de.metamodel.e4sm.Function;
 import e4sm.de.metamodel.e4sm.Heuristic;
 import e4sm.de.metamodel.e4sm.Human;
+import e4sm.de.metamodel.e4sm.Import;
 import e4sm.de.metamodel.e4sm.InputPin;
 import e4sm.de.metamodel.e4sm.LogicalConnector;
 import e4sm.de.metamodel.e4sm.MachineLearningComponent;
@@ -39,6 +40,8 @@ import e4sm.de.metamodel.e4sm.analysis.results.impl.ResultsPackageImpl;
 import e4sm.de.metamodel.e4sm.core.CorePackage;
 import e4sm.de.metamodel.e4sm.e4smFactory;
 import e4sm.de.metamodel.e4sm.e4smPackage;
+import e4sm.de.metamodel.e4sm.execution.ExecutionPackage;
+import e4sm.de.metamodel.e4sm.execution.impl.ExecutionPackageImpl;
 import e4sm.de.metamodel.e4sm.guava.GuavaPackage;
 import e4sm.de.metamodel.e4sm.guava.impl.GuavaPackageImpl;
 import e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl;
@@ -52,6 +55,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.EValidator;
+import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -269,6 +273,13 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass importEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum queueTypeEEnum = null;
 
 	/**
@@ -356,37 +367,46 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 
 		isInited = true;
 
+		// Initialize simple dependencies
+		EcorePackage.eINSTANCE.eClass();
+
 		// Obtain or create and register interdependencies
 		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
-		CorePackageImpl thecorePackage = (CorePackageImpl) (registeredPackage instanceof CorePackageImpl
+		CorePackageImpl theCorePackage = (CorePackageImpl) (registeredPackage instanceof CorePackageImpl
 				? registeredPackage
 				: CorePackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ExecutionPackage.eNS_URI);
+		ExecutionPackageImpl theExecutionPackage = (ExecutionPackageImpl) (registeredPackage instanceof ExecutionPackageImpl
+				? registeredPackage
+				: ExecutionPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(AnalysisPackage.eNS_URI);
-		AnalysisPackageImpl theanalysisPackage = (AnalysisPackageImpl) (registeredPackage instanceof AnalysisPackageImpl
+		AnalysisPackageImpl theAnalysisPackage = (AnalysisPackageImpl) (registeredPackage instanceof AnalysisPackageImpl
 				? registeredPackage
 				: AnalysisPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ResultsPackage.eNS_URI);
-		ResultsPackageImpl theresultsPackage = (ResultsPackageImpl) (registeredPackage instanceof ResultsPackageImpl
+		ResultsPackageImpl theResultsPackage = (ResultsPackageImpl) (registeredPackage instanceof ResultsPackageImpl
 				? registeredPackage
 				: ResultsPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(GuavaPackage.eNS_URI);
-		GuavaPackageImpl theguavaPackage = (GuavaPackageImpl) (registeredPackage instanceof GuavaPackageImpl
+		GuavaPackageImpl theGuavaPackage = (GuavaPackageImpl) (registeredPackage instanceof GuavaPackageImpl
 				? registeredPackage
 				: GuavaPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		thee4smPackage.createPackageContents();
-		thecorePackage.createPackageContents();
-		theanalysisPackage.createPackageContents();
-		theresultsPackage.createPackageContents();
-		theguavaPackage.createPackageContents();
+		theCorePackage.createPackageContents();
+		theExecutionPackage.createPackageContents();
+		theAnalysisPackage.createPackageContents();
+		theResultsPackage.createPackageContents();
+		theGuavaPackage.createPackageContents();
 
 		// Initialize created meta-data
 		thee4smPackage.initializePackageContents();
-		thecorePackage.initializePackageContents();
-		theanalysisPackage.initializePackageContents();
-		theresultsPackage.initializePackageContents();
-		theguavaPackage.initializePackageContents();
+		theCorePackage.initializePackageContents();
+		theExecutionPackage.initializePackageContents();
+		theAnalysisPackage.initializePackageContents();
+		theResultsPackage.initializePackageContents();
+		theGuavaPackage.initializePackageContents();
 
 		// Register package validator
 		EValidator.Registry.INSTANCE.put(thee4smPackage, new EValidator.Descriptor() {
@@ -470,8 +490,28 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getComponent_Execution() {
+		return (EReference) componentEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getComponent__ComputeMainResponsible() {
 		return componentEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getComponent__NewOperation2() {
+		return componentEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -812,6 +852,26 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	@Override
 	public EReference getModel_Variants() {
 		return (EReference) modelEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getModel_Types() {
+		return (EReference) modelEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getModel_Imports() {
+		return (EReference) modelEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -1230,6 +1290,26 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getImport() {
+		return importEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getImport_ReferencedModel() {
+		return (EReference) importEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EEnum getQueueType() {
 		return queueTypeEEnum;
 	}
@@ -1320,7 +1400,9 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		createEReference(componentEClass, COMPONENT__MAIN_RESPONSIBLE);
 		createEReference(componentEClass, COMPONENT__SPECIFIED_IN_PACKAGE);
 		createEAttribute(componentEClass, COMPONENT__CODE_SPECIFICATION);
+		createEReference(componentEClass, COMPONENT__EXECUTION);
 		createEOperation(componentEClass, COMPONENT___COMPUTE_MAIN_RESPONSIBLE);
+		createEOperation(componentEClass, COMPONENT___NEW_OPERATION2);
 
 		machineLearningComponentEClass = createEClass(MACHINE_LEARNING_COMPONENT);
 
@@ -1366,6 +1448,8 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		createEReference(modelEClass, MODEL__ACTORS);
 		createEAttribute(modelEClass, MODEL__PERSONS_PICTURES_PATH);
 		createEReference(modelEClass, MODEL__VARIANTS);
+		createEReference(modelEClass, MODEL__TYPES);
+		createEReference(modelEClass, MODEL__IMPORTS);
 		createEOperation(modelEClass, MODEL___IS_PERSON_PICTURE_PATH_VALID__DIAGNOSTICCHAIN_MAP);
 
 		actorEClass = createEClass(ACTOR);
@@ -1425,6 +1509,9 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		createEAttribute(unitPrefixEClass, UNIT_PREFIX__SYMBOL);
 		createEAttribute(unitPrefixEClass, UNIT_PREFIX__CONVERSION_FACTOR);
 
+		importEClass = createEClass(IMPORT);
+		createEReference(importEClass, IMPORT__REFERENCED_MODEL);
+
 		// Create enums
 		queueTypeEEnum = createEEnum(QUEUE_TYPE);
 		raceSemanticEEnum = createEEnum(RACE_SEMANTIC);
@@ -1461,20 +1548,20 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		CorePackage thecorePackage = (CorePackage) EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
-		AnalysisPackage theanalysisPackage = (AnalysisPackage) EPackage.Registry.INSTANCE
-				.getEPackage(AnalysisPackage.eNS_URI);
+		CorePackage theCorePackage = (CorePackage) EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
+		ExecutionPackage theExecutionPackage = (ExecutionPackage) EPackage.Registry.INSTANCE
+				.getEPackage(ExecutionPackage.eNS_URI);
 
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		componentEClass.getESuperTypes().add(thecorePackage.getNamedElement());
-		componentEClass.getESuperTypes().add(theanalysisPackage.getParameterizableElement());
+		componentEClass.getESuperTypes().add(theCorePackage.getNamedElement());
+		componentEClass.getESuperTypes().add(theCorePackage.getParameterizableElement());
 		machineLearningComponentEClass.getESuperTypes().add(this.getSoftwareComponent());
-		connectorEClass.getESuperTypes().add(theanalysisPackage.getParameterizableElement());
-		connectorEClass.getESuperTypes().add(thecorePackage.getNamedElement());
+		connectorEClass.getESuperTypes().add(theCorePackage.getParameterizableElement());
+		connectorEClass.getESuperTypes().add(theCorePackage.getNamedElement());
 		physicalConnectorEClass.getESuperTypes().add(this.getConnector());
 		physicalComponentEClass.getESuperTypes().add(this.getComponent());
 		softwareComponentEClass.getESuperTypes().add(this.getComponent());
@@ -1482,18 +1569,19 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		heuristicEClass.getESuperTypes().add(this.getSoftwareComponent());
 		functionEClass.getESuperTypes().add(this.getSoftwareComponent());
 		externalDependencyEClass.getESuperTypes().add(this.getSoftwareComponent());
-		packageEClass.getESuperTypes().add(thecorePackage.getNamedElement());
-		packageEClass.getESuperTypes().add(theanalysisPackage.getParameterizableElement());
-		modelEClass.getESuperTypes().add(thecorePackage.getNamedElement());
-		modelEClass.getESuperTypes().add(theanalysisPackage.getParameterizableElement());
-		actorEClass.getESuperTypes().add(thecorePackage.getNamedElement());
+		packageEClass.getESuperTypes().add(theCorePackage.getNamedElement());
+		packageEClass.getESuperTypes().add(theCorePackage.getParameterizableElement());
+		modelEClass.getESuperTypes().add(theCorePackage.getNamedElement());
+		modelEClass.getESuperTypes().add(theCorePackage.getParameterizableElement());
+		actorEClass.getESuperTypes().add(theCorePackage.getNamedElement());
 		humanEClass.getESuperTypes().add(this.getActor());
 		robotEClass.getESuperTypes().add(this.getActor());
-		sectorEClass.getESuperTypes().add(thecorePackage.getNamedElement());
+		sectorEClass.getESuperTypes().add(theCorePackage.getNamedElement());
 		sensorEClass.getESuperTypes().add(this.getPhysicalComponent());
 		actuatorEClass.getESuperTypes().add(this.getPhysicalComponent());
-		pinEClass.getESuperTypes().add(theanalysisPackage.getParameterizableElement());
-		pinEClass.getESuperTypes().add(thecorePackage.getTypedElement());
+		pinEClass.getESuperTypes().add(theCorePackage.getParameterizableElement());
+		pinEClass.getESuperTypes().add(theExecutionPackage.getConnectableNode());
+		pinEClass.getESuperTypes().add(theCorePackage.getTypedElement());
 		inputPinEClass.getESuperTypes().add(this.getPin());
 		outputPinEClass.getESuperTypes().add(this.getPin());
 		personEClass.getESuperTypes().add(this.getHuman());
@@ -1520,9 +1608,14 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		initEAttribute(getComponent_CodeSpecification(), this.getCodeSpecification(), "codeSpecification", null, 0, 1,
 				Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
+		initEReference(getComponent_Execution(), theExecutionPackage.getExecution(), null, "execution", null, 0, 1,
+				Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getComponent__ComputeMainResponsible(), this.getPerson(), "computeMainResponsible", 0, 1,
 				IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getComponent__NewOperation2(), null, "newOperation2", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(machineLearningComponentEClass, MachineLearningComponent.class, "MachineLearningComponent",
 				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1621,9 +1714,15 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		initEAttribute(getModel_PersonsPicturesPath(), ecorePackage.getEString(), "personsPicturesPath", null, 0, 1,
 				Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
-		initEReference(getModel_Variants(), theanalysisPackage.getVariant(), null, "variants", null, 0, -1, Model.class,
+		initEReference(getModel_Variants(), theCorePackage.getVariant(), null, "variants", null, 0, -1, Model.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModel_Types(), theCorePackage.getTypeSpecification(), null, "types", null, 0, -1, Model.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModel_Imports(), this.getImport(), null, "imports", null, 0, -1, Model.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 
 		EOperation op = initEOperation(getModel__IsPersonPicturePathValid__DiagnosticChain_Map(),
 				ecorePackage.getEBoolean(), "isPersonPicturePathValid", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1734,6 +1833,11 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		initEAttribute(getUnitPrefix_ConversionFactor(), ecorePackage.getEInt(), "conversionFactor", null, 0, 1,
 				UnitPrefix.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
+
+		initEClass(importEClass, Import.class, "Import", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getImport_ReferencedModel(), this.getModel(), null, "referencedModel", null, 1, 1, Import.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(queueTypeEEnum, QueueType.class, "QueueType");

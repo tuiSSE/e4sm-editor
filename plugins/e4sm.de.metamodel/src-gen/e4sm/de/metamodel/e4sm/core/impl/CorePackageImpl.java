@@ -6,12 +6,18 @@ import e4sm.de.metamodel.e4sm.analysis.AnalysisPackage;
 import e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl;
 import e4sm.de.metamodel.e4sm.analysis.results.ResultsPackage;
 import e4sm.de.metamodel.e4sm.analysis.results.impl.ResultsPackageImpl;
+import e4sm.de.metamodel.e4sm.core.AttributeSpecification;
+import e4sm.de.metamodel.e4sm.core.BooleanAttribute;
+import e4sm.de.metamodel.e4sm.core.ClassAttribute;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
+import e4sm.de.metamodel.e4sm.execution.ExecutionPackage;
+import e4sm.de.metamodel.e4sm.execution.impl.ExecutionPackageImpl;
 import e4sm.de.metamodel.e4sm.guava.GuavaPackage;
 import e4sm.de.metamodel.e4sm.guava.impl.GuavaPackageImpl;
 import e4sm.de.metamodel.e4sm.impl.e4smPackageImpl;
 import e4sm.de.metamodel.e4sm.core.Element;
+import e4sm.de.metamodel.e4sm.core.IntegerAttribute;
 import e4sm.de.metamodel.e4sm.core.LiteralBoolean;
 import e4sm.de.metamodel.e4sm.core.LiteralByte;
 import e4sm.de.metamodel.e4sm.core.LiteralCharacter;
@@ -25,12 +31,17 @@ import e4sm.de.metamodel.e4sm.core.LiteralShort;
 import e4sm.de.metamodel.e4sm.core.LiteralSpecification;
 import e4sm.de.metamodel.e4sm.core.LiteralString;
 import e4sm.de.metamodel.e4sm.core.NamedElement;
+import e4sm.de.metamodel.e4sm.core.ParameterizableElement;
+import e4sm.de.metamodel.e4sm.core.StringAttribute;
+import e4sm.de.metamodel.e4sm.core.TypeSpecification;
 import e4sm.de.metamodel.e4sm.core.TypedElement;
 import e4sm.de.metamodel.e4sm.core.CoreFactory;
 import e4sm.de.metamodel.e4sm.core.CorePackage;
 
+import e4sm.de.metamodel.e4sm.core.DoubleAttribute;
 import e4sm.de.metamodel.e4sm.core.UnitOfMeasurement;
 import e4sm.de.metamodel.e4sm.core.ValueSpecification;
+import e4sm.de.metamodel.e4sm.core.Variant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -42,6 +53,7 @@ import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -162,6 +174,69 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * @generated
 	 */
 	private EClass typedElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass variantEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass parameterizableElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass typeSpecificationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass attributeSpecificationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass integerAttributeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass doubleAttributeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass stringAttributeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass booleanAttributeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass classAttributeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -304,11 +379,18 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 
 		isInited = true;
 
+		// Initialize simple dependencies
+		EcorePackage.eINSTANCE.eClass();
+
 		// Obtain or create and register interdependencies
 		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(e4smPackage.eNS_URI);
 		e4smPackageImpl thee4smPackage = (e4smPackageImpl) (registeredPackage instanceof e4smPackageImpl
 				? registeredPackage
 				: e4smPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ExecutionPackage.eNS_URI);
+		ExecutionPackageImpl theExecutionPackage = (ExecutionPackageImpl) (registeredPackage instanceof ExecutionPackageImpl
+				? registeredPackage
+				: ExecutionPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(AnalysisPackage.eNS_URI);
 		AnalysisPackageImpl theAnalysisPackage = (AnalysisPackageImpl) (registeredPackage instanceof AnalysisPackageImpl
 				? registeredPackage
@@ -325,6 +407,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		// Create package meta-data objects
 		theCorePackage.createPackageContents();
 		thee4smPackage.createPackageContents();
+		theExecutionPackage.createPackageContents();
 		theAnalysisPackage.createPackageContents();
 		theResultsPackage.createPackageContents();
 		theGuavaPackage.createPackageContents();
@@ -332,6 +415,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		// Initialize created meta-data
 		theCorePackage.initializePackageContents();
 		thee4smPackage.initializePackageContents();
+		theExecutionPackage.initializePackageContents();
 		theAnalysisPackage.initializePackageContents();
 		theResultsPackage.initializePackageContents();
 		theGuavaPackage.initializePackageContents();
@@ -432,6 +516,16 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	@Override
 	public EAttribute getLiteralInteger_Value() {
 		return (EAttribute) literalIntegerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getLiteralInteger__GetTangibleChild() {
+		return literalIntegerEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -660,6 +754,26 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * @generated
 	 */
 	@Override
+	public EOperation getValueSpecification__GetTangibleChild() {
+		return valueSpecificationEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getValueSpecification__GetActualParent() {
+		return valueSpecificationEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getTypedElement() {
 		return typedElementEClass;
 	}
@@ -672,6 +786,196 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	@Override
 	public EReference getTypedElement_Type() {
 		return (EReference) typedElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getVariant() {
+		return variantEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getParameterizableElement() {
+		return parameterizableElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getParameterizableElement_Parameters() {
+		return (EReference) parameterizableElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getTypeSpecification() {
+		return typeSpecificationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getTypeSpecification_Attributes() {
+		return (EReference) typeSpecificationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getTypeSpecification_SuperType() {
+		return (EReference) typeSpecificationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTypeSpecification_Abstract() {
+		return (EAttribute) typeSpecificationEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getAttributeSpecification() {
+		return attributeSpecificationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAttributeSpecification_Array() {
+		return (EAttribute) attributeSpecificationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getIntegerAttribute() {
+		return integerAttributeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getIntegerAttribute_DefaultValue() {
+		return (EAttribute) integerAttributeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getDoubleAttribute() {
+		return doubleAttributeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDoubleAttribute_DefaultValue() {
+		return (EAttribute) doubleAttributeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getStringAttribute() {
+		return stringAttributeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getStringAttribute_DefaultValue() {
+		return (EAttribute) stringAttributeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getBooleanAttribute() {
+		return booleanAttributeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getBooleanAttribute_DefaultValue() {
+		return (EAttribute) booleanAttributeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getClassAttribute() {
+		return classAttributeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getClassAttribute_Type() {
+		return (EReference) classAttributeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -848,6 +1152,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 
 		literalIntegerEClass = createEClass(LITERAL_INTEGER);
 		createEAttribute(literalIntegerEClass, LITERAL_INTEGER__VALUE);
+		createEOperation(literalIntegerEClass, LITERAL_INTEGER___GET_TANGIBLE_CHILD);
 
 		literalBooleanEClass = createEClass(LITERAL_BOOLEAN);
 		createEAttribute(literalBooleanEClass, LITERAL_BOOLEAN__VALUE);
@@ -879,9 +1184,39 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		createEOperation(valueSpecificationEClass, VALUE_SPECIFICATION___INTEGER_VALUE);
 		createEOperation(valueSpecificationEClass, VALUE_SPECIFICATION___IS_COMPUTABLE);
 		createEOperation(valueSpecificationEClass, VALUE_SPECIFICATION___TO_STRING);
+		createEOperation(valueSpecificationEClass, VALUE_SPECIFICATION___GET_TANGIBLE_CHILD);
+		createEOperation(valueSpecificationEClass, VALUE_SPECIFICATION___GET_ACTUAL_PARENT);
 
 		typedElementEClass = createEClass(TYPED_ELEMENT);
 		createEReference(typedElementEClass, TYPED_ELEMENT__TYPE);
+
+		variantEClass = createEClass(VARIANT);
+
+		parameterizableElementEClass = createEClass(PARAMETERIZABLE_ELEMENT);
+		createEReference(parameterizableElementEClass, PARAMETERIZABLE_ELEMENT__PARAMETERS);
+
+		typeSpecificationEClass = createEClass(TYPE_SPECIFICATION);
+		createEReference(typeSpecificationEClass, TYPE_SPECIFICATION__ATTRIBUTES);
+		createEReference(typeSpecificationEClass, TYPE_SPECIFICATION__SUPER_TYPE);
+		createEAttribute(typeSpecificationEClass, TYPE_SPECIFICATION__ABSTRACT);
+
+		attributeSpecificationEClass = createEClass(ATTRIBUTE_SPECIFICATION);
+		createEAttribute(attributeSpecificationEClass, ATTRIBUTE_SPECIFICATION__ARRAY);
+
+		integerAttributeEClass = createEClass(INTEGER_ATTRIBUTE);
+		createEAttribute(integerAttributeEClass, INTEGER_ATTRIBUTE__DEFAULT_VALUE);
+
+		doubleAttributeEClass = createEClass(DOUBLE_ATTRIBUTE);
+		createEAttribute(doubleAttributeEClass, DOUBLE_ATTRIBUTE__DEFAULT_VALUE);
+
+		stringAttributeEClass = createEClass(STRING_ATTRIBUTE);
+		createEAttribute(stringAttributeEClass, STRING_ATTRIBUTE__DEFAULT_VALUE);
+
+		booleanAttributeEClass = createEClass(BOOLEAN_ATTRIBUTE);
+		createEAttribute(booleanAttributeEClass, BOOLEAN_ATTRIBUTE__DEFAULT_VALUE);
+
+		classAttributeEClass = createEClass(CLASS_ATTRIBUTE);
+		createEReference(classAttributeEClass, CLASS_ATTRIBUTE__TYPE);
 
 		// Create enums
 		unitOfMeasurementEEnum = createEEnum(UNIT_OF_MEASUREMENT);
@@ -925,6 +1260,13 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
+		// Obtain other dependent packages
+		ExecutionPackage theExecutionPackage = (ExecutionPackage) EPackage.Registry.INSTANCE
+				.getEPackage(ExecutionPackage.eNS_URI);
+		AnalysisPackage theAnalysisPackage = (AnalysisPackage) EPackage.Registry.INSTANCE
+				.getEPackage(AnalysisPackage.eNS_URI);
+		EcorePackage theEcorePackage = (EcorePackage) EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
+
 		// Create type parameters
 
 		// Set bounds for type parameters
@@ -944,7 +1286,16 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		literalCharacterEClass.getESuperTypes().add(this.getLiteralSpecification());
 		literalDateEClass.getESuperTypes().add(this.getLiteralSpecification());
 		valueSpecificationEClass.getESuperTypes().add(this.getTypedElement());
+		valueSpecificationEClass.getESuperTypes().add(theExecutionPackage.getExpression());
 		typedElementEClass.getESuperTypes().add(this.getNamedElement());
+		variantEClass.getESuperTypes().add(this.getNamedElement());
+		typeSpecificationEClass.getESuperTypes().add(this.getNamedElement());
+		attributeSpecificationEClass.getESuperTypes().add(this.getNamedElement());
+		integerAttributeEClass.getESuperTypes().add(this.getAttributeSpecification());
+		doubleAttributeEClass.getESuperTypes().add(this.getAttributeSpecification());
+		stringAttributeEClass.getESuperTypes().add(this.getAttributeSpecification());
+		booleanAttributeEClass.getESuperTypes().add(this.getAttributeSpecification());
+		classAttributeEClass.getESuperTypes().add(this.getAttributeSpecification());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE,
@@ -969,6 +1320,9 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 				IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLiteralInteger_Value(), this.getInteger(), "value", null, 0, 1, LiteralInteger.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getLiteralInteger__GetTangibleChild(), theExecutionPackage.getExpression(), "getTangibleChild",
+				0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(literalBooleanEClass, LiteralBoolean.class, "LiteralBoolean", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -1027,10 +1381,72 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		initEOperation(getValueSpecification__ToString(), ecorePackage.getEString(), "toString", 0, 1, IS_UNIQUE,
 				IS_ORDERED);
 
+		initEOperation(getValueSpecification__GetTangibleChild(), theExecutionPackage.getExpression(),
+				"getTangibleChild", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getValueSpecification__GetActualParent(), theExecutionPackage.getElement(), "getActualParent", 0,
+				1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(typedElementEClass, TypedElement.class, "TypedElement", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTypedElement_Type(), ecorePackage.getEDataType(), null, "type", null, 0, 1,
+		initEReference(getTypedElement_Type(), this.getTypeSpecification(), null, "type", null, 0, 1,
 				TypedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(variantEClass, Variant.class, "Variant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(parameterizableElementEClass, ParameterizableElement.class, "ParameterizableElement", IS_ABSTRACT,
+				IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getParameterizableElement_Parameters(), theAnalysisPackage.getParameter(), null, "parameters",
+				null, 0, -1, ParameterizableElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(typeSpecificationEClass, TypeSpecification.class, "TypeSpecification", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTypeSpecification_Attributes(), this.getAttributeSpecification(), null, "attributes", null, 0,
+				-1, TypeSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTypeSpecification_SuperType(), this.getTypeSpecification(), null, "superType", null, 0, 1,
+				TypeSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTypeSpecification_Abstract(), theEcorePackage.getEBoolean(), "abstract", "false", 0, 1,
+				TypeSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+
+		initEClass(attributeSpecificationEClass, AttributeSpecification.class, "AttributeSpecification", IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAttributeSpecification_Array(), theEcorePackage.getEBoolean(), "array", "false", 0, 1,
+				AttributeSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(integerAttributeEClass, IntegerAttribute.class, "IntegerAttribute", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getIntegerAttribute_DefaultValue(), theEcorePackage.getEInt(), "defaultValue", "0", 0, 1,
+				IntegerAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+
+		initEClass(doubleAttributeEClass, DoubleAttribute.class, "DoubleAttribute", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDoubleAttribute_DefaultValue(), theEcorePackage.getEDouble(), "defaultValue", null, 0, 1,
+				DoubleAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+
+		initEClass(stringAttributeEClass, StringAttribute.class, "StringAttribute", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getStringAttribute_DefaultValue(), theEcorePackage.getEString(), "defaultValue", null, 0, 1,
+				StringAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+
+		initEClass(booleanAttributeEClass, BooleanAttribute.class, "BooleanAttribute", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBooleanAttribute_DefaultValue(), theEcorePackage.getEBoolean(), "defaultValue", null, 0, 1,
+				BooleanAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+
+		initEClass(classAttributeEClass, ClassAttribute.class, "ClassAttribute", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getClassAttribute_Type(), this.getTypeSpecification(), null, "type", null, 1, 1,
+				ClassAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals

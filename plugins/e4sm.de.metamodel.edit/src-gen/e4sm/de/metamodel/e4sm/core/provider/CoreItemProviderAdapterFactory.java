@@ -324,6 +324,167 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.core.Variant} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected VariantItemProvider variantItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.core.Variant}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createVariantAdapter() {
+		if (variantItemProvider == null) {
+			variantItemProvider = new VariantItemProvider(this);
+		}
+
+		return variantItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.core.TypeSpecification} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TypeSpecificationItemProvider typeSpecificationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.core.TypeSpecification}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTypeSpecificationAdapter() {
+		if (typeSpecificationItemProvider == null) {
+			typeSpecificationItemProvider = new TypeSpecificationItemProvider(this);
+		}
+
+		return typeSpecificationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.core.IntegerAttribute} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected IntegerAttributeItemProvider integerAttributeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.core.IntegerAttribute}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createIntegerAttributeAdapter() {
+		if (integerAttributeItemProvider == null) {
+			integerAttributeItemProvider = new IntegerAttributeItemProvider(this);
+		}
+
+		return integerAttributeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.core.DoubleAttribute} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DoubleAttributeItemProvider doubleAttributeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.core.DoubleAttribute}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDoubleAttributeAdapter() {
+		if (doubleAttributeItemProvider == null) {
+			doubleAttributeItemProvider = new DoubleAttributeItemProvider(this);
+		}
+
+		return doubleAttributeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.core.StringAttribute} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StringAttributeItemProvider stringAttributeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.core.StringAttribute}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStringAttributeAdapter() {
+		if (stringAttributeItemProvider == null) {
+			stringAttributeItemProvider = new StringAttributeItemProvider(this);
+		}
+
+		return stringAttributeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.core.BooleanAttribute} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BooleanAttributeItemProvider booleanAttributeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.core.BooleanAttribute}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBooleanAttributeAdapter() {
+		if (booleanAttributeItemProvider == null) {
+			booleanAttributeItemProvider = new BooleanAttributeItemProvider(this);
+		}
+
+		return booleanAttributeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.core.ClassAttribute} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ClassAttributeItemProvider classAttributeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.core.ClassAttribute}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createClassAttributeAdapter() {
+		if (classAttributeItemProvider == null) {
+			classAttributeItemProvider = new ClassAttributeItemProvider(this);
+		}
+
+		return classAttributeItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -7,4 +7,11 @@
 	       name="sirius">
     </component>
   </extension>
+  <extension
+        point="org.eclipse.sirius.externalJavaAction">
+     <javaActions
+           actionClass="e4sm.de.metamodel.design.OpenEmbeddedEditor"
+           id="e4sm.de.metamodel.design.OpenEmbeddedEditor">
+     </javaActions>
+  </extension>
 </plugin>

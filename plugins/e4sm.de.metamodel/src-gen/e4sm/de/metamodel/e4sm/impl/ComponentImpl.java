@@ -4,12 +4,13 @@ package e4sm.de.metamodel.e4sm.impl;
 
 import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.core.NamedElement;
+import e4sm.de.metamodel.e4sm.core.ParameterizableElement;
 import e4sm.de.metamodel.e4sm.Person;
 import e4sm.de.metamodel.e4sm.Pin;
-import e4sm.de.metamodel.e4sm.analysis.AnalysisPackage;
 import e4sm.de.metamodel.e4sm.analysis.Parameter;
-import e4sm.de.metamodel.e4sm.analysis.ParameterizableElement;
+import e4sm.de.metamodel.e4sm.core.CorePackage;
 import e4sm.de.metamodel.e4sm.e4smPackage;
+import e4sm.de.metamodel.e4sm.execution.Execution;
 import e4sm.de.metamodel.e4sm.core.impl.NamedElementImpl;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
@@ -41,6 +42,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ComponentImpl#getMainResponsible <em>Main Responsible</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ComponentImpl#getSpecifiedInPackage <em>Specified In Package</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ComponentImpl#getCodeSpecification <em>Code Specification</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.ComponentImpl#getExecution <em>Execution</em>}</li>
  * </ul>
  *
  * @generated
@@ -115,6 +117,16 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 	 * @ordered
 	 */
 	protected String codeSpecification = CODE_SPECIFICATION_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getExecution() <em>Execution</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExecution()
+	 * @generated
+	 * @ordered
+	 */
+	protected Execution execution;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -347,6 +359,58 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 	 * @generated
 	 */
 	@Override
+	public Execution getExecution() {
+		return execution;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetExecution(Execution newExecution, NotificationChain msgs) {
+		Execution oldExecution = execution;
+		execution = newExecution;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					e4smPackage.COMPONENT__EXECUTION, oldExecution, newExecution);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setExecution(Execution newExecution) {
+		if (newExecution != execution) {
+			NotificationChain msgs = null;
+			if (execution != null)
+				msgs = ((InternalEObject) execution).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - e4smPackage.COMPONENT__EXECUTION, null, msgs);
+			if (newExecution != null)
+				msgs = ((InternalEObject) newExecution).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - e4smPackage.COMPONENT__EXECUTION, null, msgs);
+			msgs = basicSetExecution(newExecution, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.COMPONENT__EXECUTION, newExecution,
+					newExecution));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Person computeMainResponsible() {
 		Person resp = this.getMainResponsible();
 		if (resp != null) {
@@ -357,6 +421,18 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 			return null;
 		}
 		return ((Component) c).getMainResponsible();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void newOperation2() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -400,6 +476,8 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 			return basicSetMainResponsible(null, msgs);
 		case e4smPackage.COMPONENT__SPECIFIED_IN_PACKAGE:
 			return basicSetSpecifiedInPackage(null, msgs);
+		case e4smPackage.COMPONENT__EXECUTION:
+			return basicSetExecution(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -428,6 +506,8 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 			return basicGetSpecifiedInPackage();
 		case e4smPackage.COMPONENT__CODE_SPECIFICATION:
 			return getCodeSpecification();
+		case e4smPackage.COMPONENT__EXECUTION:
+			return getExecution();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -462,6 +542,9 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 		case e4smPackage.COMPONENT__CODE_SPECIFICATION:
 			setCodeSpecification((String) newValue);
 			return;
+		case e4smPackage.COMPONENT__EXECUTION:
+			setExecution((Execution) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -492,6 +575,9 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 		case e4smPackage.COMPONENT__CODE_SPECIFICATION:
 			setCodeSpecification(CODE_SPECIFICATION_EDEFAULT);
 			return;
+		case e4smPackage.COMPONENT__EXECUTION:
+			setExecution((Execution) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -517,6 +603,8 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 		case e4smPackage.COMPONENT__CODE_SPECIFICATION:
 			return CODE_SPECIFICATION_EDEFAULT == null ? codeSpecification != null
 					: !CODE_SPECIFICATION_EDEFAULT.equals(codeSpecification);
+		case e4smPackage.COMPONENT__EXECUTION:
+			return execution != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -531,7 +619,7 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 		if (baseClass == ParameterizableElement.class) {
 			switch (derivedFeatureID) {
 			case e4smPackage.COMPONENT__PARAMETERS:
-				return AnalysisPackage.PARAMETERIZABLE_ELEMENT__PARAMETERS;
+				return CorePackage.PARAMETERIZABLE_ELEMENT__PARAMETERS;
 			default:
 				return -1;
 			}
@@ -548,7 +636,7 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == ParameterizableElement.class) {
 			switch (baseFeatureID) {
-			case AnalysisPackage.PARAMETERIZABLE_ELEMENT__PARAMETERS:
+			case CorePackage.PARAMETERIZABLE_ELEMENT__PARAMETERS:
 				return e4smPackage.COMPONENT__PARAMETERS;
 			default:
 				return -1;
@@ -567,6 +655,9 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 		switch (operationID) {
 		case e4smPackage.COMPONENT___COMPUTE_MAIN_RESPONSIBLE:
 			return computeMainResponsible();
+		case e4smPackage.COMPONENT___NEW_OPERATION2:
+			newOperation2();
+			return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

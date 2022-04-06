@@ -14,6 +14,7 @@ import e4sm.de.metamodel.e4sm.ExternalDependency;
 import e4sm.de.metamodel.e4sm.Function;
 import e4sm.de.metamodel.e4sm.Heuristic;
 import e4sm.de.metamodel.e4sm.Human;
+import e4sm.de.metamodel.e4sm.Import;
 import e4sm.de.metamodel.e4sm.InputPin;
 import e4sm.de.metamodel.e4sm.LogicalConnector;
 import e4sm.de.metamodel.e4sm.MachineLearningComponent;
@@ -184,6 +185,8 @@ public class e4smValidator extends EObjectValidator {
 			return validateConversionByConvention((ConversionByConvention) value, diagnostics, context);
 		case e4smPackage.UNIT_PREFIX:
 			return validateUnitPrefix((UnitPrefix) value, diagnostics, context);
+		case e4smPackage.IMPORT:
+			return validateImport((Import) value, diagnostics, context);
 		case e4smPackage.QUEUE_TYPE:
 			return validateQueueType((QueueType) value, diagnostics, context);
 		case e4smPackage.RACE_SEMANTIC:
@@ -1137,6 +1140,15 @@ public class e4smValidator extends EObjectValidator {
 	 */
 	public boolean validateUnitPrefix(UnitPrefix unitPrefix, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(unitPrefix, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateImport(Import import_, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(import_, diagnostics, context);
 	}
 
 	/**
