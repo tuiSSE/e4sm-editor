@@ -168,14 +168,14 @@
       </filters>
       <layout xsi:type="description_1:CompositeLayout"/>
       <defaultLayer name="Default">
-        <nodeMappings name="package_input_pin" label="Input Pin" deletionDescription="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='action_delete_input_pin']" labelDirectEdit="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='diag_2_label_edition']" semanticCandidatesExpression="aql:self.specifiesComponent.pins" semanticElements="aql:self.outgoingConnectors + self.incomingConnectors" domainClass="e4sm::InputPin">
+        <nodeMappings name="package_input_pin" label="Input Pin" deletionDescription="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='action_delete_input_pin']" labelDirectEdit="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='diag_2_label_edition']" semanticCandidatesExpression="aql:self.specifiesComponent.pins" semanticElements="aql:self.getOutgoingConnectors() + self.getIncomingConnectors()" domainClass="e4sm::InputPin">
           <style xsi:type="style:SquareDescription" labelSize="10" labelPosition="node" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="package_output_pin" label="Output Pin" deletionDescription="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='action_delete_output_pin']" labelDirectEdit="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='diag_2_label_edition']" semanticCandidatesExpression="aql:self.specifiesComponent.pins" semanticElements="aql:self.outgoingConnectors + self.incomingConnectors" domainClass="e4sm::OutputPin">
+        <nodeMappings name="package_output_pin" label="Output Pin" deletionDescription="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='action_delete_output_pin']" labelDirectEdit="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='diag_2_label_edition']" semanticCandidatesExpression="aql:self.specifiesComponent.pins" semanticElements="aql:self.getOutgoingConnectors() + self.getIncomingConnectors()" domainClass="e4sm::OutputPin">
           <style xsi:type="style:SquareDescription" labelSize="10" labelPosition="node" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -185,7 +185,7 @@
         <edgeMappings name="d2_edge_physical_connector" label="Physical Connector" sourceMapping="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin']" targetMapping="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin']" targetFinderExpression="feature:target" sourceFinderExpression="feature:source" targetExpression="var:self" domainClass="e4sm::PhysicalConnector" useDomainElement="true">
           <style sizeComputationExpression="3">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <centerLabelStyleDescription labelSize="10" showIcon="false" labelExpression="aql: if self.source.outgoingConnectors->size()>1 then (if self.source.raceSemantic=e4sm::RaceSemantic::DUPLICATE or self.source.raceSemantic=e4sm::RaceSemantic::MERGE_AND_DUPLICATE then '«dupl»' else '' endif) else '' endif + if self.target.incomingConnectors->size()>1 then (if self.target.raceSemantic=e4sm::RaceSemantic::MERGE or self.target.raceSemantic=e4sm::RaceSemantic::MERGE_AND_DUPLICATE then '«merge»' else '' endif) else '' endif">
+            <centerLabelStyleDescription labelSize="10" showIcon="false" labelExpression="aql: if self.source.getOutgoingConnectors()->size()>1 then (if self.source.raceSemantic=e4sm::RaceSemantic::DUPLICATE or self.source.raceSemantic=e4sm::RaceSemantic::MERGE_AND_DUPLICATE then '«dupl»' else '' endif) else '' endif + if self.target.getIncomingConnectors()->size()>1 then (if self.target.raceSemantic=e4sm::RaceSemantic::MERGE or self.target.raceSemantic=e4sm::RaceSemantic::MERGE_AND_DUPLICATE then '«merge»' else '' endif) else '' endif">
               <labelFormat>italic</labelFormat>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
@@ -194,7 +194,7 @@
         <edgeMappings name="d2_edge_logical_connector" label="Logical Connector" sourceMapping="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@nodeMappings[name='package_input_pin']" targetMapping="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@nodeMappings[name='package_output_pin']" targetFinderExpression="feature:target" sourceFinderExpression="feature:source" targetExpression="var:self" domainClass="e4sm::LogicalConnector" useDomainElement="true">
           <style sizeComputationExpression="3">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-            <centerLabelStyleDescription labelSize="10" showIcon="false" labelExpression="aql: if self.source.outgoingConnectors->size()>1 then (if self.source.raceSemantic=e4sm::RaceSemantic::DUPLICATE or self.source.raceSemantic=e4sm::RaceSemantic::MERGE_AND_DUPLICATE then '«dupl»' else '' endif) else '' endif + if self.target.incomingConnectors->size()>1 then (if self.target.raceSemantic=e4sm::RaceSemantic::MERGE or self.target.raceSemantic=e4sm::RaceSemantic::MERGE_AND_DUPLICATE then '«merge»' else '' endif) else '' endif">
+            <centerLabelStyleDescription labelSize="10" showIcon="false" labelExpression="aql: if self.source.getOutgoingConnectors()->size()>1 then (if self.source.raceSemantic=e4sm::RaceSemantic::DUPLICATE or self.source.raceSemantic=e4sm::RaceSemantic::MERGE_AND_DUPLICATE then '«dupl»' else '' endif) else '' endif + if self.target.getIncomingConnectors()->size()>1 then (if self.target.raceSemantic=e4sm::RaceSemantic::MERGE or self.target.raceSemantic=e4sm::RaceSemantic::MERGE_AND_DUPLICATE then '«merge»' else '' endif) else '' endif">
               <labelFormat>italic</labelFormat>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
@@ -203,13 +203,13 @@
         <edgeMappings name="d2_edge_connector" label="Generic Connector" preconditionExpression="aql:self.oclIsTypeOf(e4sm::Connector)" sourceMapping="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin']" targetMapping="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin']" targetFinderExpression="feature:target" sourceFinderExpression="feature:source" targetExpression="var:self" domainClass="e4sm::Connector" useDomainElement="true">
           <style sizeComputationExpression="3">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription labelSize="10" showIcon="false" labelExpression="aql: if self.source.outgoingConnectors->size()>1 then (if self.source.raceSemantic=e4sm::RaceSemantic::DUPLICATE or self.source.raceSemantic=e4sm::RaceSemantic::MERGE_AND_DUPLICATE then '«dupl»' else '' endif) else '' endif + if self.target.incomingConnectors->size()>1 then (if self.target.raceSemantic=e4sm::RaceSemantic::MERGE or self.target.raceSemantic=e4sm::RaceSemantic::MERGE_AND_DUPLICATE then '«merge»' else '' endif) else '' endif">
+            <centerLabelStyleDescription labelSize="10" showIcon="false" labelExpression="aql: if self.source.getOutgoingConnectors()->size()>1 then (if self.source.raceSemantic=e4sm::RaceSemantic::DUPLICATE or self.source.raceSemantic=e4sm::RaceSemantic::MERGE_AND_DUPLICATE then '«dupl»' else '' endif) else '' endif + if self.target.getIncomingConnectors()->size()>1 then (if self.target.raceSemantic=e4sm::RaceSemantic::MERGE or self.target.raceSemantic=e4sm::RaceSemantic::MERGE_AND_DUPLICATE then '«merge»' else '' endif) else '' endif">
               <labelFormat>italic</labelFormat>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <containerMappings name="diag1_Component" label="Component" detailDescriptions="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='create_new_DTD_from_component'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='create_new_CSD_from_component']" navigationDescriptions="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='navigate_to_diagram'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='navigate_to_cs_diagram']" deletionDescription="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='action_delete_component']" labelDirectEdit="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='diag_2_label_edition']" semanticCandidatesExpression="aql:self.components->select(e | e.oclIsTypeOf(e4sm::Component))" semanticElements="aql:Sequence{self.pins.outgoingConnectors, self.pins.incomingConnectors, self}" domainClass="e4sm::Component" dropDescriptions="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='diag2_allow_moving_input_oins'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='diag2_allow_moving_output_pins']" reusedContainerMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag2_Function'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Actuator'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag2_ExternalDependency'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_HeuristicComponent'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_MachineLearningComponent'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_PhisicalComponent'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_SoftwareComponent'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Sensor']">
+        <containerMappings name="diag1_Component" label="Component" detailDescriptions="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='create_new_DTD_from_component'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='create_new_CSD_from_component']" navigationDescriptions="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='navigate_to_diagram'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='navigate_to_cs_diagram']" deletionDescription="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='action_delete_component']" labelDirectEdit="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='diag_2_label_edition']" semanticCandidatesExpression="aql:self.components->select(e | e.oclIsTypeOf(e4sm::Component))" semanticElements="aql:Sequence{self.pins.getOutgoingConnectors(), self.pins.getIncomingConnectors(), self}" domainClass="e4sm::Component" dropDescriptions="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='diag2_allow_moving_input_oins'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='diag2_allow_moving_output_pins']" reusedContainerMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag2_Function'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Actuator'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag2_ExternalDependency'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_HeuristicComponent'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_MachineLearningComponent'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_PhisicalComponent'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_SoftwareComponent'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Sensor']">
           <borderedNodeMappings name="diag2_input_pin" label="Input Pin" deletionDescription="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='action_delete_input_pin']" labelDirectEdit="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='diag_2_label_edition']" semanticCandidatesExpression="feature:pins" domainClass="e4sm::InputPin">
             <style xsi:type="style:BundledImageDescription" labelSize="9" showIcon="false" labelExpression="IN" tooltipExpression="feature:name" labelPosition="node">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -330,6 +330,7 @@
                       <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::Connector" referenceName="connectors">
                         <subModelOperations xsi:type="tool_1:SetValue" featureName="source" valueExpression="var:source"/>
                         <subModelOperations xsi:type="tool_1:SetValue" featureName="target" valueExpression="var:ip"/>
+                        <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:instance.nameFactory()"/>
                       </subModelOperations>
                     </subModelOperations>
                   </subModelOperations>
@@ -338,6 +339,7 @@
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::Connector" referenceName="connectors">
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="source" valueExpression="var:source"/>
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="target" valueExpression="var:target"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:instance.nameFactory()"/>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
@@ -353,6 +355,7 @@
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::PhysicalConnector" referenceName="connectors">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="source" valueExpression="var:source"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="target" valueExpression="var:target"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:instance.nameFactory()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -367,6 +370,7 @@
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::LogicalConnector" referenceName="connectors">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="source" valueExpression="var:source"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="target" valueExpression="var:target"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:instance.nameFactory()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -410,8 +414,12 @@
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::Component" referenceName="components">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="New Component"/>
                   <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance">
-                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::OutputPin" referenceName="pins" variableName="outputPin"/>
-                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::InputPin" referenceName="pins" variableName="inputPin"/>
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::OutputPin" referenceName="pins" variableName="outputPin">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:outputPin.nameFactory()"/>
+                    </subModelOperations>
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::InputPin" referenceName="pins" variableName="inputPin">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:inputPin.nameFactory()"/>
+                    </subModelOperations>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
@@ -426,8 +434,12 @@
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::PhysicalComponent" referenceName="components">
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="New Physical Component"/>
                     <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance">
-                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::OutputPin" referenceName="pins" variableName="outputPin"/>
-                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::InputPin" referenceName="pins" variableName="inputPin"/>
+                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::OutputPin" referenceName="pins" variableName="outputPin">
+                        <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:outputPin.nameFactory()"/>
+                      </subModelOperations>
+                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::InputPin" referenceName="pins" variableName="inputPin">
+                        <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:inputPin.nameFactory()"/>
+                      </subModelOperations>
                     </subModelOperations>
                   </subModelOperations>
                 </firstModelOperations>
@@ -441,7 +453,9 @@
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::Sensor" referenceName="components">
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="New Sensor"/>
                     <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance">
-                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::OutputPin" referenceName="pins" variableName="outputPin"/>
+                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::OutputPin" referenceName="pins" variableName="outputPin">
+                        <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:outputPin.nameFactory()"/>
+                      </subModelOperations>
                     </subModelOperations>
                   </subModelOperations>
                 </firstModelOperations>
@@ -455,8 +469,8 @@
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::Actuator" referenceName="components">
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="New Actuator"/>
                     <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance">
-                      <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance">
-                        <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::InputPin" referenceName="pins" variableName="inputPin"/>
+                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::InputPin" referenceName="pins" variableName="inputPin">
+                        <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:inputPin.nameFactory()"/>
                       </subModelOperations>
                     </subModelOperations>
                   </subModelOperations>
@@ -473,8 +487,12 @@
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::SoftwareComponent" referenceName="components">
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="New Software Component"/>
                     <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance">
-                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::OutputPin" referenceName="pins" variableName="outputPin"/>
-                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::InputPin" referenceName="pins" variableName="inputPin"/>
+                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::OutputPin" referenceName="pins" variableName="outputPin">
+                        <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:outputPin.nameFactory()"/>
+                      </subModelOperations>
+                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::InputPin" referenceName="pins" variableName="inputPin">
+                        <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:inputPin.nameFactory()"/>
+                      </subModelOperations>
                     </subModelOperations>
                   </subModelOperations>
                 </firstModelOperations>
@@ -488,8 +506,12 @@
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::MachineLearningComponent" referenceName="components">
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="New ML Component"/>
                     <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance">
-                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::OutputPin" referenceName="pins" variableName="outputPin"/>
-                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::InputPin" referenceName="pins" variableName="inputPin"/>
+                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::OutputPin" referenceName="pins" variableName="outputPin">
+                        <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:outputPin.nameFactory()"/>
+                      </subModelOperations>
+                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::InputPin" referenceName="pins" variableName="inputPin">
+                        <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:inputPin.nameFactory()"/>
+                      </subModelOperations>
                     </subModelOperations>
                   </subModelOperations>
                 </firstModelOperations>
@@ -503,8 +525,12 @@
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::Heuristic" referenceName="components">
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="New Heuristic"/>
                     <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance">
-                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::OutputPin" referenceName="pins" variableName="outputPin"/>
-                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::InputPin" referenceName="pins" variableName="inputPin"/>
+                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::OutputPin" referenceName="pins" variableName="outputPin">
+                        <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:outputPin.nameFactory()"/>
+                      </subModelOperations>
+                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::InputPin" referenceName="pins" variableName="inputPin">
+                        <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:inputPin.nameFactory()"/>
+                      </subModelOperations>
                     </subModelOperations>
                   </subModelOperations>
                 </firstModelOperations>
@@ -518,8 +544,12 @@
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::ExternalDependency" referenceName="components">
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="New External Dependency"/>
                     <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance">
-                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::OutputPin" referenceName="pins" variableName="outputPin"/>
-                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::InputPin" referenceName="pins" variableName="inputPin"/>
+                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::OutputPin" referenceName="pins" variableName="outputPin">
+                        <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:outputPin.nameFactory()"/>
+                      </subModelOperations>
+                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::InputPin" referenceName="pins" variableName="inputPin">
+                        <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:inputPin.nameFactory()"/>
+                      </subModelOperations>
                     </subModelOperations>
                   </subModelOperations>
                 </firstModelOperations>
@@ -533,8 +563,12 @@
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::Function" referenceName="components">
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="New Function"/>
                     <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance">
-                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::OutputPin" referenceName="pins" variableName="outputPin"/>
-                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::InputPin" referenceName="pins" variableName="inputPin"/>
+                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::OutputPin" referenceName="pins" variableName="outputPin">
+                        <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:outputPin.nameFactory()"/>
+                      </subModelOperations>
+                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="e4sm::InputPin" referenceName="pins" variableName="inputPin">
+                        <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:inputPin.nameFactory()"/>
+                      </subModelOperations>
                     </subModelOperations>
                   </subModelOperations>
                 </firstModelOperations>
@@ -748,10 +782,10 @@
             <containerView name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-                <subModelOperations xsi:type="tool_1:For" expression="feature:incomingConnectors" iteratorName="incomingConnector">
+                <subModelOperations xsi:type="tool_1:For" expression="aql:self.getIncomingConnectors()" iteratorName="incomingConnector">
                   <subModelOperations xsi:type="tool_1:RemoveElement"/>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool_1:For" expression="feature:outgoingConnectors" iteratorName="outgoingConnector">
+                <subModelOperations xsi:type="tool_1:For" expression="aql:self.getOutgoingConnectors()" iteratorName="outgoingConnector">
                   <subModelOperations xsi:type="tool_1:RemoveElement"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool_1:RemoveElement"/>
@@ -764,13 +798,24 @@
             <containerView name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-                <subModelOperations xsi:type="tool_1:For" expression="feature:incomingConnectors" iteratorName="incomingConnector">
-                  <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                <subModelOperations xsi:type="tool_1:For" expression="aql:self.getIncomingConnectors()" iteratorName="incomingConnector">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:incomingConnector.eContainer(e4sm::Package).connectors">
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:incomingConnector"/>
+                  </subModelOperations>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool_1:For" expression="feature:outgoingConnectors" iteratorName="outgoingConnector">
+                <subModelOperations xsi:type="tool_1:For" expression="aql:self.getOutgoingConnectors()" iteratorName="outgoingConnector">
                   <subModelOperations xsi:type="tool_1:RemoveElement"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                  <subModelOperations xsi:type="tool_1:For" expression="aql:self.getIncomingConnectors()" iteratorName="incomingConnector">
+                    <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool_1:For" expression="aql:self.getOutgoingConnectors()" iteratorName="outgoingConnector">
+                    <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -781,10 +826,10 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
                 <subModelOperations xsi:type="tool_1:For" expression="feature:pins" iteratorName="pin">
-                  <subModelOperations xsi:type="tool_1:For" expression="feature:incomingConnectors" iteratorName="incomingConnector">
+                  <subModelOperations xsi:type="tool_1:For" expression="aql:self.getIncomingConnectors()" iteratorName="incomingConnector">
                     <subModelOperations xsi:type="tool_1:RemoveElement"/>
                   </subModelOperations>
-                  <subModelOperations xsi:type="tool_1:For" expression="feature:outgoingConnectors" iteratorName="outgoingConnector">
+                  <subModelOperations xsi:type="tool_1:For" expression="aql:self.getOutgoingConnectors()" iteratorName="outgoingConnector">
                     <subModelOperations xsi:type="tool_1:RemoveElement"/>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool_1:RemoveElement"/>
@@ -926,7 +971,11 @@
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="[CSD]" label="Component Specification Diagram [CSD]" domainClass="e4sm::Component" enablePopupBars="true">
       <metamodel href="http://de.tu-ilmenau/e4sm/1.0.0#/"/>
       <metamodel href="http://de.tu-ilmenau/e4sm/execution/1.0.0#/"/>
-      <layout xsi:type="description_1:CustomLayoutConfiguration" id="org.eclipse.elk.layered" label="ELK Layered" description="Layer-based algorithm provided by the Eclipse Layout Kernel. Arranges as many edges as possible into one direction by placing nodes into subsequent layers. This implementation supports different routing styles (straight, orthogonal, splines); if orthogonal routing is selected, arbitrary port constraints are respected, thus enabling the layout of block diagrams such as actor-oriented models or circuit schematics. Furthermore, full layout of compound graphs with cross-hierarchy edges is supported when the respective option is activated on the top level."/>
+      <layout xsi:type="description_1:CustomLayoutConfiguration" id="org.eclipse.elk.layered" label="ELK Layered" description="Layer-based algorithm provided by the Eclipse Layout Kernel. Arranges as many edges as possible into one direction by placing nodes into subsequent layers. This implementation supports different routing styles (straight, orthogonal, splines); if orthogonal routing is selected, arbitrary port constraints are respected, thus enabling the layout of block diagrams such as actor-oriented models or circuit schematics. Furthermore, full layout of compound graphs with cross-hierarchy edges is supported when the respective option is activated on the top level.">
+        <layoutOptions xsi:type="description_1:DoubleLayoutOption" id="org.eclipse.elk.layered.spacing.nodeNodeBetweenLayers" value="50.0">
+          <targets>PARENT</targets>
+        </layoutOptions>
+      </layout>
       <defaultLayer name="Default">
         <nodeMappings name="decisionNode_el" label="DecisionNode" semanticCandidatesExpression="aql:self.execution.elements->filter(execution::DecisionNode)" domainClass="execution::DecisionNode">
           <style xsi:type="style:LozengeNodeDescription" labelSize="12" labelExpression="" labelPosition="node" resizeKind="NSEW">
@@ -1157,25 +1206,29 @@
           <targets>PARENT</targets>
           <value name="UP"/>
         </layoutOptions>
-        <layoutOptions xsi:type="description_1:BooleanLayoutOption" id="org.eclipse.elk.partitioning.activate" value="true">
+        <layoutOptions xsi:type="description_1:EnumLayoutOption" id="org.eclipse.elk.layered.layering.strategy">
+          <targets>PARENT</targets>
+          <value name="COFFMAN_GRAHAM"/>
+        </layoutOptions>
+        <layoutOptions xsi:type="description_1:DoubleLayoutOption" id="org.eclipse.elk.layered.spacing.nodeNodeBetweenLayers" value="50.0">
           <targets>PARENT</targets>
         </layoutOptions>
       </layout>
       <defaultLayer name="Default">
         <edgeMappings name="extends_edge" label="Extends Edge" sourceMapping="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='class_diagram']/@defaultLayer/@containerMappings[name='type_container']" targetMapping="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='class_diagram']/@defaultLayer/@containerMappings[name='type_container']" targetFinderExpression="feature:superType">
-          <style targetArrow="InputClosedArrow" sizeComputationExpression="2" routingStyle="manhattan" endsCentering="Target">
+          <style targetArrow="InputClosedArrow" sizeComputationExpression="2" routingStyle="tree" endsCentering="Target">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <centerLabelStyleDescription labelSize="12">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="containment_edge" label="Containment Edge" preconditionExpression="aql:self.attributes->filter(core::ClassAttribute)" sourceMapping="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='class_diagram']/@defaultLayer/@containerMappings[name='type_container']" targetMapping="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='class_diagram']/@defaultLayer/@containerMappings[name='type_container']" targetFinderExpression="aql:self.attributes->filter(core::ClassAttribute).type">
+        <edgeMappings name="containment_edge" label="Containment Edge" semanticCandidatesExpression="aql:self.types.eAllContents(core::ClassAttribute)" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='class_diagram']/@defaultLayer/@containerMappings[name='type_container']" targetMapping="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='class_diagram']/@defaultLayer/@containerMappings[name='type_container']" targetFinderExpression="aql:self.type" sourceFinderExpression="aql:self.eContainer()" domainClass="core::ClassAttribute" useDomainElement="true">
           <style sourceArrow="FillDiamond" sizeComputationExpression="2" routingStyle="manhattan">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <centerLabelStyleDescription labelSize="12" showIcon="false" labelExpression="aql:self.attributes->filter(core::ClassAttribute)->first().name">
+            <endLabelStyleDescription labelSize="12" showIcon="false" labelExpression="feature:name">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </centerLabelStyleDescription>
+            </endLabelStyleDescription>
           </style>
         </edgeMappings>
         <containerMappings name="type_container" label="Type" semanticCandidatesExpression="feature:types" domainClass="core::TypeSpecification" childrenPresentation="List">
@@ -1220,6 +1273,20 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
                 <subModelOperations xsi:type="tool_1:SetValue" featureName="superType" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="cd_create_containment" label="Containment Edge" precondition="aql:preTarget&lt;>preSource" edgeMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='class_diagram']/@defaultLayer/@edgeMappings[name='containment_edge']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="core::ClassAttribute" referenceName="attributes">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="newAttribute"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="var:target"/>
+                </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>

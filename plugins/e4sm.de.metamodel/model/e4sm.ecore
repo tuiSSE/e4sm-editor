@@ -53,9 +53,9 @@
     </eAnnotations>
     <eOperations name="computeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
-        eType="#//Pin" eOpposite="#//Pin/outgoingConnectors"/>
+        eType="#//Pin" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
-        eType="#//Pin" eOpposite="#//Pin/incomingConnectors"/>
+        eType="#//Pin" resolveProxies="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PhysicalConnector" eSuperTypes="#//Connector">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -275,10 +275,8 @@
       <details key="constraints" value="PinC1"/>
     </eAnnotations>
     <eOperations name="computeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingConnectors" upperBound="-1"
-        eType="#//Connector" eOpposite="#//Connector/source"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="incomingConnectors" upperBound="-1"
-        eType="#//Connector" eOpposite="#//Connector/target"/>
+    <eOperations name="getIncomingConnectors" upperBound="-1" eType="#//Connector"/>
+    <eOperations name="getOutgoingConnectors" upperBound="-1" eType="#//Connector"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="gatewayPin" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="stream" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>

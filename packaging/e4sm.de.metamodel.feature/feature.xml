@@ -17,12 +17,19 @@
       [Enter License Description here.]
    </license>
 
-   <plugin
-         id="e4sm.de.metamodel.design"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
+   <requires>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="org.eclipse.emf.ecore.xmi"/>
+      <import plugin="org.eclipse.emf.edit.ui"/>
+      <import plugin="org.eclipse.ui.ide"/>
+      <import plugin="org.eclipse.emf.ecore.edit"/>
+      <import plugin="org.eclipse.emf.edapt.history"/>
+      <import plugin="org.eclipse.emf.edit"/>
+      <import plugin="org.eclipse.emf.ecore"/>
+      <import plugin="com.google.guava" version="30.1.0" match="greaterOrEqual"/>
+      <import plugin="e4sm.de.antlr4.petri.grammar" version="1.0.0" match="greaterOrEqual"/>
+   </requires>
 
    <plugin
          id="e4sm.de.metamodel.editor"
@@ -40,6 +47,13 @@
 
    <plugin
          id="e4sm.de.metamodel"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="e4sm.de.antlr4.petri.grammar"
          download-size="0"
          install-size="0"
          version="0.0.0"

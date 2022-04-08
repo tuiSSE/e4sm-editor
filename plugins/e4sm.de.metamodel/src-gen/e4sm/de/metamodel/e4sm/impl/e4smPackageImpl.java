@@ -1000,28 +1000,8 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getPin_OutgoingConnectors() {
-		return (EReference) pinEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getPin_IncomingConnectors() {
-		return (EReference) pinEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EAttribute getPin_GatewayPin() {
-		return (EAttribute) pinEClass.getEStructuralFeatures().get(2);
+		return (EAttribute) pinEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1031,7 +1011,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 */
 	@Override
 	public EAttribute getPin_Stream() {
-		return (EAttribute) pinEClass.getEStructuralFeatures().get(3);
+		return (EAttribute) pinEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1041,7 +1021,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 */
 	@Override
 	public EAttribute getPin_RaceSemantic() {
-		return (EAttribute) pinEClass.getEStructuralFeatures().get(4);
+		return (EAttribute) pinEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1052,6 +1032,26 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	@Override
 	public EOperation getPin__ComputeName() {
 		return pinEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getPin__GetIncomingConnectors() {
+		return pinEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getPin__GetOutgoingConnectors() {
+		return pinEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -1469,12 +1469,12 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		actuatorEClass = createEClass(ACTUATOR);
 
 		pinEClass = createEClass(PIN);
-		createEReference(pinEClass, PIN__OUTGOING_CONNECTORS);
-		createEReference(pinEClass, PIN__INCOMING_CONNECTORS);
 		createEAttribute(pinEClass, PIN__GATEWAY_PIN);
 		createEAttribute(pinEClass, PIN__STREAM);
 		createEAttribute(pinEClass, PIN__RACE_SEMANTIC);
 		createEOperation(pinEClass, PIN___COMPUTE_NAME);
+		createEOperation(pinEClass, PIN___GET_INCOMING_CONNECTORS);
+		createEOperation(pinEClass, PIN___GET_OUTGOING_CONNECTORS);
 
 		inputPinEClass = createEClass(INPUT_PIN);
 		createEAttribute(inputPinEClass, INPUT_PIN__QUEUE_TYPE);
@@ -1622,12 +1622,12 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 
 		initEClass(connectorEClass, Connector.class, "Connector", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getConnector_Source(), this.getPin(), this.getPin_OutgoingConnectors(), "source", null, 1, 1,
-				Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getConnector_Target(), this.getPin(), this.getPin_IncomingConnectors(), "target", null, 1, 1,
-				Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConnector_Source(), this.getPin(), null, "source", null, 1, 1, Connector.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEReference(getConnector_Target(), this.getPin(), null, "target", null, 1, 1, Connector.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 
 		initEOperation(getConnector__ComputeName(), ecorePackage.getEString(), "computeName", 0, 1, IS_UNIQUE,
 				IS_ORDERED);
@@ -1754,12 +1754,6 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 				IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(pinEClass, Pin.class, "Pin", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPin_OutgoingConnectors(), this.getConnector(), this.getConnector_Source(),
-				"outgoingConnectors", null, 0, -1, Pin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPin_IncomingConnectors(), this.getConnector(), this.getConnector_Target(),
-				"incomingConnectors", null, 0, -1, Pin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPin_GatewayPin(), ecorePackage.getEBoolean(), "gatewayPin", null, 0, 1, Pin.class,
 				IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPin_Stream(), ecorePackage.getEBoolean(), "stream", null, 0, 1, Pin.class, !IS_TRANSIENT,
@@ -1769,6 +1763,12 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 				IS_ORDERED);
 
 		initEOperation(getPin__ComputeName(), ecorePackage.getEString(), "computeName", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getPin__GetIncomingConnectors(), this.getConnector(), "getIncomingConnectors", 0, -1, IS_UNIQUE,
+				IS_ORDERED);
+
+		initEOperation(getPin__GetOutgoingConnectors(), this.getConnector(), "getOutgoingConnectors", 0, -1, IS_UNIQUE,
+				IS_ORDERED);
 
 		initEClass(inputPinEClass, InputPin.class, "InputPin", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);

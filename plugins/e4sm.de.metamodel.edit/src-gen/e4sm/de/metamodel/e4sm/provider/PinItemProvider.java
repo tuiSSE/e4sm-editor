@@ -54,8 +54,6 @@ public class PinItemProvider extends ItemProviderAdapter implements IEditingDoma
 
 			addNamePropertyDescriptor(object);
 			addTypePropertyDescriptor(object);
-			addOutgoingConnectorsPropertyDescriptor(object);
-			addIncomingConnectorsPropertyDescriptor(object);
 			addGatewayPinPropertyDescriptor(object);
 			addStreamPropertyDescriptor(object);
 			addRaceSemanticPropertyDescriptor(object);
@@ -92,36 +90,6 @@ public class PinItemProvider extends ItemProviderAdapter implements IEditingDoma
 						getString("_UI_PropertyDescriptor_description", "_UI_TypedElement_type_feature",
 								"_UI_TypedElement_type"),
 						CorePackage.Literals.TYPED_ELEMENT__TYPE, true, false, true, null, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Outgoing Connectors feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addOutgoingConnectorsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Pin_outgoingConnectors_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Pin_outgoingConnectors_feature",
-								"_UI_Pin_type"),
-						e4smPackage.Literals.PIN__OUTGOING_CONNECTORS, true, false, true, null, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Incoming Connectors feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addIncomingConnectorsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Pin_incomingConnectors_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Pin_incomingConnectors_feature",
-								"_UI_Pin_type"),
-						e4smPackage.Literals.PIN__INCOMING_CONNECTORS, true, false, true, null, null, null));
 	}
 
 	/**

@@ -105,13 +105,13 @@
     </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//Actuator"/>
     <genClasses ecoreClass="e4sm.ecore#//Pin">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//Pin/outgoingConnectors"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//Pin/incomingConnectors"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//Pin/gatewayPin"
           get="return this.getOutgoingConnectors().size()>=1 &amp;&amp; this.getIncomingConnectors().size() >=1;"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//Pin/stream"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//Pin/raceSemantic"/>
       <genOperations ecoreOperation="e4sm.ecore#//Pin/computeName"/>
+      <genOperations ecoreOperation="e4sm.ecore#//Pin/getIncomingConnectors"/>
+      <genOperations ecoreOperation="e4sm.ecore#//Pin/getOutgoingConnectors"/>
     </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//InputPin">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//InputPin/queueType"/>

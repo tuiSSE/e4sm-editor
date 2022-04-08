@@ -29,41 +29,41 @@ helper Pin::getDirectionShort():String {
 }
 
 helper Pin::requiresSimpleTransformation() : Boolean{
-   if(self.raceSemantic = RaceSemantic::FCFS or (self.incomingConnectors->size()<2 and self.outgoingConnectors->size()<2)){
+   if(self.raceSemantic = RaceSemantic::FCFS or (self.getIncomingConnectors()->size()<2 and self.getOutgoingConnectors()->size()<2)){
    	return true;
    };
    	return false;
 }
 
 helper Pin::requiresMerge() : Boolean{
-   if(self.raceSemantic = RaceSemantic::MERGE and self.incomingConnectors->size() > 1){
+   if(self.raceSemantic = RaceSemantic::MERGE and self.getIncomingConnectors()->size() > 1){
    	return true;
    };
-   if(self.raceSemantic = RaceSemantic::MERGE_AND_DUPLICATE and self.incomingConnectors->size() > 1 and self.outgoingConnectors->size() < 2){
+   if(self.raceSemantic = RaceSemantic::MERGE_AND_DUPLICATE and self.getIncomingConnectors()->size() > 1 and self.getOutgoingConnectors()->size() < 2){
    	return true;
    };
    	return false;
 }
 
 helper Pin::requiresDuplicate() : Boolean{
-   if(self.raceSemantic = RaceSemantic::DUPLICATE and self.outgoingConnectors->size() > 1){
+   if(self.raceSemantic = RaceSemantic::DUPLICATE and self.getOutgoingConnectors()->size() > 1){
    	return true;
    };
-   if(self.raceSemantic = RaceSemantic::MERGE_AND_DUPLICATE and self.outgoingConnectors->size() > 1 and self.incomingConnectors->size() < 2){
+   if(self.raceSemantic = RaceSemantic::MERGE_AND_DUPLICATE and self.getOutgoingConnectors()->size() > 1 and self.getIncomingConnectors()->size() < 2){
    	return true;
    };
    	return false;
 }
 
 helper Pin::requiresMergeAndDuplicate() : Boolean{
-   if(self.raceSemantic = RaceSemantic::MERGE_AND_DUPLICATE and self.outgoingConnectors->size() > 1 and self.incomingConnectors->size() > 1){
+   if(self.raceSemantic = RaceSemantic::MERGE_AND_DUPLICATE and self.getOutgoingConnectors()->size() > 1 and self.getIncomingConnectors()->size() > 1){
    	return true;
    };
    	return false;
 }
 
 mapping Pin::simpleTransformOutputPin(parentName:String, index: Integer) : PlaceType 
-where {self.raceSemantic = RaceSemantic::FCFS or (self.incomingConnectors->size()<2 and self.outgoingConnectors->size()<2)} {
+where {self.raceSemantic = RaceSemantic::FCFS or (self.getIncomingConnectors()->size()<2 and self.getOutgoingConnectors()->size()<2)} {
 	init{
 	    var direction:String := self.getDirection();
 
@@ -92,7 +92,7 @@ where {self.requiresMerge()} {
  	arcs += mainArc;
  	    
  	var i:Integer := 1;
- 	self.incomingConnectors->forEach(ic){
+ 	self.getIncomingConnectors()->forEach(ic){
  	    var place := new PlaceType(parentName + self.getDirectionShort() + i.toString()+"_"+index.toString());
  	    pl += place;
  	    var arc := new ArcType(parentName + self.getDirectionShort() + i.toString()+"_"+index.toString());
@@ -125,7 +125,7 @@ where {self.requiresDuplicate()} {
  	 	arcs += mainArc;
  	 	    
  	 	var i:Integer := 1;
- 	 	self.outgoingConnectors->forEach(oc){
+ 	 	self.getOutgoingConnectors()->forEach(oc){
  	 	    var place := new PlaceType(parentName + self.getDirectionShort() + i.toString()+"_"+index.toString());
  	 	    pl += place;
  	 	    var arc := new ArcType(parentName + self.getDirectionShort() + i.toString()+"_"+index.toString());
@@ -167,7 +167,7 @@ where {self.requiresMergeAndDuplicate()} {
  	 	arcs += mainArcL;
  	 	    
  	 	var i:Integer := 1;
- 	 	self.outgoingConnectors->forEach(oc){
+ 	 	self.getOutgoingConnectors()->forEach(oc){
  	 	    var place := new PlaceType(parentName + self.getDirectionShort() + i.toString()+"outg_"+index.toString());
  	 	    pl += place;
  	 	    var arc := new ArcType(parentName + self.getDirectionShort() + i.toString()+"outg_"+index.toString());
@@ -180,7 +180,7 @@ where {self.requiresMergeAndDuplicate()} {
  	 	
  	 	//reset i to 1 and repeat for the incoming connectors
  	 	i := 1;
- 	 	self.incomingConnectors->forEach(ic){
+ 	 	self.getIncomingConnectors()->forEach(ic){
 	 	    var place := new PlaceType(parentName + self.getDirectionShort() + i.toString()+"inc_"+index.toString());
 	 	    pl += place;
 	 	    var arc := new ArcType(parentName + self.getDirectionShort() + i.toString()+"inc_"+index.toString());
@@ -214,7 +214,7 @@ helper Pin::resolvePinPlace (connector : Connector) : PlaceType{
 		
 			assert fatal (p->size() > 1) with log ("It seems like the target merge " + self.getDirection() + " pin wasn't transformed to any place " + self.toString());
 		    var i:=2; //List starts from 1, skip the first element (which is the main place)
-		    self.incomingConnectors->forEach(ic){
+		    self.getIncomingConnectors()->forEach(ic){
 			    if(ic = connector){
 			    	return p->at(i);
 			    }endif;
@@ -233,8 +233,8 @@ helper Pin::resolvePinPlace (connector : Connector) : PlaceType{
 			var p : List(PlaceType) := searchTransformation.pl;
 		
 			assert fatal (p->size() > 1) with log ("It seems like the target merge and duplicate " + self.getDirection() + " pin wasn't transformed to any place " + self.toString());
-		    var i:=2 + self.outgoingConnectors->size(); //List starts from 1, skip the first element (which is the main place) and the places for the outgoingConnectors (which were created first)
-		    self.incomingConnectors->forEach(ic){
+		    var i:=2 + self.getOutgoingConnectors()->size(); //List starts from 1, skip the first element (which is the main place) and the places for the outgoingConnectors (which were created first)
+		    self.getIncomingConnectors()->forEach(ic){
 			    if(ic = connector){
 			    	return p->at(i);
 			    }endif;
@@ -269,7 +269,7 @@ helper Pin::resolvePinPlace (connector : Connector) : PlaceType{
 		
 			assert fatal (p->size() > 1) with log ("It seems like the source duplicate " + self.getDirection() + " pin wasn't transformed to any place " + self.toString());
 		    var i:=2; //List starts from 1, skip the first element (which is the main place)
-		    self.outgoingConnectors->forEach(ic){
+		    self.getOutgoingConnectors()->forEach(ic){
 			    if(ic = connector){
 			    	return p->at(i);
 			    }endif;
@@ -283,7 +283,7 @@ helper Pin::resolvePinPlace (connector : Connector) : PlaceType{
 		
 			assert fatal (p->size() > 1) with log ("It seems like the source merge and duplicate " + self.getDirection() + " pin wasn't transformed to any place " + self.toString());
 		    var i:=2; //List starts from 1, skip the first element (which is the main place)
-		    self.outgoingConnectors->forEach(ic){
+		    self.getOutgoingConnectors()->forEach(ic){
 			    if(ic = connector){
 			    	return p->at(i);
 			    }endif;

@@ -24,31 +24,47 @@ import e4sm.de.metamodel.e4sm.Import
  * on how and when to use it.
  */
 class E4smScopeProvider extends AbstractE4smScopeProvider {
-//	val epackage = e4smPackage.eINSTANCE
-//	val exePackage = ExecutionPackage.eINSTANCE
-//	val cPackage = CorePackage.eINSTANCE
-//
-//	override IScope getScope(EObject context, EReference reference) {
-//		if(context instanceof TypeSpecification && reference == CorePackage.Literals.TYPE_SPECIFICATION__SUPER_TYPE){
-//			val Model rootElement = EcoreUtil2.getRootContainer(context) as Model;
-//			//return Scopes.scopeFor((rootElement as Model).types.takeWhile[it != context])
-//	        //val candidates = EcoreUtil2.getAllContentsOfType(rootElement, TypeSpecification);
-//	        // All types specified here before this one
-//	        var candidates = rootElement.types.takeWhile[it != context].toList;
-//	        // Add all imported types
-//	        for (Import im : rootElement.imports){
-//	        	candidates.addAll(im.referencedModel.types)
-//	        }
-//	        // Create IEObjectDescriptions and puts them into an IScope instance
-//	        return Scopes.scopeFor(candidates);
+	val epackage = e4smPackage.eINSTANCE
+	val exePackage = ExecutionPackage.eINSTANCE
+	val cPackage = CorePackage.eINSTANCE
+
+	override IScope getScope(EObject context, EReference reference) {
+		//types "superType" scope
+		if(context instanceof TypeSpecification && reference == CorePackage.Literals.TYPE_SPECIFICATION__SUPER_TYPE){
+			val Model rootElement = EcoreUtil2.getRootContainer(context) as Model;
+			//return Scopes.scopeFor((rootElement as Model).types.takeWhile[it != context])
+	        //val candidates = EcoreUtil2.getAllContentsOfType(rootElement, TypeSpecification);
+	        // All types specified here before this one
+	        var candidates = rootElement.types.takeWhile[it != context].toList;
+	        // Add all imported types
+	        for (Import im : rootElement.imports){
+	        	candidates.addAll(im.referencedModel.types)
+	        }
+	        // Create IEObjectDescriptions and puts them into an IScope instance
+	        return Scopes.scopeFor(candidates);
+		}
+		
+		//Pin type scope
+			if(context instanceof Pin && reference == CorePackage.Literals.TYPED_ELEMENT__TYPE){
+			val Model rootElement = EcoreUtil2.getRootContainer(context) as Model;
+			//return Scopes.scopeFor((rootElement as Model).types.takeWhile[it != context])
+	        //val candidates = EcoreUtil2.getAllContentsOfType(rootElement, TypeSpecification);
+	        // All types specified here before this one
+	        var candidates = rootElement.types.takeWhile[it != context].toList;
+	        // Add all imported types
+	        for (Import im : rootElement.imports){
+	        	candidates.addAll(im.referencedModel.types)
+	        }
+	        // Create IEObjectDescriptions and puts them into an IScope instance
+	        return Scopes.scopeFor(candidates);
+		}
+//		if (context instanceof Execution) {
+//			if(reference instanceof Pin)
+//			{
+//				return Scopes.scopeFor((context.eContainer as Component).pins)
+//			}
 //		}
-////		if (context instanceof Execution) {
-////			if(reference instanceof Pin)
-////			{
-////				return Scopes.scopeFor((context.eContainer as Component).pins)
-////			}
-////		}
-//		// TODO Auto-generated method stub
-//		return super.getScope(context, reference)
-//	}
+		// TODO Auto-generated method stub
+		return super.getScope(context, reference)
+	}
 }

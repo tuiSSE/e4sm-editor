@@ -2028,31 +2028,13 @@ public interface e4smPackage extends EPackage {
 	int PIN__TYPE = CorePackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Outgoing Connectors</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PIN__OUTGOING_CONNECTORS = CorePackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Incoming Connectors</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PIN__INCOMING_CONNECTORS = CorePackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 3;
-
-	/**
 	 * The feature id for the '<em><b>Gateway Pin</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PIN__GATEWAY_PIN = CorePackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 4;
+	int PIN__GATEWAY_PIN = CorePackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Stream</b></em>' attribute.
@@ -2061,7 +2043,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PIN__STREAM = CorePackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 5;
+	int PIN__STREAM = CorePackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Race Semantic</b></em>' attribute.
@@ -2070,7 +2052,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PIN__RACE_SEMANTIC = CorePackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 6;
+	int PIN__RACE_SEMANTIC = CorePackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Pin</em>' class.
@@ -2079,7 +2061,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PIN_FEATURE_COUNT = CorePackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 7;
+	int PIN_FEATURE_COUNT = CorePackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Compute Name</em>' operation.
@@ -2091,13 +2073,31 @@ public interface e4smPackage extends EPackage {
 	int PIN___COMPUTE_NAME = CorePackage.PARAMETERIZABLE_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Get Incoming Connectors</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIN___GET_INCOMING_CONNECTORS = CorePackage.PARAMETERIZABLE_ELEMENT_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get Outgoing Connectors</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIN___GET_OUTGOING_CONNECTORS = CorePackage.PARAMETERIZABLE_ELEMENT_OPERATION_COUNT + 2;
+
+	/**
 	 * The number of operations of the '<em>Pin</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PIN_OPERATION_COUNT = CorePackage.PARAMETERIZABLE_ELEMENT_OPERATION_COUNT + 1;
+	int PIN_OPERATION_COUNT = CorePackage.PARAMETERIZABLE_ELEMENT_OPERATION_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
@@ -2125,24 +2125,6 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int INPUT_PIN__TYPE = PIN__TYPE;
-
-	/**
-	 * The feature id for the '<em><b>Outgoing Connectors</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INPUT_PIN__OUTGOING_CONNECTORS = PIN__OUTGOING_CONNECTORS;
-
-	/**
-	 * The feature id for the '<em><b>Incoming Connectors</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INPUT_PIN__INCOMING_CONNECTORS = PIN__INCOMING_CONNECTORS;
 
 	/**
 	 * The feature id for the '<em><b>Gateway Pin</b></em>' attribute.
@@ -2190,6 +2172,24 @@ public interface e4smPackage extends EPackage {
 	int INPUT_PIN_FEATURE_COUNT = PIN_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Get Incoming Connectors</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_PIN___GET_INCOMING_CONNECTORS = PIN___GET_INCOMING_CONNECTORS;
+
+	/**
+	 * The operation id for the '<em>Get Outgoing Connectors</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_PIN___GET_OUTGOING_CONNECTORS = PIN___GET_OUTGOING_CONNECTORS;
+
+	/**
 	 * The operation id for the '<em>Compute Name</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2235,24 +2235,6 @@ public interface e4smPackage extends EPackage {
 	int OUTPUT_PIN__TYPE = PIN__TYPE;
 
 	/**
-	 * The feature id for the '<em><b>Outgoing Connectors</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OUTPUT_PIN__OUTGOING_CONNECTORS = PIN__OUTGOING_CONNECTORS;
-
-	/**
-	 * The feature id for the '<em><b>Incoming Connectors</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OUTPUT_PIN__INCOMING_CONNECTORS = PIN__INCOMING_CONNECTORS;
-
-	/**
 	 * The feature id for the '<em><b>Gateway Pin</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2287,6 +2269,24 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int OUTPUT_PIN_FEATURE_COUNT = PIN_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Incoming Connectors</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_PIN___GET_INCOMING_CONNECTORS = PIN___GET_INCOMING_CONNECTORS;
+
+	/**
+	 * The operation id for the '<em>Get Outgoing Connectors</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_PIN___GET_OUTGOING_CONNECTORS = PIN___GET_OUTGOING_CONNECTORS;
 
 	/**
 	 * The operation id for the '<em>Compute Name</em>' operation.
@@ -3353,28 +3353,6 @@ public interface e4smPackage extends EPackage {
 	EClass getPin();
 
 	/**
-	 * Returns the meta object for the reference list '{@link e4sm.de.metamodel.e4sm.Pin#getOutgoingConnectors <em>Outgoing Connectors</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Outgoing Connectors</em>'.
-	 * @see e4sm.de.metamodel.e4sm.Pin#getOutgoingConnectors()
-	 * @see #getPin()
-	 * @generated
-	 */
-	EReference getPin_OutgoingConnectors();
-
-	/**
-	 * Returns the meta object for the reference list '{@link e4sm.de.metamodel.e4sm.Pin#getIncomingConnectors <em>Incoming Connectors</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Incoming Connectors</em>'.
-	 * @see e4sm.de.metamodel.e4sm.Pin#getIncomingConnectors()
-	 * @see #getPin()
-	 * @generated
-	 */
-	EReference getPin_IncomingConnectors();
-
-	/**
 	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.Pin#isGatewayPin <em>Gateway Pin</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3416,6 +3394,26 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getPin__ComputeName();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.Pin#getIncomingConnectors() <em>Get Incoming Connectors</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Incoming Connectors</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.Pin#getIncomingConnectors()
+	 * @generated
+	 */
+	EOperation getPin__GetIncomingConnectors();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.Pin#getOutgoingConnectors() <em>Get Outgoing Connectors</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Outgoing Connectors</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.Pin#getOutgoingConnectors()
+	 * @generated
+	 */
+	EOperation getPin__GetOutgoingConnectors();
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.InputPin <em>Input Pin</em>}'.
@@ -4268,22 +4266,6 @@ public interface e4smPackage extends EPackage {
 		EClass PIN = eINSTANCE.getPin();
 
 		/**
-		 * The meta object literal for the '<em><b>Outgoing Connectors</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PIN__OUTGOING_CONNECTORS = eINSTANCE.getPin_OutgoingConnectors();
-
-		/**
-		 * The meta object literal for the '<em><b>Incoming Connectors</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PIN__INCOMING_CONNECTORS = eINSTANCE.getPin_IncomingConnectors();
-
-		/**
 		 * The meta object literal for the '<em><b>Gateway Pin</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4314,6 +4296,22 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PIN___COMPUTE_NAME = eINSTANCE.getPin__ComputeName();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Incoming Connectors</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PIN___GET_INCOMING_CONNECTORS = eINSTANCE.getPin__GetIncomingConnectors();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Outgoing Connectors</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PIN___GET_OUTGOING_CONNECTORS = eINSTANCE.getPin__GetOutgoingConnectors();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.InputPinImpl <em>Input Pin</em>}' class.

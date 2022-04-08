@@ -587,8 +587,8 @@ InputPin returns InputPin:
 		('raceSemantic' raceSemantic=RaceSemantic)?
 		('queueType' queueType=QueueType)?
 
-		('outgoingConnectors' '(' outgoingConnectors+=[Connector|EString] ( "," outgoingConnectors+=[Connector|EString])* ')' )?
-		('incomingConnectors' '(' incomingConnectors+=[Connector|EString] ( "," incomingConnectors+=[Connector|EString])* ')' )?
+		//('outgoingConnectors' '(' outgoingConnectors+=[Connector|EString] ( "," outgoingConnectors+=[Connector|EString])* ')' )?
+		//('incomingConnectors' '(' incomingConnectors+=[Connector|EString] ( "," incomingConnectors+=[Connector|EString])* ')' )?
 		('parameters' '{' parameters+=Parameter ( "," parameters+=Parameter)* '}' )?
 	'}')?;
 
@@ -599,8 +599,8 @@ OutputPin returns OutputPin:
 	name=EString //(':' type=[ecore::EDataType])?
 	('{'
 		('raceSemantic' raceSemantic=RaceSemantic)?
-		('outgoingConnectors' '(' outgoingConnectors+=[Connector|EString] ( "," outgoingConnectors+=[Connector|EString])* ')' )?
-		('incomingConnectors' '(' incomingConnectors+=[Connector|EString] ( "," incomingConnectors+=[Connector|EString])* ')' )?
+		//('outgoingConnectors' '(' outgoingConnectors+=[Connector|EString] ( "," outgoingConnectors+=[Connector|EString])* ')' )?
+		//('incomingConnectors' '(' incomingConnectors+=[Connector|EString] ( "," incomingConnectors+=[Connector|EString])* ')' )?
 		('parameters' '{' parameters+=Parameter ( "," parameters+=Parameter)* '}' )?
 	'}')?;
 

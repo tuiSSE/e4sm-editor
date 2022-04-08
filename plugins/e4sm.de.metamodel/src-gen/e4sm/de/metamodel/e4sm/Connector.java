@@ -31,14 +31,12 @@ import e4sm.de.metamodel.e4sm.core.ParameterizableElement;
 public interface Connector extends ParameterizableElement, NamedElement {
 	/**
 	 * Returns the value of the '<em><b>Source</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link e4sm.de.metamodel.e4sm.Pin#getOutgoingConnectors <em>Outgoing Connectors</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Source</em>' reference.
 	 * @see #setSource(Pin)
 	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getConnector_Source()
-	 * @see e4sm.de.metamodel.e4sm.Pin#getOutgoingConnectors
-	 * @model opposite="outgoingConnectors" required="true"
+	 * @model resolveProxies="false" required="true"
 	 * @generated
 	 */
 	Pin getSource();
@@ -55,14 +53,12 @@ public interface Connector extends ParameterizableElement, NamedElement {
 
 	/**
 	 * Returns the value of the '<em><b>Target</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link e4sm.de.metamodel.e4sm.Pin#getIncomingConnectors <em>Incoming Connectors</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Target</em>' reference.
 	 * @see #setTarget(Pin)
 	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getConnector_Target()
-	 * @see e4sm.de.metamodel.e4sm.Pin#getIncomingConnectors
-	 * @model opposite="incomingConnectors" required="true"
+	 * @model resolveProxies="false" required="true"
 	 * @generated
 	 */
 	Pin getTarget();

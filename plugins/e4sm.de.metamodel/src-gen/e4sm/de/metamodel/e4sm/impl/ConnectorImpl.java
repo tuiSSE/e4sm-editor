@@ -154,44 +154,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 */
 	@Override
 	public Pin getSource() {
-		if (source != null && source.eIsProxy()) {
-			InternalEObject oldSource = (InternalEObject) source;
-			source = (Pin) eResolveProxy(oldSource);
-			if (source != oldSource) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, e4smPackage.CONNECTOR__SOURCE, oldSource,
-							source));
-			}
-		}
 		return source;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Pin basicGetSource() {
-		return source;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetSource(Pin newSource, NotificationChain msgs) {
-		Pin oldSource = source;
-		source = newSource;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					e4smPackage.CONNECTOR__SOURCE, oldSource, newSource);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
-		}
-		return msgs;
 	}
 
 	/**
@@ -201,19 +164,10 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 */
 	@Override
 	public void setSource(Pin newSource) {
-		if (newSource != source) {
-			NotificationChain msgs = null;
-			if (source != null)
-				msgs = ((InternalEObject) source).eInverseRemove(this, e4smPackage.PIN__OUTGOING_CONNECTORS, Pin.class,
-						msgs);
-			if (newSource != null)
-				msgs = ((InternalEObject) newSource).eInverseAdd(this, e4smPackage.PIN__OUTGOING_CONNECTORS, Pin.class,
-						msgs);
-			msgs = basicSetSource(newSource, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.CONNECTOR__SOURCE, newSource, newSource));
+		Pin oldSource = source;
+		source = newSource;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.CONNECTOR__SOURCE, oldSource, source));
 	}
 
 	/**
@@ -223,44 +177,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 */
 	@Override
 	public Pin getTarget() {
-		if (target != null && target.eIsProxy()) {
-			InternalEObject oldTarget = (InternalEObject) target;
-			target = (Pin) eResolveProxy(oldTarget);
-			if (target != oldTarget) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, e4smPackage.CONNECTOR__TARGET, oldTarget,
-							target));
-			}
-		}
 		return target;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Pin basicGetTarget() {
-		return target;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetTarget(Pin newTarget, NotificationChain msgs) {
-		Pin oldTarget = target;
-		target = newTarget;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					e4smPackage.CONNECTOR__TARGET, oldTarget, newTarget);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
-		}
-		return msgs;
 	}
 
 	/**
@@ -270,19 +187,10 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 */
 	@Override
 	public void setTarget(Pin newTarget) {
-		if (newTarget != target) {
-			NotificationChain msgs = null;
-			if (target != null)
-				msgs = ((InternalEObject) target).eInverseRemove(this, e4smPackage.PIN__INCOMING_CONNECTORS, Pin.class,
-						msgs);
-			if (newTarget != null)
-				msgs = ((InternalEObject) newTarget).eInverseAdd(this, e4smPackage.PIN__INCOMING_CONNECTORS, Pin.class,
-						msgs);
-			msgs = basicSetTarget(newTarget, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.CONNECTOR__TARGET, newTarget, newTarget));
+		Pin oldTarget = target;
+		target = newTarget;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.CONNECTOR__TARGET, oldTarget, target));
 	}
 
 	/**
@@ -307,36 +215,10 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-		case e4smPackage.CONNECTOR__SOURCE:
-			if (source != null)
-				msgs = ((InternalEObject) source).eInverseRemove(this, e4smPackage.PIN__OUTGOING_CONNECTORS, Pin.class,
-						msgs);
-			return basicSetSource((Pin) otherEnd, msgs);
-		case e4smPackage.CONNECTOR__TARGET:
-			if (target != null)
-				msgs = ((InternalEObject) target).eInverseRemove(this, e4smPackage.PIN__INCOMING_CONNECTORS, Pin.class,
-						msgs);
-			return basicSetTarget((Pin) otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case e4smPackage.CONNECTOR__PARAMETERS:
 			return ((InternalEList<?>) getParameters()).basicRemove(otherEnd, msgs);
-		case e4smPackage.CONNECTOR__SOURCE:
-			return basicSetSource(null, msgs);
-		case e4smPackage.CONNECTOR__TARGET:
-			return basicSetTarget(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -354,13 +236,9 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 		case e4smPackage.CONNECTOR__NAME:
 			return getName();
 		case e4smPackage.CONNECTOR__SOURCE:
-			if (resolve)
-				return getSource();
-			return basicGetSource();
+			return getSource();
 		case e4smPackage.CONNECTOR__TARGET:
-			if (resolve)
-				return getTarget();
-			return basicGetTarget();
+			return getTarget();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}

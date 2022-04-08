@@ -2852,29 +2852,17 @@
       </changes>
       <changes xsi:type="history:Create" xmi:id="_CSN4eIBfEeyzqsUCyRmHHA" referenceName="eStructuralFeatures">
         <target href="e4sm.ecore#//Connector"/>
-        <element href="e4sm.ecore#//Connector/source"/>
-        <changes xsi:type="history:Set" xmi:id="_CSN4eYBfEeyzqsUCyRmHHA" featureName="name" dataValue="source">
-          <element href="e4sm.ecore#//Connector/source"/>
-        </changes>
-        <changes xsi:type="history:Set" xmi:id="_CSN4eoBfEeyzqsUCyRmHHA" featureName="lowerBound" dataValue="1" oldDataValue="0">
-          <element href="e4sm.ecore#//Connector/source"/>
-        </changes>
+        <changes xsi:type="history:Set" xmi:id="_CSN4eYBfEeyzqsUCyRmHHA" featureName="name" dataValue="source"/>
+        <changes xsi:type="history:Set" xmi:id="_CSN4eoBfEeyzqsUCyRmHHA" featureName="lowerBound" dataValue="1" oldDataValue="0"/>
         <changes xsi:type="history:Set" xmi:id="_CSN4e4BfEeyzqsUCyRmHHA" featureName="eType">
-          <element href="e4sm.ecore#//Connector/source"/>
           <referenceValue href="e4sm.ecore#//Pin"/>
         </changes>
       </changes>
       <changes xsi:type="history:Create" xmi:id="_CSN4fIBfEeyzqsUCyRmHHA" referenceName="eStructuralFeatures">
         <target href="e4sm.ecore#//Connector"/>
-        <element href="e4sm.ecore#//Connector/target"/>
-        <changes xsi:type="history:Set" xmi:id="_CSN4fYBfEeyzqsUCyRmHHA" featureName="name" dataValue="target">
-          <element href="e4sm.ecore#//Connector/target"/>
-        </changes>
-        <changes xsi:type="history:Set" xmi:id="_CSN4foBfEeyzqsUCyRmHHA" featureName="lowerBound" dataValue="1" oldDataValue="0">
-          <element href="e4sm.ecore#//Connector/target"/>
-        </changes>
+        <changes xsi:type="history:Set" xmi:id="_CSN4fYBfEeyzqsUCyRmHHA" featureName="name" dataValue="target"/>
+        <changes xsi:type="history:Set" xmi:id="_CSN4foBfEeyzqsUCyRmHHA" featureName="lowerBound" dataValue="1" oldDataValue="0"/>
         <changes xsi:type="history:Set" xmi:id="_CSN4f4BfEeyzqsUCyRmHHA" featureName="eType">
-          <element href="e4sm.ecore#//Connector/target"/>
           <referenceValue href="e4sm.ecore#//Pin"/>
         </changes>
       </changes>
@@ -2914,47 +2902,23 @@
       </changes>
       <changes xsi:type="history:Create" xmi:id="_CSN4ioBfEeyzqsUCyRmHHA" referenceName="eStructuralFeatures">
         <target href="e4sm.ecore#//Pin"/>
-        <element href="e4sm.ecore#//Pin/outgoingConnectors"/>
-        <changes xsi:type="history:Set" xmi:id="_CSN4i4BfEeyzqsUCyRmHHA" featureName="name" dataValue="outgoingConnectors">
-          <element href="e4sm.ecore#//Pin/outgoingConnectors"/>
-        </changes>
-        <changes xsi:type="history:Set" xmi:id="_CSN4jIBfEeyzqsUCyRmHHA" featureName="upperBound" dataValue="-1" oldDataValue="1">
-          <element href="e4sm.ecore#//Pin/outgoingConnectors"/>
-        </changes>
+        <changes xsi:type="history:Set" xmi:id="_CSN4i4BfEeyzqsUCyRmHHA" featureName="name" dataValue="outgoingConnectors"/>
+        <changes xsi:type="history:Set" xmi:id="_CSN4jIBfEeyzqsUCyRmHHA" featureName="upperBound" dataValue="-1" oldDataValue="1"/>
         <changes xsi:type="history:Set" xmi:id="_CSN4jYBfEeyzqsUCyRmHHA" featureName="eType">
-          <element href="e4sm.ecore#//Pin/outgoingConnectors"/>
           <referenceValue href="e4sm.ecore#//Connector"/>
         </changes>
-        <changes xsi:type="history:Set" xmi:id="_CSN4joBfEeyzqsUCyRmHHA" featureName="eOpposite">
-          <element href="e4sm.ecore#//Pin/outgoingConnectors"/>
-          <referenceValue href="e4sm.ecore#//Connector/source"/>
-        </changes>
-        <changes xsi:type="history:Set" xmi:id="_CSN4j4BfEeyzqsUCyRmHHA" featureName="eOpposite">
-          <element href="e4sm.ecore#//Connector/source"/>
-          <referenceValue href="e4sm.ecore#//Pin/outgoingConnectors"/>
-        </changes>
+        <changes xsi:type="history:Set" xmi:id="_CSN4joBfEeyzqsUCyRmHHA" featureName="eOpposite"/>
+        <changes xsi:type="history:Set" xmi:id="_CSN4j4BfEeyzqsUCyRmHHA" featureName="eOpposite"/>
       </changes>
       <changes xsi:type="history:Create" xmi:id="_CSN4kIBfEeyzqsUCyRmHHA" referenceName="eStructuralFeatures">
         <target href="e4sm.ecore#//Pin"/>
-        <element href="e4sm.ecore#//Pin/incomingConnectors"/>
-        <changes xsi:type="history:Set" xmi:id="_CSN4kYBfEeyzqsUCyRmHHA" featureName="name" dataValue="incomingConnectors">
-          <element href="e4sm.ecore#//Pin/incomingConnectors"/>
-        </changes>
-        <changes xsi:type="history:Set" xmi:id="_CSN4koBfEeyzqsUCyRmHHA" featureName="upperBound" dataValue="-1" oldDataValue="1">
-          <element href="e4sm.ecore#//Pin/incomingConnectors"/>
-        </changes>
+        <changes xsi:type="history:Set" xmi:id="_CSN4kYBfEeyzqsUCyRmHHA" featureName="name" dataValue="incomingConnectors"/>
+        <changes xsi:type="history:Set" xmi:id="_CSN4koBfEeyzqsUCyRmHHA" featureName="upperBound" dataValue="-1" oldDataValue="1"/>
         <changes xsi:type="history:Set" xmi:id="_CSN4k4BfEeyzqsUCyRmHHA" featureName="eType">
-          <element href="e4sm.ecore#//Pin/incomingConnectors"/>
           <referenceValue href="e4sm.ecore#//Connector"/>
         </changes>
-        <changes xsi:type="history:Set" xmi:id="_CSN4lIBfEeyzqsUCyRmHHA" featureName="eOpposite">
-          <element href="e4sm.ecore#//Pin/incomingConnectors"/>
-          <referenceValue href="e4sm.ecore#//Connector/target"/>
-        </changes>
-        <changes xsi:type="history:Set" xmi:id="_CSN4lYBfEeyzqsUCyRmHHA" featureName="eOpposite">
-          <element href="e4sm.ecore#//Connector/target"/>
-          <referenceValue href="e4sm.ecore#//Pin/incomingConnectors"/>
-        </changes>
+        <changes xsi:type="history:Set" xmi:id="_CSN4lIBfEeyzqsUCyRmHHA" featureName="eOpposite"/>
+        <changes xsi:type="history:Set" xmi:id="_CSN4lYBfEeyzqsUCyRmHHA" featureName="eOpposite"/>
       </changes>
       <changes xsi:type="history:Create" xmi:id="_CSN4loBfEeyzqsUCyRmHHA" referenceName="eStructuralFeatures">
         <target href="e4sm.ecore#//Pin"/>

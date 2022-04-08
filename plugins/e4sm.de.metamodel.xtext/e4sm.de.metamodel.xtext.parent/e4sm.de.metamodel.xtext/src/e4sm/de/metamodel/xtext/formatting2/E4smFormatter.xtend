@@ -8,38 +8,66 @@ import e4sm.de.metamodel.e4sm.Model
 import e4sm.de.metamodel.xtext.services.E4smGrammarAccess
 import org.eclipse.xtext.formatting2.AbstractFormatter2
 import org.eclipse.xtext.formatting2.IFormattableDocument
+//import org.eclipse.emf.ecore.EObject
+//import org.eclipse.xtext.formatting2.ITextReplacer
+//import org.eclipse.xtext.formatting2.internal.HiddenRegionReplacer
+//import org.eclipse.xtext.formatting2.IHiddenRegionFormatting
 
 class E4smFormatter extends AbstractFormatter2 {
 
 	@Inject extension E4smGrammarAccess
+	
+//	def protected void formatIntoSingleLine(IFormattableDocument doc, EObject obj) {
+//		doc.formatter.format(obj, doc.withReplacerFilter[suppressLineWraps(it); true])
+//	}
+//	
+//	def protected dispatch void suppressLineWraps(ITextReplacer it) {
+//	}
+//
+//	def protected dispatch void suppressLineWraps(HiddenRegionReplacer it) {
+//		suppressLineWraps(formatting)
+//	}
+//
+//	def protected dispatch  void suppressLineWraps(IHiddenRegionFormatting it) {
+//		if (space === null)
+//			space = " "
+//		it.newLinesMin = null
+//		newLinesDefault = null
+//		newLinesMax = null
+//		autowrap = null
+//	}
 
-	def dispatch void format(Model model, extension IFormattableDocument document) {
+	def dispatch void format(Model model, extension IFormattableDocument doc) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
 		for (_package : model.packages) {
-			_package.format
+			_package.format(doc)
 		}
 		for (actor : model.actors) {
-			actor.format
+			actor.format(doc)
 		}
 	}
 
-	def dispatch void format(e4sm.de.metamodel.e4sm.Package _package, extension IFormattableDocument document) {
+	def dispatch void format(e4sm.de.metamodel.e4sm.Package _package, extension IFormattableDocument doc) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
 		for (component : _package.components) {
-			component.format
+			component.format(doc)
 		}
 		for (connector : _package.connectors) {
-			connector.format
+			connector.format(doc)
 		}
 		for (sector : _package.sectors) {
-			sector.format
+			sector.format(doc)
 		}
 		for (__package : _package.packages) {
-			__package.format
+			__package.format(doc)
 		}
+		val open = _package.regionFor.keyword("{")
+		val close = _package.regionFor.keyword("}")
+		open.append[newLine]
+		interior(open, close)[indent]
 	}
 
-	def dispatch void format(e4sm.de.metamodel.e4sm.Component _component, extension IFormattableDocument document) {
+	def dispatch void format(e4sm.de.metamodel.e4sm.Component _component, extension IFormattableDocument doc) {
 		_component.regionFor.keyword('{').prepend[space = " "]
 		interior(
 			_component.regionFor.keyword('{').append[newLine],
@@ -48,12 +76,12 @@ class E4smFormatter extends AbstractFormatter2 {
 		)
 
 		for (pin : _component.pins) {
-			pin.format(document)
+			pin.format(doc)
 			pin.prepend[indent]
 		}
 	}
 
-	def dispatch void format(e4sm.de.metamodel.e4sm.Pin _pin, extension IFormattableDocument document) {
+	def dispatch void format(e4sm.de.metamodel.e4sm.Pin _pin, extension IFormattableDocument doc) {
 		_pin.regionFor.keyword('in').prepend[newLine]
 		_pin.regionFor.keyword('out').prepend[newLine]
 		val open = _pin.regionFor.keyword('{')
@@ -61,6 +89,12 @@ class E4smFormatter extends AbstractFormatter2 {
 		open.append[newLine]
 		close.prepend[newLine]
 		interior(open, close)[indent]
+	}
+	
+	def dispatch void format(e4sm.de.metamodel.e4sm.Connector _connector, extension IFormattableDocument doc) {
+		//formatIntoSingleLine(doc, _connector);
+		_connector.regionFor.keyword('connector').prepend[newLine].append[oneSpace]
+		_connector.regionFor.keyword(',').surround[noSpace]
 	}
 
 // TODO: implement for EDataType, EClass, EAnnotation, ETypeParameter, EEnum, EGenericType, EEnumLiteral, EOperation, EParameter, EAttribute, EReference, Component, Sector, MachineLearningComponent, PhysicalComponent, SoftwareComponent, Heuristic, Function, ExternalDependency, Sensor, Actuator
