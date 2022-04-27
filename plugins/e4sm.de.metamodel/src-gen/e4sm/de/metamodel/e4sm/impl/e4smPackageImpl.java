@@ -311,13 +311,6 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	private EDataType timeFunctionEDataType = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EDataType codeSpecificationEDataType = null;
-
-	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -480,18 +473,8 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getComponent_CodeSpecification() {
-		return (EAttribute) componentEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getComponent_Execution() {
-		return (EReference) componentEClass.getEStructuralFeatures().get(5);
+		return (EReference) componentEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1360,16 +1343,6 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
-	public EDataType getCodeSpecification() {
-		return codeSpecificationEDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public e4smFactory gete4smFactory() {
 		return (e4smFactory) getEFactoryInstance();
 	}
@@ -1399,7 +1372,6 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		createEReference(componentEClass, COMPONENT__PINS);
 		createEReference(componentEClass, COMPONENT__MAIN_RESPONSIBLE);
 		createEReference(componentEClass, COMPONENT__SPECIFIED_IN_PACKAGE);
-		createEAttribute(componentEClass, COMPONENT__CODE_SPECIFICATION);
 		createEReference(componentEClass, COMPONENT__EXECUTION);
 		createEOperation(componentEClass, COMPONENT___COMPUTE_MAIN_RESPONSIBLE);
 		createEOperation(componentEClass, COMPONENT___NEW_OPERATION2);
@@ -1520,7 +1492,6 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		connectionspeedEDataType = createEDataType(CONNECTIONSPEED);
 		jsonEDataType = createEDataType(JSON);
 		timeFunctionEDataType = createEDataType(TIME_FUNCTION);
-		codeSpecificationEDataType = createEDataType(CODE_SPECIFICATION);
 	}
 
 	/**
@@ -1605,9 +1576,6 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		initEReference(getComponent_SpecifiedInPackage(), this.getPackage(), this.getPackage_SpecifiesComponent(),
 				"specifiedInPackage", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
 				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getComponent_CodeSpecification(), this.getCodeSpecification(), "codeSpecification", null, 0, 1,
-				Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
 		initEReference(getComponent_Execution(), theExecutionPackage.getExecution(), null, "execution", null, 0, 1,
 				Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1859,8 +1827,6 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		initEDataType(jsonEDataType, String.class, "JSON", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(timeFunctionEDataType, String.class, "TimeFunction", IS_SERIALIZABLE,
 				!IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(codeSpecificationEDataType, String.class, "CodeSpecification", IS_SERIALIZABLE,
-				!IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -1891,7 +1857,6 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		addAnnotation(actuatorEClass, source, new String[] { "constraints", "ActuatorC1" });
 		addAnnotation(pinEClass, source, new String[] { "constraints", "PinC1" });
 		addAnnotation(timeFunctionEDataType, source, new String[] { "constraints", "TimeFunctionIsValid" });
-		addAnnotation(codeSpecificationEDataType, source, new String[] { "constraints", "CodeSpecificationIsValid" });
 	}
 
 	/**

@@ -9,59 +9,43 @@ import "http://de.tu-ilmenau/e4sm/execution/1.0.0" as execution
 
 Model returns Model:
 	'model'
-	name=EString 
+	name=EString
 	'{'
-		(imports+=Import ( "," imports+=Import)*)? 
-		('picturesPath' PROPERTY_ASSIGN personsPicturesPath=EString)? 
-		(types+=TypeSpecification ( "," types+=TypeSpecification)*)? 
-		(parameters+=Parameter ( "," parameters+=Parameter)*)? 
-		(packages+=Package ( "," packages+=Package)*)? 
-		(actors+=Actor ( "," actors+=Actor)* )?
-		(variants+=Variant ( "," variants+=Variant)* )?
+	(imports+=Import ("," imports+=Import)*)?
+	('picturesPath' PROPERTY_ASSIGN personsPicturesPath=EString)?
+	(types+=TypeSpecification ("," types+=TypeSpecification)*)?
+	(parameters+=Parameter ("," parameters+=Parameter)*)?
+	(packages+=Package ("," packages+=Package)*)?
+	(actors+=Actor ("," actors+=Actor)*)?
+	(variants+=Variant ("," variants+=Variant)*)?
 	'}';
 
-
-Import returns Import :
+Import returns Import:
 	{Import}
-   'import' referencedModel=[Model|STRING] ';'
-;
-
+	'import' referencedModel=[Model|STRING] ';';
 
 Actor returns Actor:
 	Actor_Impl | Human_Impl | Robot | Person;
 
-
-
 ValueSpecification returns core::ValueSpecification:
-	LiteralNull | LiteralString | LiteralInteger | LiteralBoolean | LiteralFloat | LiteralDouble | LiteralLong | LiteralShort | LiteralByte | LiteralCharacter | LiteralDate;
+	LiteralNull | LiteralString | LiteralInteger | LiteralBoolean | LiteralFloat | LiteralDouble | LiteralLong |
+	LiteralShort | LiteralByte | LiteralCharacter | LiteralDate;
 
 Component returns Component:
-	Component_Impl | MachineLearningComponent | PhysicalComponent_Impl | SoftwareComponent_Impl | Heuristic | Function | ExternalDependency | Sensor | Actuator;
+	Component_Impl | MachineLearningComponent | PhysicalComponent_Impl | SoftwareComponent_Impl | Heuristic | Function |
+	ExternalDependency | Sensor | Actuator;
 
 Connector returns Connector:
 	Connector_Impl | PhysicalConnector | LogicalConnector;
 
-
-
 EDataType returns ecore::EDataType:
 	EDataType_Impl | EEnum;
-
-
-
-
 
 EStructuralFeature returns ecore::EStructuralFeature:
 	EAttribute | EReference;
 
-
-
-
-
 EClassifier returns ecore::EClassifier:
 	EClass | EDataType_Impl | EEnum;
-
-
-
 
 Pin returns Pin:
 	InputPin | OutputPin;
@@ -72,29 +56,30 @@ EString returns ecore::EString:
 Parameter returns analysis::Parameter:
 	'par'
 	'{'
-		'parameterDefinition' PROPERTY_ASSIGN parameterDefinition=[analysis::ParameterDefinition|EString]
-		('appliesOnlyOnVariants' '(' appliesOnlyOnVariants+=[core::Variant|EString] ( "," appliesOnlyOnVariants+=[core::Variant|EString])* ')' )?
-		('doesNotApplyOnVariants' '(' doesNotApplyOnVariants+=[core::Variant|EString] ( "," doesNotApplyOnVariants+=[core::Variant|EString])* ')' )?
-		('initialValue' PROPERTY_ASSIGN initialValue=ValueSpecification)?
-		('currentValue' PROPERTY_ASSIGN currentValue=ValueSpecification)?
+	'parameterDefinition' PROPERTY_ASSIGN parameterDefinition=[analysis::ParameterDefinition|EString]
+	('appliesOnlyOnVariants' '(' appliesOnlyOnVariants+=[core::Variant|EString] (","
+	appliesOnlyOnVariants+=[core::Variant|EString])* ')')?
+	('doesNotApplyOnVariants' '(' doesNotApplyOnVariants+=[core::Variant|EString] (","
+	doesNotApplyOnVariants+=[core::Variant|EString])* ')')?
+	('initialValue' PROPERTY_ASSIGN initialValue=ValueSpecification)?
+	('currentValue' PROPERTY_ASSIGN currentValue=ValueSpecification)?
 	'}';
 
 Package returns Package:
 	'package'
 	name=EString
 	'{'
-		('mainResponsible' PROPERTY_ASSIGN mainResponsible=[Person|EString])?
-		('specifiesComponent' PROPERTY_ASSIGN specifiesComponent=[Component|EString])?
-		(parameters+=Parameter ( "," parameters+=Parameter)* )?
-		(components+=Component ( "," components+=Component)* )?
-		(connectors+=Connector ( "," connectors+=Connector)* )?
-		(sectors+=Sector ( "," sectors+=Sector)*)?
-		('subpackages' '{' packages+=Package ( "," packages+=Package)* '}' )?
+	('mainResponsible' PROPERTY_ASSIGN mainResponsible=[Person|EString])?
+	('specifiesComponent' PROPERTY_ASSIGN specifiesComponent=[Component|EString])?
+	(parameters+=Parameter ("," parameters+=Parameter)*)?
+	(components+=Component ("," components+=Component)*)?
+	(connectors+=Connector ("," connectors+=Connector)*)?
+	(sectors+=Sector ("," sectors+=Sector)*)?
+	('subpackages' '{' packages+=Package ("," packages+=Package)* '}')?
 	'}';
-	
+
 terminal PROPERTY_ASSIGN:
-	':'
-;
+	':';
 
 Actor_Impl returns Actor:
 	{Actor}
@@ -111,13 +96,13 @@ ParameterDefinition returns analysis::ParameterDefinition:
 	'ParameterDefinition'
 	name=EString
 	'{'
-		('unit' unit=UnitOfMeasurement)?
-		// ('type' type=[ecore::EDataType|EString])?
-		('parameters' '(' parameters+=[analysis::Parameter|EString] ( "," parameters+=[analysis::Parameter|EString])* ')' )?
-		//('mustBeDefinedOn' '(' mustBeDefinedOn+=[ecore::EClass|EString] ( "," mustBeDefinedOn+=[ecore::EClass|EString])* ')' )?
-		//('canBeDefinedOn' '(' canBeDefinedOn+=[ecore::EClass|EString] ( "," canBeDefinedOn+=[ecore::EClass|EString])* ')' )?
-		//('shallNotBeDefinedOn' '(' shallNotBeDefinedOn+=[ecore::EClass|EString] ( "," shallNotBeDefinedOn+=[ecore::EClass|EString])* ')' )?
-		('defaultValue' defaultValue=ValueSpecification)?
+	('unit' unit=UnitOfMeasurement)?
+	// ('type' type=[ecore::EDataType|EString])?
+	('parameters' '(' parameters+=[analysis::Parameter|EString] ("," parameters+=[analysis::Parameter|EString])* ')')?
+	// ('mustBeDefinedOn' '(' mustBeDefinedOn+=[ecore::EClass|EString] ( "," mustBeDefinedOn+=[ecore::EClass|EString])* ')' )?
+	// ('canBeDefinedOn' '(' canBeDefinedOn+=[ecore::EClass|EString] ( "," canBeDefinedOn+=[ecore::EClass|EString])* ')' )?
+	// ('shallNotBeDefinedOn' '(' shallNotBeDefinedOn+=[ecore::EClass|EString] ( "," shallNotBeDefinedOn+=[ecore::EClass|EString])* ')' )?
+	('defaultValue' defaultValue=ValueSpecification)?
 	'}';
 
 EDataType_Impl returns ecore::EDataType:
@@ -125,15 +110,16 @@ EDataType_Impl returns ecore::EDataType:
 	'EDataType'
 	name=EString
 	'{'
-		('instanceClassName' instanceClassName=EString)?
-		('instanceTypeName' instanceTypeName=EString)?
-		('serializable' serializable=EBoolean)?
-		('eAnnotations' '{' eAnnotations+=EAnnotation ( "," eAnnotations+=EAnnotation)* '}' )?
-		('eTypeParameters' '{' eTypeParameters+=ETypeParameter ( "," eTypeParameters+=ETypeParameter)* '}' )?
+	('instanceClassName' instanceClassName=EString)?
+	('instanceTypeName' instanceTypeName=EString)?
+	('serializable' serializable=EBoolean)?
+	('eAnnotations' '{' eAnnotations+=EAnnotation ("," eAnnotations+=EAnnotation)* '}')?
+	('eTypeParameters' '{' eTypeParameters+=ETypeParameter ("," eTypeParameters+=ETypeParameter)* '}')?
 	'}';
 
 enum UnitOfMeasurement returns core::UnitOfMeasurement:
-				cm = 'cm' | m = 'm' | mm = 'mm' | percentage = 'percentage' | s = 's' | ms = 'ms' | minutes = 'minutes' | hours = 'hours' | mbps = 'mbps' | none = 'none';
+	cm='cm' | m='m' | mm='mm' | percentage='percentage' | s='s' | ms='ms' | minutes='minutes' | hours='hours' |
+	mbps='mbps' | none='none';
 
 EClass returns ecore::EClass:
 	{ecore::EClass}
@@ -142,25 +128,26 @@ EClass returns ecore::EClass:
 	'EClass'
 	name=EString
 	'{'
-		('instanceClassName' instanceClassName=EString)?
-		('instanceTypeName' instanceTypeName=EString)?
-		('eSuperTypes' '(' eSuperTypes+=[ecore::EClass|EString] ( "," eSuperTypes+=[ecore::EClass|EString])* ')' )?
-		('eAnnotations' '{' eAnnotations+=EAnnotation ( "," eAnnotations+=EAnnotation)* '}' )?
-		('eTypeParameters' '{' eTypeParameters+=ETypeParameter ( "," eTypeParameters+=ETypeParameter)* '}' )?
-		('eOperations' '{' eOperations+=EOperation ( "," eOperations+=EOperation)* '}' )?
-		('eStructuralFeatures' '{' eStructuralFeatures+=EStructuralFeature ( "," eStructuralFeatures+=EStructuralFeature)* '}' )?
-		('eGenericSuperTypes' '{' eGenericSuperTypes+=EGenericType ( "," eGenericSuperTypes+=EGenericType)* '}' )?
+	('instanceClassName' instanceClassName=EString)?
+	('instanceTypeName' instanceTypeName=EString)?
+	('eSuperTypes' '(' eSuperTypes+=[ecore::EClass|EString] ("," eSuperTypes+=[ecore::EClass|EString])* ')')?
+	('eAnnotations' '{' eAnnotations+=EAnnotation ("," eAnnotations+=EAnnotation)* '}')?
+	('eTypeParameters' '{' eTypeParameters+=ETypeParameter ("," eTypeParameters+=ETypeParameter)* '}')?
+	('eOperations' '{' eOperations+=EOperation ("," eOperations+=EOperation)* '}')?
+	('eStructuralFeatures' '{' eStructuralFeatures+=EStructuralFeature ("," eStructuralFeatures+=EStructuralFeature)*
+	'}')?
+	('eGenericSuperTypes' '{' eGenericSuperTypes+=EGenericType ("," eGenericSuperTypes+=EGenericType)* '}')?
 	'}';
 
 EAnnotation returns ecore::EAnnotation:
 	{ecore::EAnnotation}
 	'EAnnotation'
 	'{'
-		('source' source=EString)?
-		('references' '(' references+=[ecore::EObject|EString] ( "," references+=[ecore::EObject|EString])* ')' )?
-		('eAnnotations' '{' eAnnotations+=EAnnotation ( "," eAnnotations+=EAnnotation)* '}' )?
-		('details' '{' details+=EStringToStringMapEntry ( "," details+=EStringToStringMapEntry)* '}' )?
-		('contents' '{' contents+=EObject ( "," contents+=EObject)* '}' )?
+	('source' source=EString)?
+	('references' '(' references+=[ecore::EObject|EString] ("," references+=[ecore::EObject|EString])* ')')?
+	('eAnnotations' '{' eAnnotations+=EAnnotation ("," eAnnotations+=EAnnotation)* '}')?
+	('details' '{' details+=EStringToStringMapEntry ("," details+=EStringToStringMapEntry)* '}')?
+	('contents' '{' contents+=EObject ("," contents+=EObject)* '}')?
 	'}';
 
 ETypeParameter returns ecore::ETypeParameter:
@@ -168,8 +155,8 @@ ETypeParameter returns ecore::ETypeParameter:
 	'ETypeParameter'
 	name=EString
 	'{'
-		('eAnnotations' '{' eAnnotations+=EAnnotation ( "," eAnnotations+=EAnnotation)* '}' )?
-		('eBounds' '{' eBounds+=EGenericType ( "," eBounds+=EGenericType)* '}' )?
+	('eAnnotations' '{' eAnnotations+=EAnnotation ("," eAnnotations+=EAnnotation)* '}')?
+	('eBounds' '{' eBounds+=EGenericType ("," eBounds+=EGenericType)* '}')?
 	'}';
 
 EBoolean returns ecore::EBoolean:
@@ -180,36 +167,35 @@ EEnum returns ecore::EEnum:
 	'EEnum'
 	name=EString
 	'{'
-		('instanceClassName' instanceClassName=EString)?
-		('instanceTypeName' instanceTypeName=EString)?
-		('serializable' serializable=EBoolean)?
-		('eAnnotations' '{' eAnnotations+=EAnnotation ( "," eAnnotations+=EAnnotation)* '}' )?
-		('eTypeParameters' '{' eTypeParameters+=ETypeParameter ( "," eTypeParameters+=ETypeParameter)* '}' )?
-		('eLiterals' '{' eLiterals+=EEnumLiteral ( "," eLiterals+=EEnumLiteral)* '}' )?
+	('instanceClassName' instanceClassName=EString)?
+	('instanceTypeName' instanceTypeName=EString)?
+	('serializable' serializable=EBoolean)?
+	('eAnnotations' '{' eAnnotations+=EAnnotation ("," eAnnotations+=EAnnotation)* '}')?
+	('eTypeParameters' '{' eTypeParameters+=ETypeParameter ("," eTypeParameters+=ETypeParameter)* '}')?
+	('eLiterals' '{' eLiterals+=EEnumLiteral ("," eLiterals+=EEnumLiteral)* '}')?
 	'}';
 
 EStringToStringMapEntry returns ecore::EStringToStringMapEntry:
 	{ecore::EStringToStringMapEntry}
 	'EStringToStringMapEntry'
 	'{'
-		('key' key=EString)?
-		('value' value=EString)?
+	('key' key=EString)?
+	('value' value=EString)?
 	'}';
 
 EObject returns ecore::EObject:
 	{ecore::EObject}
-	'EObject'
-	;
+	'EObject';
 
 EGenericType returns ecore::EGenericType:
 	{ecore::EGenericType}
 	'EGenericType'
 	'{'
-		('eTypeParameter' eTypeParameter=[ecore::ETypeParameter|EString])?
-		('eClassifier' eClassifier=[ecore::EClassifier|EString])?
-		('eUpperBound' eUpperBound=EGenericType)?
-		('eTypeArguments' '{' eTypeArguments+=EGenericType ( "," eTypeArguments+=EGenericType)* '}' )?
-		('eLowerBound' eLowerBound=EGenericType)?
+	('eTypeParameter' eTypeParameter=[ecore::ETypeParameter|EString])?
+	('eClassifier' eClassifier=[ecore::EClassifier|EString])?
+	('eUpperBound' eUpperBound=EGenericType)?
+	('eTypeArguments' '{' eTypeArguments+=EGenericType ("," eTypeArguments+=EGenericType)* '}')?
+	('eLowerBound' eLowerBound=EGenericType)?
 	'}';
 
 EEnumLiteral returns ecore::EEnumLiteral:
@@ -217,9 +203,9 @@ EEnumLiteral returns ecore::EEnumLiteral:
 	'EEnumLiteral'
 	name=EString
 	'{'
-		('value' value=EInt)?
-		('literal' literal=EString)?
-		('eAnnotations' '{' eAnnotations+=EAnnotation ( "," eAnnotations+=EAnnotation)* '}' )?
+	('value' value=EInt)?
+	('literal' literal=EString)?
+	('eAnnotations' '{' eAnnotations+=EAnnotation ("," eAnnotations+=EAnnotation)* '}')?
 	'}';
 
 EInt returns ecore::EInt:
@@ -230,17 +216,17 @@ EOperation returns ecore::EOperation:
 	'EOperation'
 	name=EString
 	'{'
-		('ordered' ordered=EBoolean)?
-		('unique' unique=EBoolean)?
-		('lowerBound' lowerBound=EInt)?
-		('upperBound' upperBound=EInt)?
-		('eType' eType=[ecore::EClassifier|EString])?
-		('eExceptions' '(' eExceptions+=[ecore::EClassifier|EString] ( "," eExceptions+=[ecore::EClassifier|EString])* ')' )?
-		('eAnnotations' '{' eAnnotations+=EAnnotation ( "," eAnnotations+=EAnnotation)* '}' )?
-		('eGenericType' eGenericType=EGenericType)?
-		('eTypeParameters' '{' eTypeParameters+=ETypeParameter ( "," eTypeParameters+=ETypeParameter)* '}' )?
-		('eParameters' '{' eParameters+=EParameter ( "," eParameters+=EParameter)* '}' )?
-		('eGenericExceptions' '{' eGenericExceptions+=EGenericType ( "," eGenericExceptions+=EGenericType)* '}' )?
+	('ordered' ordered=EBoolean)?
+	('unique' unique=EBoolean)?
+	('lowerBound' lowerBound=EInt)?
+	('upperBound' upperBound=EInt)?
+	('eType' eType=[ecore::EClassifier|EString])?
+	('eExceptions' '(' eExceptions+=[ecore::EClassifier|EString] ("," eExceptions+=[ecore::EClassifier|EString])* ')')?
+	('eAnnotations' '{' eAnnotations+=EAnnotation ("," eAnnotations+=EAnnotation)* '}')?
+	('eGenericType' eGenericType=EGenericType)?
+	('eTypeParameters' '{' eTypeParameters+=ETypeParameter ("," eTypeParameters+=ETypeParameter)* '}')?
+	('eParameters' '{' eParameters+=EParameter ("," eParameters+=EParameter)* '}')?
+	('eGenericExceptions' '{' eGenericExceptions+=EGenericType ("," eGenericExceptions+=EGenericType)* '}')?
 	'}';
 
 EParameter returns ecore::EParameter:
@@ -248,13 +234,13 @@ EParameter returns ecore::EParameter:
 	'EParameter'
 	name=EString
 	'{'
-		('ordered' ordered=EBoolean)?
-		('unique' unique=EBoolean)?
-		('lowerBound' lowerBound=EInt)?
-		('upperBound' upperBound=EInt)?
-		('eType' eType=[ecore::EClassifier|EString])?
-		('eAnnotations' '{' eAnnotations+=EAnnotation ( "," eAnnotations+=EAnnotation)* '}' )?
-		('eGenericType' eGenericType=EGenericType)?
+	('ordered' ordered=EBoolean)?
+	('unique' unique=EBoolean)?
+	('lowerBound' lowerBound=EInt)?
+	('upperBound' upperBound=EInt)?
+	('eType' eType=[ecore::EClassifier|EString])?
+	('eAnnotations' '{' eAnnotations+=EAnnotation ("," eAnnotations+=EAnnotation)* '}')?
+	('eGenericType' eGenericType=EGenericType)?
 	'}';
 
 EAttribute returns ecore::EAttribute:
@@ -267,15 +253,15 @@ EAttribute returns ecore::EAttribute:
 	'EAttribute'
 	name=EString
 	'{'
-		('ordered' ordered=EBoolean)?
-		('unique' unique=EBoolean)?
-		('lowerBound' lowerBound=EInt)?
-		('upperBound' upperBound=EInt)?
-		('changeable' changeable=EBoolean)?
-		('defaultValueLiteral' defaultValueLiteral=EString)?
-		('eType' eType=[ecore::EClassifier|EString])?
-		('eAnnotations' '{' eAnnotations+=EAnnotation ( "," eAnnotations+=EAnnotation)* '}' )?
-		('eGenericType' eGenericType=EGenericType)?
+	('ordered' ordered=EBoolean)?
+	('unique' unique=EBoolean)?
+	('lowerBound' lowerBound=EInt)?
+	('upperBound' upperBound=EInt)?
+	('changeable' changeable=EBoolean)?
+	('defaultValueLiteral' defaultValueLiteral=EString)?
+	('eType' eType=[ecore::EClassifier|EString])?
+	('eAnnotations' '{' eAnnotations+=EAnnotation ("," eAnnotations+=EAnnotation)* '}')?
+	('eGenericType' eGenericType=EGenericType)?
 	'}';
 
 EReference returns ecore::EReference:
@@ -288,18 +274,18 @@ EReference returns ecore::EReference:
 	'EReference'
 	name=EString
 	'{'
-		('ordered' ordered=EBoolean)?
-		('unique' unique=EBoolean)?
-		('lowerBound' lowerBound=EInt)?
-		('upperBound' upperBound=EInt)?
-		('changeable' changeable=EBoolean)?
-		('defaultValueLiteral' defaultValueLiteral=EString)?
-		('resolveProxies' resolveProxies=EBoolean)?
-		('eType' eType=[ecore::EClassifier|EString])?
-		('eOpposite' eOpposite=[ecore::EReference|EString])?
-		('eKeys' '(' eKeys+=[ecore::EAttribute|EString] ( "," eKeys+=[ecore::EAttribute|EString])* ')' )?
-		('eAnnotations' '{' eAnnotations+=EAnnotation ( "," eAnnotations+=EAnnotation)* '}' )?
-		('eGenericType' eGenericType=EGenericType)?
+	('ordered' ordered=EBoolean)?
+	('unique' unique=EBoolean)?
+	('lowerBound' lowerBound=EInt)?
+	('upperBound' upperBound=EInt)?
+	('changeable' changeable=EBoolean)?
+	('defaultValueLiteral' defaultValueLiteral=EString)?
+	('resolveProxies' resolveProxies=EBoolean)?
+	('eType' eType=[ecore::EClassifier|EString])?
+	('eOpposite' eOpposite=[ecore::EReference|EString])?
+	('eKeys' '(' eKeys+=[ecore::EAttribute|EString] ("," eKeys+=[ecore::EAttribute|EString])* ')')?
+	('eAnnotations' '{' eAnnotations+=EAnnotation ("," eAnnotations+=EAnnotation)* '}')?
+	('eGenericType' eGenericType=EGenericType)?
 	'}';
 
 LiteralNull returns core::LiteralNull:
@@ -308,8 +294,7 @@ LiteralNull returns core::LiteralNull:
 
 LiteralString returns core::LiteralString:
 	{core::LiteralString}
-	value=STRING
-;
+	value=STRING;
 
 //LiteralInteger returns core::LiteralInteger:
 //	{core::LiteralInteger}
@@ -319,18 +304,13 @@ LiteralString returns core::LiteralString:
 //		('value' value=Integer)?
 //		// ('type' type=[ecore::EDataType|EString])?
 //	'}';
-
 LiteralBoolean returns core::LiteralBoolean:
 	{core::LiteralBoolean}
-	(value?='true' | 'false')
-	;
-	
-
+	(value?='true' | 'false');
 
 LiteralFloat returns core::LiteralFloat:
 	{core::LiteralFloat}
-	'f'INT '.' INT
-	;
+	'f' INT '.' INT;
 
 LiteralDouble returns core::LiteralDouble:
 	{core::LiteralDouble}
@@ -341,8 +321,8 @@ LiteralLong returns core::LiteralLong:
 	'LiteralLong'
 	name=EString
 	'{'
-		('value' value=Long)?
-		// ('type' type=[ecore::EDataType|EString])?
+	('value' value=Long)?
+	// ('type' type=[ecore::EDataType|EString])?
 	'}';
 
 LiteralShort returns core::LiteralShort:
@@ -350,8 +330,8 @@ LiteralShort returns core::LiteralShort:
 	'LiteralShort'
 	name=EString
 	'{'
-		('value' value=Short)?
-		// ('type' type=[ecore::EDataType|EString])?
+	('value' value=Short)?
+	// ('type' type=[ecore::EDataType|EString])?
 	'}';
 
 LiteralByte returns core::LiteralByte:
@@ -359,8 +339,8 @@ LiteralByte returns core::LiteralByte:
 	'LiteralByte'
 	name=EString
 	'{'
-		('value' value=Byte)?
-		// ('type' type=[ecore::EDataType|EString])?
+	('value' value=Byte)?
+	// ('type' type=[ecore::EDataType|EString])?
 	'}';
 
 LiteralCharacter returns core::LiteralCharacter:
@@ -368,8 +348,8 @@ LiteralCharacter returns core::LiteralCharacter:
 	'LiteralCharacter'
 	name=EString
 	'{'
-		('value' value=Character)?
-		// ('type' type=[ecore::EDataType|EString])?
+	('value' value=Character)?
+	// ('type' type=[ecore::EDataType|EString])?
 	'}';
 
 LiteralDate returns core::LiteralDate:
@@ -377,99 +357,95 @@ LiteralDate returns core::LiteralDate:
 	'LiteralDate'
 	name=EString
 	'{'
-		('value' value=Date)?
-		// ('type' type=[ecore::EDataType|EString])?
+	('value' value=Date)?
+	// ('type' type=[ecore::EDataType|EString])?
 	'}';
 
 String0 returns core::String:
-	'String' /* TODO: implement this rule and an appropriate IValueConverter */;
+	'String' /* TODO: implement this rule and an appropriate IValueConverter */ ;
 
 Integer returns core::Integer:
-	'Integer' /* TODO: implement this rule and an appropriate IValueConverter */;
+	'Integer' /* TODO: implement this rule and an appropriate IValueConverter */ ;
 
 Boolean returns core::Boolean:
-	'Boolean' /* TODO: implement this rule and an appropriate IValueConverter */;
+	'Boolean' /* TODO: implement this rule and an appropriate IValueConverter */ ;
 
 Float returns core::Float:
-	'Float' /* TODO: implement this rule and an appropriate IValueConverter */;
+	'Float' /* TODO: implement this rule and an appropriate IValueConverter */ ;
 
 Double returns core::Double:
-	'Double' /* TODO: implement this rule and an appropriate IValueConverter */;
+	'Double' /* TODO: implement this rule and an appropriate IValueConverter */ ;
 
 Long returns core::Long:
-	'Long' /* TODO: implement this rule and an appropriate IValueConverter */;
+	'Long' /* TODO: implement this rule and an appropriate IValueConverter */ ;
 
 Short returns core::Short:
-	'Short' /* TODO: implement this rule and an appropriate IValueConverter */;
+	'Short' /* TODO: implement this rule and an appropriate IValueConverter */ ;
 
 Byte returns core::Byte:
-	'Byte' /* TODO: implement this rule and an appropriate IValueConverter */;
+	'Byte' /* TODO: implement this rule and an appropriate IValueConverter */ ;
 
 Character returns core::Character:
-	'Character' /* TODO: implement this rule and an appropriate IValueConverter */;
+	'Character' /* TODO: implement this rule and an appropriate IValueConverter */ ;
 
 Date returns core::Date:
-	'Date' /* TODO: implement this rule and an appropriate IValueConverter */;
+	'Date' /* TODO: implement this rule and an appropriate IValueConverter */ ;
 
 Component_Impl returns Component:
 	{Component}
 	'component'
 	name=EString
 	'{'
-		('codeSpecification' codeSpecification=CodeSpecification)?
-		('mainResponsible' mainResponsible=[Person|EString])?
-		('specifiedInPackage' specifiedInPackage=[Package|EString])?
-		('parameters' '{' parameters+=Parameter ( "," parameters+=Parameter)* '}' )?
-		('components' '{' components+=Component ( "," components+=Component)* '}' )?
-		(pins+=Pin ( "," pins+=Pin)*)?
-		('runs' '{' execution=Execution '}' )?
+	('mainResponsible' mainResponsible=[Person|EString])?
+	('specifiedInPackage' specifiedInPackage=[Package|EString])?
+	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
+	('components' '{' components+=Component ("," components+=Component)* '}')?
+	(pins+=Pin ("," pins+=Pin)*)?
+	('runs' '{' execution=Execution '}')?
 	'}';
 
 Connector_Impl returns Connector:
 	'connector'
 	name=EString
-	 source=[Pin|EString] '->' target=[Pin|EString]
-	 	('{'
-		('parameters' '{' parameters+=Parameter ( "," parameters+=Parameter)* '}' )?
-		'}')?
-	 ;
+	source=[Pin|EString] '->' target=[Pin|EString]
+	('{'
+	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
+	'}')?;
 
 Sector returns Sector:
 	{Sector}
 	'sector'
 	name=EString
 	'{'
-		('components' '{' components+=Component ( "," components+=Component)* '}' )?
-		('sectors' '{' sectors+=Sector ( "," sectors+=Sector)* '}' )?
+	('components' '{' components+=Component ("," components+=Component)* '}')?
+	('sectors' '{' sectors+=Sector ("," sectors+=Sector)* '}')?
 	'}';
 
 Person returns Person:
 	'person'
 	name=EString
 	'{'
-		'surname' surname=EString
-		('department' department=EString)?
-		('pictureFileName' pictureFileName=EString)?
-		('responsibleForComponents' '(' responsibleForComponents+=[Component|EString] ( "," responsibleForComponents+=[Component|EString])* ')' )?
+	'surname' surname=EString
+	('department' department=EString)?
+	('pictureFileName' pictureFileName=EString)?
+	('responsibleForComponents' '(' responsibleForComponents+=[Component|EString] (","
+	responsibleForComponents+=[Component|EString])* ')')?
 	'}';
-
-CodeSpecification returns CodeSpecification:
-	'CodeSpecification' /* TODO: implement this rule and an appropriate IValueConverter */;
 
 MachineLearningComponent returns MachineLearningComponent:
 	{MachineLearningComponent}
 	'mlComponent'
 	name=EString
 	'{'
-		(pins+=Pin ( "," pins+=Pin)*)?
-		('codeSpecification' codeSpecification=CodeSpecification)?
-		('outputUncertainty' outputUncertainty=EDouble)?
-		('synchronous' synchronous=EBoolean)?
-		('numberOfServers' numberOfServers=EInt)?
-		('mainResponsible' mainResponsible=[Person|EString])?
-		('specifiedInPackage' specifiedInPackage=[Package|EString])?
-		('parameters' '{' parameters+=Parameter ( "," parameters+=Parameter)* '}' )?
-		('components' '{' components+=Component ( "," components+=Component)* '}' )?
+	(pins+=Pin ("," pins+=Pin)*)?
+	('outputUncertainty' outputUncertainty=EDouble)?
+	('synchronous' synchronous=EBoolean)?
+	('numberOfServers' numberOfServers=EInt)?
+	('mainResponsible' mainResponsible=[Person|EString])?
+	('specifiedInPackage' specifiedInPackage=[Package|EString])?
+	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
+	('components' '{' components+=Component ("," components+=Component)* '}')?
+	('runs' '{' execution=Execution '}')?
 	'}';
 
 PhysicalComponent_Impl returns PhysicalComponent:
@@ -477,12 +453,12 @@ PhysicalComponent_Impl returns PhysicalComponent:
 	'physicalComponent'
 	name=EString
 	'{'
-		pins+=Pin ( "," pins+=Pin)*
-		('codeSpecification' codeSpecification=CodeSpecification)?
-		('mainResponsible' mainResponsible=[Person|EString])?
-		('specifiedInPackage' specifiedInPackage=[Package|EString])?
-		('parameters' '{' parameters+=Parameter ( "," parameters+=Parameter)* '}' )?
-		('components' '{' components+=Component ( "," components+=Component)* '}' )?
+	pins+=Pin ("," pins+=Pin)*
+	('mainResponsible' mainResponsible=[Person|EString])?
+	('specifiedInPackage' specifiedInPackage=[Package|EString])?
+	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
+	('components' '{' components+=Component ("," components+=Component)* '}')?
+	('runs' '{' execution=Execution '}')?
 	'}';
 
 SoftwareComponent_Impl returns SoftwareComponent:
@@ -490,15 +466,15 @@ SoftwareComponent_Impl returns SoftwareComponent:
 	'softwareComponent'
 	name=EString
 	'{'
-		(pins+=Pin ( "," pins+=Pin)*)?
-		('codeSpecification' codeSpecification=CodeSpecification)?
-		('outputUncertainty' outputUncertainty=EDouble)?
-		('synchronous' synchronous=EBoolean)?
-		('numberOfServers' numberOfServers=EInt)?
-		('mainResponsible' mainResponsible=[Person|EString])?
-		('specifiedInPackage' specifiedInPackage=[Package|EString])?
-		('parameters' '{' parameters+=Parameter ( "," parameters+=Parameter)* '}' )?
-		('components' '{' components+=Component ( "," components+=Component)* '}' )?
+	(pins+=Pin ("," pins+=Pin)*)?
+	('outputUncertainty' outputUncertainty=EDouble)?
+	('synchronous' synchronous=EBoolean)?
+	('numberOfServers' numberOfServers=EInt)?
+	('mainResponsible' mainResponsible=[Person|EString])?
+	('specifiedInPackage' specifiedInPackage=[Package|EString])?
+	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
+	('components' '{' components+=Component ("," components+=Component)* '}')?
+	('runs' '{' execution=Execution '}')?
 	'}';
 
 Heuristic returns Heuristic:
@@ -506,15 +482,15 @@ Heuristic returns Heuristic:
 	'heuristic'
 	name=EString
 	'{'
-		(pins+=Pin ( "," pins+=Pin)*)?
-		('codeSpecification' codeSpecification=CodeSpecification)?
-		('outputUncertainty' outputUncertainty=EDouble)?
-		('synchronous' synchronous=EBoolean)?
-		('numberOfServers' numberOfServers=EInt)?
-		('mainResponsible' mainResponsible=[Person|EString])?
-		('specifiedInPackage' specifiedInPackage=[Package|EString])?
-		('parameters' '{' parameters+=Parameter ( "," parameters+=Parameter)* '}' )?
-		('components' '{' components+=Component ( "," components+=Component)* '}' )?
+	(pins+=Pin ("," pins+=Pin)*)?
+	('outputUncertainty' outputUncertainty=EDouble)?
+	('synchronous' synchronous=EBoolean)?
+	('numberOfServers' numberOfServers=EInt)?
+	('mainResponsible' mainResponsible=[Person|EString])?
+	('specifiedInPackage' specifiedInPackage=[Package|EString])?
+	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
+	('components' '{' components+=Component ("," components+=Component)* '}')?
+	('runs' '{' execution=Execution '}')?
 	'}';
 
 Function returns Function:
@@ -522,15 +498,15 @@ Function returns Function:
 	'function'
 	name=EString
 	'{'
-		(pins+=Pin ( "," pins+=Pin)*)?
-		('codeSpecification' codeSpecification=CodeSpecification)?
-		('outputUncertainty' outputUncertainty=EDouble)?
-		('synchronous' synchronous=EBoolean)?
-		('numberOfServers' numberOfServers=EInt)?
-		('mainResponsible' mainResponsible=[Person|EString])?
-		('specifiedInPackage' specifiedInPackage=[Package|EString])?
-		('parameters' '{' parameters+=Parameter ( "," parameters+=Parameter)* '}' )?
-		('components' '{' components+=Component ( "," components+=Component)* '}' )?
+	(pins+=Pin ("," pins+=Pin)*)?
+	('outputUncertainty' outputUncertainty=EDouble)?
+	('synchronous' synchronous=EBoolean)?
+	('numberOfServers' numberOfServers=EInt)?
+	('mainResponsible' mainResponsible=[Person|EString])?
+	('specifiedInPackage' specifiedInPackage=[Package|EString])?
+	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
+	('components' '{' components+=Component ("," components+=Component)* '}')?
+	('runs' '{' execution=Execution '}')?
 	'}';
 
 ExternalDependency returns ExternalDependency:
@@ -538,28 +514,28 @@ ExternalDependency returns ExternalDependency:
 	'externalDependency'
 	name=EString
 	'{'
-		(pins+=Pin ( "," pins+=Pin)*)?
-		('codeSpecification' codeSpecification=CodeSpecification)?
-		('outputUncertainty' outputUncertainty=EDouble)?
-		('synchronous' synchronous=EBoolean)?
-		('numberOfServers' numberOfServers=EInt)?
-		('mainResponsible' mainResponsible=[Person|EString])?
-		('specifiedInPackage' specifiedInPackage=[Package|EString])?
-		('parameters' '{' parameters+=Parameter ( "," parameters+=Parameter)* '}' )?
-		('components' '{' components+=Component ( "," components+=Component)* '}' )?
+	(pins+=Pin ("," pins+=Pin)*)?
+	('outputUncertainty' outputUncertainty=EDouble)?
+	('synchronous' synchronous=EBoolean)?
+	('numberOfServers' numberOfServers=EInt)?
+	('mainResponsible' mainResponsible=[Person|EString])?
+	('specifiedInPackage' specifiedInPackage=[Package|EString])?
+	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
+	('components' '{' components+=Component ("," components+=Component)* '}')?
+	('runs' '{' execution=Execution '}')?
 	'}';
 
 Sensor returns Sensor:
 	'sensor'
 	name=EString
 	'{'
-		(pins+=Pin ( "," pins+=Pin)*)?
-		('codeSpecification' codeSpecification=CodeSpecification)?
-		'timeFunction' timeFunction=TimeFunction
-		('mainResponsible' mainResponsible=[Person|EString])?
-		('specifiedInPackage' specifiedInPackage=[Package|EString])?
-		('parameters' '{' parameters+=Parameter ( "," parameters+=Parameter)* '}' )?
-		('components' '{' components+=Component ( "," components+=Component)* '}' )?
+	(pins+=Pin ("," pins+=Pin)*)?
+	//'timeFunction' timeFunction=TimeFunction
+	('mainResponsible' mainResponsible=[Person|EString])?
+	('specifiedInPackage' specifiedInPackage=[Package|EString])?
+	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
+	('components' '{' components+=Component ("," components+=Component)* '}')?
+	('runs' '{' execution=Execution '}')?
 	'}';
 
 Actuator returns Actuator:
@@ -567,51 +543,50 @@ Actuator returns Actuator:
 	'actuator'
 	name=EString
 	'{'
-		(pins+=Pin ( "," pins+=Pin)*)?
-		('codeSpecification' codeSpecification=CodeSpecification)?
-		('mainResponsible' mainResponsible=[Person|EString])?
-		('specifiedInPackage' specifiedInPackage=[Package|EString])?
-		('parameters' '{' parameters+=Parameter ( "," parameters+=Parameter)* '}' )?
-		('components' '{' components+=Component ( "," components+=Component)* '}' )?
+	(pins+=Pin ("," pins+=Pin)*)?
+	('mainResponsible' mainResponsible=[Person|EString])?
+	('specifiedInPackage' specifiedInPackage=[Package|EString])?
+	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
+	('components' '{' components+=Component ("," components+=Component)* '}')?
+	('runs' '{' execution=Execution '}')?
 	'}';
 
 enum RaceSemantic returns RaceSemantic:
-				FCFS = 'FCFS' | DUPLICATE = 'DUPLICATE' | MERGE = 'MERGE' | MERGE_AND_DUPLICATE = 'MERGE_AND_DUPLICATE';
+	FCFS='FCFS' | DUPLICATE='DUPLICATE' | MERGE='MERGE' | MERGE_AND_DUPLICATE='MERGE_AND_DUPLICATE';
 
 InputPin returns InputPin:
 	{InputPin}
-	'in' (stream?='stream')? 
+	'in' (stream?='stream')?
 	(type=[core::TypeSpecification])?
-	name=EString //(':' type=[ecore::EDataType|EString])?
+	name=EString // (':' type=[ecore::EDataType|EString])?
 	('{'
-		('raceSemantic' raceSemantic=RaceSemantic)?
-		('queueType' queueType=QueueType)?
-
-		//('outgoingConnectors' '(' outgoingConnectors+=[Connector|EString] ( "," outgoingConnectors+=[Connector|EString])* ')' )?
-		//('incomingConnectors' '(' incomingConnectors+=[Connector|EString] ( "," incomingConnectors+=[Connector|EString])* ')' )?
-		('parameters' '{' parameters+=Parameter ( "," parameters+=Parameter)* '}' )?
+	('raceSemantic' raceSemantic=RaceSemantic)?
+	('queueType' queueType=QueueType)?
+	// ('outgoingConnectors' '(' outgoingConnectors+=[Connector|EString] ( "," outgoingConnectors+=[Connector|EString])* ')' )?
+	// ('incomingConnectors' '(' incomingConnectors+=[Connector|EString] ( "," incomingConnectors+=[Connector|EString])* ')' )?
+	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
 	'}')?;
 
 OutputPin returns OutputPin:
 	{OutputPin}
-	'out' 	(stream?='stream')?
+	'out' (stream?='stream')?
 	(type=[core::TypeSpecification])?
-	name=EString //(':' type=[ecore::EDataType])?
+	name=EString // (':' type=[ecore::EDataType])?
 	('{'
-		('raceSemantic' raceSemantic=RaceSemantic)?
-		//('outgoingConnectors' '(' outgoingConnectors+=[Connector|EString] ( "," outgoingConnectors+=[Connector|EString])* ')' )?
-		//('incomingConnectors' '(' incomingConnectors+=[Connector|EString] ( "," incomingConnectors+=[Connector|EString])* ')' )?
-		('parameters' '{' parameters+=Parameter ( "," parameters+=Parameter)* '}' )?
+	('raceSemantic' raceSemantic=RaceSemantic)?
+	// ('outgoingConnectors' '(' outgoingConnectors+=[Connector|EString] ( "," outgoingConnectors+=[Connector|EString])* ')' )?
+	// ('incomingConnectors' '(' incomingConnectors+=[Connector|EString] ( "," incomingConnectors+=[Connector|EString])* ')' )?
+	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
 	'}')?;
 
 enum QueueType returns QueueType:
-				FIFO = 'FIFO' | LIFO = 'LIFO' | RANDOM = 'RANDOM' | LATEST_ONLY = 'LATEST_ONLY' | STORE = 'STORE';
+	FIFO='FIFO' | LIFO='LIFO' | RANDOM='RANDOM' | LATEST_ONLY='LATEST_ONLY' | STORE='STORE';
 
 EDouble returns ecore::EDouble:
-	'-'? INT? '.' INT (('E'|'e') '-'? INT)?;
+	'-'? INT? '.' INT (('E' | 'e') '-'? INT)?;
 
 TimeFunction returns TimeFunction:
-	'TimeFunction' /* TODO: implement this rule and an appropriate IValueConverter */;
+	'TimeFunction' /* TODO: implement this rule and an appropriate IValueConverter */ ;
 
 PhysicalConnector returns PhysicalConnector:
 	'physicalConnector'
@@ -619,22 +594,22 @@ PhysicalConnector returns PhysicalConnector:
 	source=[Pin|EString] '->'
 	target=[Pin|EString]
 	('{'
-		('minSpeed' minSpeed=Connectionspeed)?
-		('maxSpeed' maxSpeed=Connectionspeed)?
-		('parameters' '{' parameters+=Parameter ( "," parameters+=Parameter)* '}' )?
+	('minSpeed' minSpeed=Connectionspeed)?
+	('maxSpeed' maxSpeed=Connectionspeed)?
+	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
 	'}')?;
 
 LogicalConnector returns LogicalConnector:
 	'logicalConnector'
 	'source' source=[Pin|EString]
-'target' target=[Pin|EString]
+	'target' target=[Pin|EString]
 	name=EString
 	('{'
-		('parameters' '{' parameters+=Parameter ( "," parameters+=Parameter)* '}' )?
+	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
 	'}')?;
 
 Connectionspeed returns Connectionspeed:
-	'Connectionspeed' /* TODO: implement this rule and an appropriate IValueConverter */;
+	'Connectionspeed' /* TODO: implement this rule and an appropriate IValueConverter */ ;
 
 Human_Impl returns Human:
 	{Human}
@@ -649,135 +624,118 @@ Robot returns Robot:
 /* EXECUTION */
 Execution returns execution::Execution:
 	{execution::Execution}
-	elements += Elements+
-;
+	elements+=Elements+;
 
 Elements returns execution::Element:
-	Flow | ConnectableNode | Addition | Variable | Const
-;
+	Flow | ConnectableNode | Addition | Variable | Const | Assignment;
 
-ConnectableNode returns execution::ConnectableNode: 
-	FlowFinal | ForkNode | MergeNode //TODO
+ConnectableNode returns execution::ConnectableNode:
+	FlowFinal | ForkNode | MergeNode // TODO
 ;
-
 
 Flow returns execution::Flow:
-	source=[execution::ConnectableNode] '->' target=[execution::ConnectableNode] ('takes' timeFunction=ComplexTimefunction )?';'
-;
+	source=[execution::ConnectableNode] '->' target=[execution::ConnectableNode] ('takes'
+	timeFunction=ComplexTimefunction)?';';
 
 ComplexTimefunction returns execution::TimeFunction: //TODO, allow operations
-	ExeTimeFunction
-;
+	ExeTimeFunction;
 
 ExeTimeFunction returns execution::TimeFunction:
 	{execution::TimeFunction}
-	function=TimeFunctions '(' par1=EDouble (',' par2=EDouble)? ')'
-;
+	function=TimeFunctions '(' par1=EDouble (',' par2=EDouble)? ')';
 
 enum TimeFunctions returns execution::TimeFunctions:
-				Det = 'Det' | Exp = 'Exp' | Uni = 'Uni' | DUni = 'DUni' | Norm = 'Norm' | LogNorm = 'LogNorm' | Wei = 'Wei' | DUni = 'Triang';
+	Det='Det' | Exp='Exp' | Uni='Uni' | DUni='DUni' | Norm='Norm' | LogNorm='LogNorm' | Wei='Wei' | DUni='Triang';
 
 FlowFinal returns execution::FlowFinal:
-	{execution::FlowFinal} 
-	source=[execution::ConnectableNode] '->' 'discard'';'
-;
+	{execution::FlowFinal}
+	source=[execution::ConnectableNode] '->' 'discard' ';';
 
 ForkNode returns execution::ForkNode:
-	'fork' source=[execution::ConnectableNode] '{' 
-		targets += [execution::ConnectableNode] ( "," targets+=[execution::ConnectableNode])*
-		('takes' timeFunction=ComplexTimefunction )?
-	'}'
-;
+	'fork' source=[execution::ConnectableNode] '{'
+	targets+=[execution::ConnectableNode] ("," targets+=[execution::ConnectableNode])*
+	('takes' timeFunction=ComplexTimefunction)?
+	'}';
 
 MergeNode returns execution::MergeNode:
-	'join' '{' 
-		sources += [execution::ConnectableNode] ( "," sources+=[execution::ConnectableNode])*
-		('takes' timeFunction=ComplexTimefunction )?
-	'}' 'to' target=[execution::ConnectableNode]
-;
+	'join' '{'
+	sources+=[execution::ConnectableNode] ("," sources+=[execution::ConnectableNode])*
+	('takes' timeFunction=ComplexTimefunction)?
+	'}' 'to' target=[execution::ConnectableNode];
 
 Expression returns execution::Expression:
-	Addition
-;
+	Addition;
 
-UnaryExpression returns execution::Expression:
-	ValueSpecification | VariableRef
-;
+//UnaryExpression returns execution::Expression:
+//	ValueSpecification | VariableRef;
 
 Addition returns execution::Expression:
 	{execution::Addition}
-  left=Multiplication (
-  	{execution::Addition.left=current} 
-  	(addition?='+'|subtraction?='-')
-  	 right=Multiplication
-  )*
-  ;
-  
+	left=Multiplication ({execution::Addition.left=current}
+	(addition?='+' | subtraction?='-')
+	right=Multiplication)*;
+
 Multiplication returns execution::Expression:
 	{execution::Multiplication}
-  left=Primary (
-  	{execution::Multiplication.left=current} 
-  	(multiplication?='*'|division?='/')
-  	 right=Primary
-  )*
-  ;
-  
-Primary returns execution::Expression:
-  ValueSpecification | VariableRef |
-  '(' Addition ')';
-  
-LiteralInteger returns core::LiteralInteger:
-  value=INT
-  ;
-  
- Variable returns execution::Variable:
- 	'var' name=ID ('=' expression = Expression)? ';'
- ;
- 
- Const returns execution::Const:
- 	'const' name=ID ('=' expression = Expression)? ';'
- ;
- 
-//Assignment returns execution::Assignment:
-// 	target=[execution::Variable] '=' Expression ';'
-//;
- 
- VariableRef returns execution::VariableRef:
- 	{execution::VariableRef}
- 	variable=[execution::Variable]
- ;
- 
- /* TYPES */
- TypeSpecification returns core::TypeSpecification:
- 	{core::TypeSpecification}
- 	(abstract?='abstract')? 'type' name=ID ('extends' superType=[core::TypeSpecification])? '{' (attributes+= AttributeSpecification (',' attributes += AttributeSpecification)*)?'}'
- ;
- 
- AttributeSpecification returns core::AttributeSpecification:
- 	IntegerAttribute | DoubleAttribute | StringAttribute | BooleanAttribute | ClassAttribute
- ;
- 
- IntegerAttribute returns core::IntegerAttribute:
- 	{core::IntegerAttribute}
- 	'int' name=ID ('=' defaultValue=EInt)?
- ;
- 
- DoubleAttribute returns core::DoubleAttribute:
- 	{core::DoubleAttribute}
- 	'double' (array?='['']')? name=ID ('=' defaultValue=EDouble)?
- ;
- 
- StringAttribute returns core::StringAttribute:
- 	{core::StringAttribute}
- 	'string' (array?='['']')? name=ID ('=' defaultValue=EString)?
- ;
- 
-BooleanAttribute returns core::BooleanAttribute:
- 	{core::BooleanAttribute}
- 	'boolean' (array?='['']')? name=ID ('=' defaultValue=EBoolean)?
+	left=Primary ({execution::Multiplication.left=current}
+	(multiplication?='*' | division?='/')
+	right=Primary)*;
+	
+AssignableElement returns execution::AssignableElement:
+	Variable | OutputPin
 ;
 
+Primary returns execution::Expression:
+	ValueSpecification | VariableRef |
+	'(' Addition ')';
+	
+LiteralInteger returns core::LiteralInteger:
+	value=INT;
+
+Variable returns execution::Variable:
+	'var' name=ID ('=' expression=Expression)? ';';
+
+Const returns execution::Const:
+	'const' name=ID ('=' expression=Expression)? ';';
+
+Assignment returns execution::Assignment:
+ 	target=AssignableElementReference '=' expression=Expression ';'
+;
+
+AssignableElementReference returns execution::AssignableElementReference:
+	ref=[execution::AssignableElement]
+;
+
+
+VariableRef returns execution::VariableRef:
+	{execution::VariableRef}
+	variable=[execution::Variable];
+
+/* TYPES */
+TypeSpecification returns core::TypeSpecification:
+	{core::TypeSpecification}
+	(abstract?='abstract')? 'type' name=ID ('extends' superType=[core::TypeSpecification])? '{'
+	(attributes+=AttributeSpecification (',' attributes+=AttributeSpecification)*)?'}';
+
+AttributeSpecification returns core::AttributeSpecification:
+	IntegerAttribute | DoubleAttribute | StringAttribute | BooleanAttribute | ClassAttribute;
+
+IntegerAttribute returns core::IntegerAttribute:
+	{core::IntegerAttribute}
+	'int' name=ID ('=' defaultValue=EInt)?;
+
+DoubleAttribute returns core::DoubleAttribute:
+	{core::DoubleAttribute}
+	'double' (array?='[' ']')? name=ID ('=' defaultValue=EDouble)?;
+
+StringAttribute returns core::StringAttribute:
+	{core::StringAttribute}
+	'string' (array?='[' ']')? name=ID ('=' defaultValue=EString)?;
+
+BooleanAttribute returns core::BooleanAttribute:
+	{core::BooleanAttribute}
+	'boolean' (array?='[' ']')? name=ID ('=' defaultValue=EBoolean)?;
+
 ClassAttribute returns core::ClassAttribute:
- 	{core::ClassAttribute}
- 	type=[core::TypeSpecification] (array?='['']')? name=ID
- ;
+	{core::ClassAttribute}
+	type=[core::TypeSpecification] (array?='[' ']')? name=ID;

@@ -8,15 +8,15 @@ import e4sm.de.metamodel.e4sm.Model
 import e4sm.de.metamodel.xtext.services.E4smGrammarAccess
 import org.eclipse.xtext.formatting2.AbstractFormatter2
 import org.eclipse.xtext.formatting2.IFormattableDocument
+
 //import org.eclipse.emf.ecore.EObject
 //import org.eclipse.xtext.formatting2.ITextReplacer
 //import org.eclipse.xtext.formatting2.internal.HiddenRegionReplacer
 //import org.eclipse.xtext.formatting2.IHiddenRegionFormatting
-
 class E4smFormatter extends AbstractFormatter2 {
 
 	@Inject extension E4smGrammarAccess
-	
+
 //	def protected void formatIntoSingleLine(IFormattableDocument doc, EObject obj) {
 //		doc.formatter.format(obj, doc.withReplacerFilter[suppressLineWraps(it); true])
 //	}
@@ -36,7 +36,6 @@ class E4smFormatter extends AbstractFormatter2 {
 //		newLinesMax = null
 //		autowrap = null
 //	}
-
 	def dispatch void format(Model model, extension IFormattableDocument doc) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
 		for (_package : model.packages) {
@@ -68,16 +67,32 @@ class E4smFormatter extends AbstractFormatter2 {
 	}
 
 	def dispatch void format(e4sm.de.metamodel.e4sm.Component _component, extension IFormattableDocument doc) {
+		_component.regionFor.keyword('component').prepend[newLine]
+		_component.regionFor.keyword('actuator').prepend[newLine]
+		_component.regionFor.keyword('sensor').prepend[newLine]
+		_component.regionFor.keyword('mlComponent').prepend[newLine]
+		_component.regionFor.keyword('physicalComponent').prepend[newLine]
+		_component.regionFor.keyword('softwareComponent').prepend[newLine]
+		_component.regionFor.keyword('heuristic').prepend[newLine]
+		_component.regionFor.keyword('function').prepend[newLine]
+		_component.regionFor.keyword('externalDependency').prepend[newLine]
+		
+		
 		_component.regionFor.keyword('{').prepend[space = " "]
 		interior(
 			_component.regionFor.keyword('{').append[newLine],
-			_component.regionFor.keyword('}'),
+			_component.regionFor.keyword('}').prepend[newLine],
 			[indent]
 		)
 
 		for (pin : _component.pins) {
 			pin.format(doc)
 			pin.prepend[indent]
+		}
+		
+		for(childComponent : _component.components){
+			childComponent.format(doc)
+			childComponent.prepend[indent]
 		}
 	}
 
@@ -90,9 +105,9 @@ class E4smFormatter extends AbstractFormatter2 {
 		close.prepend[newLine]
 		interior(open, close)[indent]
 	}
-	
+
 	def dispatch void format(e4sm.de.metamodel.e4sm.Connector _connector, extension IFormattableDocument doc) {
-		//formatIntoSingleLine(doc, _connector);
+		// formatIntoSingleLine(doc, _connector);
 		_connector.regionFor.keyword('connector').prepend[newLine].append[oneSpace]
 		_connector.regionFor.keyword(',').surround[noSpace]
 	}

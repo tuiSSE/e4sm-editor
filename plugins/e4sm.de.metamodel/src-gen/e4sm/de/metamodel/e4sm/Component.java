@@ -28,7 +28,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link e4sm.de.metamodel.e4sm.Component#getPins <em>Pins</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Component#getMainResponsible <em>Main Responsible</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Component#getSpecifiedInPackage <em>Specified In Package</em>}</li>
- *   <li>{@link e4sm.de.metamodel.e4sm.Component#getCodeSpecification <em>Code Specification</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Component#getExecution <em>Execution</em>}</li>
  * </ul>
  *
@@ -122,28 +121,6 @@ public interface Component extends NamedElement, ParameterizableElement {
 	 * @generated
 	 */
 	void setSpecifiedInPackage(e4sm.de.metamodel.e4sm.Package value);
-
-	/**
-	 * Returns the value of the '<em><b>Code Specification</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Code Specification</em>' attribute.
-	 * @see #setCodeSpecification(String)
-	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getComponent_CodeSpecification()
-	 * @model dataType="e4sm.de.metamodel.e4sm.CodeSpecification"
-	 * @generated
-	 */
-	String getCodeSpecification();
-
-	/**
-	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.Component#getCodeSpecification <em>Code Specification</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Code Specification</em>' attribute.
-	 * @see #getCodeSpecification()
-	 * @generated
-	 */
-	void setCodeSpecification(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Execution</b></em>' containment reference.

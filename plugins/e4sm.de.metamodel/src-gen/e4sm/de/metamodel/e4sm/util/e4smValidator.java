@@ -197,8 +197,6 @@ public class e4smValidator extends EObjectValidator {
 			return validateJSON((String) value, diagnostics, context);
 		case e4smPackage.TIME_FUNCTION:
 			return validateTimeFunction((String) value, diagnostics, context);
-		case e4smPackage.CODE_SPECIFICATION:
-			return validateCodeSpecification((String) value, diagnostics, context);
 		default:
 			return true;
 		}
@@ -1213,42 +1211,6 @@ public class e4smValidator extends EObjectValidator {
 								new Object[] { "TimeFunctionIsValid",
 										getValueLabel(e4smPackage.Literals.TIME_FUNCTION, timeFunction, context) },
 								new Object[] { timeFunction }, context));
-			}
-			return false;
-		}
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateCodeSpecification(String codeSpecification, DiagnosticChain diagnostics,
-			Map<Object, Object> context) {
-		boolean result = validateCodeSpecification_CodeSpecificationIsValid(codeSpecification, diagnostics, context);
-		return result;
-	}
-
-	/**
-	 * Validates the CodeSpecificationIsValid constraint of '<em>Code Specification</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateCodeSpecification_CodeSpecificationIsValid(String codeSpecification,
-			DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO implement the constraint
-		// -> specify the condition that violates the constraint
-		// -> verify the diagnostic details, including severity, code, and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
-			if (diagnostics != null) {
-				diagnostics.add(createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0,
-						"_UI_GenericConstraint_diagnostic",
-						new Object[] { "CodeSpecificationIsValid",
-								getValueLabel(e4smPackage.Literals.CODE_SPECIFICATION, codeSpecification, context) },
-						new Object[] { codeSpecification }, context));
 			}
 			return false;
 		}

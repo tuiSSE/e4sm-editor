@@ -20,7 +20,6 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -54,7 +53,6 @@ public class ComponentItemProvider extends NamedElementItemProvider {
 			addComponentsPropertyDescriptor(object);
 			addMainResponsiblePropertyDescriptor(object);
 			addSpecifiedInPackagePropertyDescriptor(object);
-			addCodeSpecificationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -102,22 +100,6 @@ public class ComponentItemProvider extends NamedElementItemProvider {
 						getString("_UI_PropertyDescriptor_description", "_UI_Component_specifiedInPackage_feature",
 								"_UI_Component_type"),
 						e4smPackage.Literals.COMPONENT__SPECIFIED_IN_PACKAGE, true, false, true, null, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Code Specification feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addCodeSpecificationPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Component_codeSpecification_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Component_codeSpecification_feature",
-								"_UI_Component_type"),
-						e4smPackage.Literals.COMPONENT__CODE_SPECIFICATION, true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -199,9 +181,6 @@ public class ComponentItemProvider extends NamedElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Component.class)) {
-		case e4smPackage.COMPONENT__CODE_SPECIFICATION:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-			return;
 		case e4smPackage.COMPONENT__PARAMETERS:
 		case e4smPackage.COMPONENT__COMPONENTS:
 		case e4smPackage.COMPONENT__PINS:

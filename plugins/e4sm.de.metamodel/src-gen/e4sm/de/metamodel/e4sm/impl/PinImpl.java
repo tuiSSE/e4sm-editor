@@ -35,24 +35,20 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link e4sm.de.metamodel.e4sm.impl.PinImpl#getParameters
- * <em>Parameters</em>}</li>
- * <li>{@link e4sm.de.metamodel.e4sm.impl.PinImpl#getName <em>Name</em>}</li>
- * <li>{@link e4sm.de.metamodel.e4sm.impl.PinImpl#getType <em>Type</em>}</li>
- * <li>{@link e4sm.de.metamodel.e4sm.impl.PinImpl#isGatewayPin <em>Gateway
- * Pin</em>}</li>
- * <li>{@link e4sm.de.metamodel.e4sm.impl.PinImpl#isStream <em>Stream</em>}</li>
- * <li>{@link e4sm.de.metamodel.e4sm.impl.PinImpl#getRaceSemantic <em>Race
- * Semantic</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.PinImpl#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.PinImpl#getName <em>Name</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.PinImpl#getType <em>Type</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.PinImpl#isGatewayPin <em>Gateway Pin</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.PinImpl#isStream <em>Stream</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.PinImpl#getRaceSemantic <em>Race Semantic</em>}</li>
  * </ul>
  *
  * @generated
  */
 public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pin {
 	/**
-	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}'
-	 * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getParameters()
 	 * @generated
 	 * @ordered
@@ -90,9 +86,8 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 	protected TypeSpecification type;
 
 	/**
-	 * The default value of the '{@link #isGatewayPin() <em>Gateway Pin</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #isGatewayPin() <em>Gateway Pin</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isGatewayPin()
 	 * @generated
 	 * @ordered
@@ -102,7 +97,6 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 	/**
 	 * The default value of the '{@link #isStream() <em>Stream</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @see #isStream()
 	 * @generated
 	 * @ordered
@@ -120,9 +114,8 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 	protected boolean stream = STREAM_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getRaceSemantic() <em>Race Semantic</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getRaceSemantic() <em>Race Semantic</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getRaceSemantic()
 	 * @generated
 	 * @ordered
@@ -130,9 +123,8 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 	protected static final RaceSemantic RACE_SEMANTIC_EDEFAULT = RaceSemantic.MERGE_AND_DUPLICATE;
 
 	/**
-	 * The cached value of the '{@link #getRaceSemantic() <em>Race Semantic</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getRaceSemantic() <em>Race Semantic</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getRaceSemantic()
 	 * @generated
 	 * @ordered
@@ -141,7 +133,6 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected PinImpl() {
@@ -150,7 +141,6 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -160,7 +150,6 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -173,7 +162,6 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -183,7 +171,6 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -196,7 +183,6 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -214,7 +200,6 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public TypeSpecification basicGetType() {
@@ -223,7 +208,6 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -252,12 +236,11 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 			currentElement = currentElement.eContainer();
 		}
 		// No containing package found
-		if (container == null)
-		{
+		if (container == null) {
 			System.err.println("Warning: no containing package found for this pin");
 			return null;
 		}
-		
+
 		container.getConnectors().stream().forEach(c -> {
 			if (c.getSource().equals(this))
 				resultList.add(c);
@@ -283,8 +266,7 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 			currentElement = currentElement.eContainer();
 		}
 		// No containing package found
-		if (container == null)
-		{
+		if (container == null) {
 			System.err.println("Warning: no containing package found for this pin");
 			return null;
 		}
@@ -298,7 +280,6 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -308,7 +289,6 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -318,7 +298,6 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -331,7 +310,6 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -341,7 +319,6 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -355,7 +332,6 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -367,7 +343,6 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -381,7 +356,6 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -407,7 +381,6 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -436,7 +409,6 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -463,7 +435,6 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -487,7 +458,6 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -531,7 +501,6 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -575,7 +544,6 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -593,7 +561,6 @@ public abstract class PinImpl extends MinimalEObjectImpl.Container implements Pi
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
