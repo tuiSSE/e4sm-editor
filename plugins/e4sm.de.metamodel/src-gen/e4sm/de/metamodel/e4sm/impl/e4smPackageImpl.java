@@ -5,6 +5,7 @@ package e4sm.de.metamodel.e4sm.impl;
 import e4sm.de.metamodel.e4sm.Actor;
 import e4sm.de.metamodel.e4sm.Actuator;
 import e4sm.de.metamodel.e4sm.Component;
+import e4sm.de.metamodel.e4sm.ComponentFiringStrategy;
 import e4sm.de.metamodel.e4sm.Connector;
 import e4sm.de.metamodel.e4sm.ConversionByConvention;
 import e4sm.de.metamodel.e4sm.ConversionByPrefix;
@@ -294,6 +295,13 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EEnum componentFiringStrategyEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EDataType connectionspeedEDataType = null;
 
 	/**
@@ -475,6 +483,16 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	@Override
 	public EReference getComponent_Execution() {
 		return (EReference) componentEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getComponent_FiringStrategy() {
+		return (EAttribute) componentEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -1063,6 +1081,16 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getInputPin_Collect() {
+		return (EAttribute) inputPinEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getInputPin__ComputeName() {
 		return inputPinEClass.getEOperations().get(0);
 	}
@@ -1075,6 +1103,16 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	@Override
 	public EClass getOutputPin() {
 		return outputPinEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getOutputPin_Amplify() {
+		return (EAttribute) outputPinEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1313,6 +1351,16 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
+	public EEnum getComponentFiringStrategy() {
+		return componentFiringStrategyEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EDataType getConnectionspeed() {
 		return connectionspeedEDataType;
 	}
@@ -1373,6 +1421,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		createEReference(componentEClass, COMPONENT__MAIN_RESPONSIBLE);
 		createEReference(componentEClass, COMPONENT__SPECIFIED_IN_PACKAGE);
 		createEReference(componentEClass, COMPONENT__EXECUTION);
+		createEAttribute(componentEClass, COMPONENT__FIRING_STRATEGY);
 		createEOperation(componentEClass, COMPONENT___COMPUTE_MAIN_RESPONSIBLE);
 		createEOperation(componentEClass, COMPONENT___NEW_OPERATION2);
 
@@ -1450,9 +1499,11 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 
 		inputPinEClass = createEClass(INPUT_PIN);
 		createEAttribute(inputPinEClass, INPUT_PIN__QUEUE_TYPE);
+		createEAttribute(inputPinEClass, INPUT_PIN__COLLECT);
 		createEOperation(inputPinEClass, INPUT_PIN___COMPUTE_NAME);
 
 		outputPinEClass = createEClass(OUTPUT_PIN);
+		createEAttribute(outputPinEClass, OUTPUT_PIN__AMPLIFY);
 		createEOperation(outputPinEClass, OUTPUT_PIN___COMPUTE_NAME);
 
 		personEClass = createEClass(PERSON);
@@ -1487,6 +1538,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		// Create enums
 		queueTypeEEnum = createEEnum(QUEUE_TYPE);
 		raceSemanticEEnum = createEEnum(RACE_SEMANTIC);
+		componentFiringStrategyEEnum = createEEnum(COMPONENT_FIRING_STRATEGY);
 
 		// Create data types
 		connectionspeedEDataType = createEDataType(CONNECTIONSPEED);
@@ -1522,6 +1574,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		CorePackage theCorePackage = (CorePackage) EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
 		ExecutionPackage theExecutionPackage = (ExecutionPackage) EPackage.Registry.INSTANCE
 				.getEPackage(ExecutionPackage.eNS_URI);
+		EcorePackage theEcorePackage = (EcorePackage) EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
 
 		// Create type parameters
 
@@ -1555,6 +1608,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		pinEClass.getESuperTypes().add(theCorePackage.getTypedElement());
 		inputPinEClass.getESuperTypes().add(this.getPin());
 		outputPinEClass.getESuperTypes().add(this.getPin());
+		outputPinEClass.getESuperTypes().add(theExecutionPackage.getAssignableElement());
 		personEClass.getESuperTypes().add(this.getHuman());
 		simpleUnitEClass.getESuperTypes().add(this.getMeasurementUnit());
 		derivedUnitEClass.getESuperTypes().add(this.getMeasurementUnit());
@@ -1579,6 +1633,9 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		initEReference(getComponent_Execution(), theExecutionPackage.getExecution(), null, "execution", null, 0, 1,
 				Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getComponent_FiringStrategy(), this.getComponentFiringStrategy(), "firingStrategy", "AND", 1, 1,
+				Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getComponent__ComputeMainResponsible(), this.getPerson(), "computeMainResponsible", 0, 1,
 				IS_UNIQUE, IS_ORDERED);
@@ -1742,12 +1799,16 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 				IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getInputPin_QueueType(), this.getQueueType(), "queueType", null, 0, 1, InputPin.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getInputPin_Collect(), theEcorePackage.getEInt(), "collect", "1", 0, 1, InputPin.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getInputPin__ComputeName(), ecorePackage.getEString(), "computeName", 0, 1, IS_UNIQUE,
 				IS_ORDERED);
 
 		initEClass(outputPinEClass, OutputPin.class, "OutputPin", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getOutputPin_Amplify(), theEcorePackage.getEInt(), "amplify", "1", 0, 1, OutputPin.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getOutputPin__ComputeName(), ecorePackage.getEString(), "computeName", 0, 1, IS_UNIQUE,
 				IS_ORDERED);
@@ -1820,6 +1881,10 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		addEEnumLiteral(raceSemanticEEnum, RaceSemantic.DUPLICATE);
 		addEEnumLiteral(raceSemanticEEnum, RaceSemantic.MERGE);
 		addEEnumLiteral(raceSemanticEEnum, RaceSemantic.MERGE_AND_DUPLICATE);
+
+		initEEnum(componentFiringStrategyEEnum, ComponentFiringStrategy.class, "ComponentFiringStrategy");
+		addEEnumLiteral(componentFiringStrategyEEnum, ComponentFiringStrategy.AND);
+		addEEnumLiteral(componentFiringStrategyEEnum, ComponentFiringStrategy.OR);
 
 		// Initialize data types
 		initEDataType(connectionspeedEDataType, Object.class, "Connectionspeed", IS_SERIALIZABLE,

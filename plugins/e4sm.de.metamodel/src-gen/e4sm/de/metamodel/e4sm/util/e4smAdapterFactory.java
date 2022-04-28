@@ -33,6 +33,7 @@ import e4sm.de.metamodel.e4sm.UnitConversion;
 import e4sm.de.metamodel.e4sm.UnitPrefix;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
+import e4sm.de.metamodel.e4sm.execution.AssignableElement;
 import e4sm.de.metamodel.e4sm.execution.ConnectableNode;
 import e4sm.de.metamodel.e4sm.core.Element;
 import e4sm.de.metamodel.e4sm.core.NamedElement;
@@ -277,6 +278,11 @@ public class e4smAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseTypedElement(TypedElement object) {
 			return createTypedElementAdapter();
+		}
+
+		@Override
+		public Adapter caseAssignableElement(AssignableElement object) {
+			return createAssignableElementAdapter();
 		}
 
 		@Override
@@ -799,6 +805,20 @@ public class e4smAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTypedElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.execution.AssignableElement <em>Assignable Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.execution.AssignableElement
+	 * @generated
+	 */
+	public Adapter createAssignableElementAdapter() {
 		return null;
 	}
 

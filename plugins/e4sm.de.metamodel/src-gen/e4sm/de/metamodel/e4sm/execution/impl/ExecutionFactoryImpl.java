@@ -81,6 +81,10 @@ public class ExecutionFactoryImpl extends EFactoryImpl implements ExecutionFacto
 			return createVariableRef();
 		case ExecutionPackage.TIME_FUNCTION:
 			return createTimeFunction();
+		case ExecutionPackage.ASSIGNMENT:
+			return createAssignment();
+		case ExecutionPackage.ASSIGNABLE_ELEMENT_REFERENCE:
+			return createAssignableElementReference();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -246,6 +250,28 @@ public class ExecutionFactoryImpl extends EFactoryImpl implements ExecutionFacto
 	public TimeFunction createTimeFunction() {
 		TimeFunctionImpl timeFunction = new TimeFunctionImpl();
 		return timeFunction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Assignment createAssignment() {
+		AssignmentImpl assignment = new AssignmentImpl();
+		return assignment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public AssignableElementReference createAssignableElementReference() {
+		AssignableElementReferenceImpl assignableElementReference = new AssignableElementReferenceImpl();
+		return assignableElementReference;
 	}
 
 	/**

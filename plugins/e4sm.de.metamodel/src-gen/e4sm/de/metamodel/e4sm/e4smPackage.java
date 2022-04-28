@@ -135,13 +135,22 @@ public interface e4smPackage extends EPackage {
 	int COMPONENT__EXECUTION = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Firing Strategy</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT__FIRING_STRATEGY = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>Component</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 6;
+	int COMPONENT_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Compute Main Responsible</em>' operation.
@@ -242,6 +251,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOFTWARE_COMPONENT__EXECUTION = COMPONENT__EXECUTION;
+
+	/**
+	 * The feature id for the '<em><b>Firing Strategy</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOFTWARE_COMPONENT__FIRING_STRATEGY = COMPONENT__FIRING_STRATEGY;
 
 	/**
 	 * The feature id for the '<em><b>Output Uncertainty</b></em>' attribute.
@@ -387,6 +405,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int MACHINE_LEARNING_COMPONENT__EXECUTION = SOFTWARE_COMPONENT__EXECUTION;
+
+	/**
+	 * The feature id for the '<em><b>Firing Strategy</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MACHINE_LEARNING_COMPONENT__FIRING_STRATEGY = SOFTWARE_COMPONENT__FIRING_STRATEGY;
 
 	/**
 	 * The feature id for the '<em><b>Output Uncertainty</b></em>' attribute.
@@ -818,6 +845,15 @@ public interface e4smPackage extends EPackage {
 	int PHYSICAL_COMPONENT__EXECUTION = COMPONENT__EXECUTION;
 
 	/**
+	 * The feature id for the '<em><b>Firing Strategy</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PHYSICAL_COMPONENT__FIRING_STRATEGY = COMPONENT__FIRING_STRATEGY;
+
+	/**
 	 * The number of structural features of the '<em>Physical Component</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -980,6 +1016,15 @@ public interface e4smPackage extends EPackage {
 	int HEURISTIC__EXECUTION = SOFTWARE_COMPONENT__EXECUTION;
 
 	/**
+	 * The feature id for the '<em><b>Firing Strategy</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HEURISTIC__FIRING_STRATEGY = SOFTWARE_COMPONENT__FIRING_STRATEGY;
+
+	/**
 	 * The feature id for the '<em><b>Output Uncertainty</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1115,6 +1160,15 @@ public interface e4smPackage extends EPackage {
 	int FUNCTION__EXECUTION = SOFTWARE_COMPONENT__EXECUTION;
 
 	/**
+	 * The feature id for the '<em><b>Firing Strategy</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION__FIRING_STRATEGY = SOFTWARE_COMPONENT__FIRING_STRATEGY;
+
+	/**
 	 * The feature id for the '<em><b>Output Uncertainty</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1248,6 +1302,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXTERNAL_DEPENDENCY__EXECUTION = SOFTWARE_COMPONENT__EXECUTION;
+
+	/**
+	 * The feature id for the '<em><b>Firing Strategy</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_DEPENDENCY__FIRING_STRATEGY = SOFTWARE_COMPONENT__FIRING_STRATEGY;
 
 	/**
 	 * The feature id for the '<em><b>Output Uncertainty</b></em>' attribute.
@@ -1736,6 +1799,15 @@ public interface e4smPackage extends EPackage {
 	int SENSOR__EXECUTION = PHYSICAL_COMPONENT__EXECUTION;
 
 	/**
+	 * The feature id for the '<em><b>Firing Strategy</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENSOR__FIRING_STRATEGY = PHYSICAL_COMPONENT__FIRING_STRATEGY;
+
+	/**
 	 * The feature id for the '<em><b>Time Function</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1842,6 +1914,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTUATOR__EXECUTION = PHYSICAL_COMPONENT__EXECUTION;
+
+	/**
+	 * The feature id for the '<em><b>Firing Strategy</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTUATOR__FIRING_STRATEGY = PHYSICAL_COMPONENT__FIRING_STRATEGY;
 
 	/**
 	 * The number of structural features of the '<em>Actuator</em>' class.
@@ -2082,13 +2163,22 @@ public interface e4smPackage extends EPackage {
 	int INPUT_PIN__QUEUE_TYPE = PIN_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Collect</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_PIN__COLLECT = PIN_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Input Pin</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_PIN_FEATURE_COUNT = PIN_FEATURE_COUNT + 1;
+	int INPUT_PIN_FEATURE_COUNT = PIN_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Get Incoming Connectors</em>' operation.
@@ -2181,13 +2271,22 @@ public interface e4smPackage extends EPackage {
 	int OUTPUT_PIN__RACE_SEMANTIC = PIN__RACE_SEMANTIC;
 
 	/**
+	 * The feature id for the '<em><b>Amplify</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_PIN__AMPLIFY = PIN_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Output Pin</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OUTPUT_PIN_FEATURE_COUNT = PIN_FEATURE_COUNT + 0;
+	int OUTPUT_PIN_FEATURE_COUNT = PIN_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Get Incoming Connectors</em>' operation.
@@ -2632,6 +2731,16 @@ public interface e4smPackage extends EPackage {
 	int RACE_SEMANTIC = 31;
 
 	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.ComponentFiringStrategy <em>Component Firing Strategy</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.ComponentFiringStrategy
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getComponentFiringStrategy()
+	 * @generated
+	 */
+	int COMPONENT_FIRING_STRATEGY = 32;
+
+	/**
 	 * The meta object id for the '<em>Connectionspeed</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2639,7 +2748,7 @@ public interface e4smPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getConnectionspeed()
 	 * @generated
 	 */
-	int CONNECTIONSPEED = 32;
+	int CONNECTIONSPEED = 33;
 
 	/**
 	 * The meta object id for the '<em>JSON</em>' data type.
@@ -2649,7 +2758,7 @@ public interface e4smPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getJSON()
 	 * @generated
 	 */
-	int JSON = 33;
+	int JSON = 34;
 
 	/**
 	 * The meta object id for the '<em>Time Function</em>' data type.
@@ -2659,7 +2768,7 @@ public interface e4smPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getTimeFunction()
 	 * @generated
 	 */
-	int TIME_FUNCTION = 34;
+	int TIME_FUNCTION = 35;
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.Component <em>Component</em>}'.
@@ -2725,6 +2834,17 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getComponent_Execution();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.Component#getFiringStrategy <em>Firing Strategy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Firing Strategy</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Component#getFiringStrategy()
+	 * @see #getComponent()
+	 * @generated
+	 */
+	EAttribute getComponent_FiringStrategy();
 
 	/**
 	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.Component#computeMainResponsible() <em>Compute Main Responsible</em>}' operation.
@@ -3335,6 +3455,17 @@ public interface e4smPackage extends EPackage {
 	EAttribute getInputPin_QueueType();
 
 	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.InputPin#getCollect <em>Collect</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Collect</em>'.
+	 * @see e4sm.de.metamodel.e4sm.InputPin#getCollect()
+	 * @see #getInputPin()
+	 * @generated
+	 */
+	EAttribute getInputPin_Collect();
+
+	/**
 	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.InputPin#computeName() <em>Compute Name</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3353,6 +3484,17 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getOutputPin();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.OutputPin#getAmplify <em>Amplify</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Amplify</em>'.
+	 * @see e4sm.de.metamodel.e4sm.OutputPin#getAmplify()
+	 * @see #getOutputPin()
+	 * @generated
+	 */
+	EAttribute getOutputPin_Amplify();
 
 	/**
 	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.OutputPin#computeName() <em>Compute Name</em>}' operation.
@@ -3596,6 +3738,16 @@ public interface e4smPackage extends EPackage {
 	EEnum getRaceSemantic();
 
 	/**
+	 * Returns the meta object for enum '{@link e4sm.de.metamodel.e4sm.ComponentFiringStrategy <em>Component Firing Strategy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Component Firing Strategy</em>'.
+	 * @see e4sm.de.metamodel.e4sm.ComponentFiringStrategy
+	 * @generated
+	 */
+	EEnum getComponentFiringStrategy();
+
+	/**
 	 * Returns the meta object for data type '{@link java.lang.Object <em>Connectionspeed</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3704,6 +3856,14 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EReference COMPONENT__EXECUTION = eINSTANCE.getComponent_Execution();
+
+		/**
+		 * The meta object literal for the '<em><b>Firing Strategy</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPONENT__FIRING_STRATEGY = eINSTANCE.getComponent_FiringStrategy();
 
 		/**
 		 * The meta object literal for the '<em><b>Compute Main Responsible</b></em>' operation.
@@ -4210,6 +4370,14 @@ public interface e4smPackage extends EPackage {
 		EAttribute INPUT_PIN__QUEUE_TYPE = eINSTANCE.getInputPin_QueueType();
 
 		/**
+		 * The meta object literal for the '<em><b>Collect</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INPUT_PIN__COLLECT = eINSTANCE.getInputPin_Collect();
+
+		/**
 		 * The meta object literal for the '<em><b>Compute Name</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4226,6 +4394,14 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EClass OUTPUT_PIN = eINSTANCE.getOutputPin();
+
+		/**
+		 * The meta object literal for the '<em><b>Amplify</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OUTPUT_PIN__AMPLIFY = eINSTANCE.getOutputPin_Amplify();
 
 		/**
 		 * The meta object literal for the '<em><b>Compute Name</b></em>' operation.
@@ -4432,6 +4608,16 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum RACE_SEMANTIC = eINSTANCE.getRaceSemantic();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.ComponentFiringStrategy <em>Component Firing Strategy</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.ComponentFiringStrategy
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getComponentFiringStrategy()
+		 * @generated
+		 */
+		EEnum COMPONENT_FIRING_STRATEGY = eINSTANCE.getComponentFiringStrategy();
 
 		/**
 		 * The meta object literal for the '<em>Connectionspeed</em>' data type.

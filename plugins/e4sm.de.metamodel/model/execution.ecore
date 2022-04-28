@@ -63,11 +63,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="division" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"
         defaultValueLiteral="false"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Variable" eSuperTypes="core.ecore#//NamedElement #//Element">
+  <eClassifiers xsi:type="ecore:EClass" name="Variable" eSuperTypes="#//Const #//AssignableElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Const" eSuperTypes="#//Element core.ecore#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//Expression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Const" eSuperTypes="#//Variable"/>
   <eClassifiers xsi:type="ecore:EClass" name="VariableRef" eSuperTypes="#//Expression">
     <eOperations name="getActualParent" eType="#//Element"/>
     <eOperations name="getTangibleChild" eType="#//Expression"/>
@@ -93,4 +93,14 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="timeFunction" eType="#//TimeFunction"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Assignment" eSuperTypes="#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" lowerBound="1"
+        eType="#//Expression" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+        eType="#//AssignableElementReference" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AssignableElementReference">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ref" lowerBound="1" eType="#//AssignableElement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AssignableElement" abstract="true" interface="true"/>
 </ecore:EPackage>

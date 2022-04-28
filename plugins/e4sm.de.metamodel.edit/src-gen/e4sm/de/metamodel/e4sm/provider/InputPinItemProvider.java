@@ -46,6 +46,7 @@ public class InputPinItemProvider extends PinItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addQueueTypePropertyDescriptor(object);
+			addCollectPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -64,6 +65,22 @@ public class InputPinItemProvider extends PinItemProvider {
 								"_UI_InputPin_type"),
 						e4smPackage.Literals.INPUT_PIN__QUEUE_TYPE, true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Collect feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCollectPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_InputPin_collect_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_InputPin_collect_feature",
+								"_UI_InputPin_type"),
+						e4smPackage.Literals.INPUT_PIN__COLLECT, true, false, false,
+						ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -111,6 +128,7 @@ public class InputPinItemProvider extends PinItemProvider {
 
 		switch (notification.getFeatureID(InputPin.class)) {
 		case e4smPackage.INPUT_PIN__QUEUE_TYPE:
+		case e4smPackage.INPUT_PIN__COLLECT:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}

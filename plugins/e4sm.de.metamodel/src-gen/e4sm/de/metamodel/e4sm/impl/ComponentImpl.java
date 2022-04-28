@@ -3,6 +3,7 @@
 package e4sm.de.metamodel.e4sm.impl;
 
 import e4sm.de.metamodel.e4sm.Component;
+import e4sm.de.metamodel.e4sm.ComponentFiringStrategy;
 import e4sm.de.metamodel.e4sm.core.NamedElement;
 import e4sm.de.metamodel.e4sm.core.ParameterizableElement;
 import e4sm.de.metamodel.e4sm.Person;
@@ -42,6 +43,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ComponentImpl#getMainResponsible <em>Main Responsible</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ComponentImpl#getSpecifiedInPackage <em>Specified In Package</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ComponentImpl#getExecution <em>Execution</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.ComponentImpl#getFiringStrategy <em>Firing Strategy</em>}</li>
  * </ul>
  *
  * @generated
@@ -106,6 +108,26 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 	 * @ordered
 	 */
 	protected Execution execution;
+
+	/**
+	 * The default value of the '{@link #getFiringStrategy() <em>Firing Strategy</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFiringStrategy()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final ComponentFiringStrategy FIRING_STRATEGY_EDEFAULT = ComponentFiringStrategy.AND;
+
+	/**
+	 * The cached value of the '{@link #getFiringStrategy() <em>Firing Strategy</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFiringStrategy()
+	 * @generated
+	 * @ordered
+	 */
+	protected ComponentFiringStrategy firingStrategy = FIRING_STRATEGY_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -366,6 +388,30 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 	 * @generated
 	 */
 	@Override
+	public ComponentFiringStrategy getFiringStrategy() {
+		return firingStrategy;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setFiringStrategy(ComponentFiringStrategy newFiringStrategy) {
+		ComponentFiringStrategy oldFiringStrategy = firingStrategy;
+		firingStrategy = newFiringStrategy == null ? FIRING_STRATEGY_EDEFAULT : newFiringStrategy;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.COMPONENT__FIRING_STRATEGY,
+					oldFiringStrategy, firingStrategy));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Person computeMainResponsible() {
 		Person resp = this.getMainResponsible();
 		if (resp != null) {
@@ -461,6 +507,8 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 			return basicGetSpecifiedInPackage();
 		case e4smPackage.COMPONENT__EXECUTION:
 			return getExecution();
+		case e4smPackage.COMPONENT__FIRING_STRATEGY:
+			return getFiringStrategy();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -495,6 +543,9 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 		case e4smPackage.COMPONENT__EXECUTION:
 			setExecution((Execution) newValue);
 			return;
+		case e4smPackage.COMPONENT__FIRING_STRATEGY:
+			setFiringStrategy((ComponentFiringStrategy) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -525,6 +576,9 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 		case e4smPackage.COMPONENT__EXECUTION:
 			setExecution((Execution) null);
 			return;
+		case e4smPackage.COMPONENT__FIRING_STRATEGY:
+			setFiringStrategy(FIRING_STRATEGY_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -549,6 +603,8 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 			return specifiedInPackage != null;
 		case e4smPackage.COMPONENT__EXECUTION:
 			return execution != null;
+		case e4smPackage.COMPONENT__FIRING_STRATEGY:
+			return firingStrategy != FIRING_STRATEGY_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -604,6 +660,23 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 			return null;
 		}
 		return super.eInvoke(operationID, arguments);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy())
+			return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (firingStrategy: ");
+		result.append(firingStrategy);
+		result.append(')');
+		return result.toString();
 	}
 
 } //ComponentImpl

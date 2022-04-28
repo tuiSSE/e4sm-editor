@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -53,6 +54,7 @@ public class ComponentItemProvider extends NamedElementItemProvider {
 			addComponentsPropertyDescriptor(object);
 			addMainResponsiblePropertyDescriptor(object);
 			addSpecifiedInPackagePropertyDescriptor(object);
+			addFiringStrategyPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -100,6 +102,22 @@ public class ComponentItemProvider extends NamedElementItemProvider {
 						getString("_UI_PropertyDescriptor_description", "_UI_Component_specifiedInPackage_feature",
 								"_UI_Component_type"),
 						e4smPackage.Literals.COMPONENT__SPECIFIED_IN_PACKAGE, true, false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Firing Strategy feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFiringStrategyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Component_firingStrategy_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Component_firingStrategy_feature",
+								"_UI_Component_type"),
+						e4smPackage.Literals.COMPONENT__FIRING_STRATEGY, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -181,6 +199,9 @@ public class ComponentItemProvider extends NamedElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Component.class)) {
+		case e4smPackage.COMPONENT__FIRING_STRATEGY:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			return;
 		case e4smPackage.COMPONENT__PARAMETERS:
 		case e4smPackage.COMPONENT__COMPONENTS:
 		case e4smPackage.COMPONENT__PINS:

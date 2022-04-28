@@ -33,6 +33,7 @@ import e4sm.de.metamodel.e4sm.UnitConversion;
 import e4sm.de.metamodel.e4sm.UnitPrefix;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
+import e4sm.de.metamodel.e4sm.execution.AssignableElement;
 import e4sm.de.metamodel.e4sm.execution.ConnectableNode;
 import e4sm.de.metamodel.e4sm.core.Element;
 import e4sm.de.metamodel.e4sm.core.NamedElement;
@@ -407,6 +408,8 @@ public class e4smSwitch<T> extends Switch<T> {
 			T result = caseOutputPin(outputPin);
 			if (result == null)
 				result = casePin(outputPin);
+			if (result == null)
+				result = caseAssignableElement(outputPin);
 			if (result == null)
 				result = caseParameterizableElement(outputPin);
 			if (result == null)
@@ -1044,6 +1047,21 @@ public class e4smSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseTypedElement(TypedElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Assignable Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Assignable Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAssignableElement(AssignableElement object) {
 		return null;
 	}
 

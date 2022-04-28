@@ -210,9 +210,13 @@ public class ExecutionSwitch<T> extends Switch<T> {
 			Variable variable = (Variable) theEObject;
 			T result = caseVariable(variable);
 			if (result == null)
-				result = caseNamedElement(variable);
+				result = caseConst(variable);
+			if (result == null)
+				result = caseAssignableElement(variable);
 			if (result == null)
 				result = caseElement(variable);
+			if (result == null)
+				result = caseNamedElement(variable);
 			if (result == null)
 				result = caseCore_Element(variable);
 			if (result == null)
@@ -223,11 +227,9 @@ public class ExecutionSwitch<T> extends Switch<T> {
 			Const const_ = (Const) theEObject;
 			T result = caseConst(const_);
 			if (result == null)
-				result = caseVariable(const_);
+				result = caseElement(const_);
 			if (result == null)
 				result = caseNamedElement(const_);
-			if (result == null)
-				result = caseElement(const_);
 			if (result == null)
 				result = caseCore_Element(const_);
 			if (result == null)
@@ -255,6 +257,29 @@ public class ExecutionSwitch<T> extends Switch<T> {
 		case ExecutionPackage.DELAYABLE_ELEMENT: {
 			DelayableElement delayableElement = (DelayableElement) theEObject;
 			T result = caseDelayableElement(delayableElement);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ExecutionPackage.ASSIGNMENT: {
+			Assignment assignment = (Assignment) theEObject;
+			T result = caseAssignment(assignment);
+			if (result == null)
+				result = caseElement(assignment);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ExecutionPackage.ASSIGNABLE_ELEMENT_REFERENCE: {
+			AssignableElementReference assignableElementReference = (AssignableElementReference) theEObject;
+			T result = caseAssignableElementReference(assignableElementReference);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ExecutionPackage.ASSIGNABLE_ELEMENT: {
+			AssignableElement assignableElement = (AssignableElement) theEObject;
+			T result = caseAssignableElement(assignableElement);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -531,6 +556,51 @@ public class ExecutionSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseDelayableElement(DelayableElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Assignment</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Assignment</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAssignment(Assignment object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Assignable Element Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Assignable Element Reference</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAssignableElementReference(AssignableElementReference object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Assignable Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Assignable Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAssignableElement(AssignableElement object) {
 		return null;
 	}
 

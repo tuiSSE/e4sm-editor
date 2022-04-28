@@ -24,6 +24,10 @@
       <genEnumLiterals ecoreEnumLiteral="e4sm.ecore#//RaceSemantic/MERGE"/>
       <genEnumLiterals ecoreEnumLiteral="e4sm.ecore#//RaceSemantic/MERGE_AND_DUPLICATE"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="e4sm.ecore#//ComponentFiringStrategy">
+      <genEnumLiterals ecoreEnumLiteral="e4sm.ecore#//ComponentFiringStrategy/AND"/>
+      <genEnumLiterals ecoreEnumLiteral="e4sm.ecore#//ComponentFiringStrategy/OR"/>
+    </genEnums>
     <genDataTypes ecoreDataType="e4sm.ecore#//Connectionspeed"/>
     <genDataTypes ecoreDataType="e4sm.ecore#//JSON"/>
     <genDataTypes ecoreDataType="e4sm.ecore#//TimeFunction"/>
@@ -34,6 +38,7 @@
       <genFeatures documentation="A component may get specified further in a package&#xD;&#xA;Constraints:&#xD;&#xA;- C1: no loops allowed (implemented in Component)"
           notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//Component/specifiedInPackage"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//Component/execution"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//Component/firingStrategy"/>
       <genOperations ecoreOperation="e4sm.ecore#//Component/computeMainResponsible"
           body="&#x9;&#x9;Person resp = this.getMainResponsible();&#xD;&#xA;&#x9;&#x9;if (resp != null) {&#xD;&#xA;&#x9;&#x9;&#x9;return resp;&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;NamedElement c = (NamedElement) this.eContainer();&#xD;&#xA;&#x9;&#x9;if (!(c instanceof Component)) {&#xD;&#xA;&#x9;&#x9;&#x9;return null;&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;return ((Component)c).getMainResponsible();"/>
       <genOperations ecoreOperation="e4sm.ecore#//Component/newOperation2"/>
@@ -113,9 +118,11 @@
     </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//InputPin">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//InputPin/queueType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//InputPin/collect"/>
       <genOperations ecoreOperation="e4sm.ecore#//InputPin/computeName" body="&#x9;&#x9;if(this.getName() != null &amp;&amp; !this.getName().isBlank()) {&#xD;&#xA;&#x9;&#x9;&#x9;return this.getName();&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;var container = ((Component)this.eContainer());&#xD;&#xA;&#x9;&#x9;return  container.getName()+&quot;_in_&quot;+container.getPins().indexOf(this);"/>
     </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//OutputPin">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//OutputPin/amplify"/>
       <genOperations ecoreOperation="e4sm.ecore#//OutputPin/computeName" body="&#x9;&#x9;if(this.getName() != null &amp;&amp; !this.getName().isBlank()) {&#xD;&#xA;&#x9;&#x9;&#x9;return this.getName();&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;var container = ((Component)this.eContainer());&#xD;&#xA;&#x9;&#x9;return  container.getName()+&quot;_out_&quot;+container.getPins().indexOf(this);"/>
     </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//Person">
@@ -305,10 +312,10 @@
       <genOperations ecoreOperation="execution.ecore#//Multiplication/isRealOperation"
           body="return this.isMultiplication() || this.isDivision();"/>
     </genClasses>
-    <genClasses ecoreClass="execution.ecore#//Variable">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference execution.ecore#//Variable/expression"/>
+    <genClasses ecoreClass="execution.ecore#//Variable"/>
+    <genClasses ecoreClass="execution.ecore#//Const">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference execution.ecore#//Const/expression"/>
     </genClasses>
-    <genClasses ecoreClass="execution.ecore#//Const"/>
     <genClasses ecoreClass="execution.ecore#//VariableRef">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference execution.ecore#//VariableRef/variable"/>
       <genOperations ecoreOperation="execution.ecore#//VariableRef/getActualParent"
@@ -324,6 +331,14 @@
     <genClasses image="false" ecoreClass="execution.ecore#//DelayableElement">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference execution.ecore#//DelayableElement/timeFunction"/>
     </genClasses>
+    <genClasses ecoreClass="execution.ecore#//Assignment">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference execution.ecore#//Assignment/expression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference execution.ecore#//Assignment/target"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="execution.ecore#//AssignableElementReference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference execution.ecore#//AssignableElementReference/ref"/>
+    </genClasses>
+    <genClasses ecoreClass="execution.ecore#//AssignableElement"/>
   </genPackages>
   <genPackages prefix="Analysis" basePackage="e4sm.de.metamodel.e4sm" ecorePackage="analysis.ecore#/">
     <genClasses image="false" ecoreClass="analysis.ecore#//Analysis">

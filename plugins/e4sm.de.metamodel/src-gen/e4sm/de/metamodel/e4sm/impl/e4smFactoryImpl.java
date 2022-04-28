@@ -5,6 +5,7 @@ package e4sm.de.metamodel.e4sm.impl;
 import e4sm.de.metamodel.e4sm.Actor;
 import e4sm.de.metamodel.e4sm.Actuator;
 import e4sm.de.metamodel.e4sm.Component;
+import e4sm.de.metamodel.e4sm.ComponentFiringStrategy;
 import e4sm.de.metamodel.e4sm.Connector;
 import e4sm.de.metamodel.e4sm.ConversionByConvention;
 import e4sm.de.metamodel.e4sm.ConversionByPrefix;
@@ -161,6 +162,8 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 			return createQueueTypeFromString(eDataType, initialValue);
 		case e4smPackage.RACE_SEMANTIC:
 			return createRaceSemanticFromString(eDataType, initialValue);
+		case e4smPackage.COMPONENT_FIRING_STRATEGY:
+			return createComponentFiringStrategyFromString(eDataType, initialValue);
 		case e4smPackage.CONNECTIONSPEED:
 			return createConnectionspeedFromString(eDataType, initialValue);
 		case e4smPackage.JSON:
@@ -184,6 +187,8 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 			return convertQueueTypeToString(eDataType, instanceValue);
 		case e4smPackage.RACE_SEMANTIC:
 			return convertRaceSemanticToString(eDataType, instanceValue);
+		case e4smPackage.COMPONENT_FIRING_STRATEGY:
+			return convertComponentFiringStrategyToString(eDataType, instanceValue);
 		case e4smPackage.CONNECTIONSPEED:
 			return convertConnectionspeedToString(eDataType, instanceValue);
 		case e4smPackage.JSON:
@@ -555,6 +560,28 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 	 * @generated
 	 */
 	public String convertRaceSemanticToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ComponentFiringStrategy createComponentFiringStrategyFromString(EDataType eDataType, String initialValue) {
+		ComponentFiringStrategy result = ComponentFiringStrategy.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException(
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertComponentFiringStrategyToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

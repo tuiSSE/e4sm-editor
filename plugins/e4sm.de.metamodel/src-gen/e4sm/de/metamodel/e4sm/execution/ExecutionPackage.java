@@ -2,7 +2,6 @@
  */
 package e4sm.de.metamodel.e4sm.execution;
 
-import e4sm.de.metamodel.e4sm.core.CorePackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -741,42 +740,6 @@ public interface ExecutionPackage extends EPackage {
 	int VARIABLE = 13;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VARIABLE__NAME = CorePackage.NAMED_ELEMENT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VARIABLE__EXPRESSION = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Variable</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VARIABLE_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Variable</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VARIABLE_OPERATION_COUNT = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.execution.impl.ConstImpl <em>Const</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -793,7 +756,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONST__NAME = VARIABLE__NAME;
+	int CONST__NAME = ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -802,7 +765,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONST__EXPRESSION = VARIABLE__EXPRESSION;
+	int CONST__EXPRESSION = ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Const</em>' class.
@@ -811,7 +774,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONST_FEATURE_COUNT = VARIABLE_FEATURE_COUNT + 0;
+	int CONST_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Const</em>' class.
@@ -820,7 +783,43 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONST_OPERATION_COUNT = VARIABLE_OPERATION_COUNT + 0;
+	int CONST_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE__NAME = CONST__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE__EXPRESSION = CONST__EXPRESSION;
+
+	/**
+	 * The number of structural features of the '<em>Variable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_FEATURE_COUNT = CONST_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Variable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_OPERATION_COUNT = CONST_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.execution.impl.VariableRefImpl <em>Variable Ref</em>}' class.
@@ -970,6 +969,117 @@ public interface ExecutionPackage extends EPackage {
 	int DELAYABLE_ELEMENT_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.execution.impl.AssignmentImpl <em>Assignment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.execution.impl.AssignmentImpl
+	 * @see e4sm.de.metamodel.e4sm.execution.impl.ExecutionPackageImpl#getAssignment()
+	 * @generated
+	 */
+	int ASSIGNMENT = 18;
+
+	/**
+	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIGNMENT__EXPRESSION = ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIGNMENT__TARGET = ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Assignment</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIGNMENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Assignment</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIGNMENT_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.execution.impl.AssignableElementReferenceImpl <em>Assignable Element Reference</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.execution.impl.AssignableElementReferenceImpl
+	 * @see e4sm.de.metamodel.e4sm.execution.impl.ExecutionPackageImpl#getAssignableElementReference()
+	 * @generated
+	 */
+	int ASSIGNABLE_ELEMENT_REFERENCE = 19;
+
+	/**
+	 * The feature id for the '<em><b>Ref</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIGNABLE_ELEMENT_REFERENCE__REF = 0;
+
+	/**
+	 * The number of structural features of the '<em>Assignable Element Reference</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIGNABLE_ELEMENT_REFERENCE_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Assignable Element Reference</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIGNABLE_ELEMENT_REFERENCE_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.execution.AssignableElement <em>Assignable Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.execution.AssignableElement
+	 * @see e4sm.de.metamodel.e4sm.execution.impl.ExecutionPackageImpl#getAssignableElement()
+	 * @generated
+	 */
+	int ASSIGNABLE_ELEMENT = 20;
+
+	/**
+	 * The number of structural features of the '<em>Assignable Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIGNABLE_ELEMENT_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Assignable Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIGNABLE_ELEMENT_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.execution.TimeFunctions <em>Time Functions</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -977,7 +1087,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.execution.impl.ExecutionPackageImpl#getTimeFunctions()
 	 * @generated
 	 */
-	int TIME_FUNCTIONS = 18;
+	int TIME_FUNCTIONS = 21;
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.execution.DecisionNode <em>Decision Node</em>}'.
@@ -1344,17 +1454,6 @@ public interface ExecutionPackage extends EPackage {
 	EClass getVariable();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link e4sm.de.metamodel.e4sm.execution.Variable#getExpression <em>Expression</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Expression</em>'.
-	 * @see e4sm.de.metamodel.e4sm.execution.Variable#getExpression()
-	 * @see #getVariable()
-	 * @generated
-	 */
-	EReference getVariable_Expression();
-
-	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.execution.Const <em>Const</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1363,6 +1462,17 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getConst();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link e4sm.de.metamodel.e4sm.execution.Const#getExpression <em>Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Expression</em>'.
+	 * @see e4sm.de.metamodel.e4sm.execution.Const#getExpression()
+	 * @see #getConst()
+	 * @generated
+	 */
+	EReference getConst_Expression();
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.execution.VariableRef <em>Variable Ref</em>}'.
@@ -1468,6 +1578,69 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getDelayableElement_TimeFunction();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.execution.Assignment <em>Assignment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Assignment</em>'.
+	 * @see e4sm.de.metamodel.e4sm.execution.Assignment
+	 * @generated
+	 */
+	EClass getAssignment();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link e4sm.de.metamodel.e4sm.execution.Assignment#getExpression <em>Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Expression</em>'.
+	 * @see e4sm.de.metamodel.e4sm.execution.Assignment#getExpression()
+	 * @see #getAssignment()
+	 * @generated
+	 */
+	EReference getAssignment_Expression();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link e4sm.de.metamodel.e4sm.execution.Assignment#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Target</em>'.
+	 * @see e4sm.de.metamodel.e4sm.execution.Assignment#getTarget()
+	 * @see #getAssignment()
+	 * @generated
+	 */
+	EReference getAssignment_Target();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.execution.AssignableElementReference <em>Assignable Element Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Assignable Element Reference</em>'.
+	 * @see e4sm.de.metamodel.e4sm.execution.AssignableElementReference
+	 * @generated
+	 */
+	EClass getAssignableElementReference();
+
+	/**
+	 * Returns the meta object for the reference '{@link e4sm.de.metamodel.e4sm.execution.AssignableElementReference#getRef <em>Ref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Ref</em>'.
+	 * @see e4sm.de.metamodel.e4sm.execution.AssignableElementReference#getRef()
+	 * @see #getAssignableElementReference()
+	 * @generated
+	 */
+	EReference getAssignableElementReference_Ref();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.execution.AssignableElement <em>Assignable Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Assignable Element</em>'.
+	 * @see e4sm.de.metamodel.e4sm.execution.AssignableElement
+	 * @generated
+	 */
+	EClass getAssignableElement();
 
 	/**
 	 * Returns the meta object for enum '{@link e4sm.de.metamodel.e4sm.execution.TimeFunctions <em>Time Functions</em>}'.
@@ -1811,14 +1984,6 @@ public interface ExecutionPackage extends EPackage {
 		EClass VARIABLE = eINSTANCE.getVariable();
 
 		/**
-		 * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference VARIABLE__EXPRESSION = eINSTANCE.getVariable_Expression();
-
-		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.execution.impl.ConstImpl <em>Const</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1827,6 +1992,14 @@ public interface ExecutionPackage extends EPackage {
 		 * @generated
 		 */
 		EClass CONST = eINSTANCE.getConst();
+
+		/**
+		 * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONST__EXPRESSION = eINSTANCE.getConst_Expression();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.execution.impl.VariableRefImpl <em>Variable Ref</em>}' class.
@@ -1913,6 +2086,60 @@ public interface ExecutionPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DELAYABLE_ELEMENT__TIME_FUNCTION = eINSTANCE.getDelayableElement_TimeFunction();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.execution.impl.AssignmentImpl <em>Assignment</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.execution.impl.AssignmentImpl
+		 * @see e4sm.de.metamodel.e4sm.execution.impl.ExecutionPackageImpl#getAssignment()
+		 * @generated
+		 */
+		EClass ASSIGNMENT = eINSTANCE.getAssignment();
+
+		/**
+		 * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ASSIGNMENT__EXPRESSION = eINSTANCE.getAssignment_Expression();
+
+		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ASSIGNMENT__TARGET = eINSTANCE.getAssignment_Target();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.execution.impl.AssignableElementReferenceImpl <em>Assignable Element Reference</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.execution.impl.AssignableElementReferenceImpl
+		 * @see e4sm.de.metamodel.e4sm.execution.impl.ExecutionPackageImpl#getAssignableElementReference()
+		 * @generated
+		 */
+		EClass ASSIGNABLE_ELEMENT_REFERENCE = eINSTANCE.getAssignableElementReference();
+
+		/**
+		 * The meta object literal for the '<em><b>Ref</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ASSIGNABLE_ELEMENT_REFERENCE__REF = eINSTANCE.getAssignableElementReference_Ref();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.execution.AssignableElement <em>Assignable Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.execution.AssignableElement
+		 * @see e4sm.de.metamodel.e4sm.execution.impl.ExecutionPackageImpl#getAssignableElement()
+		 * @generated
+		 */
+		EClass ASSIGNABLE_ELEMENT = eINSTANCE.getAssignableElement();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.execution.TimeFunctions <em>Time Functions</em>}' enum.

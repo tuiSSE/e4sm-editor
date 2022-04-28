@@ -17,6 +17,9 @@ import e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
 import e4sm.de.metamodel.e4sm.execution.Addition;
+import e4sm.de.metamodel.e4sm.execution.AssignableElement;
+import e4sm.de.metamodel.e4sm.execution.AssignableElementReference;
+import e4sm.de.metamodel.e4sm.execution.Assignment;
 import e4sm.de.metamodel.e4sm.execution.BinaryExpression;
 import e4sm.de.metamodel.e4sm.execution.ConnectableNode;
 import e4sm.de.metamodel.e4sm.execution.Const;
@@ -185,6 +188,27 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	private EClass delayableElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass assignmentEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass assignableElementReferenceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass assignableElementEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -648,8 +672,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EReference getVariable_Expression() {
-		return (EReference) variableEClass.getEStructuralFeatures().get(0);
+	public EClass getConst() {
+		return constEClass;
 	}
 
 	/**
@@ -658,8 +682,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EClass getConst() {
-		return constEClass;
+	public EReference getConst_Expression() {
+		return (EReference) constEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -768,6 +792,66 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
+	public EClass getAssignment() {
+		return assignmentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getAssignment_Expression() {
+		return (EReference) assignmentEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getAssignment_Target() {
+		return (EReference) assignmentEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getAssignableElementReference() {
+		return assignableElementReferenceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getAssignableElementReference_Ref() {
+		return (EReference) assignableElementReferenceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getAssignableElement() {
+		return assignableElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EEnum getTimeFunctions() {
 		return timeFunctionsEEnum;
 	}
@@ -850,9 +934,9 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		createEOperation(multiplicationEClass, MULTIPLICATION___IS_REAL_OPERATION);
 
 		variableEClass = createEClass(VARIABLE);
-		createEReference(variableEClass, VARIABLE__EXPRESSION);
 
 		constEClass = createEClass(CONST);
+		createEReference(constEClass, CONST__EXPRESSION);
 
 		variableRefEClass = createEClass(VARIABLE_REF);
 		createEReference(variableRefEClass, VARIABLE_REF__VARIABLE);
@@ -866,6 +950,15 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 
 		delayableElementEClass = createEClass(DELAYABLE_ELEMENT);
 		createEReference(delayableElementEClass, DELAYABLE_ELEMENT__TIME_FUNCTION);
+
+		assignmentEClass = createEClass(ASSIGNMENT);
+		createEReference(assignmentEClass, ASSIGNMENT__EXPRESSION);
+		createEReference(assignmentEClass, ASSIGNMENT__TARGET);
+
+		assignableElementReferenceEClass = createEClass(ASSIGNABLE_ELEMENT_REFERENCE);
+		createEReference(assignableElementReferenceEClass, ASSIGNABLE_ELEMENT_REFERENCE__REF);
+
+		assignableElementEClass = createEClass(ASSIGNABLE_ELEMENT);
 
 		// Create enums
 		timeFunctionsEEnum = createEEnum(TIME_FUNCTIONS);
@@ -918,10 +1011,12 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		unaryExpressionEClass.getESuperTypes().add(this.getExpression());
 		additionEClass.getESuperTypes().add(this.getBinaryExpression());
 		multiplicationEClass.getESuperTypes().add(this.getBinaryExpression());
-		variableEClass.getESuperTypes().add(theCorePackage.getNamedElement());
-		variableEClass.getESuperTypes().add(this.getElement());
-		constEClass.getESuperTypes().add(this.getVariable());
+		variableEClass.getESuperTypes().add(this.getConst());
+		variableEClass.getESuperTypes().add(this.getAssignableElement());
+		constEClass.getESuperTypes().add(this.getElement());
+		constEClass.getESuperTypes().add(theCorePackage.getNamedElement());
 		variableRefEClass.getESuperTypes().add(this.getExpression());
+		assignmentEClass.getESuperTypes().add(this.getElement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(decisionNodeEClass, DecisionNode.class, "DecisionNode", !IS_ABSTRACT, !IS_INTERFACE,
@@ -1025,11 +1120,11 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 
 		initEClass(variableEClass, Variable.class, "Variable", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getVariable_Expression(), this.getExpression(), null, "expression", null, 0, 1, Variable.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(constEClass, Const.class, "Const", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getConst_Expression(), this.getExpression(), null, "expression", null, 0, 1, Const.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(variableRefEClass, VariableRef.class, "VariableRef", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -1057,6 +1152,24 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		initEReference(getDelayableElement_TimeFunction(), this.getTimeFunction(), null, "timeFunction", null, 0, 1,
 				DelayableElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(assignmentEClass, Assignment.class, "Assignment", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAssignment_Expression(), this.getExpression(), null, "expression", null, 1, 1,
+				Assignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAssignment_Target(), this.getAssignableElementReference(), null, "target", null, 1, 1,
+				Assignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(assignableElementReferenceEClass, AssignableElementReference.class, "AssignableElementReference",
+				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAssignableElementReference_Ref(), this.getAssignableElement(), null, "ref", null, 1, 1,
+				AssignableElementReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(assignableElementEClass, AssignableElement.class, "AssignableElement", IS_ABSTRACT, IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(timeFunctionsEEnum, TimeFunctions.class, "TimeFunctions");

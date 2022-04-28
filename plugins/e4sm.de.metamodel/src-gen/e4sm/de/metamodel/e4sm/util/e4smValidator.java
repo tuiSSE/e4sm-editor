@@ -6,6 +6,7 @@ import e4sm.de.metamodel.e4sm.Actor;
 
 import e4sm.de.metamodel.e4sm.Actuator;
 import e4sm.de.metamodel.e4sm.Component;
+import e4sm.de.metamodel.e4sm.ComponentFiringStrategy;
 import e4sm.de.metamodel.e4sm.Connector;
 import e4sm.de.metamodel.e4sm.ConversionByConvention;
 import e4sm.de.metamodel.e4sm.ConversionByPrefix;
@@ -191,6 +192,8 @@ public class e4smValidator extends EObjectValidator {
 			return validateQueueType((QueueType) value, diagnostics, context);
 		case e4smPackage.RACE_SEMANTIC:
 			return validateRaceSemantic((RaceSemantic) value, diagnostics, context);
+		case e4smPackage.COMPONENT_FIRING_STRATEGY:
+			return validateComponentFiringStrategy((ComponentFiringStrategy) value, diagnostics, context);
 		case e4smPackage.CONNECTIONSPEED:
 			return validateConnectionspeed(value, diagnostics, context);
 		case e4smPackage.JSON:
@@ -300,18 +303,19 @@ public class e4smValidator extends EObjectValidator {
 	 */
 	public boolean validateComponent_ComponentC3(Component component, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
-		if (component.getCodeSpecification() != null && component.getCodeSpecification().length() > 0
-				&& (component.getComponents().size() > 0 || component.getSpecifiedInPackage() != null)) {
-			if (diagnostics != null) {
-				diagnostics.add(createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0,
-						"_UI_GenericConstraint_diagnostic",
-						new Object[] {
-								"C3: If the component has a text specification, it shall not contain other components, nor be specified by a package",
-								getObjectLabel(component, context) },
-						new Object[] { component }, context));
-			}
-			return false;
-		}
+		// TODO remove
+		//		if (component.getCodeSpecification() != null && component.getCodeSpecification().length() > 0
+		//				&& (component.getComponents().size() > 0 || component.getSpecifiedInPackage() != null)) {
+		//			if (diagnostics != null) {
+		//				diagnostics.add(createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0,
+		//						"_UI_GenericConstraint_diagnostic",
+		//						new Object[] {
+		//								"C3: If the component has a text specification, it shall not contain other components, nor be specified by a package",
+		//								getObjectLabel(component, context) },
+		//						new Object[] { component }, context));
+		//			}
+		//			return false;
+		//		}
 		return true;
 	}
 
@@ -1165,6 +1169,16 @@ public class e4smValidator extends EObjectValidator {
 	 */
 	public boolean validateRaceSemantic(RaceSemantic raceSemantic, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateComponentFiringStrategy(ComponentFiringStrategy componentFiringStrategy,
+			DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 

@@ -2,6 +2,8 @@
  */
 package e4sm.de.metamodel.e4sm;
 
+import e4sm.de.metamodel.e4sm.execution.AssignableElement;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Output Pin</b></em>'.
@@ -11,12 +13,41 @@ package e4sm.de.metamodel.e4sm;
  * An interface which sends data outside of a component
  * <!-- end-model-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link e4sm.de.metamodel.e4sm.OutputPin#getAmplify <em>Amplify</em>}</li>
+ * </ul>
  *
  * @see e4sm.de.metamodel.e4sm.e4smPackage#getOutputPin()
  * @model
  * @generated
  */
-public interface OutputPin extends Pin {
+public interface OutputPin extends Pin, AssignableElement {
+
+	/**
+	 * Returns the value of the '<em><b>Amplify</b></em>' attribute.
+	 * The default value is <code>"1"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Amplify</em>' attribute.
+	 * @see #setAmplify(int)
+	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getOutputPin_Amplify()
+	 * @model default="1"
+	 * @generated
+	 */
+	int getAmplify();
+
+	/**
+	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.OutputPin#getAmplify <em>Amplify</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Amplify</em>' attribute.
+	 * @see #getAmplify()
+	 * @generated
+	 */
+	void setAmplify(int value);
 
 	/**
 	 * <!-- begin-user-doc -->

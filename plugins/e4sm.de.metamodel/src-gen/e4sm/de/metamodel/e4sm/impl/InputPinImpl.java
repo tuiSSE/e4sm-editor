@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.InputPinImpl#getQueueType <em>Queue Type</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.InputPinImpl#getCollect <em>Collect</em>}</li>
  * </ul>
  *
  * @generated
@@ -45,6 +46,25 @@ public class InputPinImpl extends PinImpl implements InputPin {
 	 * @ordered
 	 */
 	protected QueueType queueType = QUEUE_TYPE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getCollect() <em>Collect</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCollect()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int COLLECT_EDEFAULT = 1;
+	/**
+	 * The cached value of the '{@link #getCollect() <em>Collect</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCollect()
+	 * @generated
+	 * @ordered
+	 */
+	protected int collect = COLLECT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -95,6 +115,29 @@ public class InputPinImpl extends PinImpl implements InputPin {
 	 * @generated
 	 */
 	@Override
+	public int getCollect() {
+		return collect;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setCollect(int newCollect) {
+		int oldCollect = collect;
+		collect = newCollect;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.INPUT_PIN__COLLECT, oldCollect, collect));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public String computeName() {
 		if (this.getName() != null && !this.getName().isBlank()) {
 			return this.getName();
@@ -113,6 +156,8 @@ public class InputPinImpl extends PinImpl implements InputPin {
 		switch (featureID) {
 		case e4smPackage.INPUT_PIN__QUEUE_TYPE:
 			return getQueueType();
+		case e4smPackage.INPUT_PIN__COLLECT:
+			return getCollect();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -127,6 +172,9 @@ public class InputPinImpl extends PinImpl implements InputPin {
 		switch (featureID) {
 		case e4smPackage.INPUT_PIN__QUEUE_TYPE:
 			setQueueType((QueueType) newValue);
+			return;
+		case e4smPackage.INPUT_PIN__COLLECT:
+			setCollect((Integer) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -143,6 +191,9 @@ public class InputPinImpl extends PinImpl implements InputPin {
 		case e4smPackage.INPUT_PIN__QUEUE_TYPE:
 			setQueueType(QUEUE_TYPE_EDEFAULT);
 			return;
+		case e4smPackage.INPUT_PIN__COLLECT:
+			setCollect(COLLECT_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -157,6 +208,8 @@ public class InputPinImpl extends PinImpl implements InputPin {
 		switch (featureID) {
 		case e4smPackage.INPUT_PIN__QUEUE_TYPE:
 			return queueType != QUEUE_TYPE_EDEFAULT;
+		case e4smPackage.INPUT_PIN__COLLECT:
+			return collect != COLLECT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -188,6 +241,8 @@ public class InputPinImpl extends PinImpl implements InputPin {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (queueType: ");
 		result.append(queueType);
+		result.append(", collect: ");
+		result.append(collect);
 		result.append(')');
 		return result.toString();
 	}

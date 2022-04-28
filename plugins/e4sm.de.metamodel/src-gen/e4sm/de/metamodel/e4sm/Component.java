@@ -29,6 +29,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link e4sm.de.metamodel.e4sm.Component#getMainResponsible <em>Main Responsible</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Component#getSpecifiedInPackage <em>Specified In Package</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Component#getExecution <em>Execution</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.Component#getFiringStrategy <em>Firing Strategy</em>}</li>
  * </ul>
  *
  * @see e4sm.de.metamodel.e4sm.e4smPackage#getComponent()
@@ -143,6 +144,32 @@ public interface Component extends NamedElement, ParameterizableElement {
 	 * @generated
 	 */
 	void setExecution(Execution value);
+
+	/**
+	 * Returns the value of the '<em><b>Firing Strategy</b></em>' attribute.
+	 * The default value is <code>"AND"</code>.
+	 * The literals are from the enumeration {@link e4sm.de.metamodel.e4sm.ComponentFiringStrategy}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Firing Strategy</em>' attribute.
+	 * @see e4sm.de.metamodel.e4sm.ComponentFiringStrategy
+	 * @see #setFiringStrategy(ComponentFiringStrategy)
+	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getComponent_FiringStrategy()
+	 * @model default="AND" required="true"
+	 * @generated
+	 */
+	ComponentFiringStrategy getFiringStrategy();
+
+	/**
+	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.Component#getFiringStrategy <em>Firing Strategy</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Firing Strategy</em>' attribute.
+	 * @see e4sm.de.metamodel.e4sm.ComponentFiringStrategy
+	 * @see #getFiringStrategy()
+	 * @generated
+	 */
+	void setFiringStrategy(ComponentFiringStrategy value);
 
 	/**
 	 * <!-- begin-user-doc -->

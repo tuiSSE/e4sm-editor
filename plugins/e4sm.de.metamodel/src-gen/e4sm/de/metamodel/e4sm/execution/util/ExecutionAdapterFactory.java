@@ -158,6 +158,21 @@ public class ExecutionAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseAssignment(Assignment object) {
+			return createAssignmentAdapter();
+		}
+
+		@Override
+		public Adapter caseAssignableElementReference(AssignableElementReference object) {
+			return createAssignableElementReferenceAdapter();
+		}
+
+		@Override
+		public Adapter caseAssignableElement(AssignableElement object) {
+			return createAssignableElementAdapter();
+		}
+
+		@Override
 		public Adapter caseCore_Element(e4sm.de.metamodel.e4sm.core.Element object) {
 			return createCore_ElementAdapter();
 		}
@@ -435,6 +450,48 @@ public class ExecutionAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDelayableElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.execution.Assignment <em>Assignment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.execution.Assignment
+	 * @generated
+	 */
+	public Adapter createAssignmentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.execution.AssignableElementReference <em>Assignable Element Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.execution.AssignableElementReference
+	 * @generated
+	 */
+	public Adapter createAssignableElementReferenceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.execution.AssignableElement <em>Assignable Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.execution.AssignableElement
+	 * @generated
+	 */
+	public Adapter createAssignableElementAdapter() {
 		return null;
 	}
 
