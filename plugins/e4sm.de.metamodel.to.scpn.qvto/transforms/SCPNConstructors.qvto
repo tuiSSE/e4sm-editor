@@ -4,6 +4,8 @@ modeltype scpn "strict" uses scpn("http://timenet.tu-ilmenau.de/schema/SCPN");
 
 library SCPNConstructors(){
 
+property immediateTransSuffix  : String = "_imm_tran_id";
+
 /** Constructors **/
 constructor LabelType::LabelType(given_text : String) {
 	text := safeString(given_text);
@@ -95,7 +97,7 @@ constructor ArcType::ArcType(name : String){
 
 constructor ImmediateTransitionType::ImmediateTransitionType() {
 	//Attributes
-	id := "it_id";
+	id := "it" + immediateTransSuffix;
 	priority := 1;
 	weight := "1.0";
 	specType := SpecTypeType::Automatic;
@@ -111,7 +113,7 @@ constructor ImmediateTransitionType::ImmediateTransitionType() {
 
 constructor ImmediateTransitionType::ImmediateTransitionType(name:String) {
 	//Attributes
-	id := safeString(name) + "_imm_tran_id";
+	id := safeString(name) + immediateTransSuffix;
 	priority := 1;
 	serverType := scpn::ServerTypeType::ExclusiveServer;
 	weight := "1.0";

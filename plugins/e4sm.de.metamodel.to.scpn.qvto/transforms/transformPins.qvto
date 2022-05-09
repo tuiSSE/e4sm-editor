@@ -73,8 +73,8 @@ where {self.raceSemantic = RaceSemantic::FCFS or (self.getIncomingConnectors()->
 	log("\t~Transformed FCFS " + self.getDirection() + " pin " + result.label.text);
 }
 
--- maps an outputPin with raceSemantic = MERGE
-mapping Pin::transformOutputPinMerge(parentName:String, index: Integer) : pl :List(PlaceType), arcs : List(ArcType), it:ImmediateTransitionType 
+-- maps a pin with raceSemantic = MERGE
+mapping Pin::transformPinMerge(parentName:String, index: Integer) : pl :List(PlaceType), arcs : List(ArcType), it:ImmediateTransitionType 
 where {self.requiresMerge()} {
 	init{
 		//create the connecting immediate transition
@@ -107,7 +107,7 @@ where {self.requiresMerge()} {
 }
 
 -- maps an outputPin with raceSemantic = DUPLICATE
-mapping Pin::transformOutputPinDuplicate(parentName:String, index: Integer) : pl :List(PlaceType), arcs : List(ArcType), it:ImmediateTransitionType 
+mapping Pin::transformPinDuplicate(parentName:String, index: Integer) : pl :List(PlaceType), arcs : List(ArcType), it:ImmediateTransitionType 
 where {self.requiresDuplicate()} {
 	init{
 		//create the connecting immediate transition
@@ -140,7 +140,7 @@ where {self.requiresDuplicate()} {
 }
 
 -- maps a Pin with raceSemantic = MERGE_AND_DUPLICATE
-mapping Pin::transformOutputPinMergeAndDuplicate(parentName:String, index: Integer) : pl :List(PlaceType), arcs : List(ArcType), it:List(ImmediateTransitionType) 
+mapping Pin::transformPinMergeAndDuplicate(parentName:String, index: Integer) : pl :List(PlaceType), arcs : List(ArcType), it:List(ImmediateTransitionType) 
 where {self.requiresMergeAndDuplicate()} {
 	init{
 		//create the connecting immediate transition
@@ -208,7 +208,7 @@ helper Pin::resolvePinPlace (connector : Connector) : PlaceType{
 		
 		log("Could not resolve as a simple place");
 		if(self.requiresMerge()){
-			var searchTransformation := self.resolveoneIn(Pin::transformOutputPinMerge);
+			var searchTransformation := self.resolveoneIn(Pin::transformPinMerge);
 			log(searchTransformation.toString());
 			var p : List(PlaceType) := searchTransformation.pl;
 		
@@ -221,14 +221,14 @@ helper Pin::resolvePinPlace (connector : Connector) : PlaceType{
 			    i := i+1;
 		    }
 		}else if(self.requiresDuplicate()){
-			var searchTransformation := self.resolveoneIn(Pin::transformOutputPinDuplicate);
+			var searchTransformation := self.resolveoneIn(Pin::transformPinDuplicate);
 			log(searchTransformation.toString());
 			var p : List(PlaceType) := searchTransformation.pl;
 		
 			assert fatal (p->size() > 1) with log ("It seems like the target duplicate " + self.getDirection() + " pin wasn't transformed to any place " + self.toString());
 		    return p->first(); //Return the main place
 		}else { //self.requiresMergeAndDuplicate() is true
-		var searchTransformation := self.resolveoneIn(Pin::transformOutputPinMergeAndDuplicate);
+		var searchTransformation := self.resolveoneIn(Pin::transformPinMergeAndDuplicate);
 			log(searchTransformation.toString());
 			var p : List(PlaceType) := searchTransformation.pl;
 		
@@ -256,14 +256,14 @@ helper Pin::resolvePinPlace (connector : Connector) : PlaceType{
 		
 		log("Could not resolve as a simple place");
 		if(self.requiresMerge()){
-			var searchTransformation := self.resolveoneIn(Pin::transformOutputPinMerge);
+			var searchTransformation := self.resolveoneIn(Pin::transformPinMerge);
 			log(searchTransformation.toString());
 			var p : List(PlaceType) := searchTransformation.pl;
 		
 			assert fatal (p->size() > 1) with log ("It seems like the source merge " + self.getDirection() + " pin wasn't transformed to any place " + self.toString());
 		    return p->first(); // Return the main place
 		}else if(self.requiresDuplicate()){
-			var searchTransformation := self.resolveoneIn(Pin::transformOutputPinDuplicate);
+			var searchTransformation := self.resolveoneIn(Pin::transformPinDuplicate);
 			log(searchTransformation.toString());
 			var p : List(PlaceType) := searchTransformation.pl;
 		
@@ -277,7 +277,7 @@ helper Pin::resolvePinPlace (connector : Connector) : PlaceType{
 		    }
 		    //targetPlace := p->any(pl | pl.capacity = "0");
 		}else{ //self.requiresMergeAndDuplicate() is true
-		var searchTransformation := self.resolveoneIn(Pin::transformOutputPinMergeAndDuplicate);
+		var searchTransformation := self.resolveoneIn(Pin::transformPinMergeAndDuplicate);
 			log(searchTransformation.toString());
 			var p : List(PlaceType) := searchTransformation.pl;
 		

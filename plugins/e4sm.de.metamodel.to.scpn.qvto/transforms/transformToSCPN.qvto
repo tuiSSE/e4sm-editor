@@ -260,18 +260,38 @@ mapping Component::transformComponent() : pl: List(PlaceType), iTr : List(Transi
 				componentReadyTransition := new TimedTransitionType(self.name + "_ready");
 				componentReadyTransition.oclAsType(TimedTransitionType).timeFunction := self.oclAsType(e4sm::Sensor).timeFunction;
 				iTr->add(componentReadyTransition);
-			}else{
+			}else if(self.firingStrategy = ComponentFiringStrategy::AND){
 				componentReadyTransition := new ImmediateTransitionType(self.name + "_ready");
 				iTr->add(componentReadyTransition);
 			};
 			
-			var readyToMain := new ArcType(self.name+"_ready_to_main");
-			readyToMain.fromNode := componentReadyTransition.id;
-			readyToMain.toNode := componentMainPlace.id;
-			if(self.oclIsTypeOf(e4sm::Sensor)) {
-				readyToMain.inscription.text := "new(1)"; //TODO: probably it shouldn't be an integer
-			};
-			arcs->add(readyToMain);
+			if(self.firingStrategy = ComponentFiringStrategy::AND) {
+				    // The component only has one ready immediate transition which is connected to all input pins
+					var readyToMain := new ArcType(self.name+"_ready_to_main");
+					readyToMain.fromNode := componentReadyTransition.id;
+					readyToMain.toNode := componentMainPlace.id;
+					if(self.oclIsTypeOf(e4sm::Sensor)) {
+						readyToMain.inscription.text := "new(1)"; //TODO: probably it shouldn't be an integer
+					};
+					arcs->add(readyToMain);
+				}
+				else if (self.firingStrategy = ComponentFiringStrategy::OR) {
+					// Every input pin gets an immediate "ready" transition
+					var i:Integer := 0;
+					self.pins[InputPin]->forEach(ip) {
+						// Create the immediate transition
+						componentReadyTransition := new ImmediateTransitionType(self.name + "_ready_" + i.toString());
+						iTr->add(componentReadyTransition);
+						
+						// Create the Arc
+						var readyToMain := new ArcType(self.name+"_ready" + i.toString() + "_to_main");
+						readyToMain.fromNode := componentReadyTransition.id;
+						readyToMain.toNode := componentMainPlace.id;
+						arcs->add(readyToMain);
+						
+						i := i + 1;
+					}
+				};
 			
 			// Timed transition for the component execution
 
@@ -304,7 +324,69 @@ mapping Component::transformComponent() : pl: List(PlaceType), iTr : List(Transi
 //		};
 //		
 //		i := 0;
-		self.pins->forEach(op) {
+
+		// Transform all input pins
+		i := 0;
+		self.pins[e4sm::InputPin]->forEach(ip) {
+			if (ip.requiresSimpleTransformation()) {
+				//OUT FCFS
+				//Create the place
+			    var inputPinPlace := ip.map simpleTransformOutputPin(self.name, i);
+			    pl += inputPinPlace;
+				
+				//Create an arc to connect the place to the simple component 
+					
+				if(simpleComponent) {
+					var arcToTransition = new ArcType(inputPinPlace.id + "_to_" + self.name);
+					arcToTransition.fromNode := inputPinPlace.id;
+					
+					if(self.firingStrategy = ComponentFiringStrategy::AND) {
+						arcToTransition.toNode := componentReadyTransition.id;
+					} else if(self.firingStrategy = ComponentFiringStrategy::OR){
+						arcToTransition.toNode := safeString(self.name) + "_ready_" + i.toString() + immediateTransSuffix;
+					} else{
+						assert fatal (false) with log("Unsupported firing strategy for component " + self.toString());
+					};
+					
+					// Add multiplicity, if needed
+					if(ip.collect > 1) {
+						arcToTransition.inscription.text := ip.collect.toString()  + "'" + arcToTransition.inscription.text
+					}endif;
+					
+					arcs->add(arcToTransition);
+				}; //else this component is redefined and not generated completely
+			} else if (ip.requiresMerge()) {
+				// Merge
+				var transformationResult := ip.map transformPinMerge(self.name, i);
+			    pl += transformationResult.pl;
+			    iTr += transformationResult.it;
+			    arcs += transformationResult.arcs;
+			    if(simpleComponent) {
+			    	var arcToTransition = new ArcType(transformationResult.pl->first().id + "_to_" + self.name);
+					arcToTransition.fromNode := transformationResult.pl->first().id;
+					arcToTransition.toNode := componentReadyTransition.id;
+					arcs->add(arcToTransition);			    
+			    }endif;
+
+			} else if(ip.requiresDuplicate())
+			{
+				var transformationResult := ip.map transformPinDuplicate(self.name, i);
+			    pl += transformationResult.pl;
+			    iTr += transformationResult.it;
+			    arcs += transformationResult.arcs;
+			} else if(ip.requiresMergeAndDuplicate())
+			{
+				var transformationResult := ip.map transformPinMergeAndDuplicate(self.name, i);
+			    pl += transformationResult.pl;
+			    iTr += transformationResult.it;
+			    arcs += transformationResult.arcs;
+			}endif;
+			i := i + 1;
+		};
+		
+		// Transform all output pins
+		i := 0;
+		self.pins[e4sm::OutputPin]->forEach(op) {
 			if (op.requiresSimpleTransformation()) {
 				//OUT FCFS
 				//Create the place
@@ -312,53 +394,51 @@ mapping Component::transformComponent() : pl: List(PlaceType), iTr : List(Transi
 			    pl += outputPinPlace;
 				
 				//Create an arc to connect the the component to the place
-				if(simpleComponent and op.oclIsTypeOf(OutputPin)) {
+				if(simpleComponent) {
 					var arcFromTransition = new ArcType(outputPinPlace.id + "_from_" + self.name);
 					arcFromTransition.fromNode := timedTran.id;
 					arcFromTransition.toNode := outputPinPlace.id;
 					arcFromTransition.inscription.text := "new(1)"; //TODO: improve specification
+					
+					// Add multiplicity, if needed
+					if(op.amplify > 1) {
+						arcFromTransition.inscription.text := op.amplify.toString()  + "'" + arcFromTransition.inscription.text
+					}endif;
+					
 					arcs->add(arcFromTransition);
 				}; // else this component is redefined and not generated completely
-				if(simpleComponent and op.oclIsTypeOf(InputPin)) {
-					var arcToTransition = new ArcType(outputPinPlace.id + "_to_" + self.name);
-					arcToTransition.fromNode := outputPinPlace.id;
-					arcToTransition.toNode := componentReadyTransition.id;
-					arcs->add(arcToTransition);
-				}; //else this component is redefined and not generated completely
-				i := i+1;
 			} else if (op.requiresMerge()) {
 				//OUT Merge
-				var outputPin := op.map transformOutputPinMerge(self.name, i);
+				var outputPin := op.map transformPinMerge(self.name, i);
 			    pl += outputPin.pl;
 			    iTr += outputPin.it;
 			    arcs += outputPin.arcs;
-			    if(simpleComponent and op.oclIsTypeOf(InputPin)) {
-			    	var arcToTransition = new ArcType(outputPin.pl->first().id + "_to_" + self.name);
-					arcToTransition.fromNode := outputPin.pl->first().id;
-					arcToTransition.toNode := componentReadyTransition.id;
-					arcs->add(arcToTransition);			    
-			    }endif;
-
-			} else if(op.requiresDuplicate())
-			{
-				var outputPin := op.map transformOutputPinDuplicate(self.name, i);
+			} else if(op.requiresDuplicate())	{
+				var outputPin := op.map transformPinDuplicate(self.name, i);
 			    pl += outputPin.pl;
 			    iTr += outputPin.it;
 			    arcs += outputPin.arcs;
-			    if(simpleComponent and op.oclIsTypeOf(OutputPin)){
+			    if(simpleComponent){
 			    var arcFromTransition = new ArcType(outputPin.pl->first().id + "_from_" + self.name);
 					arcFromTransition.fromNode := timedTran.id;
 					arcFromTransition.toNode := outputPin.pl->first().id;
 					arcFromTransition.inscription.text :=  "new(1)"; //TODO: improve specification
+					
+					// Add multiplicity, if needed
+					if(op.oclIsTypeOf(OutputPin) and op.amplify > 1) {
+					arcFromTransition.inscription.text := op.amplify.toString()  + "'" + arcFromTransition.inscription.text
+					}endif;
+					
 					arcs->add(arcFromTransition);
 			    };
 			} else if(op.requiresMergeAndDuplicate())
 			{
-				var outputPin := op.map transformOutputPinMergeAndDuplicate(self.name, i);
+				var outputPin := op.map transformPinMergeAndDuplicate(self.name, i);
 			    pl += outputPin.pl;
 			    iTr += outputPin.it;
 			    arcs += outputPin.arcs;
-			}endif;
+			} endif;
+			i := i + 1;
 		};
 		
 		//Generate the specifying package, if any.
