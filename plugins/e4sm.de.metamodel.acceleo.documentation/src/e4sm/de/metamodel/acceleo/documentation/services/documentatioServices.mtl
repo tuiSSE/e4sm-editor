@@ -1,0 +1,7 @@
+[comment encoding = UTF-8 /]
+[module documentatioServices('http://www.eclipse.org/emf/2002/Ecore')/]
+
+[query public getXMIID(arg0 : EObject) : String
+	= invoke('e4sm.de.metamodel.acceleo.documentation.services.DocumentationServices', 'getXMIID(org.eclipse.emf.ecore.EObject)', Sequence{arg0})
+/]
+

@@ -1,0 +1,196 @@
+[comment encoding = UTF-8 /]
+[**
+ * The documentation of the module generate.
+ */]
+[module generate('http://de.tu-ilmenau/e4sm/1.0.0', 'http://de.tu-ilmenau/e4sm/core/1.0.0')]
+[import e4sm::de::metamodel::acceleo::documentation::services::documentatioServices /]
+
+[**
+ * The documentation of the template generateElement.
+ * @param aModel
+ */]
+[template public generateElement(aModel : Model)]
+[comment @main/]
+[file (aModel.name + '_doc/' + aModel.name+'.html', false, 'UTF-8')]
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>[aModel.name/] - Documentation</title>
+  <meta name="description" content="The Interface documentation of the [aModel.name/] model">
+  <meta name="author" content="E4SM Project - SSE Department">
+
+  <meta property="og:title" content="A Basic HTML5 Template">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="A simple HTML5 Template for new projects.">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+</head>
+
+<body>
+  <h1 id="[aModel.getXMIID()/]">Model [aModel.itemName()/]</h1>
+  [for (aPackage : Package | aModel.packages)]
+  	[aPackage.generatePackage()/]
+  [/for]
+  <script src="js/scripts.js"></script>
+</body>
+</html>
+
+[/file]
+[file (aModel.name + '_doc/css/' + 'styles.css', false, 'UTF-8')]
+*{
+	font-family: helvetica, arial, sans-serif;
+    color: #444444;
+}
+body{
+  padding: 6pt;
+  background-color:rgb(241, 243, 243);
+}
+
+ul {
+  list-style-type: none;
+}
+
+.input-pin::before {
+  content: 'input ';
+}
+
+.output-pin::before {
+  content: 'output ';
+}
+
+.item-name{
+  font-style: italic;
+  color: black;
+}
+
+.toc{
+	display:block;
+	float:right;
+	background:white;
+	border: 1px solid gray;
+	padding: 4px;
+    max-height: 30vh;
+    overflow-y: auto;
+	overflow-x: hidden;
+}
+[/file]
+[file (aModel.name + '_doc/js/' +'scripts.js', false, 'UTF-8')]
+	// extract all headers
+
+var headers = ['['/][']'/]
+
+function walk (nodes) {
+  nodes.forEach((node) => {
+    var sub = Array.from(node.childNodes)
+    if (sub.length) {
+      walk(sub)
+    }
+    if (/h['['/]1-6[']'/]/i.test(node.tagName)) {
+      headers.push({
+        id: node.getAttribute('id'),
+        level: parseInt(node.tagName.replace('H', '')),
+        title: node.innerText
+      })
+    }
+  })
+}
+
+walk(Array.from(document.body.childNodes))
+
+console.dir(headers)
+
+// generate TOC
+
+var link = (header) =>
+  '<li><a href="#' + header.id + '">' + header.title + '</a></li>'
+
+var html = '<ul class="toc">'
+
+headers.forEach((header, index) => {
+  if (index) {
+    var prev = headers['['/]index - 1[']'/]
+  }
+  if (!index || prev.level === header.level) {
+    html += link(header)
+  }
+  else if (prev.level > header.level) {
+    html += '</ul>' + link(header)
+  }
+  else if (prev.level < header.level) {
+    html += '<ul>' + link(header)
+  }
+})
+
+html += '</ul>'
+
+document.body.insertAdjacentHTML('afterbegin', html)
+[/file]
+[/template]
+
+
+[template public generatePackage(aPackage : Package)]
+<h2 id="[aPackage.getXMIID()/]">Package [aPackage.itemName()/]</h2>
+[for (c : Component | aPackage.components)]
+	[c.generateComponent()/]
+[/for]
+[/template]
+
+[template public generateComponent(aComponent : Component)]
+<h3 id="[aComponent.getXMIID()/]">[aComponent.eClass().name/] [aComponent.itemName()/]</h3>
+
+<h4 id="[aComponent.getXMIID() + '_dep'/]">Receives data from</h4>
+[for (inP : InputPin | aComponent.pins->filter(e4sm::InputPin)) separator (', ') ]
+	[for (c : Component | inP.eContainer(e4sm::Package).connectors->select(c|c.target=inP).source.eContainer(e4sm::Component)) separator (', ')]
+		<a href="#[c.getXMIID()/]">[c.name/]</a>
+	[/for]
+[/for]
+
+[if (not aComponent.pins->filter(e4sm::InputPin)->isEmpty())]
+<h4 id="[aComponent.getXMIID() + '_in'/]">Input pins</h4>
+	<ul class="input-pin-list">
+	[for (ip : InputPin | aComponent.pins->filter(e4sm::InputPin))]
+		[ip.generateInputPin()/]
+	[/for]
+	</ul>
+[/if]
+
+[if (not aComponent.pins->filter(e4sm::OutputPin)->isEmpty())]
+<h4 id="[aComponent.getXMIID() + '_out'/]">Output pins</h4>
+<ul class="output-pin-list">
+[for (op : OutputPin | aComponent.pins->filter(e4sm::OutputPin))]
+	[op.generateOutputPin()/]
+[/for]
+</ul>
+[/if]
+<hr>
+[/template]
+
+[template public generateInputPin(aPin : InputPin)]
+<li id="[aPin.getXMIID()/]" class="input-pin">[aPin.itemName()/]
+[if (not aPin.type.oclIsUndefined())]
+	[aPin.type.generateTypeSpecification()/]
+[/if]
+</li>
+[/template]
+
+[template public generateOutputPin(aPin : OutputPin)]
+
+<li id="[aPin.getXMIID()/]" class="output-pin">[aPin.itemName()/]
+[if (not aPin.type.oclIsUndefined())]
+	[aPin.type.generateTypeSpecification()/]
+[/if]
+</li>
+[/template]
+
+[template public generateTypeSpecification(aType : TypeSpecification)]
+	:&nbsp;[aType.name/]
+[/template]
+
+[template public itemName(e : NamedElement)]
+	<span class="item-name">[e.name/]</span>
+[/template]
