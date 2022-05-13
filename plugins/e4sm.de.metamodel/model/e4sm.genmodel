@@ -104,7 +104,7 @@
           ecoreOperation="e4sm.ecore#//Sector/getAllComponents" body="&#x9;&#x9;EList&lt;Component> res = ECollections.newBasicEList(this.getComponents());&#xD;&#xA;&#x9;&#x9;this.getSectors().forEach(s->{res.addAll(s.getAllComponents());});&#xD;&#xA;&#x9;&#x9;return res;"/>
     </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//Sensor">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//Sensor/timeFunction"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//Sensor/timeFunctionDeprecated"/>
     </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//Actuator"/>
     <genClasses ecoreClass="e4sm.ecore#//Pin">

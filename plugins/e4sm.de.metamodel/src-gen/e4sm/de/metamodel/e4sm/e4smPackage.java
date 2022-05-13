@@ -90,13 +90,22 @@ public interface e4smPackage extends EPackage {
 	int COMPONENT__PARAMETERS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Time Function</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT__TIME_FUNCTION = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__COMPONENTS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int COMPONENT__COMPONENTS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Pins</b></em>' containment reference list.
@@ -105,7 +114,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__PINS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int COMPONENT__PINS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Main Responsible</b></em>' reference.
@@ -114,7 +123,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__MAIN_RESPONSIBLE = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int COMPONENT__MAIN_RESPONSIBLE = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Specified In Package</b></em>' reference.
@@ -123,7 +132,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__SPECIFIED_IN_PACKAGE = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 4;
+	int COMPONENT__SPECIFIED_IN_PACKAGE = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Execution</b></em>' containment reference.
@@ -132,7 +141,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__EXECUTION = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 5;
+	int COMPONENT__EXECUTION = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Firing Strategy</b></em>' attribute.
@@ -141,7 +150,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__FIRING_STRATEGY = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 6;
+	int COMPONENT__FIRING_STRATEGY = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of structural features of the '<em>Component</em>' class.
@@ -150,7 +159,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 7;
+	int COMPONENT_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Compute Main Responsible</em>' operation.
@@ -206,6 +215,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOFTWARE_COMPONENT__PARAMETERS = COMPONENT__PARAMETERS;
+
+	/**
+	 * The feature id for the '<em><b>Time Function</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOFTWARE_COMPONENT__TIME_FUNCTION = COMPONENT__TIME_FUNCTION;
 
 	/**
 	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
@@ -360,6 +378,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int MACHINE_LEARNING_COMPONENT__PARAMETERS = SOFTWARE_COMPONENT__PARAMETERS;
+
+	/**
+	 * The feature id for the '<em><b>Time Function</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MACHINE_LEARNING_COMPONENT__TIME_FUNCTION = SOFTWARE_COMPONENT__TIME_FUNCTION;
 
 	/**
 	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
@@ -800,6 +827,15 @@ public interface e4smPackage extends EPackage {
 	int PHYSICAL_COMPONENT__PARAMETERS = COMPONENT__PARAMETERS;
 
 	/**
+	 * The feature id for the '<em><b>Time Function</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PHYSICAL_COMPONENT__TIME_FUNCTION = COMPONENT__TIME_FUNCTION;
+
+	/**
 	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -971,6 +1007,15 @@ public interface e4smPackage extends EPackage {
 	int HEURISTIC__PARAMETERS = SOFTWARE_COMPONENT__PARAMETERS;
 
 	/**
+	 * The feature id for the '<em><b>Time Function</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HEURISTIC__TIME_FUNCTION = SOFTWARE_COMPONENT__TIME_FUNCTION;
+
+	/**
 	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1115,6 +1160,15 @@ public interface e4smPackage extends EPackage {
 	int FUNCTION__PARAMETERS = SOFTWARE_COMPONENT__PARAMETERS;
 
 	/**
+	 * The feature id for the '<em><b>Time Function</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION__TIME_FUNCTION = SOFTWARE_COMPONENT__TIME_FUNCTION;
+
+	/**
 	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1257,6 +1311,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXTERNAL_DEPENDENCY__PARAMETERS = SOFTWARE_COMPONENT__PARAMETERS;
+
+	/**
+	 * The feature id for the '<em><b>Time Function</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_DEPENDENCY__TIME_FUNCTION = SOFTWARE_COMPONENT__TIME_FUNCTION;
 
 	/**
 	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
@@ -1754,6 +1817,15 @@ public interface e4smPackage extends EPackage {
 	int SENSOR__PARAMETERS = PHYSICAL_COMPONENT__PARAMETERS;
 
 	/**
+	 * The feature id for the '<em><b>Time Function</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENSOR__TIME_FUNCTION = PHYSICAL_COMPONENT__TIME_FUNCTION;
+
+	/**
 	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1808,13 +1880,13 @@ public interface e4smPackage extends EPackage {
 	int SENSOR__FIRING_STRATEGY = PHYSICAL_COMPONENT__FIRING_STRATEGY;
 
 	/**
-	 * The feature id for the '<em><b>Time Function</b></em>' attribute.
+	 * The feature id for the '<em><b>Time Function Deprecated</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SENSOR__TIME_FUNCTION = PHYSICAL_COMPONENT_FEATURE_COUNT + 0;
+	int SENSOR__TIME_FUNCTION_DEPRECATED = PHYSICAL_COMPONENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Sensor</em>' class.
@@ -1869,6 +1941,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTUATOR__PARAMETERS = PHYSICAL_COMPONENT__PARAMETERS;
+
+	/**
+	 * The feature id for the '<em><b>Time Function</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTUATOR__TIME_FUNCTION = PHYSICAL_COMPONENT__TIME_FUNCTION;
 
 	/**
 	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
@@ -3340,15 +3421,15 @@ public interface e4smPackage extends EPackage {
 	EClass getSensor();
 
 	/**
-	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.Sensor#getTimeFunction <em>Time Function</em>}'.
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.Sensor#getTimeFunctionDeprecated <em>Time Function Deprecated</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Time Function</em>'.
-	 * @see e4sm.de.metamodel.e4sm.Sensor#getTimeFunction()
+	 * @return the meta object for the attribute '<em>Time Function Deprecated</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Sensor#getTimeFunctionDeprecated()
 	 * @see #getSensor()
 	 * @generated
 	 */
-	EAttribute getSensor_TimeFunction();
+	EAttribute getSensor_TimeFunctionDeprecated();
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.Actuator <em>Actuator</em>}'.
@@ -4276,12 +4357,12 @@ public interface e4smPackage extends EPackage {
 		EClass SENSOR = eINSTANCE.getSensor();
 
 		/**
-		 * The meta object literal for the '<em><b>Time Function</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Time Function Deprecated</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SENSOR__TIME_FUNCTION = eINSTANCE.getSensor_TimeFunction();
+		EAttribute SENSOR__TIME_FUNCTION_DEPRECATED = eINSTANCE.getSensor_TimeFunctionDeprecated();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.ActuatorImpl <em>Actuator</em>}' class.

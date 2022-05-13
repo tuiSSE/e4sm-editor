@@ -8,6 +8,7 @@ import e4sm.de.metamodel.e4sm.core.CorePackage;
 import e4sm.de.metamodel.e4sm.e4smFactory;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 import e4sm.de.metamodel.e4sm.execution.ExecutionFactory;
+import e4sm.de.metamodel.e4sm.execution.ExecutionPackage;
 import e4sm.de.metamodel.e4sm.core.provider.NamedElementItemProvider;
 import java.util.Collection;
 import java.util.List;
@@ -133,6 +134,7 @@ public class ComponentItemProvider extends NamedElementItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(CorePackage.Literals.PARAMETERIZABLE_ELEMENT__PARAMETERS);
+			childrenFeatures.add(ExecutionPackage.Literals.DELAYABLE_ELEMENT__TIME_FUNCTION);
 			childrenFeatures.add(e4smPackage.Literals.COMPONENT__COMPONENTS);
 			childrenFeatures.add(e4smPackage.Literals.COMPONENT__PINS);
 			childrenFeatures.add(e4smPackage.Literals.COMPONENT__EXECUTION);
@@ -203,6 +205,7 @@ public class ComponentItemProvider extends NamedElementItemProvider {
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		case e4smPackage.COMPONENT__PARAMETERS:
+		case e4smPackage.COMPONENT__TIME_FUNCTION:
 		case e4smPackage.COMPONENT__COMPONENTS:
 		case e4smPackage.COMPONENT__PINS:
 		case e4smPackage.COMPONENT__EXECUTION:
@@ -225,6 +228,9 @@ public class ComponentItemProvider extends NamedElementItemProvider {
 
 		newChildDescriptors.add(createChildParameter(CorePackage.Literals.PARAMETERIZABLE_ELEMENT__PARAMETERS,
 				AnalysisFactory.eINSTANCE.createParameter()));
+
+		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.DELAYABLE_ELEMENT__TIME_FUNCTION,
+				ExecutionFactory.eINSTANCE.createTimeFunction()));
 
 		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.COMPONENT__COMPONENTS,
 				e4smFactory.eINSTANCE.createComponent()));

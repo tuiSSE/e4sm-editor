@@ -11,7 +11,10 @@ import e4sm.de.metamodel.e4sm.Pin;
 import e4sm.de.metamodel.e4sm.analysis.Parameter;
 import e4sm.de.metamodel.e4sm.core.CorePackage;
 import e4sm.de.metamodel.e4sm.e4smPackage;
+import e4sm.de.metamodel.e4sm.execution.DelayableElement;
 import e4sm.de.metamodel.e4sm.execution.Execution;
+import e4sm.de.metamodel.e4sm.execution.ExecutionPackage;
+import e4sm.de.metamodel.e4sm.execution.TimeFunction;
 import e4sm.de.metamodel.e4sm.core.impl.NamedElementImpl;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
@@ -38,6 +41,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ComponentImpl#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.ComponentImpl#getTimeFunction <em>Time Function</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ComponentImpl#getComponents <em>Components</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ComponentImpl#getPins <em>Pins</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ComponentImpl#getMainResponsible <em>Main Responsible</em>}</li>
@@ -58,6 +62,16 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 	 * @ordered
 	 */
 	protected EList<Parameter> parameters;
+
+	/**
+	 * The cached value of the '{@link #getTimeFunction() <em>Time Function</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTimeFunction()
+	 * @generated
+	 * @ordered
+	 */
+	protected TimeFunction timeFunction;
 
 	/**
 	 * The cached value of the '{@link #getComponents() <em>Components</em>}' containment reference list.
@@ -160,6 +174,58 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 					e4smPackage.COMPONENT__PARAMETERS);
 		}
 		return parameters;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public TimeFunction getTimeFunction() {
+		return timeFunction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetTimeFunction(TimeFunction newTimeFunction, NotificationChain msgs) {
+		TimeFunction oldTimeFunction = timeFunction;
+		timeFunction = newTimeFunction;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					e4smPackage.COMPONENT__TIME_FUNCTION, oldTimeFunction, newTimeFunction);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setTimeFunction(TimeFunction newTimeFunction) {
+		if (newTimeFunction != timeFunction) {
+			NotificationChain msgs = null;
+			if (timeFunction != null)
+				msgs = ((InternalEObject) timeFunction).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - e4smPackage.COMPONENT__TIME_FUNCTION, null, msgs);
+			if (newTimeFunction != null)
+				msgs = ((InternalEObject) newTimeFunction).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - e4smPackage.COMPONENT__TIME_FUNCTION, null, msgs);
+			msgs = basicSetTimeFunction(newTimeFunction, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.COMPONENT__TIME_FUNCTION, newTimeFunction,
+					newTimeFunction));
 	}
 
 	/**
@@ -469,6 +535,8 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 		switch (featureID) {
 		case e4smPackage.COMPONENT__PARAMETERS:
 			return ((InternalEList<?>) getParameters()).basicRemove(otherEnd, msgs);
+		case e4smPackage.COMPONENT__TIME_FUNCTION:
+			return basicSetTimeFunction(null, msgs);
 		case e4smPackage.COMPONENT__COMPONENTS:
 			return ((InternalEList<?>) getComponents()).basicRemove(otherEnd, msgs);
 		case e4smPackage.COMPONENT__PINS:
@@ -493,6 +561,8 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 		switch (featureID) {
 		case e4smPackage.COMPONENT__PARAMETERS:
 			return getParameters();
+		case e4smPackage.COMPONENT__TIME_FUNCTION:
+			return getTimeFunction();
 		case e4smPackage.COMPONENT__COMPONENTS:
 			return getComponents();
 		case e4smPackage.COMPONENT__PINS:
@@ -525,6 +595,9 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 		case e4smPackage.COMPONENT__PARAMETERS:
 			getParameters().clear();
 			getParameters().addAll((Collection<? extends Parameter>) newValue);
+			return;
+		case e4smPackage.COMPONENT__TIME_FUNCTION:
+			setTimeFunction((TimeFunction) newValue);
 			return;
 		case e4smPackage.COMPONENT__COMPONENTS:
 			getComponents().clear();
@@ -561,6 +634,9 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 		case e4smPackage.COMPONENT__PARAMETERS:
 			getParameters().clear();
 			return;
+		case e4smPackage.COMPONENT__TIME_FUNCTION:
+			setTimeFunction((TimeFunction) null);
+			return;
 		case e4smPackage.COMPONENT__COMPONENTS:
 			getComponents().clear();
 			return;
@@ -593,6 +669,8 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 		switch (featureID) {
 		case e4smPackage.COMPONENT__PARAMETERS:
 			return parameters != null && !parameters.isEmpty();
+		case e4smPackage.COMPONENT__TIME_FUNCTION:
+			return timeFunction != null;
 		case e4smPackage.COMPONENT__COMPONENTS:
 			return components != null && !components.isEmpty();
 		case e4smPackage.COMPONENT__PINS:
@@ -624,6 +702,14 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 				return -1;
 			}
 		}
+		if (baseClass == DelayableElement.class) {
+			switch (derivedFeatureID) {
+			case e4smPackage.COMPONENT__TIME_FUNCTION:
+				return ExecutionPackage.DELAYABLE_ELEMENT__TIME_FUNCTION;
+			default:
+				return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -638,6 +724,14 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 			switch (baseFeatureID) {
 			case CorePackage.PARAMETERIZABLE_ELEMENT__PARAMETERS:
 				return e4smPackage.COMPONENT__PARAMETERS;
+			default:
+				return -1;
+			}
+		}
+		if (baseClass == DelayableElement.class) {
+			switch (baseFeatureID) {
+			case ExecutionPackage.DELAYABLE_ELEMENT__TIME_FUNCTION:
+				return e4smPackage.COMPONENT__TIME_FUNCTION;
 			default:
 				return -1;
 			}

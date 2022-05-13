@@ -16,30 +16,30 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link e4sm.de.metamodel.e4sm.impl.SensorImpl#getTimeFunction <em>Time Function</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.SensorImpl#getTimeFunctionDeprecated <em>Time Function Deprecated</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class SensorImpl extends PhysicalComponentImpl implements Sensor {
 	/**
-	 * The default value of the '{@link #getTimeFunction() <em>Time Function</em>}' attribute.
+	 * The default value of the '{@link #getTimeFunctionDeprecated() <em>Time Function Deprecated</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTimeFunction()
+	 * @see #getTimeFunctionDeprecated()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String TIME_FUNCTION_EDEFAULT = "EXP(1.0)";
+	protected static final String TIME_FUNCTION_DEPRECATED_EDEFAULT = "EXP(1.0)";
 	/**
-	 * The cached value of the '{@link #getTimeFunction() <em>Time Function</em>}' attribute.
+	 * The cached value of the '{@link #getTimeFunctionDeprecated() <em>Time Function Deprecated</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTimeFunction()
+	 * @see #getTimeFunctionDeprecated()
 	 * @generated
 	 * @ordered
 	 */
-	protected String timeFunction = TIME_FUNCTION_EDEFAULT;
+	protected String timeFunctionDeprecated = TIME_FUNCTION_DEPRECATED_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -66,8 +66,8 @@ public class SensorImpl extends PhysicalComponentImpl implements Sensor {
 	 * @generated
 	 */
 	@Override
-	public String getTimeFunction() {
-		return timeFunction;
+	public String getTimeFunctionDeprecated() {
+		return timeFunctionDeprecated;
 	}
 
 	/**
@@ -76,12 +76,12 @@ public class SensorImpl extends PhysicalComponentImpl implements Sensor {
 	 * @generated
 	 */
 	@Override
-	public void setTimeFunction(String newTimeFunction) {
-		String oldTimeFunction = timeFunction;
-		timeFunction = newTimeFunction;
+	public void setTimeFunctionDeprecated(String newTimeFunctionDeprecated) {
+		String oldTimeFunctionDeprecated = timeFunctionDeprecated;
+		timeFunctionDeprecated = newTimeFunctionDeprecated;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.SENSOR__TIME_FUNCTION, oldTimeFunction,
-					timeFunction));
+			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.SENSOR__TIME_FUNCTION_DEPRECATED,
+					oldTimeFunctionDeprecated, timeFunctionDeprecated));
 	}
 
 	/**
@@ -92,8 +92,8 @@ public class SensorImpl extends PhysicalComponentImpl implements Sensor {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case e4smPackage.SENSOR__TIME_FUNCTION:
-			return getTimeFunction();
+		case e4smPackage.SENSOR__TIME_FUNCTION_DEPRECATED:
+			return getTimeFunctionDeprecated();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -106,8 +106,8 @@ public class SensorImpl extends PhysicalComponentImpl implements Sensor {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case e4smPackage.SENSOR__TIME_FUNCTION:
-			setTimeFunction((String) newValue);
+		case e4smPackage.SENSOR__TIME_FUNCTION_DEPRECATED:
+			setTimeFunctionDeprecated((String) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -121,8 +121,8 @@ public class SensorImpl extends PhysicalComponentImpl implements Sensor {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case e4smPackage.SENSOR__TIME_FUNCTION:
-			setTimeFunction(TIME_FUNCTION_EDEFAULT);
+		case e4smPackage.SENSOR__TIME_FUNCTION_DEPRECATED:
+			setTimeFunctionDeprecated(TIME_FUNCTION_DEPRECATED_EDEFAULT);
 			return;
 		}
 		super.eUnset(featureID);
@@ -136,8 +136,9 @@ public class SensorImpl extends PhysicalComponentImpl implements Sensor {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case e4smPackage.SENSOR__TIME_FUNCTION:
-			return TIME_FUNCTION_EDEFAULT == null ? timeFunction != null : !TIME_FUNCTION_EDEFAULT.equals(timeFunction);
+		case e4smPackage.SENSOR__TIME_FUNCTION_DEPRECATED:
+			return TIME_FUNCTION_DEPRECATED_EDEFAULT == null ? timeFunctionDeprecated != null
+					: !TIME_FUNCTION_DEPRECATED_EDEFAULT.equals(timeFunctionDeprecated);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -153,8 +154,8 @@ public class SensorImpl extends PhysicalComponentImpl implements Sensor {
 			return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (timeFunction: ");
-		result.append(timeFunction);
+		result.append(" (timeFunctionDeprecated: ");
+		result.append(timeFunctionDeprecated);
 		result.append(')');
 		return result.toString();
 	}

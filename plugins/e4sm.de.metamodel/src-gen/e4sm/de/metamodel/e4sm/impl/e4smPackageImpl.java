@@ -971,7 +971,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getSensor_TimeFunction() {
+	public EAttribute getSensor_TimeFunctionDeprecated() {
 		return (EAttribute) sensorEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1485,7 +1485,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		createEOperation(sectorEClass, SECTOR___GET_ALL_COMPONENTS);
 
 		sensorEClass = createEClass(SENSOR);
-		createEAttribute(sensorEClass, SENSOR__TIME_FUNCTION);
+		createEAttribute(sensorEClass, SENSOR__TIME_FUNCTION_DEPRECATED);
 
 		actuatorEClass = createEClass(ACTUATOR);
 
@@ -1583,6 +1583,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		// Add supertypes to classes
 		componentEClass.getESuperTypes().add(theCorePackage.getNamedElement());
 		componentEClass.getESuperTypes().add(theCorePackage.getParameterizableElement());
+		componentEClass.getESuperTypes().add(theExecutionPackage.getDelayableElement());
 		machineLearningComponentEClass.getESuperTypes().add(this.getSoftwareComponent());
 		connectorEClass.getESuperTypes().add(theCorePackage.getParameterizableElement());
 		connectorEClass.getESuperTypes().add(theCorePackage.getNamedElement());
@@ -1772,8 +1773,9 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 				IS_ORDERED);
 
 		initEClass(sensorEClass, Sensor.class, "Sensor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSensor_TimeFunction(), this.getTimeFunction(), "timeFunction", "EXP(1.0)", 1, 1, Sensor.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSensor_TimeFunctionDeprecated(), this.getTimeFunction(), "timeFunctionDeprecated", "EXP(1.0)",
+				1, 1, Sensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
 		initEClass(actuatorEClass, Actuator.class, "Actuator", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);

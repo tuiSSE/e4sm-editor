@@ -43,24 +43,24 @@ public class SensorItemProvider extends PhysicalComponentItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addTimeFunctionPropertyDescriptor(object);
+			addTimeFunctionDeprecatedPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Time Function feature.
+	 * This adds a property descriptor for the Time Function Deprecated feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addTimeFunctionPropertyDescriptor(Object object) {
+	protected void addTimeFunctionDeprecatedPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Sensor_timeFunction_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Sensor_timeFunction_feature",
+						getResourceLocator(), getString("_UI_Sensor_timeFunctionDeprecated_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Sensor_timeFunctionDeprecated_feature",
 								"_UI_Sensor_type"),
-						e4smPackage.Literals.SENSOR__TIME_FUNCTION, true, false, false,
+						e4smPackage.Literals.SENSOR__TIME_FUNCTION_DEPRECATED, true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -110,7 +110,7 @@ public class SensorItemProvider extends PhysicalComponentItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Sensor.class)) {
-		case e4smPackage.SENSOR__TIME_FUNCTION:
+		case e4smPackage.SENSOR__TIME_FUNCTION_DEPRECATED:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}

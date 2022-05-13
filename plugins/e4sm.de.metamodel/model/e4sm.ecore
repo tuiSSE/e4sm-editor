@@ -2,7 +2,7 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="e4sm" nsURI="http://de.tu-ilmenau/e4sm/1.0.0" nsPrefix="e4sm">
   <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Component" eSuperTypes="core.ecore#//NamedElement core.ecore#//ParameterizableElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Component" eSuperTypes="core.ecore#//NamedElement core.ecore#//ParameterizableElement execution.ecore#//DelayableElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Generic component, which should be used to temporally specify an element before deciding how it will be realised.&#xD;&#xA;&#xD;&#xA;Constraints:&#xD;&#xA;- C1: no loops allowed between the component container (Package) and component &quot;specifiedInPackage&quot;&#xD;&#xA;- C2: components->size()>0, then specifiedInPackage=null - If the component contains other components, it can't be specified in a package."/>
     </eAnnotations>
@@ -257,8 +257,8 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="constraints" value="SensorC1"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeFunction" lowerBound="1"
-        eType="#//TimeFunction" defaultValueLiteral="EXP(1.0)"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeFunctionDeprecated"
+        lowerBound="1" eType="#//TimeFunction" defaultValueLiteral="EXP(1.0)"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Actuator" eSuperTypes="#//PhysicalComponent">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

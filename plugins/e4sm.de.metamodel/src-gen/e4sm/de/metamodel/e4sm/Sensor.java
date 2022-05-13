@@ -17,7 +17,7 @@ package e4sm.de.metamodel.e4sm;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link e4sm.de.metamodel.e4sm.Sensor#getTimeFunction <em>Time Function</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.Sensor#getTimeFunctionDeprecated <em>Time Function Deprecated</em>}</li>
  * </ul>
  *
  * @see e4sm.de.metamodel.e4sm.e4smPackage#getSensor()
@@ -27,25 +27,25 @@ package e4sm.de.metamodel.e4sm;
 public interface Sensor extends PhysicalComponent {
 
 	/**
-	 * Returns the value of the '<em><b>Time Function</b></em>' attribute.
+	 * Returns the value of the '<em><b>Time Function Deprecated</b></em>' attribute.
 	 * The default value is <code>"EXP(1.0)"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Time Function</em>' attribute.
-	 * @see #setTimeFunction(String)
-	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getSensor_TimeFunction()
+	 * @return the value of the '<em>Time Function Deprecated</em>' attribute.
+	 * @see #setTimeFunctionDeprecated(String)
+	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getSensor_TimeFunctionDeprecated()
 	 * @model default="EXP(1.0)" dataType="e4sm.de.metamodel.e4sm.TimeFunction" required="true"
 	 * @generated
 	 */
-	String getTimeFunction();
+	String getTimeFunctionDeprecated();
 
 	/**
-	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.Sensor#getTimeFunction <em>Time Function</em>}' attribute.
+	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.Sensor#getTimeFunctionDeprecated <em>Time Function Deprecated</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Time Function</em>' attribute.
-	 * @see #getTimeFunction()
+	 * @param value the new value of the '<em>Time Function Deprecated</em>' attribute.
+	 * @see #getTimeFunctionDeprecated()
 	 * @generated
 	 */
-	void setTimeFunction(String value);
+	void setTimeFunctionDeprecated(String value);
 } // Sensor

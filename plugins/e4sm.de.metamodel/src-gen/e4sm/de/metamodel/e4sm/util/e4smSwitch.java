@@ -35,6 +35,7 @@ import e4sm.de.metamodel.e4sm.e4smPackage;
 
 import e4sm.de.metamodel.e4sm.execution.AssignableElement;
 import e4sm.de.metamodel.e4sm.execution.ConnectableNode;
+import e4sm.de.metamodel.e4sm.execution.DelayableElement;
 import e4sm.de.metamodel.e4sm.core.Element;
 import e4sm.de.metamodel.e4sm.core.NamedElement;
 import e4sm.de.metamodel.e4sm.core.ParameterizableElement;
@@ -109,6 +110,8 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseParameterizableElement(component);
 			if (result == null)
+				result = caseDelayableElement(component);
+			if (result == null)
 				result = caseElement(component);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -125,6 +128,8 @@ public class e4smSwitch<T> extends Switch<T> {
 				result = caseNamedElement(machineLearningComponent);
 			if (result == null)
 				result = caseParameterizableElement(machineLearningComponent);
+			if (result == null)
+				result = caseDelayableElement(machineLearningComponent);
 			if (result == null)
 				result = caseElement(machineLearningComponent);
 			if (result == null)
@@ -169,6 +174,8 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseParameterizableElement(physicalComponent);
 			if (result == null)
+				result = caseDelayableElement(physicalComponent);
+			if (result == null)
 				result = caseElement(physicalComponent);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -183,6 +190,8 @@ public class e4smSwitch<T> extends Switch<T> {
 				result = caseNamedElement(softwareComponent);
 			if (result == null)
 				result = caseParameterizableElement(softwareComponent);
+			if (result == null)
+				result = caseDelayableElement(softwareComponent);
 			if (result == null)
 				result = caseElement(softwareComponent);
 			if (result == null)
@@ -216,6 +225,8 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseParameterizableElement(heuristic);
 			if (result == null)
+				result = caseDelayableElement(heuristic);
+			if (result == null)
 				result = caseElement(heuristic);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -233,6 +244,8 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseParameterizableElement(function);
 			if (result == null)
+				result = caseDelayableElement(function);
+			if (result == null)
 				result = caseElement(function);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -249,6 +262,8 @@ public class e4smSwitch<T> extends Switch<T> {
 				result = caseNamedElement(externalDependency);
 			if (result == null)
 				result = caseParameterizableElement(externalDependency);
+			if (result == null)
+				result = caseDelayableElement(externalDependency);
 			if (result == null)
 				result = caseElement(externalDependency);
 			if (result == null)
@@ -341,6 +356,8 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseParameterizableElement(sensor);
 			if (result == null)
+				result = caseDelayableElement(sensor);
+			if (result == null)
 				result = caseElement(sensor);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -357,6 +374,8 @@ public class e4smSwitch<T> extends Switch<T> {
 				result = caseNamedElement(actuator);
 			if (result == null)
 				result = caseParameterizableElement(actuator);
+			if (result == null)
+				result = caseDelayableElement(actuator);
 			if (result == null)
 				result = caseElement(actuator);
 			if (result == null)
@@ -1002,6 +1021,21 @@ public class e4smSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseParameterizableElement(ParameterizableElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Delayable Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Delayable Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDelayableElement(DelayableElement object) {
 		return null;
 	}
 
