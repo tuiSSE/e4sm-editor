@@ -5,6 +5,7 @@ package e4sm.de.metamodel.xtext.tests;
 
 import com.google.inject.Inject;
 import e4sm.de.metamodel.e4sm.Component;
+import e4sm.de.metamodel.e4sm.ComponentFiringStrategy;
 import e4sm.de.metamodel.e4sm.Model;
 import e4sm.de.metamodel.e4sm.execution.Element;
 import org.eclipse.emf.common.util.EList;
@@ -127,7 +128,25 @@ public class E4smParsingTest {
       _builder.append("in AIn");
       _builder.newLine();
       _builder.append("\t\t");
-      _builder.append("}");
+      _builder.append("},");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("heuristic H {");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("firingStrategy OR");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("in Hin,");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("in Hin2,");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("out Hout");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("}\t\t\t\t");
       _builder.newLine();
       _builder.append("\t\t");
       _builder.append("//sensor S {");
@@ -149,6 +168,24 @@ public class E4smParsingTest {
       return _builder.toString();
     }
   }.apply();
+  
+  @Test
+  public void parseFiringStrategy() {
+    try {
+      final Model result = this.parseHelper.parse(E4smParsingTest.toBeParsed);
+      Assertions.assertEquals(result.getPackages().get(0).getComponents().get(6).getName(), "H");
+      Assertions.assertEquals(result.getPackages().get(0).getComponents().get(6).getFiringStrategy(), ComponentFiringStrategy.OR);
+      final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
+      boolean _isEmpty = errors.isEmpty();
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("Unexpected errors: ");
+      String _join = IterableExtensions.join(errors, ", ");
+      _builder.append(_join);
+      Assertions.assertTrue(_isEmpty, _builder.toString());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
   
   @Test
   public void loadModel() {

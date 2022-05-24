@@ -64,7 +64,6 @@ class E4smScopeProvider extends AbstractE4smScopeProvider {
 //				return Scopes.scopeFor((context.eContainer as Component).pins)
 //			}
 //		}
-		// TODO Auto-generated method stub
 		return super.getScope(context, reference)
 	}
 }

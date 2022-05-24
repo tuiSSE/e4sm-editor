@@ -400,6 +400,8 @@ Component_Impl returns Component:
 	('specifiedInPackage' specifiedInPackage=[Package|EString])?
 	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
 	('components' '{' components+=Component ("," components+=Component)* '}')?
+	('firingStrategy' firingStrategy=ComponentFiringStrategy)?
+	('takes' timeFunction=ComplexTimefunction)?
 	(pins+=Pin ("," pins+=Pin)*)?
 	('runs' '{' execution=Execution '}')?
 	'}';
@@ -437,6 +439,8 @@ MachineLearningComponent returns MachineLearningComponent:
 	'mlComponent'
 	name=EString
 	'{'
+	('firingStrategy' firingStrategy=ComponentFiringStrategy)?
+	('takes' timeFunction=ComplexTimefunction)?
 	(pins+=Pin ("," pins+=Pin)*)?
 	('outputUncertainty' outputUncertainty=EDouble)?
 	('synchronous' synchronous=EBoolean)?
@@ -453,6 +457,8 @@ PhysicalComponent_Impl returns PhysicalComponent:
 	'physicalComponent'
 	name=EString
 	'{'
+	('firingStrategy' firingStrategy=ComponentFiringStrategy)?
+	('takes' timeFunction=ComplexTimefunction)?
 	pins+=Pin ("," pins+=Pin)*
 	('mainResponsible' mainResponsible=[Person|EString])?
 	('specifiedInPackage' specifiedInPackage=[Package|EString])?
@@ -466,6 +472,8 @@ SoftwareComponent_Impl returns SoftwareComponent:
 	'softwareComponent'
 	name=EString
 	'{'
+	('firingStrategy' firingStrategy=ComponentFiringStrategy)?
+	('takes' timeFunction=ComplexTimefunction)?
 	(pins+=Pin ("," pins+=Pin)*)?
 	('outputUncertainty' outputUncertainty=EDouble)?
 	('synchronous' synchronous=EBoolean)?
@@ -482,6 +490,8 @@ Heuristic returns Heuristic:
 	'heuristic'
 	name=EString
 	'{'
+	('firingStrategy' firingStrategy=ComponentFiringStrategy)?
+	('takes' timeFunction=ComplexTimefunction)?
 	(pins+=Pin ("," pins+=Pin)*)?
 	('outputUncertainty' outputUncertainty=EDouble)?
 	('synchronous' synchronous=EBoolean)?
@@ -498,6 +508,8 @@ Function returns Function:
 	'function'
 	name=EString
 	'{'
+	('firingStrategy' firingStrategy=ComponentFiringStrategy)?
+	('takes' timeFunction=ComplexTimefunction)?
 	(pins+=Pin ("," pins+=Pin)*)?
 	('outputUncertainty' outputUncertainty=EDouble)?
 	('synchronous' synchronous=EBoolean)?
@@ -514,6 +526,8 @@ ExternalDependency returns ExternalDependency:
 	'externalDependency'
 	name=EString
 	'{'
+	('firingStrategy' firingStrategy=ComponentFiringStrategy)?
+	('takes' timeFunction=ComplexTimefunction)?
 	(pins+=Pin ("," pins+=Pin)*)?
 	('outputUncertainty' outputUncertainty=EDouble)?
 	('synchronous' synchronous=EBoolean)?
@@ -529,6 +543,8 @@ Sensor returns Sensor:
 	'sensor'
 	name=EString
 	'{'
+	('firingStrategy' firingStrategy=ComponentFiringStrategy)?
+	('takes' timeFunction=ComplexTimefunction)?
 	(pins+=Pin ("," pins+=Pin)*)?
 	//'timeFunction' timeFunction=TimeFunction
 	('mainResponsible' mainResponsible=[Person|EString])?
@@ -543,6 +559,8 @@ Actuator returns Actuator:
 	'actuator'
 	name=EString
 	'{'
+	('firingStrategy' firingStrategy=ComponentFiringStrategy)?
+	('takes' timeFunction=ComplexTimefunction)?
 	(pins+=Pin ("," pins+=Pin)*)?
 	('mainResponsible' mainResponsible=[Person|EString])?
 	('specifiedInPackage' specifiedInPackage=[Package|EString])?
@@ -553,6 +571,10 @@ Actuator returns Actuator:
 
 enum RaceSemantic returns RaceSemantic:
 	FCFS='FCFS' | DUPLICATE='DUPLICATE' | MERGE='MERGE' | MERGE_AND_DUPLICATE='MERGE_AND_DUPLICATE';
+	
+enum ComponentFiringStrategy returns ComponentFiringStrategy:
+	AND='AND'| AND='&&' | OR = 'OR' | OR = '||';
+
 
 InputPin returns InputPin:
 	{InputPin}
@@ -560,6 +582,7 @@ InputPin returns InputPin:
 	(type=[core::TypeSpecification])?
 	name=EString // (':' type=[ecore::EDataType|EString])?
 	('{'
+	('collects' collect=EInt)?
 	('raceSemantic' raceSemantic=RaceSemantic)?
 	('queueType' queueType=QueueType)?
 	// ('outgoingConnectors' '(' outgoingConnectors+=[Connector|EString] ( "," outgoingConnectors+=[Connector|EString])* ')' )?
@@ -573,6 +596,7 @@ OutputPin returns OutputPin:
 	(type=[core::TypeSpecification])?
 	name=EString // (':' type=[ecore::EDataType])?
 	('{'
+	('amplifies' amplify=EInt)?
 	('raceSemantic' raceSemantic=RaceSemantic)?
 	// ('outgoingConnectors' '(' outgoingConnectors+=[Connector|EString] ( "," outgoingConnectors+=[Connector|EString])* ')' )?
 	// ('incomingConnectors' '(' incomingConnectors+=[Connector|EString] ( "," incomingConnectors+=[Connector|EString])* ')' )?
@@ -591,8 +615,7 @@ TimeFunction returns TimeFunction:
 PhysicalConnector returns PhysicalConnector:
 	'physicalConnector'
 	name=EString
-	source=[Pin|EString] '->'
-	target=[Pin|EString]
+	source=[Pin|EString] '->' target=[Pin|EString]
 	('{'
 	('minSpeed' minSpeed=Connectionspeed)?
 	('maxSpeed' maxSpeed=Connectionspeed)?
@@ -601,9 +624,8 @@ PhysicalConnector returns PhysicalConnector:
 
 LogicalConnector returns LogicalConnector:
 	'logicalConnector'
-	'source' source=[Pin|EString]
-	'target' target=[Pin|EString]
 	name=EString
+	source=[Pin|EString] '->' target=[Pin|EString]
 	('{'
 	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
 	'}')?;
@@ -642,6 +664,8 @@ ComplexTimefunction returns execution::TimeFunction: //TODO, allow operations
 
 ExeTimeFunction returns execution::TimeFunction:
 	{execution::TimeFunction}
+	// TODO: this should also be able to accept integer values.
+	// Placing EDouble|EInt here makes XText stop working
 	function=TimeFunctions '(' par1=EDouble (',' par2=EDouble)? ')';
 
 enum TimeFunctions returns execution::TimeFunctions:
@@ -722,7 +746,7 @@ AttributeSpecification returns core::AttributeSpecification:
 
 IntegerAttribute returns core::IntegerAttribute:
 	{core::IntegerAttribute}
-	'int' name=ID ('=' defaultValue=EInt)?;
+	'int' (array?='[' ']')? name=ID ('=' defaultValue=EInt)?;
 
 DoubleAttribute returns core::DoubleAttribute:
 	{core::DoubleAttribute}

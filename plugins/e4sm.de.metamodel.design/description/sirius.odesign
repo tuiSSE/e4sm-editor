@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:filter="http://www.eclipse.org/sirius/diagram/description/filter/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:properties-ext-widgets-reference="http://www.eclipse.org/sirius/properties/1.0.0/ext/widgets/reference" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="sirius" version="12.0.0.2017041100">
-  <ownedViewpoints name="E4SM_Viewpoint" label="E4SM" modelFileExtension="e4sm">
+  <ownedViewpoints name="E4SM_Viewpoint" label="E4SM" modelFileExtension="e4sm e4smcode">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="e4sm_diagram_1" label="Allocation Diagram (AD)" titleExpression="aql:'[AD] ' + self.oclAsType(e4sm::Package).name" domainClass="e4sm::Package" preconditionExpression="false" enablePopupBars="true">
       <metamodel href="http://de.tu-ilmenau/e4sm/1.0.0#/"/>
       <defaultLayer name="Default">
@@ -970,6 +970,13 @@
           </vsmElementCustomizations>
         </customization>
       </additionalLayers>
+      <additionalLayers name="slow_flows_layer_id" label="Slow Flows">
+        <customization>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.oclIsKindOf(e4sm::Connector)">
+            <featureCustomizations xsi:type="description:EReferenceCustomization" appliedOn="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_connector']/@style //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_logical_connector']/@style //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_physical_connector']/@style" referenceName="strokeColor" value="//@userColorsPalettes[name='E4SMColors']/@entries[name='edge_flow_color']"/>
+          </vsmElementCustomizations>
+        </customization>
+      </additionalLayers>
       <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="[CSD]" label="Component Specification Diagram [CSD]" domainClass="e4sm::Component" enablePopupBars="true">
@@ -1092,6 +1099,14 @@
         </edgeMappings>
         <edgeMappings name="forkEdgeIn" label="Fork Edge In" semanticCandidatesExpression="aql:self.execution.elements->filter(execution::ForkNode)" sourceMapping="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='[CSD]']/@defaultLayer/@nodeMappings[name='imported_input_pin']" targetMapping="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='[CSD]']/@defaultLayer/@nodeMappings[name='fork_element']" targetFinderExpression="var:self" sourceFinderExpression="feature:source" domainClass="execution::ForkNode" useDomainElement="true">
           <style lineStyle="dash" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="forkEdgeOutNew" label="Forg Edge Out Element" useDomainElement="true">
+          <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription labelSize="12">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -1275,7 +1290,7 @@
             </endLabelStyleDescription>
           </style>
         </edgeMappings>
-        <containerMappings name="type_container" label="Type" semanticCandidatesExpression="feature:types" domainClass="core::TypeSpecification" childrenPresentation="List">
+        <containerMappings name="type_container" label="Type" labelDirectEdit="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='class_diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='cd_rename_classes']" semanticCandidatesExpression="feature:types" domainClass="core::TypeSpecification" childrenPresentation="List">
           <subNodeMappings name="attribute_node" label="Attribute" semanticCandidatesExpression="aql:self.attributes->select(myAttributeSpecification | not myAttributeSpecification.oclIsTypeOf(core::ClassAttribute))" domainClass="core::AttributeSpecification">
             <style xsi:type="style:NoteDescription" labelSize="12" showIcon="false" labelExpression="aql: self.name + (if(self.array) then ' []' else '' endif) + (if(self.oclIsTypeOf(core::IntegerAttribute)) then ' : int' else '' endif) +(if(self.oclIsTypeOf(core::StringAttribute)) then ' : string' else '' endif) + (if(self.oclIsTypeOf(core::DoubleAttribute)) then ' : double' else '' endif) + (if(self.oclIsTypeOf(core::BooleanAttribute)) then ' : boolean' else '' endif)" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -1378,6 +1393,14 @@
             </initialOperation>
           </ownedTools>
         </toolSections>
+        <toolSections name="invisible_tools_cd" label="Invisible Tools">
+          <ownedTools xsi:type="tool:DirectEditLabel" name="cd_rename_classes" label="Rename Classes" inputLabelExpression="feature:name">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:0"/>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
         <customization>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.oclAsType(core::TypeSpecification).abstract">
             <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='class_diagram']/@defaultLayer/@containerMappings[name='type_container']/@style" attributeName="labelFormat" value="italic"/>
@@ -1414,6 +1437,7 @@
     <entries xsi:type="description:UserFixedColor" red="0" green="51" blue="89" name="ilm_blue"/>
     <entries xsi:type="description:UserFixedColor" red="0" green="116" blue="122" name="ilm_green"/>
     <entries xsi:type="description:UserFixedColor" red="255" green="218" blue="179" name="ilm_orange_light"/>
+    <entries xsi:type="description:ComputedColor" name="edge_flow_color" red="aql:(255.0 * (self.oclAsType(e4sm::Connector).computeFlow()/self.eContainer().oclAsType(e4sm::Package).getMaxFlow())).round()" green="0" blue="0"/>
   </userColorsPalettes>
   <extensions xsi:type="properties:ViewExtensionDescription" name="sirius_default_rules_properties">
     <categories name="Default">
@@ -1476,8 +1500,8 @@
           </ifs>
         </controls>
         <validationSet>
-          <semanticValidationRules name="timeFunctionIsValid" label="Time Function is Valid" level="ERROR" message="aql:'The Time Function &quot;'+ self.oclAsType(e4sm::Sensor).timeFunction +'&quot; is not valid'" targetClass="e4sm::Sensor">
-            <audits auditExpression="aql:not self.oclIsTypeOf(e4sm::Sensor) or self.oclAsType(e4sm::Sensor).isValidService()"/>
+          <semanticValidationRules name="timeFunctionIsValid_unused" label="Time Function is Valid" level="ERROR" message="aql:'The Time Function &quot;'+ self.oclAsType(e4sm::Sensor).timeFunction +'&quot; is not valid'" targetClass="e4sm::Sensor">
+            <audits auditExpression="aql:true"/>
             <fixes name="Restore Default Value">
               <initialOperation>
                 <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.oclAsType(e4sm::Sensor)">

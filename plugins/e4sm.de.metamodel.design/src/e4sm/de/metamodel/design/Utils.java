@@ -62,7 +62,7 @@ final public class Utils {
 		debug(message, false);
 	}
 	
-	public static boolean isValidService(Sensor s) {
-		return new e4smValidator().validateTimeFunction(s.getTimeFunction(), null, null);
-	}
+	// public static boolean isValidService(Sensor s) {
+	//	 return new e4smValidator().validateTimeFunction(s.getTimeFunction(), null, null);
+	// }
 }

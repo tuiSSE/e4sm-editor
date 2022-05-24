@@ -351,6 +351,8 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         name=EString 
+	 *         firingStrategy=ComponentFiringStrategy? 
+	 *         timeFunction=ComplexTimefunction? 
 	 *         (pins+=Pin pins+=Pin*)? 
 	 *         mainResponsible=[Person|EString]? 
 	 *         specifiedInPackage=[Package|EString]? 
@@ -470,6 +472,8 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         specifiedInPackage=[Package|EString]? 
 	 *         (parameters+=Parameter parameters+=Parameter*)? 
 	 *         (components+=Component components+=Component*)? 
+	 *         firingStrategy=ComponentFiringStrategy? 
+	 *         timeFunction=ComplexTimefunction? 
 	 *         (pins+=Pin pins+=Pin*)? 
 	 *         execution=Execution?
 	 *     )
@@ -848,6 +852,8 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         name=EString 
+	 *         firingStrategy=ComponentFiringStrategy? 
+	 *         timeFunction=ComplexTimefunction? 
 	 *         (pins+=Pin pins+=Pin*)? 
 	 *         outputUncertainty=EDouble? 
 	 *         synchronous=EBoolean? 
@@ -927,6 +933,8 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         name=EString 
+	 *         firingStrategy=ComponentFiringStrategy? 
+	 *         timeFunction=ComplexTimefunction? 
 	 *         (pins+=Pin pins+=Pin*)? 
 	 *         outputUncertainty=EDouble? 
 	 *         synchronous=EBoolean? 
@@ -953,6 +961,8 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         name=EString 
+	 *         firingStrategy=ComponentFiringStrategy? 
+	 *         timeFunction=ComplexTimefunction? 
 	 *         (pins+=Pin pins+=Pin*)? 
 	 *         outputUncertainty=EDouble? 
 	 *         synchronous=EBoolean? 
@@ -1022,6 +1032,7 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         stream?='stream'? 
 	 *         type=[TypeSpecification|ID]? 
 	 *         name=EString 
+	 *         collect=EInt? 
 	 *         raceSemantic=RaceSemantic? 
 	 *         queueType=QueueType? 
 	 *         (parameters+=Parameter parameters+=Parameter*)?
@@ -1040,7 +1051,7 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     IntegerAttribute returns IntegerAttribute
 	 *
 	 * Constraint:
-	 *     (name=ID defaultValue=EInt?)
+	 *     (array?='['? name=ID defaultValue=EInt?)
 	 * </pre>
 	 */
 	protected void sequence_IntegerAttribute(ISerializationContext context, IntegerAttribute semanticObject) {
@@ -1243,7 +1254,7 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     LogicalConnector returns LogicalConnector
 	 *
 	 * Constraint:
-	 *     (source=[Pin|EString] target=[Pin|EString] name=EString (parameters+=Parameter parameters+=Parameter*)?)
+	 *     (name=EString source=[Pin|EString] target=[Pin|EString] (parameters+=Parameter parameters+=Parameter*)?)
 	 * </pre>
 	 */
 	protected void sequence_LogicalConnector(ISerializationContext context, LogicalConnector semanticObject) {
@@ -1260,6 +1271,8 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         name=EString 
+	 *         firingStrategy=ComponentFiringStrategy? 
+	 *         timeFunction=ComplexTimefunction? 
 	 *         (pins+=Pin pins+=Pin*)? 
 	 *         outputUncertainty=EDouble? 
 	 *         synchronous=EBoolean? 
@@ -1339,7 +1352,14 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     AssignableElement returns OutputPin
 	 *
 	 * Constraint:
-	 *     (stream?='stream'? type=[TypeSpecification|ID]? name=EString raceSemantic=RaceSemantic? (parameters+=Parameter parameters+=Parameter*)?)
+	 *     (
+	 *         stream?='stream'? 
+	 *         type=[TypeSpecification|ID]? 
+	 *         name=EString 
+	 *         amplify=EInt? 
+	 *         raceSemantic=RaceSemantic? 
+	 *         (parameters+=Parameter parameters+=Parameter*)?
+	 *     )
 	 * </pre>
 	 */
 	protected void sequence_OutputPin(ISerializationContext context, OutputPin semanticObject) {
@@ -1434,6 +1454,8 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         name=EString 
+	 *         firingStrategy=ComponentFiringStrategy? 
+	 *         timeFunction=ComplexTimefunction? 
 	 *         pins+=Pin 
 	 *         pins+=Pin* 
 	 *         mainResponsible=[Person|EString]? 
@@ -1515,6 +1537,8 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         name=EString 
+	 *         firingStrategy=ComponentFiringStrategy? 
+	 *         timeFunction=ComplexTimefunction? 
 	 *         (pins+=Pin pins+=Pin*)? 
 	 *         mainResponsible=[Person|EString]? 
 	 *         specifiedInPackage=[Package|EString]? 
@@ -1538,6 +1562,8 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         name=EString 
+	 *         firingStrategy=ComponentFiringStrategy? 
+	 *         timeFunction=ComplexTimefunction? 
 	 *         (pins+=Pin pins+=Pin*)? 
 	 *         outputUncertainty=EDouble? 
 	 *         synchronous=EBoolean? 

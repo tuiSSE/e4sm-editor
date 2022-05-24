@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.^extension.ExtendWith
 import e4sm.de.metamodel.e4sm.execution.Variable
+import e4sm.de.metamodel.e4sm.ComponentFiringStrategy
 
 @ExtendWith(InjectionExtension)
 @InjectWith(E4smInjectorProvider)
@@ -52,7 +53,13 @@ class E4smParsingTest {
 				},
 				actuator A {
 					in AIn
-				}
+				},
+				heuristic H {
+					firingStrategy OR
+					in Hin,
+					in Hin2,
+					out Hout
+				}				
 				//sensor S {
 				//	out Sout
 				//	timeFunction EXP(1.0)
@@ -60,6 +67,15 @@ class E4smParsingTest {
 			}
 		}
 	''';
+	
+		@Test
+	def void parseFiringStrategy() {
+		val result = parseHelper.parse(toBeParsed)
+		Assertions.assertEquals(result.packages.get(0).components.get(6).name, "H")
+		Assertions.assertEquals(result.packages.get(0).components.get(6).firingStrategy, ComponentFiringStrategy::OR)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+	}
 
 	@Test
 	def void loadModel() {
