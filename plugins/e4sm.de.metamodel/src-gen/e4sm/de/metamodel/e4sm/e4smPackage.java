@@ -719,13 +719,22 @@ public interface e4smPackage extends EPackage {
 	int CONNECTOR___COMPUTE_NAME = CorePackage.PARAMETERIZABLE_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Compute Flow</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR___COMPUTE_FLOW = CorePackage.PARAMETERIZABLE_ELEMENT_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Connector</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR_OPERATION_COUNT = CorePackage.PARAMETERIZABLE_ELEMENT_OPERATION_COUNT + 1;
+	int CONNECTOR_OPERATION_COUNT = CorePackage.PARAMETERIZABLE_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
@@ -798,6 +807,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int PHYSICAL_CONNECTOR___COMPUTE_NAME = CONNECTOR___COMPUTE_NAME;
+
+	/**
+	 * The operation id for the '<em>Compute Flow</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PHYSICAL_CONNECTOR___COMPUTE_FLOW = CONNECTOR___COMPUTE_FLOW;
 
 	/**
 	 * The number of operations of the '<em>Physical Connector</em>' class.
@@ -978,6 +996,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int LOGICAL_CONNECTOR___COMPUTE_NAME = CONNECTOR___COMPUTE_NAME;
+
+	/**
+	 * The operation id for the '<em>Compute Flow</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOGICAL_CONNECTOR___COMPUTE_FLOW = CONNECTOR___COMPUTE_FLOW;
 
 	/**
 	 * The number of operations of the '<em>Logical Connector</em>' class.
@@ -1556,13 +1583,22 @@ public interface e4smPackage extends EPackage {
 	int PACKAGE___GET_ALL_COMPONENTS = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Get Max Flow</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE___GET_MAX_FLOW = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Package</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE_OPERATION_COUNT = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 1;
+	int PACKAGE_OPERATION_COUNT = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1880,22 +1916,13 @@ public interface e4smPackage extends EPackage {
 	int SENSOR__FIRING_STRATEGY = PHYSICAL_COMPONENT__FIRING_STRATEGY;
 
 	/**
-	 * The feature id for the '<em><b>Time Function Deprecated</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SENSOR__TIME_FUNCTION_DEPRECATED = PHYSICAL_COMPONENT_FEATURE_COUNT + 0;
-
-	/**
 	 * The number of structural features of the '<em>Sensor</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SENSOR_FEATURE_COUNT = PHYSICAL_COMPONENT_FEATURE_COUNT + 1;
+	int SENSOR_FEATURE_COUNT = PHYSICAL_COMPONENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Compute Main Responsible</em>' operation.
@@ -2842,16 +2869,6 @@ public interface e4smPackage extends EPackage {
 	int JSON = 34;
 
 	/**
-	 * The meta object id for the '<em>Time Function</em>' data type.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see java.lang.String
-	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getTimeFunction()
-	 * @generated
-	 */
-	int TIME_FUNCTION = 35;
-
-	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.Component <em>Component</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2998,6 +3015,16 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getConnector__ComputeName();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.Connector#computeFlow() <em>Compute Flow</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Compute Flow</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.Connector#computeFlow()
+	 * @generated
+	 */
+	EOperation getConnector__ComputeFlow();
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.PhysicalConnector <em>Physical Connector</em>}'.
@@ -3253,6 +3280,16 @@ public interface e4smPackage extends EPackage {
 	EOperation getPackage__GetAllComponents();
 
 	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.Package#getMaxFlow() <em>Get Max Flow</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Max Flow</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.Package#getMaxFlow()
+	 * @generated
+	 */
+	EOperation getPackage__GetMaxFlow();
+
+	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.Model <em>Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3419,17 +3456,6 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getSensor();
-
-	/**
-	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.Sensor#getTimeFunctionDeprecated <em>Time Function Deprecated</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Time Function Deprecated</em>'.
-	 * @see e4sm.de.metamodel.e4sm.Sensor#getTimeFunctionDeprecated()
-	 * @see #getSensor()
-	 * @generated
-	 */
-	EAttribute getSensor_TimeFunctionDeprecated();
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.Actuator <em>Actuator</em>}'.
@@ -3851,21 +3877,6 @@ public interface e4smPackage extends EPackage {
 	EDataType getJSON();
 
 	/**
-	 * Returns the meta object for data type '{@link java.lang.String <em>Time Function</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * A string containing a valid TimeFunction, e.g. EXP(1.0)
-	 * <!-- end-model-doc -->
-	 * @return the meta object for data type '<em>Time Function</em>'.
-	 * @see java.lang.String
-	 * @model instanceClass="java.lang.String"
-	 *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='TimeFunctionIsValid'"
-	 * @generated
-	 */
-	EDataType getTimeFunction();
-
-	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4005,6 +4016,14 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation CONNECTOR___COMPUTE_NAME = eINSTANCE.getConnector__ComputeName();
+
+		/**
+		 * The meta object literal for the '<em><b>Compute Flow</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CONNECTOR___COMPUTE_FLOW = eINSTANCE.getConnector__ComputeFlow();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.PhysicalConnectorImpl <em>Physical Connector</em>}' class.
@@ -4216,6 +4235,14 @@ public interface e4smPackage extends EPackage {
 		EOperation PACKAGE___GET_ALL_COMPONENTS = eINSTANCE.getPackage__GetAllComponents();
 
 		/**
+		 * The meta object literal for the '<em><b>Get Max Flow</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PACKAGE___GET_MAX_FLOW = eINSTANCE.getPackage__GetMaxFlow();
+
+		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.ModelImpl <em>Model</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4355,14 +4382,6 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EClass SENSOR = eINSTANCE.getSensor();
-
-		/**
-		 * The meta object literal for the '<em><b>Time Function Deprecated</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SENSOR__TIME_FUNCTION_DEPRECATED = eINSTANCE.getSensor_TimeFunctionDeprecated();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.ActuatorImpl <em>Actuator</em>}' class.
@@ -4719,16 +4738,6 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType JSON = eINSTANCE.getJSON();
-
-		/**
-		 * The meta object literal for the '<em>Time Function</em>' data type.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see java.lang.String
-		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getTimeFunction()
-		 * @generated
-		 */
-		EDataType TIME_FUNCTION = eINSTANCE.getTimeFunction();
 
 	}
 

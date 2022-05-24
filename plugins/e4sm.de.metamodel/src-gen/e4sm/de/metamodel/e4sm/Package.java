@@ -189,4 +189,12 @@ public interface Package extends NamedElement, ParameterizableElement {
 	 */
 	EList<Component> getAllComponents();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	double getMaxFlow();
+
 } // Package

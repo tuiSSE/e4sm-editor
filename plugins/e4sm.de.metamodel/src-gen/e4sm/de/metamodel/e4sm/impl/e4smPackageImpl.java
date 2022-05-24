@@ -312,13 +312,6 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	private EDataType jsonEDataType = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EDataType timeFunctionEDataType = null;
-
-	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -571,6 +564,16 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
+	public EOperation getConnector__ComputeFlow() {
+		return connectorEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getPhysicalConnector() {
 		return physicalConnectorEClass;
 	}
@@ -811,6 +814,16 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
+	public EOperation getPackage__GetMaxFlow() {
+		return packageEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getModel() {
 		return modelEClass;
 	}
@@ -963,16 +976,6 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	@Override
 	public EClass getSensor() {
 		return sensorEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getSensor_TimeFunctionDeprecated() {
-		return (EAttribute) sensorEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1381,16 +1384,6 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
-	public EDataType getTimeFunction() {
-		return timeFunctionEDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public e4smFactory gete4smFactory() {
 		return (e4smFactory) getEFactoryInstance();
 	}
@@ -1431,6 +1424,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		createEReference(connectorEClass, CONNECTOR__SOURCE);
 		createEReference(connectorEClass, CONNECTOR__TARGET);
 		createEOperation(connectorEClass, CONNECTOR___COMPUTE_NAME);
+		createEOperation(connectorEClass, CONNECTOR___COMPUTE_FLOW);
 
 		physicalConnectorEClass = createEClass(PHYSICAL_CONNECTOR);
 		createEAttribute(physicalConnectorEClass, PHYSICAL_CONNECTOR__MIN_SPEED);
@@ -1463,6 +1457,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		createEReference(packageEClass, PACKAGE__PACKAGES);
 		createEReference(packageEClass, PACKAGE__SPECIFIES_COMPONENT);
 		createEOperation(packageEClass, PACKAGE___GET_ALL_COMPONENTS);
+		createEOperation(packageEClass, PACKAGE___GET_MAX_FLOW);
 
 		modelEClass = createEClass(MODEL);
 		createEReference(modelEClass, MODEL__PACKAGES);
@@ -1485,7 +1480,6 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		createEOperation(sectorEClass, SECTOR___GET_ALL_COMPONENTS);
 
 		sensorEClass = createEClass(SENSOR);
-		createEAttribute(sensorEClass, SENSOR__TIME_FUNCTION_DEPRECATED);
 
 		actuatorEClass = createEClass(ACTUATOR);
 
@@ -1543,7 +1537,6 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		// Create data types
 		connectionspeedEDataType = createEDataType(CONNECTIONSPEED);
 		jsonEDataType = createEDataType(JSON);
-		timeFunctionEDataType = createEDataType(TIME_FUNCTION);
 	}
 
 	/**
@@ -1658,6 +1651,9 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		initEOperation(getConnector__ComputeName(), ecorePackage.getEString(), "computeName", 0, 1, IS_UNIQUE,
 				IS_ORDERED);
 
+		initEOperation(getConnector__ComputeFlow(), theEcorePackage.getEDouble(), "computeFlow", 0, 1, IS_UNIQUE,
+				IS_ORDERED);
+
 		initEClass(physicalConnectorEClass, PhysicalConnector.class, "PhysicalConnector", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPhysicalConnector_MinSpeed(), this.getConnectionspeed(), "minSpeed", null, 0, 1,
@@ -1730,6 +1726,9 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		initEOperation(getPackage__GetAllComponents(), this.getComponent(), "getAllComponents", 0, -1, IS_UNIQUE,
 				IS_ORDERED);
 
+		initEOperation(getPackage__GetMaxFlow(), theEcorePackage.getEDouble(), "getMaxFlow", 0, 1, IS_UNIQUE,
+				IS_ORDERED);
+
 		initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getModel_Packages(), this.getPackage(), null, "packages", null, 0, -1, Model.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
@@ -1773,9 +1772,6 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 				IS_ORDERED);
 
 		initEClass(sensorEClass, Sensor.class, "Sensor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSensor_TimeFunctionDeprecated(), this.getTimeFunction(), "timeFunctionDeprecated", "EXP(1.0)",
-				1, 1, Sensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
 
 		initEClass(actuatorEClass, Actuator.class, "Actuator", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -1892,8 +1888,6 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		initEDataType(connectionspeedEDataType, Object.class, "Connectionspeed", IS_SERIALIZABLE,
 				!IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(jsonEDataType, String.class, "JSON", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(timeFunctionEDataType, String.class, "TimeFunction", IS_SERIALIZABLE,
-				!IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -1923,7 +1917,6 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		addAnnotation(sensorEClass, source, new String[] { "constraints", "SensorC1" });
 		addAnnotation(actuatorEClass, source, new String[] { "constraints", "ActuatorC1" });
 		addAnnotation(pinEClass, source, new String[] { "constraints", "PinC1" });
-		addAnnotation(timeFunctionEDataType, source, new String[] { "constraints", "TimeFunctionIsValid" });
 	}
 
 	/**

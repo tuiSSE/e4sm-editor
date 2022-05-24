@@ -47,8 +47,6 @@ import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.EObjectValidator;
 
-import e4sm.de.antlr4.petri.model.Validators;
-
 /**
  * <!-- begin-user-doc --> The <b>Validator</b> for the model. <!-- end-user-doc
  * -->
@@ -198,8 +196,6 @@ public class e4smValidator extends EObjectValidator {
 			return validateConnectionspeed(value, diagnostics, context);
 		case e4smPackage.JSON:
 			return validateJSON((String) value, diagnostics, context);
-		case e4smPackage.TIME_FUNCTION:
-			return validateTimeFunction((String) value, diagnostics, context);
 		default:
 			return true;
 		}
@@ -1197,37 +1193,6 @@ public class e4smValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateJSON(String json, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateTimeFunction(String timeFunction, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = validateTimeFunction_TimeFunctionIsValid(timeFunction, diagnostics, context);
-		return result;
-	}
-
-	/**
-	 * Validates the TimeFunctionIsValid constraint of '<em>Time Function</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public boolean validateTimeFunction_TimeFunctionIsValid(String timeFunction, DiagnosticChain diagnostics,
-			Map<Object, Object> context) {
-		if (!Validators.isValidTimeFunction(timeFunction)) {
-			if (diagnostics != null) {
-				diagnostics.add(
-						createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic",
-								new Object[] { "TimeFunctionIsValid",
-										getValueLabel(e4smPackage.Literals.TIME_FUNCTION, timeFunction, context) },
-								new Object[] { timeFunction }, context));
-			}
-			return false;
-		}
 		return true;
 	}
 

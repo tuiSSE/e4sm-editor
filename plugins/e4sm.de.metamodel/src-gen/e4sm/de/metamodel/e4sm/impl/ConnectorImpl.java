@@ -2,6 +2,7 @@
  */
 package e4sm.de.metamodel.e4sm.impl;
 
+import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.Connector;
 import e4sm.de.metamodel.e4sm.Pin;
 import e4sm.de.metamodel.e4sm.analysis.Parameter;
@@ -11,12 +12,16 @@ import e4sm.de.metamodel.e4sm.e4smPackage;
 import java.lang.reflect.InvocationTargetException;
 import e4sm.de.metamodel.e4sm.core.Element;
 import e4sm.de.metamodel.e4sm.core.NamedElement;
+import e4sm.de.metamodel.e4sm.execution.TimeFunction;
+import e4sm.de.metamodel.e4sm.execution.TimeFunctions;
+
 import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -212,6 +217,37 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public double computeFlow() {
+		Pin source = this.getSource();
+		if (source != null) {
+			EObject sourceContainer = source.eContainer();
+			if (sourceContainer != null && sourceContainer instanceof Component) {
+				Component sourceComponent = (Component) sourceContainer;
+				TimeFunction tf = sourceComponent.getTimeFunction();
+				if (tf != null) {
+					// Return the time function average
+					TimeFunctions f = tf.getFunction();
+					if (f == TimeFunctions.EXP) {
+						return tf.getPar1();
+					}
+					if (f == TimeFunctions.DET) {
+						return tf.getPar1();
+					}
+					// TODO: implement the average of other functions
+					throw new IllegalArgumentException("Unexpected value: " + tf.getFunction());
+				}
+			}
+		}
+		// Default is EXP(1.0)
+		return 1.0;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -371,6 +407,8 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 		switch (operationID) {
 		case e4smPackage.CONNECTOR___COMPUTE_NAME:
 			return computeName();
+		case e4smPackage.CONNECTOR___COMPUTE_FLOW:
+			return computeFlow();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

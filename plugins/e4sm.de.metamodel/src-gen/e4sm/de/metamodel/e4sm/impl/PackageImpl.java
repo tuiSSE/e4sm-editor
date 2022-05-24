@@ -15,6 +15,7 @@ import e4sm.de.metamodel.e4sm.e4smPackage;
 import e4sm.de.metamodel.e4sm.core.impl.NamedElementImpl;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
+import java.util.NoSuchElementException;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -337,6 +338,18 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * returns the maximum flow value for the connectors in this package
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public double getMaxFlow() {
+		return this.getConnectors().stream().mapToDouble(c -> c.computeFlow()).max()
+				.orElseThrow(NoSuchElementException::new);
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -558,6 +571,8 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 		switch (operationID) {
 		case e4smPackage.PACKAGE___GET_ALL_COMPONENTS:
 			return getAllComponents();
+		case e4smPackage.PACKAGE___GET_MAX_FLOW:
+			return getMaxFlow();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

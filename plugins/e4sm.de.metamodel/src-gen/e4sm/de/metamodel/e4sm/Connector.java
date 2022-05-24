@@ -81,4 +81,12 @@ public interface Connector extends ParameterizableElement, NamedElement {
 	 */
 	String computeName();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	double computeFlow();
+
 } // Connector

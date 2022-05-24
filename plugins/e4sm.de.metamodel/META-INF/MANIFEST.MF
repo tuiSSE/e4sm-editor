@@ -121,6 +121,5 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  com.google.guava,
- org.eclipse.emf.edapt.history,
- e4sm.de.antlr4.petri.grammar;bundle-version="1.0.0";visibility:=reexport
+ org.eclipse.emf.edapt.history
 Bundle-ActivationPolicy: lazy
