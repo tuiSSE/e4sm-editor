@@ -1,3 +1,5 @@
+modeltype execution "strict" uses execution("http://de.tu-ilmenau/e4sm/execution/1.0.0");
+
 transformation SCPNHelpers() {
 /** Helpers **/
 	//A helper is an operation that performs a computation on one or more source objects and provides a result. It is illegal to create or update object instances except for pre-defined types like sets, tuples, and for intermediate properties.
@@ -8,5 +10,21 @@ transformation SCPNHelpers() {
 		return "placeholder";
 	}endif;
 		return s.replaceAll(" ", "_").replaceAll("\\.","_").replaceAll("\\(","").replaceAll("\\)","");
+	}
+	
+	helper timeExpressionToString(tf : execution::TimeFunction) : String {
+	    // if the time function is not set, just return the default value
+	    if(tf = null){
+	    	return "EXP(1.0)";
+	    };
+	    
+		var res :String = tf.function.toString() + "(" + tf.par1.toString();
+		
+		if(tf.par2 > 0){
+		 res := res + ", " + tf.par2.toString();
+		};
+		
+		res := res + ")";
+		return res;
 	}
 }
