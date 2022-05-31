@@ -609,8 +609,6 @@ enum QueueType returns QueueType:
 EDouble returns ecore::EDouble:
 	'-'? INT? '.' INT (('E' | 'e') '-'? INT)?;
 
-TimeFunction returns TimeFunction:
-	'TimeFunction' /* TODO: implement this rule and an appropriate IValueConverter */ ;
 
 PhysicalConnector returns PhysicalConnector:
 	'physicalConnector'
