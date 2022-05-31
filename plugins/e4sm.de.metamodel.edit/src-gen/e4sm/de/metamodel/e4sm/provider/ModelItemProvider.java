@@ -60,14 +60,13 @@ public class ModelItemProvider extends NamedElementItemProvider {
 	 * This adds a property descriptor for the Persons Pictures Path feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addPersonsPicturesPathPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
 						getResourceLocator(), getString("_UI_Model_personsPicturesPath_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Model_personsPicturesPath_feature",
-								"_UI_Model_type"),
+						getString("_UI_Model_personsPicturesPath_feature_description"), // Added a personalized description
 						e4smPackage.Literals.MODEL__PERSONS_PICTURES_PATH, true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
