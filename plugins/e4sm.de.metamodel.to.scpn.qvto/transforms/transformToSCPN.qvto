@@ -308,8 +308,10 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 					readyToMain.fromNode := singleComponentReadyTransition.id;
 					readyToMain.toNode := componentMainPlace.id;
 					
-					// if the component is a Sensor, or if it has multiple input pins
-					if(self.oclIsTypeOf(e4sm::Sensor) or inputPins->size()>1) {
+					// if the component is a Sensor, 
+					// or if it has multiple input pins
+					// or if at least an input pin has a "collect" value > 1 set
+					if(self.oclIsTypeOf(e4sm::Sensor) or inputPins->size() > 1 or inputPins->select(ip | ip.collect>1)->size()>0) {
 						readyToMain.inscription.text := "new(1)"; //TODO: probably it shouldn't be an integer
 					};
 					arcs->add(readyToMain);
@@ -327,6 +329,11 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 						var readyToMain := new ArcType(self.name+"_ready" + i.toString() + "_to_main");
 						readyToMain.fromNode := componentReadyTransition.id;
 						readyToMain.toNode := componentMainPlace.id;
+						
+						// If this pin has a collect value set (>1)
+						if(ip.collect > 1) {
+							readyToMain.inscription.text := "new(1)"; //TODO: probably it shouldn't be an integer
+						};
 						arcs->add(readyToMain);
 						
 						i := i + 1;

@@ -12,6 +12,9 @@ transformation SCPNHelpers() {
 		return s.replaceAll(" ", "_").replaceAll("\\.","_").replaceAll("\\(","").replaceAll("\\)","");
 	}
 	
+	/***
+	Returns a string representation of the time function set in the component, defaults to EXP(1.0) if none is set.
+	*/
 	helper timeExpressionToString(tf : execution::TimeFunction) : String {
 	    // if the time function is not set, just return the default value
 	    if(tf = null){
