@@ -51,7 +51,7 @@
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="e4sm.ecore#//analysis"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_fFJv0N_JEeuulr_rs9nI6w" name="e4sm ALL" repPath="#_fEkhAN_JEeuulr_rs9nI6w" changeId="d9c180b0-ee8b-41aa-89a3-b000a60aff04">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_fFJv0N_JEeuulr_rs9nI6w" name="e4sm ALL" repPath="#_fEkhAN_JEeuulr_rs9nI6w" changeId="baeb3ddc-6761-4c1e-8a6c-e1b79fbb461f">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="e4sm.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -1488,8 +1488,8 @@
       <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_JXT2kq2FEeu2OeVf7eyilw" iconPath="/e4sm.de.metamodel.edit/icons/full/obj16/SoftwareComponent.gif" description="_JXT2kK2FEeu2OeVf7eyilw" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216"/>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_0daKJOC2Eeu77YN60kLwTQ" name="outputUncertainty : EDouble = 0.0" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="e4sm.ecore#//SoftwareComponent/outputUncertainty"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="e4sm.ecore#//SoftwareComponent/outputUncertainty"/>
+        <target xmi:type="ecore:EAttribute" href="e4sm.ecore#//OutputPin/outputUncertainty"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="e4sm.ecore#//OutputPin/outputUncertainty"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_0daxMOC2Eeu77YN60kLwTQ" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
@@ -2533,8 +2533,8 @@
     <lines xmi:type="table:DLine" uid="__QNg6qeIEeucJ9gqMnqetg" label="EClass : SoftwareComponent">
       <target xmi:type="ecore:EClass" href="e4sm.ecore#//SoftwareComponent"/>
       <lines xmi:type="table:DLine" uid="__QOvAKeIEeucJ9gqMnqetg" label="EAttribute : outputUncertainty">
-        <target xmi:type="ecore:EAttribute" href="e4sm.ecore#//SoftwareComponent/outputUncertainty"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="e4sm.ecore#//SoftwareComponent/outputUncertainty"/>
+        <target xmi:type="ecore:EAttribute" href="e4sm.ecore#//OutputPin/outputUncertainty"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="e4sm.ecore#//OutputPin/outputUncertainty"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
       </lines>
       <lines xmi:type="table:DLine" uid="_h7KQ9a2zEeu2OeVf7eyilw" label="EAttribute : synchronous">
@@ -4318,8 +4318,8 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_0eehI-C2Eeu77YN60kLwTQ" name="outputUncertainty : EDouble = 0.0" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="e4sm.ecore#//SoftwareComponent/outputUncertainty"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="e4sm.ecore#//SoftwareComponent/outputUncertainty"/>
+        <target xmi:type="ecore:EAttribute" href="e4sm.ecore#//OutputPin/outputUncertainty"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="e4sm.ecore#//OutputPin/outputUncertainty"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_0efIMOC2Eeu77YN60kLwTQ" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
@@ -9330,7 +9330,7 @@
             <styles xmi:type="notation:FilteringStyle" xmi:id="_gXPCxt_JEeuulr_rs9nI6w"/>
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="_gXPCwd_JEeuulr_rs9nI6w" fontName="Segoe UI" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gXPCwt_JEeuulr_rs9nI6w" x="5851" y="1425"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gXPCwt_JEeuulr_rs9nI6w" x="5890" y="1425"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_gXPCx9_JEeuulr_rs9nI6w" type="2003" element="_gUreAN_JEeuulr_rs9nI6w">
           <children xmi:type="notation:Node" xmi:id="_gXPp0N_JEeuulr_rs9nI6w" type="5007"/>
@@ -9428,11 +9428,15 @@
               <styles xmi:type="notation:FontStyle" xmi:id="_89_tg9KdEeywS7g2_6EQQA" fontName="Segoe UI" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_89_thNKdEeywS7g2_6EQQA"/>
             </children>
+            <children xmi:type="notation:Node" xmi:id="_gkAtQOsUEeyofO3ps6REdA" type="3010" element="_0gXXgOC2Eeu77YN60kLwTQ">
+              <styles xmi:type="notation:FontStyle" xmi:id="_gkAtQesUEeyofO3ps6REdA" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_gkAtQusUEeyofO3ps6REdA"/>
+            </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_gXStIt_JEeuulr_rs9nI6w"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_gXStI9_JEeuulr_rs9nI6w"/>
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="_gXSGGN_JEeuulr_rs9nI6w" fontName="Segoe UI" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gXSGGd_JEeuulr_rs9nI6w" x="5685" y="1425"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gXSGGd_JEeuulr_rs9nI6w" x="5676" y="1425"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_gXStJN_JEeuulr_rs9nI6w" type="2003" element="_gU0A4d_JEeuulr_rs9nI6w">
           <children xmi:type="notation:Node" xmi:id="_gXStJ9_JEeuulr_rs9nI6w" type="5007"/>
@@ -9606,10 +9610,6 @@
         <children xmi:type="notation:Node" xmi:id="_gXVwd9_JEeuulr_rs9nI6w" type="2003" element="_gVpHUd_JEeuulr_rs9nI6w">
           <children xmi:type="notation:Node" xmi:id="_gXWXgN_JEeuulr_rs9nI6w" type="5007"/>
           <children xmi:type="notation:Node" xmi:id="_gXWXgd_JEeuulr_rs9nI6w" type="7004">
-            <children xmi:type="notation:Node" xmi:id="_gXfhc9_JEeuulr_rs9nI6w" type="3010" element="_0gXXgOC2Eeu77YN60kLwTQ">
-              <styles xmi:type="notation:FontStyle" xmi:id="_gXfhdN_JEeuulr_rs9nI6w" fontName="Segoe UI" fontHeight="8"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_gXfhdd_JEeuulr_rs9nI6w"/>
-            </children>
             <children xmi:type="notation:Node" xmi:id="_gXfhdt_JEeuulr_rs9nI6w" type="3010" element="_0gX-keC2Eeu77YN60kLwTQ">
               <styles xmi:type="notation:FontStyle" xmi:id="_gXfhd9_JEeuulr_rs9nI6w" fontName="Segoe UI" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_gXfheN_JEeuulr_rs9nI6w"/>
@@ -12282,6 +12282,14 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_0gXXgOC2Eeu77YN60kLwTQ" name="outputUncertainty : EDouble = 0.0" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="e4sm.ecore#//OutputPin/outputUncertainty"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="e4sm.ecore#//OutputPin/outputUncertainty"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_0gX-kOC2Eeu77YN60kLwTQ" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+      </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_gU0A4d_JEeuulr_rs9nI6w" name="Package" tooltipText="" outgoingEdges="_0g9NZuC2Eeu77YN60kLwTQ _0g9NbeC2Eeu77YN60kLwTQ _0g90duC2Eeu77YN60kLwTQ _0g-bgOC2Eeu77YN60kLwTQ _0g-bh-C2Eeu77YN60kLwTQ _0g_CluC2Eeu77YN60kLwTQ _0g_poOC2Eeu77YN60kLwTQ" incomingEdges="_0g7_RuC2Eeu77YN60kLwTQ _0g_poOC2Eeu77YN60kLwTQ _0hZSQOC2Eeu77YN60kLwTQ _b44pTH9YEeygfaXULssfTA _JYX-tH9cEeygfaXULssfTA" width="12" height="10">
       <target xmi:type="ecore:EClass" href="e4sm.ecore#//Package"/>
@@ -12572,14 +12580,6 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_0gXXgOC2Eeu77YN60kLwTQ" name="outputUncertainty : EDouble = 0.0" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="e4sm.ecore#//SoftwareComponent/outputUncertainty"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="e4sm.ecore#//SoftwareComponent/outputUncertainty"/>
-        <ownedStyle xmi:type="diagram:BundledImage" uid="_0gX-kOC2Eeu77YN60kLwTQ" labelAlignment="LEFT">
-          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
-        </ownedStyle>
-        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
-      </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_0gX-keC2Eeu77YN60kLwTQ" name="synchronous : EBoolean = true" tooltipText="">
         <target xmi:type="ecore:EAttribute" href="e4sm.ecore#//SoftwareComponent/synchronous"/>
         <semanticElements xmi:type="ecore:EAttribute" href="e4sm.ecore#//SoftwareComponent/synchronous"/>

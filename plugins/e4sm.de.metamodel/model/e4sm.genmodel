@@ -55,7 +55,6 @@
     </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//PhysicalComponent"/>
     <genClasses ecoreClass="e4sm.ecore#//SoftwareComponent">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//SoftwareComponent/outputUncertainty"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//SoftwareComponent/synchronous"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//SoftwareComponent/numberOfServers"/>
       <genOperations documentation="Returns true if the current Software components gets executed in parallel"
@@ -122,6 +121,7 @@
     </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//OutputPin">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//OutputPin/amplify"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//OutputPin/outputUncertainty"/>
       <genOperations ecoreOperation="e4sm.ecore#//OutputPin/computeName" body="&#x9;&#x9;if(this.getName() != null &amp;&amp; !this.getName().isBlank()) {&#xD;&#xA;&#x9;&#x9;&#x9;return this.getName();&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;var container = ((Component)this.eContainer());&#xD;&#xA;&#x9;&#x9;return  container.getName()+&quot;_out_&quot;+container.getPins().indexOf(this);"/>
     </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//Person">

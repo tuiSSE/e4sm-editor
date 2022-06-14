@@ -396,13 +396,13 @@ Component_Impl returns Component:
 	'component'
 	name=EString
 	'{'
+	('firingStrategy' firingStrategy=ComponentFiringStrategy)?
+	('takes' timeFunction=ComplexTimefunction)?
+	(pins+=Pin ("," pins+=Pin)*)?
 	('mainResponsible' mainResponsible=[Person|EString])?
 	('specifiedInPackage' specifiedInPackage=[Package|EString])?
 	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
 	('components' '{' components+=Component ("," components+=Component)* '}')?
-	('firingStrategy' firingStrategy=ComponentFiringStrategy)?
-	('takes' timeFunction=ComplexTimefunction)?
-	(pins+=Pin ("," pins+=Pin)*)?
 	('runs' '{' execution=Execution '}')?
 	'}';
 
@@ -425,9 +425,8 @@ Sector returns Sector:
 
 Person returns Person:
 	'person'
-	name=EString
+	(name=EString | surname=EString ',' name=EString)
 	'{'
-	'surname' surname=EString
 	('department' department=EString)?
 	('pictureFileName' pictureFileName=EString)?
 	('responsibleForComponents' '(' responsibleForComponents+=[Component|EString] (","
@@ -442,7 +441,6 @@ MachineLearningComponent returns MachineLearningComponent:
 	('firingStrategy' firingStrategy=ComponentFiringStrategy)?
 	('takes' timeFunction=ComplexTimefunction)?
 	(pins+=Pin ("," pins+=Pin)*)?
-	('outputUncertainty' outputUncertainty=EDouble)?
 	('synchronous' synchronous=EBoolean)?
 	('numberOfServers' numberOfServers=EInt)?
 	('mainResponsible' mainResponsible=[Person|EString])?
@@ -459,7 +457,7 @@ PhysicalComponent_Impl returns PhysicalComponent:
 	'{'
 	('firingStrategy' firingStrategy=ComponentFiringStrategy)?
 	('takes' timeFunction=ComplexTimefunction)?
-	pins+=Pin ("," pins+=Pin)*
+	(pins+=Pin ("," pins+=Pin)*)?
 	('mainResponsible' mainResponsible=[Person|EString])?
 	('specifiedInPackage' specifiedInPackage=[Package|EString])?
 	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
@@ -475,7 +473,6 @@ SoftwareComponent_Impl returns SoftwareComponent:
 	('firingStrategy' firingStrategy=ComponentFiringStrategy)?
 	('takes' timeFunction=ComplexTimefunction)?
 	(pins+=Pin ("," pins+=Pin)*)?
-	('outputUncertainty' outputUncertainty=EDouble)?
 	('synchronous' synchronous=EBoolean)?
 	('numberOfServers' numberOfServers=EInt)?
 	('mainResponsible' mainResponsible=[Person|EString])?
@@ -493,7 +490,6 @@ Heuristic returns Heuristic:
 	('firingStrategy' firingStrategy=ComponentFiringStrategy)?
 	('takes' timeFunction=ComplexTimefunction)?
 	(pins+=Pin ("," pins+=Pin)*)?
-	('outputUncertainty' outputUncertainty=EDouble)?
 	('synchronous' synchronous=EBoolean)?
 	('numberOfServers' numberOfServers=EInt)?
 	('mainResponsible' mainResponsible=[Person|EString])?
@@ -511,7 +507,6 @@ Function returns Function:
 	('firingStrategy' firingStrategy=ComponentFiringStrategy)?
 	('takes' timeFunction=ComplexTimefunction)?
 	(pins+=Pin ("," pins+=Pin)*)?
-	('outputUncertainty' outputUncertainty=EDouble)?
 	('synchronous' synchronous=EBoolean)?
 	('numberOfServers' numberOfServers=EInt)?
 	('mainResponsible' mainResponsible=[Person|EString])?
@@ -529,7 +524,6 @@ ExternalDependency returns ExternalDependency:
 	('firingStrategy' firingStrategy=ComponentFiringStrategy)?
 	('takes' timeFunction=ComplexTimefunction)?
 	(pins+=Pin ("," pins+=Pin)*)?
-	('outputUncertainty' outputUncertainty=EDouble)?
 	('synchronous' synchronous=EBoolean)?
 	('numberOfServers' numberOfServers=EInt)?
 	('mainResponsible' mainResponsible=[Person|EString])?
@@ -597,6 +591,7 @@ OutputPin returns OutputPin:
 	name=EString // (':' type=[ecore::EDataType])?
 	('{'
 	('amplifies' amplify=EInt)?
+	('outputUncertainty' outputUncertainty=EDouble)?
 	('raceSemantic' raceSemantic=RaceSemantic)?
 	// ('outgoingConnectors' '(' outgoingConnectors+=[Connector|EString] ( "," outgoingConnectors+=[Connector|EString])* ')' )?
 	// ('incomingConnectors' '(' incomingConnectors+=[Connector|EString] ( "," incomingConnectors+=[Connector|EString])* ')' )?

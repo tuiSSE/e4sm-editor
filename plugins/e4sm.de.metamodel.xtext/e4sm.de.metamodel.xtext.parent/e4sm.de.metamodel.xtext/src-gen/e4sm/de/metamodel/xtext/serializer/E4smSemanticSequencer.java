@@ -468,13 +468,13 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         name=EString 
+	 *         firingStrategy=ComponentFiringStrategy? 
+	 *         timeFunction=ComplexTimefunction? 
+	 *         (pins+=Pin pins+=Pin*)? 
 	 *         mainResponsible=[Person|EString]? 
 	 *         specifiedInPackage=[Package|EString]? 
 	 *         (parameters+=Parameter parameters+=Parameter*)? 
 	 *         (components+=Component components+=Component*)? 
-	 *         firingStrategy=ComponentFiringStrategy? 
-	 *         timeFunction=ComplexTimefunction? 
-	 *         (pins+=Pin pins+=Pin*)? 
 	 *         execution=Execution?
 	 *     )
 	 * </pre>
@@ -855,7 +855,6 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         firingStrategy=ComponentFiringStrategy? 
 	 *         timeFunction=ComplexTimefunction? 
 	 *         (pins+=Pin pins+=Pin*)? 
-	 *         outputUncertainty=EDouble? 
 	 *         synchronous=EBoolean? 
 	 *         numberOfServers=EInt? 
 	 *         mainResponsible=[Person|EString]? 
@@ -936,7 +935,6 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         firingStrategy=ComponentFiringStrategy? 
 	 *         timeFunction=ComplexTimefunction? 
 	 *         (pins+=Pin pins+=Pin*)? 
-	 *         outputUncertainty=EDouble? 
 	 *         synchronous=EBoolean? 
 	 *         numberOfServers=EInt? 
 	 *         mainResponsible=[Person|EString]? 
@@ -964,7 +962,6 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         firingStrategy=ComponentFiringStrategy? 
 	 *         timeFunction=ComplexTimefunction? 
 	 *         (pins+=Pin pins+=Pin*)? 
-	 *         outputUncertainty=EDouble? 
 	 *         synchronous=EBoolean? 
 	 *         numberOfServers=EInt? 
 	 *         mainResponsible=[Person|EString]? 
@@ -1274,7 +1271,6 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         firingStrategy=ComponentFiringStrategy? 
 	 *         timeFunction=ComplexTimefunction? 
 	 *         (pins+=Pin pins+=Pin*)? 
-	 *         outputUncertainty=EDouble? 
 	 *         synchronous=EBoolean? 
 	 *         numberOfServers=EInt? 
 	 *         mainResponsible=[Person|EString]? 
@@ -1357,6 +1353,7 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         type=[TypeSpecification|ID]? 
 	 *         name=EString 
 	 *         amplify=EInt? 
+	 *         outputUncertainty=EDouble? 
 	 *         raceSemantic=RaceSemantic? 
 	 *         (parameters+=Parameter parameters+=Parameter*)?
 	 *     )
@@ -1432,8 +1429,7 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (
-	 *         name=EString 
-	 *         surname=EString 
+	 *         (name=EString | (surname=EString name=EString)) 
 	 *         department=EString? 
 	 *         pictureFileName=EString? 
 	 *         (responsibleForComponents+=[Component|EString] responsibleForComponents+=[Component|EString]*)?
@@ -1456,8 +1452,7 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         name=EString 
 	 *         firingStrategy=ComponentFiringStrategy? 
 	 *         timeFunction=ComplexTimefunction? 
-	 *         pins+=Pin 
-	 *         pins+=Pin* 
+	 *         (pins+=Pin pins+=Pin*)? 
 	 *         mainResponsible=[Person|EString]? 
 	 *         specifiedInPackage=[Package|EString]? 
 	 *         (parameters+=Parameter parameters+=Parameter*)? 
@@ -1565,7 +1560,6 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         firingStrategy=ComponentFiringStrategy? 
 	 *         timeFunction=ComplexTimefunction? 
 	 *         (pins+=Pin pins+=Pin*)? 
-	 *         outputUncertainty=EDouble? 
 	 *         synchronous=EBoolean? 
 	 *         numberOfServers=EInt? 
 	 *         mainResponsible=[Person|EString]? 

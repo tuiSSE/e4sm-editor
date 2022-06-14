@@ -11,14 +11,28 @@ import org.eclipse.xtext.testing.util.ParseHelper
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.^extension.ExtendWith
-import e4sm.de.metamodel.e4sm.execution.Variable
 import e4sm.de.metamodel.e4sm.ComponentFiringStrategy
+import org.eclipse.xtext.testing.XtextRunner
+import org.junit.runner.RunWith
+import org.eclipse.xtext.serializer.impl.Serializer
+import e4sm.de.metamodel.e4sm.e4smFactory
+import e4sm.de.metamodel.e4sm.e4smPackage
+import org.eclipse.emf.common.util.URI
+import org.eclipse.emf.ecore.resource.Resource
+import org.eclipse.emf.ecore.resource.ResourceSet
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
+import java.util.Map
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl
+import e4sm.de.metamodel.xtext.E4smStandaloneSetup
 
+@RunWith(XtextRunner)
 @ExtendWith(InjectionExtension)
 @InjectWith(E4smInjectorProvider)
 class E4smParsingTest {
 	@Inject
 	ParseHelper<Model> parseHelper
+
+	@Inject Serializer serializer
 
 	static val toBeParsed = '''
 		model test {
@@ -67,8 +81,34 @@ class E4smParsingTest {
 			}
 		}
 	''';
-	
-		@Test
+
+	@Test
+	def void serializer() {
+		e4smPackage.eINSTANCE.eClass() // Initialize the model
+		//E4smStandaloneSetup.doSetup
+		val reg = Resource.Factory.Registry.INSTANCE
+		val m = reg.getExtensionToFactoryMap();
+		m.put("e4sm", new XMIResourceFactoryImpl());
+
+		// Obtain a new resource set
+		val resSet = new ResourceSetImpl();
+
+		// Get the resource
+		println("Getting the resource Scenarios.e4sm...")
+		val resource = resSet.getResource(URI.createURI("Scenarios.e4sm"), true)
+		println("Resource loaded")
+		// val f = e4smFactory.eINSTANCE
+//    val myModel =  f.createModel => [
+//      name = "Test"
+//    ]
+		val myModel = resource.contents.get(0) as Model
+		println("Model '" + myModel.name + "' loaded, serializing it...")
+
+		println(serializer.serialize(myModel))
+
+	}
+
+	@Test
 	def void parseFiringStrategy() {
 		val result = parseHelper.parse(toBeParsed)
 		Assertions.assertEquals(result.packages.get(0).components.get(6).name, "H")
@@ -116,11 +156,10 @@ class E4smParsingTest {
 		val errors = result.eResource.errors
 		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
 	}
-	
+
 	// var testLiteral = 3;
 	// const testSum = 3 + 3;
-    // const testMultiplication = 6 * 7;
-    
+	// const testMultiplication = 6 * 7;
 	@Test
 	def void parseComponentExecution() {
 		val result = parseHelper.parse(toBeParsed)
@@ -131,7 +170,6 @@ class E4smParsingTest {
 //		Assertions.assertEquals(component.pins.get(0).name, "in1")
 //		Assertions.assertEquals(component.pins.get(1).name, "out1")
 //		Assertions.assertEquals(component.pins.get(2).name, "pinName")
-
 		val errors = result.eResource.errors
 		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
 	}

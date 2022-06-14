@@ -7,26 +7,40 @@ import com.google.inject.Inject;
 import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.ComponentFiringStrategy;
 import e4sm.de.metamodel.e4sm.Model;
+import e4sm.de.metamodel.e4sm.e4smPackage;
 import e4sm.de.metamodel.e4sm.execution.Element;
+import java.util.Map;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.xtend2.lib.StringConcatenation;
+import org.eclipse.xtext.serializer.impl.Serializer;
 import org.eclipse.xtext.testing.InjectWith;
+import org.eclipse.xtext.testing.XtextRunner;
 import org.eclipse.xtext.testing.extensions.InjectionExtension;
 import org.eclipse.xtext.testing.util.ParseHelper;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Functions.Function0;
+import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.runner.RunWith;
 
+@RunWith(XtextRunner.class)
 @ExtendWith(InjectionExtension.class)
 @InjectWith(E4smInjectorProvider.class)
 @SuppressWarnings("all")
 public class E4smParsingTest {
   @Inject
   private ParseHelper<Model> parseHelper;
+  
+  @Inject
+  private Serializer serializer;
   
   private static final String toBeParsed = new Function0<String>() {
     @Override
@@ -168,6 +182,26 @@ public class E4smParsingTest {
       return _builder.toString();
     }
   }.apply();
+  
+  @Test
+  public void serializer() {
+    e4smPackage.eINSTANCE.eClass();
+    final Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
+    final Map<String, Object> m = reg.getExtensionToFactoryMap();
+    XMIResourceFactoryImpl _xMIResourceFactoryImpl = new XMIResourceFactoryImpl();
+    m.put("e4sm", _xMIResourceFactoryImpl);
+    final ResourceSetImpl resSet = new ResourceSetImpl();
+    InputOutput.<String>println("Getting the resource Scenarios.e4sm...");
+    final Resource resource = resSet.getResource(URI.createURI("Scenarios.e4sm"), true);
+    InputOutput.<String>println("Resource loaded");
+    EObject _get = resource.getContents().get(0);
+    final Model myModel = ((Model) _get);
+    String _name = myModel.getName();
+    String _plus = ("Model \'" + _name);
+    String _plus_1 = (_plus + "\' loaded, serializing it...");
+    InputOutput.<String>println(_plus_1);
+    InputOutput.<String>println(this.serializer.serialize(myModel));
+  }
   
   @Test
   public void parseFiringStrategy() {

@@ -24,7 +24,7 @@ public class E4smSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_Connector_Impl___LeftCurlyBracketKeyword_5_0_RightCurlyBracketKeyword_5_2__q;
 	protected AbstractElementAlias match_InputPin___LeftCurlyBracketKeyword_5_0_RightCurlyBracketKeyword_5_5__q;
 	protected AbstractElementAlias match_LogicalConnector___LeftCurlyBracketKeyword_5_0_RightCurlyBracketKeyword_5_2__q;
-	protected AbstractElementAlias match_OutputPin___LeftCurlyBracketKeyword_5_0_RightCurlyBracketKeyword_5_4__q;
+	protected AbstractElementAlias match_OutputPin___LeftCurlyBracketKeyword_5_0_RightCurlyBracketKeyword_5_5__q;
 	protected AbstractElementAlias match_PhysicalConnector___LeftCurlyBracketKeyword_5_0_RightCurlyBracketKeyword_5_4__q;
 	
 	@Inject
@@ -33,7 +33,7 @@ public class E4smSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_Connector_Impl___LeftCurlyBracketKeyword_5_0_RightCurlyBracketKeyword_5_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getConnector_ImplAccess().getLeftCurlyBracketKeyword_5_0()), new TokenAlias(false, false, grammarAccess.getConnector_ImplAccess().getRightCurlyBracketKeyword_5_2()));
 		match_InputPin___LeftCurlyBracketKeyword_5_0_RightCurlyBracketKeyword_5_5__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getInputPinAccess().getLeftCurlyBracketKeyword_5_0()), new TokenAlias(false, false, grammarAccess.getInputPinAccess().getRightCurlyBracketKeyword_5_5()));
 		match_LogicalConnector___LeftCurlyBracketKeyword_5_0_RightCurlyBracketKeyword_5_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getLogicalConnectorAccess().getLeftCurlyBracketKeyword_5_0()), new TokenAlias(false, false, grammarAccess.getLogicalConnectorAccess().getRightCurlyBracketKeyword_5_2()));
-		match_OutputPin___LeftCurlyBracketKeyword_5_0_RightCurlyBracketKeyword_5_4__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getOutputPinAccess().getLeftCurlyBracketKeyword_5_0()), new TokenAlias(false, false, grammarAccess.getOutputPinAccess().getRightCurlyBracketKeyword_5_4()));
+		match_OutputPin___LeftCurlyBracketKeyword_5_0_RightCurlyBracketKeyword_5_5__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getOutputPinAccess().getLeftCurlyBracketKeyword_5_0()), new TokenAlias(false, false, grammarAccess.getOutputPinAccess().getRightCurlyBracketKeyword_5_5()));
 		match_PhysicalConnector___LeftCurlyBracketKeyword_5_0_RightCurlyBracketKeyword_5_4__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getPhysicalConnectorAccess().getLeftCurlyBracketKeyword_5_0()), new TokenAlias(false, false, grammarAccess.getPhysicalConnectorAccess().getRightCurlyBracketKeyword_5_4()));
 	}
 	
@@ -77,8 +77,8 @@ public class E4smSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_InputPin___LeftCurlyBracketKeyword_5_0_RightCurlyBracketKeyword_5_5__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_LogicalConnector___LeftCurlyBracketKeyword_5_0_RightCurlyBracketKeyword_5_2__q.equals(syntax))
 				emit_LogicalConnector___LeftCurlyBracketKeyword_5_0_RightCurlyBracketKeyword_5_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_OutputPin___LeftCurlyBracketKeyword_5_0_RightCurlyBracketKeyword_5_4__q.equals(syntax))
-				emit_OutputPin___LeftCurlyBracketKeyword_5_0_RightCurlyBracketKeyword_5_4__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_OutputPin___LeftCurlyBracketKeyword_5_0_RightCurlyBracketKeyword_5_5__q.equals(syntax))
+				emit_OutputPin___LeftCurlyBracketKeyword_5_0_RightCurlyBracketKeyword_5_5__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_PhysicalConnector___LeftCurlyBracketKeyword_5_0_RightCurlyBracketKeyword_5_4__q.equals(syntax))
 				emit_PhysicalConnector___LeftCurlyBracketKeyword_5_0_RightCurlyBracketKeyword_5_4__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
@@ -137,7 +137,7 @@ public class E4smSyntacticSequencer extends AbstractSyntacticSequencer {
 	 
 	 * </pre>
 	 */
-	protected void emit_OutputPin___LeftCurlyBracketKeyword_5_0_RightCurlyBracketKeyword_5_4__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_OutputPin___LeftCurlyBracketKeyword_5_0_RightCurlyBracketKeyword_5_5__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

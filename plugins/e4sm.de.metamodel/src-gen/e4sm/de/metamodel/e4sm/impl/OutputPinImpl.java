@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.OutputPinImpl#getAmplify <em>Amplify</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.OutputPinImpl#getOutputUncertainty <em>Output Uncertainty</em>}</li>
  * </ul>
  *
  * @generated
@@ -44,6 +45,25 @@ public class OutputPinImpl extends PinImpl implements OutputPin {
 	 * @ordered
 	 */
 	protected int amplify = AMPLIFY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getOutputUncertainty() <em>Output Uncertainty</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOutputUncertainty()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double OUTPUT_UNCERTAINTY_EDEFAULT = 0.0;
+	/**
+	 * The cached value of the '{@link #getOutputUncertainty() <em>Output Uncertainty</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOutputUncertainty()
+	 * @generated
+	 * @ordered
+	 */
+	protected double outputUncertainty = OUTPUT_UNCERTAINTY_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -94,6 +114,30 @@ public class OutputPinImpl extends PinImpl implements OutputPin {
 	 * @generated
 	 */
 	@Override
+	public double getOutputUncertainty() {
+		return outputUncertainty;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setOutputUncertainty(double newOutputUncertainty) {
+		double oldOutputUncertainty = outputUncertainty;
+		outputUncertainty = newOutputUncertainty;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.OUTPUT_PIN__OUTPUT_UNCERTAINTY,
+					oldOutputUncertainty, outputUncertainty));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public String computeName() {
 		if (this.getName() != null && !this.getName().isBlank()) {
 			return this.getName();
@@ -112,6 +156,8 @@ public class OutputPinImpl extends PinImpl implements OutputPin {
 		switch (featureID) {
 		case e4smPackage.OUTPUT_PIN__AMPLIFY:
 			return getAmplify();
+		case e4smPackage.OUTPUT_PIN__OUTPUT_UNCERTAINTY:
+			return getOutputUncertainty();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -126,6 +172,9 @@ public class OutputPinImpl extends PinImpl implements OutputPin {
 		switch (featureID) {
 		case e4smPackage.OUTPUT_PIN__AMPLIFY:
 			setAmplify((Integer) newValue);
+			return;
+		case e4smPackage.OUTPUT_PIN__OUTPUT_UNCERTAINTY:
+			setOutputUncertainty((Double) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -142,6 +191,9 @@ public class OutputPinImpl extends PinImpl implements OutputPin {
 		case e4smPackage.OUTPUT_PIN__AMPLIFY:
 			setAmplify(AMPLIFY_EDEFAULT);
 			return;
+		case e4smPackage.OUTPUT_PIN__OUTPUT_UNCERTAINTY:
+			setOutputUncertainty(OUTPUT_UNCERTAINTY_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -156,6 +208,8 @@ public class OutputPinImpl extends PinImpl implements OutputPin {
 		switch (featureID) {
 		case e4smPackage.OUTPUT_PIN__AMPLIFY:
 			return amplify != AMPLIFY_EDEFAULT;
+		case e4smPackage.OUTPUT_PIN__OUTPUT_UNCERTAINTY:
+			return outputUncertainty != OUTPUT_UNCERTAINTY_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -187,6 +241,8 @@ public class OutputPinImpl extends PinImpl implements OutputPin {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (amplify: ");
 		result.append(amplify);
+		result.append(", outputUncertainty: ");
+		result.append(outputUncertainty);
 		result.append(')');
 		return result.toString();
 	}

@@ -1894,15 +1894,15 @@
       </changes>
       <changes xsi:type="history:Create" xmi:id="_CSN3Y4BfEeyzqsUCyRmHHA" referenceName="eStructuralFeatures">
         <target href="e4sm.ecore#//SoftwareComponent"/>
-        <element href="e4sm.ecore#//SoftwareComponent/outputUncertainty"/>
+        <element href="e4sm.ecore#//OutputPin/outputUncertainty"/>
         <changes xsi:type="history:Set" xmi:id="_CSN3ZIBfEeyzqsUCyRmHHA" featureName="name" dataValue="outputUncertainty">
-          <element href="e4sm.ecore#//SoftwareComponent/outputUncertainty"/>
+          <element href="e4sm.ecore#//OutputPin/outputUncertainty"/>
         </changes>
         <changes xsi:type="history:Set" xmi:id="_CSN3ZYBfEeyzqsUCyRmHHA" featureName="defaultValueLiteral" dataValue="0.0">
-          <element href="e4sm.ecore#//SoftwareComponent/outputUncertainty"/>
+          <element href="e4sm.ecore#//OutputPin/outputUncertainty"/>
         </changes>
         <changes xsi:type="history:Set" xmi:id="_CSN3ZoBfEeyzqsUCyRmHHA" featureName="eType">
-          <element href="e4sm.ecore#//SoftwareComponent/outputUncertainty"/>
+          <element href="e4sm.ecore#//OutputPin/outputUncertainty"/>
           <referenceValue href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
         </changes>
       </changes>

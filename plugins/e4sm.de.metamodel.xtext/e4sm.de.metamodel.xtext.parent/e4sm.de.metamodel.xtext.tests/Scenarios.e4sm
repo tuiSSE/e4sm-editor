@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<e4sm:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:e4sm="http://de.tu-ilmenau/e4sm/1.0.0" xmi:id="_J_FT8LI1EeugWoCPIzQv5A" name="E4SM Scenarios" personsPicturesPath="/E4SM_Editor_Example/img/persons/">
+  <packages xmi:id="_J_GiELI1EeugWoCPIzQv5A" name="Scenario 1 - Welding Process">
+    <components xsi:type="e4sm:PhysicalComponent" xmi:id="_WeFJ4LbYEeupgN33SxbatQ" name="Dataflow Processing" mainResponsible="_J_RhMbI1EeugWoCPIzQv5A">
+      <pins xsi:type="e4sm:InputPin" xmi:id="_ZxpMYLbYEeupgN33SxbatQ">
+      </pins>
+      <pins xsi:type="e4sm:OutputPin" xmi:id="_MbVdILbZEeupgN33SxbatQ"/>
+    </components>
+    <components xsi:type="e4sm:PhysicalComponent" xmi:id="_LUoq8NW-EeuWUdMYGRJUwQ" name="Decision Center">
+      <components xsi:type="e4sm:MachineLearningComponent" xmi:id="_7yzkoLbYEeupgN33SxbatQ" name="Prediction of the Gap change" mainResponsible="_J_RhNbI1EeugWoCPIzQv5A">
+        <pins xsi:type="e4sm:OutputPin" xmi:id="_wRF_gLbZEeupgN33SxbatQ"/>
+        <pins xsi:type="e4sm:InputPin" xmi:id="_v5jCMLbZEeupgN33SxbatQ"/>
+      </components>
+      <components xsi:type="e4sm:MachineLearningComponent" xmi:id="_hA7BELbZEeupgN33SxbatQ" name="Prediction of the Seam error" mainResponsible="_J_RhNbI1EeugWoCPIzQv5A">
+        <pins xsi:type="e4sm:InputPin" xmi:id="_udBZ0LbZEeupgN33SxbatQ"/>
+        <pins xsi:type="e4sm:OutputPin" xmi:id="_vbGLoLbZEeupgN33SxbatQ"/>
+      </components>
+      <components xsi:type="e4sm:Function" xmi:id="_jri0QLbZEeupgN33SxbatQ" name="Controller">
+        <pins xsi:type="e4sm:InputPin" xmi:id="_ts6LgLbZEeupgN33SxbatQ"/>
+        <pins xsi:type="e4sm:OutputPin" xmi:id="_uEsZYLbZEeupgN33SxbatQ"/>
+        <pins xsi:type="e4sm:InputPin" xmi:id="_zV-FwLbZEeupgN33SxbatQ"/>
+      </components>
+      <pins xsi:type="e4sm:InputPin" xmi:id="_LjoZELbZEeupgN33SxbatQ"/>
+      <pins xsi:type="e4sm:OutputPin" xmi:id="_vNauIOuhEeuwV8xKCKAiiQ"/>
+    </components>
+    <connectors xsi:type="e4sm:PhysicalConnector" xmi:id="_lLDRUOuhEeuwV8xKCKAiiQ" source="_MbVdILbZEeupgN33SxbatQ" target="_LjoZELbZEeupgN33SxbatQ"/>
+    <connectors xsi:type="e4sm:PhysicalConnector" xmi:id="_ow1FMOuhEeuwV8xKCKAiiQ" source="_TqtqYLbYEeupgN33SxbatQ" target="_J_I-UbI1EeugWoCPIzQv5A"/>
+    <connectors xsi:type="e4sm:PhysicalConnector" xmi:id="_pOmmUOuhEeuwV8xKCKAiiQ" source="_PjhykLbYEeupgN33SxbatQ" target="_J_I-UbI1EeugWoCPIzQv5A"/>
+    <connectors xsi:type="e4sm:PhysicalConnector" xmi:id="_p4Lu0OuhEeuwV8xKCKAiiQ" source="_J_I-UbI1EeugWoCPIzQv5A" target="_ZxpMYLbYEeupgN33SxbatQ"/>
+    <connectors xsi:type="e4sm:LogicalConnector" xmi:id="_q8j88OuhEeuwV8xKCKAiiQ" source="_LjoZELbZEeupgN33SxbatQ" target="_udBZ0LbZEeupgN33SxbatQ"/>
+    <connectors xsi:type="e4sm:LogicalConnector" xmi:id="_rbhJ0OuhEeuwV8xKCKAiiQ" source="_LjoZELbZEeupgN33SxbatQ" target="_v5jCMLbZEeupgN33SxbatQ"/>
+    <connectors xsi:type="e4sm:LogicalConnector" xmi:id="_tO5L8OuhEeuwV8xKCKAiiQ" source="_vbGLoLbZEeupgN33SxbatQ" target="_ts6LgLbZEeupgN33SxbatQ"/>
+    <connectors xsi:type="e4sm:LogicalConnector" xmi:id="_txVKoOuhEeuwV8xKCKAiiQ" source="_wRF_gLbZEeupgN33SxbatQ" target="_zV-FwLbZEeupgN33SxbatQ"/>
+    <connectors xsi:type="e4sm:LogicalConnector" xmi:id="_v6blIOuhEeuwV8xKCKAiiQ" source="_uEsZYLbZEeupgN33SxbatQ" target="_vNauIOuhEeuwV8xKCKAiiQ"/>
+    <connectors xsi:type="e4sm:PhysicalConnector" xmi:id="_wl3HwOuhEeuwV8xKCKAiiQ" source="_vNauIOuhEeuwV8xKCKAiiQ" target="_63khcLJkEeuh3_JX10P0Bg"/>
+    <sectors xmi:id="_J_GiErI1EeugWoCPIzQv5A" name="Welding booth">
+      <components xmi:id="_J_HwMbI1EeugWoCPIzQv5A" name="Sensors">
+        <components xsi:type="e4sm:Sensor" xmi:id="_KOBtgLbYEeupgN33SxbatQ" name="Pushbutton sensor" mainResponsible="_J_Q6JLI1EeugWoCPIzQv5A">
+          <pins xsi:type="e4sm:OutputPin" xmi:id="_PjhykLbYEeupgN33SxbatQ" name="PushButton Out"/>
+        </components>
+        <components xsi:type="e4sm:Sensor" xmi:id="_N1LRgJZPEey3Fps4t8QyTw" name="Camera" mainResponsible="_J_Q6IrI1EeugWoCPIzQv5A">
+          <pins xsi:type="e4sm:OutputPin" xmi:id="_TqtqYLbYEeupgN33SxbatQ" name="CameraOut"/>
+        </components>
+        <pins xsi:type="e4sm:OutputPin" xmi:id="_J_I-UbI1EeugWoCPIzQv5A" name="SensorOut" raceSemantic="MERGE"/>
+      </components>
+      <components xsi:type="e4sm:Actuator" xmi:id="_l-wCcLbYEeupgN33SxbatQ" name="Laser Processing Center" mainResponsible="_J_Q6JLI1EeugWoCPIzQv5A">
+        <pins xsi:type="e4sm:InputPin" xmi:id="_63khcLJkEeuh3_JX10P0Bg" name="Comp2_in"/>
+      </components>
+    </sectors>
+  </packages>
+  <packages xmi:id="_J_I-U7I1EeugWoCPIzQv5A" name="Scenario 2 - Mounting Process">
+    <connectors xsi:type="e4sm:PhysicalConnector" xmi:id="_HK8eQOuiEeuwV8xKCKAiiQ" source="_J_NP0bI1EeugWoCPIzQv5A" target="_J_N207I1EeugWoCPIzQv5A"/>
+    <connectors xsi:type="e4sm:LogicalConnector" xmi:id="_ATpNQOu4EeuwV8xKCKAiiQ" source="_J_Od47I1EeugWoCPIzQv5A" target="_J_Od57I1EeugWoCPIzQv5A"/>
+    <connectors xsi:type="e4sm:LogicalConnector" xmi:id="_VKrtkOu4EeuwV8xKCKAiiQ" source="_J_NPz7I1EeugWoCPIzQv5A" target="_J_MoxbI1EeugWoCPIzQv5A"/>
+    <connectors xsi:type="e4sm:LogicalConnector" xmi:id="_YSQigOu4EeuwV8xKCKAiiQ" source="_J_Mou7I1EeugWoCPIzQv5A" target="_J_NPy7I1EeugWoCPIzQv5A"/>
+    <connectors xsi:type="e4sm:LogicalConnector" xmi:id="_Y1iOsOu4EeuwV8xKCKAiiQ" source="_J_MotbI1EeugWoCPIzQv5A" target="_J_NPzbI1EeugWoCPIzQv5A"/>
+    <connectors xsi:type="e4sm:LogicalConnector" xmi:id="_ZrRj4Ou4EeuwV8xKCKAiiQ" source="_J_MowbI1EeugWoCPIzQv5A" target="_ZKOsUOu4EeuwV8xKCKAiiQ"/>
+    <connectors xsi:type="e4sm:LogicalConnector" xmi:id="_a96QcOu4EeuwV8xKCKAiiQ" source="_J_NPwbI1EeugWoCPIzQv5A" target="_J_NPxbI1EeugWoCPIzQv5A"/>
+    <connectors xsi:type="e4sm:LogicalConnector" xmi:id="_bdfvcOu4EeuwV8xKCKAiiQ" source="_J_NPx7I1EeugWoCPIzQv5A" target="_J_NP0bI1EeugWoCPIzQv5A"/>
+    <connectors xsi:type="e4sm:PhysicalConnector" xmi:id="_ExhFUB0REeyWbaTgtWH7Bg" source="_-AzmhR0QEeyWbaTgtWH7Bg" target="_J_NP07I1EeugWoCPIzQv5A"/>
+    <connectors xsi:type="e4sm:LogicalConnector" xmi:id="_MJFIwB0REeyWbaTgtWH7Bg" source="_-Azmgx0QEeyWbaTgtWH7Bg" target="_-AzmhR0QEeyWbaTgtWH7Bg"/>
+    <connectors xsi:type="e4sm:PhysicalConnector" xmi:id="_OlPpMB0REeyWbaTgtWH7Bg" source="_J_Od7bI1EeugWoCPIzQv5A" target="_-AzmhB0QEeyWbaTgtWH7Bg"/>
+    <connectors xsi:type="e4sm:PhysicalConnector" xmi:id="_PcokMB0REeyWbaTgtWH7Bg" source="_J_N22bI1EeugWoCPIzQv5A" target="_No58wB0REeyWbaTgtWH7Bg"/>
+    <connectors xsi:type="e4sm:PhysicalConnector" xmi:id="_QHmz0B0REeyWbaTgtWH7Bg" source="_J_Od57I1EeugWoCPIzQv5A" target="_NK81cB0REeyWbaTgtWH7Bg"/>
+    <connectors xsi:type="e4sm:LogicalConnector" xmi:id="_YVFLkB0REeyWbaTgtWH7Bg" source="_VVrbMR0REeyWbaTgtWH7Bg" target="_J_MoubI1EeugWoCPIzQv5A"/>
+    <connectors xsi:type="e4sm:LogicalConnector" xmi:id="_Y5MlQB0REeyWbaTgtWH7Bg" source="_VVrbMR0REeyWbaTgtWH7Bg" target="_J_Mos7I1EeugWoCPIzQv5A"/>
+    <connectors xsi:type="e4sm:LogicalConnector" xmi:id="_ZZHbcB0REeyWbaTgtWH7Bg" source="_VVrbMR0REeyWbaTgtWH7Bg" target="_J_Mov7I1EeugWoCPIzQv5A"/>
+    <connectors xsi:type="e4sm:LogicalConnector" xmi:id="_rm6ooB0REeyWbaTgtWH7Bg" source="_-AzmhB0QEeyWbaTgtWH7Bg" target="_-Azmgh0QEeyWbaTgtWH7Bg"/>
+    <connectors xsi:type="e4sm:LogicalConnector" xmi:id="_sKDx8B0REeyWbaTgtWH7Bg" source="_No58wB0REeyWbaTgtWH7Bg" target="_-Azmgh0QEeyWbaTgtWH7Bg"/>
+    <connectors xsi:type="e4sm:LogicalConnector" xmi:id="_s3aAIB0REeyWbaTgtWH7Bg" source="_NK81cB0REeyWbaTgtWH7Bg" target="_-Azmgh0QEeyWbaTgtWH7Bg"/>
+    <connectors xsi:type="e4sm:LogicalConnector" xmi:id="_7Yo08B0REeyWbaTgtWH7Bg" source="_4S7BMB0REeyWbaTgtWH7Bg" target="_-AzmhR0QEeyWbaTgtWH7Bg"/>
+    <connectors xsi:type="e4sm:LogicalConnector" xmi:id="_EEE7EB0SEeyWbaTgtWH7Bg" source="_J_NP07I1EeugWoCPIzQv5A" target="_DOYpMB0SEeyWbaTgtWH7Bg"/>
+    <connectors xsi:type="e4sm:LogicalConnector" xmi:id="_Eu1vUB0SEeyWbaTgtWH7Bg" source="_J_NP07I1EeugWoCPIzQv5A" target="_VVrbMh0REeyWbaTgtWH7Bg"/>
+    <connectors xsi:type="e4sm:LogicalConnector" xmi:id="_XH3VEB0SEeyWbaTgtWH7Bg" name="Feedback" source="_WetqYB0SEeyWbaTgtWH7Bg" target="_VxeJ4B0SEeyWbaTgtWH7Bg"/>
+    <connectors xsi:type="e4sm:LogicalConnector" xmi:id="_dCHtAB0SEeyWbaTgtWH7Bg" source="_ceKEUB0SEeyWbaTgtWH7Bg" target="_VG7YEB0SEeyWbaTgtWH7Bg"/>
+    <connectors xsi:type="e4sm:PhysicalConnector" xmi:id="_d1C-wB0SEeyWbaTgtWH7Bg" source="_VxeJ4B0SEeyWbaTgtWH7Bg" target="_ceKEUB0SEeyWbaTgtWH7Bg"/>
+    <connectors xsi:type="e4sm:LogicalConnector" xmi:id="_skPXEB0SEeyWbaTgtWH7Bg" source="_DOYpMB0SEeyWbaTgtWH7Bg" target="_iWES4R0SEeyWbaTgtWH7Bg"/>
+    <connectors xsi:type="e4sm:LogicalConnector" xmi:id="_tL_6oB0SEeyWbaTgtWH7Bg" source="_VVrbMh0REeyWbaTgtWH7Bg" target="_iWES4h0SEeyWbaTgtWH7Bg"/>
+    <connectors xsi:type="e4sm:LogicalConnector" xmi:id="_FYpMkKEwEeyzTapKlfAgGQ" source="_-Azmgh0QEeyWbaTgtWH7Bg" target="_d-17ALfoEeupgN33SxbatQ"/>
+    <connectors xsi:type="e4sm:LogicalConnector" xmi:id="_Fw9l8KEwEeyzTapKlfAgGQ" source="_VG7YEB0SEeyWbaTgtWH7Bg" target="_ONPGULbeEeupgN33SxbatQ"/>
+    <connectors xsi:type="e4sm:PhysicalConnector" xmi:id="_RG2scKacEeyVy8sHN_mqkg" source="_HRoTwaacEeyVy8sHN_mqkg" target="_M0xzQqacEeyVy8sHN_mqkg"/>
+    <connectors xsi:type="e4sm:PhysicalConnector" xmi:id="_USp6EKacEeyVy8sHN_mqkg" source="_TIhCMaacEeyVy8sHN_mqkg" target="_Pvt6YKacEeyVy8sHN_mqkg"/>
+    <connectors xsi:type="e4sm:PhysicalConnector" xmi:id="_fTWAUKacEeyVy8sHN_mqkg" source="_M0xzQaacEeyVy8sHN_mqkg" target="_eHDMUaacEeyVy8sHN_mqkg"/>
+    <sectors xmi:id="_J_MBrrI1EeugWoCPIzQv5A" name="Computer Center">
+      <components xmi:id="_J_MBsLI1EeugWoCPIzQv5A" name="Computer Cluster">
+        <components xsi:type="e4sm:MachineLearningComponent" xmi:id="_J_MosbI1EeugWoCPIzQv5A" name="Skeleton Detection" mainResponsible="_J_RhObI1EeugWoCPIzQv5A">
+          <pins xsi:type="e4sm:InputPin" xmi:id="_J_Mos7I1EeugWoCPIzQv5A" name="Picture"/>
+          <pins xsi:type="e4sm:OutputPin" xmi:id="_J_MotbI1EeugWoCPIzQv5A" name="Scheleton"/>
+        </components>
+        <components xsi:type="e4sm:MachineLearningComponent" xmi:id="_J_Mot7I1EeugWoCPIzQv5A" name="Actions Detection" mainResponsible="_J_RhObI1EeugWoCPIzQv5A">
+          <pins xsi:type="e4sm:InputPin" xmi:id="_J_MoubI1EeugWoCPIzQv5A"/>
+          <pins xsi:type="e4sm:OutputPin" xmi:id="_J_Mou7I1EeugWoCPIzQv5A"/>
+        </components>
+        <components xsi:type="e4sm:MachineLearningComponent" xmi:id="_J_MovbI1EeugWoCPIzQv5A" name="Objects Detection" mainResponsible="_J_RhO7I1EeugWoCPIzQv5A">
+          <pins xsi:type="e4sm:InputPin" xmi:id="_J_Mov7I1EeugWoCPIzQv5A"/>
+          <pins xsi:type="e4sm:OutputPin" xmi:id="_J_MowbI1EeugWoCPIzQv5A"/>
+        </components>
+        <components xsi:type="e4sm:Heuristic" xmi:id="_J_Mow7I1EeugWoCPIzQv5A" name="Process Phase Detection" mainResponsible="_J_Q6ILI1EeugWoCPIzQv5A">
+          <pins xsi:type="e4sm:InputPin" xmi:id="_J_MoxbI1EeugWoCPIzQv5A"/>
+          <pins xsi:type="e4sm:OutputPin" xmi:id="_J_NPwbI1EeugWoCPIzQv5A"/>
+        </components>
+        <components xsi:type="e4sm:Function" xmi:id="_J_NPybI1EeugWoCPIzQv5A" name="Detect Involved Items" mainResponsible="_J_RhO7I1EeugWoCPIzQv5A">
+          <pins xsi:type="e4sm:InputPin" xmi:id="_J_NPy7I1EeugWoCPIzQv5A"/>
+          <pins xsi:type="e4sm:InputPin" xmi:id="_J_NPzbI1EeugWoCPIzQv5A"/>
+          <pins xsi:type="e4sm:OutputPin" xmi:id="_J_NPz7I1EeugWoCPIzQv5A"/>
+          <pins xsi:type="e4sm:InputPin" xmi:id="_ZKOsUOu4EeuwV8xKCKAiiQ"/>
+        </components>
+        <components xsi:type="e4sm:Function" xmi:id="_SsjH4NjYEeueifTkFX529g" name="Go Collect Object" mainResponsible="_J_RhM7I1EeugWoCPIzQv5A">
+          <pins xsi:type="e4sm:InputPin" xmi:id="_J_NPxbI1EeugWoCPIzQv5A"/>
+          <pins xsi:type="e4sm:OutputPin" xmi:id="_J_NPx7I1EeugWoCPIzQv5A"/>
+        </components>
+        <components xsi:type="e4sm:SoftwareComponent" xmi:id="_VVrbMB0REeyWbaTgtWH7Bg" name="Reconstruct and Decompress" mainResponsible="_J_RhMbI1EeugWoCPIzQv5A" specifiedInPackage="_h5aMEB0SEeyWbaTgtWH7Bg">
+          <pins xsi:type="e4sm:OutputPin" xmi:id="_VVrbMR0REeyWbaTgtWH7Bg"/>
+          <pins xsi:type="e4sm:InputPin" xmi:id="_VVrbMh0REeyWbaTgtWH7Bg"/>
+          <pins xsi:type="e4sm:InputPin" xmi:id="_DOYpMB0SEeyWbaTgtWH7Bg"/>
+          <pins xsi:type="e4sm:OutputPin" xmi:id="_WetqYB0SEeyWbaTgtWH7Bg"/>
+        </components>
+        <pins xsi:type="e4sm:OutputPin" xmi:id="_J_NP0bI1EeugWoCPIzQv5A"/>
+        <pins xsi:type="e4sm:InputPin" xmi:id="_J_NP07I1EeugWoCPIzQv5A"/>
+        <pins xsi:type="e4sm:OutputPin" xmi:id="_VxeJ4B0SEeyWbaTgtWH7Bg"/>
+      </components>
+    </sectors>
+    <sectors xmi:id="_J_NP1bI1EeugWoCPIzQv5A" name="Supervised Area">
+      <components xsi:type="e4sm:Actuator" xmi:id="_J_N20bI1EeugWoCPIzQv5A" name="Robot" mainResponsible="_J_RhM7I1EeugWoCPIzQv5A">
+        <pins xsi:type="e4sm:InputPin" xmi:id="_J_N207I1EeugWoCPIzQv5A"/>
+      </components>
+      <components xmi:id="_-AzmgB0QEeyWbaTgtWH7Bg" name="Data Manager">
+        <components xsi:type="e4sm:SoftwareComponent" xmi:id="_-AzmgR0QEeyWbaTgtWH7Bg" name="Edit and Compress Data" mainResponsible="_J_RhMbI1EeugWoCPIzQv5A" specifiedInPackage="_MFldULbeEeupgN33SxbatQ">
+          <pins xsi:type="e4sm:InputPin" xmi:id="_-Azmgh0QEeyWbaTgtWH7Bg" name="LiveData"/>
+          <pins xsi:type="e4sm:OutputPin" xmi:id="_-Azmgx0QEeyWbaTgtWH7Bg" name="Background"/>
+          <pins xsi:type="e4sm:OutputPin" xmi:id="_4S7BMB0REeyWbaTgtWH7Bg" name="Foreground"/>
+          <pins xsi:type="e4sm:InputPin" xmi:id="_VG7YEB0SEeyWbaTgtWH7Bg"/>
+        </components>
+        <pins xsi:type="e4sm:InputPin" xmi:id="_-AzmhB0QEeyWbaTgtWH7Bg"/>
+        <pins xsi:type="e4sm:OutputPin" xmi:id="_-AzmhR0QEeyWbaTgtWH7Bg"/>
+        <pins xsi:type="e4sm:InputPin" xmi:id="_NK81cB0REeyWbaTgtWH7Bg"/>
+        <pins xsi:type="e4sm:InputPin" xmi:id="_No58wB0REeyWbaTgtWH7Bg"/>
+        <pins xsi:type="e4sm:InputPin" xmi:id="_ceKEUB0SEeyWbaTgtWH7Bg"/>
+      </components>
+      <components xsi:type="e4sm:Sensor" xmi:id="_HRoTwKacEeyVy8sHN_mqkg" name="Camera">
+        <pins xsi:type="e4sm:OutputPin" xmi:id="_HRoTwaacEeyVy8sHN_mqkg"/>
+      </components>
+      <components xsi:type="e4sm:PhysicalComponent" xmi:id="_M0xzQKacEeyVy8sHN_mqkg" name="Pipeline">
+        <pins xsi:type="e4sm:OutputPin" xmi:id="_M0xzQaacEeyVy8sHN_mqkg"/>
+        <pins xsi:type="e4sm:InputPin" xmi:id="_M0xzQqacEeyVy8sHN_mqkg"/>
+        <pins xsi:type="e4sm:InputPin" xmi:id="_Pvt6YKacEeyVy8sHN_mqkg"/>
+      </components>
+      <components xsi:type="e4sm:Sensor" xmi:id="_TIhCMKacEeyVy8sHN_mqkg" name="Temperature Sensor">
+        <pins xsi:type="e4sm:OutputPin" xmi:id="_TIhCMaacEeyVy8sHN_mqkg"/>
+      </components>
+      <components xsi:type="e4sm:Actuator" xmi:id="_eHDMUKacEeyVy8sHN_mqkg" name="Result">
+        <pins xsi:type="e4sm:InputPin" xmi:id="_eHDMUaacEeyVy8sHN_mqkg"/>
+      </components>
+      <sectors xmi:id="_J_N21bI1EeugWoCPIzQv5A" name="Assembly Area">
+        <components xsi:type="e4sm:Sensor" xmi:id="_J_N217I1EeugWoCPIzQv5A" name="Stereo Camera System" mainResponsible="_J_Q6IrI1EeugWoCPIzQv5A">
+          <pins xsi:type="e4sm:OutputPin" xmi:id="_J_N22bI1EeugWoCPIzQv5A"/>
+        </components>
+        <components xsi:type="e4sm:Sensor" xmi:id="_J_N227I1EeugWoCPIzQv5A" name="Kinect Cameras" mainResponsible="_J_RhM7I1EeugWoCPIzQv5A">
+          <components xsi:type="e4sm:ExternalDependency" xmi:id="_J_Od4bI1EeugWoCPIzQv5A" name="Kinect API">
+            <pins xsi:type="e4sm:OutputPin" xmi:id="_J_Od47I1EeugWoCPIzQv5A"/>
+          </components>
+          <pins xsi:type="e4sm:OutputPin" xmi:id="_J_Od57I1EeugWoCPIzQv5A"/>
+        </components>
+      </sectors>
+      <sectors xmi:id="_J_Od6bI1EeugWoCPIzQv5A" name="Warehouse">
+        <components xsi:type="e4sm:Sensor" xmi:id="_J_Od67I1EeugWoCPIzQv5A" name="Camera(s)" mainResponsible="_J_Q6IrI1EeugWoCPIzQv5A">
+          <pins xsi:type="e4sm:OutputPin" xmi:id="_J_Od7bI1EeugWoCPIzQv5A"/>
+        </components>
+      </sectors>
+    </sectors>
+    <packages xmi:id="_MFldULbeEeupgN33SxbatQ" name="Specify Edit and Compress Data" specifiesComponent="_-AzmgR0QEeyWbaTgtWH7Bg">
+      <components xsi:type="e4sm:SoftwareComponent" xmi:id="_N4oIQLbeEeupgN33SxbatQ" name="Data Reduction">
+        <pins xsi:type="e4sm:InputPin" xmi:id="_ONPGULbeEeupgN33SxbatQ"/>
+        <pins xsi:type="e4sm:OutputPin" xmi:id="_QhntgLcPEeupgN33SxbatQ" name="Relevant Picture Part"/>
+        <pins xsi:type="e4sm:InputPin" xmi:id="_d-17ALfoEeupgN33SxbatQ" name="Feedback"/>
+        <pins xsi:type="e4sm:OutputPin" xmi:id="_eUBg0LfoEeupgN33SxbatQ" name="Rest of the Picture"/>
+      </components>
+      <components xsi:type="e4sm:SoftwareComponent" xmi:id="_mwfW0LfoEeupgN33SxbatQ" name="Compression">
+        <pins xsi:type="e4sm:InputPin" xmi:id="_o7KeoLfoEeupgN33SxbatQ"/>
+        <pins xsi:type="e4sm:OutputPin" xmi:id="_yY9OwLfoEeupgN33SxbatQ"/>
+      </components>
+      <components xsi:type="e4sm:SoftwareComponent" xmi:id="_5yN7ULfoEeupgN33SxbatQ" name="Compression2">
+        <pins xsi:type="e4sm:InputPin" xmi:id="_5yN7UbfoEeupgN33SxbatQ"/>
+        <pins xsi:type="e4sm:OutputPin" xmi:id="_5yN7UrfoEeupgN33SxbatQ"/>
+      </components>
+      <connectors xsi:type="e4sm:LogicalConnector" xmi:id="_9ABq8Ou4EeuwV8xKCKAiiQ" source="_eUBg0LfoEeupgN33SxbatQ" target="_o7KeoLfoEeupgN33SxbatQ"/>
+      <connectors xsi:type="e4sm:LogicalConnector" xmi:id="_9eyqkOu4EeuwV8xKCKAiiQ" source="_QhntgLcPEeupgN33SxbatQ" target="_5yN7UbfoEeupgN33SxbatQ"/>
+      <connectors xsi:type="e4sm:LogicalConnector" xmi:id="_NjQyUB0SEeyWbaTgtWH7Bg" source="_5yN7UrfoEeupgN33SxbatQ" target="_-Azmgx0QEeyWbaTgtWH7Bg"/>
+      <connectors xsi:type="e4sm:LogicalConnector" xmi:id="_Q7c2IB0SEeyWbaTgtWH7Bg" source="_yY9OwLfoEeupgN33SxbatQ" target="_4S7BMB0REeyWbaTgtWH7Bg"/>
+      <packages xmi:id="_lPCVsLfpEeupgN33SxbatQ" name="Specify Picture Reconstruction" specifiesComponent="_iWES4B0SEeyWbaTgtWH7Bg">
+        <components xsi:type="e4sm:Function" xmi:id="_06ilQLfpEeupgN33SxbatQ" name="Delta Reconstruction2">
+          <pins xsi:type="e4sm:InputPin" xmi:id="_30cxoLfpEeupgN33SxbatQ"/>
+          <pins xsi:type="e4sm:OutputPin" xmi:id="_5ir1ELfpEeupgN33SxbatQ"/>
+        </components>
+        <components xsi:type="e4sm:SoftwareComponent" xmi:id="_JlnGILfqEeupgN33SxbatQ" name="Reconstruction" specifiedInPackage="_bX0DQNmmEeuqc8mrwY5SHg">
+          <pins xsi:type="e4sm:InputPin" xmi:id="_LErsMLfqEeupgN33SxbatQ" name="Reconstructed Data 1"/>
+          <pins xsi:type="e4sm:InputPin" xmi:id="_Lmh1ALfqEeupgN33SxbatQ" name="Reconstructed Data 2"/>
+          <pins xsi:type="e4sm:OutputPin" xmi:id="_MLLaMLfqEeupgN33SxbatQ" name="Output"/>
+        </components>
+        <components xsi:type="e4sm:Function" xmi:id="_hMycoLi3EeupgN33SxbatQ" name="Delta Reconstruction">
+          <pins xsi:type="e4sm:OutputPin" xmi:id="_-mefELfpEeupgN33SxbatQ"/>
+          <pins xsi:type="e4sm:InputPin" xmi:id="_-JvfwLfpEeupgN33SxbatQ"/>
+        </components>
+        <connectors xsi:type="e4sm:LogicalConnector" xmi:id="_kIa4MOu4EeuwV8xKCKAiiQ" source="_LErsMLfqEeupgN33SxbatQ" target="_kJSf8NmmEeuqc8mrwY5SHg"/>
+        <connectors xsi:type="e4sm:LogicalConnector" xmi:id="_kiEHQOu4EeuwV8xKCKAiiQ" source="_Lmh1ALfqEeupgN33SxbatQ" target="_hiIQctmmEeuqc8mrwY5SHg"/>
+        <connectors xsi:type="e4sm:LogicalConnector" xmi:id="_uoC4wOu4EeuwV8xKCKAiiQ" source="_-mefELfpEeupgN33SxbatQ" target="_LErsMLfqEeupgN33SxbatQ"/>
+        <connectors xsi:type="e4sm:LogicalConnector" xmi:id="_vRooUOu4EeuwV8xKCKAiiQ" source="_5ir1ELfpEeupgN33SxbatQ" target="_Lmh1ALfqEeupgN33SxbatQ"/>
+        <connectors xsi:type="e4sm:LogicalConnector" xmi:id="_z36ZAB0SEeyWbaTgtWH7Bg" source="_MLLaMLfqEeupgN33SxbatQ" target="_iWES5B0SEeyWbaTgtWH7Bg"/>
+        <connectors xsi:type="e4sm:LogicalConnector" xmi:id="_6RdVAB0SEeyWbaTgtWH7Bg" source="_5ir1ELfpEeupgN33SxbatQ" target="_iWES4x0SEeyWbaTgtWH7Bg"/>
+        <packages xmi:id="_bX0DQNmmEeuqc8mrwY5SHg" name="Specify Reconstruction" specifiesComponent="_JlnGILfqEeupgN33SxbatQ">
+          <components xsi:type="e4sm:SoftwareComponent" xmi:id="_hiIQcNmmEeuqc8mrwY5SHg" name="Function A">
+            <pins xsi:type="e4sm:OutputPin" xmi:id="_hiIQcdmmEeuqc8mrwY5SHg"/>
+            <pins xsi:type="e4sm:InputPin" xmi:id="_hiIQctmmEeuqc8mrwY5SHg"/>
+            <pins xsi:type="e4sm:InputPin" xmi:id="_kJSf8NmmEeuqc8mrwY5SHg"/>
+          </components>
+          <connectors xsi:type="e4sm:LogicalConnector" xmi:id="_jtFnEOu4EeuwV8xKCKAiiQ" source="_hiIQcdmmEeuqc8mrwY5SHg" target="_MLLaMLfqEeupgN33SxbatQ"/>
+        </packages>
+      </packages>
+    </packages>
+    <packages xmi:id="_h5aMEB0SEeyWbaTgtWH7Bg" name="Specify Reconstruct and Decompress" specifiesComponent="_VVrbMB0REeyWbaTgtWH7Bg">
+      <components xsi:type="e4sm:MachineLearningComponent" xmi:id="_iWES4B0SEeyWbaTgtWH7Bg" name="Picture Reconstruction" specifiedInPackage="_lPCVsLfpEeupgN33SxbatQ">
+        <pins xsi:type="e4sm:InputPin" xmi:id="_iWES4R0SEeyWbaTgtWH7Bg" name="Relevant Picture Part"/>
+        <pins xsi:type="e4sm:InputPin" xmi:id="_iWES4h0SEeyWbaTgtWH7Bg" name="Rest of the Picture"/>
+        <pins xsi:type="e4sm:OutputPin" xmi:id="_iWES4x0SEeyWbaTgtWH7Bg" name="Feedback"/>
+        <pins xsi:type="e4sm:OutputPin" xmi:id="_iWES5B0SEeyWbaTgtWH7Bg" name="Picture for Machine Learning"/>
+      </components>
+      <connectors xsi:type="e4sm:LogicalConnector" xmi:id="_ovt8kB0SEeyWbaTgtWH7Bg" source="_iWES4x0SEeyWbaTgtWH7Bg" target="_WetqYB0SEeyWbaTgtWH7Bg"/>
+      <connectors xsi:type="e4sm:LogicalConnector" xmi:id="_uAsuAB0SEeyWbaTgtWH7Bg" source="_iWES5B0SEeyWbaTgtWH7Bg" target="_VVrbMR0REeyWbaTgtWH7Bg"/>
+      <connectors xsi:type="e4sm:LogicalConnector" xmi:id="_4hMRQB0SEeyWbaTgtWH7Bg" source="_iWES4h0SEeyWbaTgtWH7Bg" target="_30cxoLfpEeupgN33SxbatQ"/>
+      <connectors xsi:type="e4sm:LogicalConnector" xmi:id="_5EVakB0SEeyWbaTgtWH7Bg" source="_iWES4R0SEeyWbaTgtWH7Bg" target="_-JvfwLfpEeupgN33SxbatQ"/>
+    </packages>
+  </packages>
+  <actors xsi:type="e4sm:Person" xmi:id="_J_Q6ILI1EeugWoCPIzQv5A" name="Francesco" surname="Bedini" department="SSE" responsibleForComponents="_J_Mow7I1EeugWoCPIzQv5A" pictureFileName="Francesco-Bedini-80.png"/>
+  <actors xsi:type="e4sm:Person" xmi:id="_J_Q6IrI1EeugWoCPIzQv5A" name="Christina" surname="Junger" department="QBV" responsibleForComponents="_J_N217I1EeugWoCPIzQv5A _J_Od67I1EeugWoCPIzQv5A _N1LRgJZPEey3Fps4t8QyTw" pictureFileName="Christina-Junger-80.png"/>
+  <actors xsi:type="e4sm:Person" xmi:id="_J_Q6JLI1EeugWoCPIzQv5A" name="Leander" surname="Schmidt" department="FT" responsibleForComponents="_KOBtgLbYEeupgN33SxbatQ _l-wCcLbYEeupgN33SxbatQ" pictureFileName="Leander-Schmidt-80.png"/>
+  <actors xsi:type="e4sm:Person" xmi:id="_J_RhMbI1EeugWoCPIzQv5A" name="Timo" surname="Räth" department="DBIS" responsibleForComponents="_WeFJ4LbYEeupgN33SxbatQ _-AzmgR0QEeyWbaTgtWH7Bg _VVrbMB0REeyWbaTgtWH7Bg" pictureFileName="Timo-Raeth-80.png"/>
+  <actors xsi:type="e4sm:Person" xmi:id="_J_RhM7I1EeugWoCPIzQv5A" name="Benedict" surname="Stephan" department="NIKR" responsibleForComponents="_J_N20bI1EeugWoCPIzQv5A _J_N227I1EeugWoCPIzQv5A _SsjH4NjYEeueifTkFX529g" pictureFileName="Benedict-Stephan-80.png"/>
+  <actors xsi:type="e4sm:Person" xmi:id="_J_RhNbI1EeugWoCPIzQv5A" name="Dominik" surname="Walther" department="SECSY" responsibleForComponents="_7yzkoLbYEeupgN33SxbatQ _hA7BELbZEeupgN33SxbatQ" pictureFileName="Dominik-Walther-80.png"/>
+  <actors xsi:type="e4sm:Person" xmi:id="_J_RhN7I1EeugWoCPIzQv5A" name="Markus" surname="Eisenbach" department="NWG" pictureFileName="Markus-Eisenbach-80.png"/>
+  <actors xsi:type="e4sm:Person" xmi:id="_J_RhObI1EeugWoCPIzQv5A" name="Dustin" surname="Aganian" department="NWG" responsibleForComponents="_J_MosbI1EeugWoCPIzQv5A _J_Mot7I1EeugWoCPIzQv5A" pictureFileName="Dustin-Aganian-80.png"/>
+  <actors xsi:type="e4sm:Person" xmi:id="_J_RhO7I1EeugWoCPIzQv5A" name="Mona" surname="Köhler" department="NWG" responsibleForComponents="_J_MovbI1EeugWoCPIzQv5A _J_NPybI1EeugWoCPIzQv5A" pictureFileName="Mona-Koehler-80.png"/>
+</e4sm:Model>

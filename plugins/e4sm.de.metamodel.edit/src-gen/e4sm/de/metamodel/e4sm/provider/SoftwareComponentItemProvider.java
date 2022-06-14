@@ -44,27 +44,10 @@ public class SoftwareComponentItemProvider extends ComponentItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addOutputUncertaintyPropertyDescriptor(object);
 			addSynchronousPropertyDescriptor(object);
 			addNumberOfServersPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Output Uncertainty feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addOutputUncertaintyPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_SoftwareComponent_outputUncertainty_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_SoftwareComponent_outputUncertainty_feature",
-						"_UI_SoftwareComponent_type"),
-				e4smPackage.Literals.SOFTWARE_COMPONENT__OUTPUT_UNCERTAINTY, true, false, false,
-				ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -144,7 +127,6 @@ public class SoftwareComponentItemProvider extends ComponentItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(SoftwareComponent.class)) {
-		case e4smPackage.SOFTWARE_COMPONENT__OUTPUT_UNCERTAINTY:
 		case e4smPackage.SOFTWARE_COMPONENT__SYNCHRONOUS:
 		case e4smPackage.SOFTWARE_COMPONENT__NUMBER_OF_SERVERS:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

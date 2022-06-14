@@ -280,22 +280,13 @@ public interface e4smPackage extends EPackage {
 	int SOFTWARE_COMPONENT__FIRING_STRATEGY = COMPONENT__FIRING_STRATEGY;
 
 	/**
-	 * The feature id for the '<em><b>Output Uncertainty</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOFTWARE_COMPONENT__OUTPUT_UNCERTAINTY = COMPONENT_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Synchronous</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOFTWARE_COMPONENT__SYNCHRONOUS = COMPONENT_FEATURE_COUNT + 1;
+	int SOFTWARE_COMPONENT__SYNCHRONOUS = COMPONENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Number Of Servers</b></em>' attribute.
@@ -304,7 +295,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOFTWARE_COMPONENT__NUMBER_OF_SERVERS = COMPONENT_FEATURE_COUNT + 2;
+	int SOFTWARE_COMPONENT__NUMBER_OF_SERVERS = COMPONENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Software Component</em>' class.
@@ -313,7 +304,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOFTWARE_COMPONENT_FEATURE_COUNT = COMPONENT_FEATURE_COUNT + 3;
+	int SOFTWARE_COMPONENT_FEATURE_COUNT = COMPONENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Compute Main Responsible</em>' operation.
@@ -441,15 +432,6 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int MACHINE_LEARNING_COMPONENT__FIRING_STRATEGY = SOFTWARE_COMPONENT__FIRING_STRATEGY;
-
-	/**
-	 * The feature id for the '<em><b>Output Uncertainty</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MACHINE_LEARNING_COMPONENT__OUTPUT_UNCERTAINTY = SOFTWARE_COMPONENT__OUTPUT_UNCERTAINTY;
 
 	/**
 	 * The feature id for the '<em><b>Synchronous</b></em>' attribute.
@@ -1097,15 +1079,6 @@ public interface e4smPackage extends EPackage {
 	int HEURISTIC__FIRING_STRATEGY = SOFTWARE_COMPONENT__FIRING_STRATEGY;
 
 	/**
-	 * The feature id for the '<em><b>Output Uncertainty</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HEURISTIC__OUTPUT_UNCERTAINTY = SOFTWARE_COMPONENT__OUTPUT_UNCERTAINTY;
-
-	/**
 	 * The feature id for the '<em><b>Synchronous</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1250,15 +1223,6 @@ public interface e4smPackage extends EPackage {
 	int FUNCTION__FIRING_STRATEGY = SOFTWARE_COMPONENT__FIRING_STRATEGY;
 
 	/**
-	 * The feature id for the '<em><b>Output Uncertainty</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FUNCTION__OUTPUT_UNCERTAINTY = SOFTWARE_COMPONENT__OUTPUT_UNCERTAINTY;
-
-	/**
 	 * The feature id for the '<em><b>Synchronous</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1401,15 +1365,6 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXTERNAL_DEPENDENCY__FIRING_STRATEGY = SOFTWARE_COMPONENT__FIRING_STRATEGY;
-
-	/**
-	 * The feature id for the '<em><b>Output Uncertainty</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTERNAL_DEPENDENCY__OUTPUT_UNCERTAINTY = SOFTWARE_COMPONENT__OUTPUT_UNCERTAINTY;
 
 	/**
 	 * The feature id for the '<em><b>Synchronous</b></em>' attribute.
@@ -2388,13 +2343,22 @@ public interface e4smPackage extends EPackage {
 	int OUTPUT_PIN__AMPLIFY = PIN_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Output Uncertainty</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_PIN__OUTPUT_UNCERTAINTY = PIN_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Output Pin</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OUTPUT_PIN_FEATURE_COUNT = PIN_FEATURE_COUNT + 1;
+	int OUTPUT_PIN_FEATURE_COUNT = PIN_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Get Incoming Connectors</em>' operation.
@@ -3079,17 +3043,6 @@ public interface e4smPackage extends EPackage {
 	EClass getSoftwareComponent();
 
 	/**
-	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.SoftwareComponent#getOutputUncertainty <em>Output Uncertainty</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Output Uncertainty</em>'.
-	 * @see e4sm.de.metamodel.e4sm.SoftwareComponent#getOutputUncertainty()
-	 * @see #getSoftwareComponent()
-	 * @generated
-	 */
-	EAttribute getSoftwareComponent_OutputUncertainty();
-
-	/**
 	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.SoftwareComponent#isSynchronous <em>Synchronous</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3604,6 +3557,17 @@ public interface e4smPackage extends EPackage {
 	EAttribute getOutputPin_Amplify();
 
 	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.OutputPin#getOutputUncertainty <em>Output Uncertainty</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Output Uncertainty</em>'.
+	 * @see e4sm.de.metamodel.e4sm.OutputPin#getOutputUncertainty()
+	 * @see #getOutputPin()
+	 * @generated
+	 */
+	EAttribute getOutputPin_OutputUncertainty();
+
+	/**
 	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.OutputPin#computeName() <em>Compute Name</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4072,14 +4036,6 @@ public interface e4smPackage extends EPackage {
 		EClass SOFTWARE_COMPONENT = eINSTANCE.getSoftwareComponent();
 
 		/**
-		 * The meta object literal for the '<em><b>Output Uncertainty</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SOFTWARE_COMPONENT__OUTPUT_UNCERTAINTY = eINSTANCE.getSoftwareComponent_OutputUncertainty();
-
-		/**
 		 * The meta object literal for the '<em><b>Synchronous</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4502,6 +4458,14 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute OUTPUT_PIN__AMPLIFY = eINSTANCE.getOutputPin_Amplify();
+
+		/**
+		 * The meta object literal for the '<em><b>Output Uncertainty</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OUTPUT_PIN__OUTPUT_UNCERTAINTY = eINSTANCE.getOutputPin_OutputUncertainty();
 
 		/**
 		 * The meta object literal for the '<em><b>Compute Name</b></em>' operation.

@@ -1,0 +1,48 @@
+model TypesLibrary {
+	// Pixels
+	abstract type Pixel {},
+	abstract type PictureProducer {},
+	
+	type RGBPixel { int r, int g, int b},
+	type BWPixel extends Pixel {int brightness} ,
+	
+	// Pictures
+	type Picture {
+		Pixel[] x,
+		Pixel[] y,
+		int x_Size,
+		int y_Size
+	},
+	type ThreeDPicture extends Picture {
+		Pixel[] z,
+		int zResolution
+	},
+
+	// Sensors
+	type ThreeDSensor {
+		string name,
+		int id,
+		int resolution
+	},
+	type ThreeDSensor extends PictureProducer {
+		string name,
+		int id,
+		int resolution
+	},
+	type Calibration {
+		int numberOfImagesLeft,
+		int numberOfImagesRight,
+		Picture[] imagesLeft,
+		Picture[] imagesRight,
+		int circleDiameter,
+		int circleDistance 
+		},
+	type Signal {
+		boolean on
+	}
+, 	type CameraXY extends PictureProducer {
+		string name,
+		int id,
+		int resolution
+	}
+}

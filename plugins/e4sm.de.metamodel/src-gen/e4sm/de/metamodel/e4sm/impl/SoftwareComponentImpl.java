@@ -21,7 +21,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link e4sm.de.metamodel.e4sm.impl.SoftwareComponentImpl#getOutputUncertainty <em>Output Uncertainty</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.SoftwareComponentImpl#isSynchronous <em>Synchronous</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.SoftwareComponentImpl#getNumberOfServers <em>Number Of Servers</em>}</li>
  * </ul>
@@ -29,26 +28,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * @generated
  */
 public class SoftwareComponentImpl extends ComponentImpl implements SoftwareComponent {
-	/**
-	 * The default value of the '{@link #getOutputUncertainty() <em>Output Uncertainty</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOutputUncertainty()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final double OUTPUT_UNCERTAINTY_EDEFAULT = 0.0;
-
-	/**
-	 * The cached value of the '{@link #getOutputUncertainty() <em>Output Uncertainty</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOutputUncertainty()
-	 * @generated
-	 * @ordered
-	 */
-	protected double outputUncertainty = OUTPUT_UNCERTAINTY_EDEFAULT;
-
 	/**
 	 * The default value of the '{@link #isSynchronous() <em>Synchronous</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -106,30 +85,6 @@ public class SoftwareComponentImpl extends ComponentImpl implements SoftwareComp
 	@Override
 	protected EClass eStaticClass() {
 		return e4smPackage.Literals.SOFTWARE_COMPONENT;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public double getOutputUncertainty() {
-		return outputUncertainty;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setOutputUncertainty(double newOutputUncertainty) {
-		double oldOutputUncertainty = outputUncertainty;
-		outputUncertainty = newOutputUncertainty;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.SOFTWARE_COMPONENT__OUTPUT_UNCERTAINTY,
-					oldOutputUncertainty, outputUncertainty));
 	}
 
 	/**
@@ -198,8 +153,6 @@ public class SoftwareComponentImpl extends ComponentImpl implements SoftwareComp
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case e4smPackage.SOFTWARE_COMPONENT__OUTPUT_UNCERTAINTY:
-			return getOutputUncertainty();
 		case e4smPackage.SOFTWARE_COMPONENT__SYNCHRONOUS:
 			return isSynchronous();
 		case e4smPackage.SOFTWARE_COMPONENT__NUMBER_OF_SERVERS:
@@ -216,9 +169,6 @@ public class SoftwareComponentImpl extends ComponentImpl implements SoftwareComp
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case e4smPackage.SOFTWARE_COMPONENT__OUTPUT_UNCERTAINTY:
-			setOutputUncertainty((Double) newValue);
-			return;
 		case e4smPackage.SOFTWARE_COMPONENT__SYNCHRONOUS:
 			setSynchronous((Boolean) newValue);
 			return;
@@ -237,9 +187,6 @@ public class SoftwareComponentImpl extends ComponentImpl implements SoftwareComp
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case e4smPackage.SOFTWARE_COMPONENT__OUTPUT_UNCERTAINTY:
-			setOutputUncertainty(OUTPUT_UNCERTAINTY_EDEFAULT);
-			return;
 		case e4smPackage.SOFTWARE_COMPONENT__SYNCHRONOUS:
 			setSynchronous(SYNCHRONOUS_EDEFAULT);
 			return;
@@ -258,8 +205,6 @@ public class SoftwareComponentImpl extends ComponentImpl implements SoftwareComp
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case e4smPackage.SOFTWARE_COMPONENT__OUTPUT_UNCERTAINTY:
-			return outputUncertainty != OUTPUT_UNCERTAINTY_EDEFAULT;
 		case e4smPackage.SOFTWARE_COMPONENT__SYNCHRONOUS:
 			return synchronous != SYNCHRONOUS_EDEFAULT;
 		case e4smPackage.SOFTWARE_COMPONENT__NUMBER_OF_SERVERS:
@@ -293,9 +238,7 @@ public class SoftwareComponentImpl extends ComponentImpl implements SoftwareComp
 			return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (outputUncertainty: ");
-		result.append(outputUncertainty);
-		result.append(", synchronous: ");
+		result.append(" (synchronous: ");
 		result.append(synchronous);
 		result.append(", numberOfServers: ");
 		result.append(numberOfServers);

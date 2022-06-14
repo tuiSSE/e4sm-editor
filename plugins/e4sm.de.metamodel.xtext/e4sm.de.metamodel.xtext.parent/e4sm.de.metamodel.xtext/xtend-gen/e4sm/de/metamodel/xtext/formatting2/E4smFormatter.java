@@ -8,8 +8,10 @@ import e4sm.de.metamodel.e4sm.Actor;
 import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.Connector;
 import e4sm.de.metamodel.e4sm.Model;
+import e4sm.de.metamodel.e4sm.Person;
 import e4sm.de.metamodel.e4sm.Pin;
 import e4sm.de.metamodel.e4sm.Sector;
+import e4sm.de.metamodel.e4sm.core.TypeSpecification;
 import e4sm.de.metamodel.xtext.services.E4smGrammarAccess;
 import java.util.Arrays;
 import org.eclipse.emf.common.util.EList;
@@ -29,6 +31,22 @@ public class E4smFormatter extends AbstractFormatter2 {
   private E4smGrammarAccess _e4smGrammarAccess;
   
   protected void _format(final Model model, @Extension final IFormattableDocument doc) {
+    final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
+      it.newLine();
+    };
+    doc.prepend(this.textRegionExtensions.regionFor(model).keyword("import"), _function);
+    final Procedure1<IHiddenRegionFormatter> _function_1 = (IHiddenRegionFormatter it) -> {
+      it.newLine();
+    };
+    doc.prepend(this.textRegionExtensions.regionFor(model).keyword("package"), _function_1);
+    final Procedure1<IHiddenRegionFormatter> _function_2 = (IHiddenRegionFormatter it) -> {
+      it.newLine();
+    };
+    doc.prepend(this.textRegionExtensions.regionFor(model).keyword("type"), _function_2);
+    final Procedure1<IHiddenRegionFormatter> _function_3 = (IHiddenRegionFormatter it) -> {
+      it.indent();
+    };
+    doc.prepend(this.textRegionExtensions.regionFor(model).keyword("person"), _function_3);
     EList<e4sm.de.metamodel.e4sm.Package> _packages = model.getPackages();
     for (final e4sm.de.metamodel.e4sm.Package _package : _packages) {
       this.format(_package, doc);
@@ -36,6 +54,10 @@ public class E4smFormatter extends AbstractFormatter2 {
     EList<Actor> _actors = model.getActors();
     for (final Actor actor : _actors) {
       this.format(actor, doc);
+    }
+    EList<TypeSpecification> _types = model.getTypes();
+    for (final TypeSpecification ts : _types) {
+      this.format(ts, doc);
     }
   }
   
@@ -177,42 +199,130 @@ public class E4smFormatter extends AbstractFormatter2 {
     };
     doc.append(doc.prepend(this.textRegionExtensions.regionFor(_connector).keyword("connector"), _function), _function_1);
     final Procedure1<IHiddenRegionFormatter> _function_2 = (IHiddenRegionFormatter it) -> {
+      it.newLine();
+    };
+    final Procedure1<IHiddenRegionFormatter> _function_3 = (IHiddenRegionFormatter it) -> {
+      it.oneSpace();
+    };
+    doc.append(doc.prepend(this.textRegionExtensions.regionFor(_connector).keyword("physicalConnector"), _function_2), _function_3);
+    final Procedure1<IHiddenRegionFormatter> _function_4 = (IHiddenRegionFormatter it) -> {
+      it.newLine();
+    };
+    final Procedure1<IHiddenRegionFormatter> _function_5 = (IHiddenRegionFormatter it) -> {
+      it.oneSpace();
+    };
+    doc.append(doc.prepend(this.textRegionExtensions.regionFor(_connector).keyword("logicalConnector"), _function_4), _function_5);
+    final Procedure1<IHiddenRegionFormatter> _function_6 = (IHiddenRegionFormatter it) -> {
       it.noSpace();
     };
-    doc.surround(this.textRegionExtensions.regionFor(_connector).keyword(","), _function_2);
+    doc.surround(this.textRegionExtensions.regionFor(_connector).keyword(","), _function_6);
   }
   
-  public void format(final Object _pin, final IFormattableDocument doc) {
-    if (_pin instanceof Pin) {
-      _format((Pin)_pin, doc);
+  protected void _format(final Person _person, @Extension final IFormattableDocument doc) {
+    final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
+      it.newLine();
+    };
+    final Procedure1<IHiddenRegionFormatter> _function_1 = (IHiddenRegionFormatter it) -> {
+      it.oneSpace();
+    };
+    doc.append(doc.prepend(this.textRegionExtensions.regionFor(_person).keyword("person"), _function), _function_1);
+    final Procedure1<IHiddenRegionFormatter> _function_2 = (IHiddenRegionFormatter it) -> {
+      it.noSpace();
+    };
+    doc.surround(this.textRegionExtensions.regionFor(_person).keyword(","), _function_2);
+    final Procedure1<IHiddenRegionFormatter> _function_3 = (IHiddenRegionFormatter it) -> {
+      it.newLine();
+    };
+    doc.prepend(this.textRegionExtensions.regionFor(_person).keyword("department"), _function_3);
+    final Procedure1<IHiddenRegionFormatter> _function_4 = (IHiddenRegionFormatter it) -> {
+      it.newLine();
+    };
+    doc.prepend(this.textRegionExtensions.regionFor(_person).keyword("pictureFileName"), _function_4);
+    final Procedure1<IHiddenRegionFormatter> _function_5 = (IHiddenRegionFormatter it) -> {
+      it.newLine();
+    };
+    doc.prepend(this.textRegionExtensions.regionFor(_person).keyword("responsibleForComponents"), _function_5);
+    final ISemanticRegion open = this.textRegionExtensions.regionFor(_person).keyword("{");
+    final ISemanticRegion close = this.textRegionExtensions.regionFor(_person).keyword("}");
+    final Procedure1<IHiddenRegionFormatter> _function_6 = (IHiddenRegionFormatter it) -> {
+      it.newLine();
+    };
+    doc.append(open, _function_6);
+    final Procedure1<IHiddenRegionFormatter> _function_7 = (IHiddenRegionFormatter it) -> {
+      it.newLine();
+    };
+    doc.prepend(close, _function_7);
+    final Procedure1<IHiddenRegionFormatter> _function_8 = (IHiddenRegionFormatter it) -> {
+      it.indent();
+    };
+    doc.<ISemanticRegion, ISemanticRegion>interior(open, close, _function_8);
+  }
+  
+  protected void _format(final TypeSpecification _typeSpec, @Extension final IFormattableDocument doc) {
+    final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
+      it.noSpace();
+    };
+    final Procedure1<IHiddenRegionFormatter> _function_1 = (IHiddenRegionFormatter it) -> {
+      it.newLine();
+    };
+    doc.append(doc.surround(this.textRegionExtensions.regionFor(_typeSpec).keyword(","), _function), _function_1);
+    final ISemanticRegion open = this.textRegionExtensions.regionFor(_typeSpec).keyword("{");
+    final ISemanticRegion close = this.textRegionExtensions.regionFor(_typeSpec).keyword("}");
+    boolean _isEmpty = _typeSpec.getAttributes().isEmpty();
+    boolean _not = (!_isEmpty);
+    if (_not) {
+      final Procedure1<IHiddenRegionFormatter> _function_2 = (IHiddenRegionFormatter it) -> {
+        it.newLine();
+      };
+      doc.append(open, _function_2);
+      final Procedure1<IHiddenRegionFormatter> _function_3 = (IHiddenRegionFormatter it) -> {
+        it.newLine();
+      };
+      doc.prepend(close, _function_3);
+      final Procedure1<IHiddenRegionFormatter> _function_4 = (IHiddenRegionFormatter it) -> {
+        it.indent();
+      };
+      doc.<ISemanticRegion, ISemanticRegion>interior(open, close, _function_4);
+    }
+  }
+  
+  public void format(final Object _person, final IFormattableDocument doc) {
+    if (_person instanceof Person) {
+      _format((Person)_person, doc);
       return;
-    } else if (_pin instanceof Component) {
-      _format((Component)_pin, doc);
+    } else if (_person instanceof Pin) {
+      _format((Pin)_person, doc);
       return;
-    } else if (_pin instanceof Connector) {
-      _format((Connector)_pin, doc);
+    } else if (_person instanceof Component) {
+      _format((Component)_person, doc);
       return;
-    } else if (_pin instanceof Model) {
-      _format((Model)_pin, doc);
+    } else if (_person instanceof Connector) {
+      _format((Connector)_person, doc);
       return;
-    } else if (_pin instanceof e4sm.de.metamodel.e4sm.Package) {
-      _format((e4sm.de.metamodel.e4sm.Package)_pin, doc);
+    } else if (_person instanceof Model) {
+      _format((Model)_person, doc);
       return;
-    } else if (_pin instanceof XtextResource) {
-      _format((XtextResource)_pin, doc);
+    } else if (_person instanceof e4sm.de.metamodel.e4sm.Package) {
+      _format((e4sm.de.metamodel.e4sm.Package)_person, doc);
       return;
-    } else if (_pin instanceof EObject) {
-      _format((EObject)_pin, doc);
+    } else if (_person instanceof TypeSpecification) {
+      _format((TypeSpecification)_person, doc);
       return;
-    } else if (_pin == null) {
+    } else if (_person instanceof XtextResource) {
+      _format((XtextResource)_person, doc);
+      return;
+    } else if (_person instanceof EObject) {
+      _format((EObject)_person, doc);
+      return;
+    } else if (_person == null) {
       _format((Void)null, doc);
       return;
-    } else if (_pin != null) {
-      _format(_pin, doc);
+    } else if (_person != null) {
+      _format(_person, doc);
       return;
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
-        Arrays.<Object>asList(_pin, doc).toString());
+        Arrays.<Object>asList(_person, doc).toString());
     }
   }
 }

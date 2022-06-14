@@ -231,20 +231,20 @@ public class ConnectorItemProvider extends ItemProviderAdapter implements IEditi
 
 	public String getLabelText(Connector connector) {
 		final String name = connector.getName();
-		String label = null;
+		String label = "";
 		if (name != null && name.length() > 0) {
 			label = name;
-		} else {
-			Pin sourcePin = connector.getSource();
-			Pin targetPin = connector.getTarget();
-			if (sourcePin != null && targetPin != null) {
-				Component sourceContainer = (Component) sourcePin.eContainer();
-				Component targetContainer = (Component) targetPin.eContainer();
-				String sourceName = sourceContainer.getName();
-				String targetName = targetContainer.getName();
-				if (sourceName != null && targetName != null && sourceName.length() > 0 && targetName.length() > 0) {
-					label = ": " + sourceName + "->" + targetName;
-				}
+		}
+
+		Pin sourcePin = connector.getSource();
+		Pin targetPin = connector.getTarget();
+		if (sourcePin != null && targetPin != null) {
+			Component sourceContainer = (Component) sourcePin.eContainer();
+			Component targetContainer = (Component) targetPin.eContainer();
+			String sourceName = sourceContainer.getName();
+			String targetName = targetContainer.getName();
+			if (sourceName != null && targetName != null && sourceName.length() > 0 && targetName.length() > 0) {
+				label += ": " + sourceName + "->" + targetName;
 			}
 		}
 		return label;

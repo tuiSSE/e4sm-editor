@@ -8,6 +8,8 @@ import e4sm.de.metamodel.e4sm.Model
 import e4sm.de.metamodel.xtext.services.E4smGrammarAccess
 import org.eclipse.xtext.formatting2.AbstractFormatter2
 import org.eclipse.xtext.formatting2.IFormattableDocument
+import e4sm.de.metamodel.e4sm.Person
+import e4sm.de.metamodel.e4sm.core.TypeSpecification
 
 //import org.eclipse.emf.ecore.EObject
 //import org.eclipse.xtext.formatting2.ITextReplacer
@@ -38,11 +40,20 @@ class E4smFormatter extends AbstractFormatter2 {
 //	}
 	def dispatch void format(Model model, extension IFormattableDocument doc) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
+		model.regionFor.keyword('import').prepend[newLine]
+		model.regionFor.keyword('package').prepend[newLine]
+		model.regionFor.keyword('type').prepend[newLine]
+		model.regionFor.keyword('person').prepend[indent]
+		
 		for (_package : model.packages) {
 			_package.format(doc)
 		}
 		for (actor : model.actors) {
 			actor.format(doc)
+		}
+		
+		for (ts : model.types){
+			ts.format(doc)
 		}
 	}
 
@@ -109,7 +120,40 @@ class E4smFormatter extends AbstractFormatter2 {
 	def dispatch void format(e4sm.de.metamodel.e4sm.Connector _connector, extension IFormattableDocument doc) {
 		// formatIntoSingleLine(doc, _connector);
 		_connector.regionFor.keyword('connector').prepend[newLine].append[oneSpace]
+		_connector.regionFor.keyword('physicalConnector').prepend[newLine].append[oneSpace]
+		_connector.regionFor.keyword('logicalConnector').prepend[newLine].append[oneSpace]
 		_connector.regionFor.keyword(',').surround[noSpace]
+	}
+	
+	def dispatch void format(Person _person, extension IFormattableDocument doc) {
+		// formatIntoSingleLine(doc, _connector);
+		_person.regionFor.keyword('person').prepend[newLine].append[oneSpace]
+		_person.regionFor.keyword(',').surround[noSpace]
+		
+		_person.regionFor.keyword('department').prepend[newLine]
+		_person.regionFor.keyword('pictureFileName').prepend[newLine]
+		_person.regionFor.keyword('responsibleForComponents').prepend[newLine]
+		
+		val open = _person.regionFor.keyword('{')
+		val close = _person.regionFor.keyword('}')
+		open.append[newLine]
+		close.prepend[newLine]
+		interior(open, close)[indent]
+	}
+	
+	def dispatch void format(TypeSpecification _typeSpec, extension IFormattableDocument doc) {
+		// formatIntoSingleLine(doc, _connector);
+		_typeSpec.regionFor.keyword(',').surround[noSpace].append[newLine]
+		
+		val open = _typeSpec.regionFor.keyword('{')
+		val close = _typeSpec.regionFor.keyword('}')
+		
+		// if the typeSpecification has attributes		
+		if(!_typeSpec.attributes.empty){
+			open.append[newLine]
+			close.prepend[newLine]
+			interior(open, close)[indent]
+		}	
 	}
 
 // TODO: implement for EDataType, EClass, EAnnotation, ETypeParameter, EEnum, EGenericType, EEnumLiteral, EOperation, EParameter, EAttribute, EReference, Component, Sector, MachineLearningComponent, PhysicalComponent, SoftwareComponent, Heuristic, Function, ExternalDependency, Sensor, Actuator

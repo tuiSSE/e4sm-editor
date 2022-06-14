@@ -18,6 +18,7 @@ import e4sm.de.metamodel.e4sm.execution.AssignableElement;
  * </p>
  * <ul>
  *   <li>{@link e4sm.de.metamodel.e4sm.OutputPin#getAmplify <em>Amplify</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.OutputPin#getOutputUncertainty <em>Output Uncertainty</em>}</li>
  * </ul>
  *
  * @see e4sm.de.metamodel.e4sm.e4smPackage#getOutputPin()
@@ -48,6 +49,29 @@ public interface OutputPin extends Pin, AssignableElement {
 	 * @generated
 	 */
 	void setAmplify(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Output Uncertainty</b></em>' attribute.
+	 * The default value is <code>"0.0"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Output Uncertainty</em>' attribute.
+	 * @see #setOutputUncertainty(double)
+	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getOutputPin_OutputUncertainty()
+	 * @model default="0.0"
+	 * @generated
+	 */
+	double getOutputUncertainty();
+
+	/**
+	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.OutputPin#getOutputUncertainty <em>Output Uncertainty</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Output Uncertainty</em>' attribute.
+	 * @see #getOutputUncertainty()
+	 * @generated
+	 */
+	void setOutputUncertainty(double value);
 
 	/**
 	 * <!-- begin-user-doc -->

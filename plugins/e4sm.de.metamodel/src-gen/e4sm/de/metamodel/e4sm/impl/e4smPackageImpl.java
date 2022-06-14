@@ -624,7 +624,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getSoftwareComponent_OutputUncertainty() {
+	public EAttribute getSoftwareComponent_Synchronous() {
 		return (EAttribute) softwareComponentEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -634,18 +634,8 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getSoftwareComponent_Synchronous() {
-		return (EAttribute) softwareComponentEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EAttribute getSoftwareComponent_NumberOfServers() {
-		return (EAttribute) softwareComponentEClass.getEStructuralFeatures().get(2);
+		return (EAttribute) softwareComponentEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1124,6 +1114,16 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getOutputPin_OutputUncertainty() {
+		return (EAttribute) outputPinEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getOutputPin__ComputeName() {
 		return outputPinEClass.getEOperations().get(0);
 	}
@@ -1433,7 +1433,6 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		physicalComponentEClass = createEClass(PHYSICAL_COMPONENT);
 
 		softwareComponentEClass = createEClass(SOFTWARE_COMPONENT);
-		createEAttribute(softwareComponentEClass, SOFTWARE_COMPONENT__OUTPUT_UNCERTAINTY);
 		createEAttribute(softwareComponentEClass, SOFTWARE_COMPONENT__SYNCHRONOUS);
 		createEAttribute(softwareComponentEClass, SOFTWARE_COMPONENT__NUMBER_OF_SERVERS);
 		createEOperation(softwareComponentEClass, SOFTWARE_COMPONENT___IS_PARALLEL);
@@ -1498,6 +1497,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 
 		outputPinEClass = createEClass(OUTPUT_PIN);
 		createEAttribute(outputPinEClass, OUTPUT_PIN__AMPLIFY);
+		createEAttribute(outputPinEClass, OUTPUT_PIN__OUTPUT_UNCERTAINTY);
 		createEOperation(outputPinEClass, OUTPUT_PIN___COMPUTE_NAME);
 
 		personEClass = createEClass(PERSON);
@@ -1668,9 +1668,6 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 
 		initEClass(softwareComponentEClass, SoftwareComponent.class, "SoftwareComponent", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSoftwareComponent_OutputUncertainty(), ecorePackage.getEDouble(), "outputUncertainty", "0.0",
-				0, 1, SoftwareComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSoftwareComponent_Synchronous(), ecorePackage.getEBoolean(), "synchronous", "true", 0, 1,
 				SoftwareComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
@@ -1807,6 +1804,9 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 				IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getOutputPin_Amplify(), theEcorePackage.getEInt(), "amplify", "1", 0, 1, OutputPin.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOutputPin_OutputUncertainty(), ecorePackage.getEDouble(), "outputUncertainty", "0.0", 0, 1,
+				OutputPin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getOutputPin__ComputeName(), ecorePackage.getEString(), "computeName", 0, 1, IS_UNIQUE,
 				IS_ORDERED);
