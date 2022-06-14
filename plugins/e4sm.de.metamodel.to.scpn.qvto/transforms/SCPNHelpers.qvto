@@ -1,5 +1,7 @@
 modeltype execution "strict" uses execution("http://de.tu-ilmenau/e4sm/execution/1.0.0");
 
+modeltype e4sm "strict" uses e4sm("http://de.tu-ilmenau/e4sm/1.0.0");
+
 transformation SCPNHelpers() {
 /** Helpers **/
 	//A helper is an operation that performs a computation on one or more source objects and provides a result. It is illegal to create or update object instances except for pre-defined types like sets, tuples, and for intermediate properties.
@@ -29,5 +31,10 @@ transformation SCPNHelpers() {
 		
 		res := res + ")";
 		return res;
+	}
+	
+	helper Component::hasNoInputs() : Boolean {
+	    // if the time function is not set, just return the default value
+	    return self.pins[InputPin]->isEmpty();
 	}
 }

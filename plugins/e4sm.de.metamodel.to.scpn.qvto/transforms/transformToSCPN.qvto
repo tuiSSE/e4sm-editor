@@ -232,7 +232,8 @@ mapping Sector::transformSector() : st: List(SubstitutionTransitionType), pl: Li
 	    iTr += res.iTr;
 	    arcs += res.arcs;
 	    tt += res.tt; 
-	    st += res.st;   
+	    st += res.st;
+	    meas += res.meas;   
     }endif;
     
     var res = self.components-> map transformComponent();    
@@ -256,14 +257,6 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 		var outputPins : OrderedSet(e4sm::OutputPin) := self.pins[e4sm::OutputPin];
 		//pl := List{};
 		//iTr := List{};
-		
-		// Create measures for Sensors and Actuators
-
-		if(self.oclIsKindOf(Sensor)){
-			meas += self.oclAsType(Sensor).map sensorToMeasure();
-		} else if(self.oclIsKindOf(Actuator)){
-			meas += self.oclAsType(Actuator)->map actuatorToMeasure();
-		};
 	
 		//Transform all subcomponents contained by this component
 		if(not self.components->isEmpty()) {
@@ -288,12 +281,20 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 		var isSimpleComponent : Boolean := false;
 		if(self.components->isEmpty() and self.specifiedInPackage = null and self.execution = null) {
 			isSimpleComponent := true;
+			
+			// Create measures for Sensors and Actuators, for simple components only
+			if(self.oclIsKindOf(Sensor)){
+				meas += self.oclAsType(Sensor).map sensorToMeasure();
+			} else if(self.oclIsKindOf(Actuator)){
+				meas += self.oclAsType(Actuator)->map actuatorToMeasure();
+			};
+			
 			var componentMainPlace := new PlaceType(self.name + "_main");
 			pl->add(componentMainPlace);
 			
 
-			if(self.oclIsTypeOf(e4sm::Sensor)) {
-			    log("Component is a sensor.");
+			if(self.oclIsTypeOf(e4sm::Sensor) or self.hasNoInputs()) {
+			    log("Component is a sensor or has no inputs.");
 				singleComponentReadyTransition := new TimedTransitionType(self.name + "_ready");
 				singleComponentReadyTransition.oclAsType(TimedTransitionType).timeFunction := timeExpressionToString(self.timeFunction);
 				iTr->add(singleComponentReadyTransition);
@@ -311,7 +312,7 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 					// if the component is a Sensor, 
 					// or if it has multiple input pins
 					// or if at least an input pin has a "collect" value > 1 set
-					if(self.oclIsTypeOf(e4sm::Sensor) or inputPins->size() > 1 or inputPins->select(ip | ip.collect>1)->size()>0) {
+					if(self.oclIsTypeOf(e4sm::Sensor) or self.hasNoInputs() or inputPins->size() > 1 or inputPins->select(ip | ip.collect>1)->size()>0) {
 						readyToMain.inscription.text := "new(1)"; //TODO: probably it shouldn't be an integer
 					};
 					arcs->add(readyToMain);
