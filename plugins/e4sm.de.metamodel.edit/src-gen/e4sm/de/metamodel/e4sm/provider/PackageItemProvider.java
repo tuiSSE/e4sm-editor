@@ -117,6 +117,7 @@ public class PackageItemProvider extends NamedElementItemProvider {
 			childrenFeatures.add(e4smPackage.Literals.PACKAGE__CONNECTORS);
 			childrenFeatures.add(e4smPackage.Literals.PACKAGE__SECTORS);
 			childrenFeatures.add(e4smPackage.Literals.PACKAGE__PACKAGES);
+			childrenFeatures.add(e4smPackage.Literals.PACKAGE__DATASTORES);
 		}
 		return childrenFeatures;
 	}
@@ -185,6 +186,7 @@ public class PackageItemProvider extends NamedElementItemProvider {
 		case e4smPackage.PACKAGE__CONNECTORS:
 		case e4smPackage.PACKAGE__SECTORS:
 		case e4smPackage.PACKAGE__PACKAGES:
+		case e4smPackage.PACKAGE__DATASTORES:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -246,6 +248,9 @@ public class PackageItemProvider extends NamedElementItemProvider {
 
 		newChildDescriptors.add(
 				createChildParameter(e4smPackage.Literals.PACKAGE__PACKAGES, e4smFactory.eINSTANCE.createPackage()));
+
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.PACKAGE__DATASTORES,
+				e4smFactory.eINSTANCE.createDataStore()));
 	}
 
 	/**

@@ -22,6 +22,7 @@ public class E4smSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected E4smGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_Connector_Impl___LeftCurlyBracketKeyword_5_0_RightCurlyBracketKeyword_5_2__q;
+	protected AbstractElementAlias match_DataStore___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_2__q;
 	protected AbstractElementAlias match_InputPin___LeftCurlyBracketKeyword_5_0_RightCurlyBracketKeyword_5_5__q;
 	protected AbstractElementAlias match_LogicalConnector___LeftCurlyBracketKeyword_5_0_RightCurlyBracketKeyword_5_2__q;
 	protected AbstractElementAlias match_OutputPin___LeftCurlyBracketKeyword_5_0_RightCurlyBracketKeyword_5_5__q;
@@ -31,6 +32,7 @@ public class E4smSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (E4smGrammarAccess) access;
 		match_Connector_Impl___LeftCurlyBracketKeyword_5_0_RightCurlyBracketKeyword_5_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getConnector_ImplAccess().getLeftCurlyBracketKeyword_5_0()), new TokenAlias(false, false, grammarAccess.getConnector_ImplAccess().getRightCurlyBracketKeyword_5_2()));
+		match_DataStore___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getDataStoreAccess().getLeftCurlyBracketKeyword_4_0()), new TokenAlias(false, false, grammarAccess.getDataStoreAccess().getRightCurlyBracketKeyword_4_2()));
 		match_InputPin___LeftCurlyBracketKeyword_5_0_RightCurlyBracketKeyword_5_5__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getInputPinAccess().getLeftCurlyBracketKeyword_5_0()), new TokenAlias(false, false, grammarAccess.getInputPinAccess().getRightCurlyBracketKeyword_5_5()));
 		match_LogicalConnector___LeftCurlyBracketKeyword_5_0_RightCurlyBracketKeyword_5_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getLogicalConnectorAccess().getLeftCurlyBracketKeyword_5_0()), new TokenAlias(false, false, grammarAccess.getLogicalConnectorAccess().getRightCurlyBracketKeyword_5_2()));
 		match_OutputPin___LeftCurlyBracketKeyword_5_0_RightCurlyBracketKeyword_5_5__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getOutputPinAccess().getLeftCurlyBracketKeyword_5_0()), new TokenAlias(false, false, grammarAccess.getOutputPinAccess().getRightCurlyBracketKeyword_5_5()));
@@ -73,6 +75,8 @@ public class E4smSyntacticSequencer extends AbstractSyntacticSequencer {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
 			if (match_Connector_Impl___LeftCurlyBracketKeyword_5_0_RightCurlyBracketKeyword_5_2__q.equals(syntax))
 				emit_Connector_Impl___LeftCurlyBracketKeyword_5_0_RightCurlyBracketKeyword_5_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_DataStore___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_2__q.equals(syntax))
+				emit_DataStore___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_InputPin___LeftCurlyBracketKeyword_5_0_RightCurlyBracketKeyword_5_5__q.equals(syntax))
 				emit_InputPin___LeftCurlyBracketKeyword_5_0_RightCurlyBracketKeyword_5_5__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_LogicalConnector___LeftCurlyBracketKeyword_5_0_RightCurlyBracketKeyword_5_2__q.equals(syntax))
@@ -96,6 +100,20 @@ public class E4smSyntacticSequencer extends AbstractSyntacticSequencer {
 	 * </pre>
 	 */
 	protected void emit_Connector_Impl___LeftCurlyBracketKeyword_5_0_RightCurlyBracketKeyword_5_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * <pre>
+	 * Ambiguous syntax:
+	 *     ('{' '}')?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     name=EString (ambiguity) (rule end)
+	 
+	 * </pre>
+	 */
+	protected void emit_DataStore___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

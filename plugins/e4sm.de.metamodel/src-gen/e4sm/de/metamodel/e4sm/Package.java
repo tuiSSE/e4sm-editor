@@ -29,6 +29,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link e4sm.de.metamodel.e4sm.Package#getMainResponsible <em>Main Responsible</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Package#getPackages <em>Packages</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Package#getSpecifiesComponent <em>Specifies Component</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.Package#getDatastores <em>Datastores</em>}</li>
  * </ul>
  *
  * @see e4sm.de.metamodel.e4sm.e4smPackage#getPackage()
@@ -177,6 +178,18 @@ public interface Package extends NamedElement, ParameterizableElement {
 	 * @generated
 	 */
 	void setSpecifiesComponent(Component value);
+
+	/**
+	 * Returns the value of the '<em><b>Datastores</b></em>' containment reference list.
+	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.DataStore}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Datastores</em>' containment reference list.
+	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getPackage_Datastores()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<DataStore> getDatastores();
 
 	/**
 	 * <!-- begin-user-doc -->

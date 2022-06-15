@@ -34,12 +34,12 @@ public interface Connector extends ParameterizableElement, NamedElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Source</em>' reference.
-	 * @see #setSource(Pin)
+	 * @see #setSource(DataNode)
 	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getConnector_Source()
 	 * @model resolveProxies="false" required="true"
 	 * @generated
 	 */
-	Pin getSource();
+	DataNode getSource();
 
 	/**
 	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.Connector#getSource <em>Source</em>}' reference.
@@ -49,19 +49,19 @@ public interface Connector extends ParameterizableElement, NamedElement {
 	 * @see #getSource()
 	 * @generated
 	 */
-	void setSource(Pin value);
+	void setSource(DataNode value);
 
 	/**
 	 * Returns the value of the '<em><b>Target</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Target</em>' reference.
-	 * @see #setTarget(Pin)
+	 * @see #setTarget(DataNode)
 	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getConnector_Target()
 	 * @model resolveProxies="false" required="true"
 	 * @generated
 	 */
-	Pin getTarget();
+	DataNode getTarget();
 
 	/**
 	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.Connector#getTarget <em>Target</em>}' reference.
@@ -71,7 +71,7 @@ public interface Connector extends ParameterizableElement, NamedElement {
 	 * @see #getTarget()
 	 * @generated
 	 */
-	void setTarget(Pin value);
+	void setTarget(DataNode value);
 
 	/**
 	 * <!-- begin-user-doc -->

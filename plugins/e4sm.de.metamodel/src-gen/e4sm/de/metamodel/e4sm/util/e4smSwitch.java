@@ -8,6 +8,8 @@ import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.Connector;
 import e4sm.de.metamodel.e4sm.ConversionByConvention;
 import e4sm.de.metamodel.e4sm.ConversionByPrefix;
+import e4sm.de.metamodel.e4sm.DataNode;
+import e4sm.de.metamodel.e4sm.DataStore;
 import e4sm.de.metamodel.e4sm.DerivedUnit;
 import e4sm.de.metamodel.e4sm.ExternalDependency;
 import e4sm.de.metamodel.e4sm.Function;
@@ -386,15 +388,17 @@ public class e4smSwitch<T> extends Switch<T> {
 			Pin pin = (Pin) theEObject;
 			T result = casePin(pin);
 			if (result == null)
-				result = caseParameterizableElement(pin);
-			if (result == null)
-				result = caseConnectableNode(pin);
+				result = caseDataNode(pin);
 			if (result == null)
 				result = caseTypedElement(pin);
 			if (result == null)
-				result = caseExecution_Element(pin);
+				result = caseConnectableNode(pin);
+			if (result == null)
+				result = caseParameterizableElement(pin);
 			if (result == null)
 				result = caseNamedElement(pin);
+			if (result == null)
+				result = caseExecution_Element(pin);
 			if (result == null)
 				result = caseElement(pin);
 			if (result == null)
@@ -407,15 +411,17 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = casePin(inputPin);
 			if (result == null)
-				result = caseParameterizableElement(inputPin);
-			if (result == null)
-				result = caseConnectableNode(inputPin);
+				result = caseDataNode(inputPin);
 			if (result == null)
 				result = caseTypedElement(inputPin);
 			if (result == null)
-				result = caseExecution_Element(inputPin);
+				result = caseConnectableNode(inputPin);
+			if (result == null)
+				result = caseParameterizableElement(inputPin);
 			if (result == null)
 				result = caseNamedElement(inputPin);
+			if (result == null)
+				result = caseExecution_Element(inputPin);
 			if (result == null)
 				result = caseElement(inputPin);
 			if (result == null)
@@ -430,15 +436,17 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseAssignableElement(outputPin);
 			if (result == null)
-				result = caseParameterizableElement(outputPin);
-			if (result == null)
-				result = caseConnectableNode(outputPin);
+				result = caseDataNode(outputPin);
 			if (result == null)
 				result = caseTypedElement(outputPin);
 			if (result == null)
-				result = caseExecution_Element(outputPin);
+				result = caseConnectableNode(outputPin);
+			if (result == null)
+				result = caseParameterizableElement(outputPin);
 			if (result == null)
 				result = caseNamedElement(outputPin);
+			if (result == null)
+				result = caseExecution_Element(outputPin);
 			if (result == null)
 				result = caseElement(outputPin);
 			if (result == null)
@@ -520,6 +528,46 @@ public class e4smSwitch<T> extends Switch<T> {
 		case e4smPackage.IMPORT: {
 			Import import_ = (Import) theEObject;
 			T result = caseImport(import_);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case e4smPackage.DATA_STORE: {
+			DataStore dataStore = (DataStore) theEObject;
+			T result = caseDataStore(dataStore);
+			if (result == null)
+				result = caseDataNode(dataStore);
+			if (result == null)
+				result = caseTypedElement(dataStore);
+			if (result == null)
+				result = caseConnectableNode(dataStore);
+			if (result == null)
+				result = caseParameterizableElement(dataStore);
+			if (result == null)
+				result = caseNamedElement(dataStore);
+			if (result == null)
+				result = caseExecution_Element(dataStore);
+			if (result == null)
+				result = caseElement(dataStore);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case e4smPackage.DATA_NODE: {
+			DataNode dataNode = (DataNode) theEObject;
+			T result = caseDataNode(dataNode);
+			if (result == null)
+				result = caseTypedElement(dataNode);
+			if (result == null)
+				result = caseConnectableNode(dataNode);
+			if (result == null)
+				result = caseParameterizableElement(dataNode);
+			if (result == null)
+				result = caseNamedElement(dataNode);
+			if (result == null)
+				result = caseExecution_Element(dataNode);
+			if (result == null)
+				result = caseElement(dataNode);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -976,6 +1024,36 @@ public class e4smSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseImport(Import object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Data Store</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Data Store</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDataStore(DataStore object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Data Node</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Data Node</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDataNode(DataNode object) {
 		return null;
 	}
 

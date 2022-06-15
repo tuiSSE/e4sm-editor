@@ -194,47 +194,48 @@ where {self.requiresMergeAndDuplicate()} {
 	log("\t~Transformed M&D " + self.getDirection() + " pin " + mainPlace.label.text);
 }
 
-helper Pin::resolvePinPlace (connector : Connector) : PlaceType{
-	assert fatal (connector.source = self or connector.target = self) with log ("The given connector does not connect to the given pin. CONNECTOR: " + connector.toString() + " PIN: "+ self.toString());
-
-	if(connector.target = self){
-		log("... place for arc target pin: " + self.computeName() + " " + self.toString());
+helper DataNode::resolvePinPlace (connector : Connector) : PlaceType{
+	assert fatal (connector.source = self or connector.target = self) with log ("The given connector does not connect to the given data node. CONNECTOR: " + connector.toString() + " PIN: "+ self.toString());
+    if(self.oclIsKindOf(Pin)) {
+    var pin:Pin := self.oclAsType(Pin);
+	if(connector.target = pin){
+		log("... place for arc target pin: " + pin.computeName() + " " + pin.toString());
 		var targetPlace : PlaceType := null;
-		if(self.requiresSimpleTransformation()) {
-			targetPlace := self.resolveone(PlaceType); // This works for FCFS pins
-			assert fatal (targetPlace <> null) with log ("It seems like the " + self.getDirection() + " pin wasn't transformed to any place " + self.toString());
+		if(pin.requiresSimpleTransformation()) {
+			targetPlace := pin.resolveone(PlaceType); // This works for FCFS pins
+			assert fatal (targetPlace <> null) with log ("It seems like the " + pin.getDirection() + " pin wasn't transformed to any place " + pin.toString());
 			return targetPlace;
 		}endif;
 		
 		log("Could not resolve as a simple place");
-		if(self.requiresMerge()){
-			var searchTransformation := self.resolveoneIn(Pin::transformPinMerge);
+		if(pin.requiresMerge()){
+			var searchTransformation := pin.resolveoneIn(Pin::transformPinMerge);
 			log(searchTransformation.toString());
 			var p : List(PlaceType) := searchTransformation.pl;
 		
-			assert fatal (p->size() > 1) with log ("It seems like the target merge " + self.getDirection() + " pin wasn't transformed to any place " + self.toString());
+			assert fatal (p->size() > 1) with log ("It seems like the target merge " + pin.getDirection() + " pin wasn't transformed to any place " + pin.toString());
 		    var i:=2; //List starts from 1, skip the first element (which is the main place)
-		    self.getIncomingConnectors()->forEach(ic){
+		    pin.getIncomingConnectors()->forEach(ic){
 			    if(ic = connector){
 			    	return p->at(i);
 			    }endif;
 			    i := i+1;
 		    }
-		}else if(self.requiresDuplicate()){
-			var searchTransformation := self.resolveoneIn(Pin::transformPinDuplicate);
+		}else if(pin.requiresDuplicate()){
+			var searchTransformation := pin.resolveoneIn(Pin::transformPinDuplicate);
 			log(searchTransformation.toString());
 			var p : List(PlaceType) := searchTransformation.pl;
 		
-			assert fatal (p->size() > 1) with log ("It seems like the target duplicate " + self.getDirection() + " pin wasn't transformed to any place " + self.toString());
+			assert fatal (p->size() > 1) with log ("It seems like the target duplicate " + pin.getDirection() + " pin wasn't transformed to any place " + pin.toString());
 		    return p->first(); //Return the main place
-		}else { //self.requiresMergeAndDuplicate() is true
-		var searchTransformation := self.resolveoneIn(Pin::transformPinMergeAndDuplicate);
+		}else { //pin.requiresMergeAndDuplicate() is true
+		var searchTransformation := pin.resolveoneIn(Pin::transformPinMergeAndDuplicate);
 			log(searchTransformation.toString());
 			var p : List(PlaceType) := searchTransformation.pl;
 		
-			assert fatal (p->size() > 1) with log ("It seems like the target merge and duplicate " + self.getDirection() + " pin wasn't transformed to any place " + self.toString());
-		    var i:=2 + self.getOutgoingConnectors()->size(); //List starts from 1, skip the first element (which is the main place) and the places for the outgoingConnectors (which were created first)
-		    self.getIncomingConnectors()->forEach(ic){
+			assert fatal (p->size() > 1) with log ("It seems like the target merge and duplicate " + pin.getDirection() + " pin wasn't transformed to any place " + pin.toString());
+		    var i:=2 + pin.getOutgoingConnectors()->size(); //List starts from 1, skip the first element (which is the main place) and the places for the outgoingConnectors (which were created first)
+		    pin.getIncomingConnectors()->forEach(ic){
 			    if(ic = connector){
 			    	return p->at(i);
 			    }endif;
@@ -243,47 +244,47 @@ helper Pin::resolvePinPlace (connector : Connector) : PlaceType{
 		}
 		endif;
 		    
-		assert fatal (targetPlace <> null) with log ("can't find place replacing target " + self.getDirection() + " pin " + self.toString());
+		assert fatal (targetPlace <> null) with log ("can't find place replacing target " + pin.getDirection() + " pin " + pin.toString());
 		return targetPlace;
 	} else { // connector.source = pin, due to the assert above
-		log("... place for arc source pin: " + self.computeName() + " " + self.toString());
+		log("... place for arc source pin: " + pin.computeName() + " " + pin.toString());
 		var sourcePlace : PlaceType := null;
-		if(self.requiresSimpleTransformation()) {
-			sourcePlace := self.resolveone(PlaceType); // This works for FCFS pins
-			assert fatal (sourcePlace <> null) with log ("It seems like the FCFS source pin wasn't transformed to any place " + self.toString());
+		if(pin.requiresSimpleTransformation()) {
+			sourcePlace := pin.resolveone(PlaceType); // This works for FCFS pins
+			assert fatal (sourcePlace <> null) with log ("It seems like the FCFS source pin wasn't transformed to any place " + pin.toString());
 			return sourcePlace;
 		}endif;
 		
 		log("Could not resolve as a simple place");
-		if(self.requiresMerge()){
-			var searchTransformation := self.resolveoneIn(Pin::transformPinMerge);
+		if(pin.requiresMerge()){
+			var searchTransformation := pin.resolveoneIn(Pin::transformPinMerge);
 			log(searchTransformation.toString());
 			var p : List(PlaceType) := searchTransformation.pl;
 		
-			assert fatal (p->size() > 1) with log ("It seems like the source merge " + self.getDirection() + " pin wasn't transformed to any place " + self.toString());
+			assert fatal (p->size() > 1) with log ("It seems like the source merge " + pin.getDirection() + " pin wasn't transformed to any place " + pin.toString());
 		    return p->first(); // Return the main place
-		}else if(self.requiresDuplicate()){
-			var searchTransformation := self.resolveoneIn(Pin::transformPinDuplicate);
+		}else if(pin.requiresDuplicate()){
+			var searchTransformation := pin.resolveoneIn(Pin::transformPinDuplicate);
 			log(searchTransformation.toString());
 			var p : List(PlaceType) := searchTransformation.pl;
 		
-			assert fatal (p->size() > 1) with log ("It seems like the source duplicate " + self.getDirection() + " pin wasn't transformed to any place " + self.toString());
+			assert fatal (p->size() > 1) with log ("It seems like the source duplicate " + pin.getDirection() + " pin wasn't transformed to any place " + pin.toString());
 		    var i:=2; //List starts from 1, skip the first element (which is the main place)
-		    self.getOutgoingConnectors()->forEach(ic){
+		    pin.getOutgoingConnectors()->forEach(ic){
 			    if(ic = connector){
 			    	return p->at(i);
 			    }endif;
 			    i := i+1;
 		    }
 		    //targetPlace := p->any(pl | pl.capacity = "0");
-		}else{ //self.requiresMergeAndDuplicate() is true
-		var searchTransformation := self.resolveoneIn(Pin::transformPinMergeAndDuplicate);
+		}else{ //pin.requiresMergeAndDuplicate() is true
+		var searchTransformation := pin.resolveoneIn(Pin::transformPinMergeAndDuplicate);
 			log(searchTransformation.toString());
 			var p : List(PlaceType) := searchTransformation.pl;
 		
-			assert fatal (p->size() > 1) with log ("It seems like the source merge and duplicate " + self.getDirection() + " pin wasn't transformed to any place " + self.toString());
+			assert fatal (p->size() > 1) with log ("It seems like the source merge and duplicate " + pin.getDirection() + " pin wasn't transformed to any place " + pin.toString());
 		    var i:=2; //List starts from 1, skip the first element (which is the main place)
-		    self.getOutgoingConnectors()->forEach(ic){
+		    pin.getOutgoingConnectors()->forEach(ic){
 			    if(ic = connector){
 			    	return p->at(i);
 			    }endif;
@@ -291,8 +292,25 @@ helper Pin::resolvePinPlace (connector : Connector) : PlaceType{
 		    }
 		}endif;
 		    
-		assert fatal (sourcePlace <> null) with log ("can't find place replacing source " + self.getDirection() + " pin " + self.toString());
+		assert fatal (sourcePlace <> null) with log ("can't find place replacing source " + pin.getDirection() + " pin " + pin.toString());
 		return sourcePlace;
+	}endif;
+		return null;
+	}else if(self.oclIsKindOf(DataStore)){
+		var ds : DataStore := self.oclAsType(DataStore);
+		var places : Tuple(arcs : List(ArcType), iTr : List(ImmediateTransitionType), pl : List(PlaceType)) := ds.resolveone(Tuple(arcs : List(ArcType), iTr : List(ImmediateTransitionType), pl : List(PlaceType)));
+		if(connector.target = ds){
+			log("Target is a datastore");
+			var p : PlaceType := places.pl->selectOne(p | p.id.endsWith("_ds_in" + placeSuffix));
+			assert fatal (not p.oclIsUndefined()) with log ("Could not find place for datastore used as target");
+			return p;
+		} else {
+			// ds is connector.source
+			log("Source is a datastore");
+			var p : PlaceType := places.pl->selectOne(p | p.id.endsWith("_ds_out" + placeSuffix));
+			assert fatal (not p.oclIsUndefined()) with log ("Could not find place for datastore used as source");
+			return p;
+		};
 	}endif;
 	return null;
 }

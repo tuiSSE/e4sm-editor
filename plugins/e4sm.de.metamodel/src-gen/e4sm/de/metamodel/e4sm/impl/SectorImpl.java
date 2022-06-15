@@ -3,6 +3,7 @@
 package e4sm.de.metamodel.e4sm.impl;
 
 import e4sm.de.metamodel.e4sm.Component;
+import e4sm.de.metamodel.e4sm.DataStore;
 import e4sm.de.metamodel.e4sm.Sector;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 import e4sm.de.metamodel.e4sm.core.impl.NamedElementImpl;
@@ -27,6 +28,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.SectorImpl#getComponents <em>Components</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.SectorImpl#getSectors <em>Sectors</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.SectorImpl#getDatastores <em>Datastores</em>}</li>
  * </ul>
  *
  * @generated
@@ -51,6 +53,16 @@ public class SectorImpl extends NamedElementImpl implements Sector {
 	 * @ordered
 	 */
 	protected EList<Sector> sectors;
+
+	/**
+	 * The cached value of the '{@link #getDatastores() <em>Datastores</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDatastores()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DataStore> datastores;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -103,6 +115,19 @@ public class SectorImpl extends NamedElementImpl implements Sector {
 	 * @generated
 	 */
 	@Override
+	public EList<DataStore> getDatastores() {
+		if (datastores == null) {
+			datastores = new EObjectContainmentEList<DataStore>(DataStore.class, this, e4smPackage.SECTOR__DATASTORES);
+		}
+		return datastores;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EList<Component> getAllComponents() {
 		EList<Component> res = ECollections.newBasicEList(this.getComponents());
 		this.getSectors().forEach(s -> {
@@ -123,6 +148,8 @@ public class SectorImpl extends NamedElementImpl implements Sector {
 			return ((InternalEList<?>) getComponents()).basicRemove(otherEnd, msgs);
 		case e4smPackage.SECTOR__SECTORS:
 			return ((InternalEList<?>) getSectors()).basicRemove(otherEnd, msgs);
+		case e4smPackage.SECTOR__DATASTORES:
+			return ((InternalEList<?>) getDatastores()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -139,6 +166,8 @@ public class SectorImpl extends NamedElementImpl implements Sector {
 			return getComponents();
 		case e4smPackage.SECTOR__SECTORS:
 			return getSectors();
+		case e4smPackage.SECTOR__DATASTORES:
+			return getDatastores();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -160,6 +189,10 @@ public class SectorImpl extends NamedElementImpl implements Sector {
 			getSectors().clear();
 			getSectors().addAll((Collection<? extends Sector>) newValue);
 			return;
+		case e4smPackage.SECTOR__DATASTORES:
+			getDatastores().clear();
+			getDatastores().addAll((Collection<? extends DataStore>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -178,6 +211,9 @@ public class SectorImpl extends NamedElementImpl implements Sector {
 		case e4smPackage.SECTOR__SECTORS:
 			getSectors().clear();
 			return;
+		case e4smPackage.SECTOR__DATASTORES:
+			getDatastores().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -194,6 +230,8 @@ public class SectorImpl extends NamedElementImpl implements Sector {
 			return components != null && !components.isEmpty();
 		case e4smPackage.SECTOR__SECTORS:
 			return sectors != null && !sectors.isEmpty();
+		case e4smPackage.SECTOR__DATASTORES:
+			return datastores != null && !datastores.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

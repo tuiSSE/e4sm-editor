@@ -32,15 +32,15 @@ main() {
 /** Mappings **/
 mapping Package::packageToSCPN() : SCPNNet{
 	log("\nTransforming package " +  self.name);
-	//Attributes
+	// Attributes
 	id := safeString(self.name);
 	
-	//Defautl SCPN Configuration for TimeNET:
+	// Default SCPN Configuration for TimeNET:
 	gridActive := true;
 	netclass := "SCPN";
 	sharpEdges := false;
 	
-	//Children
+	// Children
 	if(self.components->isEmpty()){
 		log("\n=== Warning: no components to transform ===");
 	}
@@ -56,6 +56,18 @@ mapping Package::packageToSCPN() : SCPNNet{
 		measure += res.meas;
 	};
 	
+	// Datastores
+	if(self.datastores->isEmpty()){
+		log("\n=== Info: No data stores to transform ===");
+	}else{
+		log("\n=== Transforming all Data Stores ===");
+		var ds := self.datastores->map transformDataStore();
+		place += ds.pl;
+		immediateTransition += ds.iTr;
+		arc += ds.arcs;
+	};
+	
+	// Sectors
 	if(self.sectors->isEmpty()){
 		log("\n=== Info: No sectors to transform ===");
 	}
@@ -71,7 +83,7 @@ mapping Package::packageToSCPN() : SCPNNet{
 		measure += sec.meas;
 	};
 	
-	//Transform connectors
+	// Connectors
 	if(self.connectors->isEmpty()){
 		log("\n=== Warning: no connectors to transform ===");
 	}
@@ -236,6 +248,15 @@ mapping Sector::transformSector() : st: List(SubstitutionTransitionType), pl: Li
 	    meas += res.meas;   
     }endif;
     
+	// Datastores
+	if(self.datastores->size()>0){
+		log("Transforming all Data Stores...");
+		var ds := self.datastores->map transformDataStore();
+		pl += ds.pl;
+		iTr += ds.iTr;
+		arcs += ds.arcs;
+	};
+    
     var res = self.components-> map transformComponent();    
     pl += res.pl;
     iTr += res.iTr;
@@ -268,6 +289,15 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 			tt += res.tt;
 			st += res.st;
 			meas += res.meas;
+		};
+		
+		// Datastores
+		if(self.datastores->size()>0){
+			log("Transforming all Data Stores...");
+			var ds := self.datastores->map transformDataStore();
+			pl += ds.pl;
+			iTr += ds.iTr;
+			arcs += ds.arcs;
 		};
 		
 		var singleComponentReadyTransition : TransitionType := null;
@@ -499,14 +529,14 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 				   
 				   // Create an arc to connect the source element to the transition
 				   var sourceArc : ArcType := new ArcType(f.source.oclAsType(NamedElement).name + "_flow_source");
-				   sourceArc.fromNode := safeString(self.name + f.source.oclAsType(Pin).getDirectionShort() + inputPins->indexOf(f.source).toString() + "_place_id");
+				   sourceArc.fromNode := safeString(self.name + f.source.oclAsType(Pin).getDirectionShort() + inputPins->indexOf(f.source).toString() + placeSuffix);
 				   sourceArc.toNode := flowTT.id;
 				   arcs += sourceArc;
 				   
 				   // Create an arc to connect the target element to the transition
 				   var targetArc : ArcType := new ArcType(f.target.oclAsType(NamedElement).name + "_flow_target");
 				   targetArc.fromNode := flowTT.id;
-				   targetArc.toNode := safeString(self.name + f.target.oclAsType(Pin).getDirectionShort() + outputPins->indexOf(f.target).toString() + "_place_id");			   
+				   targetArc.toNode := safeString(self.name + f.target.oclAsType(Pin).getDirectionShort() + outputPins->indexOf(f.target).toString() + placeSuffix);			   
 				   
 				   arcs += targetArc;
 				}else{
@@ -530,6 +560,90 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 	  + iTr[ImmediateTransitionType]->size().toString() + " immediate transition(s) and " 
 	  + iTr[TimedTransitionType]->size().toString() + " timed transition(s) and "
 	  + meas->size().toString() + " measure");
+}
+
+mapping DataStore::transformDataStore() : arcs : List(ArcType), iTr : List(ImmediateTransitionType), pl : List(PlaceType){
+	init {
+		assert fatal (self.name->size()>0) with log ("Datastore must have a name");
+		// Create the 3 Places
+		var inputPlace : PlaceType := new PlaceType(self.name + "_ds_in");
+		inputPlace.queue:= scpn::QueueType::FIFO;
+		pl += inputPlace;
+		
+		var outputPlace : PlaceType := new PlaceType(self.name + "_ds_out");
+		pl += outputPlace;
+		
+		var mainPlace : PlaceType := new PlaceType(self.name + "_ds_main");
+		mainPlace.capacity := "1";
+		pl += mainPlace;
+		
+		// Create the 3 immediate transitions
+		var initTransition : ImmediateTransitionType := new ImmediateTransitionType(self.name + "_ds_init");
+		initTransition.globalGuard := "#" + mainPlace.label.text+"==0";
+		iTr += initTransition;
+		
+		var updateTransition : ImmediateTransitionType := new ImmediateTransitionType(self.name + "_ds_update");
+		iTr += updateTransition;
+		
+		var readTransition : ImmediateTransitionType := new ImmediateTransitionType(self.name + "_ds_read");
+		readTransition.globalGuard := "#" + outputPlace.label.text+"==0";
+		iTr += readTransition;
+		
+		// Create the 9 arcs
+		// 4 arcs of the Main "rhombus":
+		var inToInit : ArcType := new ArcType(self.name + "_inToInit");
+		inToInit.fromNode := inputPlace.id;
+		inToInit.toNode := initTransition.id;
+		arcs += inToInit;
+		
+		var initToMain : ArcType := new ArcType(self.name + "_initToMain");
+		initToMain.fromNode := initTransition.id;
+		initToMain.toNode := mainPlace.id;
+		arcs += initToMain;
+		
+		var inToUpdate : ArcType := new ArcType(self.name + "_inToUpdate");
+		inToUpdate.fromNode := inputPlace.id;
+		inToUpdate.toNode := updateTransition.id;
+		arcs += inToUpdate;
+		
+		var updateToMain : ArcType := new ArcType(self.name + "_updateToMain");
+		updateToMain.fromNode := updateTransition.id;
+		updateToMain.toNode := mainPlace.id;
+		arcs += updateToMain;
+		
+		// 3 Read arcs
+		var mainToRead : ArcType := new ArcType(self.name + "_mainToRead");
+		mainToRead.fromNode := mainPlace.id;
+		mainToRead.toNode := readTransition.id;
+		arcs += mainToRead;
+		
+		var readToMain : ArcType := new ArcType(self.name + "_readToMain");
+		readToMain.fromNode :=readTransition.id;
+		readToMain.toNode := mainPlace.id;
+		arcs += readToMain;
+		
+		var readToOut : ArcType := new ArcType(self.name + "_readToOut");
+		readToOut.fromNode := readTransition.id;
+		readToOut.toNode := outputPlace.id;
+		readToOut.inscription.text := "copy " + readToOut.inscription.text;
+		arcs += readToOut;
+		
+		// 2 arc to remove the tokens
+		var removeFromMain : ArcType := new ArcType(self.name + "_removeFromMain");
+		removeFromMain.fromNode := mainPlace.id;
+		removeFromMain.toNode := updateTransition.id;
+		removeFromMain.inscription.text := "delete";
+		arcs += removeFromMain;
+		
+		var removeFromOut : ArcType := new ArcType(self.name + "_removeFromOut");
+		removeFromOut.fromNode := outputPlace.id;
+		removeFromOut.toNode := updateTransition.id;
+		removeFromOut.inscription.text := "remove";
+		arcs += removeFromOut;
+	}
+	 log("Transformed datastore '" +  self.name + "' to " + pl->size().toString()+ " place(s), "
+	  + iTr->size().toString() + " immediate transition(s) and " 
+	  + arcs->size().toString() + " arc(s)");
 }
 
 

@@ -47,6 +47,20 @@ EStructuralFeature returns ecore::EStructuralFeature:
 EClassifier returns ecore::EClassifier:
 	EClass | EDataType_Impl | EEnum;
 
+DataStore returns DataStore:
+	{DataStore}
+	'datastore'
+	(type=[core::TypeSpecification])?
+	name=EString // (':' type=[ecore::EDataType|EString])?
+	('{'
+	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
+	'}')?
+;
+
+DataNode returns DataNode:
+	Pin | DataStore
+;
+
 Pin returns Pin:
 	InputPin | OutputPin;
 
@@ -74,6 +88,7 @@ Package returns Package:
 	(parameters+=Parameter ("," parameters+=Parameter)*)?
 	(components+=Component ("," components+=Component)*)?
 	(connectors+=Connector ("," connectors+=Connector)*)?
+	(datastores+=DataStore ("," datastores+=DataStore)*)?
 	(sectors+=Sector ("," sectors+=Sector)*)?
 	('subpackages' '{' packages+=Package ("," packages+=Package)* '}')?
 	'}';
@@ -403,6 +418,7 @@ Component_Impl returns Component:
 	('specifiedInPackage' specifiedInPackage=[Package|EString])?
 	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
 	('components' '{' components+=Component ("," components+=Component)* '}')?
+	('datastores' '{' datastores+=DataStore ("," datastores+=DataStore)* '}')?
 	('runs' '{' execution=Execution '}')?
 	'}';
 
@@ -420,6 +436,7 @@ Sector returns Sector:
 	name=EString
 	'{'
 	('components' '{' components+=Component ("," components+=Component)* '}')?
+	('datastores' '{' datastores+=DataStore ("," datastores+=DataStore)* '}')?
 	('sectors' '{' sectors+=Sector ("," sectors+=Sector)* '}')?
 	'}';
 
@@ -447,6 +464,7 @@ MachineLearningComponent returns MachineLearningComponent:
 	('specifiedInPackage' specifiedInPackage=[Package|EString])?
 	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
 	('components' '{' components+=Component ("," components+=Component)* '}')?
+	('datastores' '{' datastores+=DataStore ("," datastores+=DataStore)* '}')?
 	('runs' '{' execution=Execution '}')?
 	'}';
 
@@ -462,6 +480,7 @@ PhysicalComponent_Impl returns PhysicalComponent:
 	('specifiedInPackage' specifiedInPackage=[Package|EString])?
 	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
 	('components' '{' components+=Component ("," components+=Component)* '}')?
+	('datastores' '{' datastores+=DataStore ("," datastores+=DataStore)* '}')?
 	('runs' '{' execution=Execution '}')?
 	'}';
 
@@ -479,6 +498,7 @@ SoftwareComponent_Impl returns SoftwareComponent:
 	('specifiedInPackage' specifiedInPackage=[Package|EString])?
 	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
 	('components' '{' components+=Component ("," components+=Component)* '}')?
+	('datastores' '{' datastores+=DataStore ("," datastores+=DataStore)* '}')?
 	('runs' '{' execution=Execution '}')?
 	'}';
 
@@ -496,6 +516,7 @@ Heuristic returns Heuristic:
 	('specifiedInPackage' specifiedInPackage=[Package|EString])?
 	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
 	('components' '{' components+=Component ("," components+=Component)* '}')?
+	('datastores' '{' datastores+=DataStore ("," datastores+=DataStore)* '}')?
 	('runs' '{' execution=Execution '}')?
 	'}';
 
@@ -513,6 +534,7 @@ Function returns Function:
 	('specifiedInPackage' specifiedInPackage=[Package|EString])?
 	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
 	('components' '{' components+=Component ("," components+=Component)* '}')?
+	('datastores' '{' datastores+=DataStore ("," datastores+=DataStore)* '}')?
 	('runs' '{' execution=Execution '}')?
 	'}';
 
@@ -530,6 +552,7 @@ ExternalDependency returns ExternalDependency:
 	('specifiedInPackage' specifiedInPackage=[Package|EString])?
 	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
 	('components' '{' components+=Component ("," components+=Component)* '}')?
+	('datastores' '{' datastores+=DataStore ("," datastores+=DataStore)* '}')?
 	('runs' '{' execution=Execution '}')?
 	'}';
 
@@ -545,6 +568,7 @@ Sensor returns Sensor:
 	('specifiedInPackage' specifiedInPackage=[Package|EString])?
 	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
 	('components' '{' components+=Component ("," components+=Component)* '}')?
+	('datastores' '{' datastores+=DataStore ("," datastores+=DataStore)* '}')?
 	('runs' '{' execution=Execution '}')?
 	'}';
 
@@ -560,6 +584,7 @@ Actuator returns Actuator:
 	('specifiedInPackage' specifiedInPackage=[Package|EString])?
 	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
 	('components' '{' components+=Component ("," components+=Component)* '}')?
+	('datastores' '{' datastores+=DataStore ("," datastores+=DataStore)* '}')?
 	('runs' '{' execution=Execution '}')?
 	'}';
 

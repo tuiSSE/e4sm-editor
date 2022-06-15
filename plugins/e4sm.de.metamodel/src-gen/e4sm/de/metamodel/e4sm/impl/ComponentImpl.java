@@ -4,6 +4,7 @@ package e4sm.de.metamodel.e4sm.impl;
 
 import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.ComponentFiringStrategy;
+import e4sm.de.metamodel.e4sm.DataStore;
 import e4sm.de.metamodel.e4sm.core.NamedElement;
 import e4sm.de.metamodel.e4sm.core.ParameterizableElement;
 import e4sm.de.metamodel.e4sm.Person;
@@ -48,6 +49,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ComponentImpl#getSpecifiedInPackage <em>Specified In Package</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ComponentImpl#getExecution <em>Execution</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ComponentImpl#getFiringStrategy <em>Firing Strategy</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.ComponentImpl#getDatastores <em>Datastores</em>}</li>
  * </ul>
  *
  * @generated
@@ -142,6 +144,16 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 	 * @ordered
 	 */
 	protected ComponentFiringStrategy firingStrategy = FIRING_STRATEGY_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getDatastores() <em>Datastores</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDatastores()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DataStore> datastores;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -478,6 +490,20 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 	 * @generated
 	 */
 	@Override
+	public EList<DataStore> getDatastores() {
+		if (datastores == null) {
+			datastores = new EObjectContainmentEList<DataStore>(DataStore.class, this,
+					e4smPackage.COMPONENT__DATASTORES);
+		}
+		return datastores;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Person computeMainResponsible() {
 		Person resp = this.getMainResponsible();
 		if (resp != null) {
@@ -547,6 +573,8 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 			return basicSetSpecifiedInPackage(null, msgs);
 		case e4smPackage.COMPONENT__EXECUTION:
 			return basicSetExecution(null, msgs);
+		case e4smPackage.COMPONENT__DATASTORES:
+			return ((InternalEList<?>) getDatastores()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -579,6 +607,8 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 			return getExecution();
 		case e4smPackage.COMPONENT__FIRING_STRATEGY:
 			return getFiringStrategy();
+		case e4smPackage.COMPONENT__DATASTORES:
+			return getDatastores();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -619,6 +649,10 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 		case e4smPackage.COMPONENT__FIRING_STRATEGY:
 			setFiringStrategy((ComponentFiringStrategy) newValue);
 			return;
+		case e4smPackage.COMPONENT__DATASTORES:
+			getDatastores().clear();
+			getDatastores().addAll((Collection<? extends DataStore>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -655,6 +689,9 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 		case e4smPackage.COMPONENT__FIRING_STRATEGY:
 			setFiringStrategy(FIRING_STRATEGY_EDEFAULT);
 			return;
+		case e4smPackage.COMPONENT__DATASTORES:
+			getDatastores().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -683,6 +720,8 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 			return execution != null;
 		case e4smPackage.COMPONENT__FIRING_STRATEGY:
 			return firingStrategy != FIRING_STRATEGY_EDEFAULT;
+		case e4smPackage.COMPONENT__DATASTORES:
+			return datastores != null && !datastores.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

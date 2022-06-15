@@ -153,13 +153,22 @@ public interface e4smPackage extends EPackage {
 	int COMPONENT__FIRING_STRATEGY = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
+	 * The feature id for the '<em><b>Datastores</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT__DATASTORES = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 8;
+
+	/**
 	 * The number of structural features of the '<em>Component</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 8;
+	int COMPONENT_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 9;
 
 	/**
 	 * The operation id for the '<em>Compute Main Responsible</em>' operation.
@@ -278,6 +287,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOFTWARE_COMPONENT__FIRING_STRATEGY = COMPONENT__FIRING_STRATEGY;
+
+	/**
+	 * The feature id for the '<em><b>Datastores</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOFTWARE_COMPONENT__DATASTORES = COMPONENT__DATASTORES;
 
 	/**
 	 * The feature id for the '<em><b>Synchronous</b></em>' attribute.
@@ -432,6 +450,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int MACHINE_LEARNING_COMPONENT__FIRING_STRATEGY = SOFTWARE_COMPONENT__FIRING_STRATEGY;
+
+	/**
+	 * The feature id for the '<em><b>Datastores</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MACHINE_LEARNING_COMPONENT__DATASTORES = SOFTWARE_COMPONENT__DATASTORES;
 
 	/**
 	 * The feature id for the '<em><b>Synchronous</b></em>' attribute.
@@ -890,6 +917,15 @@ public interface e4smPackage extends EPackage {
 	int PHYSICAL_COMPONENT__FIRING_STRATEGY = COMPONENT__FIRING_STRATEGY;
 
 	/**
+	 * The feature id for the '<em><b>Datastores</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PHYSICAL_COMPONENT__DATASTORES = COMPONENT__DATASTORES;
+
+	/**
 	 * The number of structural features of the '<em>Physical Component</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1079,6 +1115,15 @@ public interface e4smPackage extends EPackage {
 	int HEURISTIC__FIRING_STRATEGY = SOFTWARE_COMPONENT__FIRING_STRATEGY;
 
 	/**
+	 * The feature id for the '<em><b>Datastores</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HEURISTIC__DATASTORES = SOFTWARE_COMPONENT__DATASTORES;
+
+	/**
 	 * The feature id for the '<em><b>Synchronous</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1223,6 +1268,15 @@ public interface e4smPackage extends EPackage {
 	int FUNCTION__FIRING_STRATEGY = SOFTWARE_COMPONENT__FIRING_STRATEGY;
 
 	/**
+	 * The feature id for the '<em><b>Datastores</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION__DATASTORES = SOFTWARE_COMPONENT__DATASTORES;
+
+	/**
 	 * The feature id for the '<em><b>Synchronous</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1365,6 +1419,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXTERNAL_DEPENDENCY__FIRING_STRATEGY = SOFTWARE_COMPONENT__FIRING_STRATEGY;
+
+	/**
+	 * The feature id for the '<em><b>Datastores</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_DEPENDENCY__DATASTORES = SOFTWARE_COMPONENT__DATASTORES;
 
 	/**
 	 * The feature id for the '<em><b>Synchronous</b></em>' attribute.
@@ -1520,13 +1583,22 @@ public interface e4smPackage extends EPackage {
 	int PACKAGE__SPECIFIES_COMPONENT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
+	 * The feature id for the '<em><b>Datastores</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__DATASTORES = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 9;
+
+	/**
 	 * The number of structural features of the '<em>Package</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 9;
+	int PACKAGE_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 10;
 
 	/**
 	 * The operation id for the '<em>Get All Components</em>' operation.
@@ -1763,13 +1835,22 @@ public interface e4smPackage extends EPackage {
 	int SECTOR__SECTORS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Datastores</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECTOR__DATASTORES = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Sector</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SECTOR_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int SECTOR_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Get All Components</em>' operation.
@@ -1869,6 +1950,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int SENSOR__FIRING_STRATEGY = PHYSICAL_COMPONENT__FIRING_STRATEGY;
+
+	/**
+	 * The feature id for the '<em><b>Datastores</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENSOR__DATASTORES = PHYSICAL_COMPONENT__DATASTORES;
 
 	/**
 	 * The number of structural features of the '<em>Sensor</em>' class.
@@ -1988,6 +2078,15 @@ public interface e4smPackage extends EPackage {
 	int ACTUATOR__FIRING_STRATEGY = PHYSICAL_COMPONENT__FIRING_STRATEGY;
 
 	/**
+	 * The feature id for the '<em><b>Datastores</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTUATOR__DATASTORES = PHYSICAL_COMPONENT__DATASTORES;
+
+	/**
 	 * The number of structural features of the '<em>Actuator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2022,6 +2121,70 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTUATOR_OPERATION_COUNT = PHYSICAL_COMPONENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.DataNodeImpl <em>Data Node</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.DataNodeImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getDataNode()
+	 * @generated
+	 */
+	int DATA_NODE = 31;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_NODE__NAME = CorePackage.TYPED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_NODE__TYPE = CorePackage.TYPED_ELEMENT__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_NODE__PARAMETERS = CorePackage.TYPED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Data Node</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_NODE_FEATURE_COUNT = CorePackage.TYPED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Compute Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_NODE___COMPUTE_NAME = CorePackage.TYPED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Data Node</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_NODE_OPERATION_COUNT = CorePackage.TYPED_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.PinImpl <em>Pin</em>}' class.
@@ -2064,22 +2227,13 @@ public interface e4smPackage extends EPackage {
 	int PERSON = 21;
 
 	/**
-	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PIN__PARAMETERS = CorePackage.PARAMETERIZABLE_ELEMENT__PARAMETERS;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PIN__NAME = CorePackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 0;
+	int PIN__NAME = DATA_NODE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
@@ -2088,79 +2242,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PIN__TYPE = CorePackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Gateway Pin</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PIN__GATEWAY_PIN = CorePackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Stream</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PIN__STREAM = CorePackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Race Semantic</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PIN__RACE_SEMANTIC = CorePackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 4;
-
-	/**
-	 * The number of structural features of the '<em>Pin</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PIN_FEATURE_COUNT = CorePackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 5;
-
-	/**
-	 * The operation id for the '<em>Compute Name</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PIN___COMPUTE_NAME = CorePackage.PARAMETERIZABLE_ELEMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Get Incoming Connectors</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PIN___GET_INCOMING_CONNECTORS = CorePackage.PARAMETERIZABLE_ELEMENT_OPERATION_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Get Outgoing Connectors</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PIN___GET_OUTGOING_CONNECTORS = CorePackage.PARAMETERIZABLE_ELEMENT_OPERATION_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>Pin</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PIN_OPERATION_COUNT = CorePackage.PARAMETERIZABLE_ELEMENT_OPERATION_COUNT + 3;
+	int PIN__TYPE = DATA_NODE__TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
@@ -2169,7 +2251,79 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_PIN__PARAMETERS = PIN__PARAMETERS;
+	int PIN__PARAMETERS = DATA_NODE__PARAMETERS;
+
+	/**
+	 * The feature id for the '<em><b>Gateway Pin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIN__GATEWAY_PIN = DATA_NODE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Stream</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIN__STREAM = DATA_NODE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Race Semantic</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIN__RACE_SEMANTIC = DATA_NODE_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Pin</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIN_FEATURE_COUNT = DATA_NODE_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Compute Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIN___COMPUTE_NAME = DATA_NODE_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Incoming Connectors</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIN___GET_INCOMING_CONNECTORS = DATA_NODE_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get Outgoing Connectors</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIN___GET_OUTGOING_CONNECTORS = DATA_NODE_OPERATION_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Pin</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIN_OPERATION_COUNT = DATA_NODE_OPERATION_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2188,6 +2342,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int INPUT_PIN__TYPE = PIN__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_PIN__PARAMETERS = PIN__PARAMETERS;
 
 	/**
 	 * The feature id for the '<em><b>Gateway Pin</b></em>' attribute.
@@ -2280,15 +2443,6 @@ public interface e4smPackage extends EPackage {
 	int INPUT_PIN_OPERATION_COUNT = PIN_OPERATION_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OUTPUT_PIN__PARAMETERS = PIN__PARAMETERS;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2305,6 +2459,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int OUTPUT_PIN__TYPE = PIN__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_PIN__PARAMETERS = PIN__PARAMETERS;
 
 	/**
 	 * The feature id for the '<em><b>Gateway Pin</b></em>' attribute.
@@ -2783,6 +2946,70 @@ public interface e4smPackage extends EPackage {
 	int IMPORT_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.DataStoreImpl <em>Data Store</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.DataStoreImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getDataStore()
+	 * @generated
+	 */
+	int DATA_STORE = 30;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_STORE__NAME = DATA_NODE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_STORE__TYPE = DATA_NODE__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_STORE__PARAMETERS = DATA_NODE__PARAMETERS;
+
+	/**
+	 * The number of structural features of the '<em>Data Store</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_STORE_FEATURE_COUNT = DATA_NODE_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Compute Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_STORE___COMPUTE_NAME = DATA_NODE_OPERATION_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Data Store</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_STORE_OPERATION_COUNT = DATA_NODE_OPERATION_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.QueueType <em>Queue Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2790,7 +3017,7 @@ public interface e4smPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getQueueType()
 	 * @generated
 	 */
-	int QUEUE_TYPE = 30;
+	int QUEUE_TYPE = 32;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.RaceSemantic <em>Race Semantic</em>}' enum.
@@ -2800,7 +3027,7 @@ public interface e4smPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getRaceSemantic()
 	 * @generated
 	 */
-	int RACE_SEMANTIC = 31;
+	int RACE_SEMANTIC = 33;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.ComponentFiringStrategy <em>Component Firing Strategy</em>}' enum.
@@ -2810,7 +3037,7 @@ public interface e4smPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getComponentFiringStrategy()
 	 * @generated
 	 */
-	int COMPONENT_FIRING_STRATEGY = 32;
+	int COMPONENT_FIRING_STRATEGY = 34;
 
 	/**
 	 * The meta object id for the '<em>Connectionspeed</em>' data type.
@@ -2820,7 +3047,7 @@ public interface e4smPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getConnectionspeed()
 	 * @generated
 	 */
-	int CONNECTIONSPEED = 33;
+	int CONNECTIONSPEED = 35;
 
 	/**
 	 * The meta object id for the '<em>JSON</em>' data type.
@@ -2830,7 +3057,7 @@ public interface e4smPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getJSON()
 	 * @generated
 	 */
-	int JSON = 34;
+	int JSON = 36;
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.Component <em>Component</em>}'.
@@ -2907,6 +3134,17 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getComponent_FiringStrategy();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link e4sm.de.metamodel.e4sm.Component#getDatastores <em>Datastores</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Datastores</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Component#getDatastores()
+	 * @see #getComponent()
+	 * @generated
+	 */
+	EReference getComponent_Datastores();
 
 	/**
 	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.Component#computeMainResponsible() <em>Compute Main Responsible</em>}' operation.
@@ -3223,6 +3461,17 @@ public interface e4smPackage extends EPackage {
 	EReference getPackage_SpecifiesComponent();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link e4sm.de.metamodel.e4sm.Package#getDatastores <em>Datastores</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Datastores</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Package#getDatastores()
+	 * @see #getPackage()
+	 * @generated
+	 */
+	EReference getPackage_Datastores();
+
+	/**
 	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.Package#getAllComponents() <em>Get All Components</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3389,6 +3638,17 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getSector_Sectors();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link e4sm.de.metamodel.e4sm.Sector#getDatastores <em>Datastores</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Datastores</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Sector#getDatastores()
+	 * @see #getSector()
+	 * @generated
+	 */
+	EReference getSector_Datastores();
 
 	/**
 	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.Sector#getAllComponents() <em>Get All Components</em>}' operation.
@@ -3789,6 +4049,46 @@ public interface e4smPackage extends EPackage {
 	EReference getImport_ReferencedModel();
 
 	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.DataStore <em>Data Store</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Data Store</em>'.
+	 * @see e4sm.de.metamodel.e4sm.DataStore
+	 * @generated
+	 */
+	EClass getDataStore();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.DataStore#computeName() <em>Compute Name</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Compute Name</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.DataStore#computeName()
+	 * @generated
+	 */
+	EOperation getDataStore__ComputeName();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.DataNode <em>Data Node</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Data Node</em>'.
+	 * @see e4sm.de.metamodel.e4sm.DataNode
+	 * @generated
+	 */
+	EClass getDataNode();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.DataNode#computeName() <em>Compute Name</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Compute Name</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.DataNode#computeName()
+	 * @generated
+	 */
+	EOperation getDataNode__ComputeName();
+
+	/**
 	 * Returns the meta object for enum '{@link e4sm.de.metamodel.e4sm.QueueType <em>Queue Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3920,6 +4220,14 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute COMPONENT__FIRING_STRATEGY = eINSTANCE.getComponent_FiringStrategy();
+
+		/**
+		 * The meta object literal for the '<em><b>Datastores</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPONENT__DATASTORES = eINSTANCE.getComponent_Datastores();
 
 		/**
 		 * The meta object literal for the '<em><b>Compute Main Responsible</b></em>' operation.
@@ -4183,6 +4491,14 @@ public interface e4smPackage extends EPackage {
 		EReference PACKAGE__SPECIFIES_COMPONENT = eINSTANCE.getPackage_SpecifiesComponent();
 
 		/**
+		 * The meta object literal for the '<em><b>Datastores</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PACKAGE__DATASTORES = eINSTANCE.getPackage_Datastores();
+
+		/**
 		 * The meta object literal for the '<em><b>Get All Components</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4320,6 +4636,14 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SECTOR__SECTORS = eINSTANCE.getSector_Sectors();
+
+		/**
+		 * The meta object literal for the '<em><b>Datastores</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SECTOR__DATASTORES = eINSTANCE.getSector_Datastores();
 
 		/**
 		 * The meta object literal for the '<em><b>Get All Components</b></em>' operation.
@@ -4652,6 +4976,42 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EReference IMPORT__REFERENCED_MODEL = eINSTANCE.getImport_ReferencedModel();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.DataStoreImpl <em>Data Store</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.DataStoreImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getDataStore()
+		 * @generated
+		 */
+		EClass DATA_STORE = eINSTANCE.getDataStore();
+
+		/**
+		 * The meta object literal for the '<em><b>Compute Name</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DATA_STORE___COMPUTE_NAME = eINSTANCE.getDataStore__ComputeName();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.DataNodeImpl <em>Data Node</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.DataNodeImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getDataNode()
+		 * @generated
+		 */
+		EClass DATA_NODE = eINSTANCE.getDataNode();
+
+		/**
+		 * The meta object literal for the '<em><b>Compute Name</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DATA_NODE___COMPUTE_NAME = eINSTANCE.getDataNode__ComputeName();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.QueueType <em>Queue Type</em>}' enum.

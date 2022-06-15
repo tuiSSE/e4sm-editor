@@ -31,6 +31,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link e4sm.de.metamodel.e4sm.Component#getSpecifiedInPackage <em>Specified In Package</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Component#getExecution <em>Execution</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Component#getFiringStrategy <em>Firing Strategy</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.Component#getDatastores <em>Datastores</em>}</li>
  * </ul>
  *
  * @see e4sm.de.metamodel.e4sm.e4smPackage#getComponent()
@@ -171,6 +172,18 @@ public interface Component extends NamedElement, ParameterizableElement, Delayab
 	 * @generated
 	 */
 	void setFiringStrategy(ComponentFiringStrategy value);
+
+	/**
+	 * Returns the value of the '<em><b>Datastores</b></em>' containment reference list.
+	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.DataStore}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Datastores</em>' containment reference list.
+	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getComponent_Datastores()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<DataStore> getDatastores();
 
 	/**
 	 * <!-- begin-user-doc -->

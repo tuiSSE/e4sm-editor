@@ -39,6 +39,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="firingStrategy" lowerBound="1"
         eType="#//ComponentFiringStrategy" defaultValueLiteral="AND"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="datastores" upperBound="-1"
+        eType="#//DataStore" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MachineLearningComponent" eSuperTypes="#//SoftwareComponent">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -55,9 +57,9 @@
     <eOperations name="computeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eOperations name="computeFlow" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
-        eType="#//Pin" resolveProxies="false"/>
+        eType="#//DataNode" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
-        eType="#//Pin" resolveProxies="false"/>
+        eType="#//DataNode" resolveProxies="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PhysicalConnector" eSuperTypes="#//Connector">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -180,6 +182,8 @@
         <details key="documentation" value="This package is the detailed representation of another component (optional)"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="datastores" upperBound="-1"
+        eType="#//DataStore" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Model" eSuperTypes="core.ecore#//NamedElement core.ecore#//ParameterizableElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -249,6 +253,8 @@
         <details key="documentation" value="A list of sectors contained by this sector"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="datastores" upperBound="-1"
+        eType="#//DataStore" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Sensor" eSuperTypes="#//PhysicalComponent">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -266,7 +272,7 @@
       <details key="constraints" value="ActuatorC1"/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Pin" abstract="true" eSuperTypes="core.ecore#//ParameterizableElement execution.ecore#//ConnectableNode core.ecore#//TypedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Pin" abstract="true" eSuperTypes="#//DataNode">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="An interface to and from a component"/>
     </eAnnotations>
@@ -416,5 +422,17 @@
   <eClassifiers xsi:type="ecore:EEnum" name="ComponentFiringStrategy">
     <eLiterals name="AND"/>
     <eLiterals name="OR" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataStore" eSuperTypes="#//DataNode">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="It is a node which always keep a copy of the data it sends. Once initialised, it will always contain data.&#xD;&#xA;When newer data gets provided, the older gets deleted."/>
+    </eAnnotations>
+    <eOperations name="computeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataNode" abstract="true" eSuperTypes="core.ecore#//TypedElement execution.ecore#//ConnectableNode core.ecore#//ParameterizableElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Is a node which provides or receives data"/>
+    </eAnnotations>
+    <eOperations name="computeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

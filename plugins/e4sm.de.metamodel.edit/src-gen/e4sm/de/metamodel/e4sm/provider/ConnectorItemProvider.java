@@ -2,10 +2,9 @@
  */
 package e4sm.de.metamodel.e4sm.provider;
 
-import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.Connector;
+import e4sm.de.metamodel.e4sm.DataNode;
 import e4sm.de.metamodel.e4sm.Package;
-import e4sm.de.metamodel.e4sm.Pin;
 import e4sm.de.metamodel.e4sm.analysis.AnalysisFactory;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
@@ -236,13 +235,15 @@ public class ConnectorItemProvider extends ItemProviderAdapter implements IEditi
 			label = name;
 		}
 
-		Pin sourcePin = connector.getSource();
-		Pin targetPin = connector.getTarget();
-		if (sourcePin != null && targetPin != null) {
-			Component sourceContainer = (Component) sourcePin.eContainer();
-			Component targetContainer = (Component) targetPin.eContainer();
-			String sourceName = sourceContainer.getName();
-			String targetName = targetContainer.getName();
+		DataNode sourceElement = connector.getSource();
+		DataNode targetElement = connector.getTarget();
+		if (sourceElement != null && targetElement != null) {
+			String sourceName = sourceElement.computeName();
+			String targetName = targetElement.computeName();
+			//			Component sourceContainer = (Component) sourceElement.eContainer();
+			//			Component targetContainer = (Component) targetElement.eContainer();
+			//			String sourceName = sourceContainer.getName();
+			//			String targetName = targetContainer.getName();
 			if (sourceName != null && targetName != null && sourceName.length() > 0 && targetName.length() > 0) {
 				label += ": " + sourceName + "->" + targetName;
 			}

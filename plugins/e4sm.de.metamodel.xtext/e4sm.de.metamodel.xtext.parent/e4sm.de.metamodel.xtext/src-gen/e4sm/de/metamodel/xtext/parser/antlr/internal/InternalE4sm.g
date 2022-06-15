@@ -814,6 +814,136 @@ ruleEStructuralFeature returns [EObject current=null]
 	)
 ;
 
+// Entry rule entryRuleDataStore
+entryRuleDataStore returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getDataStoreRule()); }
+	iv_ruleDataStore=ruleDataStore
+	{ $current=$iv_ruleDataStore.current; }
+	EOF;
+
+// Rule DataStore
+ruleDataStore returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getDataStoreAccess().getDataStoreAction_0(),
+					$current);
+			}
+		)
+		otherlv_1='datastore'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getDataStoreAccess().getDatastoreKeyword_1());
+		}
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getDataStoreRule());
+					}
+				}
+				otherlv_2=RULE_ID
+				{
+					newLeafNode(otherlv_2, grammarAccess.getDataStoreAccess().getTypeTypeSpecificationCrossReference_2_0());
+				}
+			)
+		)?
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDataStoreAccess().getNameEStringParserRuleCall_3_0());
+				}
+				lv_name_3_0=ruleEString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDataStoreRule());
+					}
+					set(
+						$current,
+						"name",
+						lv_name_3_0,
+						"e4sm.de.metamodel.xtext.E4sm.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			otherlv_4='{'
+			{
+				newLeafNode(otherlv_4, grammarAccess.getDataStoreAccess().getLeftCurlyBracketKeyword_4_0());
+			}
+			(
+				otherlv_5='parameters'
+				{
+					newLeafNode(otherlv_5, grammarAccess.getDataStoreAccess().getParametersKeyword_4_1_0());
+				}
+				otherlv_6='{'
+				{
+					newLeafNode(otherlv_6, grammarAccess.getDataStoreAccess().getLeftCurlyBracketKeyword_4_1_1());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getDataStoreAccess().getParametersParameterParserRuleCall_4_1_2_0());
+						}
+						lv_parameters_7_0=ruleParameter
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getDataStoreRule());
+							}
+							add(
+								$current,
+								"parameters",
+								lv_parameters_7_0,
+								"e4sm.de.metamodel.xtext.E4sm.Parameter");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+				(
+					otherlv_8=','
+					{
+						newLeafNode(otherlv_8, grammarAccess.getDataStoreAccess().getCommaKeyword_4_1_3_0());
+					}
+					(
+						(
+							{
+								newCompositeNode(grammarAccess.getDataStoreAccess().getParametersParameterParserRuleCall_4_1_3_1_0());
+							}
+							lv_parameters_9_0=ruleParameter
+							{
+								if ($current==null) {
+									$current = createModelElementForParent(grammarAccess.getDataStoreRule());
+								}
+								add(
+									$current,
+									"parameters",
+									lv_parameters_9_0,
+									"e4sm.de.metamodel.xtext.E4sm.Parameter");
+								afterParserOrEnumRuleCall();
+							}
+						)
+					)
+				)*
+				otherlv_10='}'
+				{
+					newLeafNode(otherlv_10, grammarAccess.getDataStoreAccess().getRightCurlyBracketKeyword_4_1_4());
+				}
+			)?
+			otherlv_11='}'
+			{
+				newLeafNode(otherlv_11, grammarAccess.getDataStoreAccess().getRightCurlyBracketKeyword_4_2());
+			}
+		)?
+	)
+;
+
 // Entry rule entryRulePin
 entryRulePin returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getPinRule()); }
@@ -1338,18 +1468,18 @@ rulePackage returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getPackageAccess().getSectorsSectorParserRuleCall_8_0_0());
+						newCompositeNode(grammarAccess.getPackageAccess().getDatastoresDataStoreParserRuleCall_8_0_0());
 					}
-					lv_sectors_18_0=ruleSector
+					lv_datastores_18_0=ruleDataStore
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getPackageRule());
 						}
 						add(
 							$current,
-							"sectors",
-							lv_sectors_18_0,
-							"e4sm.de.metamodel.xtext.E4sm.Sector");
+							"datastores",
+							lv_datastores_18_0,
+							"e4sm.de.metamodel.xtext.E4sm.DataStore");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -1362,9 +1492,55 @@ rulePackage returns [EObject current=null]
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getPackageAccess().getSectorsSectorParserRuleCall_8_1_1_0());
+							newCompositeNode(grammarAccess.getPackageAccess().getDatastoresDataStoreParserRuleCall_8_1_1_0());
 						}
-						lv_sectors_20_0=ruleSector
+						lv_datastores_20_0=ruleDataStore
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getPackageRule());
+							}
+							add(
+								$current,
+								"datastores",
+								lv_datastores_20_0,
+								"e4sm.de.metamodel.xtext.E4sm.DataStore");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+		)?
+		(
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getPackageAccess().getSectorsSectorParserRuleCall_9_0_0());
+					}
+					lv_sectors_21_0=ruleSector
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getPackageRule());
+						}
+						add(
+							$current,
+							"sectors",
+							lv_sectors_21_0,
+							"e4sm.de.metamodel.xtext.E4sm.Sector");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_22=','
+				{
+					newLeafNode(otherlv_22, grammarAccess.getPackageAccess().getCommaKeyword_9_1_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getPackageAccess().getSectorsSectorParserRuleCall_9_1_1_0());
+						}
+						lv_sectors_23_0=ruleSector
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getPackageRule());
@@ -1372,7 +1548,7 @@ rulePackage returns [EObject current=null]
 							add(
 								$current,
 								"sectors",
-								lv_sectors_20_0,
+								lv_sectors_23_0,
 								"e4sm.de.metamodel.xtext.E4sm.Sector");
 							afterParserOrEnumRuleCall();
 						}
@@ -1381,20 +1557,20 @@ rulePackage returns [EObject current=null]
 			)*
 		)?
 		(
-			otherlv_21='subpackages'
+			otherlv_24='subpackages'
 			{
-				newLeafNode(otherlv_21, grammarAccess.getPackageAccess().getSubpackagesKeyword_9_0());
+				newLeafNode(otherlv_24, grammarAccess.getPackageAccess().getSubpackagesKeyword_10_0());
 			}
-			otherlv_22='{'
+			otherlv_25='{'
 			{
-				newLeafNode(otherlv_22, grammarAccess.getPackageAccess().getLeftCurlyBracketKeyword_9_1());
+				newLeafNode(otherlv_25, grammarAccess.getPackageAccess().getLeftCurlyBracketKeyword_10_1());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getPackageAccess().getPackagesPackageParserRuleCall_9_2_0());
+						newCompositeNode(grammarAccess.getPackageAccess().getPackagesPackageParserRuleCall_10_2_0());
 					}
-					lv_packages_23_0=rulePackage
+					lv_packages_26_0=rulePackage
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getPackageRule());
@@ -1402,23 +1578,23 @@ rulePackage returns [EObject current=null]
 						add(
 							$current,
 							"packages",
-							lv_packages_23_0,
+							lv_packages_26_0,
 							"e4sm.de.metamodel.xtext.E4sm.Package");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 			(
-				otherlv_24=','
+				otherlv_27=','
 				{
-					newLeafNode(otherlv_24, grammarAccess.getPackageAccess().getCommaKeyword_9_3_0());
+					newLeafNode(otherlv_27, grammarAccess.getPackageAccess().getCommaKeyword_10_3_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getPackageAccess().getPackagesPackageParserRuleCall_9_3_1_0());
+							newCompositeNode(grammarAccess.getPackageAccess().getPackagesPackageParserRuleCall_10_3_1_0());
 						}
-						lv_packages_25_0=rulePackage
+						lv_packages_28_0=rulePackage
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getPackageRule());
@@ -1426,21 +1602,21 @@ rulePackage returns [EObject current=null]
 							add(
 								$current,
 								"packages",
-								lv_packages_25_0,
+								lv_packages_28_0,
 								"e4sm.de.metamodel.xtext.E4sm.Package");
 							afterParserOrEnumRuleCall();
 						}
 					)
 				)
 			)*
-			otherlv_26='}'
+			otherlv_29='}'
 			{
-				newLeafNode(otherlv_26, grammarAccess.getPackageAccess().getRightCurlyBracketKeyword_9_4());
+				newLeafNode(otherlv_29, grammarAccess.getPackageAccess().getRightCurlyBracketKeyword_10_4());
 			}
 		)?
-		otherlv_27='}'
+		otherlv_30='}'
 		{
-			newLeafNode(otherlv_27, grammarAccess.getPackageAccess().getRightCurlyBracketKeyword_10());
+			newLeafNode(otherlv_30, grammarAccess.getPackageAccess().getRightCurlyBracketKeyword_11());
 		}
 	)
 ;
@@ -6213,9 +6389,9 @@ ruleComponent_Impl returns [EObject current=null]
 			}
 		)?
 		(
-			otherlv_27='runs'
+			otherlv_27='datastores'
 			{
-				newLeafNode(otherlv_27, grammarAccess.getComponent_ImplAccess().getRunsKeyword_11_0());
+				newLeafNode(otherlv_27, grammarAccess.getComponent_ImplAccess().getDatastoresKeyword_11_0());
 			}
 			otherlv_28='{'
 			{
@@ -6224,9 +6400,67 @@ ruleComponent_Impl returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getComponent_ImplAccess().getExecutionExecutionParserRuleCall_11_2_0());
+						newCompositeNode(grammarAccess.getComponent_ImplAccess().getDatastoresDataStoreParserRuleCall_11_2_0());
 					}
-					lv_execution_29_0=ruleExecution
+					lv_datastores_29_0=ruleDataStore
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getComponent_ImplRule());
+						}
+						add(
+							$current,
+							"datastores",
+							lv_datastores_29_0,
+							"e4sm.de.metamodel.xtext.E4sm.DataStore");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_30=','
+				{
+					newLeafNode(otherlv_30, grammarAccess.getComponent_ImplAccess().getCommaKeyword_11_3_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getComponent_ImplAccess().getDatastoresDataStoreParserRuleCall_11_3_1_0());
+						}
+						lv_datastores_31_0=ruleDataStore
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getComponent_ImplRule());
+							}
+							add(
+								$current,
+								"datastores",
+								lv_datastores_31_0,
+								"e4sm.de.metamodel.xtext.E4sm.DataStore");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+			otherlv_32='}'
+			{
+				newLeafNode(otherlv_32, grammarAccess.getComponent_ImplAccess().getRightCurlyBracketKeyword_11_4());
+			}
+		)?
+		(
+			otherlv_33='runs'
+			{
+				newLeafNode(otherlv_33, grammarAccess.getComponent_ImplAccess().getRunsKeyword_12_0());
+			}
+			otherlv_34='{'
+			{
+				newLeafNode(otherlv_34, grammarAccess.getComponent_ImplAccess().getLeftCurlyBracketKeyword_12_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getComponent_ImplAccess().getExecutionExecutionParserRuleCall_12_2_0());
+					}
+					lv_execution_35_0=ruleExecution
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getComponent_ImplRule());
@@ -6234,20 +6468,20 @@ ruleComponent_Impl returns [EObject current=null]
 						set(
 							$current,
 							"execution",
-							lv_execution_29_0,
+							lv_execution_35_0,
 							"e4sm.de.metamodel.xtext.E4sm.Execution");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
-			otherlv_30='}'
+			otherlv_36='}'
 			{
-				newLeafNode(otherlv_30, grammarAccess.getComponent_ImplAccess().getRightCurlyBracketKeyword_11_3());
+				newLeafNode(otherlv_36, grammarAccess.getComponent_ImplAccess().getRightCurlyBracketKeyword_12_3());
 			}
 		)?
-		otherlv_31='}'
+		otherlv_37='}'
 		{
-			newLeafNode(otherlv_31, grammarAccess.getComponent_ImplAccess().getRightCurlyBracketKeyword_12());
+			newLeafNode(otherlv_37, grammarAccess.getComponent_ImplAccess().getRightCurlyBracketKeyword_13());
 		}
 	)
 ;
@@ -6507,9 +6741,9 @@ ruleSector returns [EObject current=null]
 			}
 		)?
 		(
-			otherlv_10='sectors'
+			otherlv_10='datastores'
 			{
-				newLeafNode(otherlv_10, grammarAccess.getSectorAccess().getSectorsKeyword_5_0());
+				newLeafNode(otherlv_10, grammarAccess.getSectorAccess().getDatastoresKeyword_5_0());
 			}
 			otherlv_11='{'
 			{
@@ -6518,18 +6752,18 @@ ruleSector returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getSectorAccess().getSectorsSectorParserRuleCall_5_2_0());
+						newCompositeNode(grammarAccess.getSectorAccess().getDatastoresDataStoreParserRuleCall_5_2_0());
 					}
-					lv_sectors_12_0=ruleSector
+					lv_datastores_12_0=ruleDataStore
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getSectorRule());
 						}
 						add(
 							$current,
-							"sectors",
-							lv_sectors_12_0,
-							"e4sm.de.metamodel.xtext.E4sm.Sector");
+							"datastores",
+							lv_datastores_12_0,
+							"e4sm.de.metamodel.xtext.E4sm.DataStore");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -6542,18 +6776,18 @@ ruleSector returns [EObject current=null]
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getSectorAccess().getSectorsSectorParserRuleCall_5_3_1_0());
+							newCompositeNode(grammarAccess.getSectorAccess().getDatastoresDataStoreParserRuleCall_5_3_1_0());
 						}
-						lv_sectors_14_0=ruleSector
+						lv_datastores_14_0=ruleDataStore
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getSectorRule());
 							}
 							add(
 								$current,
-								"sectors",
-								lv_sectors_14_0,
-								"e4sm.de.metamodel.xtext.E4sm.Sector");
+								"datastores",
+								lv_datastores_14_0,
+								"e4sm.de.metamodel.xtext.E4sm.DataStore");
 							afterParserOrEnumRuleCall();
 						}
 					)
@@ -6564,9 +6798,67 @@ ruleSector returns [EObject current=null]
 				newLeafNode(otherlv_15, grammarAccess.getSectorAccess().getRightCurlyBracketKeyword_5_4());
 			}
 		)?
-		otherlv_16='}'
+		(
+			otherlv_16='sectors'
+			{
+				newLeafNode(otherlv_16, grammarAccess.getSectorAccess().getSectorsKeyword_6_0());
+			}
+			otherlv_17='{'
+			{
+				newLeafNode(otherlv_17, grammarAccess.getSectorAccess().getLeftCurlyBracketKeyword_6_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getSectorAccess().getSectorsSectorParserRuleCall_6_2_0());
+					}
+					lv_sectors_18_0=ruleSector
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getSectorRule());
+						}
+						add(
+							$current,
+							"sectors",
+							lv_sectors_18_0,
+							"e4sm.de.metamodel.xtext.E4sm.Sector");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_19=','
+				{
+					newLeafNode(otherlv_19, grammarAccess.getSectorAccess().getCommaKeyword_6_3_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getSectorAccess().getSectorsSectorParserRuleCall_6_3_1_0());
+						}
+						lv_sectors_20_0=ruleSector
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getSectorRule());
+							}
+							add(
+								$current,
+								"sectors",
+								lv_sectors_20_0,
+								"e4sm.de.metamodel.xtext.E4sm.Sector");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+			otherlv_21='}'
+			{
+				newLeafNode(otherlv_21, grammarAccess.getSectorAccess().getRightCurlyBracketKeyword_6_4());
+			}
+		)?
+		otherlv_22='}'
 		{
-			newLeafNode(otherlv_16, grammarAccess.getSectorAccess().getRightCurlyBracketKeyword_6());
+			newLeafNode(otherlv_22, grammarAccess.getSectorAccess().getRightCurlyBracketKeyword_7());
 		}
 	)
 ;
@@ -7127,9 +7419,9 @@ ruleMachineLearningComponent returns [EObject current=null]
 			}
 		)?
 		(
-			otherlv_31='runs'
+			otherlv_31='datastores'
 			{
-				newLeafNode(otherlv_31, grammarAccess.getMachineLearningComponentAccess().getRunsKeyword_13_0());
+				newLeafNode(otherlv_31, grammarAccess.getMachineLearningComponentAccess().getDatastoresKeyword_13_0());
 			}
 			otherlv_32='{'
 			{
@@ -7138,9 +7430,67 @@ ruleMachineLearningComponent returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getMachineLearningComponentAccess().getExecutionExecutionParserRuleCall_13_2_0());
+						newCompositeNode(grammarAccess.getMachineLearningComponentAccess().getDatastoresDataStoreParserRuleCall_13_2_0());
 					}
-					lv_execution_33_0=ruleExecution
+					lv_datastores_33_0=ruleDataStore
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getMachineLearningComponentRule());
+						}
+						add(
+							$current,
+							"datastores",
+							lv_datastores_33_0,
+							"e4sm.de.metamodel.xtext.E4sm.DataStore");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_34=','
+				{
+					newLeafNode(otherlv_34, grammarAccess.getMachineLearningComponentAccess().getCommaKeyword_13_3_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getMachineLearningComponentAccess().getDatastoresDataStoreParserRuleCall_13_3_1_0());
+						}
+						lv_datastores_35_0=ruleDataStore
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getMachineLearningComponentRule());
+							}
+							add(
+								$current,
+								"datastores",
+								lv_datastores_35_0,
+								"e4sm.de.metamodel.xtext.E4sm.DataStore");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+			otherlv_36='}'
+			{
+				newLeafNode(otherlv_36, grammarAccess.getMachineLearningComponentAccess().getRightCurlyBracketKeyword_13_4());
+			}
+		)?
+		(
+			otherlv_37='runs'
+			{
+				newLeafNode(otherlv_37, grammarAccess.getMachineLearningComponentAccess().getRunsKeyword_14_0());
+			}
+			otherlv_38='{'
+			{
+				newLeafNode(otherlv_38, grammarAccess.getMachineLearningComponentAccess().getLeftCurlyBracketKeyword_14_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getMachineLearningComponentAccess().getExecutionExecutionParserRuleCall_14_2_0());
+					}
+					lv_execution_39_0=ruleExecution
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getMachineLearningComponentRule());
@@ -7148,20 +7498,20 @@ ruleMachineLearningComponent returns [EObject current=null]
 						set(
 							$current,
 							"execution",
-							lv_execution_33_0,
+							lv_execution_39_0,
 							"e4sm.de.metamodel.xtext.E4sm.Execution");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
-			otherlv_34='}'
+			otherlv_40='}'
 			{
-				newLeafNode(otherlv_34, grammarAccess.getMachineLearningComponentAccess().getRightCurlyBracketKeyword_13_3());
+				newLeafNode(otherlv_40, grammarAccess.getMachineLearningComponentAccess().getRightCurlyBracketKeyword_14_3());
 			}
 		)?
-		otherlv_35='}'
+		otherlv_41='}'
 		{
-			newLeafNode(otherlv_35, grammarAccess.getMachineLearningComponentAccess().getRightCurlyBracketKeyword_14());
+			newLeafNode(otherlv_41, grammarAccess.getMachineLearningComponentAccess().getRightCurlyBracketKeyword_15());
 		}
 	)
 ;
@@ -7473,9 +7823,9 @@ rulePhysicalComponent_Impl returns [EObject current=null]
 			}
 		)?
 		(
-			otherlv_27='runs'
+			otherlv_27='datastores'
 			{
-				newLeafNode(otherlv_27, grammarAccess.getPhysicalComponent_ImplAccess().getRunsKeyword_11_0());
+				newLeafNode(otherlv_27, grammarAccess.getPhysicalComponent_ImplAccess().getDatastoresKeyword_11_0());
 			}
 			otherlv_28='{'
 			{
@@ -7484,9 +7834,67 @@ rulePhysicalComponent_Impl returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getPhysicalComponent_ImplAccess().getExecutionExecutionParserRuleCall_11_2_0());
+						newCompositeNode(grammarAccess.getPhysicalComponent_ImplAccess().getDatastoresDataStoreParserRuleCall_11_2_0());
 					}
-					lv_execution_29_0=ruleExecution
+					lv_datastores_29_0=ruleDataStore
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getPhysicalComponent_ImplRule());
+						}
+						add(
+							$current,
+							"datastores",
+							lv_datastores_29_0,
+							"e4sm.de.metamodel.xtext.E4sm.DataStore");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_30=','
+				{
+					newLeafNode(otherlv_30, grammarAccess.getPhysicalComponent_ImplAccess().getCommaKeyword_11_3_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getPhysicalComponent_ImplAccess().getDatastoresDataStoreParserRuleCall_11_3_1_0());
+						}
+						lv_datastores_31_0=ruleDataStore
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getPhysicalComponent_ImplRule());
+							}
+							add(
+								$current,
+								"datastores",
+								lv_datastores_31_0,
+								"e4sm.de.metamodel.xtext.E4sm.DataStore");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+			otherlv_32='}'
+			{
+				newLeafNode(otherlv_32, grammarAccess.getPhysicalComponent_ImplAccess().getRightCurlyBracketKeyword_11_4());
+			}
+		)?
+		(
+			otherlv_33='runs'
+			{
+				newLeafNode(otherlv_33, grammarAccess.getPhysicalComponent_ImplAccess().getRunsKeyword_12_0());
+			}
+			otherlv_34='{'
+			{
+				newLeafNode(otherlv_34, grammarAccess.getPhysicalComponent_ImplAccess().getLeftCurlyBracketKeyword_12_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getPhysicalComponent_ImplAccess().getExecutionExecutionParserRuleCall_12_2_0());
+					}
+					lv_execution_35_0=ruleExecution
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getPhysicalComponent_ImplRule());
@@ -7494,20 +7902,20 @@ rulePhysicalComponent_Impl returns [EObject current=null]
 						set(
 							$current,
 							"execution",
-							lv_execution_29_0,
+							lv_execution_35_0,
 							"e4sm.de.metamodel.xtext.E4sm.Execution");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
-			otherlv_30='}'
+			otherlv_36='}'
 			{
-				newLeafNode(otherlv_30, grammarAccess.getPhysicalComponent_ImplAccess().getRightCurlyBracketKeyword_11_3());
+				newLeafNode(otherlv_36, grammarAccess.getPhysicalComponent_ImplAccess().getRightCurlyBracketKeyword_12_3());
 			}
 		)?
-		otherlv_31='}'
+		otherlv_37='}'
 		{
-			newLeafNode(otherlv_31, grammarAccess.getPhysicalComponent_ImplAccess().getRightCurlyBracketKeyword_12());
+			newLeafNode(otherlv_37, grammarAccess.getPhysicalComponent_ImplAccess().getRightCurlyBracketKeyword_13());
 		}
 	)
 ;
@@ -7869,9 +8277,9 @@ ruleSoftwareComponent_Impl returns [EObject current=null]
 			}
 		)?
 		(
-			otherlv_31='runs'
+			otherlv_31='datastores'
 			{
-				newLeafNode(otherlv_31, grammarAccess.getSoftwareComponent_ImplAccess().getRunsKeyword_13_0());
+				newLeafNode(otherlv_31, grammarAccess.getSoftwareComponent_ImplAccess().getDatastoresKeyword_13_0());
 			}
 			otherlv_32='{'
 			{
@@ -7880,9 +8288,67 @@ ruleSoftwareComponent_Impl returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getSoftwareComponent_ImplAccess().getExecutionExecutionParserRuleCall_13_2_0());
+						newCompositeNode(grammarAccess.getSoftwareComponent_ImplAccess().getDatastoresDataStoreParserRuleCall_13_2_0());
 					}
-					lv_execution_33_0=ruleExecution
+					lv_datastores_33_0=ruleDataStore
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getSoftwareComponent_ImplRule());
+						}
+						add(
+							$current,
+							"datastores",
+							lv_datastores_33_0,
+							"e4sm.de.metamodel.xtext.E4sm.DataStore");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_34=','
+				{
+					newLeafNode(otherlv_34, grammarAccess.getSoftwareComponent_ImplAccess().getCommaKeyword_13_3_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getSoftwareComponent_ImplAccess().getDatastoresDataStoreParserRuleCall_13_3_1_0());
+						}
+						lv_datastores_35_0=ruleDataStore
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getSoftwareComponent_ImplRule());
+							}
+							add(
+								$current,
+								"datastores",
+								lv_datastores_35_0,
+								"e4sm.de.metamodel.xtext.E4sm.DataStore");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+			otherlv_36='}'
+			{
+				newLeafNode(otherlv_36, grammarAccess.getSoftwareComponent_ImplAccess().getRightCurlyBracketKeyword_13_4());
+			}
+		)?
+		(
+			otherlv_37='runs'
+			{
+				newLeafNode(otherlv_37, grammarAccess.getSoftwareComponent_ImplAccess().getRunsKeyword_14_0());
+			}
+			otherlv_38='{'
+			{
+				newLeafNode(otherlv_38, grammarAccess.getSoftwareComponent_ImplAccess().getLeftCurlyBracketKeyword_14_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getSoftwareComponent_ImplAccess().getExecutionExecutionParserRuleCall_14_2_0());
+					}
+					lv_execution_39_0=ruleExecution
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getSoftwareComponent_ImplRule());
@@ -7890,20 +8356,20 @@ ruleSoftwareComponent_Impl returns [EObject current=null]
 						set(
 							$current,
 							"execution",
-							lv_execution_33_0,
+							lv_execution_39_0,
 							"e4sm.de.metamodel.xtext.E4sm.Execution");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
-			otherlv_34='}'
+			otherlv_40='}'
 			{
-				newLeafNode(otherlv_34, grammarAccess.getSoftwareComponent_ImplAccess().getRightCurlyBracketKeyword_13_3());
+				newLeafNode(otherlv_40, grammarAccess.getSoftwareComponent_ImplAccess().getRightCurlyBracketKeyword_14_3());
 			}
 		)?
-		otherlv_35='}'
+		otherlv_41='}'
 		{
-			newLeafNode(otherlv_35, grammarAccess.getSoftwareComponent_ImplAccess().getRightCurlyBracketKeyword_14());
+			newLeafNode(otherlv_41, grammarAccess.getSoftwareComponent_ImplAccess().getRightCurlyBracketKeyword_15());
 		}
 	)
 ;
@@ -8265,9 +8731,9 @@ ruleHeuristic returns [EObject current=null]
 			}
 		)?
 		(
-			otherlv_31='runs'
+			otherlv_31='datastores'
 			{
-				newLeafNode(otherlv_31, grammarAccess.getHeuristicAccess().getRunsKeyword_13_0());
+				newLeafNode(otherlv_31, grammarAccess.getHeuristicAccess().getDatastoresKeyword_13_0());
 			}
 			otherlv_32='{'
 			{
@@ -8276,9 +8742,67 @@ ruleHeuristic returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getHeuristicAccess().getExecutionExecutionParserRuleCall_13_2_0());
+						newCompositeNode(grammarAccess.getHeuristicAccess().getDatastoresDataStoreParserRuleCall_13_2_0());
 					}
-					lv_execution_33_0=ruleExecution
+					lv_datastores_33_0=ruleDataStore
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getHeuristicRule());
+						}
+						add(
+							$current,
+							"datastores",
+							lv_datastores_33_0,
+							"e4sm.de.metamodel.xtext.E4sm.DataStore");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_34=','
+				{
+					newLeafNode(otherlv_34, grammarAccess.getHeuristicAccess().getCommaKeyword_13_3_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getHeuristicAccess().getDatastoresDataStoreParserRuleCall_13_3_1_0());
+						}
+						lv_datastores_35_0=ruleDataStore
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getHeuristicRule());
+							}
+							add(
+								$current,
+								"datastores",
+								lv_datastores_35_0,
+								"e4sm.de.metamodel.xtext.E4sm.DataStore");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+			otherlv_36='}'
+			{
+				newLeafNode(otherlv_36, grammarAccess.getHeuristicAccess().getRightCurlyBracketKeyword_13_4());
+			}
+		)?
+		(
+			otherlv_37='runs'
+			{
+				newLeafNode(otherlv_37, grammarAccess.getHeuristicAccess().getRunsKeyword_14_0());
+			}
+			otherlv_38='{'
+			{
+				newLeafNode(otherlv_38, grammarAccess.getHeuristicAccess().getLeftCurlyBracketKeyword_14_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getHeuristicAccess().getExecutionExecutionParserRuleCall_14_2_0());
+					}
+					lv_execution_39_0=ruleExecution
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getHeuristicRule());
@@ -8286,20 +8810,20 @@ ruleHeuristic returns [EObject current=null]
 						set(
 							$current,
 							"execution",
-							lv_execution_33_0,
+							lv_execution_39_0,
 							"e4sm.de.metamodel.xtext.E4sm.Execution");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
-			otherlv_34='}'
+			otherlv_40='}'
 			{
-				newLeafNode(otherlv_34, grammarAccess.getHeuristicAccess().getRightCurlyBracketKeyword_13_3());
+				newLeafNode(otherlv_40, grammarAccess.getHeuristicAccess().getRightCurlyBracketKeyword_14_3());
 			}
 		)?
-		otherlv_35='}'
+		otherlv_41='}'
 		{
-			newLeafNode(otherlv_35, grammarAccess.getHeuristicAccess().getRightCurlyBracketKeyword_14());
+			newLeafNode(otherlv_41, grammarAccess.getHeuristicAccess().getRightCurlyBracketKeyword_15());
 		}
 	)
 ;
@@ -8661,9 +9185,9 @@ ruleFunction returns [EObject current=null]
 			}
 		)?
 		(
-			otherlv_31='runs'
+			otherlv_31='datastores'
 			{
-				newLeafNode(otherlv_31, grammarAccess.getFunctionAccess().getRunsKeyword_13_0());
+				newLeafNode(otherlv_31, grammarAccess.getFunctionAccess().getDatastoresKeyword_13_0());
 			}
 			otherlv_32='{'
 			{
@@ -8672,9 +9196,67 @@ ruleFunction returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getFunctionAccess().getExecutionExecutionParserRuleCall_13_2_0());
+						newCompositeNode(grammarAccess.getFunctionAccess().getDatastoresDataStoreParserRuleCall_13_2_0());
 					}
-					lv_execution_33_0=ruleExecution
+					lv_datastores_33_0=ruleDataStore
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getFunctionRule());
+						}
+						add(
+							$current,
+							"datastores",
+							lv_datastores_33_0,
+							"e4sm.de.metamodel.xtext.E4sm.DataStore");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_34=','
+				{
+					newLeafNode(otherlv_34, grammarAccess.getFunctionAccess().getCommaKeyword_13_3_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getFunctionAccess().getDatastoresDataStoreParserRuleCall_13_3_1_0());
+						}
+						lv_datastores_35_0=ruleDataStore
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getFunctionRule());
+							}
+							add(
+								$current,
+								"datastores",
+								lv_datastores_35_0,
+								"e4sm.de.metamodel.xtext.E4sm.DataStore");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+			otherlv_36='}'
+			{
+				newLeafNode(otherlv_36, grammarAccess.getFunctionAccess().getRightCurlyBracketKeyword_13_4());
+			}
+		)?
+		(
+			otherlv_37='runs'
+			{
+				newLeafNode(otherlv_37, grammarAccess.getFunctionAccess().getRunsKeyword_14_0());
+			}
+			otherlv_38='{'
+			{
+				newLeafNode(otherlv_38, grammarAccess.getFunctionAccess().getLeftCurlyBracketKeyword_14_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getFunctionAccess().getExecutionExecutionParserRuleCall_14_2_0());
+					}
+					lv_execution_39_0=ruleExecution
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getFunctionRule());
@@ -8682,20 +9264,20 @@ ruleFunction returns [EObject current=null]
 						set(
 							$current,
 							"execution",
-							lv_execution_33_0,
+							lv_execution_39_0,
 							"e4sm.de.metamodel.xtext.E4sm.Execution");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
-			otherlv_34='}'
+			otherlv_40='}'
 			{
-				newLeafNode(otherlv_34, grammarAccess.getFunctionAccess().getRightCurlyBracketKeyword_13_3());
+				newLeafNode(otherlv_40, grammarAccess.getFunctionAccess().getRightCurlyBracketKeyword_14_3());
 			}
 		)?
-		otherlv_35='}'
+		otherlv_41='}'
 		{
-			newLeafNode(otherlv_35, grammarAccess.getFunctionAccess().getRightCurlyBracketKeyword_14());
+			newLeafNode(otherlv_41, grammarAccess.getFunctionAccess().getRightCurlyBracketKeyword_15());
 		}
 	)
 ;
@@ -9057,9 +9639,9 @@ ruleExternalDependency returns [EObject current=null]
 			}
 		)?
 		(
-			otherlv_31='runs'
+			otherlv_31='datastores'
 			{
-				newLeafNode(otherlv_31, grammarAccess.getExternalDependencyAccess().getRunsKeyword_13_0());
+				newLeafNode(otherlv_31, grammarAccess.getExternalDependencyAccess().getDatastoresKeyword_13_0());
 			}
 			otherlv_32='{'
 			{
@@ -9068,9 +9650,67 @@ ruleExternalDependency returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getExternalDependencyAccess().getExecutionExecutionParserRuleCall_13_2_0());
+						newCompositeNode(grammarAccess.getExternalDependencyAccess().getDatastoresDataStoreParserRuleCall_13_2_0());
 					}
-					lv_execution_33_0=ruleExecution
+					lv_datastores_33_0=ruleDataStore
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getExternalDependencyRule());
+						}
+						add(
+							$current,
+							"datastores",
+							lv_datastores_33_0,
+							"e4sm.de.metamodel.xtext.E4sm.DataStore");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_34=','
+				{
+					newLeafNode(otherlv_34, grammarAccess.getExternalDependencyAccess().getCommaKeyword_13_3_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getExternalDependencyAccess().getDatastoresDataStoreParserRuleCall_13_3_1_0());
+						}
+						lv_datastores_35_0=ruleDataStore
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getExternalDependencyRule());
+							}
+							add(
+								$current,
+								"datastores",
+								lv_datastores_35_0,
+								"e4sm.de.metamodel.xtext.E4sm.DataStore");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+			otherlv_36='}'
+			{
+				newLeafNode(otherlv_36, grammarAccess.getExternalDependencyAccess().getRightCurlyBracketKeyword_13_4());
+			}
+		)?
+		(
+			otherlv_37='runs'
+			{
+				newLeafNode(otherlv_37, grammarAccess.getExternalDependencyAccess().getRunsKeyword_14_0());
+			}
+			otherlv_38='{'
+			{
+				newLeafNode(otherlv_38, grammarAccess.getExternalDependencyAccess().getLeftCurlyBracketKeyword_14_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getExternalDependencyAccess().getExecutionExecutionParserRuleCall_14_2_0());
+					}
+					lv_execution_39_0=ruleExecution
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getExternalDependencyRule());
@@ -9078,20 +9718,20 @@ ruleExternalDependency returns [EObject current=null]
 						set(
 							$current,
 							"execution",
-							lv_execution_33_0,
+							lv_execution_39_0,
 							"e4sm.de.metamodel.xtext.E4sm.Execution");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
-			otherlv_34='}'
+			otherlv_40='}'
 			{
-				newLeafNode(otherlv_34, grammarAccess.getExternalDependencyAccess().getRightCurlyBracketKeyword_13_3());
+				newLeafNode(otherlv_40, grammarAccess.getExternalDependencyAccess().getRightCurlyBracketKeyword_14_3());
 			}
 		)?
-		otherlv_35='}'
+		otherlv_41='}'
 		{
-			newLeafNode(otherlv_35, grammarAccess.getExternalDependencyAccess().getRightCurlyBracketKeyword_14());
+			newLeafNode(otherlv_41, grammarAccess.getExternalDependencyAccess().getRightCurlyBracketKeyword_15());
 		}
 	)
 ;
@@ -9396,9 +10036,9 @@ ruleSensor returns [EObject current=null]
 			}
 		)?
 		(
-			otherlv_26='runs'
+			otherlv_26='datastores'
 			{
-				newLeafNode(otherlv_26, grammarAccess.getSensorAccess().getRunsKeyword_10_0());
+				newLeafNode(otherlv_26, grammarAccess.getSensorAccess().getDatastoresKeyword_10_0());
 			}
 			otherlv_27='{'
 			{
@@ -9407,9 +10047,67 @@ ruleSensor returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getSensorAccess().getExecutionExecutionParserRuleCall_10_2_0());
+						newCompositeNode(grammarAccess.getSensorAccess().getDatastoresDataStoreParserRuleCall_10_2_0());
 					}
-					lv_execution_28_0=ruleExecution
+					lv_datastores_28_0=ruleDataStore
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getSensorRule());
+						}
+						add(
+							$current,
+							"datastores",
+							lv_datastores_28_0,
+							"e4sm.de.metamodel.xtext.E4sm.DataStore");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_29=','
+				{
+					newLeafNode(otherlv_29, grammarAccess.getSensorAccess().getCommaKeyword_10_3_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getSensorAccess().getDatastoresDataStoreParserRuleCall_10_3_1_0());
+						}
+						lv_datastores_30_0=ruleDataStore
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getSensorRule());
+							}
+							add(
+								$current,
+								"datastores",
+								lv_datastores_30_0,
+								"e4sm.de.metamodel.xtext.E4sm.DataStore");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+			otherlv_31='}'
+			{
+				newLeafNode(otherlv_31, grammarAccess.getSensorAccess().getRightCurlyBracketKeyword_10_4());
+			}
+		)?
+		(
+			otherlv_32='runs'
+			{
+				newLeafNode(otherlv_32, grammarAccess.getSensorAccess().getRunsKeyword_11_0());
+			}
+			otherlv_33='{'
+			{
+				newLeafNode(otherlv_33, grammarAccess.getSensorAccess().getLeftCurlyBracketKeyword_11_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getSensorAccess().getExecutionExecutionParserRuleCall_11_2_0());
+					}
+					lv_execution_34_0=ruleExecution
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getSensorRule());
@@ -9417,20 +10115,20 @@ ruleSensor returns [EObject current=null]
 						set(
 							$current,
 							"execution",
-							lv_execution_28_0,
+							lv_execution_34_0,
 							"e4sm.de.metamodel.xtext.E4sm.Execution");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
-			otherlv_29='}'
+			otherlv_35='}'
 			{
-				newLeafNode(otherlv_29, grammarAccess.getSensorAccess().getRightCurlyBracketKeyword_10_3());
+				newLeafNode(otherlv_35, grammarAccess.getSensorAccess().getRightCurlyBracketKeyword_11_3());
 			}
 		)?
-		otherlv_30='}'
+		otherlv_36='}'
 		{
-			newLeafNode(otherlv_30, grammarAccess.getSensorAccess().getRightCurlyBracketKeyword_11());
+			newLeafNode(otherlv_36, grammarAccess.getSensorAccess().getRightCurlyBracketKeyword_12());
 		}
 	)
 ;
@@ -9742,9 +10440,9 @@ ruleActuator returns [EObject current=null]
 			}
 		)?
 		(
-			otherlv_27='runs'
+			otherlv_27='datastores'
 			{
-				newLeafNode(otherlv_27, grammarAccess.getActuatorAccess().getRunsKeyword_11_0());
+				newLeafNode(otherlv_27, grammarAccess.getActuatorAccess().getDatastoresKeyword_11_0());
 			}
 			otherlv_28='{'
 			{
@@ -9753,9 +10451,67 @@ ruleActuator returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getActuatorAccess().getExecutionExecutionParserRuleCall_11_2_0());
+						newCompositeNode(grammarAccess.getActuatorAccess().getDatastoresDataStoreParserRuleCall_11_2_0());
 					}
-					lv_execution_29_0=ruleExecution
+					lv_datastores_29_0=ruleDataStore
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getActuatorRule());
+						}
+						add(
+							$current,
+							"datastores",
+							lv_datastores_29_0,
+							"e4sm.de.metamodel.xtext.E4sm.DataStore");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_30=','
+				{
+					newLeafNode(otherlv_30, grammarAccess.getActuatorAccess().getCommaKeyword_11_3_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getActuatorAccess().getDatastoresDataStoreParserRuleCall_11_3_1_0());
+						}
+						lv_datastores_31_0=ruleDataStore
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getActuatorRule());
+							}
+							add(
+								$current,
+								"datastores",
+								lv_datastores_31_0,
+								"e4sm.de.metamodel.xtext.E4sm.DataStore");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+			otherlv_32='}'
+			{
+				newLeafNode(otherlv_32, grammarAccess.getActuatorAccess().getRightCurlyBracketKeyword_11_4());
+			}
+		)?
+		(
+			otherlv_33='runs'
+			{
+				newLeafNode(otherlv_33, grammarAccess.getActuatorAccess().getRunsKeyword_12_0());
+			}
+			otherlv_34='{'
+			{
+				newLeafNode(otherlv_34, grammarAccess.getActuatorAccess().getLeftCurlyBracketKeyword_12_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getActuatorAccess().getExecutionExecutionParserRuleCall_12_2_0());
+					}
+					lv_execution_35_0=ruleExecution
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getActuatorRule());
@@ -9763,20 +10519,20 @@ ruleActuator returns [EObject current=null]
 						set(
 							$current,
 							"execution",
-							lv_execution_29_0,
+							lv_execution_35_0,
 							"e4sm.de.metamodel.xtext.E4sm.Execution");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
-			otherlv_30='}'
+			otherlv_36='}'
 			{
-				newLeafNode(otherlv_30, grammarAccess.getActuatorAccess().getRightCurlyBracketKeyword_11_3());
+				newLeafNode(otherlv_36, grammarAccess.getActuatorAccess().getRightCurlyBracketKeyword_12_3());
 			}
 		)?
-		otherlv_31='}'
+		otherlv_37='}'
 		{
-			newLeafNode(otherlv_31, grammarAccess.getActuatorAccess().getRightCurlyBracketKeyword_12());
+			newLeafNode(otherlv_37, grammarAccess.getActuatorAccess().getRightCurlyBracketKeyword_13());
 		}
 	)
 ;

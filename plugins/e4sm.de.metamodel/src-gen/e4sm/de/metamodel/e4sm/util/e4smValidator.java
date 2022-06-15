@@ -10,6 +10,8 @@ import e4sm.de.metamodel.e4sm.ComponentFiringStrategy;
 import e4sm.de.metamodel.e4sm.Connector;
 import e4sm.de.metamodel.e4sm.ConversionByConvention;
 import e4sm.de.metamodel.e4sm.ConversionByPrefix;
+import e4sm.de.metamodel.e4sm.DataNode;
+import e4sm.de.metamodel.e4sm.DataStore;
 import e4sm.de.metamodel.e4sm.DerivedUnit;
 import e4sm.de.metamodel.e4sm.ExternalDependency;
 import e4sm.de.metamodel.e4sm.Function;
@@ -186,6 +188,10 @@ public class e4smValidator extends EObjectValidator {
 			return validateUnitPrefix((UnitPrefix) value, diagnostics, context);
 		case e4smPackage.IMPORT:
 			return validateImport((Import) value, diagnostics, context);
+		case e4smPackage.DATA_STORE:
+			return validateDataStore((DataStore) value, diagnostics, context);
+		case e4smPackage.DATA_NODE:
+			return validateDataNode((DataNode) value, diagnostics, context);
 		case e4smPackage.QUEUE_TYPE:
 			return validateQueueType((QueueType) value, diagnostics, context);
 		case e4smPackage.RACE_SEMANTIC:
@@ -291,27 +297,31 @@ public class e4smValidator extends EObjectValidator {
 	}
 
 	/**
-	 * Validates the ComponentC3 constraint of '<em>Component</em>'.
-	 * <!-- begin-user-doc -->
-	 * If the component has a code specification, it shall not contain other components, nor be specified by a package.
-	 * <!-- end-user-doc -->
+	 * Validates the ComponentC3 constraint of '<em>Component</em>'. <!--
+	 * begin-user-doc --> If the component has a code specification, it shall not
+	 * contain other components, nor be specified by a package. <!-- end-user-doc
+	 * -->
+	 * 
 	 * @generated NOT
 	 */
 	public boolean validateComponent_ComponentC3(Component component, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
 		// TODO remove
-		//		if (component.getCodeSpecification() != null && component.getCodeSpecification().length() > 0
-		//				&& (component.getComponents().size() > 0 || component.getSpecifiedInPackage() != null)) {
-		//			if (diagnostics != null) {
-		//				diagnostics.add(createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0,
-		//						"_UI_GenericConstraint_diagnostic",
-		//						new Object[] {
-		//								"C3: If the component has a text specification, it shall not contain other components, nor be specified by a package",
-		//								getObjectLabel(component, context) },
-		//						new Object[] { component }, context));
-		//			}
-		//			return false;
-		//		}
+		// if (component.getCodeSpecification() != null &&
+		// component.getCodeSpecification().length() > 0
+		// && (component.getComponents().size() > 0 || component.getSpecifiedInPackage()
+		// != null)) {
+		// if (diagnostics != null) {
+		// diagnostics.add(createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0,
+		// "_UI_GenericConstraint_diagnostic",
+		// new Object[] {
+		// "C3: If the component has a text specification, it shall not contain other
+		// components, nor be specified by a package",
+		// getObjectLabel(component, context) },
+		// new Object[] { component }, context));
+		// }
+		// return false;
+		// }
 		return true;
 	}
 
@@ -385,20 +395,22 @@ public class e4smValidator extends EObjectValidator {
 	 */
 	public boolean validateConnector_ConnectorC1(Connector connector, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
-		Pin source = connector.getSource();
-		Pin target = connector.getTarget();
-		Component sourceComponent = (Component) source.eContainer();
-		Component targetComponent = (Component) target.eContainer();
-		if (sourceComponent != null && sourceComponent.equals(targetComponent)) {
-			if (diagnostics != null) {
-				diagnostics.add(createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0,
-						"_UI_GenericConstraint_diagnostic",
-						new Object[] {
-								"C1: A connector shall not connect two pins of the same component directly (loop/short circuit)",
-								getObjectLabel(connector, context) },
-						new Object[] { connector }, context));
+		DataNode source = connector.getSource();
+		DataNode target = connector.getTarget();
+		if (source instanceof Pin && target instanceof Pin) {
+			Component sourceComponent = (Component) source.eContainer();
+			Component targetComponent = (Component) target.eContainer();
+			if (sourceComponent != null && sourceComponent.equals(targetComponent)) {
+				if (diagnostics != null) {
+					diagnostics.add(createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0,
+							"_UI_GenericConstraint_diagnostic",
+							new Object[] {
+									"C1: A connector shall not connect two pins of the same component directly (loop/short circuit)",
+									getObjectLabel(connector, context) },
+							new Object[] { connector }, context));
+				}
+				return false;
 			}
-			return false;
 		}
 		return true;
 	}
@@ -446,21 +458,23 @@ public class e4smValidator extends EObjectValidator {
 	 */
 	public boolean validatePhysicalConnector_PhysicalConnectorC1(PhysicalConnector physicalConnector,
 			DiagnosticChain diagnostics, Map<Object, Object> context) {
-		final Pin source = physicalConnector.getSource();
-		final Pin target = physicalConnector.getTarget();
+		final DataNode source = physicalConnector.getSource();
+		final DataNode target = physicalConnector.getTarget();
 		final EObject sourceComponent = source.eContainer();
 		final EObject targetComponent = target.eContainer();
 
 		// If the source or the target are not PhysicalComponent
-		if (!(sourceComponent instanceof PhysicalComponent) || !(targetComponent instanceof PhysicalComponent)) {
-			if (diagnostics != null) {
-				diagnostics.add(
-						createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic",
-								new Object[] { "C1: A Physical Connector shall only connect Physical Components",
-										getObjectLabel(physicalConnector, context) },
-								new Object[] { physicalConnector }, context));
+		if (source instanceof Pin && target instanceof Pin) {
+			if (!(sourceComponent instanceof PhysicalComponent) || !(targetComponent instanceof PhysicalComponent)) {
+				if (diagnostics != null) {
+					diagnostics.add(
+							createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic",
+									new Object[] { "C1: A Physical Connector shall only connect Physical Components",
+											getObjectLabel(physicalConnector, context) },
+									new Object[] { physicalConnector }, context));
+				}
+				return false;
 			}
-			return false;
 		}
 		return true;
 	}
@@ -474,9 +488,9 @@ public class e4smValidator extends EObjectValidator {
 	 */
 	public boolean validatePhysicalConnector_PhysicalConnectorC2(PhysicalConnector physicalConnector,
 			DiagnosticChain diagnostics, Map<Object, Object> context) {
-		final Pin source = physicalConnector.getSource();
+		final DataNode source = physicalConnector.getSource();
 		if (source instanceof OutputPin) {
-			final Pin target = physicalConnector.getTarget();
+			final DataNode target = physicalConnector.getTarget();
 			if (!(target instanceof InputPin)) {
 				if (diagnostics != null) {
 					diagnostics.add(
@@ -500,9 +514,9 @@ public class e4smValidator extends EObjectValidator {
 	 */
 	public boolean validatePhysicalConnector_PhysicalConnectorC3(PhysicalConnector physicalConnector,
 			DiagnosticChain diagnostics, Map<Object, Object> context) {
-		final Pin source = physicalConnector.getSource();
+		final DataNode source = physicalConnector.getSource();
 		if (source instanceof InputPin) {
-			final Pin target = physicalConnector.getTarget();
+			final DataNode target = physicalConnector.getTarget();
 			if (!(target instanceof OutputPin)) {
 				if (diagnostics != null) {
 					diagnostics.add(
@@ -584,10 +598,10 @@ public class e4smValidator extends EObjectValidator {
 	}
 
 	/**
-	 * Validates the SoftwareComponentC1 constraint of '<em>Software Component</em>'.
-	 * <!-- begin-user-doc -->
-	 * C1: A software component shall not be directly contained in a Sector
-	 * <!-- end-user-doc -->
+	 * Validates the SoftwareComponentC1 constraint of '<em>Software
+	 * Component</em>'. <!-- begin-user-doc --> C1: A software component shall not
+	 * be directly contained in a Sector <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
 	public boolean validateSoftwareComponent_SoftwareComponentC1(SoftwareComponent softwareComponent,
@@ -764,10 +778,10 @@ public class e4smValidator extends EObjectValidator {
 	}
 
 	/**
-	 * Validates the PackageC1 constraint of '<em>Package</em>'.
-	 * <!-- begin-user-doc --> 
-	 * C1: This package is contained by another package but does not specify any component
-	 * <!-- end-user-doc -->
+	 * Validates the PackageC1 constraint of '<em>Package</em>'. <!-- begin-user-doc
+	 * --> C1: This package is contained by another package but does not specify any
+	 * component <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
 	public boolean validatePackage_PackageC1(e4sm.de.metamodel.e4sm.Package package_, DiagnosticChain diagnostics,
@@ -814,9 +828,9 @@ public class e4smValidator extends EObjectValidator {
 	}
 
 	/**
-	 * Validates the isPersonPicturePathValid constraint of '<em>Model</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Validates the isPersonPicturePathValid constraint of '<em>Model</em>'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean validateModel_isPersonPicturePathValid(Model model, DiagnosticChain diagnostics,
@@ -890,10 +904,9 @@ public class e4smValidator extends EObjectValidator {
 	}
 
 	/**
-	 * Validates the SensorC1 constraint of '<em>Sensor</em>'.
-	 * <!-- begin-user-doc -->
-	 * C1: A sensor shall not have input pins
-	 * <!-- end-user-doc -->
+	 * Validates the SensorC1 constraint of '<em>Sensor</em>'. <!-- begin-user-doc
+	 * --> C1: A sensor shall not have input pins <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
 	public boolean validateSensor_SensorC1(Sensor sensor, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -943,10 +956,10 @@ public class e4smValidator extends EObjectValidator {
 	}
 
 	/**
-	 * Validates the ActuatorC1 constraint of '<em>Actuator</em>'.
-	 * <!-- begin-user-doc -->
-	 * C1: An actuator shall not have output pins
-	 * <!-- end-user-doc -->
+	 * Validates the ActuatorC1 constraint of '<em>Actuator</em>'. <!--
+	 * begin-user-doc --> C1: An actuator shall not have output pins <!--
+	 * end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
 	public boolean validateActuator_ActuatorC1(Actuator actuator, DiagnosticChain diagnostics,
@@ -991,10 +1004,9 @@ public class e4smValidator extends EObjectValidator {
 	}
 
 	/**
-	 * Validates the PinC1 constraint of '<em>Pin</em>'.
-	 * <!-- begin-user-doc -->
-	 * C1: pin is disconnected
-	 * <!-- end-user-doc -->
+	 * Validates the PinC1 constraint of '<em>Pin</em>'. <!-- begin-user-doc --> C1:
+	 * pin is disconnected <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
 	public boolean validatePin_PinC1(Pin pin, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -1073,8 +1085,7 @@ public class e4smValidator extends EObjectValidator {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean validateMeasurementUnit(MeasurementUnit measurementUnit, DiagnosticChain diagnostics,
@@ -1083,8 +1094,7 @@ public class e4smValidator extends EObjectValidator {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean validateSimpleUnit(SimpleUnit simpleUnit, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -1092,8 +1102,7 @@ public class e4smValidator extends EObjectValidator {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean validateDerivedUnit(DerivedUnit derivedUnit, DiagnosticChain diagnostics,
@@ -1102,8 +1111,7 @@ public class e4smValidator extends EObjectValidator {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean validateUnitConversion(UnitConversion unitConversion, DiagnosticChain diagnostics,
@@ -1112,8 +1120,7 @@ public class e4smValidator extends EObjectValidator {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean validateConversionByPrefix(ConversionByPrefix conversionByPrefix, DiagnosticChain diagnostics,
@@ -1122,8 +1129,7 @@ public class e4smValidator extends EObjectValidator {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean validateConversionByConvention(ConversionByConvention conversionByConvention,
@@ -1132,8 +1138,7 @@ public class e4smValidator extends EObjectValidator {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean validateUnitPrefix(UnitPrefix unitPrefix, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -1141,8 +1146,7 @@ public class e4smValidator extends EObjectValidator {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean validateImport(Import import_, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -1150,8 +1154,23 @@ public class e4smValidator extends EObjectValidator {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateDataStore(DataStore dataStore, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(dataStore, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateDataNode(DataNode dataNode, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(dataNode, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean validateQueueType(QueueType queueType, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -1159,8 +1178,7 @@ public class e4smValidator extends EObjectValidator {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean validateRaceSemantic(RaceSemantic raceSemantic, DiagnosticChain diagnostics,
@@ -1169,8 +1187,7 @@ public class e4smValidator extends EObjectValidator {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean validateComponentFiringStrategy(ComponentFiringStrategy componentFiringStrategy,
@@ -1188,8 +1205,7 @@ public class e4smValidator extends EObjectValidator {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean validateJSON(String json, DiagnosticChain diagnostics, Map<Object, Object> context) {

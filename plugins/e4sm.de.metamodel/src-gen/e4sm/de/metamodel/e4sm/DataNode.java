@@ -1,0 +1,33 @@
+/**
+ */
+package e4sm.de.metamodel.e4sm;
+
+import e4sm.de.metamodel.e4sm.core.ParameterizableElement;
+import e4sm.de.metamodel.e4sm.core.TypedElement;
+
+import e4sm.de.metamodel.e4sm.execution.ConnectableNode;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Data Node</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <!-- begin-model-doc -->
+ * Is a node which provides or receives data
+ * <!-- end-model-doc -->
+ *
+ *
+ * @see e4sm.de.metamodel.e4sm.e4smPackage#getDataNode()
+ * @model abstract="true"
+ * @generated
+ */
+public interface DataNode extends TypedElement, ConnectableNode, ParameterizableElement {
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	String computeName();
+} // DataNode

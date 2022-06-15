@@ -5,6 +5,8 @@ modeltype scpn "strict" uses scpn("http://timenet.tu-ilmenau.de/schema/SCPN");
 library SCPNConstructors(){
 
 property immediateTransSuffix  : String = "_imm_tran_id";
+property placeSuffix  : String = "_place_id";
+
 
 /** Constructors **/
 constructor LabelType::LabelType(given_text : String) {
@@ -17,7 +19,7 @@ constructor LabelType::LabelType(given_text : String) {
 
 constructor PlaceType::PlaceType(given_label : String) {
 	//Attributes
-	id := safeString(given_label) + "_place_id";
+	id := safeString(given_label) + placeSuffix;
 	capacity := "0";
 	queue:= scpn::QueueType::Random;
 	tokentype:= "int";
@@ -34,7 +36,7 @@ constructor PlaceType::PlaceType(given_label : String) {
 
 constructor PlaceType::PlaceType(given_label : String, initial_marking : String) {
 	//Attributes
-	id := safeString(given_label) + "_place_id";
+	id := safeString(given_label) + placeSuffix;
 	capacity := "0";
 	queue:= scpn::QueueType::Random;
 	tokentype:= "int";

@@ -8,6 +8,7 @@ import e4sm.de.metamodel.e4sm.Actor;
 import e4sm.de.metamodel.e4sm.Actuator;
 import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.Connector;
+import e4sm.de.metamodel.e4sm.DataStore;
 import e4sm.de.metamodel.e4sm.ExternalDependency;
 import e4sm.de.metamodel.e4sm.Function;
 import e4sm.de.metamodel.e4sm.Heuristic;
@@ -177,6 +178,9 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case e4smPackage.CONNECTOR:
 				sequence_Connector_Impl(context, (Connector) semanticObject); 
+				return; 
+			case e4smPackage.DATA_STORE:
+				sequence_DataStore(context, (DataStore) semanticObject); 
 				return; 
 			case e4smPackage.EXTERNAL_DEPENDENCY:
 				sequence_ExternalDependency(context, (ExternalDependency) semanticObject); 
@@ -358,6 +362,7 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         specifiedInPackage=[Package|EString]? 
 	 *         (parameters+=Parameter parameters+=Parameter*)? 
 	 *         (components+=Component components+=Component*)? 
+	 *         (datastores+=DataStore datastores+=DataStore*)? 
 	 *         execution=Execution?
 	 *     )
 	 * </pre>
@@ -475,6 +480,7 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         specifiedInPackage=[Package|EString]? 
 	 *         (parameters+=Parameter parameters+=Parameter*)? 
 	 *         (components+=Component components+=Component*)? 
+	 *         (datastores+=DataStore datastores+=DataStore*)? 
 	 *         execution=Execution?
 	 *     )
 	 * </pre>
@@ -510,6 +516,21 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * </pre>
 	 */
 	protected void sequence_Const(ISerializationContext context, Const semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     DataStore returns DataStore
+	 *     DataNode returns DataStore
+	 *
+	 * Constraint:
+	 *     (type=[TypeSpecification|ID]? name=EString (parameters+=Parameter parameters+=Parameter*)?)
+	 * </pre>
+	 */
+	protected void sequence_DataStore(ISerializationContext context, DataStore semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -861,6 +882,7 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         specifiedInPackage=[Package|EString]? 
 	 *         (parameters+=Parameter parameters+=Parameter*)? 
 	 *         (components+=Component components+=Component*)? 
+	 *         (datastores+=DataStore datastores+=DataStore*)? 
 	 *         execution=Execution?
 	 *     )
 	 * </pre>
@@ -941,6 +963,7 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         specifiedInPackage=[Package|EString]? 
 	 *         (parameters+=Parameter parameters+=Parameter*)? 
 	 *         (components+=Component components+=Component*)? 
+	 *         (datastores+=DataStore datastores+=DataStore*)? 
 	 *         execution=Execution?
 	 *     )
 	 * </pre>
@@ -968,6 +991,7 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         specifiedInPackage=[Package|EString]? 
 	 *         (parameters+=Parameter parameters+=Parameter*)? 
 	 *         (components+=Component components+=Component*)? 
+	 *         (datastores+=DataStore datastores+=DataStore*)? 
 	 *         execution=Execution?
 	 *     )
 	 * </pre>
@@ -1021,6 +1045,7 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     DataNode returns InputPin
 	 *     Pin returns InputPin
 	 *     InputPin returns InputPin
 	 *
@@ -1277,6 +1302,7 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         specifiedInPackage=[Package|EString]? 
 	 *         (parameters+=Parameter parameters+=Parameter*)? 
 	 *         (components+=Component components+=Component*)? 
+	 *         (datastores+=DataStore datastores+=DataStore*)? 
 	 *         execution=Execution?
 	 *     )
 	 * </pre>
@@ -1343,6 +1369,7 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     DataNode returns OutputPin
 	 *     Pin returns OutputPin
 	 *     OutputPin returns OutputPin
 	 *     AssignableElement returns OutputPin
@@ -1377,6 +1404,7 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         (parameters+=Parameter parameters+=Parameter*)? 
 	 *         (components+=Component components+=Component*)? 
 	 *         (connectors+=Connector connectors+=Connector*)? 
+	 *         (datastores+=DataStore datastores+=DataStore*)? 
 	 *         (sectors+=Sector sectors+=Sector*)? 
 	 *         (packages+=Package packages+=Package*)?
 	 *     )
@@ -1457,6 +1485,7 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         specifiedInPackage=[Package|EString]? 
 	 *         (parameters+=Parameter parameters+=Parameter*)? 
 	 *         (components+=Component components+=Component*)? 
+	 *         (datastores+=DataStore datastores+=DataStore*)? 
 	 *         execution=Execution?
 	 *     )
 	 * </pre>
@@ -1515,7 +1544,12 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Sector returns Sector
 	 *
 	 * Constraint:
-	 *     (name=EString (components+=Component components+=Component*)? (sectors+=Sector sectors+=Sector*)?)
+	 *     (
+	 *         name=EString 
+	 *         (components+=Component components+=Component*)? 
+	 *         (datastores+=DataStore datastores+=DataStore*)? 
+	 *         (sectors+=Sector sectors+=Sector*)?
+	 *     )
 	 * </pre>
 	 */
 	protected void sequence_Sector(ISerializationContext context, Sector semanticObject) {
@@ -1539,6 +1573,7 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         specifiedInPackage=[Package|EString]? 
 	 *         (parameters+=Parameter parameters+=Parameter*)? 
 	 *         (components+=Component components+=Component*)? 
+	 *         (datastores+=DataStore datastores+=DataStore*)? 
 	 *         execution=Execution?
 	 *     )
 	 * </pre>
@@ -1566,6 +1601,7 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         specifiedInPackage=[Package|EString]? 
 	 *         (parameters+=Parameter parameters+=Parameter*)? 
 	 *         (components+=Component components+=Component*)? 
+	 *         (datastores+=DataStore datastores+=DataStore*)? 
 	 *         execution=Execution?
 	 *     )
 	 * </pre>

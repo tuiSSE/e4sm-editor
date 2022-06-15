@@ -4,6 +4,8 @@ package e4sm.de.metamodel.e4sm.impl;
 
 import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.Connector;
+import e4sm.de.metamodel.e4sm.DataNode;
+import e4sm.de.metamodel.e4sm.DataStore;
 import e4sm.de.metamodel.e4sm.Pin;
 import e4sm.de.metamodel.e4sm.analysis.Parameter;
 import e4sm.de.metamodel.e4sm.core.CorePackage;
@@ -84,7 +86,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 * @ordered
 	 */
-	protected Pin source;
+	protected DataNode source;
 
 	/**
 	 * The cached value of the '{@link #getTarget() <em>Target</em>}' reference.
@@ -94,7 +96,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 * @ordered
 	 */
-	protected Pin target;
+	protected DataNode target;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -158,7 +160,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	@Override
-	public Pin getSource() {
+	public DataNode getSource() {
 		return source;
 	}
 
@@ -168,8 +170,8 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	@Override
-	public void setSource(Pin newSource) {
-		Pin oldSource = source;
+	public void setSource(DataNode newSource) {
+		DataNode oldSource = source;
 		source = newSource;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.CONNECTOR__SOURCE, oldSource, source));
@@ -181,7 +183,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	@Override
-	public Pin getTarget() {
+	public DataNode getTarget() {
 		return target;
 	}
 
@@ -191,8 +193,8 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	@Override
-	public void setTarget(Pin newTarget) {
-		Pin oldTarget = target;
+	public void setTarget(DataNode newTarget) {
+		DataNode oldTarget = target;
 		target = newTarget;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.CONNECTOR__TARGET, oldTarget, target));
@@ -221,8 +223,8 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 */
 	@Override
 	public double computeFlow() {
-		Pin source = this.getSource();
-		if (source != null) {
+		DataNode source = this.getSource();
+		if (source != null && source instanceof Pin) {
 			EObject sourceContainer = source.eContainer();
 			if (sourceContainer != null && sourceContainer instanceof Component) {
 				Component sourceComponent = (Component) sourceContainer;
@@ -240,6 +242,11 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 					throw new IllegalArgumentException("Unexpected value: " + tf.getFunction());
 				}
 			}
+		}
+		if (source instanceof DataStore) {
+			// TODO
+			System.out.println("ConnectorImpl: ComputeFlow for DataStore nodes has not been implemented yet.");
+			return 1.0;
 		}
 		// Default is EXP(1.0)
 		return 1.0;
@@ -296,10 +303,10 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 			setName((String) newValue);
 			return;
 		case e4smPackage.CONNECTOR__SOURCE:
-			setSource((Pin) newValue);
+			setSource((DataNode) newValue);
 			return;
 		case e4smPackage.CONNECTOR__TARGET:
-			setTarget((Pin) newValue);
+			setTarget((DataNode) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -320,10 +327,10 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 			setName(NAME_EDEFAULT);
 			return;
 		case e4smPackage.CONNECTOR__SOURCE:
-			setSource((Pin) null);
+			setSource((DataNode) null);
 			return;
 		case e4smPackage.CONNECTOR__TARGET:
-			setTarget((Pin) null);
+			setTarget((DataNode) null);
 			return;
 		}
 		super.eUnset(featureID);

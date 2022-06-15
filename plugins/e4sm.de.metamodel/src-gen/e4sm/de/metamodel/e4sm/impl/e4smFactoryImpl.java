@@ -9,6 +9,7 @@ import e4sm.de.metamodel.e4sm.ComponentFiringStrategy;
 import e4sm.de.metamodel.e4sm.Connector;
 import e4sm.de.metamodel.e4sm.ConversionByConvention;
 import e4sm.de.metamodel.e4sm.ConversionByPrefix;
+import e4sm.de.metamodel.e4sm.DataStore;
 import e4sm.de.metamodel.e4sm.DerivedUnit;
 import e4sm.de.metamodel.e4sm.ExternalDependency;
 import e4sm.de.metamodel.e4sm.Function;
@@ -145,6 +146,8 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 			return createUnitPrefix();
 		case e4smPackage.IMPORT:
 			return createImport();
+		case e4smPackage.DATA_STORE:
+			return createDataStore();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -513,6 +516,17 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 	public Import createImport() {
 		ImportImpl import_ = new ImportImpl();
 		return import_;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public DataStore createDataStore() {
+		DataStoreImpl dataStore = new DataStoreImpl();
+		return dataStore;
 	}
 
 	/**

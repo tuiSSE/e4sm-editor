@@ -20,6 +20,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link e4sm.de.metamodel.e4sm.Sector#getComponents <em>Components</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Sector#getSectors <em>Sectors</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.Sector#getDatastores <em>Datastores</em>}</li>
  * </ul>
  *
  * @see e4sm.de.metamodel.e4sm.e4smPackage#getSector()
@@ -56,6 +57,18 @@ public interface Sector extends NamedElement {
 	 * @generated
 	 */
 	EList<Sector> getSectors();
+
+	/**
+	 * Returns the value of the '<em><b>Datastores</b></em>' containment reference list.
+	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.DataStore}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Datastores</em>' containment reference list.
+	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getSector_Datastores()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<DataStore> getDatastores();
 
 	/**
 	 * <!-- begin-user-doc -->

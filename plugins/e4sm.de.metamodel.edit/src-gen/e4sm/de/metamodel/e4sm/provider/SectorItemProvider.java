@@ -81,6 +81,7 @@ public class SectorItemProvider extends NamedElementItemProvider {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(e4smPackage.Literals.SECTOR__COMPONENTS);
 			childrenFeatures.add(e4smPackage.Literals.SECTOR__SECTORS);
+			childrenFeatures.add(e4smPackage.Literals.SECTOR__DATASTORES);
 		}
 		return childrenFeatures;
 	}
@@ -146,6 +147,7 @@ public class SectorItemProvider extends NamedElementItemProvider {
 		switch (notification.getFeatureID(Sector.class)) {
 		case e4smPackage.SECTOR__COMPONENTS:
 		case e4smPackage.SECTOR__SECTORS:
+		case e4smPackage.SECTOR__DATASTORES:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}

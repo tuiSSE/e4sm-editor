@@ -9,6 +9,8 @@ import e4sm.de.metamodel.e4sm.ComponentFiringStrategy;
 import e4sm.de.metamodel.e4sm.Connector;
 import e4sm.de.metamodel.e4sm.ConversionByConvention;
 import e4sm.de.metamodel.e4sm.ConversionByPrefix;
+import e4sm.de.metamodel.e4sm.DataNode;
+import e4sm.de.metamodel.e4sm.DataStore;
 import e4sm.de.metamodel.e4sm.DerivedUnit;
 import e4sm.de.metamodel.e4sm.ExternalDependency;
 import e4sm.de.metamodel.e4sm.Function;
@@ -281,6 +283,20 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass dataStoreEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dataNodeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum queueTypeEEnum = null;
 
 	/**
@@ -486,6 +502,16 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	@Override
 	public EAttribute getComponent_FiringStrategy() {
 		return (EAttribute) componentEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getComponent_Datastores() {
+		return (EReference) componentEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -794,6 +820,16 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getPackage_Datastores() {
+		return (EReference) packageEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getPackage__GetAllComponents() {
 		return packageEClass.getEOperations().get(0);
 	}
@@ -946,6 +982,16 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	@Override
 	public EReference getSector_Sectors() {
 		return (EReference) sectorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getSector_Datastores() {
+		return (EReference) sectorEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1334,6 +1380,46 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getDataStore() {
+		return dataStoreEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getDataStore__ComputeName() {
+		return dataStoreEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getDataNode() {
+		return dataNodeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getDataNode__ComputeName() {
+		return dataNodeEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EEnum getQueueType() {
 		return queueTypeEEnum;
 	}
@@ -1415,6 +1501,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		createEReference(componentEClass, COMPONENT__SPECIFIED_IN_PACKAGE);
 		createEReference(componentEClass, COMPONENT__EXECUTION);
 		createEAttribute(componentEClass, COMPONENT__FIRING_STRATEGY);
+		createEReference(componentEClass, COMPONENT__DATASTORES);
 		createEOperation(componentEClass, COMPONENT___COMPUTE_MAIN_RESPONSIBLE);
 		createEOperation(componentEClass, COMPONENT___NEW_OPERATION2);
 
@@ -1455,6 +1542,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		createEReference(packageEClass, PACKAGE__MAIN_RESPONSIBLE);
 		createEReference(packageEClass, PACKAGE__PACKAGES);
 		createEReference(packageEClass, PACKAGE__SPECIFIES_COMPONENT);
+		createEReference(packageEClass, PACKAGE__DATASTORES);
 		createEOperation(packageEClass, PACKAGE___GET_ALL_COMPONENTS);
 		createEOperation(packageEClass, PACKAGE___GET_MAX_FLOW);
 
@@ -1476,6 +1564,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		sectorEClass = createEClass(SECTOR);
 		createEReference(sectorEClass, SECTOR__COMPONENTS);
 		createEReference(sectorEClass, SECTOR__SECTORS);
+		createEReference(sectorEClass, SECTOR__DATASTORES);
 		createEOperation(sectorEClass, SECTOR___GET_ALL_COMPONENTS);
 
 		sensorEClass = createEClass(SENSOR);
@@ -1528,6 +1617,12 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 
 		importEClass = createEClass(IMPORT);
 		createEReference(importEClass, IMPORT__REFERENCED_MODEL);
+
+		dataStoreEClass = createEClass(DATA_STORE);
+		createEOperation(dataStoreEClass, DATA_STORE___COMPUTE_NAME);
+
+		dataNodeEClass = createEClass(DATA_NODE);
+		createEOperation(dataNodeEClass, DATA_NODE___COMPUTE_NAME);
 
 		// Create enums
 		queueTypeEEnum = createEEnum(QUEUE_TYPE);
@@ -1597,9 +1692,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		sectorEClass.getESuperTypes().add(theCorePackage.getNamedElement());
 		sensorEClass.getESuperTypes().add(this.getPhysicalComponent());
 		actuatorEClass.getESuperTypes().add(this.getPhysicalComponent());
-		pinEClass.getESuperTypes().add(theCorePackage.getParameterizableElement());
-		pinEClass.getESuperTypes().add(theExecutionPackage.getConnectableNode());
-		pinEClass.getESuperTypes().add(theCorePackage.getTypedElement());
+		pinEClass.getESuperTypes().add(this.getDataNode());
 		inputPinEClass.getESuperTypes().add(this.getPin());
 		outputPinEClass.getESuperTypes().add(this.getPin());
 		outputPinEClass.getESuperTypes().add(theExecutionPackage.getAssignableElement());
@@ -1608,6 +1701,10 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		derivedUnitEClass.getESuperTypes().add(this.getMeasurementUnit());
 		conversionByPrefixEClass.getESuperTypes().add(this.getUnitConversion());
 		conversionByConventionEClass.getESuperTypes().add(this.getUnitConversion());
+		dataStoreEClass.getESuperTypes().add(this.getDataNode());
+		dataNodeEClass.getESuperTypes().add(theCorePackage.getTypedElement());
+		dataNodeEClass.getESuperTypes().add(theExecutionPackage.getConnectableNode());
+		dataNodeEClass.getESuperTypes().add(theCorePackage.getParameterizableElement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(componentEClass, Component.class, "Component", !IS_ABSTRACT, !IS_INTERFACE,
@@ -1630,6 +1727,9 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		initEAttribute(getComponent_FiringStrategy(), this.getComponentFiringStrategy(), "firingStrategy", "AND", 1, 1,
 				Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
+		initEReference(getComponent_Datastores(), this.getDataStore(), null, "datastores", null, 0, -1, Component.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getComponent__ComputeMainResponsible(), this.getPerson(), "computeMainResponsible", 0, 1,
 				IS_UNIQUE, IS_ORDERED);
@@ -1641,12 +1741,12 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 
 		initEClass(connectorEClass, Connector.class, "Connector", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getConnector_Source(), this.getPin(), null, "source", null, 1, 1, Connector.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEReference(getConnector_Target(), this.getPin(), null, "target", null, 1, 1, Connector.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
+		initEReference(getConnector_Source(), this.getDataNode(), null, "source", null, 1, 1, Connector.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConnector_Target(), this.getDataNode(), null, "target", null, 1, 1, Connector.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getConnector__ComputeName(), ecorePackage.getEString(), "computeName", 0, 1, IS_UNIQUE,
 				IS_ORDERED);
@@ -1719,6 +1819,9 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		initEReference(getPackage_SpecifiesComponent(), this.getComponent(), this.getComponent_SpecifiedInPackage(),
 				"specifiesComponent", null, 0, 1, e4sm.de.metamodel.e4sm.Package.class, !IS_TRANSIENT, !IS_VOLATILE,
 				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPackage_Datastores(), this.getDataStore(), null, "datastores", null, 0, -1,
+				e4sm.de.metamodel.e4sm.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getPackage__GetAllComponents(), this.getComponent(), "getAllComponents", 0, -1, IS_UNIQUE,
 				IS_ORDERED);
@@ -1764,6 +1867,9 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		initEReference(getSector_Sectors(), this.getSector(), null, "sectors", null, 0, -1, Sector.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
+		initEReference(getSector_Datastores(), this.getDataStore(), null, "datastores", null, 0, -1, Sector.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getSector__GetAllComponents(), this.getComponent(), "getAllComponents", 0, -1, IS_UNIQUE,
 				IS_ORDERED);
@@ -1865,6 +1971,17 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		initEReference(getImport_ReferencedModel(), this.getModel(), null, "referencedModel", null, 1, 1, Import.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(dataStoreEClass, DataStore.class, "DataStore", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+
+		initEOperation(getDataStore__ComputeName(), ecorePackage.getEString(), "computeName", 0, 1, IS_UNIQUE,
+				IS_ORDERED);
+
+		initEClass(dataNodeEClass, DataNode.class, "DataNode", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEOperation(getDataNode__ComputeName(), ecorePackage.getEString(), "computeName", 0, 1, IS_UNIQUE,
+				IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(queueTypeEEnum, QueueType.class, "QueueType");

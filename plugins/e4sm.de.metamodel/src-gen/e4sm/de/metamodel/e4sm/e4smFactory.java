@@ -283,6 +283,15 @@ public interface e4smFactory extends EFactory {
 	Import createImport();
 
 	/**
+	 * Returns a new object of class '<em>Data Store</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Data Store</em>'.
+	 * @generated
+	 */
+	DataStore createDataStore();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

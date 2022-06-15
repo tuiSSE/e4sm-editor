@@ -4,6 +4,7 @@ package e4sm.de.metamodel.e4sm.impl;
 
 import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.Connector;
+import e4sm.de.metamodel.e4sm.DataStore;
 import e4sm.de.metamodel.e4sm.Person;
 import e4sm.de.metamodel.e4sm.PhysicalComponent;
 import e4sm.de.metamodel.e4sm.Sector;
@@ -45,6 +46,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getMainResponsible <em>Main Responsible</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getPackages <em>Packages</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getSpecifiesComponent <em>Specifies Component</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getDatastores <em>Datastores</em>}</li>
  * </ul>
  *
  * @generated
@@ -112,6 +114,16 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	 * @ordered
 	 */
 	protected Component specifiesComponent;
+
+	/**
+	 * The cached value of the '{@link #getDatastores() <em>Datastores</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDatastores()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DataStore> datastores;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -321,6 +333,19 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<DataStore> getDatastores() {
+		if (datastores == null) {
+			datastores = new EObjectContainmentEList<DataStore>(DataStore.class, this, e4smPackage.PACKAGE__DATASTORES);
+		}
+		return datastores;
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -385,6 +410,8 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 			return ((InternalEList<?>) getPackages()).basicRemove(otherEnd, msgs);
 		case e4smPackage.PACKAGE__SPECIFIES_COMPONENT:
 			return basicSetSpecifiesComponent(null, msgs);
+		case e4smPackage.PACKAGE__DATASTORES:
+			return ((InternalEList<?>) getDatastores()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -418,6 +445,8 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 			if (resolve)
 				return getSpecifiesComponent();
 			return basicGetSpecifiesComponent();
+		case e4smPackage.PACKAGE__DATASTORES:
+			return getDatastores();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -460,6 +489,10 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 		case e4smPackage.PACKAGE__SPECIFIES_COMPONENT:
 			setSpecifiesComponent((Component) newValue);
 			return;
+		case e4smPackage.PACKAGE__DATASTORES:
+			getDatastores().clear();
+			getDatastores().addAll((Collection<? extends DataStore>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -495,6 +528,9 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 		case e4smPackage.PACKAGE__SPECIFIES_COMPONENT:
 			setSpecifiesComponent((Component) null);
 			return;
+		case e4smPackage.PACKAGE__DATASTORES:
+			getDatastores().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -524,6 +560,8 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 			return packages != null && !packages.isEmpty();
 		case e4smPackage.PACKAGE__SPECIFIES_COMPONENT:
 			return specifiesComponent != null;
+		case e4smPackage.PACKAGE__DATASTORES:
+			return datastores != null && !datastores.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

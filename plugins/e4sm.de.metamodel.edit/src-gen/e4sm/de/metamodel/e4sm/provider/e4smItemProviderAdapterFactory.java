@@ -740,6 +740,29 @@ public class e4smItemProviderAdapterFactory extends e4smAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.DataStore} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DataStoreItemProvider dataStoreItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.DataStore}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDataStoreAdapter() {
+		if (dataStoreItemProvider == null) {
+			dataStoreItemProvider = new DataStoreItemProvider(this);
+		}
+
+		return dataStoreItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -902,6 +925,8 @@ public class e4smItemProviderAdapterFactory extends e4smAdapterFactory
 			unitPrefixItemProvider.dispose();
 		if (importItemProvider != null)
 			importItemProvider.dispose();
+		if (dataStoreItemProvider != null)
+			dataStoreItemProvider.dispose();
 	}
 
 }
