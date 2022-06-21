@@ -2,8 +2,6 @@
  */
 package e4sm.de.metamodel.e4sm;
 
-import org.eclipse.emf.common.util.EList;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Pin</b></em>'.
@@ -28,22 +26,6 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface Pin extends DataNode {
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation"
-	 * @generated
-	 */
-	EList<Connector> getOutgoingConnectors();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation"
-	 * @generated
-	 */
-	EList<Connector> getIncomingConnectors();
 
 	/**
 	 * Returns the value of the '<em><b>Gateway Pin</b></em>' attribute.

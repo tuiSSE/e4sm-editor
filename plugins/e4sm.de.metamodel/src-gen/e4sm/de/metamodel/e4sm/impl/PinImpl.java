@@ -7,7 +7,6 @@ import e4sm.de.metamodel.e4sm.Package;
 import e4sm.de.metamodel.e4sm.Pin;
 import e4sm.de.metamodel.e4sm.RaceSemantic;
 import e4sm.de.metamodel.e4sm.e4smPackage;
-import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
@@ -91,66 +90,6 @@ public abstract class PinImpl extends DataNodeImpl implements Pin {
 	@Override
 	protected EClass eStaticClass() {
 		return e4smPackage.Literals.PIN;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	@Override
-	public EList<Connector> getOutgoingConnectors() {
-		// get the containing package
-		EList<Connector> resultList = new BasicEList<Connector>();
-		EObject currentElement = this.eContainer();
-		Package container = null;
-		while (currentElement != null && container == null) {
-			if (currentElement instanceof Package) {
-				container = (Package) currentElement;
-			}
-			currentElement = currentElement.eContainer();
-		}
-		// No containing package found
-		if (container == null) {
-			System.err.println("Warning: no containing package found for this pin");
-			return null;
-		}
-
-		container.getConnectors().stream().forEach(c -> {
-			if (c.getSource().equals(this))
-				resultList.add(c);
-		});
-		return resultList;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	@Override
-	public EList<Connector> getIncomingConnectors() {
-		// get the containing package
-		EList<Connector> resultList = new BasicEList<Connector>();
-		EObject currentElement = this.eContainer();
-		Package container = null;
-		while (currentElement != null && container == null) {
-			if (currentElement instanceof Package) {
-				container = (Package) currentElement;
-			}
-			currentElement = currentElement.eContainer();
-		}
-		// No containing package found
-		if (container == null) {
-			System.err.println("Warning: no containing package found for this pin");
-			return null;
-		}
-
-		container.getConnectors().stream().forEach(c -> {
-			if (c.getTarget().equals(this))
-				resultList.add(c);
-		});
-		return resultList;
 	}
 
 	/**
@@ -272,21 +211,6 @@ public abstract class PinImpl extends DataNodeImpl implements Pin {
 			return raceSemantic != RACE_SEMANTIC_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-		case e4smPackage.PIN___GET_INCOMING_CONNECTORS:
-			return getIncomingConnectors();
-		case e4smPackage.PIN___GET_OUTGOING_CONNECTORS:
-			return getOutgoingConnectors();
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

@@ -1080,26 +1080,6 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
-	public EOperation getPin__GetIncomingConnectors() {
-		return pinEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getPin__GetOutgoingConnectors() {
-		return pinEClass.getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getInputPin() {
 		return inputPinEClass;
 	}
@@ -1420,6 +1400,26 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
+	public EOperation getDataNode__GetOutgoingConnectors() {
+		return dataNodeEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getDataNode__GetIncomingConnectors() {
+		return dataNodeEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EEnum getQueueType() {
 		return queueTypeEEnum;
 	}
@@ -1576,8 +1576,6 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		createEAttribute(pinEClass, PIN__STREAM);
 		createEAttribute(pinEClass, PIN__RACE_SEMANTIC);
 		createEOperation(pinEClass, PIN___COMPUTE_NAME);
-		createEOperation(pinEClass, PIN___GET_INCOMING_CONNECTORS);
-		createEOperation(pinEClass, PIN___GET_OUTGOING_CONNECTORS);
 
 		inputPinEClass = createEClass(INPUT_PIN);
 		createEAttribute(inputPinEClass, INPUT_PIN__QUEUE_TYPE);
@@ -1623,6 +1621,8 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 
 		dataNodeEClass = createEClass(DATA_NODE);
 		createEOperation(dataNodeEClass, DATA_NODE___COMPUTE_NAME);
+		createEOperation(dataNodeEClass, DATA_NODE___GET_OUTGOING_CONNECTORS);
+		createEOperation(dataNodeEClass, DATA_NODE___GET_INCOMING_CONNECTORS);
 
 		// Create enums
 		queueTypeEEnum = createEEnum(QUEUE_TYPE);
@@ -1890,12 +1890,6 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 
 		initEOperation(getPin__ComputeName(), ecorePackage.getEString(), "computeName", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getPin__GetIncomingConnectors(), this.getConnector(), "getIncomingConnectors", 0, -1, IS_UNIQUE,
-				IS_ORDERED);
-
-		initEOperation(getPin__GetOutgoingConnectors(), this.getConnector(), "getOutgoingConnectors", 0, -1, IS_UNIQUE,
-				IS_ORDERED);
-
 		initEClass(inputPinEClass, InputPin.class, "InputPin", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getInputPin_QueueType(), this.getQueueType(), "queueType", null, 0, 1, InputPin.class,
@@ -1982,6 +1976,12 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 
 		initEOperation(getDataNode__ComputeName(), ecorePackage.getEString(), "computeName", 0, 1, IS_UNIQUE,
 				IS_ORDERED);
+
+		initEOperation(getDataNode__GetOutgoingConnectors(), this.getConnector(), "getOutgoingConnectors", 0, -1,
+				IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getDataNode__GetIncomingConnectors(), this.getConnector(), "getIncomingConnectors", 0, -1,
+				IS_UNIQUE, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(queueTypeEEnum, QueueType.class, "QueueType");

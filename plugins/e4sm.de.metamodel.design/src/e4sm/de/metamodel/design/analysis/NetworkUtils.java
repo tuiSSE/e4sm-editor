@@ -45,6 +45,12 @@ public class NetworkUtils {
 		return network;
 	}
 
+	/***
+	 * 
+	 * @param aPackage
+	 * @param network
+	 * @return
+	 */
 	private static MutableNetwork<Component, Connector> computePackageDependencyGraphInNetwork(Package aPackage,
 			MutableNetwork<Component, Connector> network) {
 		Utils.debug("Computing dependency graph for the package " + aPackage.getName());
@@ -54,29 +60,41 @@ public class NetworkUtils {
 		});
 		aPackage.getConnectors().forEach(c -> {
 			// Check if the source or target pin are "gateway pins"
-			if (c != null && c.getSource() != null && c.getTarget() != null) {
-				Utils.debug("Connector: " + c.getName());
-				// If the edge leads to an output pin of this package
-				Component realSource = (Component) c.getSource().eContainer();
-				Component realTarget = (Component) c.getTarget().eContainer();
-				if (c.getSource() instanceof OutputPin && c.getSource().isGatewayPin()) {
-					realSource = (Component) c.getSource().getIncomingConnectors().get(0).getSource().eContainer();
-					if (c.getTarget().isGatewayPin()) {
-						return;
+			if (c != null) {
+				var source = c.getSource();
+				var target = c.getTarget();
+				if (source != null && target != null) {
+					Utils.debug("Connector: " + c.getName());
+					// If the edge leads to an output pin of this package
+					Component realSource = (Component) source.eContainer();
+					Component realTarget = (Component) target.eContainer();
+					if (source instanceof OutputPin) {
+						OutputPin sourcePin = (OutputPin) source;
+						if (sourcePin.isGatewayPin()) {
+							realSource = (Component) sourcePin.getIncomingConnectors().get(0).getSource().eContainer();
+							if (((Pin)target).isGatewayPin()) {
+								return;
+							}
+						}
 					}
-				}
-				//Compute the actual target pin
-				Pin realTargetPin = c.getTarget();
-				while (realTargetPin instanceof OutputPin && realTargetPin.isGatewayPin() /*&& ((Component)c.getTarget().eContainer()).getComponents().size()==0*/) {
-					realTargetPin = realTargetPin.getOutgoingConnectors().get(0).getTarget();
-				}
-				realTarget = (Component) realTargetPin.eContainer();
+					// Compute the actual target pin
+					if (target instanceof Pin) {
+						Pin realTargetPin = (Pin) target;
+						while (realTargetPin instanceof OutputPin && realTargetPin
+								.isGatewayPin() /*
+												 * && ((Component)c.getTarget().eContainer()).getComponents().size()==0
+												 */) {
+							realTargetPin = (Pin) realTargetPin.getOutgoingConnectors().get(0).getTarget();
+						}
+						realTarget = (Component) realTargetPin.eContainer();
 //				if(c.getTarget().eContainer().equals(c.getSource().eContainer().eContainer())) {
 //					Utils.debug("EDGE TO PACKAGE PIN", true);
 //				}else {
-				Utils.debug(realSource.toString() + realTarget.toString());
-				network.addEdge(realSource, realTarget, c);
+						Utils.debug(realSource.toString() + realTarget.toString());
+						network.addEdge(realSource, realTarget, c);
+					}
 //				}
+				}
 			}
 		});
 		return network;
@@ -129,7 +147,8 @@ public class NetworkUtils {
 		final StringBuilder builder = new StringBuilder();
 		builder.append("digraph graphname {\r\n");
 		Utils.debug("NODES: " + network.nodes().toString());
-		Optional<Component> startNode = network.nodes().stream().filter(n -> n instanceof Sensor && new Random().nextBoolean())
+		Optional<Component> startNode = network.nodes().stream()
+				.filter(n -> n instanceof Sensor && new Random().nextBoolean())
 				.peek(e -> Utils.debug("FILTERED: " + e.getName())).findFirst();
 
 		network.nodes().forEach(n -> {

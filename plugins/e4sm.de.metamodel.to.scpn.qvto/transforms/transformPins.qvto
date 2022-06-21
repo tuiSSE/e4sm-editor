@@ -131,7 +131,7 @@ where {self.requiresDuplicate()} {
  	 	    var arc := new ArcType(parentName + self.getDirectionShort() + i.toString()+"_"+index.toString());
  	 	    arc.fromNode := it.id;
  	 	    arc.toNode := place.id;
- 	 	    arc.inscription.text := "new(1)"; //TODO: just a placeholder so far
+ 	 	    arc.inscription.text := "copy " + arc.inscription.text;
  	 	    arcs += arc;
  	 	    i := i + 1;
  	 	};

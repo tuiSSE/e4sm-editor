@@ -6,6 +6,7 @@ import e4sm.de.metamodel.e4sm.core.ParameterizableElement;
 import e4sm.de.metamodel.e4sm.core.TypedElement;
 
 import e4sm.de.metamodel.e4sm.execution.ConnectableNode;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,4 +31,20 @@ public interface DataNode extends TypedElement, ConnectableNode, Parameterizable
 	 * @generated
 	 */
 	String computeName();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	EList<Connector> getOutgoingConnectors();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	EList<Connector> getIncomingConnectors();
 } // DataNode

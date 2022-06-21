@@ -5,6 +5,11 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.MessageBox;
+import org.eclipse.swt.widgets.Shell;
+
 import com.google.common.graph.GraphBuilder;
 import com.google.common.graph.MutableGraph;
 
@@ -70,6 +75,7 @@ public class GraphUtils {
 	 * @param aModel
 	 */
 	public void computeModelDependencyGraph(Model aModel) {
+
 		System.out.println("Computing dependency graph for the model " + aModel.getName());
 		initializeGraph(true);
 		// System.out.println(URI.createPlatformResourceURI("test.gv", false));

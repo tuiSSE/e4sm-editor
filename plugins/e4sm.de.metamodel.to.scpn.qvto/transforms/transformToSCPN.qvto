@@ -14,15 +14,29 @@ configuration property packageName : String;
 main() {
 	log("\nTransforming E4SM Model to Stochastic Colored Petri Net");
 	
-	assert fatal (packageName <> null and not packageName->isEmpty() and packageName <> "") 
-	with log("Please set a package name (\'packageName\') to transform in the run configuration.");
+	var packages := e.rootObjects()[Model].packages;
+	var selectedPackage : Package;
 	
-	var packages : Bag(Package) = e.rootObjects()[Model].packages->select(p:Package | p.name = packageName);
+	assert fatal (not packages->isEmpty()) 
+		with log("The provided model does not contain any package. There is nothing to transform.");
 	
-	assert fatal (packages->size() > 0) 
-	with log("Could not find any package named \"" + packageName + "\". Please check your Run Configurations.");
+	if(packages->size() = 1){
+		selectedPackage := packages->asOrderedSet()->first();
+	}else{
 	
-	packages->map packageToSCPN();
+	
+		// if there is more than 1 package in the provided model, a packageName must be provided
+		if(packages->size() > 1){
+			assert fatal (packageName <> null and not packageName->isEmpty() and packageName <> "") 
+			with log("Please set a package name (\'packageName\') to transform in the run configuration or have a single root package");
+		};
+		
+		selectedPackage := packages->select(p:Package | p.name = packageName)->asOrderedSet()->first();
+		
+		assert fatal (not selectedPackage.oclIsUndefined()) 
+		with log("Could not find any package named \"" + packageName + "\". Please check your Run Configurations.");
+	};
+	selectedPackage.map packageToSCPN();
 	
 	
 	log("\nMain: Transformation completed to the end!");

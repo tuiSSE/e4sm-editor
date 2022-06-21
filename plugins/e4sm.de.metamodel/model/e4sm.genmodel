@@ -114,12 +114,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//Pin/stream"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//Pin/raceSemantic"/>
       <genOperations ecoreOperation="e4sm.ecore#//Pin/computeName"/>
-      <genOperations ecoreOperation="e4sm.ecore#//Pin/getIncomingConnectors"/>
-      <genOperations ecoreOperation="e4sm.ecore#//Pin/getOutgoingConnectors"/>
     </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//InputPin">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//InputPin/queueType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//InputPin/collect"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//InputPin/optional"/>
       <genOperations ecoreOperation="e4sm.ecore#//InputPin/computeName" body="&#x9;&#x9;if(this.getName() != null &amp;&amp; !this.getName().isBlank()) {&#xD;&#xA;&#x9;&#x9;&#x9;return this.getName();&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;var container = ((Component)this.eContainer());&#xD;&#xA;&#x9;&#x9;return  container.getName()+&quot;_in_&quot;+container.getPins().indexOf(this);"/>
     </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//OutputPin">
@@ -158,6 +157,8 @@
     </genClasses>
     <genClasses image="false" ecoreClass="e4sm.ecore#//DataNode">
       <genOperations ecoreOperation="e4sm.ecore#//DataNode/computeName"/>
+      <genOperations ecoreOperation="e4sm.ecore#//DataNode/getOutgoingConnectors"/>
+      <genOperations ecoreOperation="e4sm.ecore#//DataNode/getIncomingConnectors"/>
     </genClasses>
   </genPackages>
   <genPackages prefix="Core" basePackage="e4sm.de.metamodel.e4sm" ecorePackage="core.ecore#/">

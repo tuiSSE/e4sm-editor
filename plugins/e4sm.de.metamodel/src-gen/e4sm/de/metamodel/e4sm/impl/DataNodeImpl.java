@@ -2,8 +2,9 @@
  */
 package e4sm.de.metamodel.e4sm.impl;
 
+import e4sm.de.metamodel.e4sm.Connector;
 import e4sm.de.metamodel.e4sm.DataNode;
-
+import e4sm.de.metamodel.e4sm.Package;
 import e4sm.de.metamodel.e4sm.analysis.Parameter;
 
 import e4sm.de.metamodel.e4sm.core.CorePackage;
@@ -20,10 +21,11 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -96,6 +98,66 @@ public abstract class DataNodeImpl extends TypedElementImpl implements DataNode 
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public EList<Connector> getOutgoingConnectors() {
+		// get the containing package
+		EList<Connector> resultList = new BasicEList<Connector>();
+		EObject currentElement = this.eContainer();
+		Package container = null;
+		while (currentElement != null && container == null) {
+			if (currentElement instanceof Package) {
+				container = (Package) currentElement;
+			}
+			currentElement = currentElement.eContainer();
+		}
+		// No containing package found
+		if (container == null) {
+			System.err.println("Warning: no containing package found for this pin");
+			return null;
+		}
+
+		container.getConnectors().stream().forEach(c -> {
+			if (c.getSource().equals(this))
+				resultList.add(c);
+		});
+		return resultList;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public EList<Connector> getIncomingConnectors() {
+		// get the containing package
+		EList<Connector> resultList = new BasicEList<Connector>();
+		EObject currentElement = this.eContainer();
+		Package container = null;
+		while (currentElement != null && container == null) {
+			if (currentElement instanceof Package) {
+				container = (Package) currentElement;
+			}
+			currentElement = currentElement.eContainer();
+		}
+		// No containing package found
+		if (container == null) {
+			System.err.println("Warning: no containing package found for this pin");
+			return null;
+		}
+
+		container.getConnectors().stream().forEach(c -> {
+			if (c.getTarget().equals(this))
+				resultList.add(c);
+		});
+		return resultList;
 	}
 
 	/**
@@ -242,6 +304,10 @@ public abstract class DataNodeImpl extends TypedElementImpl implements DataNode 
 		switch (operationID) {
 		case e4smPackage.DATA_NODE___COMPUTE_NAME:
 			return computeName();
+		case e4smPackage.DATA_NODE___GET_OUTGOING_CONNECTORS:
+			return getOutgoingConnectors();
+		case e4smPackage.DATA_NODE___GET_INCOMING_CONNECTORS:
+			return getIncomingConnectors();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

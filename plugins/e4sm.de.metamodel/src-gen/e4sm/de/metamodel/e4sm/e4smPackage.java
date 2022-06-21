@@ -2178,13 +2178,31 @@ public interface e4smPackage extends EPackage {
 	int DATA_NODE___COMPUTE_NAME = CorePackage.TYPED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Get Outgoing Connectors</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_NODE___GET_OUTGOING_CONNECTORS = CorePackage.TYPED_ELEMENT_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get Incoming Connectors</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_NODE___GET_INCOMING_CONNECTORS = CorePackage.TYPED_ELEMENT_OPERATION_COUNT + 2;
+
+	/**
 	 * The number of operations of the '<em>Data Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_NODE_OPERATION_COUNT = CorePackage.TYPED_ELEMENT_OPERATION_COUNT + 1;
+	int DATA_NODE_OPERATION_COUNT = CorePackage.TYPED_ELEMENT_OPERATION_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.PinImpl <em>Pin</em>}' class.
@@ -2290,6 +2308,24 @@ public interface e4smPackage extends EPackage {
 	int PIN_FEATURE_COUNT = DATA_NODE_FEATURE_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Get Outgoing Connectors</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIN___GET_OUTGOING_CONNECTORS = DATA_NODE___GET_OUTGOING_CONNECTORS;
+
+	/**
+	 * The operation id for the '<em>Get Incoming Connectors</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIN___GET_INCOMING_CONNECTORS = DATA_NODE___GET_INCOMING_CONNECTORS;
+
+	/**
 	 * The operation id for the '<em>Compute Name</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2299,31 +2335,13 @@ public interface e4smPackage extends EPackage {
 	int PIN___COMPUTE_NAME = DATA_NODE_OPERATION_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Get Incoming Connectors</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PIN___GET_INCOMING_CONNECTORS = DATA_NODE_OPERATION_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Get Outgoing Connectors</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PIN___GET_OUTGOING_CONNECTORS = DATA_NODE_OPERATION_COUNT + 2;
-
-	/**
 	 * The number of operations of the '<em>Pin</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PIN_OPERATION_COUNT = DATA_NODE_OPERATION_COUNT + 3;
+	int PIN_OPERATION_COUNT = DATA_NODE_OPERATION_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2407,15 +2425,6 @@ public interface e4smPackage extends EPackage {
 	int INPUT_PIN_FEATURE_COUNT = PIN_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Get Incoming Connectors</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INPUT_PIN___GET_INCOMING_CONNECTORS = PIN___GET_INCOMING_CONNECTORS;
-
-	/**
 	 * The operation id for the '<em>Get Outgoing Connectors</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2423,6 +2432,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int INPUT_PIN___GET_OUTGOING_CONNECTORS = PIN___GET_OUTGOING_CONNECTORS;
+
+	/**
+	 * The operation id for the '<em>Get Incoming Connectors</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_PIN___GET_INCOMING_CONNECTORS = PIN___GET_INCOMING_CONNECTORS;
 
 	/**
 	 * The operation id for the '<em>Compute Name</em>' operation.
@@ -2524,15 +2542,6 @@ public interface e4smPackage extends EPackage {
 	int OUTPUT_PIN_FEATURE_COUNT = PIN_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Get Incoming Connectors</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OUTPUT_PIN___GET_INCOMING_CONNECTORS = PIN___GET_INCOMING_CONNECTORS;
-
-	/**
 	 * The operation id for the '<em>Get Outgoing Connectors</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2540,6 +2549,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int OUTPUT_PIN___GET_OUTGOING_CONNECTORS = PIN___GET_OUTGOING_CONNECTORS;
+
+	/**
+	 * The operation id for the '<em>Get Incoming Connectors</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_PIN___GET_INCOMING_CONNECTORS = PIN___GET_INCOMING_CONNECTORS;
 
 	/**
 	 * The operation id for the '<em>Compute Name</em>' operation.
@@ -2990,6 +3008,24 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATA_STORE_FEATURE_COUNT = DATA_NODE_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Outgoing Connectors</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_STORE___GET_OUTGOING_CONNECTORS = DATA_NODE___GET_OUTGOING_CONNECTORS;
+
+	/**
+	 * The operation id for the '<em>Get Incoming Connectors</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_STORE___GET_INCOMING_CONNECTORS = DATA_NODE___GET_INCOMING_CONNECTORS;
 
 	/**
 	 * The operation id for the '<em>Compute Name</em>' operation.
@@ -3734,26 +3770,6 @@ public interface e4smPackage extends EPackage {
 	EOperation getPin__ComputeName();
 
 	/**
-	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.Pin#getIncomingConnectors() <em>Get Incoming Connectors</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Incoming Connectors</em>' operation.
-	 * @see e4sm.de.metamodel.e4sm.Pin#getIncomingConnectors()
-	 * @generated
-	 */
-	EOperation getPin__GetIncomingConnectors();
-
-	/**
-	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.Pin#getOutgoingConnectors() <em>Get Outgoing Connectors</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Outgoing Connectors</em>' operation.
-	 * @see e4sm.de.metamodel.e4sm.Pin#getOutgoingConnectors()
-	 * @generated
-	 */
-	EOperation getPin__GetOutgoingConnectors();
-
-	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.InputPin <em>Input Pin</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4087,6 +4103,26 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getDataNode__ComputeName();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.DataNode#getOutgoingConnectors() <em>Get Outgoing Connectors</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Outgoing Connectors</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.DataNode#getOutgoingConnectors()
+	 * @generated
+	 */
+	EOperation getDataNode__GetOutgoingConnectors();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.DataNode#getIncomingConnectors() <em>Get Incoming Connectors</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Incoming Connectors</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.DataNode#getIncomingConnectors()
+	 * @generated
+	 */
+	EOperation getDataNode__GetIncomingConnectors();
 
 	/**
 	 * Returns the meta object for enum '{@link e4sm.de.metamodel.e4sm.QueueType <em>Queue Type</em>}'.
@@ -4716,22 +4752,6 @@ public interface e4smPackage extends EPackage {
 		EOperation PIN___COMPUTE_NAME = eINSTANCE.getPin__ComputeName();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Incoming Connectors</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation PIN___GET_INCOMING_CONNECTORS = eINSTANCE.getPin__GetIncomingConnectors();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Outgoing Connectors</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation PIN___GET_OUTGOING_CONNECTORS = eINSTANCE.getPin__GetOutgoingConnectors();
-
-		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.InputPinImpl <em>Input Pin</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5012,6 +5032,22 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation DATA_NODE___COMPUTE_NAME = eINSTANCE.getDataNode__ComputeName();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Outgoing Connectors</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DATA_NODE___GET_OUTGOING_CONNECTORS = eINSTANCE.getDataNode__GetOutgoingConnectors();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Incoming Connectors</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DATA_NODE___GET_INCOMING_CONNECTORS = eINSTANCE.getDataNode__GetIncomingConnectors();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.QueueType <em>Queue Type</em>}' enum.
