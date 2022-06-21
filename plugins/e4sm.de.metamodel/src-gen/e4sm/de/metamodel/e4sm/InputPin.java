@@ -17,6 +17,7 @@ package e4sm.de.metamodel.e4sm;
  * <ul>
  *   <li>{@link e4sm.de.metamodel.e4sm.InputPin#getQueueType <em>Queue Type</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.InputPin#getCollect <em>Collect</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.InputPin#isOptional <em>Optional</em>}</li>
  * </ul>
  *
  * @see e4sm.de.metamodel.e4sm.e4smPackage#getInputPin()
@@ -75,6 +76,29 @@ public interface InputPin extends Pin {
 	 * @generated
 	 */
 	void setCollect(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Optional</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Optional</em>' attribute.
+	 * @see #setOptional(boolean)
+	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getInputPin_Optional()
+	 * @model default="false"
+	 * @generated
+	 */
+	boolean isOptional();
+
+	/**
+	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.InputPin#isOptional <em>Optional</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Optional</em>' attribute.
+	 * @see #isOptional()
+	 * @generated
+	 */
+	void setOptional(boolean value);
 
 	/**
 	 * <!-- begin-user-doc -->

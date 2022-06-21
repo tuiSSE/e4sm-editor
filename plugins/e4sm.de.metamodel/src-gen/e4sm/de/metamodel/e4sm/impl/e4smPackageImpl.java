@@ -1110,6 +1110,16 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getInputPin_Optional() {
+		return (EAttribute) inputPinEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getInputPin__ComputeName() {
 		return inputPinEClass.getEOperations().get(0);
 	}
@@ -1580,6 +1590,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		inputPinEClass = createEClass(INPUT_PIN);
 		createEAttribute(inputPinEClass, INPUT_PIN__QUEUE_TYPE);
 		createEAttribute(inputPinEClass, INPUT_PIN__COLLECT);
+		createEAttribute(inputPinEClass, INPUT_PIN__OPTIONAL);
 		createEOperation(inputPinEClass, INPUT_PIN___COMPUTE_NAME);
 
 		outputPinEClass = createEClass(OUTPUT_PIN);
@@ -1895,6 +1906,8 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		initEAttribute(getInputPin_QueueType(), this.getQueueType(), "queueType", null, 0, 1, InputPin.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getInputPin_Collect(), theEcorePackage.getEInt(), "collect", "1", 0, 1, InputPin.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getInputPin_Optional(), theEcorePackage.getEBoolean(), "optional", "false", 0, 1, InputPin.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getInputPin__ComputeName(), ecorePackage.getEString(), "computeName", 0, 1, IS_UNIQUE,

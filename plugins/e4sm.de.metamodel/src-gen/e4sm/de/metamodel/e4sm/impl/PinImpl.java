@@ -2,16 +2,11 @@
  */
 package e4sm.de.metamodel.e4sm.impl;
 
-import e4sm.de.metamodel.e4sm.Connector;
-import e4sm.de.metamodel.e4sm.Package;
 import e4sm.de.metamodel.e4sm.Pin;
 import e4sm.de.metamodel.e4sm.RaceSemantic;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.BasicEList;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**

@@ -1051,6 +1051,7 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (
+	 *         optional?='optional'? 
 	 *         stream?='stream'? 
 	 *         type=[TypeSpecification|ID]? 
 	 *         name=EString 

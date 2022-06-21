@@ -2416,13 +2416,22 @@ public interface e4smPackage extends EPackage {
 	int INPUT_PIN__COLLECT = PIN_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Optional</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_PIN__OPTIONAL = PIN_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Input Pin</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_PIN_FEATURE_COUNT = PIN_FEATURE_COUNT + 2;
+	int INPUT_PIN_FEATURE_COUNT = PIN_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Get Outgoing Connectors</em>' operation.
@@ -3802,6 +3811,17 @@ public interface e4smPackage extends EPackage {
 	EAttribute getInputPin_Collect();
 
 	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.InputPin#isOptional <em>Optional</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Optional</em>'.
+	 * @see e4sm.de.metamodel.e4sm.InputPin#isOptional()
+	 * @see #getInputPin()
+	 * @generated
+	 */
+	EAttribute getInputPin_Optional();
+
+	/**
 	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.InputPin#computeName() <em>Compute Name</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4776,6 +4796,14 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute INPUT_PIN__COLLECT = eINSTANCE.getInputPin_Collect();
+
+		/**
+		 * The meta object literal for the '<em><b>Optional</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INPUT_PIN__OPTIONAL = eINSTANCE.getInputPin_Optional();
 
 		/**
 		 * The meta object literal for the '<em><b>Compute Name</b></em>' operation.

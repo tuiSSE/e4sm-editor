@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.InputPinImpl#getQueueType <em>Queue Type</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.InputPinImpl#getCollect <em>Collect</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.InputPinImpl#isOptional <em>Optional</em>}</li>
  * </ul>
  *
  * @generated
@@ -65,6 +66,25 @@ public class InputPinImpl extends PinImpl implements InputPin {
 	 * @ordered
 	 */
 	protected int collect = COLLECT_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isOptional() <em>Optional</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isOptional()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean OPTIONAL_EDEFAULT = false;
+	/**
+	 * The cached value of the '{@link #isOptional() <em>Optional</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isOptional()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean optional = OPTIONAL_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -138,6 +158,30 @@ public class InputPinImpl extends PinImpl implements InputPin {
 	 * @generated
 	 */
 	@Override
+	public boolean isOptional() {
+		return optional;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setOptional(boolean newOptional) {
+		boolean oldOptional = optional;
+		optional = newOptional;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.INPUT_PIN__OPTIONAL, oldOptional,
+					optional));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public String computeName() {
 		if (this.getName() != null && !this.getName().isBlank()) {
 			return this.getName();
@@ -158,6 +202,8 @@ public class InputPinImpl extends PinImpl implements InputPin {
 			return getQueueType();
 		case e4smPackage.INPUT_PIN__COLLECT:
 			return getCollect();
+		case e4smPackage.INPUT_PIN__OPTIONAL:
+			return isOptional();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -175,6 +221,9 @@ public class InputPinImpl extends PinImpl implements InputPin {
 			return;
 		case e4smPackage.INPUT_PIN__COLLECT:
 			setCollect((Integer) newValue);
+			return;
+		case e4smPackage.INPUT_PIN__OPTIONAL:
+			setOptional((Boolean) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -194,6 +243,9 @@ public class InputPinImpl extends PinImpl implements InputPin {
 		case e4smPackage.INPUT_PIN__COLLECT:
 			setCollect(COLLECT_EDEFAULT);
 			return;
+		case e4smPackage.INPUT_PIN__OPTIONAL:
+			setOptional(OPTIONAL_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -210,6 +262,8 @@ public class InputPinImpl extends PinImpl implements InputPin {
 			return queueType != QUEUE_TYPE_EDEFAULT;
 		case e4smPackage.INPUT_PIN__COLLECT:
 			return collect != COLLECT_EDEFAULT;
+		case e4smPackage.INPUT_PIN__OPTIONAL:
+			return optional != OPTIONAL_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -243,6 +297,8 @@ public class InputPinImpl extends PinImpl implements InputPin {
 		result.append(queueType);
 		result.append(", collect: ");
 		result.append(collect);
+		result.append(", optional: ");
+		result.append(optional);
 		result.append(')');
 		return result.toString();
 	}

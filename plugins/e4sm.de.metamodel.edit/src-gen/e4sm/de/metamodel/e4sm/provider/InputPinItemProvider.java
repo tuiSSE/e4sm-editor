@@ -47,6 +47,7 @@ public class InputPinItemProvider extends PinItemProvider {
 
 			addQueueTypePropertyDescriptor(object);
 			addCollectPropertyDescriptor(object);
+			addOptionalPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -81,6 +82,22 @@ public class InputPinItemProvider extends PinItemProvider {
 								"_UI_InputPin_type"),
 						e4smPackage.Literals.INPUT_PIN__COLLECT, true, false, false,
 						ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Optional feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOptionalPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_InputPin_optional_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_InputPin_optional_feature",
+								"_UI_InputPin_type"),
+						e4smPackage.Literals.INPUT_PIN__OPTIONAL, true, false, false,
+						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -129,6 +146,7 @@ public class InputPinItemProvider extends PinItemProvider {
 		switch (notification.getFeatureID(InputPin.class)) {
 		case e4smPackage.INPUT_PIN__QUEUE_TYPE:
 		case e4smPackage.INPUT_PIN__COLLECT:
+		case e4smPackage.INPUT_PIN__OPTIONAL:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}

@@ -72,6 +72,195 @@
       <graphics x="-10" y="-40"/>
     </label>
   </place>
+  <place capacity="0" id="0.30" initialMarking="" queue="Random"
+    tokentype="int" type="node" watch="false">
+    <graphics orientation="0" x="1070" y="270"/>
+    <label id="0.30.0" text="P111" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </place>
+  <place capacity="0" id="0.31" initialMarking="" queue="Random"
+    tokentype="int" type="node" watch="false">
+    <graphics orientation="0" x="1340" y="200"/>
+    <label id="0.31.0" text="P211" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </place>
+  <place capacity="0" id="0.32" initialMarking="" queue="Random"
+    tokentype="int" type="node" watch="false">
+    <graphics orientation="0" x="1340" y="270"/>
+    <label id="0.32.0" text="P311" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </place>
+  <place capacity="0" id="0.33" initialMarking="" queue="Random"
+    tokentype="int" type="node" watch="false">
+    <graphics orientation="0" x="1340" y="350"/>
+    <label id="0.33.0" text="P411" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </place>
+  <place capacity="0" id="0.34" initialMarking="0, 0, 0" queue="Random"
+    tokentype="int" type="node" watch="false">
+    <graphics orientation="0" x="870" y="240"/>
+    <label id="0.34.0" text="P511" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </place>
+  <place capacity="0" id="0.35" initialMarking="0" queue="Random"
+    tokentype="int" type="node" watch="false">
+    <graphics orientation="0" x="870" y="320"/>
+    <label id="0.35.0" text="P611" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </place>
+  <place capacity="0" id="0.47" initialMarking="" queue="Random"
+    tokentype="int" type="node" watch="false">
+    <graphics orientation="0" x="1070" y="530"/>
+    <label id="0.47.0" text="P112" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </place>
+  <place capacity="0" id="0.48" initialMarking="" queue="Random"
+    tokentype="int" type="node" watch="false">
+    <graphics orientation="0" x="1340" y="460"/>
+    <label id="0.48.0" text="P212" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </place>
+  <place capacity="0" id="0.49" initialMarking="" queue="Random"
+    tokentype="int" type="node" watch="false">
+    <graphics orientation="0" x="1340" y="530"/>
+    <label id="0.49.0" text="P312" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </place>
+  <place capacity="0" id="0.50" initialMarking="" queue="Random"
+    tokentype="int" type="node" watch="false">
+    <graphics orientation="0" x="1340" y="610"/>
+    <label id="0.50.0" text="P412" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </place>
+  <place capacity="0" id="0.51" initialMarking="0, 0, 0" queue="Random"
+    tokentype="int" type="node" watch="false">
+    <graphics orientation="0" x="870" y="500"/>
+    <label id="0.51.0" text="P512" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </place>
+  <place capacity="0" id="0.52" initialMarking="0" queue="Random"
+    tokentype="int" type="node" watch="false">
+    <graphics orientation="0" x="870" y="580"/>
+    <label id="0.52.0" text="P612" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </place>
+  <place capacity="0" id="0.65" initialMarking="" queue="Random"
+    tokentype="int" type="node" watch="false">
+    <graphics orientation="0" x="1080" y="770"/>
+    <label id="0.65.0" text="P1121" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </place>
+  <place capacity="0" id="0.66" initialMarking="" queue="Random"
+    tokentype="int" type="node" watch="false">
+    <graphics orientation="0" x="1290" y="700"/>
+    <label id="0.66.0" text="P2121" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </place>
+  <place capacity="0" id="0.67" initialMarking="" queue="Random"
+    tokentype="int" type="node" watch="false">
+    <graphics orientation="0" x="1290" y="770"/>
+    <label id="0.67.0" text="P3121" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </place>
+  <place capacity="0" id="0.68" initialMarking="" queue="Random"
+    tokentype="int" type="node" watch="false">
+    <graphics orientation="0" x="1290" y="850"/>
+    <label id="0.68.0" text="P4121" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </place>
+  <place capacity="0" id="0.69" initialMarking="0.0" queue="Random"
+    tokentype="int" type="node" watch="false">
+    <graphics orientation="0" x="880" y="740"/>
+    <label id="0.69.0" text="P5121" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </place>
+  <place capacity="0" id="0.70" initialMarking="0" queue="Random"
+    tokentype="int" type="node" watch="false">
+    <graphics orientation="0" x="880" y="820"/>
+    <label id="0.70.0" text="P6121" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </place>
+  <place capacity="0" id="0.82" initialMarking="" queue="FIFO"
+    tokentype="int" type="node" watch="false">
+    <graphics orientation="0" x="890" y="1090"/>
+    <label id="0.82.0" text="DSin1" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </place>
+  <place capacity="1" id="0.83" initialMarking="" queue="Random"
+    tokentype="int" type="node" watch="false">
+    <graphics orientation="0" x="1150" y="1070"/>
+    <label id="0.83.0" text="DS1" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </place>
+  <place capacity="0" id="0.84" initialMarking="" queue="Random"
+    tokentype="int" type="node" watch="false">
+    <graphics orientation="0" x="1310" y="1070"/>
+    <label id="0.84.0" text="DSout1" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </place>
+  <place capacity="0" id="0.105" initialMarking="" queue="Random"
+    tokentype="int" type="node" watch="false">
+    <graphics orientation="0" x="970" y="1370"/>
+    <label id="0.105.0" text="Optional11" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </place>
+  <place capacity="0" id="0.106" initialMarking="" queue="Random"
+    tokentype="int" type="node" watch="false">
+    <graphics orientation="0" x="970" y="1450"/>
+    <label id="0.106.0" text="In211" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </place>
+  <place capacity="0" id="0.107" initialMarking="" queue="Random"
+    tokentype="int" type="node" watch="false">
+    <graphics orientation="0" x="970" y="1520"/>
+    <label id="0.107.0" text="In311" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </place>
+  <place capacity="0" id="0.108" initialMarking="" queue="Random"
+    tokentype="int" type="node" watch="false">
+    <graphics orientation="0" x="1250" y="1450"/>
+    <label id="0.108.0" text="ComponentReady11" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </place>
+  <place capacity="0" id="0.109" initialMarking="" queue="Random"
+    tokentype="int" type="node" watch="false">
+    <graphics orientation="0" x="1440" y="1450"/>
+    <label id="0.109.0" text="Output11" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </place>
+  <place capacity="1" id="0.110" initialMarking="" queue="Random"
+    tokentype="int" type="node" watch="false">
+    <graphics orientation="0" x="1100" y="1370"/>
+    <label id="0.110.0" text="P01" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </place>
   <timedTransition id="0.0" serverType="ExclusiveServer"
     specType="Automatic" takeFirst="false" timeFunction="EXP(1.0)"
     type="node" watch="false">
@@ -96,6 +285,78 @@
       <graphics x="-10" y="-40"/>
     </label>
   </timedTransition>
+  <timedTransition id="0.36" serverType="ExclusiveServer"
+    specType="Automatic" takeFirst="false" timeFunction="EXP(1.0)"
+    type="node" watch="false">
+    <graphics orientation="0" x="1190" y="270"/>
+    <label id="0.36.0" text="T211" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </timedTransition>
+  <timedTransition id="0.53" serverType="ExclusiveServer"
+    specType="Automatic" takeFirst="false" timeFunction="EXP(1.0)"
+    type="node" watch="false">
+    <graphics orientation="0" x="1190" y="530"/>
+    <label id="0.53.0" text="T212" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </timedTransition>
+  <timedTransition id="0.71" serverType="ExclusiveServer"
+    specType="Automatic" takeFirst="false" timeFunction="EXP(1.0)"
+    type="node" watch="false">
+    <graphics orientation="0" x="1200" y="770"/>
+    <label id="0.71.0" text="T2121" type="text">
+      <graphics x="-20" y="-40"/>
+    </label>
+  </timedTransition>
+  <timedTransition id="0.85" serverType="ExclusiveServer"
+    specType="Automatic" takeFirst="false" timeFunction="EXP(1.0)"
+    type="node" watch="false">
+    <graphics orientation="0" x="780" y="1090"/>
+    <label id="0.85.0" text="Source1" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </timedTransition>
+  <timedTransition id="0.86" serverType="ExclusiveServer"
+    specType="Automatic" takeFirst="false" timeFunction="EXP(1.0)"
+    type="node" watch="false">
+    <graphics orientation="0" x="1390" y="1070"/>
+    <label id="0.86.0" text="Consumer1" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </timedTransition>
+  <timedTransition id="0.111" serverType="ExclusiveServer"
+    specType="Automatic" takeFirst="false" timeFunction="EXP(1.0)"
+    type="node" watch="false">
+    <graphics orientation="0" x="1340" y="1450"/>
+    <label id="0.111.0" text="ExecuteComponent11" type="text">
+      <graphics x="-10" y="70"/>
+    </label>
+  </timedTransition>
+  <timedTransition id="0.112" serverType="ExclusiveServer"
+    specType="Automatic" takeFirst="false" timeFunction="EXP(3.0)"
+    type="node" watch="false">
+    <graphics orientation="0" x="830" y="1370"/>
+    <label id="0.112.0" text="Source111" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </timedTransition>
+  <timedTransition id="0.113" serverType="ExclusiveServer"
+    specType="Automatic" takeFirst="false" timeFunction="EXP(1.0)"
+    type="node" watch="false">
+    <graphics orientation="0" x="830" y="1450"/>
+    <label id="0.113.0" text="Source211" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </timedTransition>
+  <timedTransition id="0.114" serverType="ExclusiveServer"
+    specType="Automatic" takeFirst="false" timeFunction="EXP(1.0)"
+    type="node" watch="false">
+    <graphics orientation="0" x="830" y="1520"/>
+    <label id="0.114.0" text="Source311" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </timedTransition>
   <immediateTransition id="0.12" priority="1"
     serverType="ExclusiveServer" specType="Automatic" takeFirst="false"
     type="node" watch="false" weight="1.0">
@@ -109,6 +370,79 @@
     type="node" watch="false" weight="1.0">
     <graphics orientation="0" x="410" y="820"/>
     <label id="0.23.0" text="T0" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </immediateTransition>
+  <immediateTransition id="0.37" priority="1"
+    serverType="ExclusiveServer" specType="Automatic" takeFirst="false"
+    type="node" watch="false" weight="1.0">
+    <graphics orientation="0" x="950" y="270"/>
+    <label id="0.37.0" text="T111" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </immediateTransition>
+  <immediateTransition id="0.54" priority="1"
+    serverType="ExclusiveServer" specType="Automatic" takeFirst="false"
+    type="node" watch="false" weight="1.0">
+    <graphics orientation="0" x="950" y="530"/>
+    <label id="0.54.0" text="T112" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </immediateTransition>
+  <immediateTransition id="0.72" priority="1"
+    serverType="ExclusiveServer" specType="Automatic" takeFirst="false"
+    type="node" watch="false" weight="1.0">
+    <graphics orientation="0" x="960" y="770"/>
+    <label id="0.72.0" text="T1121" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </immediateTransition>
+  <immediateTransition globalGuard="#DS==0" id="0.87" localGuard=""
+    priority="1" serverType="ExclusiveServer" specType="Automatic"
+    takeFirst="false" type="node" watch="false" weight="1.0">
+    <graphics orientation="0" x="1020" y="980"/>
+    <label id="0.87.0" text="Init1" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </immediateTransition>
+  <immediateTransition id="0.88" priority="1"
+    serverType="ExclusiveServer" specType="Automatic" takeFirst="false"
+    type="node" watch="false" weight="1.0">
+    <graphics orientation="0" x="1020" y="1200"/>
+    <label id="0.88.0" text="Update1" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </immediateTransition>
+  <immediateTransition globalGuard="#DSout==0" id="0.89" priority="1"
+    serverType="ExclusiveServer" specType="Automatic" takeFirst="false"
+    type="node" watch="false" weight="1.0">
+    <graphics orientation="0" x="1230" y="1070"/>
+    <label id="0.89.0" text="Read1" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </immediateTransition>
+  <immediateTransition id="0.115" priority="1"
+    serverType="ExclusiveServer" specType="Automatic" takeFirst="false"
+    type="node" watch="false" weight="1.0">
+    <graphics orientation="0" x="1150" y="1450"/>
+    <label id="0.115.0" text="Ready11" type="text">
+      <graphics x="-20" y="50"/>
+    </label>
+  </immediateTransition>
+  <immediateTransition id="0.116" priority="1"
+    serverType="ExclusiveServer" specType="Automatic" takeFirst="false"
+    type="node" watch="false" weight="1.0">
+    <graphics orientation="0" x="1030" y="1370"/>
+    <label id="0.116.0" text="T01" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </immediateTransition>
+  <immediateTransition
+    globalGuard="#In21>0 &amp;&amp; #In31>0 &amp;&amp; #Optional1==0"
+    id="0.117" priority="1" serverType="ExclusiveServer"
+    specType="Automatic" takeFirst="false" type="node" watch="false" weight="1.0">
+    <graphics orientation="0" x="1010" y="1290"/>
+    <label id="0.117.0" text="CreateDefault1" type="text">
       <graphics x="-10" y="-40"/>
     </label>
   </immediateTransition>
@@ -172,11 +506,310 @@
       <graphics x="0" y="0"/>
     </inscription>
   </arc>
+  <arc fromNode="0.34" id="0.38" toNode="0.37" type="connector">
+    <inscription id="0.38.0" text="3'x" type="inscriptionText">
+      <graphics x="-10" y="-15"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.35" id="0.39" toNode="0.37" type="connector">
+    <inscription id="0.39.0" text="z" type="inscriptionText">
+      <graphics x="0" y="25"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.37" id="0.40" toNode="0.30" type="connector">
+    <inscription id="0.40.0" text="z" type="inscriptionText">
+      <graphics x="-10" y="-20"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.30" id="0.41" toNode="0.36" type="connector">
+    <inscription id="0.41.0" text="x" type="inscriptionText">
+      <graphics x="0" y="-20"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.36" id="0.42" toNode="0.31" type="connector">
+    <inscription id="0.42.0" text="new(1)" type="inscriptionText">
+      <graphics x="50" y="-20"/>
+    </inscription>
+    <handle id="0.42.1">
+      <graphics orientation="0" x="1240" y="200"/>
+    </handle>
+  </arc>
+  <arc fromNode="0.36" id="0.43" toNode="0.32" type="connector">
+    <inscription id="0.43.0" text="new(1)" type="inscriptionText">
+      <graphics x="-5" y="-20"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.36" id="0.44" toNode="0.33" type="connector">
+    <inscription id="0.44.0" text="new(1)" type="inscriptionText">
+      <graphics x="70" y="0"/>
+    </inscription>
+    <handle id="0.44.1">
+      <graphics orientation="0" x="1220" y="350"/>
+    </handle>
+  </arc>
+  <arc fromNode="0.51" id="0.55" toNode="0.54" type="connector">
+    <inscription id="0.55.0" text="3'x" type="inscriptionText">
+      <graphics x="-10" y="-15"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.52" id="0.56" toNode="0.54" type="connector">
+    <inscription id="0.56.0" text="z" type="inscriptionText">
+      <graphics x="0" y="25"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.54" id="0.57" toNode="0.47" type="connector">
+    <inscription id="0.57.0" text="z" type="inscriptionText">
+      <graphics x="-10" y="-20"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.47" id="0.58" toNode="0.53" type="connector">
+    <inscription id="0.58.0" text="x" type="inscriptionText">
+      <graphics x="0" y="-20"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.53" id="0.59" toNode="0.48" type="connector">
+    <inscription id="0.59.0" text="new(1)" type="inscriptionText">
+      <graphics x="50" y="-20"/>
+    </inscription>
+    <handle id="0.59.1">
+      <graphics orientation="0" x="1240" y="460"/>
+    </handle>
+  </arc>
+  <arc fromNode="0.53" id="0.60" toNode="0.49" type="connector">
+    <inscription id="0.60.0" text="new(1)" type="inscriptionText">
+      <graphics x="-5" y="-20"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.53" id="0.61" toNode="0.50" type="connector">
+    <inscription id="0.61.0" text="new(1)" type="inscriptionText">
+      <graphics x="70" y="0"/>
+    </inscription>
+    <handle id="0.61.1">
+      <graphics orientation="0" x="1220" y="610"/>
+    </handle>
+  </arc>
+  <arc fromNode="0.69" id="0.73" toNode="0.72" type="connector">
+    <inscription id="0.73.0" text="x" type="inscriptionText">
+      <graphics x="-10" y="-15"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.70" id="0.74" toNode="0.72" type="connector">
+    <inscription id="0.74.0" text="z" type="inscriptionText">
+      <graphics x="0" y="45"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.72" id="0.75" toNode="0.65" type="connector">
+    <inscription id="0.75.0" text="z" type="inscriptionText">
+      <graphics x="-20" y="50"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.65" id="0.76" toNode="0.71" type="connector">
+    <inscription id="0.76.0" text="x" type="inscriptionText">
+      <graphics x="0" y="0"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.71" id="0.77" toNode="0.66" type="connector">
+    <inscription id="0.77.0" text="500'new(1)" type="inscriptionText">
+      <graphics x="-30" y="-20"/>
+    </inscription>
+    <handle id="0.77.1">
+      <graphics orientation="0" x="1220" y="700"/>
+    </handle>
+  </arc>
+  <arc fromNode="0.71" id="0.78" toNode="0.67" type="connector">
+    <inscription id="0.78.0" text="new(1)" type="inscriptionText">
+      <graphics x="-35" y="-20"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.71" id="0.79" toNode="0.68" type="connector">
+    <inscription id="0.79.0" text="new(1)" type="inscriptionText">
+      <graphics x="30" y="-20"/>
+    </inscription>
+    <handle id="0.79.1">
+      <graphics orientation="0" x="1210" y="850"/>
+    </handle>
+  </arc>
+  <arc fromNode="0.82" id="0.90" toNode="0.87" type="connector">
+    <inscription id="0.90.0" text="x" type="inscriptionText">
+      <graphics x="-5" y="-25"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.82" id="0.91" toNode="0.88" type="connector">
+    <inscription id="0.91.0" text="x" type="inscriptionText">
+      <graphics x="25" y="-5"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.87" id="0.92" toNode="0.83" type="connector">
+    <inscription id="0.92.0" text="x" type="inscriptionText">
+      <graphics x="-25" y="-25"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.88" id="0.93" toNode="0.83" type="connector">
+    <inscription id="0.93.0" text="x" type="inscriptionText">
+      <graphics x="-5" y="-5"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.83" id="0.94" toNode="0.88" type="connector">
+    <inscription id="0.94.0" text="delete" type="inscriptionText">
+      <graphics x="0" y="-70"/>
+    </inscription>
+    <handle id="0.94.1">
+      <graphics orientation="0" x="1150" y="1200"/>
+    </handle>
+  </arc>
+  <arc fromNode="0.83" id="0.95" toNode="0.89" type="connector">
+    <inscription id="0.95.0" text="x" type="inscriptionText">
+      <graphics x="0" y="-20"/>
+    </inscription>
+    <handle id="0.95.1">
+      <graphics orientation="0" x="1190" y="1050"/>
+    </handle>
+  </arc>
+  <arc fromNode="0.89" id="0.96" toNode="0.83" type="connector">
+    <inscription id="0.96.0" text="x" type="inscriptionText">
+      <graphics x="0" y="30"/>
+    </inscription>
+    <handle id="0.96.1">
+      <graphics orientation="0" x="1190" y="1090"/>
+    </handle>
+  </arc>
+  <arc fromNode="0.89" id="0.97" toNode="0.84" type="connector">
+    <inscription id="0.97.0" text="copy x" type="inscriptionText">
+      <graphics x="-30" y="-20"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.85" id="0.98" toNode="0.82" type="connector">
+    <inscription id="0.98.0" text="new(1)" type="inscriptionText">
+      <graphics x="-25" y="-20"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.84" id="0.99" toNode="0.86" type="connector">
+    <inscription id="0.99.0" text="x" type="inscriptionText">
+      <graphics x="-10" y="-10"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.84" id="0.100" toNode="0.88" type="connector">
+    <inscription id="0.100.0" text="remove" type="inscriptionText">
+      <graphics x="0" y="-70"/>
+    </inscription>
+    <handle id="0.100.1">
+      <graphics orientation="0" x="1310" y="1200"/>
+    </handle>
+  </arc>
+  <arc fromNode="0.106" id="0.118" toNode="0.115" type="connector">
+    <inscription id="0.118.0" text="y" type="inscriptionText">
+      <graphics x="0" y="0"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.107" id="0.119" toNode="0.115" type="connector">
+    <inscription id="0.119.0" text="z" type="inscriptionText">
+      <graphics x="0" y="-5"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.108" id="0.120" toNode="0.111" type="connector">
+    <inscription id="0.120.0" text="x" type="inscriptionText">
+      <graphics x="-5" y="0"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.111" id="0.121" toNode="0.109" type="connector">
+    <inscription id="0.121.0" text="x" type="inscriptionText">
+      <graphics x="0" y="-10"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.115" id="0.122" toNode="0.108" type="connector">
+    <inscription id="0.122.0" text="new(1)" type="inscriptionText">
+      <graphics x="-30" y="-20"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.112" id="0.123" toNode="0.105" type="connector">
+    <inscription id="0.123.0" text="new(1)" type="inscriptionText">
+      <graphics x="-40" y="-20"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.113" id="0.124" toNode="0.106" type="connector">
+    <inscription id="0.124.0" text="new(1)" type="inscriptionText">
+      <graphics x="-40" y="-20"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.114" id="0.125" toNode="0.107" type="connector">
+    <inscription id="0.125.0" text="new(1)" type="inscriptionText">
+      <graphics x="-40" y="-20"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.110" id="0.126" toNode="0.115" type="connector">
+    <inscription id="0.126.0" text="x" type="inscriptionText">
+      <graphics x="-5" y="0"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.105" id="0.127" toNode="0.116" type="connector">
+    <inscription id="0.127.0" text="x" type="inscriptionText">
+      <graphics x="0" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.116" id="0.128" toNode="0.110" type="connector">
+    <inscription id="0.128.0" text="x" type="inscriptionText">
+      <graphics x="-15" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.117" id="0.129" toNode="0.110" type="connector">
+    <inscription id="0.129.0" text="new(1)" type="inscriptionText">
+      <graphics x="-5" y="-20"/>
+    </inscription>
+  </arc>
   <comment commentText="Sensor named S1" id="0.3" type="text">
     <graphics x="330" y="190"/>
   </comment>
   <comment commentText="Component named PC" id="0.21" type="text">
     <graphics x="320" y="350"/>
+  </comment>
+  <comment commentText="Collect" id="0.45" type="text">
+    <graphics x="1050" y="160"/>
+  </comment>
+  <comment commentText="DIFF!" id="0.46" type="text">
+    <graphics x="900" y="220"/>
+  </comment>
+  <comment commentText="Collect" id="0.62" type="text">
+    <graphics x="1050" y="420"/>
+  </comment>
+  <comment commentText="DIFF!" id="0.63" type="text">
+    <graphics x="900" y="480"/>
+  </comment>
+  <comment
+    commentText="Names of this column should be fixed as in the transformation"
+    id="0.64" type="text">
+    <graphics x="950" y="100"/>
+  </comment>
+  <comment commentText="Amplify" id="0.80" type="text">
+    <graphics x="1060" y="660"/>
+  </comment>
+  <comment commentText="DIFF!" id="0.81" type="text">
+    <graphics x="1210" y="660"/>
+  </comment>
+  <comment commentText="Global Guard: #DS==0" id="0.101" type="text">
+    <graphics x="960" y="920"/>
+  </comment>
+  <comment commentText="Global Guard: #DSout==0" id="0.102" type="text">
+    <graphics x="1160" y="1000"/>
+  </comment>
+  <comment commentText="Queue: FIFO" id="0.103" type="text">
+    <graphics x="840" y="1120"/>
+  </comment>
+  <comment commentText="Datastore" id="0.104" type="text">
+    <graphics x="990" y="890"/>
+  </comment>
+  <comment commentText="Capacity=1" id="0.130" type="text">
+    <graphics x="1130" y="1360"/>
+  </comment>
+  <comment commentText="Here a default value can be set" id="0.131" type="text">
+    <graphics x="1030" y="1290"/>
+  </comment>
+  <comment
+    commentText="GG: #In21>0 &amp;&amp; #In31>0 &amp;&amp; #Optional1==0"
+    id="0.132" type="text">
+    <graphics x="740" y="1290"/>
+  </comment>
+  <comment commentText="OptionalInputPin" id="0.133" type="text">
+    <graphics x="850" y="1260"/>
   </comment>
   <recordTokentype id="0.29" name="" type="text">
     <graphics x="70" y="380"/>

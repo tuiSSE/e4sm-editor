@@ -597,7 +597,7 @@ enum ComponentFiringStrategy returns ComponentFiringStrategy:
 
 InputPin returns InputPin:
 	{InputPin}
-	'in' (stream?='stream')?
+	(optional?='optional')? 'in' (stream?='stream')?
 	(type=[core::TypeSpecification])?
 	name=EString // (':' type=[ecore::EDataType|EString])?
 	('{'

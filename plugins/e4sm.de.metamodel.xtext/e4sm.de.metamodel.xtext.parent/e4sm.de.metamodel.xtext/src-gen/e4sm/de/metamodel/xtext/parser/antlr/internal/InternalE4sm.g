@@ -10560,21 +10560,35 @@ ruleInputPin returns [EObject current=null]
 					$current);
 			}
 		)
-		otherlv_1='in'
+		(
+			(
+				lv_optional_1_0='optional'
+				{
+					newLeafNode(lv_optional_1_0, grammarAccess.getInputPinAccess().getOptionalOptionalKeyword_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getInputPinRule());
+					}
+					setWithLastConsumed($current, "optional", lv_optional_1_0 != null, "optional");
+				}
+			)
+		)?
+		otherlv_2='in'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getInputPinAccess().getInKeyword_1());
+			newLeafNode(otherlv_2, grammarAccess.getInputPinAccess().getInKeyword_2());
 		}
 		(
 			(
-				lv_stream_2_0='stream'
+				lv_stream_3_0='stream'
 				{
-					newLeafNode(lv_stream_2_0, grammarAccess.getInputPinAccess().getStreamStreamKeyword_2_0());
+					newLeafNode(lv_stream_3_0, grammarAccess.getInputPinAccess().getStreamStreamKeyword_3_0());
 				}
 				{
 					if ($current==null) {
 						$current = createModelElement(grammarAccess.getInputPinRule());
 					}
-					setWithLastConsumed($current, "stream", lv_stream_2_0 != null, "stream");
+					setWithLastConsumed($current, "stream", lv_stream_3_0 != null, "stream");
 				}
 			)
 		)?
@@ -10585,18 +10599,18 @@ ruleInputPin returns [EObject current=null]
 						$current = createModelElement(grammarAccess.getInputPinRule());
 					}
 				}
-				otherlv_3=RULE_ID
+				otherlv_4=RULE_ID
 				{
-					newLeafNode(otherlv_3, grammarAccess.getInputPinAccess().getTypeTypeSpecificationCrossReference_3_0());
+					newLeafNode(otherlv_4, grammarAccess.getInputPinAccess().getTypeTypeSpecificationCrossReference_4_0());
 				}
 			)
 		)?
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getInputPinAccess().getNameEStringParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getInputPinAccess().getNameEStringParserRuleCall_5_0());
 				}
-				lv_name_4_0=ruleEString
+				lv_name_5_0=ruleEString
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getInputPinRule());
@@ -10604,28 +10618,28 @@ ruleInputPin returns [EObject current=null]
 					set(
 						$current,
 						"name",
-						lv_name_4_0,
+						lv_name_5_0,
 						"e4sm.de.metamodel.xtext.E4sm.EString");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
 		(
-			otherlv_5='{'
+			otherlv_6='{'
 			{
-				newLeafNode(otherlv_5, grammarAccess.getInputPinAccess().getLeftCurlyBracketKeyword_5_0());
+				newLeafNode(otherlv_6, grammarAccess.getInputPinAccess().getLeftCurlyBracketKeyword_6_0());
 			}
 			(
-				otherlv_6='collects'
+				otherlv_7='collects'
 				{
-					newLeafNode(otherlv_6, grammarAccess.getInputPinAccess().getCollectsKeyword_5_1_0());
+					newLeafNode(otherlv_7, grammarAccess.getInputPinAccess().getCollectsKeyword_6_1_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getInputPinAccess().getCollectEIntParserRuleCall_5_1_1_0());
+							newCompositeNode(grammarAccess.getInputPinAccess().getCollectEIntParserRuleCall_6_1_1_0());
 						}
-						lv_collect_7_0=ruleEInt
+						lv_collect_8_0=ruleEInt
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getInputPinRule());
@@ -10633,7 +10647,7 @@ ruleInputPin returns [EObject current=null]
 							set(
 								$current,
 								"collect",
-								lv_collect_7_0,
+								lv_collect_8_0,
 								"e4sm.de.metamodel.xtext.E4sm.EInt");
 							afterParserOrEnumRuleCall();
 						}
@@ -10641,16 +10655,16 @@ ruleInputPin returns [EObject current=null]
 				)
 			)?
 			(
-				otherlv_8='raceSemantic'
+				otherlv_9='raceSemantic'
 				{
-					newLeafNode(otherlv_8, grammarAccess.getInputPinAccess().getRaceSemanticKeyword_5_2_0());
+					newLeafNode(otherlv_9, grammarAccess.getInputPinAccess().getRaceSemanticKeyword_6_2_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getInputPinAccess().getRaceSemanticRaceSemanticEnumRuleCall_5_2_1_0());
+							newCompositeNode(grammarAccess.getInputPinAccess().getRaceSemanticRaceSemanticEnumRuleCall_6_2_1_0());
 						}
-						lv_raceSemantic_9_0=ruleRaceSemantic
+						lv_raceSemantic_10_0=ruleRaceSemantic
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getInputPinRule());
@@ -10658,7 +10672,7 @@ ruleInputPin returns [EObject current=null]
 							set(
 								$current,
 								"raceSemantic",
-								lv_raceSemantic_9_0,
+								lv_raceSemantic_10_0,
 								"e4sm.de.metamodel.xtext.E4sm.RaceSemantic");
 							afterParserOrEnumRuleCall();
 						}
@@ -10666,16 +10680,16 @@ ruleInputPin returns [EObject current=null]
 				)
 			)?
 			(
-				otherlv_10='queueType'
+				otherlv_11='queueType'
 				{
-					newLeafNode(otherlv_10, grammarAccess.getInputPinAccess().getQueueTypeKeyword_5_3_0());
+					newLeafNode(otherlv_11, grammarAccess.getInputPinAccess().getQueueTypeKeyword_6_3_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getInputPinAccess().getQueueTypeQueueTypeEnumRuleCall_5_3_1_0());
+							newCompositeNode(grammarAccess.getInputPinAccess().getQueueTypeQueueTypeEnumRuleCall_6_3_1_0());
 						}
-						lv_queueType_11_0=ruleQueueType
+						lv_queueType_12_0=ruleQueueType
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getInputPinRule());
@@ -10683,7 +10697,7 @@ ruleInputPin returns [EObject current=null]
 							set(
 								$current,
 								"queueType",
-								lv_queueType_11_0,
+								lv_queueType_12_0,
 								"e4sm.de.metamodel.xtext.E4sm.QueueType");
 							afterParserOrEnumRuleCall();
 						}
@@ -10691,20 +10705,20 @@ ruleInputPin returns [EObject current=null]
 				)
 			)?
 			(
-				otherlv_12='parameters'
+				otherlv_13='parameters'
 				{
-					newLeafNode(otherlv_12, grammarAccess.getInputPinAccess().getParametersKeyword_5_4_0());
+					newLeafNode(otherlv_13, grammarAccess.getInputPinAccess().getParametersKeyword_6_4_0());
 				}
-				otherlv_13='{'
+				otherlv_14='{'
 				{
-					newLeafNode(otherlv_13, grammarAccess.getInputPinAccess().getLeftCurlyBracketKeyword_5_4_1());
+					newLeafNode(otherlv_14, grammarAccess.getInputPinAccess().getLeftCurlyBracketKeyword_6_4_1());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getInputPinAccess().getParametersParameterParserRuleCall_5_4_2_0());
+							newCompositeNode(grammarAccess.getInputPinAccess().getParametersParameterParserRuleCall_6_4_2_0());
 						}
-						lv_parameters_14_0=ruleParameter
+						lv_parameters_15_0=ruleParameter
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getInputPinRule());
@@ -10712,23 +10726,23 @@ ruleInputPin returns [EObject current=null]
 							add(
 								$current,
 								"parameters",
-								lv_parameters_14_0,
+								lv_parameters_15_0,
 								"e4sm.de.metamodel.xtext.E4sm.Parameter");
 							afterParserOrEnumRuleCall();
 						}
 					)
 				)
 				(
-					otherlv_15=','
+					otherlv_16=','
 					{
-						newLeafNode(otherlv_15, grammarAccess.getInputPinAccess().getCommaKeyword_5_4_3_0());
+						newLeafNode(otherlv_16, grammarAccess.getInputPinAccess().getCommaKeyword_6_4_3_0());
 					}
 					(
 						(
 							{
-								newCompositeNode(grammarAccess.getInputPinAccess().getParametersParameterParserRuleCall_5_4_3_1_0());
+								newCompositeNode(grammarAccess.getInputPinAccess().getParametersParameterParserRuleCall_6_4_3_1_0());
 							}
-							lv_parameters_16_0=ruleParameter
+							lv_parameters_17_0=ruleParameter
 							{
 								if ($current==null) {
 									$current = createModelElementForParent(grammarAccess.getInputPinRule());
@@ -10736,21 +10750,21 @@ ruleInputPin returns [EObject current=null]
 								add(
 									$current,
 									"parameters",
-									lv_parameters_16_0,
+									lv_parameters_17_0,
 									"e4sm.de.metamodel.xtext.E4sm.Parameter");
 								afterParserOrEnumRuleCall();
 							}
 						)
 					)
 				)*
-				otherlv_17='}'
+				otherlv_18='}'
 				{
-					newLeafNode(otherlv_17, grammarAccess.getInputPinAccess().getRightCurlyBracketKeyword_5_4_4());
+					newLeafNode(otherlv_18, grammarAccess.getInputPinAccess().getRightCurlyBracketKeyword_6_4_4());
 				}
 			)?
-			otherlv_18='}'
+			otherlv_19='}'
 			{
-				newLeafNode(otherlv_18, grammarAccess.getInputPinAccess().getRightCurlyBracketKeyword_5_5());
+				newLeafNode(otherlv_19, grammarAccess.getInputPinAccess().getRightCurlyBracketKeyword_6_5());
 			}
 		)?
 	)
