@@ -92,4 +92,12 @@ public interface TimeFunction extends EObject {
 	 */
 	void setPar2(double value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	String getString();
+
 } // TimeFunction

@@ -923,13 +923,22 @@ public interface ExecutionPackage extends EPackage {
 	int TIME_FUNCTION_FEATURE_COUNT = 3;
 
 	/**
+	 * The operation id for the '<em>Get String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_FUNCTION___GET_STRING = 0;
+
+	/**
 	 * The number of operations of the '<em>Time Function</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_FUNCTION_OPERATION_COUNT = 0;
+	int TIME_FUNCTION_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.execution.DelayableElement <em>Delayable Element</em>}' class.
@@ -1559,6 +1568,16 @@ public interface ExecutionPackage extends EPackage {
 	EAttribute getTimeFunction_Par2();
 
 	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.execution.TimeFunction#getString() <em>Get String</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get String</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.execution.TimeFunction#getString()
+	 * @generated
+	 */
+	EOperation getTimeFunction__GetString();
+
+	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.execution.DelayableElement <em>Delayable Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2068,6 +2087,14 @@ public interface ExecutionPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TIME_FUNCTION__PAR2 = eINSTANCE.getTimeFunction_Par2();
+
+		/**
+		 * The meta object literal for the '<em><b>Get String</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TIME_FUNCTION___GET_STRING = eINSTANCE.getTimeFunction__GetString();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.execution.DelayableElement <em>Delayable Element</em>}' class.

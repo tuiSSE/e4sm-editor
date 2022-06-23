@@ -6,8 +6,10 @@ import e4sm.de.metamodel.e4sm.execution.ExecutionPackage;
 import e4sm.de.metamodel.e4sm.execution.TimeFunction;
 import e4sm.de.metamodel.e4sm.execution.TimeFunctions;
 
+import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -181,6 +183,25 @@ public class TimeFunctionImpl extends MinimalEObjectImpl.Container implements Ti
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public String getString() {
+		if(function != null) {
+			var res = function.toString() + "(" + Double.toString(par1);
+			
+			if(par2 > 0){
+			 res += ", " + Double.toString(par2);
+			};
+			res += ")";
+			return res;
+			}
+		return null;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -254,6 +275,20 @@ public class TimeFunctionImpl extends MinimalEObjectImpl.Container implements Ti
 			return par2 != PAR2_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+		case ExecutionPackage.TIME_FUNCTION___GET_STRING:
+			return getString();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

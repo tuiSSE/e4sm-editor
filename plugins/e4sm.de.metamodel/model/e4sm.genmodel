@@ -336,6 +336,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute execution.ecore#//TimeFunction/function"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute execution.ecore#//TimeFunction/par1"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute execution.ecore#//TimeFunction/par2"/>
+      <genOperations ecoreOperation="execution.ecore#//TimeFunction/getString"/>
     </genClasses>
     <genClasses image="false" ecoreClass="execution.ecore#//DelayableElement">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference execution.ecore#//DelayableElement/timeFunction"/>

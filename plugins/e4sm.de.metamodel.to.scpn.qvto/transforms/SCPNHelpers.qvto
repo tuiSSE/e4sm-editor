@@ -22,15 +22,7 @@ transformation SCPNHelpers() {
 	    if(tf = null){
 	    	return "EXP(1.0)";
 	    };
-	    
-		var res :String = tf.function.toString() + "(" + tf.par1.toString();
-		
-		if(tf.par2 > 0){
-		 res := res + ", " + tf.par2.toString();
-		};
-		
-		res := res + ")";
-		return res;
+	    return tf.getString();
 	}
 	
 	helper Component::hasNoInputs() : Boolean {

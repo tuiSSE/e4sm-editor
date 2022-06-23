@@ -772,6 +772,16 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
+	public EOperation getTimeFunction__GetString() {
+		return timeFunctionEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getDelayableElement() {
 		return delayableElementEClass;
 	}
@@ -947,6 +957,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		createEAttribute(timeFunctionEClass, TIME_FUNCTION__FUNCTION);
 		createEAttribute(timeFunctionEClass, TIME_FUNCTION__PAR1);
 		createEAttribute(timeFunctionEClass, TIME_FUNCTION__PAR2);
+		createEOperation(timeFunctionEClass, TIME_FUNCTION___GET_STRING);
 
 		delayableElementEClass = createEClass(DELAYABLE_ELEMENT);
 		createEReference(delayableElementEClass, DELAYABLE_ELEMENT__TIME_FUNCTION);
@@ -1146,6 +1157,9 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTimeFunction_Par2(), theEcorePackage.getEDouble(), "par2", null, 0, 1, TimeFunction.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getTimeFunction__GetString(), theEcorePackage.getEString(), "getString", 0, 1, IS_UNIQUE,
+				IS_ORDERED);
 
 		initEClass(delayableElementEClass, DelayableElement.class, "DelayableElement", IS_ABSTRACT, IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
