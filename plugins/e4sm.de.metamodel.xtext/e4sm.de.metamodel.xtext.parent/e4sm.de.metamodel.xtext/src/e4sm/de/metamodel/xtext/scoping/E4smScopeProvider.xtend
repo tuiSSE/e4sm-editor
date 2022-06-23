@@ -17,6 +17,7 @@ import e4sm.de.metamodel.e4sm.core.CorePackage
 import e4sm.de.metamodel.e4sm.Model
 import org.eclipse.xtext.EcoreUtil2
 import e4sm.de.metamodel.e4sm.Import
+import e4sm.de.metamodel.e4sm.DataNode
 
 /** 
  * This class contains custom scoping description.
@@ -44,8 +45,8 @@ class E4smScopeProvider extends AbstractE4smScopeProvider {
 	        return Scopes.scopeFor(candidates);
 		}
 		
-		//Pin type scope
-			if(context instanceof Pin && reference == CorePackage.Literals.TYPED_ELEMENT__TYPE){
+		//Pin/Datastore (DataNode) type scope
+		if(context instanceof DataNode && reference == CorePackage.Literals.TYPED_ELEMENT__TYPE){
 			val Model rootElement = EcoreUtil2.getRootContainer(context) as Model;
 			//return Scopes.scopeFor((rootElement as Model).types.takeWhile[it != context])
 	        //val candidates = EcoreUtil2.getAllContentsOfType(rootElement, TypeSpecification);

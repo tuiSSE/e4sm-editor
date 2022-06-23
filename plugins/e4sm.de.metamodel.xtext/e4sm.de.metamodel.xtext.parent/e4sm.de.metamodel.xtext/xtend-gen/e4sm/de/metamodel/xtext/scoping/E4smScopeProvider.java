@@ -4,9 +4,9 @@
 package e4sm.de.metamodel.xtext.scoping;
 
 import com.google.common.base.Objects;
+import e4sm.de.metamodel.e4sm.DataNode;
 import e4sm.de.metamodel.e4sm.Import;
 import e4sm.de.metamodel.e4sm.Model;
-import e4sm.de.metamodel.e4sm.Pin;
 import e4sm.de.metamodel.e4sm.core.CorePackage;
 import e4sm.de.metamodel.e4sm.core.TypeSpecification;
 import e4sm.de.metamodel.e4sm.e4smPackage;
@@ -49,7 +49,7 @@ public class E4smScopeProvider extends AbstractE4smScopeProvider {
       }
       return Scopes.scopeFor(candidates);
     }
-    if (((context instanceof Pin) && Objects.equal(reference, CorePackage.Literals.TYPED_ELEMENT__TYPE))) {
+    if (((context instanceof DataNode) && Objects.equal(reference, CorePackage.Literals.TYPED_ELEMENT__TYPE))) {
       EObject _rootContainer_1 = EcoreUtil2.getRootContainer(context);
       final Model rootElement_1 = ((Model) _rootContainer_1);
       final Function1<TypeSpecification, Boolean> _function_1 = (TypeSpecification it) -> {

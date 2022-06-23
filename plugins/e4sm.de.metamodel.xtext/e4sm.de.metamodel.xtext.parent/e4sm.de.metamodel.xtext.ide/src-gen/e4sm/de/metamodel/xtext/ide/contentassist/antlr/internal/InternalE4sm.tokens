@@ -1,13 +1,13 @@
 '&&'=37
 '('=65
 ')'=66
-'*'=197
-'+'=196
+'*'=198
+'+'=197
 ','=56
 '-'=108
 '->'=143
 '.'=129
-'/'=198
+'/'=199
 ';'=59
 '='=178
 'AND'=36
@@ -54,7 +54,7 @@
 'Triang'=52
 'Uni'=47
 'Wei'=51
-'['=199
+'['=200
 ']'=183
 'abstract'=187
 'actor'=74
@@ -138,6 +138,7 @@
 'none'=31
 'null'=127
 'numberOfServers'=152
+'optional'=195
 'ordered'=110
 'out'=164
 'outputUncertainty'=166
@@ -167,7 +168,7 @@
 'source'=88
 'specifiedInPackage'=138
 'specifiesComponent'=72
-'stream'=195
+'stream'=196
 'string'=185
 'subpackages'=73
 'synchronous'=151
@@ -302,6 +303,7 @@ T__197=197
 T__198=198
 T__199=199
 T__19=19
+T__200=200
 T__20=20
 T__21=21
 T__22=22
