@@ -597,6 +597,7 @@ mapping DataStore::transformDataStore() : arcs : List(ArcType), iTr : List(Immed
 		iTr += initTransition;
 		
 		var updateTransition : ImmediateTransitionType := new ImmediateTransitionType(self.name + "_ds_update");
+		updateTransition.priority := 2;
 		iTr += updateTransition;
 		
 		var readTransition : ImmediateTransitionType := new ImmediateTransitionType(self.name + "_ds_read");
