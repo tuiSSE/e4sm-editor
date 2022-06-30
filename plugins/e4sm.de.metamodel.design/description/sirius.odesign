@@ -160,7 +160,7 @@
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='diag2_drop_sector_on_sector'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='diag2_drop_physical_component_on_sector']" name="e4sm_diagram_2" label="Data Transfer Diagram (DTD)" titleExpression="aql:'[DTD] ' + self.oclAsType(e4sm::Package).name" domainClass="e4sm::Package" enablePopupBars="true">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='diag2_drop_sector_on_sector'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='diag2_drop_physical_component_on_sector']" name="e4sm_diagram_2" label="Data Transfer Diagram (DTD)" titleExpression="aql:'[DTD] ' + self.oclAsType(e4sm::Package).name" initialisation="true" domainClass="e4sm::Package" enablePopupBars="true">
       <metamodel href="http://de.tu-ilmenau/e4sm/1.0.0#/"/>
       <metamodel href="http://de.tu-ilmenau/e4sm/execution/1.0.0#/"/>
       <filters xsi:type="filter:CompositeFilterDescription" name="dtd_composite_filters" label="Hide Contained Components">
@@ -352,7 +352,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="d2_create_physical_connector" label="Physical Connector" precondition="aql:preSource.canPhysicalConnectorConnectSourceToTarget(preTarget)" edgeMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_physical_connector']" connectionStartPrecondition="aql:preSource.oclIsTypeOf(e4sm::OutputPin) and preSource.eContainer().oclIsKindOf(e4sm::PhysicalComponent)">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="d2_create_physical_connector" label="Physical Connector" precondition="aql:preSource.canPhysicalConnectorConnectSourceToTarget(preTarget)" edgeMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_physical_connector']" connectionStartPrecondition="aql:(preSource.oclIsTypeOf(e4sm::OutputPin) and preSource.eContainer().oclIsKindOf(e4sm::PhysicalComponent)) or preSource.oclIsTypeOf(e4sm::DataStore)">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -367,7 +367,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="d2_create_logical_connector" label="Logical Connector" precondition="aql:preSource.eContainer()&lt;>preTarget.eContainer()" edgeMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_logical_connector']">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="d2_create_logical_connector" label="Logical Connector" precondition="aql:preSource&lt;>preTarget and ((preSource.oclIsTypeOf(e4sm::DataStore) or preTarget.oclIsTypeOf(e4sm::DataStore)) or  preSource.eContainer()&lt;>preTarget.eContainer())" edgeMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_logical_connector']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -1455,7 +1455,7 @@
         </customization>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_2:EditionTableDescription" name="table_persons" label="Person Management Table (PM)" titleExpression="aql:'[PM] ' + self.oclAsType(e4sm::Model).name" initialisation="true" domainClass="e4sm::Model">
+    <ownedRepresentations xsi:type="description_2:EditionTableDescription" name="table_persons" label="Person Management Table (PM)" titleExpression="aql:'[PM] ' + self.oclAsType(e4sm::Model).name" domainClass="e4sm::Model">
       <metamodel href="http://de.tu-ilmenau/e4sm/1.0.0#/"/>
       <ownedLineMappings name="persons_row" label="Person" domainClass="e4sm::Person" semanticCandidatesExpression="feature:actors" headerLabelExpression="aql: ' '"/>
       <ownedCreateLine name="table_persons_create_person" label="Create Person" mapping="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='table_persons']/@ownedLineMappings[name='persons_row']">

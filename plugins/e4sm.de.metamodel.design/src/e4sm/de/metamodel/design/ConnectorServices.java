@@ -2,6 +2,7 @@ package e4sm.de.metamodel.design;
 
 import org.eclipse.emf.ecore.EObject;
 
+import e4sm.de.metamodel.e4sm.DataStore;
 import e4sm.de.metamodel.e4sm.OutputPin;
 import e4sm.de.metamodel.e4sm.PhysicalComponent;
 
@@ -23,6 +24,11 @@ public class ConnectorServices {
 		// Not allowed: If the source and the target are the same component
 		if (sourceContainer.equals(targetContainer)) {
 			return false;
+		}
+		
+		// It is allowed to collect the a datastore
+		if(target instanceof DataStore) {
+			return true;
 		}
 
 		// Not allowed: If the target is not a Physical Component or a container
