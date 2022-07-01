@@ -1683,9 +1683,11 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		componentEClass.getESuperTypes().add(theCorePackage.getNamedElement());
 		componentEClass.getESuperTypes().add(theCorePackage.getParameterizableElement());
 		componentEClass.getESuperTypes().add(theExecutionPackage.getDelayableElement());
+		componentEClass.getESuperTypes().add(theCorePackage.getDocumentableElement());
 		machineLearningComponentEClass.getESuperTypes().add(this.getSoftwareComponent());
 		connectorEClass.getESuperTypes().add(theCorePackage.getParameterizableElement());
 		connectorEClass.getESuperTypes().add(theCorePackage.getNamedElement());
+		connectorEClass.getESuperTypes().add(theCorePackage.getDocumentableElement());
 		physicalConnectorEClass.getESuperTypes().add(this.getConnector());
 		physicalComponentEClass.getESuperTypes().add(this.getComponent());
 		softwareComponentEClass.getESuperTypes().add(this.getComponent());
@@ -1695,12 +1697,16 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		externalDependencyEClass.getESuperTypes().add(this.getSoftwareComponent());
 		packageEClass.getESuperTypes().add(theCorePackage.getNamedElement());
 		packageEClass.getESuperTypes().add(theCorePackage.getParameterizableElement());
+		packageEClass.getESuperTypes().add(theCorePackage.getDocumentableElement());
 		modelEClass.getESuperTypes().add(theCorePackage.getNamedElement());
 		modelEClass.getESuperTypes().add(theCorePackage.getParameterizableElement());
+		modelEClass.getESuperTypes().add(theCorePackage.getDocumentableElement());
 		actorEClass.getESuperTypes().add(theCorePackage.getNamedElement());
+		actorEClass.getESuperTypes().add(theCorePackage.getDocumentableElement());
 		humanEClass.getESuperTypes().add(this.getActor());
 		robotEClass.getESuperTypes().add(this.getActor());
 		sectorEClass.getESuperTypes().add(theCorePackage.getNamedElement());
+		sectorEClass.getESuperTypes().add(theCorePackage.getDocumentableElement());
 		sensorEClass.getESuperTypes().add(this.getPhysicalComponent());
 		actuatorEClass.getESuperTypes().add(this.getPhysicalComponent());
 		pinEClass.getESuperTypes().add(this.getDataNode());
@@ -1716,6 +1722,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		dataNodeEClass.getESuperTypes().add(theCorePackage.getTypedElement());
 		dataNodeEClass.getESuperTypes().add(theExecutionPackage.getConnectableNode());
 		dataNodeEClass.getESuperTypes().add(theCorePackage.getParameterizableElement());
+		dataNodeEClass.getESuperTypes().add(theCorePackage.getDocumentableElement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(componentEClass, Component.class, "Component", !IS_ABSTRACT, !IS_INTERFACE,

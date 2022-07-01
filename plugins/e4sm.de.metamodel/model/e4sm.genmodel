@@ -263,6 +263,9 @@
     <genClasses ecoreClass="core.ecore#//ClassAttribute">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference core.ecore#//ClassAttribute/type"/>
     </genClasses>
+    <genClasses image="false" ecoreClass="core.ecore#//DocumentableElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//DocumentableElement/documentation"/>
+    </genClasses>
   </genPackages>
   <genPackages prefix="Execution" basePackage="e4sm.de.metamodel.e4sm" ecorePackage="execution.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="execution.ecore#//TimeFunctions">

@@ -51,9 +51,26 @@ public class ModelItemProvider extends NamedElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addDocumentationPropertyDescriptor(object);
 			addPersonsPicturesPathPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Documentation feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDocumentationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_DocumentableElement_documentation_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_DocumentableElement_documentation_feature",
+						"_UI_DocumentableElement_type"),
+				CorePackage.Literals.DOCUMENTABLE_ELEMENT__DOCUMENTATION, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -152,6 +169,7 @@ public class ModelItemProvider extends NamedElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Model.class)) {
+		case e4smPackage.MODEL__DOCUMENTATION:
 		case e4smPackage.MODEL__PERSONS_PICTURES_PATH:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;

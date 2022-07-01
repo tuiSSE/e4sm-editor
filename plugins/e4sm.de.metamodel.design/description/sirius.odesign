@@ -1471,6 +1471,19 @@
       <ownedColumnMappings name="table_persons_department_col" label="Department" headerLabelExpression="Department" featureName="department"/>
       <ownedColumnMappings name="table_persons_picture_file_col" label="Picture FileName" headerLabelExpression="Picture Filename" featureName="pictureFileName"/>
     </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_2:EditionTableDescription" name="table_docs" label="Documentation Table (DOC)" titleExpression="aql:'[DOC] ' + self.oclAsType(e4sm::Model).name" initialisation="true" domainClass="e4sm::Model">
+      <metamodel href="http://de.tu-ilmenau/e4sm/1.0.0#/"/>
+      <metamodel href="http://de.tu-ilmenau/e4sm/core/1.0.0#/"/>
+      <ownedLineMappings name="elements_row" label="Element" domainClass="core::DocumentableElement" semanticCandidatesExpression="aql:self.eAllContents()->filter(core::DocumentableElement)" headerLabelExpression="aql: ' '">
+        <backgroundConditionalStyle predicateExpression="aql:self.documentation.size()=0">
+          <style>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_yellow']"/>
+          </style>
+        </backgroundConditionalStyle>
+      </ownedLineMappings>
+      <ownedColumnMappings name="table_doc_name_col" label="Name" headerLabelExpression="Name" featureName="name"/>
+      <ownedColumnMappings name="table_doc_doc" label="Documentation" headerLabelExpression="Documentation" featureName="documentation"/>
+    </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="e4sm.de.metamodel.design.Services"/>
     <ownedJavaExtensions qualifiedClassName="e4sm.de.metamodel.design.ConnectorServices"/>
     <ownedJavaExtensions qualifiedClassName="e4sm.de.metamodel.design.ElementTransformationServices"/>

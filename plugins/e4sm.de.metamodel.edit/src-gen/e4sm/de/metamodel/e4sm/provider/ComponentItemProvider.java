@@ -52,12 +52,29 @@ public class ComponentItemProvider extends NamedElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addDocumentationPropertyDescriptor(object);
 			addComponentsPropertyDescriptor(object);
 			addMainResponsiblePropertyDescriptor(object);
 			addSpecifiedInPackagePropertyDescriptor(object);
 			addFiringStrategyPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Documentation feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDocumentationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_DocumentableElement_documentation_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_DocumentableElement_documentation_feature",
+						"_UI_DocumentableElement_type"),
+				CorePackage.Literals.DOCUMENTABLE_ELEMENT__DOCUMENTATION, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -202,6 +219,7 @@ public class ComponentItemProvider extends NamedElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Component.class)) {
+		case e4smPackage.COMPONENT__DOCUMENTATION:
 		case e4smPackage.COMPONENT__FIRING_STRATEGY:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;

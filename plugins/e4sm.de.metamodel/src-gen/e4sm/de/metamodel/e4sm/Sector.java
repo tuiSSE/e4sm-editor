@@ -2,6 +2,7 @@
  */
 package e4sm.de.metamodel.e4sm;
 
+import e4sm.de.metamodel.e4sm.core.DocumentableElement;
 import e4sm.de.metamodel.e4sm.core.NamedElement;
 import org.eclipse.emf.common.util.EList;
 
@@ -27,7 +28,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Sector extends NamedElement {
+public interface Sector extends NamedElement, DocumentableElement {
 	/**
 	 * Returns the value of the '<em><b>Components</b></em>' containment reference list.
 	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.Component}.

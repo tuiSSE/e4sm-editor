@@ -38,6 +38,7 @@ import e4sm.de.metamodel.e4sm.core.TypedElement;
 import e4sm.de.metamodel.e4sm.core.CoreFactory;
 import e4sm.de.metamodel.e4sm.core.CorePackage;
 
+import e4sm.de.metamodel.e4sm.core.DocumentableElement;
 import e4sm.de.metamodel.e4sm.core.DoubleAttribute;
 import e4sm.de.metamodel.e4sm.core.UnitOfMeasurement;
 import e4sm.de.metamodel.e4sm.core.ValueSpecification;
@@ -237,6 +238,13 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * @generated
 	 */
 	private EClass classAttributeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass documentableElementEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -984,6 +992,26 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getDocumentableElement() {
+		return documentableElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDocumentableElement_Documentation() {
+		return (EAttribute) documentableElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EEnum getUnitOfMeasurement() {
 		return unitOfMeasurementEEnum;
 	}
@@ -1218,6 +1246,9 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		classAttributeEClass = createEClass(CLASS_ATTRIBUTE);
 		createEReference(classAttributeEClass, CLASS_ATTRIBUTE__TYPE);
 
+		documentableElementEClass = createEClass(DOCUMENTABLE_ELEMENT);
+		createEAttribute(documentableElementEClass, DOCUMENTABLE_ELEMENT__DOCUMENTATION);
+
 		// Create enums
 		unitOfMeasurementEEnum = createEEnum(UNIT_OF_MEASUREMENT);
 
@@ -1448,6 +1479,12 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		initEReference(getClassAttribute_Type(), this.getTypeSpecification(), null, "type", null, 1, 1,
 				ClassAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(documentableElementEClass, DocumentableElement.class, "DocumentableElement", IS_ABSTRACT,
+				IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDocumentableElement_Documentation(), theEcorePackage.getEString(), "documentation", null, 0,
+				1, DocumentableElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(unitOfMeasurementEEnum, UnitOfMeasurement.class, "UnitOfMeasurement");

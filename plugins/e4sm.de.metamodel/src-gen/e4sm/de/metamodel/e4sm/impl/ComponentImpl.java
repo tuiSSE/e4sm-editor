@@ -11,6 +11,7 @@ import e4sm.de.metamodel.e4sm.Person;
 import e4sm.de.metamodel.e4sm.Pin;
 import e4sm.de.metamodel.e4sm.analysis.Parameter;
 import e4sm.de.metamodel.e4sm.core.CorePackage;
+import e4sm.de.metamodel.e4sm.core.DocumentableElement;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 import e4sm.de.metamodel.e4sm.execution.DelayableElement;
 import e4sm.de.metamodel.e4sm.execution.Execution;
@@ -43,6 +44,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ComponentImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ComponentImpl#getTimeFunction <em>Time Function</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.ComponentImpl#getDocumentation <em>Documentation</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ComponentImpl#getComponents <em>Components</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ComponentImpl#getPins <em>Pins</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ComponentImpl#getMainResponsible <em>Main Responsible</em>}</li>
@@ -74,6 +76,26 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 	 * @ordered
 	 */
 	protected TimeFunction timeFunction;
+
+	/**
+	 * The default value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDocumentation()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DOCUMENTATION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDocumentation()
+	 * @generated
+	 * @ordered
+	 */
+	protected String documentation = DOCUMENTATION_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getComponents() <em>Components</em>}' containment reference list.
@@ -238,6 +260,30 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 		} else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.COMPONENT__TIME_FUNCTION, newTimeFunction,
 					newTimeFunction));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getDocumentation() {
+		return documentation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setDocumentation(String newDocumentation) {
+		String oldDocumentation = documentation;
+		documentation = newDocumentation;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.COMPONENT__DOCUMENTATION,
+					oldDocumentation, documentation));
 	}
 
 	/**
@@ -591,6 +637,8 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 			return getParameters();
 		case e4smPackage.COMPONENT__TIME_FUNCTION:
 			return getTimeFunction();
+		case e4smPackage.COMPONENT__DOCUMENTATION:
+			return getDocumentation();
 		case e4smPackage.COMPONENT__COMPONENTS:
 			return getComponents();
 		case e4smPackage.COMPONENT__PINS:
@@ -628,6 +676,9 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 			return;
 		case e4smPackage.COMPONENT__TIME_FUNCTION:
 			setTimeFunction((TimeFunction) newValue);
+			return;
+		case e4smPackage.COMPONENT__DOCUMENTATION:
+			setDocumentation((String) newValue);
 			return;
 		case e4smPackage.COMPONENT__COMPONENTS:
 			getComponents().clear();
@@ -671,6 +722,9 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 		case e4smPackage.COMPONENT__TIME_FUNCTION:
 			setTimeFunction((TimeFunction) null);
 			return;
+		case e4smPackage.COMPONENT__DOCUMENTATION:
+			setDocumentation(DOCUMENTATION_EDEFAULT);
+			return;
 		case e4smPackage.COMPONENT__COMPONENTS:
 			getComponents().clear();
 			return;
@@ -708,6 +762,9 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 			return parameters != null && !parameters.isEmpty();
 		case e4smPackage.COMPONENT__TIME_FUNCTION:
 			return timeFunction != null;
+		case e4smPackage.COMPONENT__DOCUMENTATION:
+			return DOCUMENTATION_EDEFAULT == null ? documentation != null
+					: !DOCUMENTATION_EDEFAULT.equals(documentation);
 		case e4smPackage.COMPONENT__COMPONENTS:
 			return components != null && !components.isEmpty();
 		case e4smPackage.COMPONENT__PINS:
@@ -749,6 +806,14 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 				return -1;
 			}
 		}
+		if (baseClass == DocumentableElement.class) {
+			switch (derivedFeatureID) {
+			case e4smPackage.COMPONENT__DOCUMENTATION:
+				return CorePackage.DOCUMENTABLE_ELEMENT__DOCUMENTATION;
+			default:
+				return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -771,6 +836,14 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 			switch (baseFeatureID) {
 			case ExecutionPackage.DELAYABLE_ELEMENT__TIME_FUNCTION:
 				return e4smPackage.COMPONENT__TIME_FUNCTION;
+			default:
+				return -1;
+			}
+		}
+		if (baseClass == DocumentableElement.class) {
+			switch (baseFeatureID) {
+			case CorePackage.DOCUMENTABLE_ELEMENT__DOCUMENTATION:
+				return e4smPackage.COMPONENT__DOCUMENTATION;
 			default:
 				return -1;
 			}
@@ -806,7 +879,9 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 			return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (firingStrategy: ");
+		result.append(" (documentation: ");
+		result.append(documentation);
+		result.append(", firingStrategy: ");
 		result.append(firingStrategy);
 		result.append(')');
 		return result.toString();

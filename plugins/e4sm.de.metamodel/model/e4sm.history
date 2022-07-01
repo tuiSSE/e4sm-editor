@@ -9561,5 +9561,33 @@
       <element href="execution.ecore#//FlowFinal/source"/>
       <referenceValue href="execution.ecore#//ConnectableNode"/>
     </changes>
+    <changes xsi:type="history:Add" xmi:id="_IV8Q4PkkEeyP7PMhBlrg1g" featureName="eSuperTypes">
+      <element href="e4sm.ecore#//Model"/>
+      <referenceValue href="core.ecore#//DocumentableElement"/>
+    </changes>
+    <changes xsi:type="history:Add" xmi:id="_Kr_iQPkkEeyP7PMhBlrg1g" featureName="eSuperTypes">
+      <element href="e4sm.ecore#//Actor"/>
+      <referenceValue href="core.ecore#//DocumentableElement"/>
+    </changes>
+    <changes xsi:type="history:Add" xmi:id="_NE-y4PkkEeyP7PMhBlrg1g" featureName="eSuperTypes">
+      <element href="e4sm.ecore#//Package"/>
+      <referenceValue href="core.ecore#//DocumentableElement"/>
+    </changes>
+    <changes xsi:type="history:Add" xmi:id="_QD40APkkEeyP7PMhBlrg1g" featureName="eSuperTypes">
+      <element href="e4sm.ecore#//Connector"/>
+      <referenceValue href="core.ecore#//DocumentableElement"/>
+    </changes>
+    <changes xsi:type="history:Add" xmi:id="_SnsNgPkkEeyP7PMhBlrg1g" featureName="eSuperTypes">
+      <element href="e4sm.ecore#//Component"/>
+      <referenceValue href="core.ecore#//DocumentableElement"/>
+    </changes>
+    <changes xsi:type="history:Add" xmi:id="_VQxIkPkkEeyP7PMhBlrg1g" featureName="eSuperTypes">
+      <element href="e4sm.ecore#//Sector"/>
+      <referenceValue href="core.ecore#//DocumentableElement"/>
+    </changes>
+    <changes xsi:type="history:Add" xmi:id="_ZS9LoPkkEeyP7PMhBlrg1g" featureName="eSuperTypes">
+      <element href="e4sm.ecore#//DataNode"/>
+      <referenceValue href="core.ecore#//DocumentableElement"/>
+    </changes>
   </releases>
 </history:History>

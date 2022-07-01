@@ -7,6 +7,7 @@ import e4sm.de.metamodel.e4sm.Import;
 import e4sm.de.metamodel.e4sm.Model;
 import e4sm.de.metamodel.e4sm.analysis.Parameter;
 import e4sm.de.metamodel.e4sm.core.CorePackage;
+import e4sm.de.metamodel.e4sm.core.DocumentableElement;
 import e4sm.de.metamodel.e4sm.core.ParameterizableElement;
 import e4sm.de.metamodel.e4sm.core.TypeSpecification;
 import e4sm.de.metamodel.e4sm.core.Variant;
@@ -43,6 +44,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ModelImpl#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.ModelImpl#getDocumentation <em>Documentation</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ModelImpl#getPackages <em>Packages</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ModelImpl#getActors <em>Actors</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ModelImpl#getPersonsPicturesPath <em>Persons Pictures Path</em>}</li>
@@ -62,6 +64,26 @@ public class ModelImpl extends NamedElementImpl implements Model {
 	 * @ordered
 	 */
 	protected EList<Parameter> parameters;
+
+	/**
+	 * The default value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDocumentation()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DOCUMENTATION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDocumentation()
+	 * @generated
+	 * @ordered
+	 */
+	protected String documentation = DOCUMENTATION_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getPackages() <em>Packages</em>}' containment reference list.
@@ -155,6 +177,30 @@ public class ModelImpl extends NamedElementImpl implements Model {
 			parameters = new EObjectContainmentEList<Parameter>(Parameter.class, this, e4smPackage.MODEL__PARAMETERS);
 		}
 		return parameters;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getDocumentation() {
+		return documentation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setDocumentation(String newDocumentation) {
+		String oldDocumentation = documentation;
+		documentation = newDocumentation;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.MODEL__DOCUMENTATION, oldDocumentation,
+					documentation));
 	}
 
 	/**
@@ -302,6 +348,8 @@ public class ModelImpl extends NamedElementImpl implements Model {
 		switch (featureID) {
 		case e4smPackage.MODEL__PARAMETERS:
 			return getParameters();
+		case e4smPackage.MODEL__DOCUMENTATION:
+			return getDocumentation();
 		case e4smPackage.MODEL__PACKAGES:
 			return getPackages();
 		case e4smPackage.MODEL__ACTORS:
@@ -329,6 +377,9 @@ public class ModelImpl extends NamedElementImpl implements Model {
 		case e4smPackage.MODEL__PARAMETERS:
 			getParameters().clear();
 			getParameters().addAll((Collection<? extends Parameter>) newValue);
+			return;
+		case e4smPackage.MODEL__DOCUMENTATION:
+			setDocumentation((String) newValue);
 			return;
 		case e4smPackage.MODEL__PACKAGES:
 			getPackages().clear();
@@ -367,6 +418,9 @@ public class ModelImpl extends NamedElementImpl implements Model {
 		case e4smPackage.MODEL__PARAMETERS:
 			getParameters().clear();
 			return;
+		case e4smPackage.MODEL__DOCUMENTATION:
+			setDocumentation(DOCUMENTATION_EDEFAULT);
+			return;
 		case e4smPackage.MODEL__PACKAGES:
 			getPackages().clear();
 			return;
@@ -398,6 +452,9 @@ public class ModelImpl extends NamedElementImpl implements Model {
 		switch (featureID) {
 		case e4smPackage.MODEL__PARAMETERS:
 			return parameters != null && !parameters.isEmpty();
+		case e4smPackage.MODEL__DOCUMENTATION:
+			return DOCUMENTATION_EDEFAULT == null ? documentation != null
+					: !DOCUMENTATION_EDEFAULT.equals(documentation);
 		case e4smPackage.MODEL__PACKAGES:
 			return packages != null && !packages.isEmpty();
 		case e4smPackage.MODEL__ACTORS:
@@ -429,6 +486,14 @@ public class ModelImpl extends NamedElementImpl implements Model {
 				return -1;
 			}
 		}
+		if (baseClass == DocumentableElement.class) {
+			switch (derivedFeatureID) {
+			case e4smPackage.MODEL__DOCUMENTATION:
+				return CorePackage.DOCUMENTABLE_ELEMENT__DOCUMENTATION;
+			default:
+				return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -442,6 +507,14 @@ public class ModelImpl extends NamedElementImpl implements Model {
 			switch (baseFeatureID) {
 			case CorePackage.PARAMETERIZABLE_ELEMENT__PARAMETERS:
 				return e4smPackage.MODEL__PARAMETERS;
+			default:
+				return -1;
+			}
+		}
+		if (baseClass == DocumentableElement.class) {
+			switch (baseFeatureID) {
+			case CorePackage.DOCUMENTABLE_ELEMENT__DOCUMENTATION:
+				return e4smPackage.MODEL__DOCUMENTATION;
 			default:
 				return -1;
 			}
@@ -473,7 +546,9 @@ public class ModelImpl extends NamedElementImpl implements Model {
 			return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (personsPicturesPath: ");
+		result.append(" (documentation: ");
+		result.append(documentation);
+		result.append(", personsPicturesPath: ");
 		result.append(personsPicturesPath);
 		result.append(')');
 		return result.toString();

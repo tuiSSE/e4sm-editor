@@ -2,6 +2,7 @@
  */
 package e4sm.de.metamodel.e4sm;
 
+import e4sm.de.metamodel.e4sm.core.DocumentableElement;
 import e4sm.de.metamodel.e4sm.core.NamedElement;
 
 /**
@@ -18,5 +19,5 @@ import e4sm.de.metamodel.e4sm.core.NamedElement;
  * @model
  * @generated
  */
-public interface Actor extends NamedElement {
+public interface Actor extends NamedElement, DocumentableElement {
 } // Actor

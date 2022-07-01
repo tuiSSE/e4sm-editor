@@ -62,6 +62,7 @@ public class ConnectorItemProvider extends ItemProviderAdapter implements IEditi
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
+			addDocumentationPropertyDescriptor(object);
 			addSourcePropertyDescriptor(object);
 			addTargetPropertyDescriptor(object);
 		}
@@ -82,6 +83,22 @@ public class ConnectorItemProvider extends ItemProviderAdapter implements IEditi
 								"_UI_NamedElement_type"),
 						CorePackage.Literals.NAMED_ELEMENT__NAME, true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Documentation feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDocumentationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_DocumentableElement_documentation_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_DocumentableElement_documentation_feature",
+						"_UI_DocumentableElement_type"),
+				CorePackage.Literals.DOCUMENTABLE_ELEMENT__DOCUMENTATION, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -263,6 +280,7 @@ public class ConnectorItemProvider extends ItemProviderAdapter implements IEditi
 
 		switch (notification.getFeatureID(Connector.class)) {
 		case e4smPackage.CONNECTOR__NAME:
+		case e4smPackage.CONNECTOR__DOCUMENTATION:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		case e4smPackage.CONNECTOR__PARAMETERS:

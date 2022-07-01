@@ -2031,6 +2031,43 @@ public interface CorePackage extends EPackage {
 	int CLASS_ATTRIBUTE_OPERATION_COUNT = ATTRIBUTE_SPECIFICATION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.core.DocumentableElement <em>Documentable Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.core.DocumentableElement
+	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getDocumentableElement()
+	 * @generated
+	 */
+	int DOCUMENTABLE_ELEMENT = 25;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOCUMENTABLE_ELEMENT__DOCUMENTATION = 0;
+
+	/**
+	 * The number of structural features of the '<em>Documentable Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOCUMENTABLE_ELEMENT_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Documentable Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOCUMENTABLE_ELEMENT_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.core.UnitOfMeasurement <em>Unit Of Measurement</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2038,7 +2075,7 @@ public interface CorePackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getUnitOfMeasurement()
 	 * @generated
 	 */
-	int UNIT_OF_MEASUREMENT = 25;
+	int UNIT_OF_MEASUREMENT = 26;
 
 	/**
 	 * The meta object id for the '<em>Date</em>' data type.
@@ -2048,7 +2085,7 @@ public interface CorePackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getDate()
 	 * @generated
 	 */
-	int DATE = 35;
+	int DATE = 36;
 
 	/**
 	 * The meta object id for the '<em>Timestamp</em>' data type.
@@ -2058,7 +2095,7 @@ public interface CorePackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getTimestamp()
 	 * @generated
 	 */
-	int TIMESTAMP = 36;
+	int TIMESTAMP = 37;
 
 	/**
 	 * The meta object id for the '<em>Time</em>' data type.
@@ -2068,7 +2105,7 @@ public interface CorePackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getTime()
 	 * @generated
 	 */
-	int TIME = 37;
+	int TIME = 38;
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.core.NamedElement <em>Named Element</em>}'.
@@ -2643,6 +2680,27 @@ public interface CorePackage extends EPackage {
 	EReference getClassAttribute_Type();
 
 	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.core.DocumentableElement <em>Documentable Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Documentable Element</em>'.
+	 * @see e4sm.de.metamodel.e4sm.core.DocumentableElement
+	 * @generated
+	 */
+	EClass getDocumentableElement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.core.DocumentableElement#getDocumentation <em>Documentation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Documentation</em>'.
+	 * @see e4sm.de.metamodel.e4sm.core.DocumentableElement#getDocumentation()
+	 * @see #getDocumentableElement()
+	 * @generated
+	 */
+	EAttribute getDocumentableElement_Documentation();
+
+	/**
 	 * Returns the meta object for enum '{@link e4sm.de.metamodel.e4sm.core.UnitOfMeasurement <em>Unit Of Measurement</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2659,7 +2717,7 @@ public interface CorePackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getLong()
 	 * @generated
 	 */
-	int LONG = 31;
+	int LONG = 32;
 
 	/**
 	 * The meta object id for the '<em>Short</em>' data type.
@@ -2668,7 +2726,7 @@ public interface CorePackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getShort()
 	 * @generated
 	 */
-	int SHORT = 32;
+	int SHORT = 33;
 
 	/**
 	 * The meta object id for the '<em>Character</em>' data type.
@@ -2677,7 +2735,7 @@ public interface CorePackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getCharacter()
 	 * @generated
 	 */
-	int CHARACTER = 33;
+	int CHARACTER = 34;
 
 	/**
 	 * The meta object id for the '<em>Byte</em>' data type.
@@ -2686,7 +2744,7 @@ public interface CorePackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getByte()
 	 * @generated
 	 */
-	int BYTE = 34;
+	int BYTE = 35;
 
 	/**
 	 * The meta object id for the '<em>Boolean</em>' data type.
@@ -2695,7 +2753,7 @@ public interface CorePackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getBoolean()
 	 * @generated
 	 */
-	int BOOLEAN = 26;
+	int BOOLEAN = 27;
 
 	/**
 	 * The meta object id for the '<em>String</em>' data type.
@@ -2705,7 +2763,7 @@ public interface CorePackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getString()
 	 * @generated
 	 */
-	int STRING = 27;
+	int STRING = 28;
 
 	/**
 	 * The meta object id for the '<em>Integer</em>' data type.
@@ -2714,7 +2772,7 @@ public interface CorePackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getInteger()
 	 * @generated
 	 */
-	int INTEGER = 28;
+	int INTEGER = 29;
 
 	/**
 	 * The meta object id for the '<em>Float</em>' data type.
@@ -2723,7 +2781,7 @@ public interface CorePackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getFloat()
 	 * @generated
 	 */
-	int FLOAT = 29;
+	int FLOAT = 30;
 
 	/**
 	 * The meta object id for the '<em>Double</em>' data type.
@@ -2732,7 +2790,7 @@ public interface CorePackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getDouble()
 	 * @generated
 	 */
-	int DOUBLE = 30;
+	int DOUBLE = 31;
 
 	/**
 	 * Returns the meta object for data type '{@link java.time.LocalDate <em>Date</em>}'.
@@ -3370,6 +3428,24 @@ public interface CorePackage extends EPackage {
 		 * @generated
 		 */
 		EReference CLASS_ATTRIBUTE__TYPE = eINSTANCE.getClassAttribute_Type();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.core.DocumentableElement <em>Documentable Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.core.DocumentableElement
+		 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getDocumentableElement()
+		 * @generated
+		 */
+		EClass DOCUMENTABLE_ELEMENT = eINSTANCE.getDocumentableElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Documentation</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DOCUMENTABLE_ELEMENT__DOCUMENTATION = eINSTANCE.getDocumentableElement_Documentation();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.core.UnitOfMeasurement <em>Unit Of Measurement</em>}' enum.

@@ -9,6 +9,7 @@ import e4sm.de.metamodel.e4sm.DataStore;
 import e4sm.de.metamodel.e4sm.Pin;
 import e4sm.de.metamodel.e4sm.analysis.Parameter;
 import e4sm.de.metamodel.e4sm.core.CorePackage;
+import e4sm.de.metamodel.e4sm.core.DocumentableElement;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
 import java.lang.reflect.InvocationTargetException;
@@ -41,6 +42,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ConnectorImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ConnectorImpl#getName <em>Name</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.ConnectorImpl#getDocumentation <em>Documentation</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ConnectorImpl#getSource <em>Source</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ConnectorImpl#getTarget <em>Target</em>}</li>
  * </ul>
@@ -77,6 +79,26 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDocumentation()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DOCUMENTATION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDocumentation()
+	 * @generated
+	 * @ordered
+	 */
+	protected String documentation = DOCUMENTATION_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getSource() <em>Source</em>}' reference.
@@ -152,6 +174,30 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 		name = newName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.CONNECTOR__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getDocumentation() {
+		return documentation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setDocumentation(String newDocumentation) {
+		String oldDocumentation = documentation;
+		documentation = newDocumentation;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.CONNECTOR__DOCUMENTATION,
+					oldDocumentation, documentation));
 	}
 
 	/**
@@ -278,6 +324,8 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 			return getParameters();
 		case e4smPackage.CONNECTOR__NAME:
 			return getName();
+		case e4smPackage.CONNECTOR__DOCUMENTATION:
+			return getDocumentation();
 		case e4smPackage.CONNECTOR__SOURCE:
 			return getSource();
 		case e4smPackage.CONNECTOR__TARGET:
@@ -301,6 +349,9 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 			return;
 		case e4smPackage.CONNECTOR__NAME:
 			setName((String) newValue);
+			return;
+		case e4smPackage.CONNECTOR__DOCUMENTATION:
+			setDocumentation((String) newValue);
 			return;
 		case e4smPackage.CONNECTOR__SOURCE:
 			setSource((DataNode) newValue);
@@ -326,6 +377,9 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 		case e4smPackage.CONNECTOR__NAME:
 			setName(NAME_EDEFAULT);
 			return;
+		case e4smPackage.CONNECTOR__DOCUMENTATION:
+			setDocumentation(DOCUMENTATION_EDEFAULT);
+			return;
 		case e4smPackage.CONNECTOR__SOURCE:
 			setSource((DataNode) null);
 			return;
@@ -348,6 +402,9 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 			return parameters != null && !parameters.isEmpty();
 		case e4smPackage.CONNECTOR__NAME:
 			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+		case e4smPackage.CONNECTOR__DOCUMENTATION:
+			return DOCUMENTATION_EDEFAULT == null ? documentation != null
+					: !DOCUMENTATION_EDEFAULT.equals(documentation);
 		case e4smPackage.CONNECTOR__SOURCE:
 			return source != null;
 		case e4smPackage.CONNECTOR__TARGET:
@@ -377,6 +434,14 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 				return -1;
 			}
 		}
+		if (baseClass == DocumentableElement.class) {
+			switch (derivedFeatureID) {
+			case e4smPackage.CONNECTOR__DOCUMENTATION:
+				return CorePackage.DOCUMENTABLE_ELEMENT__DOCUMENTATION;
+			default:
+				return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -397,6 +462,14 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 			switch (baseFeatureID) {
 			case CorePackage.NAMED_ELEMENT__NAME:
 				return e4smPackage.CONNECTOR__NAME;
+			default:
+				return -1;
+			}
+		}
+		if (baseClass == DocumentableElement.class) {
+			switch (baseFeatureID) {
+			case CorePackage.DOCUMENTABLE_ELEMENT__DOCUMENTATION:
+				return e4smPackage.CONNECTOR__DOCUMENTATION;
 			default:
 				return -1;
 			}
@@ -433,6 +506,8 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (name: ");
 		result.append(name);
+		result.append(", documentation: ");
+		result.append(documentation);
 		result.append(')');
 		return result.toString();
 	}

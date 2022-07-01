@@ -8,6 +8,7 @@ import e4sm.de.metamodel.e4sm.Package;
 import e4sm.de.metamodel.e4sm.analysis.Parameter;
 
 import e4sm.de.metamodel.e4sm.core.CorePackage;
+import e4sm.de.metamodel.e4sm.core.DocumentableElement;
 import e4sm.de.metamodel.e4sm.core.ParameterizableElement;
 
 import e4sm.de.metamodel.e4sm.core.impl.TypedElementImpl;
@@ -20,6 +21,7 @@ import e4sm.de.metamodel.e4sm.execution.Element;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
@@ -28,6 +30,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -40,6 +43,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.DataNodeImpl#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.DataNodeImpl#getDocumentation <em>Documentation</em>}</li>
  * </ul>
  *
  * @generated
@@ -54,6 +58,25 @@ public abstract class DataNodeImpl extends TypedElementImpl implements DataNode 
 	 * @ordered
 	 */
 	protected EList<Parameter> parameters;
+
+	/**
+	 * The default value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDocumentation()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DOCUMENTATION_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDocumentation()
+	 * @generated
+	 * @ordered
+	 */
+	protected String documentation = DOCUMENTATION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -86,6 +109,30 @@ public abstract class DataNodeImpl extends TypedElementImpl implements DataNode 
 					e4smPackage.DATA_NODE__PARAMETERS);
 		}
 		return parameters;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getDocumentation() {
+		return documentation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setDocumentation(String newDocumentation) {
+		String oldDocumentation = documentation;
+		documentation = newDocumentation;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.DATA_NODE__DOCUMENTATION,
+					oldDocumentation, documentation));
 	}
 
 	/**
@@ -184,6 +231,8 @@ public abstract class DataNodeImpl extends TypedElementImpl implements DataNode 
 		switch (featureID) {
 		case e4smPackage.DATA_NODE__PARAMETERS:
 			return getParameters();
+		case e4smPackage.DATA_NODE__DOCUMENTATION:
+			return getDocumentation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -201,6 +250,9 @@ public abstract class DataNodeImpl extends TypedElementImpl implements DataNode 
 			getParameters().clear();
 			getParameters().addAll((Collection<? extends Parameter>) newValue);
 			return;
+		case e4smPackage.DATA_NODE__DOCUMENTATION:
+			setDocumentation((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -216,6 +268,9 @@ public abstract class DataNodeImpl extends TypedElementImpl implements DataNode 
 		case e4smPackage.DATA_NODE__PARAMETERS:
 			getParameters().clear();
 			return;
+		case e4smPackage.DATA_NODE__DOCUMENTATION:
+			setDocumentation(DOCUMENTATION_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -230,6 +285,9 @@ public abstract class DataNodeImpl extends TypedElementImpl implements DataNode 
 		switch (featureID) {
 		case e4smPackage.DATA_NODE__PARAMETERS:
 			return parameters != null && !parameters.isEmpty();
+		case e4smPackage.DATA_NODE__DOCUMENTATION:
+			return DOCUMENTATION_EDEFAULT == null ? documentation != null
+					: !DOCUMENTATION_EDEFAULT.equals(documentation);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -257,6 +315,14 @@ public abstract class DataNodeImpl extends TypedElementImpl implements DataNode 
 			switch (derivedFeatureID) {
 			case e4smPackage.DATA_NODE__PARAMETERS:
 				return CorePackage.PARAMETERIZABLE_ELEMENT__PARAMETERS;
+			default:
+				return -1;
+			}
+		}
+		if (baseClass == DocumentableElement.class) {
+			switch (derivedFeatureID) {
+			case e4smPackage.DATA_NODE__DOCUMENTATION:
+				return CorePackage.DOCUMENTABLE_ELEMENT__DOCUMENTATION;
 			default:
 				return -1;
 			}
@@ -291,6 +357,14 @@ public abstract class DataNodeImpl extends TypedElementImpl implements DataNode 
 				return -1;
 			}
 		}
+		if (baseClass == DocumentableElement.class) {
+			switch (baseFeatureID) {
+			case CorePackage.DOCUMENTABLE_ELEMENT__DOCUMENTATION:
+				return e4smPackage.DATA_NODE__DOCUMENTATION;
+			default:
+				return -1;
+			}
+		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
@@ -310,6 +384,23 @@ public abstract class DataNodeImpl extends TypedElementImpl implements DataNode 
 			return getIncomingConnectors();
 		}
 		return super.eInvoke(operationID, arguments);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy())
+			return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (documentation: ");
+		result.append(documentation);
+		result.append(')');
+		return result.toString();
 	}
 
 } //DataNodeImpl

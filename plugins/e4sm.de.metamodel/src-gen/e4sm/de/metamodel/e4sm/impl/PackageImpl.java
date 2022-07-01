@@ -11,6 +11,7 @@ import e4sm.de.metamodel.e4sm.Sector;
 import e4sm.de.metamodel.e4sm.SoftwareComponent;
 import e4sm.de.metamodel.e4sm.analysis.Parameter;
 import e4sm.de.metamodel.e4sm.core.CorePackage;
+import e4sm.de.metamodel.e4sm.core.DocumentableElement;
 import e4sm.de.metamodel.e4sm.core.ParameterizableElement;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 import e4sm.de.metamodel.e4sm.core.impl.NamedElementImpl;
@@ -38,6 +39,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getDocumentation <em>Documentation</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getComponents <em>Components</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getSoftwareComponents <em>Software Components</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getPhysicalComponents <em>Physical Components</em>}</li>
@@ -60,6 +62,26 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	 * @ordered
 	 */
 	protected EList<Parameter> parameters;
+
+	/**
+	 * The default value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDocumentation()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DOCUMENTATION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDocumentation()
+	 * @generated
+	 * @ordered
+	 */
+	protected String documentation = DOCUMENTATION_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getComponents() <em>Components</em>}' containment reference list.
@@ -152,6 +174,30 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 			parameters = new EObjectContainmentEList<Parameter>(Parameter.class, this, e4smPackage.PACKAGE__PARAMETERS);
 		}
 		return parameters;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getDocumentation() {
+		return documentation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setDocumentation(String newDocumentation) {
+		String oldDocumentation = documentation;
+		documentation = newDocumentation;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.PACKAGE__DOCUMENTATION, oldDocumentation,
+					documentation));
 	}
 
 	/**
@@ -425,6 +471,8 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 		switch (featureID) {
 		case e4smPackage.PACKAGE__PARAMETERS:
 			return getParameters();
+		case e4smPackage.PACKAGE__DOCUMENTATION:
+			return getDocumentation();
 		case e4smPackage.PACKAGE__COMPONENTS:
 			return getComponents();
 		case e4smPackage.PACKAGE__SOFTWARE_COMPONENTS:
@@ -462,6 +510,9 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 		case e4smPackage.PACKAGE__PARAMETERS:
 			getParameters().clear();
 			getParameters().addAll((Collection<? extends Parameter>) newValue);
+			return;
+		case e4smPackage.PACKAGE__DOCUMENTATION:
+			setDocumentation((String) newValue);
 			return;
 		case e4smPackage.PACKAGE__COMPONENTS:
 			getComponents().clear();
@@ -507,6 +558,9 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 		case e4smPackage.PACKAGE__PARAMETERS:
 			getParameters().clear();
 			return;
+		case e4smPackage.PACKAGE__DOCUMENTATION:
+			setDocumentation(DOCUMENTATION_EDEFAULT);
+			return;
 		case e4smPackage.PACKAGE__COMPONENTS:
 			getComponents().clear();
 			return;
@@ -544,6 +598,9 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 		switch (featureID) {
 		case e4smPackage.PACKAGE__PARAMETERS:
 			return parameters != null && !parameters.isEmpty();
+		case e4smPackage.PACKAGE__DOCUMENTATION:
+			return DOCUMENTATION_EDEFAULT == null ? documentation != null
+					: !DOCUMENTATION_EDEFAULT.equals(documentation);
 		case e4smPackage.PACKAGE__COMPONENTS:
 			return components != null && !components.isEmpty();
 		case e4smPackage.PACKAGE__SOFTWARE_COMPONENTS:
@@ -580,6 +637,14 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 				return -1;
 			}
 		}
+		if (baseClass == DocumentableElement.class) {
+			switch (derivedFeatureID) {
+			case e4smPackage.PACKAGE__DOCUMENTATION:
+				return CorePackage.DOCUMENTABLE_ELEMENT__DOCUMENTATION;
+			default:
+				return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -593,6 +658,14 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 			switch (baseFeatureID) {
 			case CorePackage.PARAMETERIZABLE_ELEMENT__PARAMETERS:
 				return e4smPackage.PACKAGE__PARAMETERS;
+			default:
+				return -1;
+			}
+		}
+		if (baseClass == DocumentableElement.class) {
+			switch (baseFeatureID) {
+			case CorePackage.DOCUMENTABLE_ELEMENT__DOCUMENTATION:
+				return e4smPackage.PACKAGE__DOCUMENTATION;
 			default:
 				return -1;
 			}
@@ -613,6 +686,23 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 			return getMaxFlow();
 		}
 		return super.eInvoke(operationID, arguments);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy())
+			return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (documentation: ");
+		result.append(documentation);
+		result.append(')');
+		return result.toString();
 	}
 
 } // PackageImpl

@@ -343,9 +343,6 @@ public class Generate extends AbstractAcceleoGenerator {
         if (!isInWorkspace(e4sm.de.metamodel.e4sm.e4smPackage.class)) {
             resourceSet.getPackageRegistry().put(e4sm.de.metamodel.e4sm.e4smPackage.eINSTANCE.getNsURI(), e4sm.de.metamodel.e4sm.e4smPackage.eINSTANCE);
         }
-        if (!isInWorkspace(e4sm.de.metamodel.e4sm.core.CorePackage.class)) {
-            resourceSet.getPackageRegistry().put(e4sm.de.metamodel.e4sm.core.CorePackage.eINSTANCE.getNsURI(), e4sm.de.metamodel.e4sm.core.CorePackage.eINSTANCE);
-        }
         
         /*
          * If you want to change the content of this method, do NOT forget to change the "@generated"

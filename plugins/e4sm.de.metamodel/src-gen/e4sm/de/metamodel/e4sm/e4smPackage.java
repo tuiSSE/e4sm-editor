@@ -99,13 +99,22 @@ public interface e4smPackage extends EPackage {
 	int COMPONENT__TIME_FUNCTION = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT__DOCUMENTATION = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__COMPONENTS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int COMPONENT__COMPONENTS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Pins</b></em>' containment reference list.
@@ -114,7 +123,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__PINS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int COMPONENT__PINS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Main Responsible</b></em>' reference.
@@ -123,7 +132,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__MAIN_RESPONSIBLE = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 4;
+	int COMPONENT__MAIN_RESPONSIBLE = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Specified In Package</b></em>' reference.
@@ -132,7 +141,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__SPECIFIED_IN_PACKAGE = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 5;
+	int COMPONENT__SPECIFIED_IN_PACKAGE = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Execution</b></em>' containment reference.
@@ -141,7 +150,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__EXECUTION = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 6;
+	int COMPONENT__EXECUTION = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Firing Strategy</b></em>' attribute.
@@ -150,7 +159,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__FIRING_STRATEGY = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 7;
+	int COMPONENT__FIRING_STRATEGY = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Datastores</b></em>' containment reference list.
@@ -159,7 +168,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__DATASTORES = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 8;
+	int COMPONENT__DATASTORES = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 9;
 
 	/**
 	 * The number of structural features of the '<em>Component</em>' class.
@@ -168,7 +177,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 9;
+	int COMPONENT_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 10;
 
 	/**
 	 * The operation id for the '<em>Compute Main Responsible</em>' operation.
@@ -233,6 +242,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOFTWARE_COMPONENT__TIME_FUNCTION = COMPONENT__TIME_FUNCTION;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOFTWARE_COMPONENT__DOCUMENTATION = COMPONENT__DOCUMENTATION;
 
 	/**
 	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
@@ -396,6 +414,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int MACHINE_LEARNING_COMPONENT__TIME_FUNCTION = SOFTWARE_COMPONENT__TIME_FUNCTION;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MACHINE_LEARNING_COMPONENT__DOCUMENTATION = SOFTWARE_COMPONENT__DOCUMENTATION;
 
 	/**
 	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
@@ -692,13 +719,22 @@ public interface e4smPackage extends EPackage {
 	int CONNECTOR__NAME = CorePackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__DOCUMENTATION = CorePackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__SOURCE = CorePackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 1;
+	int CONNECTOR__SOURCE = CorePackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' reference.
@@ -707,7 +743,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__TARGET = CorePackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 2;
+	int CONNECTOR__TARGET = CorePackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Connector</em>' class.
@@ -716,7 +752,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR_FEATURE_COUNT = CorePackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 3;
+	int CONNECTOR_FEATURE_COUNT = CorePackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Compute Name</em>' operation.
@@ -762,6 +798,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int PHYSICAL_CONNECTOR__NAME = CONNECTOR__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PHYSICAL_CONNECTOR__DOCUMENTATION = CONNECTOR__DOCUMENTATION;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -861,6 +906,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int PHYSICAL_COMPONENT__TIME_FUNCTION = COMPONENT__TIME_FUNCTION;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PHYSICAL_COMPONENT__DOCUMENTATION = COMPONENT__DOCUMENTATION;
 
 	/**
 	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
@@ -980,6 +1034,15 @@ public interface e4smPackage extends EPackage {
 	int LOGICAL_CONNECTOR__NAME = CONNECTOR__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOGICAL_CONNECTOR__DOCUMENTATION = CONNECTOR__DOCUMENTATION;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1059,6 +1122,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int HEURISTIC__TIME_FUNCTION = SOFTWARE_COMPONENT__TIME_FUNCTION;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HEURISTIC__DOCUMENTATION = SOFTWARE_COMPONENT__DOCUMENTATION;
 
 	/**
 	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
@@ -1214,6 +1286,15 @@ public interface e4smPackage extends EPackage {
 	int FUNCTION__TIME_FUNCTION = SOFTWARE_COMPONENT__TIME_FUNCTION;
 
 	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION__DOCUMENTATION = SOFTWARE_COMPONENT__DOCUMENTATION;
+
+	/**
 	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1367,6 +1448,15 @@ public interface e4smPackage extends EPackage {
 	int EXTERNAL_DEPENDENCY__TIME_FUNCTION = SOFTWARE_COMPONENT__TIME_FUNCTION;
 
 	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_DEPENDENCY__DOCUMENTATION = SOFTWARE_COMPONENT__DOCUMENTATION;
+
+	/**
 	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1511,13 +1601,22 @@ public interface e4smPackage extends EPackage {
 	int PACKAGE__PARAMETERS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__DOCUMENTATION = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__COMPONENTS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int PACKAGE__COMPONENTS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Software Components</b></em>' reference list.
@@ -1526,7 +1625,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__SOFTWARE_COMPONENTS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int PACKAGE__SOFTWARE_COMPONENTS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Physical Components</b></em>' reference list.
@@ -1535,7 +1634,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__PHYSICAL_COMPONENTS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int PACKAGE__PHYSICAL_COMPONENTS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Connectors</b></em>' containment reference list.
@@ -1544,7 +1643,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__CONNECTORS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 4;
+	int PACKAGE__CONNECTORS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Sectors</b></em>' containment reference list.
@@ -1553,7 +1652,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__SECTORS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 5;
+	int PACKAGE__SECTORS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Main Responsible</b></em>' reference.
@@ -1562,7 +1661,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__MAIN_RESPONSIBLE = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 6;
+	int PACKAGE__MAIN_RESPONSIBLE = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Packages</b></em>' containment reference list.
@@ -1571,7 +1670,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__PACKAGES = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 7;
+	int PACKAGE__PACKAGES = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Specifies Component</b></em>' reference.
@@ -1580,7 +1679,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__SPECIFIES_COMPONENT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 8;
+	int PACKAGE__SPECIFIES_COMPONENT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Datastores</b></em>' containment reference list.
@@ -1589,7 +1688,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__DATASTORES = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 9;
+	int PACKAGE__DATASTORES = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 10;
 
 	/**
 	 * The number of structural features of the '<em>Package</em>' class.
@@ -1598,7 +1697,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 10;
+	int PACKAGE_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 11;
 
 	/**
 	 * The operation id for the '<em>Get All Components</em>' operation.
@@ -1646,13 +1745,22 @@ public interface e4smPackage extends EPackage {
 	int MODEL__PARAMETERS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL__DOCUMENTATION = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Packages</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__PACKAGES = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int MODEL__PACKAGES = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Actors</b></em>' containment reference list.
@@ -1661,7 +1769,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__ACTORS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int MODEL__ACTORS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Persons Pictures Path</b></em>' attribute.
@@ -1670,7 +1778,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__PERSONS_PICTURES_PATH = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int MODEL__PERSONS_PICTURES_PATH = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Variants</b></em>' containment reference list.
@@ -1679,7 +1787,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__VARIANTS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 4;
+	int MODEL__VARIANTS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
@@ -1688,7 +1796,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__TYPES = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 5;
+	int MODEL__TYPES = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Imports</b></em>' containment reference list.
@@ -1697,7 +1805,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__IMPORTS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 6;
+	int MODEL__IMPORTS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of structural features of the '<em>Model</em>' class.
@@ -1706,7 +1814,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 7;
+	int MODEL_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Is Person Picture Path Valid</em>' operation.
@@ -1736,13 +1844,22 @@ public interface e4smPackage extends EPackage {
 	int ACTOR__NAME = CorePackage.NAMED_ELEMENT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR__DOCUMENTATION = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Actor</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTOR_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int ACTOR_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Actor</em>' class.
@@ -1761,6 +1878,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int HUMAN__NAME = ACTOR__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HUMAN__DOCUMENTATION = ACTOR__DOCUMENTATION;
 
 	/**
 	 * The number of structural features of the '<em>Human</em>' class.
@@ -1790,6 +1916,15 @@ public interface e4smPackage extends EPackage {
 	int ROBOT__NAME = ACTOR__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROBOT__DOCUMENTATION = ACTOR__DOCUMENTATION;
+
+	/**
 	 * The number of structural features of the '<em>Robot</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1817,13 +1952,22 @@ public interface e4smPackage extends EPackage {
 	int SECTOR__NAME = CorePackage.NAMED_ELEMENT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECTOR__DOCUMENTATION = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SECTOR__COMPONENTS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int SECTOR__COMPONENTS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Sectors</b></em>' containment reference list.
@@ -1832,7 +1976,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SECTOR__SECTORS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int SECTOR__SECTORS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Datastores</b></em>' containment reference list.
@@ -1841,7 +1985,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SECTOR__DATASTORES = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int SECTOR__DATASTORES = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Sector</em>' class.
@@ -1850,7 +1994,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SECTOR_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int SECTOR_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Get All Components</em>' operation.
@@ -1896,6 +2040,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int SENSOR__TIME_FUNCTION = PHYSICAL_COMPONENT__TIME_FUNCTION;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENSOR__DOCUMENTATION = PHYSICAL_COMPONENT__DOCUMENTATION;
 
 	/**
 	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
@@ -2022,6 +2175,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTUATOR__TIME_FUNCTION = PHYSICAL_COMPONENT__TIME_FUNCTION;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTUATOR__DOCUMENTATION = PHYSICAL_COMPONENT__DOCUMENTATION;
 
 	/**
 	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
@@ -2160,13 +2322,22 @@ public interface e4smPackage extends EPackage {
 	int DATA_NODE__PARAMETERS = CorePackage.TYPED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_NODE__DOCUMENTATION = CorePackage.TYPED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Data Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_NODE_FEATURE_COUNT = CorePackage.TYPED_ELEMENT_FEATURE_COUNT + 1;
+	int DATA_NODE_FEATURE_COUNT = CorePackage.TYPED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Compute Name</em>' operation.
@@ -2272,6 +2443,15 @@ public interface e4smPackage extends EPackage {
 	int PIN__PARAMETERS = DATA_NODE__PARAMETERS;
 
 	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIN__DOCUMENTATION = DATA_NODE__DOCUMENTATION;
+
+	/**
 	 * The feature id for the '<em><b>Gateway Pin</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2369,6 +2549,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int INPUT_PIN__PARAMETERS = PIN__PARAMETERS;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_PIN__DOCUMENTATION = PIN__DOCUMENTATION;
 
 	/**
 	 * The feature id for the '<em><b>Gateway Pin</b></em>' attribute.
@@ -2497,6 +2686,15 @@ public interface e4smPackage extends EPackage {
 	int OUTPUT_PIN__PARAMETERS = PIN__PARAMETERS;
 
 	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_PIN__DOCUMENTATION = PIN__DOCUMENTATION;
+
+	/**
 	 * The feature id for the '<em><b>Gateway Pin</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2594,6 +2792,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int PERSON__NAME = HUMAN__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSON__DOCUMENTATION = HUMAN__DOCUMENTATION;
 
 	/**
 	 * The feature id for the '<em><b>Surname</b></em>' attribute.
@@ -3008,6 +3215,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATA_STORE__PARAMETERS = DATA_NODE__PARAMETERS;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_STORE__DOCUMENTATION = DATA_NODE__DOCUMENTATION;
 
 	/**
 	 * The number of structural features of the '<em>Data Store</em>' class.

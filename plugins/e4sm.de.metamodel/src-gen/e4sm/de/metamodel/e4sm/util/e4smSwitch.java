@@ -33,6 +33,7 @@ import e4sm.de.metamodel.e4sm.SimpleUnit;
 import e4sm.de.metamodel.e4sm.SoftwareComponent;
 import e4sm.de.metamodel.e4sm.UnitConversion;
 import e4sm.de.metamodel.e4sm.UnitPrefix;
+import e4sm.de.metamodel.e4sm.core.DocumentableElement;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
 import e4sm.de.metamodel.e4sm.execution.AssignableElement;
@@ -114,6 +115,8 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseDelayableElement(component);
 			if (result == null)
+				result = caseDocumentableElement(component);
+			if (result == null)
 				result = caseElement(component);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -133,6 +136,8 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseDelayableElement(machineLearningComponent);
 			if (result == null)
+				result = caseDocumentableElement(machineLearningComponent);
+			if (result == null)
 				result = caseElement(machineLearningComponent);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -145,6 +150,8 @@ public class e4smSwitch<T> extends Switch<T> {
 				result = caseParameterizableElement(connector);
 			if (result == null)
 				result = caseNamedElement(connector);
+			if (result == null)
+				result = caseDocumentableElement(connector);
 			if (result == null)
 				result = caseElement(connector);
 			if (result == null)
@@ -160,6 +167,8 @@ public class e4smSwitch<T> extends Switch<T> {
 				result = caseParameterizableElement(physicalConnector);
 			if (result == null)
 				result = caseNamedElement(physicalConnector);
+			if (result == null)
+				result = caseDocumentableElement(physicalConnector);
 			if (result == null)
 				result = caseElement(physicalConnector);
 			if (result == null)
@@ -178,6 +187,8 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseDelayableElement(physicalComponent);
 			if (result == null)
+				result = caseDocumentableElement(physicalComponent);
+			if (result == null)
 				result = caseElement(physicalComponent);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -195,6 +206,8 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseDelayableElement(softwareComponent);
 			if (result == null)
+				result = caseDocumentableElement(softwareComponent);
+			if (result == null)
 				result = caseElement(softwareComponent);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -209,6 +222,8 @@ public class e4smSwitch<T> extends Switch<T> {
 				result = caseParameterizableElement(logicalConnector);
 			if (result == null)
 				result = caseNamedElement(logicalConnector);
+			if (result == null)
+				result = caseDocumentableElement(logicalConnector);
 			if (result == null)
 				result = caseElement(logicalConnector);
 			if (result == null)
@@ -229,6 +244,8 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseDelayableElement(heuristic);
 			if (result == null)
+				result = caseDocumentableElement(heuristic);
+			if (result == null)
 				result = caseElement(heuristic);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -247,6 +264,8 @@ public class e4smSwitch<T> extends Switch<T> {
 				result = caseParameterizableElement(function);
 			if (result == null)
 				result = caseDelayableElement(function);
+			if (result == null)
+				result = caseDocumentableElement(function);
 			if (result == null)
 				result = caseElement(function);
 			if (result == null)
@@ -267,6 +286,8 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseDelayableElement(externalDependency);
 			if (result == null)
+				result = caseDocumentableElement(externalDependency);
+			if (result == null)
 				result = caseElement(externalDependency);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -279,6 +300,8 @@ public class e4smSwitch<T> extends Switch<T> {
 				result = caseNamedElement(package_);
 			if (result == null)
 				result = caseParameterizableElement(package_);
+			if (result == null)
+				result = caseDocumentableElement(package_);
 			if (result == null)
 				result = caseElement(package_);
 			if (result == null)
@@ -293,6 +316,8 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseParameterizableElement(model);
 			if (result == null)
+				result = caseDocumentableElement(model);
+			if (result == null)
 				result = caseElement(model);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -303,6 +328,8 @@ public class e4smSwitch<T> extends Switch<T> {
 			T result = caseActor(actor);
 			if (result == null)
 				result = caseNamedElement(actor);
+			if (result == null)
+				result = caseDocumentableElement(actor);
 			if (result == null)
 				result = caseElement(actor);
 			if (result == null)
@@ -317,6 +344,8 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseNamedElement(human);
 			if (result == null)
+				result = caseDocumentableElement(human);
+			if (result == null)
 				result = caseElement(human);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -330,6 +359,8 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseNamedElement(robot);
 			if (result == null)
+				result = caseDocumentableElement(robot);
+			if (result == null)
 				result = caseElement(robot);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -340,6 +371,8 @@ public class e4smSwitch<T> extends Switch<T> {
 			T result = caseSector(sector);
 			if (result == null)
 				result = caseNamedElement(sector);
+			if (result == null)
+				result = caseDocumentableElement(sector);
 			if (result == null)
 				result = caseElement(sector);
 			if (result == null)
@@ -360,6 +393,8 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseDelayableElement(sensor);
 			if (result == null)
+				result = caseDocumentableElement(sensor);
+			if (result == null)
 				result = caseElement(sensor);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -379,6 +414,8 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseDelayableElement(actuator);
 			if (result == null)
+				result = caseDocumentableElement(actuator);
+			if (result == null)
 				result = caseElement(actuator);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -395,6 +432,8 @@ public class e4smSwitch<T> extends Switch<T> {
 				result = caseConnectableNode(pin);
 			if (result == null)
 				result = caseParameterizableElement(pin);
+			if (result == null)
+				result = caseDocumentableElement(pin);
 			if (result == null)
 				result = caseNamedElement(pin);
 			if (result == null)
@@ -418,6 +457,8 @@ public class e4smSwitch<T> extends Switch<T> {
 				result = caseConnectableNode(inputPin);
 			if (result == null)
 				result = caseParameterizableElement(inputPin);
+			if (result == null)
+				result = caseDocumentableElement(inputPin);
 			if (result == null)
 				result = caseNamedElement(inputPin);
 			if (result == null)
@@ -444,6 +485,8 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseParameterizableElement(outputPin);
 			if (result == null)
+				result = caseDocumentableElement(outputPin);
+			if (result == null)
 				result = caseNamedElement(outputPin);
 			if (result == null)
 				result = caseExecution_Element(outputPin);
@@ -462,6 +505,8 @@ public class e4smSwitch<T> extends Switch<T> {
 				result = caseActor(person);
 			if (result == null)
 				result = caseNamedElement(person);
+			if (result == null)
+				result = caseDocumentableElement(person);
 			if (result == null)
 				result = caseElement(person);
 			if (result == null)
@@ -544,6 +589,8 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseParameterizableElement(dataStore);
 			if (result == null)
+				result = caseDocumentableElement(dataStore);
+			if (result == null)
 				result = caseNamedElement(dataStore);
 			if (result == null)
 				result = caseExecution_Element(dataStore);
@@ -562,6 +609,8 @@ public class e4smSwitch<T> extends Switch<T> {
 				result = caseConnectableNode(dataNode);
 			if (result == null)
 				result = caseParameterizableElement(dataNode);
+			if (result == null)
+				result = caseDocumentableElement(dataNode);
 			if (result == null)
 				result = caseNamedElement(dataNode);
 			if (result == null)
@@ -1114,6 +1163,21 @@ public class e4smSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseDelayableElement(DelayableElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Documentable Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Documentable Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDocumentableElement(DocumentableElement object) {
 		return null;
 	}
 
