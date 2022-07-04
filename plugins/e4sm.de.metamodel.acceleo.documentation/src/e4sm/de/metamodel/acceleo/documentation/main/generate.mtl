@@ -3,7 +3,7 @@
  * The documentation of the module generate.
  */]
 [module generate('http://de.tu-ilmenau/e4sm/1.0.0')]
-[import e4sm::de::metamodel::acceleo::documentation::services::documentatioServices /]
+[import e4sm::de::metamodel::acceleo::documentation::services::documentationServices /]
 
 [**
  * The documentation of the template generateElement.
@@ -83,10 +83,10 @@ ul {
 	background-color:#fdce89;
 }
 .Sensor{
-	background-color:#fdce89;
+	background-color:#ffbf80;
 }
 .Actuator{
-	background-color:#fdce89;
+	background-color:#ff8c1a;
 }
 
 .MachineLearningComponent{
