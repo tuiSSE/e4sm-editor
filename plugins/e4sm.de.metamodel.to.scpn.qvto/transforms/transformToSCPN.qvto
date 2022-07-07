@@ -406,6 +406,55 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 		};
 		
 		
+		// Check if the component can be executed in parallel
+		if(self.oclIsKindOf(SoftwareComponent) and self.firingStrategy = ComponentFiringStrategy::AND){
+		var servers : Integer = self.oclAsType(SoftwareComponent).numberOfServers;
+		if(servers = -1){
+			timedTran.serverType := ServerTypeType::InfiniteServer;
+			timedTran.watch := true;
+		}
+		else if(servers > 1) {
+			// The value is <> 1, add the semaphore place with 2 arcs
+			// and change the execution transition server type
+			
+			timedTran.serverType := ServerTypeType::InfiniteServer;
+			
+			// Create the place
+			var sem : PlaceType := new PlaceType(self.name + "_sem");
+			
+			// Add the tokens
+			var i : Integer := 0;
+			while (i < servers) {
+			    sem.initialMarking := sem.initialMarking + "0";
+				i := i + 1;
+				// Add a comma if it's not the last one
+				if(i < servers){
+					sem.initialMarking := sem.initialMarking + ", ";
+				}
+			};
+			
+			pl->add(sem);
+			
+			// Create the Arcs
+			var semBack := new ArcType(self.name+"_semBack");
+			semBack.fromNode := timedTran.id;
+			semBack.toNode := sem.id;
+			arcs->add(semBack);
+			
+			var semReady := new ArcType(self.name+"_semReady");
+			semReady.inscription.text := "limit";
+			semReady.fromNode := sem.id;
+			semReady.toNode := singleComponentReadyTransition.id;
+			arcs->add(semReady);
+			
+			var semMeasure := new MeasureType(self.name + "_in_use");
+			semMeasure.expression := servers.toString() + " - #" + safeString(self.name) + "_sem";
+			meas->add(semMeasure);
+		}
+		
+		};
+		
+		
 		// Transform the input pins
 		var i:Integer := 1;
 		inputPins->forEach(ip) {

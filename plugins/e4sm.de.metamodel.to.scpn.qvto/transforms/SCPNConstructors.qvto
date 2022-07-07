@@ -174,10 +174,12 @@ constructor SubstitutionTransitionType::SubstitutionTransitionType(name : String
 constructor MeasureType::MeasureType(name:String) {
 	//Attributes
 	id:= safeString(name) + "_measure_id";
+	result.name := safeString(name);
 	eval:=scpn::MeasureEvalType::TimeAverage;
 	expression:="";
 	type:=scpn::Type::text;
 	watch := true;
+	result._result := "";
 
 	//Children
 	graphics := new GraphicsType(false);
