@@ -16,6 +16,7 @@ import e4sm.de.metamodel.e4sm.core.impl.NamedElementImpl;
 import e4sm.de.metamodel.e4sm.util.e4smValidator;
 import java.lang.reflect.InvocationTargetException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Collection;
 
@@ -303,7 +304,19 @@ public class ModelImpl extends NamedElementImpl implements Model {
 		} else {
 			uri = URI.createURI(personsPicturesPath);
 		}
-		if (validationFailed || (uri != null && !Files.isDirectory(Paths.get(uri.toPlatformString(false))))) {
+		String path = null;
+		Path p = null;
+		if(uri.isPlatform()) {
+			path = uri.toPlatformString(false);
+		}
+		if(path != null) {
+			p = Paths.get(path);
+		}
+		if(p==null)
+		{
+			return false;
+		}
+		if (validationFailed || (uri != null && !Files.isDirectory(p))) {
 			if (diagnostics != null) {
 				diagnostics.add(new BasicDiagnostic(Diagnostic.WARNING, e4smValidator.DIAGNOSTIC_SOURCE,
 						e4smValidator.MODEL__IS_PERSON_PICTURE_PATH_VALID,

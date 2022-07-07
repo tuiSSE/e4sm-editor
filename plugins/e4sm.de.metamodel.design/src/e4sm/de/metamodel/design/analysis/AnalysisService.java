@@ -22,7 +22,6 @@ import e4sm.de.metamodel.e4sm.Connector;
 import e4sm.de.metamodel.e4sm.Model;
 import e4sm.de.metamodel.e4sm.analysis.AnalysisDefinition;
 import e4sm.de.metamodel.e4sm.analysis.Parameter;
-import e4sm.de.metamodel.e4sm.analysis.results.AnalysisResult;
 import e4sm.de.metamodel.e4sm.Package;
 import e4sm.de.metamodel.e4sm.Sensor;
 
@@ -62,13 +61,13 @@ public class AnalysisService {
 	public static final int ANALYSIS_ERROR_PROPAGATION = 2;
 	public static final int ANALYSIS_BANDWIDTH = 3;
 
-	private ArrayList<AnalysisResult> results = new ArrayList<AnalysisResult>();
+	// private ArrayList<AnalysisResult> results = new ArrayList<AnalysisResult>();
 
 	private AnalysisExecution ae = null;
 
-	private void addResult(AnalysisResult ar) {
-		results.add(ar);
-	}
+	// private void addResult(AnalysisResult ar) {
+	//	results.add(ar);
+	// }
 
 	public void toSCPN(Package p, String outputPath) {
 		Utils.debug("Converting package to SCPN");
