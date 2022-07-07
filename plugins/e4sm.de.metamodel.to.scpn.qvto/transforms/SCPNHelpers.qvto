@@ -29,4 +29,8 @@ transformation SCPNHelpers() {
 	    // if the time function is not set, just return the default value
 	    return self.pins[InputPin]->isEmpty();
 	}
+	
+	query Component::isSensor() : Boolean {
+		return self.oclIsTypeOf(e4sm::Sensor) or self.hasNoInputs();
+	}
 }

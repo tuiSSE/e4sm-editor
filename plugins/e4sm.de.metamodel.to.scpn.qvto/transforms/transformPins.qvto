@@ -244,7 +244,7 @@ helper DataNode::resolvePinPlace (connector : Connector) : PlaceType{
 		}
 		endif;
 		    
-		assert fatal (targetPlace <> null) with log ("can't find place replacing target " + pin.getDirection() + " pin " + pin.toString());
+		assert fatal (targetPlace <> null) with log ("Can't find place replacing target " + pin.getDirection() + " pin " + pin.toString());
 		return targetPlace;
 	} else { // connector.source = pin, due to the assert above
 		log("... place for arc source pin: " + pin.computeName() + " " + pin.toString());
@@ -292,7 +292,7 @@ helper DataNode::resolvePinPlace (connector : Connector) : PlaceType{
 		    }
 		}endif;
 		    
-		assert fatal (sourcePlace <> null) with log ("can't find place replacing source " + pin.getDirection() + " pin " + pin.toString());
+		assert fatal (sourcePlace <> null) with log ("Can't find place replacing source " + pin.getDirection() + " pin " + pin.toString());
 		return sourcePlace;
 	}endif;
 		return null;

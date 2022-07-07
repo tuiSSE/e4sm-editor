@@ -23,8 +23,6 @@ main() {
 	if(packages->size() = 1){
 		selectedPackage := packages->asOrderedSet()->first();
 	}else{
-	
-	
 		// if there is more than 1 package in the provided model, a packageName must be provided
 		if(packages->size() > 1){
 			assert fatal (packageName <> null and not packageName->isEmpty() and packageName <> "") 
@@ -327,27 +325,29 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 			isSimpleComponent := true;
 			
 			// Create measures for Sensors and Actuators, for simple components only
-			if(self.oclIsKindOf(Sensor)){
-				meas += self.oclAsType(Sensor).map sensorToMeasure();
+			if(self.oclIsKindOf(Sensor)) {
+			    // Transitions have watch:true, the mainPlace is not generated anymore for sensors.
+				// meas += self.oclAsType(Sensor).map sensorToMeasure();
 			} else if(self.oclIsKindOf(Actuator)){
 				meas += self.oclAsType(Actuator)->map actuatorToMeasure();
 			};
 			
-			var componentMainPlace := new PlaceType(self.name + "_main");
-			pl->add(componentMainPlace);
+			var componentMainPlace : PlaceType := null;
 			
 
-			if(self.oclIsTypeOf(e4sm::Sensor) or self.hasNoInputs()) {
+			if(self.isSensor()) {
 			    log("Component is a sensor or has no inputs.");
 				singleComponentReadyTransition := new TimedTransitionType(self.name + "_ready");
 				singleComponentReadyTransition.oclAsType(TimedTransitionType).timeFunction := timeExpressionToString(self.timeFunction);
+				singleComponentReadyTransition.watch := true;
 				iTr->add(singleComponentReadyTransition);
 			}else if(self.firingStrategy = ComponentFiringStrategy::AND){
-				singleComponentReadyTransition := new ImmediateTransitionType(self.name + "_ready");
-				iTr->add(singleComponentReadyTransition);
-			};
-			
-			if(self.firingStrategy = ComponentFiringStrategy::AND) {
+					componentMainPlace := new PlaceType(self.name + "_main");
+					pl->add(componentMainPlace);
+					
+					singleComponentReadyTransition := new ImmediateTransitionType(self.name + "_ready");
+					iTr->add(singleComponentReadyTransition);
+
 				    // The component only has one ready immediate transition which is connected to all input pins
 					var readyToMain := new ArcType(self.name+"_ready_to_main");
 					readyToMain.fromNode := singleComponentReadyTransition.id;
@@ -363,6 +363,9 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 				}
 				else if (self.firingStrategy = ComponentFiringStrategy::OR) {
 					// Every input pin gets an immediate "ready" transition
+					componentMainPlace := new PlaceType(self.name + "_main");
+					pl->add(componentMainPlace);
+					
 					var i:Integer := 1;
 					self.pins[InputPin]->forEach(ip) {
 						// Create the immediate transition
@@ -388,6 +391,7 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 					with log("Unsupported firing strategy for component " + self.toString());
 				};
 			
+			if(not self.isSensor()) {
 			// Timed transition for the component execution
 			timedTran := new TimedTransitionType(self.name + "_execution");
 			timedTran.timeFunction := timeExpressionToString(self.timeFunction);
@@ -398,6 +402,7 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 			mainToTimed.fromNode := componentMainPlace.id;
 			mainToTimed.toNode := timedTran.id;
 			arcs->add(mainToTimed);
+			}
 		};
 		
 		
@@ -469,6 +474,7 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 			    iTr += transformationResult.it;
 			    arcs += transformationResult.arcs;
 			}endif;
+			
 			i := i + 1;
 		};
 		
@@ -484,7 +490,11 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 				//Create an arc to connect the the component to the place
 				if(isSimpleComponent) {
 					var arcFromTransition = new ArcType(outputPinPlace.id + "_from_" + self.name);
-					arcFromTransition.fromNode := timedTran.id;
+					if(self.isSensor()){
+						arcFromTransition.fromNode := singleComponentReadyTransition.id;
+					}else{
+						arcFromTransition.fromNode := timedTran.id;
+					};
 					arcFromTransition.toNode := outputPinPlace.id;
 					arcFromTransition.inscription.text := "new(1)"; //TODO: improve specification
 					
@@ -509,7 +519,11 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 			    
 			    if(isSimpleComponent) {
 			    var arcFromTransition = new ArcType(outputPin.pl->first().id + "_from_" + self.name);
-					arcFromTransition.fromNode := timedTran.id;
+					if(self.isSensor()){
+						arcFromTransition.fromNode := singleComponentReadyTransition.id;
+					}else{
+						arcFromTransition.fromNode := timedTran.id;
+					};
 					arcFromTransition.toNode := outputPin.pl->first().id;
 					arcFromTransition.inscription.text :=  "new(1)"; //TODO: improve specification
 					
