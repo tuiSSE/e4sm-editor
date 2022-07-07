@@ -23,6 +23,12 @@ import org.eclipse.emf.common.util.Monitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+import org.eclipse.xtext.resource.IResourceFactory;
+import e4sm.de.metamodel.e4sm.analysis.AnalysisPackage;
+import e4sm.de.metamodel.e4sm.core.CorePackage;
+import e4sm.de.metamodel.e4sm.execution.ExecutionPackage;
+import e4sm.de.metamodel.xtext.E4smStandaloneSetup;
 
 /**
  * Entry point of the 'Generate' generation module.
@@ -171,7 +177,7 @@ public class Generate extends AbstractAcceleoGenerator {
      *            This will be used to display progress information to the user.
      * @throws IOException
      *             This will be thrown if any of the output files cannot be saved to disk.
-     * @generated
+     * @generated NOT
      */
     @Override
     public void doGenerate(Monitor monitor) throws IOException {
@@ -185,19 +191,22 @@ public class Generate extends AbstractAcceleoGenerator {
          * note that those instructions may have a significant impact on the performances.
          */
 
-        //org.eclipse.emf.ecore.util.EcoreUtil.resolveAll(model);
-
+        org.eclipse.emf.ecore.util.EcoreUtil.resolveAll(model); //TODO, comment again
+        
+        // This should give 2 (model file and type file), but returns 1.
+        //var res = model.eResource().getResourceSet().getResources();
+        //System.out.println(res.size());
         /*
          * If you want to check for potential errors in your models before the launch of the generation, you
          * use the code below.
          */
 
-        //if (model != null && model.eResource() != null) {
-        //    List<org.eclipse.emf.ecore.resource.Resource.Diagnostic> errors = model.eResource().getErrors();
-        //    for (org.eclipse.emf.ecore.resource.Resource.Diagnostic diagnostic : errors) {
-        //        System.err.println(diagnostic.toString());
-        //    }
-        //}
+//        if (model != null && model.eResource() != null) {
+//            List<org.eclipse.emf.ecore.resource.Resource.Diagnostic> errors = model.eResource().getErrors();
+//            for (org.eclipse.emf.ecore.resource.Resource.Diagnostic diagnostic : errors) {
+//                System.err.println(diagnostic.toString());
+//            }
+//        }
 
         super.doGenerate(monitor);
     }
@@ -335,13 +344,28 @@ public class Generate extends AbstractAcceleoGenerator {
      * 
      * @param resourceSet
      *            The resource set which registry has to be updated.
-     * @generated
+     * @generated NOT
      */
     @Override
     public void registerPackages(ResourceSet resourceSet) {
         super.registerPackages(resourceSet);
         if (!isInWorkspace(e4sm.de.metamodel.e4sm.e4smPackage.class)) {
             resourceSet.getPackageRegistry().put(e4sm.de.metamodel.e4sm.e4smPackage.eINSTANCE.getNsURI(), e4sm.de.metamodel.e4sm.e4smPackage.eINSTANCE);
+        }
+        
+        if (!isInWorkspace(CorePackage.class)) {
+            // The normal package registration if your metamodel is in a plugin.
+            resourceSet.getPackageRegistry().put(CorePackage.eNS_URI, CorePackage.eINSTANCE);
+        }
+        
+        if (!isInWorkspace(ExecutionPackage.class)) {
+            // The normal package registration if your metamodel is in a plugin.
+            resourceSet.getPackageRegistry().put(ExecutionPackage.eNS_URI, ExecutionPackage.eINSTANCE);
+        }
+        
+        if (!isInWorkspace(AnalysisPackage.class)) {
+            // The normal package registration if your metamodel is in a plugin.
+            resourceSet.getPackageRegistry().put(AnalysisPackage.eNS_URI, AnalysisPackage.eINSTANCE);
         }
         
         /*
@@ -382,7 +406,7 @@ public class Generate extends AbstractAcceleoGenerator {
      * 
      * @param resourceSet
      *            The resource set which registry has to be updated.
-     * @generated
+     * @generated NOT
      */
     @Override
     public void registerResourceFactories(ResourceSet resourceSet) {
@@ -403,13 +427,14 @@ public class Generate extends AbstractAcceleoGenerator {
          * To learn more about the registration of Resource Factories, have a look at the Acceleo documentation (Help -> Help Contents). 
          */ 
         
-        // resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(XyzResource.FILE_EXTENSION, XyzResource.Factory.INSTANCE);
+        resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("e4sm", new XMIResourceFactoryImpl());
+        var injector = new E4smStandaloneSetup().createInjectorAndDoEMFRegistration();
+        resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("e4smcode", injector.getInstance(IResourceFactory.class));
         
         /*
          * Some metamodels require a very complex setup for standalone usage. For example, if you want to use a generator
          * targetting UML models in standalone, you NEED to use the following:
          */ 
         // UMLResourcesUtil.init(resourceSet)
-    }
-    
+    }    
 }

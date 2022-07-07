@@ -83,10 +83,10 @@ ul {
 	background-color:#fdce89;
 }
 .Sensor{
-	background-color:#ffbf80;
+	background-color:#ffb499;
 }
 .Actuator{
-	background-color:#ff8c1a;
+	background-color:#ff8033;
 }
 
 .MachineLearningComponent{
