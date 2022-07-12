@@ -11,7 +11,7 @@
  */]
 [template public generateElement(aModel : Model)]
 [comment @main/]
-[file (aModel.name + '_doc/' + aModel.name+'.html', false, 'UTF-8')]
+[file (aModel.name+'.html', false, 'UTF-8')]
 <!doctype html>
 
 <html lang="en">
@@ -41,7 +41,7 @@
 </html>
 
 [/file]
-[file (aModel.name + '_doc/css/' + 'styles.css', false, 'UTF-8')]
+[file ('css/' + 'styles.css', false, 'UTF-8')]
 *{
 	font-family: helvetica, arial, sans-serif;
     color: #444444;
@@ -130,7 +130,7 @@ ul {
 	margin-left:30px;
 }
 [/file]
-[file (aModel.name + '_doc/js/' +'scripts.js', false, 'UTF-8')]
+[file ('js/' +'scripts.js', false, 'UTF-8')]
 	// extract all headers
 
 var headers = ['['/][']'/]
