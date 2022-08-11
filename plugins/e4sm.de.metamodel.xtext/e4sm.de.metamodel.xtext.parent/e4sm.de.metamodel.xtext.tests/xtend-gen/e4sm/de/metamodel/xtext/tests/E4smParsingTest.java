@@ -8,7 +8,6 @@ import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.ComponentFiringStrategy;
 import e4sm.de.metamodel.e4sm.Model;
 import e4sm.de.metamodel.e4sm.e4smPackage;
-import e4sm.de.metamodel.e4sm.execution.Element;
 import java.util.Map;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
@@ -38,10 +37,10 @@ import org.junit.runner.RunWith;
 public class E4smParsingTest {
   @Inject
   private ParseHelper<Model> parseHelper;
-  
+
   @Inject
   private Serializer serializer;
-  
+
   private static final String toBeParsed = new Function0<String>() {
     @Override
     public String apply() {
@@ -182,7 +181,7 @@ public class E4smParsingTest {
       return _builder.toString();
     }
   }.apply();
-  
+
   @Test
   public void serializer() {
     e4smPackage.eINSTANCE.eClass();
@@ -202,7 +201,7 @@ public class E4smParsingTest {
     InputOutput.<String>println(_plus_1);
     InputOutput.<String>println(this.serializer.serialize(myModel));
   }
-  
+
   @Test
   public void parseFiringStrategy() {
     try {
@@ -220,7 +219,7 @@ public class E4smParsingTest {
       throw Exceptions.sneakyThrow(_e);
     }
   }
-  
+
   @Test
   public void loadModel() {
     try {
@@ -239,7 +238,7 @@ public class E4smParsingTest {
       throw Exceptions.sneakyThrow(_e);
     }
   }
-  
+
   @Test
   public void parsePackage() {
     try {
@@ -256,7 +255,7 @@ public class E4smParsingTest {
       throw Exceptions.sneakyThrow(_e);
     }
   }
-  
+
   @Test
   public void parseComponent() {
     try {
@@ -273,7 +272,7 @@ public class E4smParsingTest {
       throw Exceptions.sneakyThrow(_e);
     }
   }
-  
+
   @Test
   public void parseComponentPins() {
     try {
@@ -295,12 +294,11 @@ public class E4smParsingTest {
       throw Exceptions.sneakyThrow(_e);
     }
   }
-  
+
   @Test
   public void parseComponentExecution() {
     try {
       final Model result = this.parseHelper.parse(E4smParsingTest.toBeParsed);
-      final EList<Element> el = result.getPackages().get(0).getComponents().get(0).getExecution().getElements();
       final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
       boolean _isEmpty = errors.isEmpty();
       StringConcatenation _builder = new StringConcatenation();

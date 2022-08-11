@@ -2,21 +2,11 @@
  */
 package e4sm.de.metamodel.e4sm.impl;
 
-import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.Person;
 import e4sm.de.metamodel.e4sm.e4smPackage;
-
-import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +18,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.PersonImpl#getSurname <em>Surname</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.PersonImpl#getDepartment <em>Department</em>}</li>
- *   <li>{@link e4sm.de.metamodel.e4sm.impl.PersonImpl#getResponsibleForComponents <em>Responsible For Components</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.PersonImpl#getPictureFileName <em>Picture File Name</em>}</li>
  * </ul>
  *
@@ -74,16 +63,6 @@ public class PersonImpl extends HumanImpl implements Person {
 	 * @ordered
 	 */
 	protected String department = DEPARTMENT_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getResponsibleForComponents() <em>Responsible For Components</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getResponsibleForComponents()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Component> responsibleForComponents;
 
 	/**
 	 * The default value of the '{@link #getPictureFileName() <em>Picture File Name</em>}' attribute.
@@ -177,20 +156,6 @@ public class PersonImpl extends HumanImpl implements Person {
 	 * @generated
 	 */
 	@Override
-	public EList<Component> getResponsibleForComponents() {
-		if (responsibleForComponents == null) {
-			responsibleForComponents = new EObjectWithInverseResolvingEList<Component>(Component.class, this,
-					e4smPackage.PERSON__RESPONSIBLE_FOR_COMPONENTS, e4smPackage.COMPONENT__MAIN_RESPONSIBLE);
-		}
-		return responsibleForComponents;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public String getPictureFileName() {
 		return pictureFileName;
 	}
@@ -214,36 +179,6 @@ public class PersonImpl extends HumanImpl implements Person {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-		case e4smPackage.PERSON__RESPONSIBLE_FOR_COMPONENTS:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getResponsibleForComponents())
-					.basicAdd(otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-		case e4smPackage.PERSON__RESPONSIBLE_FOR_COMPONENTS:
-			return ((InternalEList<?>) getResponsibleForComponents()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -251,8 +186,6 @@ public class PersonImpl extends HumanImpl implements Person {
 			return getSurname();
 		case e4smPackage.PERSON__DEPARTMENT:
 			return getDepartment();
-		case e4smPackage.PERSON__RESPONSIBLE_FOR_COMPONENTS:
-			return getResponsibleForComponents();
 		case e4smPackage.PERSON__PICTURE_FILE_NAME:
 			return getPictureFileName();
 		}
@@ -273,10 +206,6 @@ public class PersonImpl extends HumanImpl implements Person {
 			return;
 		case e4smPackage.PERSON__DEPARTMENT:
 			setDepartment((String) newValue);
-			return;
-		case e4smPackage.PERSON__RESPONSIBLE_FOR_COMPONENTS:
-			getResponsibleForComponents().clear();
-			getResponsibleForComponents().addAll((Collection<? extends Component>) newValue);
 			return;
 		case e4smPackage.PERSON__PICTURE_FILE_NAME:
 			setPictureFileName((String) newValue);
@@ -299,9 +228,6 @@ public class PersonImpl extends HumanImpl implements Person {
 		case e4smPackage.PERSON__DEPARTMENT:
 			setDepartment(DEPARTMENT_EDEFAULT);
 			return;
-		case e4smPackage.PERSON__RESPONSIBLE_FOR_COMPONENTS:
-			getResponsibleForComponents().clear();
-			return;
 		case e4smPackage.PERSON__PICTURE_FILE_NAME:
 			setPictureFileName(PICTURE_FILE_NAME_EDEFAULT);
 			return;
@@ -321,8 +247,6 @@ public class PersonImpl extends HumanImpl implements Person {
 			return SURNAME_EDEFAULT == null ? surname != null : !SURNAME_EDEFAULT.equals(surname);
 		case e4smPackage.PERSON__DEPARTMENT:
 			return DEPARTMENT_EDEFAULT == null ? department != null : !DEPARTMENT_EDEFAULT.equals(department);
-		case e4smPackage.PERSON__RESPONSIBLE_FOR_COMPONENTS:
-			return responsibleForComponents != null && !responsibleForComponents.isEmpty();
 		case e4smPackage.PERSON__PICTURE_FILE_NAME:
 			return PICTURE_FILE_NAME_EDEFAULT == null ? pictureFileName != null
 					: !PICTURE_FILE_NAME_EDEFAULT.equals(pictureFileName);

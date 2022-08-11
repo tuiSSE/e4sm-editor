@@ -2,8 +2,6 @@
  */
 package e4sm.de.metamodel.e4sm;
 
-import org.eclipse.emf.common.util.EList;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Person</b></em>'.
@@ -19,7 +17,6 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link e4sm.de.metamodel.e4sm.Person#getSurname <em>Surname</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Person#getDepartment <em>Department</em>}</li>
- *   <li>{@link e4sm.de.metamodel.e4sm.Person#getResponsibleForComponents <em>Responsible For Components</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Person#getPictureFileName <em>Picture File Name</em>}</li>
  * </ul>
  *
@@ -77,23 +74,6 @@ public interface Person extends Human {
 	 * @generated
 	 */
 	void setDepartment(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Responsible For Components</b></em>' reference list.
-	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.Component}.
-	 * It is bidirectional and its opposite is '{@link e4sm.de.metamodel.e4sm.Component#getMainResponsible <em>Main Responsible</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * A list of elements which lay under this person's responsibility
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Responsible For Components</em>' reference list.
-	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getPerson_ResponsibleForComponents()
-	 * @see e4sm.de.metamodel.e4sm.Component#getMainResponsible
-	 * @model opposite="mainResponsible"
-	 * @generated
-	 */
-	EList<Component> getResponsibleForComponents();
 
 	/**
 	 * Returns the value of the '<em><b>Picture File Name</b></em>' attribute.

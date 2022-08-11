@@ -29,11 +29,11 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
 @SuppressWarnings("all")
 public class E4smScopeProvider extends AbstractE4smScopeProvider {
   private final e4smPackage epackage = e4smPackage.eINSTANCE;
-  
+
   private final ExecutionPackage exePackage = ExecutionPackage.eINSTANCE;
-  
+
   private final CorePackage cPackage = CorePackage.eINSTANCE;
-  
+
   @Override
   public IScope getScope(final EObject context, final EReference reference) {
     if (((context instanceof TypeSpecification) && Objects.equal(reference, CorePackage.Literals.TYPE_SPECIFICATION__SUPER_TYPE))) {

@@ -45,7 +45,6 @@ public class PersonItemProvider extends HumanItemProvider {
 
 			addSurnamePropertyDescriptor(object);
 			addDepartmentPropertyDescriptor(object);
-			addResponsibleForComponentsPropertyDescriptor(object);
 			addPictureFileNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -81,20 +80,6 @@ public class PersonItemProvider extends HumanItemProvider {
 								"_UI_Person_type"),
 						e4smPackage.Literals.PERSON__DEPARTMENT, true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Responsible For Components feature.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addResponsibleForComponentsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Person_responsibleForComponents_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Person_responsibleForComponents_feature",
-								"_UI_Person_type"),
-						e4smPackage.Literals.PERSON__RESPONSIBLE_FOR_COMPONENTS, true, false, true, null, null, null));
 	}
 
 	/**

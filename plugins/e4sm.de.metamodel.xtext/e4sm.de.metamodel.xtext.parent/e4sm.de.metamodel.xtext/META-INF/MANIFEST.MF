@@ -13,7 +13,7 @@ Require-Bundle: e4sm.de.metamodel,
  org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
  org.eclipse.xtext.util,
  org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
-Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: e4sm.de.metamodel.xtext.parser.antlr,
  e4sm.de.metamodel.xtext.serializer,
  e4sm.de.metamodel.xtext.parser.antlr.internal,

@@ -175,10 +175,10 @@ public abstract class DataNodeImpl extends TypedElementImpl implements DataNode 
 			if (c.getSource().equals(this))
 				resultList.add(c);
 		});
-		
+
 		// also check in the container of the package (for connectors between component specifications)
 		var superPackage = container.eContainer();
-		if(superPackage instanceof Package) {
+		if (superPackage instanceof Package) {
 			((Package) superPackage).getConnectors().stream().forEach(c -> {
 				if (c.getSource().equals(this))
 					resultList.add(c);
@@ -215,16 +215,16 @@ public abstract class DataNodeImpl extends TypedElementImpl implements DataNode 
 			if (c.getTarget().equals(this))
 				resultList.add(c);
 		});
-		
+
 		// also check in the container of the package (for connectors between component specifications)
 		var superPackage = container.eContainer();
-		if(superPackage instanceof Package) {
+		if (superPackage instanceof Package) {
 			((Package) superPackage).getConnectors().stream().forEach(c -> {
 				if (c.getTarget().equals(this))
 					resultList.add(c);
 			});
 		}
-		
+
 		return resultList;
 	}
 

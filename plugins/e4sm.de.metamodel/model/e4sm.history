@@ -3038,17 +3038,11 @@
           <element href="e4sm.ecore#//OutputPin/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
         </changes>
       </changes>
-      <changes xsi:type="history:Create" xmi:id="_CSN4uIBfEeyzqsUCyRmHHA" referenceName="eStructuralFeatures">
+      <changes xsi:type="history:Create" xmi:id="_CSN4uIBfEeyzqsUCyRmHHA" referenceName="eStructuralFeatures" element="_-PiSUv3pEeyacpROUvaSLA">
         <target href="e4sm.ecore#//Person"/>
-        <element href="e4sm.ecore#//Person/responsibleForComponents"/>
-        <changes xsi:type="history:Set" xmi:id="_CSN4uYBfEeyzqsUCyRmHHA" featureName="name" dataValue="responsibleForComponents">
-          <element href="e4sm.ecore#//Person/responsibleForComponents"/>
-        </changes>
-        <changes xsi:type="history:Set" xmi:id="_CSN4uoBfEeyzqsUCyRmHHA" featureName="upperBound" dataValue="-1" oldDataValue="1">
-          <element href="e4sm.ecore#//Person/responsibleForComponents"/>
-        </changes>
-        <changes xsi:type="history:Set" xmi:id="_CSN4u4BfEeyzqsUCyRmHHA" featureName="eType">
-          <element href="e4sm.ecore#//Person/responsibleForComponents"/>
+        <changes xsi:type="history:Set" xmi:id="_CSN4uYBfEeyzqsUCyRmHHA" element="_-PiSUv3pEeyacpROUvaSLA" featureName="name" dataValue="responsibleForComponents"/>
+        <changes xsi:type="history:Set" xmi:id="_CSN4uoBfEeyzqsUCyRmHHA" element="_-PiSUv3pEeyacpROUvaSLA" featureName="upperBound" dataValue="-1" oldDataValue="1"/>
+        <changes xsi:type="history:Set" xmi:id="_CSN4u4BfEeyzqsUCyRmHHA" element="_-PiSUv3pEeyacpROUvaSLA" featureName="eType">
           <referenceValue href="e4sm.ecore#//Component"/>
         </changes>
       </changes>
@@ -3062,12 +3056,10 @@
           <element href="e4sm.ecore#//Component/mainResponsible"/>
           <referenceValue href="e4sm.ecore#//Person"/>
         </changes>
-        <changes xsi:type="history:Set" xmi:id="_CSN4v4BfEeyzqsUCyRmHHA" featureName="eOpposite">
+        <changes xsi:type="history:Set" xmi:id="_CSN4v4BfEeyzqsUCyRmHHA" featureName="eOpposite" referenceValue="_-PiSUv3pEeyacpROUvaSLA">
           <element href="e4sm.ecore#//Component/mainResponsible"/>
-          <referenceValue href="e4sm.ecore#//Person/responsibleForComponents"/>
         </changes>
-        <changes xsi:type="history:Set" xmi:id="_CSN4wIBfEeyzqsUCyRmHHA" featureName="eOpposite">
-          <element href="e4sm.ecore#//Person/responsibleForComponents"/>
+        <changes xsi:type="history:Set" xmi:id="_CSN4wIBfEeyzqsUCyRmHHA" element="_-PiSUv3pEeyacpROUvaSLA" featureName="eOpposite">
           <referenceValue href="e4sm.ecore#//Component/mainResponsible"/>
         </changes>
       </changes>
@@ -3088,22 +3080,12 @@
           <element href="e4sm.ecore#//Component/mainResponsible/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
         </changes>
       </changes>
-      <changes xsi:type="history:Create" xmi:id="_CSN4xoBfEeyzqsUCyRmHHA" referenceName="eAnnotations">
-        <target href="e4sm.ecore#//Person/responsibleForComponents"/>
-        <element href="e4sm.ecore#//Person/responsibleForComponents/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%"/>
-        <changes xsi:type="history:Set" xmi:id="_CSN4x4BfEeyzqsUCyRmHHA" featureName="source" dataValue="http://www.eclipse.org/emf/2002/GenModel">
-          <element href="e4sm.ecore#//Person/responsibleForComponents/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%"/>
-        </changes>
+      <changes xsi:type="history:Create" xmi:id="_CSN4xoBfEeyzqsUCyRmHHA" target="_-PiSUv3pEeyacpROUvaSLA" referenceName="eAnnotations" element="_-PiSU_3pEeyacpROUvaSLA">
+        <changes xsi:type="history:Set" xmi:id="_CSN4x4BfEeyzqsUCyRmHHA" element="_-PiSU_3pEeyacpROUvaSLA" featureName="source" dataValue="http://www.eclipse.org/emf/2002/GenModel"/>
       </changes>
-      <changes xsi:type="history:Create" xmi:id="_CSN4yIBfEeyzqsUCyRmHHA" referenceName="details">
-        <target href="e4sm.ecore#//Person/responsibleForComponents/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%"/>
-        <element href="e4sm.ecore#//Person/responsibleForComponents/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
-        <changes xsi:type="history:Set" xmi:id="_CSN4yYBfEeyzqsUCyRmHHA" featureName="key" dataValue="documentation">
-          <element href="e4sm.ecore#//Person/responsibleForComponents/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
-        </changes>
-        <changes xsi:type="history:Set" xmi:id="_CSN4yoBfEeyzqsUCyRmHHA" featureName="value" dataValue="A list of elements which lay under this person's responsibility">
-          <element href="e4sm.ecore#//Person/responsibleForComponents/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
-        </changes>
+      <changes xsi:type="history:Create" xmi:id="_CSN4yIBfEeyzqsUCyRmHHA" target="_-PiSU_3pEeyacpROUvaSLA" referenceName="details" element="_-PiSVP3pEeyacpROUvaSLA">
+        <changes xsi:type="history:Set" xmi:id="_CSN4yYBfEeyzqsUCyRmHHA" element="_-PiSVP3pEeyacpROUvaSLA" featureName="key" dataValue="documentation"/>
+        <changes xsi:type="history:Set" xmi:id="_CSN4yoBfEeyzqsUCyRmHHA" element="_-PiSVP3pEeyacpROUvaSLA" featureName="value" dataValue="A list of elements which lay under this person's responsibility"/>
       </changes>
       <changes xsi:type="history:Create" xmi:id="_CSN4y4BfEeyzqsUCyRmHHA" referenceName="eStructuralFeatures">
         <target href="e4sm.ecore#//analysis/ParameterizableElement"/>
@@ -9588,6 +9570,58 @@
     <changes xsi:type="history:Add" xmi:id="_ZS9LoPkkEeyP7PMhBlrg1g" featureName="eSuperTypes">
       <element href="e4sm.ecore#//DataNode"/>
       <referenceValue href="core.ecore#//DocumentableElement"/>
+    </changes>
+    <changes xsi:type="history:Create" xmi:id="_d02QAP3mEeyacpROUvaSLA" referenceName="eTypeArguments">
+      <target href="e4sm.ecore#//Model/isPersonPicturePathValid/context/@eGenericType"/>
+      <element href="e4sm.ecore#//Model/isPersonPicturePathValid/context/@eGenericType/@eTypeArguments.0"/>
+    </changes>
+    <changes xsi:type="history:Set" xmi:id="_hZ0LkP3mEeyacpROUvaSLA" featureName="eClassifier">
+      <element href="e4sm.ecore#//Model/isPersonPicturePathValid/context/@eGenericType/@eTypeArguments.0"/>
+      <referenceValue href="../../org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"/>
+    </changes>
+    <changes xsi:type="history:Create" xmi:id="_iuSEIP3mEeyacpROUvaSLA" referenceName="eTypeArguments">
+      <target href="e4sm.ecore#//Model/isPersonPicturePathValid/context/@eGenericType"/>
+      <element href="e4sm.ecore#//Model/isPersonPicturePathValid/context/@eGenericType/@eTypeArguments.1"/>
+    </changes>
+    <changes xsi:type="history:Set" xmi:id="_j2BIQP3mEeyacpROUvaSLA" featureName="eClassifier">
+      <element href="e4sm.ecore#//Model/isPersonPicturePathValid/context/@eGenericType/@eTypeArguments.1"/>
+      <referenceValue href="../../org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"/>
+    </changes>
+    <changes xsi:type="history:Create" xmi:id="_zOXyUP3mEeyacpROUvaSLA" referenceName="eClassifiers">
+      <target href="core.ecore#/"/>
+      <element href="core.ecore#//Object"/>
+    </changes>
+    <changes xsi:type="history:Set" xmi:id="_0CvOgP3mEeyacpROUvaSLA" featureName="instanceClassName" dataValue="java.lang.Object">
+      <element href="core.ecore#//Object"/>
+    </changes>
+    <changes xsi:type="history:Set" xmi:id="_0CvOgf3mEeyacpROUvaSLA" featureName="instanceTypeName" dataValue="java.lang.Object">
+      <element href="core.ecore#//Object"/>
+    </changes>
+    <changes xsi:type="history:Set" xmi:id="_0v8SwP3mEeyacpROUvaSLA" featureName="name" dataValue="Object">
+      <element href="core.ecore#//Object"/>
+    </changes>
+    <changes xsi:type="history:Set" xmi:id="_bj1aMP3nEeyacpROUvaSLA" featureName="eClassifier">
+      <element href="e4sm.ecore#//Model/isPersonPicturePathValid/context/@eGenericType/@eTypeArguments.0"/>
+      <referenceValue href="core.ecore#//Object"/>
+      <oldReferenceValue href="../../org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"/>
+    </changes>
+    <changes xsi:type="history:Set" xmi:id="_cF9P0P3nEeyacpROUvaSLA" featureName="eClassifier">
+      <element href="e4sm.ecore#//Model/isPersonPicturePathValid/context/@eGenericType/@eTypeArguments.1"/>
+      <referenceValue href="core.ecore#//Object"/>
+      <oldReferenceValue href="../../org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"/>
+    </changes>
+    <changes xsi:type="history:Delete" xmi:id="_-PiSUP3pEeyacpROUvaSLA" referenceName="eStructuralFeatures">
+      <target href="e4sm.ecore#//Person"/>
+      <changes xsi:type="history:Set" xmi:id="_-PiSUf3pEeyacpROUvaSLA" featureName="eOpposite" oldReferenceValue="_-PiSUv3pEeyacpROUvaSLA">
+        <element href="e4sm.ecore#//Component/mainResponsible"/>
+      </changes>
+      <element xsi:type="ecore:EReference" xmi:id="_-PiSUv3pEeyacpROUvaSLA" name="responsibleForComponents" upperBound="-1">
+        <eAnnotations xmi:id="_-PiSU_3pEeyacpROUvaSLA" source="http://www.eclipse.org/emf/2002/GenModel">
+          <details xmi:id="_-PiSVP3pEeyacpROUvaSLA" key="documentation" value="A list of elements which lay under this person's responsibility"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EClass" href="e4sm.ecore#//Component"/>
+        <eOpposite href="e4sm.ecore#//Component/mainResponsible"/>
+      </element>
     </changes>
   </releases>
 </history:History>

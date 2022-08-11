@@ -134,6 +134,6 @@ public interface Model extends NamedElement, ParameterizableElement, Documentabl
 	 * @model
 	 * @generated
 	 */
-	boolean isPersonPicturePathValid(DiagnosticChain diagnostics, Map context);
+	boolean isPersonPicturePathValid(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // Model

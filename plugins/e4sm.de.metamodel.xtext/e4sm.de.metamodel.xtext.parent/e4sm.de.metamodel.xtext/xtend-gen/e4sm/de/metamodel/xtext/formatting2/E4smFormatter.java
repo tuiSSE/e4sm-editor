@@ -29,7 +29,7 @@ public class E4smFormatter extends AbstractFormatter2 {
   @Inject
   @Extension
   private E4smGrammarAccess _e4smGrammarAccess;
-  
+
   protected void _format(final Model model, @Extension final IFormattableDocument doc) {
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.newLine();
@@ -60,7 +60,7 @@ public class E4smFormatter extends AbstractFormatter2 {
       this.format(ts, doc);
     }
   }
-  
+
   protected void _format(final e4sm.de.metamodel.e4sm.Package _package, @Extension final IFormattableDocument doc) {
     EList<Component> _components = _package.getComponents();
     for (final Component component : _components) {
@@ -89,7 +89,7 @@ public class E4smFormatter extends AbstractFormatter2 {
     };
     doc.<ISemanticRegion, ISemanticRegion>interior(open, close, _function_1);
   }
-  
+
   protected void _format(final Component _component, @Extension final IFormattableDocument doc) {
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.newLine();
@@ -164,7 +164,7 @@ public class E4smFormatter extends AbstractFormatter2 {
       }
     }
   }
-  
+
   protected void _format(final Pin _pin, @Extension final IFormattableDocument doc) {
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.newLine();
@@ -189,7 +189,7 @@ public class E4smFormatter extends AbstractFormatter2 {
     };
     doc.<ISemanticRegion, ISemanticRegion>interior(open, close, _function_4);
   }
-  
+
   protected void _format(final Connector _connector, @Extension final IFormattableDocument doc) {
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.newLine();
@@ -217,7 +217,7 @@ public class E4smFormatter extends AbstractFormatter2 {
     };
     doc.surround(this.textRegionExtensions.regionFor(_connector).keyword(","), _function_6);
   }
-  
+
   protected void _format(final Person _person, @Extension final IFormattableDocument doc) {
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.newLine();
@@ -257,7 +257,7 @@ public class E4smFormatter extends AbstractFormatter2 {
     };
     doc.<ISemanticRegion, ISemanticRegion>interior(open, close, _function_8);
   }
-  
+
   protected void _format(final TypeSpecification _typeSpec, @Extension final IFormattableDocument doc) {
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.noSpace();
@@ -285,7 +285,7 @@ public class E4smFormatter extends AbstractFormatter2 {
       doc.<ISemanticRegion, ISemanticRegion>interior(open, close, _function_4);
     }
   }
-  
+
   public void format(final Object _person, final IFormattableDocument doc) {
     if (_person instanceof Person) {
       _format((Person)_person, doc);

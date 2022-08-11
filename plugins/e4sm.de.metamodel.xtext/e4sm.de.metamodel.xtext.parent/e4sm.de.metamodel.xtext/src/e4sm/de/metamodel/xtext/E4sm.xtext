@@ -11,6 +11,7 @@ Model returns Model:
 	'model'
 	name=EString
 	'{'
+	('doc' PROPERTY_ASSIGN documentation=EString)?
 	(imports+=Import ("," imports+=Import)*)?
 	('picturesPath' PROPERTY_ASSIGN personsPicturesPath=EString)?
 	(types+=TypeSpecification ("," types+=TypeSpecification)*)?
@@ -53,6 +54,7 @@ DataStore returns DataStore:
 	(type=[core::TypeSpecification])?
 	name=EString // (':' type=[ecore::EDataType|EString])?
 	('{'
+	('doc' PROPERTY_ASSIGN documentation=EString)?
 	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
 	'}')?
 ;
@@ -83,6 +85,7 @@ Package returns Package:
 	'package'
 	name=EString
 	'{'
+	('doc' PROPERTY_ASSIGN documentation=EString)?
 	('mainResponsible' PROPERTY_ASSIGN mainResponsible=[Person|EString])?
 	('specifiesComponent' PROPERTY_ASSIGN specifiesComponent=[Component|EString])?
 	(parameters+=Parameter ("," parameters+=Parameter)*)?
@@ -90,7 +93,7 @@ Package returns Package:
 	(connectors+=Connector ("," connectors+=Connector)*)?
 	(datastores+=DataStore ("," datastores+=DataStore)*)?
 	(sectors+=Sector ("," sectors+=Sector)*)?
-	('subpackages' '{' packages+=Package ("," packages+=Package)* '}')?
+	('subPackages' '{' packages+=Package ("," packages+=Package)* '}')?
 	'}';
 
 terminal PROPERTY_ASSIGN:
@@ -99,7 +102,11 @@ terminal PROPERTY_ASSIGN:
 Actor_Impl returns Actor:
 	{Actor}
 	'actor'
-	name=EString;
+	name=EString
+    ('{'
+	('doc' PROPERTY_ASSIGN documentation=EString)?
+	'}')?
+	;
 
 Variant returns core::Variant:
 	{core::Variant}
@@ -411,6 +418,7 @@ Component_Impl returns Component:
 	'component'
 	name=EString
 	'{'
+	('doc' PROPERTY_ASSIGN documentation=EString)?
 	('firingStrategy' firingStrategy=ComponentFiringStrategy)?
 	('takes' timeFunction=ComplexTimefunction)?
 	(pins+=Pin ("," pins+=Pin)*)?
@@ -427,6 +435,7 @@ Connector_Impl returns Connector:
 	name=EString
 	source=[Pin|EString] '->' target=[Pin|EString]
 	('{'
+	('doc' PROPERTY_ASSIGN documentation=EString)?
 	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
 	'}')?;
 
@@ -435,6 +444,7 @@ Sector returns Sector:
 	'sector'
 	name=EString
 	'{'
+	('doc' PROPERTY_ASSIGN documentation=EString)?
 	('components' '{' components+=Component ("," components+=Component)* '}')?
 	('datastores' '{' datastores+=DataStore ("," datastores+=DataStore)* '}')?
 	('sectors' '{' sectors+=Sector ("," sectors+=Sector)* '}')?
@@ -444,10 +454,11 @@ Person returns Person:
 	'person'
 	(name=EString | surname=EString ',' name=EString)
 	'{'
+	('doc' PROPERTY_ASSIGN documentation=EString)?
 	('department' department=EString)?
 	('pictureFileName' pictureFileName=EString)?
-	('responsibleForComponents' '(' responsibleForComponents+=[Component|EString] (","
-	responsibleForComponents+=[Component|EString])* ')')?
+	// ('responsibleForComponents' '(' responsibleForComponents+=[Component|EString] (","
+	// responsibleForComponents+=[Component|EString])* ')')?
 	'}';
 
 MachineLearningComponent returns MachineLearningComponent:
@@ -455,6 +466,7 @@ MachineLearningComponent returns MachineLearningComponent:
 	'mlComponent'
 	name=EString
 	'{'
+	('doc' PROPERTY_ASSIGN documentation=EString)?
 	('firingStrategy' firingStrategy=ComponentFiringStrategy)?
 	('takes' timeFunction=ComplexTimefunction)?
 	(pins+=Pin ("," pins+=Pin)*)?
@@ -473,6 +485,7 @@ PhysicalComponent_Impl returns PhysicalComponent:
 	'physicalComponent'
 	name=EString
 	'{'
+	('doc' PROPERTY_ASSIGN documentation=EString)?
 	('firingStrategy' firingStrategy=ComponentFiringStrategy)?
 	('takes' timeFunction=ComplexTimefunction)?
 	(pins+=Pin ("," pins+=Pin)*)?
@@ -489,6 +502,7 @@ SoftwareComponent_Impl returns SoftwareComponent:
 	'softwareComponent'
 	name=EString
 	'{'
+	('doc' PROPERTY_ASSIGN documentation=EString)?
 	('firingStrategy' firingStrategy=ComponentFiringStrategy)?
 	('takes' timeFunction=ComplexTimefunction)?
 	(pins+=Pin ("," pins+=Pin)*)?
@@ -507,6 +521,7 @@ Heuristic returns Heuristic:
 	'heuristic'
 	name=EString
 	'{'
+	('doc' PROPERTY_ASSIGN documentation=EString)?
 	('firingStrategy' firingStrategy=ComponentFiringStrategy)?
 	('takes' timeFunction=ComplexTimefunction)?
 	(pins+=Pin ("," pins+=Pin)*)?
@@ -525,6 +540,7 @@ Function returns Function:
 	'function'
 	name=EString
 	'{'
+	('doc' PROPERTY_ASSIGN documentation=EString)?
 	('firingStrategy' firingStrategy=ComponentFiringStrategy)?
 	('takes' timeFunction=ComplexTimefunction)?
 	(pins+=Pin ("," pins+=Pin)*)?
@@ -543,6 +559,7 @@ ExternalDependency returns ExternalDependency:
 	'externalDependency'
 	name=EString
 	'{'
+	('doc' PROPERTY_ASSIGN documentation=EString)?
 	('firingStrategy' firingStrategy=ComponentFiringStrategy)?
 	('takes' timeFunction=ComplexTimefunction)?
 	(pins+=Pin ("," pins+=Pin)*)?
@@ -560,6 +577,7 @@ Sensor returns Sensor:
 	'sensor'
 	name=EString
 	'{'
+	('doc' PROPERTY_ASSIGN documentation=EString)?
 	('firingStrategy' firingStrategy=ComponentFiringStrategy)?
 	('takes' timeFunction=ComplexTimefunction)?
 	(pins+=Pin ("," pins+=Pin)*)?
@@ -577,6 +595,7 @@ Actuator returns Actuator:
 	'actuator'
 	name=EString
 	'{'
+	('doc' PROPERTY_ASSIGN documentation=EString)?
 	('firingStrategy' firingStrategy=ComponentFiringStrategy)?
 	('takes' timeFunction=ComplexTimefunction)?
 	(pins+=Pin ("," pins+=Pin)*)?
@@ -601,6 +620,7 @@ InputPin returns InputPin:
 	(type=[core::TypeSpecification])?
 	name=EString // (':' type=[ecore::EDataType|EString])?
 	('{'
+	('doc' PROPERTY_ASSIGN documentation=EString)?
 	('collects' collect=EInt)?
 	('raceSemantic' raceSemantic=RaceSemantic)?
 	('queueType' queueType=QueueType)?
@@ -615,6 +635,7 @@ OutputPin returns OutputPin:
 	(type=[core::TypeSpecification])?
 	name=EString // (':' type=[ecore::EDataType])?
 	('{'
+	('doc' PROPERTY_ASSIGN documentation=EString)?
 	('amplifies' amplify=EInt)?
 	('outputUncertainty' outputUncertainty=EDouble)?
 	('raceSemantic' raceSemantic=RaceSemantic)?
@@ -635,6 +656,7 @@ PhysicalConnector returns PhysicalConnector:
 	name=EString
 	source=[Pin|EString] '->' target=[Pin|EString]
 	('{'
+	('doc' PROPERTY_ASSIGN documentation=EString)?
 	('minSpeed' minSpeed=Connectionspeed)?
 	('maxSpeed' maxSpeed=Connectionspeed)?
 	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
@@ -645,21 +667,30 @@ LogicalConnector returns LogicalConnector:
 	name=EString
 	source=[Pin|EString] '->' target=[Pin|EString]
 	('{'
+	('doc' PROPERTY_ASSIGN documentation=EString)?
 	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
-	'}')?;
+	'}')?
+	;
 
 Connectionspeed returns Connectionspeed:
 	'Connectionspeed' /* TODO: implement this rule and an appropriate IValueConverter */ ;
 
 Human_Impl returns Human:
 	{Human}
-	'human'
-	name=EString;
+	'human'	name=EString
+    ('{'
+	('doc' PROPERTY_ASSIGN documentation=EString)?
+	'}')?
+	;
 
 Robot returns Robot:
 	{Robot}
-	'robot'
-	name=EString;
+	'robot'	name=EString
+	('{'
+	('doc' PROPERTY_ASSIGN documentation=EString)?
+	'}')?
+	;
+	
 
 /* EXECUTION */
 Execution returns execution::Execution:

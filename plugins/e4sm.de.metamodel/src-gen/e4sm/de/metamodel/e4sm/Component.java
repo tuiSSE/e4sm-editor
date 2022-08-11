@@ -72,7 +72,6 @@ public interface Component extends NamedElement, ParameterizableElement, Delayab
 
 	/**
 	 * Returns the value of the '<em><b>Main Responsible</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link e4sm.de.metamodel.e4sm.Person#getResponsibleForComponents <em>Responsible For Components</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -81,8 +80,7 @@ public interface Component extends NamedElement, ParameterizableElement, Delayab
 	 * @return the value of the '<em>Main Responsible</em>' reference.
 	 * @see #setMainResponsible(Person)
 	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getComponent_MainResponsible()
-	 * @see e4sm.de.metamodel.e4sm.Person#getResponsibleForComponents
-	 * @model opposite="responsibleForComponents"
+	 * @model
 	 * @generated
 	 */
 	Person getMainResponsible();

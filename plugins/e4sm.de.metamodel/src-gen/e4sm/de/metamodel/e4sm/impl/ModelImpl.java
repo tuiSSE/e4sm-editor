@@ -296,7 +296,7 @@ public class ModelImpl extends NamedElementImpl implements Model {
 	 * @generated NOT
 	 */
 	@Override
-	public boolean isPersonPicturePathValid(DiagnosticChain diagnostics, Map context) {
+	public boolean isPersonPicturePathValid(DiagnosticChain diagnostics, Map<Object, Object> context) {
 		boolean validationFailed = false;
 		URI uri = null;
 		if (personsPicturesPath == null || personsPicturesPath.length() == 0) {
@@ -306,14 +306,13 @@ public class ModelImpl extends NamedElementImpl implements Model {
 		}
 		String path = null;
 		Path p = null;
-		if(uri.isPlatform()) {
+		if (uri.isPlatform()) {
 			path = uri.toPlatformString(false);
 		}
-		if(path != null) {
+		if (path != null) {
 			p = Paths.get(path);
 		}
-		if(p==null)
-		{
+		if (p == null) {
 			return false;
 		}
 		if (validationFailed || (uri != null && !Files.isDirectory(p))) {
@@ -544,7 +543,7 @@ public class ModelImpl extends NamedElementImpl implements Model {
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 		case e4smPackage.MODEL___IS_PERSON_PICTURE_PATH_VALID__DIAGNOSTICCHAIN_MAP:
-			return isPersonPicturePathValid((DiagnosticChain) arguments.get(0), (Map) arguments.get(1));
+			return isPersonPicturePathValid((DiagnosticChain) arguments.get(0), (Map<Object, Object>) arguments.get(1));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

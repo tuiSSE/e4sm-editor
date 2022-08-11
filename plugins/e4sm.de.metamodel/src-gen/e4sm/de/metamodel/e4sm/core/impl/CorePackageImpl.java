@@ -279,6 +279,13 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EDataType objectEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EDataType longEDataType = null;
 
 	/**
@@ -1052,6 +1059,16 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * @generated
 	 */
 	@Override
+	public EDataType getObject() {
+		return objectEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EDataType getLong() {
 		return longEDataType;
 	}
@@ -1265,6 +1282,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		dateEDataType = createEDataType(DATE);
 		timestampEDataType = createEDataType(TIMESTAMP);
 		timeEDataType = createEDataType(TIME);
+		objectEDataType = createEDataType(OBJECT);
 	}
 
 	/**
@@ -1513,6 +1531,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		initEDataType(timestampEDataType, LocalDateTime.class, "Timestamp", IS_SERIALIZABLE,
 				!IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(timeEDataType, LocalTime.class, "Time", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(objectEDataType, Object.class, "Object", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

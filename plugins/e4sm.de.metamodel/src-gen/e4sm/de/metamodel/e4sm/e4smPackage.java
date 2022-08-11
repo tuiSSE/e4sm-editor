@@ -2821,22 +2821,13 @@ public interface e4smPackage extends EPackage {
 	int PERSON__DEPARTMENT = HUMAN_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Responsible For Components</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PERSON__RESPONSIBLE_FOR_COMPONENTS = HUMAN_FEATURE_COUNT + 2;
-
-	/**
 	 * The feature id for the '<em><b>Picture File Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PERSON__PICTURE_FILE_NAME = HUMAN_FEATURE_COUNT + 3;
+	int PERSON__PICTURE_FILE_NAME = HUMAN_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Person</em>' class.
@@ -2845,7 +2836,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PERSON_FEATURE_COUNT = HUMAN_FEATURE_COUNT + 4;
+	int PERSON_FEATURE_COUNT = HUMAN_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Person</em>' class.
@@ -4122,17 +4113,6 @@ public interface e4smPackage extends EPackage {
 	EAttribute getPerson_Department();
 
 	/**
-	 * Returns the meta object for the reference list '{@link e4sm.de.metamodel.e4sm.Person#getResponsibleForComponents <em>Responsible For Components</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Responsible For Components</em>'.
-	 * @see e4sm.de.metamodel.e4sm.Person#getResponsibleForComponents()
-	 * @see #getPerson()
-	 * @generated
-	 */
-	EReference getPerson_ResponsibleForComponents();
-
-	/**
 	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.Person#getPictureFileName <em>Picture File Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5088,14 +5068,6 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PERSON__DEPARTMENT = eINSTANCE.getPerson_Department();
-
-		/**
-		 * The meta object literal for the '<em><b>Responsible For Components</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PERSON__RESPONSIBLE_FOR_COMPONENTS = eINSTANCE.getPerson_ResponsibleForComponents();
 
 		/**
 		 * The meta object literal for the '<em><b>Picture File Name</b></em>' attribute feature.

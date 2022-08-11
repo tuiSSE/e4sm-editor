@@ -24,7 +24,9 @@ Require-Bundle: org.eclipse.ui,
  e4sm.de.metamodel.xtext;bundle-version="1.0.0",
  e4sm.de.metamodel.xtext.ui;bundle-version="1.0.0",
  org.obeonetwork.dsl.viewpoint.xtext.support;bundle-version="1.0.1",
- org.eclipse.m2e.maven.runtime
+ org.eclipse.m2e.maven.runtime,
+ e4sm.de.metamodel.acceleo.documentation;bundle-version="1.0.0",
+ org.eclipse.acceleo.engine;bundle-version="3.7.11"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-Vendor: %providerName

@@ -129,7 +129,6 @@
     <genClasses ecoreClass="e4sm.ecore#//Person">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//Person/surname"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//Person/department"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//Person/responsibleForComponents"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//Person/pictureFileName"/>
     </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//MeasurementUnit">
@@ -186,6 +185,7 @@
     <genDataTypes ecoreDataType="core.ecore#//Date"/>
     <genDataTypes ecoreDataType="core.ecore#//Timestamp"/>
     <genDataTypes ecoreDataType="core.ecore#//Time"/>
+    <genDataTypes ecoreDataType="core.ecore#//Object"/>
     <genClasses image="false" ecoreClass="core.ecore#//NamedElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//NamedElement/name"/>
     </genClasses>

@@ -2108,6 +2108,16 @@ public interface CorePackage extends EPackage {
 	int TIME = 38;
 
 	/**
+	 * The meta object id for the '<em>Object</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.lang.Object
+	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getObject()
+	 * @generated
+	 */
+	int OBJECT = 39;
+
+	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.core.NamedElement <em>Named Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2826,6 +2836,17 @@ public interface CorePackage extends EPackage {
 	EDataType getTime();
 
 	/**
+	 * Returns the meta object for data type '{@link java.lang.Object <em>Object</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Object</em>'.
+	 * @see java.lang.Object
+	 * @model instanceClass="java.lang.Object"
+	 * @generated
+	 */
+	EDataType getObject();
+
+	/**
 	 * Returns the meta object for data type '<em>Long</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3486,6 +3507,16 @@ public interface CorePackage extends EPackage {
 		 * @generated
 		 */
 		EDataType TIME = eINSTANCE.getTime();
+
+		/**
+		 * The meta object literal for the '<em>Object</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.lang.Object
+		 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getObject()
+		 * @generated
+		 */
+		EDataType OBJECT = eINSTANCE.getObject();
 
 		/**
 		 * The meta object literal for the '<em>Long</em>' data type.

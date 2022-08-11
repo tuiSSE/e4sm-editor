@@ -3,21 +3,18 @@
  */
 package e4sm.de.metamodel.xtext.scoping
 
-import org.eclipse.emf.ecore.EObject
-import org.eclipse.emf.ecore.EReference
-import org.eclipse.xtext.scoping.IScope
+import e4sm.de.metamodel.e4sm.DataNode
+import e4sm.de.metamodel.e4sm.Import
+import e4sm.de.metamodel.e4sm.Model
+import e4sm.de.metamodel.e4sm.core.CorePackage
+import e4sm.de.metamodel.e4sm.core.TypeSpecification
 import e4sm.de.metamodel.e4sm.e4smPackage
 import e4sm.de.metamodel.e4sm.execution.ExecutionPackage
-import e4sm.de.metamodel.e4sm.execution.Execution
-import e4sm.de.metamodel.e4sm.Pin
-import org.eclipse.xtext.scoping.Scopes
-import e4sm.de.metamodel.e4sm.Component
-import e4sm.de.metamodel.e4sm.core.TypeSpecification
-import e4sm.de.metamodel.e4sm.core.CorePackage
-import e4sm.de.metamodel.e4sm.Model
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.emf.ecore.EReference
 import org.eclipse.xtext.EcoreUtil2
-import e4sm.de.metamodel.e4sm.Import
-import e4sm.de.metamodel.e4sm.DataNode
+import org.eclipse.xtext.scoping.IScope
+import org.eclipse.xtext.scoping.Scopes
 
 /** 
  * This class contains custom scoping description.

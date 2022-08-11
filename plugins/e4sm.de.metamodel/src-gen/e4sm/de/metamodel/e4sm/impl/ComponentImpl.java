@@ -346,41 +346,13 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetMainResponsible(Person newMainResponsible, NotificationChain msgs) {
-		Person oldMainResponsible = mainResponsible;
-		mainResponsible = newMainResponsible;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					e4smPackage.COMPONENT__MAIN_RESPONSIBLE, oldMainResponsible, newMainResponsible);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public void setMainResponsible(Person newMainResponsible) {
-		if (newMainResponsible != mainResponsible) {
-			NotificationChain msgs = null;
-			if (mainResponsible != null)
-				msgs = ((InternalEObject) mainResponsible).eInverseRemove(this,
-						e4smPackage.PERSON__RESPONSIBLE_FOR_COMPONENTS, Person.class, msgs);
-			if (newMainResponsible != null)
-				msgs = ((InternalEObject) newMainResponsible).eInverseAdd(this,
-						e4smPackage.PERSON__RESPONSIBLE_FOR_COMPONENTS, Person.class, msgs);
-			msgs = basicSetMainResponsible(newMainResponsible, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
+		Person oldMainResponsible = mainResponsible;
+		mainResponsible = newMainResponsible;
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.COMPONENT__MAIN_RESPONSIBLE,
-					newMainResponsible, newMainResponsible));
+					oldMainResponsible, mainResponsible));
 	}
 
 	/**
@@ -583,11 +555,6 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case e4smPackage.COMPONENT__MAIN_RESPONSIBLE:
-			if (mainResponsible != null)
-				msgs = ((InternalEObject) mainResponsible).eInverseRemove(this,
-						e4smPackage.PERSON__RESPONSIBLE_FOR_COMPONENTS, Person.class, msgs);
-			return basicSetMainResponsible((Person) otherEnd, msgs);
 		case e4smPackage.COMPONENT__SPECIFIED_IN_PACKAGE:
 			if (specifiedInPackage != null)
 				msgs = ((InternalEObject) specifiedInPackage).eInverseRemove(this,
@@ -613,8 +580,6 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 			return ((InternalEList<?>) getComponents()).basicRemove(otherEnd, msgs);
 		case e4smPackage.COMPONENT__PINS:
 			return ((InternalEList<?>) getPins()).basicRemove(otherEnd, msgs);
-		case e4smPackage.COMPONENT__MAIN_RESPONSIBLE:
-			return basicSetMainResponsible(null, msgs);
 		case e4smPackage.COMPONENT__SPECIFIED_IN_PACKAGE:
 			return basicSetSpecifiedInPackage(null, msgs);
 		case e4smPackage.COMPONENT__EXECUTION:

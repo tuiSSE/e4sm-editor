@@ -131,6 +131,8 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 			return createTimestampFromString(eDataType, initialValue);
 		case CorePackage.TIME:
 			return createTimeFromString(eDataType, initialValue);
+		case CorePackage.OBJECT:
+			return createObjectFromString(eDataType, initialValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -169,6 +171,8 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 			return convertTimestampToString(eDataType, instanceValue);
 		case CorePackage.TIME:
 			return convertTimeToString(eDataType, instanceValue);
+		case CorePackage.OBJECT:
+			return convertObjectToString(eDataType, instanceValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -433,6 +437,24 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	 * @generated
 	 */
 	public String convertTimeToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Object createObjectFromString(EDataType eDataType, String initialValue) {
+		return super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertObjectToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
 

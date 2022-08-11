@@ -23,8 +23,7 @@
         <details key="documentation" value="A list of pins (input and output pins) which are placed on the border of this component."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="mainResponsible" eType="#//Person"
-        eOpposite="#//Person/responsibleForComponents">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mainResponsible" eType="#//Person">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="A person who is responsible for realising and/or designing this component"/>
       </eAnnotations>
@@ -191,7 +190,12 @@
     </eAnnotations>
     <eOperations name="isPersonPicturePathValid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
-      <eParameters name="context" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap"/>
+      <eParameters name="context">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+          <eTypeArguments eClassifier="ecore:EDataType core.ecore#//Object"/>
+          <eTypeArguments eClassifier="ecore:EDataType core.ecore#//Object"/>
+        </eGenericType>
+      </eParameters>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="packages" upperBound="-1"
         eType="#//Package" containment="true">
@@ -328,12 +332,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="department" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The name of the department"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="responsibleForComponents"
-        upperBound="-1" eType="#//Component" eOpposite="#//Component/mainResponsible">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="A list of elements which lay under this person's responsibility"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pictureFileName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">

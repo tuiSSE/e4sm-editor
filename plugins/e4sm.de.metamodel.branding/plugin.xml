@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.0"?>
+<!DOCTYPE plugin>
 <plugin>
 <extension point="org.eclipse.core.runtime.products" id="product">
     <product name="E4SM Editor" application="org.eclipse.ui.ide.workbench">

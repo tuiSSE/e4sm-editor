@@ -15,15 +15,11 @@ import e4sm.de.metamodel.e4sm.ComponentFiringStrategy
 import org.eclipse.xtext.testing.XtextRunner
 import org.junit.runner.RunWith
 import org.eclipse.xtext.serializer.impl.Serializer
-import e4sm.de.metamodel.e4sm.e4smFactory
 import e4sm.de.metamodel.e4sm.e4smPackage
 import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.resource.Resource
-import org.eclipse.emf.ecore.resource.ResourceSet
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
-import java.util.Map
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl
-import e4sm.de.metamodel.xtext.E4smStandaloneSetup
 
 @RunWith(XtextRunner)
 @ExtendWith(InjectionExtension)
@@ -163,8 +159,8 @@ class E4smParsingTest {
 	@Test
 	def void parseComponentExecution() {
 		val result = parseHelper.parse(toBeParsed)
-		val el = result.packages.get(0).components.get(0).execution.elements
 		// TODO
+//		val el = result.packages.get(0).components.get(0).execution.elements
 //		Assertions.assertTrue((el.get(0) as Variable).expression.)
 //		Assertions.assertFalse(component.pins.get(1).stream)
 //		Assertions.assertEquals(component.pins.get(0).name, "in1")

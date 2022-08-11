@@ -11,6 +11,6 @@ Require-Bundle: e4sm.de.metamodel.xtext,
  org.eclipse.xtext.ide,
  org.eclipse.xtext.xbase.ide,
  org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
-Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: e4sm.de.metamodel.xtext.ide.contentassist.antlr.internal,
  e4sm.de.metamodel.xtext.ide.contentassist.antlr
