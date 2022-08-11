@@ -194,6 +194,16 @@ where {self.requiresMergeAndDuplicate()} {
 	log("\t~Transformed M&D " + self.getDirection() + " pin " + mainPlace.label.text);
 }
 
+/* These 2 methods would actually be better, but would not work without the connector
+helper Pin::resolvePinWhenSource() {
+
+}
+
+helper Pin::resolvePinWhenTarget() {
+
+}
+*/
+
 helper DataNode::resolvePinPlace (connector : Connector) : PlaceType{
 	assert fatal (connector.source = self or connector.target = self) with log ("The given connector does not connect to the given data node. CONNECTOR: " + connector.toString() + " PIN: "+ self.toString());
     if(self.oclIsKindOf(Pin)) {

@@ -1,6 +1,7 @@
 import SCPNConstructors;
 import SCPNHelpers;
 import transformPins;
+import transformTypes;
 
 modeltype e4sm "strict" uses e4sm("http://de.tu-ilmenau/e4sm/1.0.0");
 modeltype execution "strict" uses execution("http://de.tu-ilmenau/e4sm/execution/1.0.0");
@@ -44,6 +45,37 @@ main() {
 /** Mappings **/
 mapping Package::packageToSCPN() : SCPNNet{
 	log("\nTransforming package " +  self.name);
+	// Transform types
+	//recordTokentype := e.rootObjects()[Model].types->map convert();
+	recordTokentype := object RecordTokentype{
+	id := "data_type_id";
+	name := "DataType";
+	type := Type::text;
+	
+	// Specify the attributes
+	attribute += object AttributeType{
+			name := "n"; //name
+			dataType:="string";
+		};
+	attribute += object AttributeType{
+			name := "l"; //length
+			dataType:="int";
+		};
+	attribute += object AttributeType{
+			name := "gT"; //generationTime
+			dataType:="DateTime";
+		};
+	attribute += object AttributeType{
+			name := "d"; //isDefault
+			dataType:="bool";
+		};
+		
+	graphics := object GraphicsType {
+		x := 130;
+	 	y := 1600
+    };
+	};
+	
 	// Attributes
 	id := safeString(self.name);
 	
@@ -437,6 +469,7 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 			
 			// Create the Arcs
 			var semBack := new ArcType(self.name+"_semBack");
+			semBack.inscription.text := "new(1)";
 			semBack.fromNode := timedTran.id;
 			semBack.toNode := sem.id;
 			arcs->add(semBack);
@@ -524,6 +557,11 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 			    arcs += transformationResult.arcs;
 			}endif;
 			
+			//If the pin is optional, also add the extra transitions
+			if (ip.optional) {
+			
+			};
+			
 			i := i + 1;
 		};
 		
@@ -545,6 +583,8 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 						arcFromTransition.fromNode := timedTran.id;
 					};
 					arcFromTransition.toNode := outputPinPlace.id;
+					
+					// TODO: maybe the following line only applies to sensors
 					arcFromTransition.inscription.text := "new(1)"; //TODO: improve specification
 					
 					// Add multiplicity, if needed
