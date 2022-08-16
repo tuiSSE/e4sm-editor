@@ -32,7 +32,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *
  * @generated
  */
-public class ForkNodeImpl extends ElementImpl implements ForkNode {
+public class ForkNodeImpl extends ExecutionElementImpl implements ForkNode {
 	/**
 	 * The cached value of the '{@link #getTimeFunction() <em>Time Function</em>}' containment reference.
 	 * <!-- begin-user-doc -->

@@ -2,6 +2,7 @@
  */
 package e4sm.de.metamodel.e4sm.execution.util;
 
+import e4sm.de.metamodel.e4sm.core.Element;
 import e4sm.de.metamodel.e4sm.core.NamedElement;
 import e4sm.de.metamodel.e4sm.execution.*;
 
@@ -73,7 +74,7 @@ public class ExecutionSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseConnectableNode(decisionNode);
 			if (result == null)
-				result = caseElement(decisionNode);
+				result = caseExecutionElement(decisionNode);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -86,7 +87,7 @@ public class ExecutionSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseDelayableElement(forkNode);
 			if (result == null)
-				result = caseElement(forkNode);
+				result = caseExecutionElement(forkNode);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -99,7 +100,7 @@ public class ExecutionSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseDelayableElement(mergeNode);
 			if (result == null)
-				result = caseElement(mergeNode);
+				result = caseExecutionElement(mergeNode);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -108,7 +109,7 @@ public class ExecutionSwitch<T> extends Switch<T> {
 			Flow flow = (Flow) theEObject;
 			T result = caseFlow(flow);
 			if (result == null)
-				result = caseElement(flow);
+				result = caseExecutionElement(flow);
 			if (result == null)
 				result = caseDelayableElement(flow);
 			if (result == null)
@@ -119,7 +120,7 @@ public class ExecutionSwitch<T> extends Switch<T> {
 			ConnectableNode connectableNode = (ConnectableNode) theEObject;
 			T result = caseConnectableNode(connectableNode);
 			if (result == null)
-				result = caseElement(connectableNode);
+				result = caseExecutionElement(connectableNode);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -137,14 +138,14 @@ public class ExecutionSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseConnectableNode(flowFinal);
 			if (result == null)
-				result = caseElement(flowFinal);
+				result = caseExecutionElement(flowFinal);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case ExecutionPackage.ELEMENT: {
-			Element element = (Element) theEObject;
-			T result = caseElement(element);
+		case ExecutionPackage.EXECUTION_ELEMENT: {
+			ExecutionElement executionElement = (ExecutionElement) theEObject;
+			T result = caseExecutionElement(executionElement);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -153,7 +154,7 @@ public class ExecutionSwitch<T> extends Switch<T> {
 			Expression expression = (Expression) theEObject;
 			T result = caseExpression(expression);
 			if (result == null)
-				result = caseElement(expression);
+				result = caseExecutionElement(expression);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -164,7 +165,7 @@ public class ExecutionSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseExpression(binaryExpression);
 			if (result == null)
-				result = caseElement(binaryExpression);
+				result = caseExecutionElement(binaryExpression);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -175,7 +176,7 @@ public class ExecutionSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseExpression(unaryExpression);
 			if (result == null)
-				result = caseElement(unaryExpression);
+				result = caseExecutionElement(unaryExpression);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -188,7 +189,7 @@ public class ExecutionSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseExpression(addition);
 			if (result == null)
-				result = caseElement(addition);
+				result = caseExecutionElement(addition);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -201,7 +202,7 @@ public class ExecutionSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseExpression(multiplication);
 			if (result == null)
-				result = caseElement(multiplication);
+				result = caseExecutionElement(multiplication);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -214,11 +215,11 @@ public class ExecutionSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseAssignableElement(variable);
 			if (result == null)
-				result = caseElement(variable);
+				result = caseExecutionElement(variable);
 			if (result == null)
 				result = caseNamedElement(variable);
 			if (result == null)
-				result = caseCore_Element(variable);
+				result = caseElement(variable);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -227,11 +228,11 @@ public class ExecutionSwitch<T> extends Switch<T> {
 			Const const_ = (Const) theEObject;
 			T result = caseConst(const_);
 			if (result == null)
-				result = caseElement(const_);
+				result = caseExecutionElement(const_);
 			if (result == null)
 				result = caseNamedElement(const_);
 			if (result == null)
-				result = caseCore_Element(const_);
+				result = caseElement(const_);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -242,7 +243,7 @@ public class ExecutionSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseExpression(variableRef);
 			if (result == null)
-				result = caseElement(variableRef);
+				result = caseExecutionElement(variableRef);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -265,7 +266,7 @@ public class ExecutionSwitch<T> extends Switch<T> {
 			Assignment assignment = (Assignment) theEObject;
 			T result = caseAssignment(assignment);
 			if (result == null)
-				result = caseElement(assignment);
+				result = caseExecutionElement(assignment);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -391,6 +392,21 @@ public class ExecutionSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseFlowFinal(FlowFinal object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExecutionElement(ExecutionElement object) {
 		return null;
 	}
 
@@ -601,21 +617,6 @@ public class ExecutionSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseAssignableElement(AssignableElement object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Element</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseCore_Element(e4sm.de.metamodel.e4sm.core.Element object) {
 		return null;
 	}
 

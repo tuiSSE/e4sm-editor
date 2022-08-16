@@ -9349,7 +9349,7 @@ public class E4smGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		private final RuleCall cConstParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		private final RuleCall cAssignmentParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
 		
-		//Elements returns execution::Element:
+		//Elements returns execution::ExecutionElement:
 		//    Flow | ConnectableNode | Addition | Variable | Const | Assignment;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -12366,7 +12366,7 @@ public class E4smGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		return getExecutionAccess().getRule();
 	}
 	
-	//Elements returns execution::Element:
+	//Elements returns execution::ExecutionElement:
 	//    Flow | ConnectableNode | Addition | Variable | Const | Assignment;
 	public ElementsElements getElementsAccess() {
 		return pElements;

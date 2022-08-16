@@ -33,12 +33,14 @@ import e4sm.de.metamodel.e4sm.SimpleUnit;
 import e4sm.de.metamodel.e4sm.SoftwareComponent;
 import e4sm.de.metamodel.e4sm.UnitConversion;
 import e4sm.de.metamodel.e4sm.UnitPrefix;
+import e4sm.de.metamodel.e4sm.analysis.ParameterizableElement;
 import e4sm.de.metamodel.e4sm.core.DocumentableElement;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
 import e4sm.de.metamodel.e4sm.execution.AssignableElement;
 import e4sm.de.metamodel.e4sm.execution.ConnectableNode;
 import e4sm.de.metamodel.e4sm.execution.DelayableElement;
+import e4sm.de.metamodel.e4sm.execution.ExecutionElement;
 import e4sm.de.metamodel.e4sm.core.Element;
 import e4sm.de.metamodel.e4sm.core.NamedElement;
 import e4sm.de.metamodel.e4sm.core.TypedElement;
@@ -436,7 +438,7 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseNamedElement(pin);
 			if (result == null)
-				result = caseExecution_Element(pin);
+				result = caseExecutionElement(pin);
 			if (result == null)
 				result = caseElement(pin);
 			if (result == null)
@@ -461,7 +463,7 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseNamedElement(inputPin);
 			if (result == null)
-				result = caseExecution_Element(inputPin);
+				result = caseExecutionElement(inputPin);
 			if (result == null)
 				result = caseElement(inputPin);
 			if (result == null)
@@ -488,7 +490,7 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseNamedElement(outputPin);
 			if (result == null)
-				result = caseExecution_Element(outputPin);
+				result = caseExecutionElement(outputPin);
 			if (result == null)
 				result = caseElement(outputPin);
 			if (result == null)
@@ -592,7 +594,7 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseNamedElement(dataStore);
 			if (result == null)
-				result = caseExecution_Element(dataStore);
+				result = caseExecutionElement(dataStore);
 			if (result == null)
 				result = caseElement(dataStore);
 			if (result == null)
@@ -613,7 +615,7 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseNamedElement(dataNode);
 			if (result == null)
-				result = caseExecution_Element(dataNode);
+				result = caseExecutionElement(dataNode);
 			if (result == null)
 				result = caseElement(dataNode);
 			if (result == null)
@@ -1146,7 +1148,7 @@ public class e4smSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseParameterizableElement(e4sm.de.metamodel.e4sm.analysis.ParameterizableElement object) {
+	public T caseParameterizableElement(ParameterizableElement object) {
 		return null;
 	}
 
@@ -1181,21 +1183,6 @@ public class e4smSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Element</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseExecution_Element(e4sm.de.metamodel.e4sm.execution.Element object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Connectable Node</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1222,6 +1209,21 @@ public class e4smSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseTypedElement(TypedElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExecutionElement(ExecutionElement object) {
 		return null;
 	}
 

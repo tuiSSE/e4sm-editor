@@ -60,14 +60,14 @@ public interface ExecutionPackage extends EPackage {
 	ExecutionPackage eINSTANCE = e4sm.de.metamodel.e4sm.execution.impl.ExecutionPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.execution.impl.ElementImpl <em>Element</em>}' class.
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.execution.impl.ExecutionElementImpl <em>Element</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see e4sm.de.metamodel.e4sm.execution.impl.ElementImpl
-	 * @see e4sm.de.metamodel.e4sm.execution.impl.ExecutionPackageImpl#getElement()
+	 * @see e4sm.de.metamodel.e4sm.execution.impl.ExecutionElementImpl
+	 * @see e4sm.de.metamodel.e4sm.execution.impl.ExecutionPackageImpl#getExecutionElement()
 	 * @generated
 	 */
-	int ELEMENT = 7;
+	int EXECUTION_ELEMENT = 7;
 
 	/**
 	 * The number of structural features of the '<em>Element</em>' class.
@@ -76,7 +76,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_FEATURE_COUNT = 0;
+	int EXECUTION_ELEMENT_FEATURE_COUNT = 0;
 
 	/**
 	 * The number of operations of the '<em>Element</em>' class.
@@ -85,7 +85,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_OPERATION_COUNT = 0;
+	int EXECUTION_ELEMENT_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.execution.ConnectableNode <em>Connectable Node</em>}' class.
@@ -104,7 +104,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTABLE_NODE_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 0;
+	int CONNECTABLE_NODE_FEATURE_COUNT = EXECUTION_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Connectable Node</em>' class.
@@ -113,7 +113,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTABLE_NODE_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 0;
+	int CONNECTABLE_NODE_OPERATION_COUNT = EXECUTION_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.execution.impl.DecisionNodeImpl <em>Decision Node</em>}' class.
@@ -270,7 +270,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FLOW__TIME_FUNCTION = ELEMENT_FEATURE_COUNT + 0;
+	int FLOW__TIME_FUNCTION = EXECUTION_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -279,7 +279,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FLOW__SOURCE = ELEMENT_FEATURE_COUNT + 1;
+	int FLOW__SOURCE = EXECUTION_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' reference.
@@ -288,7 +288,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FLOW__TARGET = ELEMENT_FEATURE_COUNT + 2;
+	int FLOW__TARGET = EXECUTION_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Flow</em>' class.
@@ -297,7 +297,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FLOW_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 3;
+	int FLOW_FEATURE_COUNT = EXECUTION_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Flow</em>' class.
@@ -306,7 +306,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FLOW_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 0;
+	int FLOW_OPERATION_COUNT = EXECUTION_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.execution.impl.ExecutionImpl <em>Execution</em>}' class.
@@ -399,7 +399,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXPRESSION_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 0;
+	int EXPRESSION_FEATURE_COUNT = EXECUTION_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Get Tangible Child</em>' operation.
@@ -408,7 +408,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXPRESSION___GET_TANGIBLE_CHILD = ELEMENT_OPERATION_COUNT + 0;
+	int EXPRESSION___GET_TANGIBLE_CHILD = EXECUTION_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Get Actual Parent</em>' operation.
@@ -417,7 +417,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXPRESSION___GET_ACTUAL_PARENT = ELEMENT_OPERATION_COUNT + 1;
+	int EXPRESSION___GET_ACTUAL_PARENT = EXECUTION_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Expression</em>' class.
@@ -426,7 +426,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXPRESSION_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 2;
+	int EXPRESSION_OPERATION_COUNT = EXECUTION_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.execution.impl.BinaryExpressionImpl <em>Binary Expression</em>}' class.
@@ -756,7 +756,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONST__NAME = ELEMENT_FEATURE_COUNT + 0;
+	int CONST__NAME = EXECUTION_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -765,7 +765,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONST__EXPRESSION = ELEMENT_FEATURE_COUNT + 1;
+	int CONST__EXPRESSION = EXECUTION_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Const</em>' class.
@@ -774,7 +774,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONST_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 2;
+	int CONST_FEATURE_COUNT = EXECUTION_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Const</em>' class.
@@ -783,7 +783,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONST_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 0;
+	int CONST_OPERATION_COUNT = EXECUTION_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -994,7 +994,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIGNMENT__EXPRESSION = ELEMENT_FEATURE_COUNT + 0;
+	int ASSIGNMENT__EXPRESSION = EXECUTION_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' containment reference.
@@ -1003,7 +1003,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIGNMENT__TARGET = ELEMENT_FEATURE_COUNT + 1;
+	int ASSIGNMENT__TARGET = EXECUTION_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Assignment</em>' class.
@@ -1012,7 +1012,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIGNMENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 2;
+	int ASSIGNMENT_FEATURE_COUNT = EXECUTION_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Assignment</em>' class.
@@ -1021,7 +1021,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIGNMENT_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 0;
+	int ASSIGNMENT_OPERATION_COUNT = EXECUTION_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.execution.impl.AssignableElementReferenceImpl <em>Assignable Element Reference</em>}' class.
@@ -1257,14 +1257,14 @@ public interface ExecutionPackage extends EPackage {
 	EReference getFlowFinal_Source();
 
 	/**
-	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.execution.Element <em>Element</em>}'.
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.execution.ExecutionElement <em>Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Element</em>'.
-	 * @see e4sm.de.metamodel.e4sm.execution.Element
+	 * @see e4sm.de.metamodel.e4sm.execution.ExecutionElement
 	 * @generated
 	 */
-	EClass getElement();
+	EClass getExecutionElement();
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.execution.Expression <em>Expression</em>}'.
@@ -1829,14 +1829,14 @@ public interface ExecutionPackage extends EPackage {
 		EReference FLOW_FINAL__SOURCE = eINSTANCE.getFlowFinal_Source();
 
 		/**
-		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.execution.impl.ElementImpl <em>Element</em>}' class.
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.execution.impl.ExecutionElementImpl <em>Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see e4sm.de.metamodel.e4sm.execution.impl.ElementImpl
-		 * @see e4sm.de.metamodel.e4sm.execution.impl.ExecutionPackageImpl#getElement()
+		 * @see e4sm.de.metamodel.e4sm.execution.impl.ExecutionElementImpl
+		 * @see e4sm.de.metamodel.e4sm.execution.impl.ExecutionPackageImpl#getExecutionElement()
 		 * @generated
 		 */
-		EClass ELEMENT = eINSTANCE.getElement();
+		EClass EXECUTION_ELEMENT = eINSTANCE.getExecutionElement();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.execution.impl.ExpressionImpl <em>Expression</em>}' class.

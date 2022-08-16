@@ -47,7 +47,7 @@ public interface VariableRef extends Expression {
 	 * @model kind="operation"
 	 * @generated
 	 */
-	Element getActualParent();
+	ExecutionElement getActualParent();
 
 	/**
 	 * <!-- begin-user-doc -->

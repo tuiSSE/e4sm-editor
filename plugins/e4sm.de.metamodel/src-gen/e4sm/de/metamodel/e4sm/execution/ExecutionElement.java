@@ -10,9 +10,9 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- end-user-doc -->
  *
  *
- * @see e4sm.de.metamodel.e4sm.execution.ExecutionPackage#getElement()
+ * @see e4sm.de.metamodel.e4sm.execution.ExecutionPackage#getExecutionElement()
  * @model abstract="true"
  * @generated
  */
-public interface Element extends EObject {
-} // Element
+public interface ExecutionElement extends EObject {
+} // ExecutionElement

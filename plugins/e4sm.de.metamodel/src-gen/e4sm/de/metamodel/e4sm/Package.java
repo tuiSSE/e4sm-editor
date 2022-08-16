@@ -2,6 +2,7 @@
  */
 package e4sm.de.metamodel.e4sm;
 
+import e4sm.de.metamodel.e4sm.analysis.ParameterizableElement;
 import e4sm.de.metamodel.e4sm.core.DocumentableElement;
 import e4sm.de.metamodel.e4sm.core.NamedElement;
 import org.eclipse.emf.common.util.EList;
@@ -36,8 +37,7 @@ import org.eclipse.emf.common.util.EList;
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='PackageC1'"
  * @generated
  */
-public interface Package
-		extends NamedElement, e4sm.de.metamodel.e4sm.analysis.ParameterizableElement, DocumentableElement {
+public interface Package extends NamedElement, ParameterizableElement, DocumentableElement {
 	/**
 	 * Returns the value of the '<em><b>Components</b></em>' containment reference list.
 	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.Component}.

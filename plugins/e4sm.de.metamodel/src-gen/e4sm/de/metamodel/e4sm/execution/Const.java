@@ -20,7 +20,7 @@ import e4sm.de.metamodel.e4sm.core.NamedElement;
  * @model
  * @generated
  */
-public interface Const extends Element, NamedElement {
+public interface Const extends ExecutionElement, NamedElement {
 
 	/**
 	 * Returns the value of the '<em><b>Expression</b></em>' containment reference.

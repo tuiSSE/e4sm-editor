@@ -697,7 +697,7 @@ Execution returns execution::Execution:
 	{execution::Execution}
 	elements+=Elements+;
 
-Elements returns execution::Element:
+Elements returns execution::ExecutionElement:
 	Flow | ConnectableNode | Addition | Variable | Const | Assignment;
 
 ConnectableNode returns execution::ConnectableNode:

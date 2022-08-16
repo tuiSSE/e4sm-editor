@@ -4,6 +4,7 @@ package e4sm.de.metamodel.e4sm.core.util;
 
 import e4sm.de.metamodel.e4sm.core.*;
 
+import e4sm.de.metamodel.e4sm.execution.ExecutionElement;
 import e4sm.de.metamodel.e4sm.execution.Expression;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -95,7 +96,7 @@ public class CoreSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseNamedElement(literalSpecification);
 			if (result == null)
-				result = caseExecution_Element(literalSpecification);
+				result = caseExecutionElement(literalSpecification);
 			if (result == null)
 				result = caseElement(literalSpecification);
 			if (result == null)
@@ -116,7 +117,7 @@ public class CoreSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseNamedElement(literalNull);
 			if (result == null)
-				result = caseExecution_Element(literalNull);
+				result = caseExecutionElement(literalNull);
 			if (result == null)
 				result = caseElement(literalNull);
 			if (result == null)
@@ -137,7 +138,7 @@ public class CoreSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseNamedElement(literalString);
 			if (result == null)
-				result = caseExecution_Element(literalString);
+				result = caseExecutionElement(literalString);
 			if (result == null)
 				result = caseElement(literalString);
 			if (result == null)
@@ -158,7 +159,7 @@ public class CoreSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseNamedElement(literalInteger);
 			if (result == null)
-				result = caseExecution_Element(literalInteger);
+				result = caseExecutionElement(literalInteger);
 			if (result == null)
 				result = caseElement(literalInteger);
 			if (result == null)
@@ -179,7 +180,7 @@ public class CoreSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseNamedElement(literalBoolean);
 			if (result == null)
-				result = caseExecution_Element(literalBoolean);
+				result = caseExecutionElement(literalBoolean);
 			if (result == null)
 				result = caseElement(literalBoolean);
 			if (result == null)
@@ -200,7 +201,7 @@ public class CoreSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseNamedElement(literalFloat);
 			if (result == null)
-				result = caseExecution_Element(literalFloat);
+				result = caseExecutionElement(literalFloat);
 			if (result == null)
 				result = caseElement(literalFloat);
 			if (result == null)
@@ -221,7 +222,7 @@ public class CoreSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseNamedElement(literalDouble);
 			if (result == null)
-				result = caseExecution_Element(literalDouble);
+				result = caseExecutionElement(literalDouble);
 			if (result == null)
 				result = caseElement(literalDouble);
 			if (result == null)
@@ -242,7 +243,7 @@ public class CoreSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseNamedElement(literalLong);
 			if (result == null)
-				result = caseExecution_Element(literalLong);
+				result = caseExecutionElement(literalLong);
 			if (result == null)
 				result = caseElement(literalLong);
 			if (result == null)
@@ -263,7 +264,7 @@ public class CoreSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseNamedElement(literalShort);
 			if (result == null)
-				result = caseExecution_Element(literalShort);
+				result = caseExecutionElement(literalShort);
 			if (result == null)
 				result = caseElement(literalShort);
 			if (result == null)
@@ -284,7 +285,7 @@ public class CoreSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseNamedElement(literalByte);
 			if (result == null)
-				result = caseExecution_Element(literalByte);
+				result = caseExecutionElement(literalByte);
 			if (result == null)
 				result = caseElement(literalByte);
 			if (result == null)
@@ -305,7 +306,7 @@ public class CoreSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseNamedElement(literalCharacter);
 			if (result == null)
-				result = caseExecution_Element(literalCharacter);
+				result = caseExecutionElement(literalCharacter);
 			if (result == null)
 				result = caseElement(literalCharacter);
 			if (result == null)
@@ -326,7 +327,7 @@ public class CoreSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseNamedElement(literalDate);
 			if (result == null)
-				result = caseExecution_Element(literalDate);
+				result = caseExecutionElement(literalDate);
 			if (result == null)
 				result = caseElement(literalDate);
 			if (result == null)
@@ -343,7 +344,7 @@ public class CoreSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseNamedElement(valueSpecification);
 			if (result == null)
-				result = caseExecution_Element(valueSpecification);
+				result = caseExecutionElement(valueSpecification);
 			if (result == null)
 				result = caseElement(valueSpecification);
 			if (result == null)
@@ -857,7 +858,7 @@ public class CoreSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseExecution_Element(e4sm.de.metamodel.e4sm.execution.Element object) {
+	public T caseExecutionElement(ExecutionElement object) {
 		return null;
 	}
 

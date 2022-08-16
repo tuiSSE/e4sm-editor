@@ -2,7 +2,7 @@
  */
 package e4sm.de.metamodel.e4sm.execution.impl;
 
-import e4sm.de.metamodel.e4sm.execution.Element;
+import e4sm.de.metamodel.e4sm.execution.ExecutionElement;
 import e4sm.de.metamodel.e4sm.execution.ExecutionPackage;
 import e4sm.de.metamodel.e4sm.execution.Expression;
 
@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public abstract class ExpressionImpl extends ElementImpl implements Expression {
+public abstract class ExpressionImpl extends ExecutionElementImpl implements Expression {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -55,7 +55,7 @@ public abstract class ExpressionImpl extends ElementImpl implements Expression {
 	 * @generated
 	 */
 	@Override
-	public Element getActualParent() {
+	public ExecutionElement getActualParent() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

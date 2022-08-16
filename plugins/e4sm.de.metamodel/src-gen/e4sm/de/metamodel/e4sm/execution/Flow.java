@@ -19,7 +19,7 @@ package e4sm.de.metamodel.e4sm.execution;
  * @model
  * @generated
  */
-public interface Flow extends Element, DelayableElement {
+public interface Flow extends ExecutionElement, DelayableElement {
 	/**
 	 * Returns the value of the '<em><b>Source</b></em>' reference.
 	 * <!-- begin-user-doc -->

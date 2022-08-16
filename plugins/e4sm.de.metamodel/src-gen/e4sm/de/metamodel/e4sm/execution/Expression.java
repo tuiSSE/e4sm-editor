@@ -12,7 +12,7 @@ package e4sm.de.metamodel.e4sm.execution;
  * @model abstract="true"
  * @generated
  */
-public interface Expression extends Element {
+public interface Expression extends ExecutionElement {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -28,5 +28,5 @@ public interface Expression extends Element {
 	 * @model kind="operation"
 	 * @generated
 	 */
-	Element getActualParent();
+	ExecutionElement getActualParent();
 } // Expression

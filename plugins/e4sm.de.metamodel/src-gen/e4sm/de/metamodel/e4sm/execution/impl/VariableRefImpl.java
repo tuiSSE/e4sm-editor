@@ -3,7 +3,7 @@
 package e4sm.de.metamodel.e4sm.execution.impl;
 
 import e4sm.de.metamodel.e4sm.execution.BinaryExpression;
-import e4sm.de.metamodel.e4sm.execution.Element;
+import e4sm.de.metamodel.e4sm.execution.ExecutionElement;
 import e4sm.de.metamodel.e4sm.execution.ExecutionPackage;
 import e4sm.de.metamodel.e4sm.execution.Expression;
 import e4sm.de.metamodel.e4sm.execution.Variable;
@@ -109,7 +109,7 @@ public class VariableRefImpl extends ExpressionImpl implements VariableRef {
 	 * @generated NOT
 	 */
 	@Override
-	public Element getActualParent() {
+	public ExecutionElement getActualParent() {
 		var c = this.eContainer();
 		if (c instanceof BinaryExpression) {
 			BinaryExpression b = (BinaryExpression) c;

@@ -7,6 +7,7 @@ import e4sm.de.metamodel.e4sm.Import;
 import e4sm.de.metamodel.e4sm.Model;
 import e4sm.de.metamodel.e4sm.analysis.AnalysisPackage;
 import e4sm.de.metamodel.e4sm.analysis.Parameter;
+import e4sm.de.metamodel.e4sm.analysis.ParameterizableElement;
 import e4sm.de.metamodel.e4sm.core.CorePackage;
 import e4sm.de.metamodel.e4sm.core.DocumentableElement;
 import e4sm.de.metamodel.e4sm.core.TypeSpecification;
@@ -490,7 +491,7 @@ public class ModelImpl extends NamedElementImpl implements Model {
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == e4sm.de.metamodel.e4sm.analysis.ParameterizableElement.class) {
+		if (baseClass == ParameterizableElement.class) {
 			switch (derivedFeatureID) {
 			case e4smPackage.MODEL__PARAMETERS:
 				return AnalysisPackage.PARAMETERIZABLE_ELEMENT__PARAMETERS;
@@ -515,7 +516,7 @@ public class ModelImpl extends NamedElementImpl implements Model {
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == e4sm.de.metamodel.e4sm.analysis.ParameterizableElement.class) {
+		if (baseClass == ParameterizableElement.class) {
 			switch (baseFeatureID) {
 			case AnalysisPackage.PARAMETERIZABLE_ELEMENT__PARAMETERS:
 				return e4smPackage.MODEL__PARAMETERS;

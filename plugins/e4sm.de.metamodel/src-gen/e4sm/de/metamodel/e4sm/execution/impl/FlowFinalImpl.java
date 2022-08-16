@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class FlowFinalImpl extends ElementImpl implements FlowFinal {
+public class FlowFinalImpl extends ExecutionElementImpl implements FlowFinal {
 	/**
 	 * The cached value of the '{@link #getSource() <em>Source</em>}' reference.
 	 * <!-- begin-user-doc -->

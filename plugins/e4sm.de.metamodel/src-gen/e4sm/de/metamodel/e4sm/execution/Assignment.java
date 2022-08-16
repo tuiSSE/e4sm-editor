@@ -19,7 +19,7 @@ package e4sm.de.metamodel.e4sm.execution;
  * @model
  * @generated
  */
-public interface Assignment extends Element {
+public interface Assignment extends ExecutionElement {
 	/**
 	 * Returns the value of the '<em><b>Expression</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

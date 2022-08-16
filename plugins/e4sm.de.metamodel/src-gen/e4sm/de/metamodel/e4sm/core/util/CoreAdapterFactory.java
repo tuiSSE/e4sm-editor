@@ -4,6 +4,7 @@ package e4sm.de.metamodel.e4sm.core.util;
 
 import e4sm.de.metamodel.e4sm.core.*;
 
+import e4sm.de.metamodel.e4sm.execution.ExecutionElement;
 import e4sm.de.metamodel.e4sm.execution.Expression;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -193,8 +194,8 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseExecution_Element(e4sm.de.metamodel.e4sm.execution.Element object) {
-			return createExecution_ElementAdapter();
+		public Adapter caseExecutionElement(ExecutionElement object) {
+			return createExecutionElementAdapter();
 		}
 
 		@Override
@@ -572,16 +573,16 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.execution.Element <em>Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.execution.ExecutionElement <em>Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see e4sm.de.metamodel.e4sm.execution.Element
+	 * @see e4sm.de.metamodel.e4sm.execution.ExecutionElement
 	 * @generated
 	 */
-	public Adapter createExecution_ElementAdapter() {
+	public Adapter createExecutionElementAdapter() {
 		return null;
 	}
 

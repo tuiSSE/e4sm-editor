@@ -4,7 +4,6 @@ package e4sm.de.metamodel.e4sm.execution.provider;
 
 import e4sm.de.metamodel.e4sm.core.CoreFactory;
 import e4sm.de.metamodel.e4sm.e4smFactory;
-
 import e4sm.de.metamodel.e4sm.execution.Execution;
 import e4sm.de.metamodel.e4sm.execution.ExecutionFactory;
 import e4sm.de.metamodel.e4sm.execution.ExecutionPackage;

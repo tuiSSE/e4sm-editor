@@ -1400,8 +1400,8 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		initEOperation(getValueSpecification__GetTangibleChild(), theExecutionPackage.getExpression(),
 				"getTangibleChild", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getValueSpecification__GetActualParent(), theExecutionPackage.getElement(), "getActualParent", 0,
-				1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getValueSpecification__GetActualParent(), theExecutionPackage.getExecutionElement(),
+				"getActualParent", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(typedElementEClass, TypedElement.class, "TypedElement", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);

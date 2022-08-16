@@ -12,5 +12,5 @@ package e4sm.de.metamodel.e4sm.execution;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface ConnectableNode extends Element {
+public interface ConnectableNode extends ExecutionElement {
 } // ConnectableNode

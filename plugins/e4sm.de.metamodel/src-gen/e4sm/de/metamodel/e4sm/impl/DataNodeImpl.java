@@ -8,6 +8,7 @@ import e4sm.de.metamodel.e4sm.analysis.AnalysisPackage;
 import e4sm.de.metamodel.e4sm.Package;
 import e4sm.de.metamodel.e4sm.analysis.Parameter;
 
+import e4sm.de.metamodel.e4sm.analysis.ParameterizableElement;
 import e4sm.de.metamodel.e4sm.core.CorePackage;
 import e4sm.de.metamodel.e4sm.core.DocumentableElement;
 import e4sm.de.metamodel.e4sm.core.impl.TypedElementImpl;
@@ -15,8 +16,7 @@ import e4sm.de.metamodel.e4sm.core.impl.TypedElementImpl;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
 import e4sm.de.metamodel.e4sm.execution.ConnectableNode;
-import e4sm.de.metamodel.e4sm.execution.Element;
-
+import e4sm.de.metamodel.e4sm.execution.ExecutionElement;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
@@ -319,7 +319,7 @@ public abstract class DataNodeImpl extends TypedElementImpl implements DataNode 
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == Element.class) {
+		if (baseClass == ExecutionElement.class) {
 			switch (derivedFeatureID) {
 			default:
 				return -1;
@@ -331,7 +331,7 @@ public abstract class DataNodeImpl extends TypedElementImpl implements DataNode 
 				return -1;
 			}
 		}
-		if (baseClass == e4sm.de.metamodel.e4sm.analysis.ParameterizableElement.class) {
+		if (baseClass == ParameterizableElement.class) {
 			switch (derivedFeatureID) {
 			case e4smPackage.DATA_NODE__PARAMETERS:
 				return AnalysisPackage.PARAMETERIZABLE_ELEMENT__PARAMETERS;
@@ -357,7 +357,7 @@ public abstract class DataNodeImpl extends TypedElementImpl implements DataNode 
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == Element.class) {
+		if (baseClass == ExecutionElement.class) {
 			switch (baseFeatureID) {
 			default:
 				return -1;
@@ -369,7 +369,7 @@ public abstract class DataNodeImpl extends TypedElementImpl implements DataNode 
 				return -1;
 			}
 		}
-		if (baseClass == e4sm.de.metamodel.e4sm.analysis.ParameterizableElement.class) {
+		if (baseClass == ParameterizableElement.class) {
 			switch (baseFeatureID) {
 			case AnalysisPackage.PARAMETERIZABLE_ELEMENT__PARAMETERS:
 				return e4smPackage.DATA_NODE__PARAMETERS;

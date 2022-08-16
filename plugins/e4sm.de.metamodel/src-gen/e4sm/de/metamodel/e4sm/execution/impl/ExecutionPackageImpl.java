@@ -25,8 +25,8 @@ import e4sm.de.metamodel.e4sm.execution.ConnectableNode;
 import e4sm.de.metamodel.e4sm.execution.Const;
 import e4sm.de.metamodel.e4sm.execution.DecisionNode;
 import e4sm.de.metamodel.e4sm.execution.DelayableElement;
-import e4sm.de.metamodel.e4sm.execution.Element;
 import e4sm.de.metamodel.e4sm.execution.Execution;
+import e4sm.de.metamodel.e4sm.execution.ExecutionElement;
 import e4sm.de.metamodel.e4sm.execution.ExecutionFactory;
 import e4sm.de.metamodel.e4sm.execution.ExecutionPackage;
 import e4sm.de.metamodel.e4sm.execution.Expression;
@@ -117,7 +117,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass elementEClass = null;
+	private EClass executionElementEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -472,8 +472,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EClass getElement() {
-		return elementEClass;
+	public EClass getExecutionElement() {
+		return executionElementEClass;
 	}
 
 	/**
@@ -918,7 +918,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		flowFinalEClass = createEClass(FLOW_FINAL);
 		createEReference(flowFinalEClass, FLOW_FINAL__SOURCE);
 
-		elementEClass = createEClass(ELEMENT);
+		executionElementEClass = createEClass(EXECUTION_ELEMENT);
 
 		expressionEClass = createEClass(EXPRESSION);
 		createEOperation(expressionEClass, EXPRESSION___GET_TANGIBLE_CHILD);
@@ -1013,21 +1013,21 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		forkNodeEClass.getESuperTypes().add(this.getDelayableElement());
 		mergeNodeEClass.getESuperTypes().add(this.getConnectableNode());
 		mergeNodeEClass.getESuperTypes().add(this.getDelayableElement());
-		flowEClass.getESuperTypes().add(this.getElement());
+		flowEClass.getESuperTypes().add(this.getExecutionElement());
 		flowEClass.getESuperTypes().add(this.getDelayableElement());
-		connectableNodeEClass.getESuperTypes().add(this.getElement());
+		connectableNodeEClass.getESuperTypes().add(this.getExecutionElement());
 		flowFinalEClass.getESuperTypes().add(this.getConnectableNode());
-		expressionEClass.getESuperTypes().add(this.getElement());
+		expressionEClass.getESuperTypes().add(this.getExecutionElement());
 		binaryExpressionEClass.getESuperTypes().add(this.getExpression());
 		unaryExpressionEClass.getESuperTypes().add(this.getExpression());
 		additionEClass.getESuperTypes().add(this.getBinaryExpression());
 		multiplicationEClass.getESuperTypes().add(this.getBinaryExpression());
 		variableEClass.getESuperTypes().add(this.getConst());
 		variableEClass.getESuperTypes().add(this.getAssignableElement());
-		constEClass.getESuperTypes().add(this.getElement());
+		constEClass.getESuperTypes().add(this.getExecutionElement());
 		constEClass.getESuperTypes().add(theCorePackage.getNamedElement());
 		variableRefEClass.getESuperTypes().add(this.getExpression());
-		assignmentEClass.getESuperTypes().add(this.getElement());
+		assignmentEClass.getESuperTypes().add(this.getExecutionElement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(decisionNodeEClass, DecisionNode.class, "DecisionNode", !IS_ABSTRACT, !IS_INTERFACE,
@@ -1064,9 +1064,9 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 
 		initEClass(executionEClass, Execution.class, "Execution", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getExecution_Elements(), this.getElement(), null, "elements", null, 0, -1, Execution.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getExecution_Elements(), this.getExecutionElement(), null, "elements", null, 0, -1,
+				Execution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(flowFinalEClass, FlowFinal.class, "FlowFinal", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -1074,7 +1074,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(elementEClass, Element.class, "Element", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(executionElementEClass, ExecutionElement.class, "ExecutionElement", IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(expressionEClass, Expression.class, "Expression", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -1082,7 +1083,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		initEOperation(getExpression__GetTangibleChild(), this.getExpression(), "getTangibleChild", 0, 1, IS_UNIQUE,
 				IS_ORDERED);
 
-		initEOperation(getExpression__GetActualParent(), this.getElement(), "getActualParent", 0, 1, IS_UNIQUE,
+		initEOperation(getExpression__GetActualParent(), this.getExecutionElement(), "getActualParent", 0, 1, IS_UNIQUE,
 				IS_ORDERED);
 
 		initEClass(binaryExpressionEClass, BinaryExpression.class, "BinaryExpression", IS_ABSTRACT, !IS_INTERFACE,
@@ -1097,8 +1098,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		initEOperation(getBinaryExpression__IsRealOperation(), theEcorePackage.getEBoolean(), "isRealOperation", 0, 1,
 				IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getBinaryExpression__GetActualParent(), this.getElement(), "getActualParent", 0, 1, IS_UNIQUE,
-				IS_ORDERED);
+		initEOperation(getBinaryExpression__GetActualParent(), this.getExecutionElement(), "getActualParent", 0, 1,
+				IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getBinaryExpression__GetTangibleChild(), this.getExpression(), "getTangibleChild", 0, 1,
 				IS_UNIQUE, IS_ORDERED);
@@ -1143,8 +1144,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getVariableRef__GetActualParent(), this.getElement(), "getActualParent", 0, 1, IS_UNIQUE,
-				IS_ORDERED);
+		initEOperation(getVariableRef__GetActualParent(), this.getExecutionElement(), "getActualParent", 0, 1,
+				IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getVariableRef__GetTangibleChild(), this.getExpression(), "getTangibleChild", 0, 1, IS_UNIQUE,
 				IS_ORDERED);

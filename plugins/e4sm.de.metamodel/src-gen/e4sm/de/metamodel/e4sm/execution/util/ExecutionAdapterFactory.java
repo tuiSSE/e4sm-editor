@@ -2,6 +2,7 @@
  */
 package e4sm.de.metamodel.e4sm.execution.util;
 
+import e4sm.de.metamodel.e4sm.core.Element;
 import e4sm.de.metamodel.e4sm.core.NamedElement;
 import e4sm.de.metamodel.e4sm.execution.*;
 
@@ -103,8 +104,8 @@ public class ExecutionAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseElement(Element object) {
-			return createElementAdapter();
+		public Adapter caseExecutionElement(ExecutionElement object) {
+			return createExecutionElementAdapter();
 		}
 
 		@Override
@@ -173,8 +174,8 @@ public class ExecutionAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseCore_Element(e4sm.de.metamodel.e4sm.core.Element object) {
-			return createCore_ElementAdapter();
+		public Adapter caseElement(Element object) {
+			return createElementAdapter();
 		}
 
 		@Override
@@ -300,13 +301,27 @@ public class ExecutionAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.execution.Element <em>Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.execution.ExecutionElement <em>Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see e4sm.de.metamodel.e4sm.execution.Element
+	 * @see e4sm.de.metamodel.e4sm.execution.ExecutionElement
+	 * @generated
+	 */
+	public Adapter createExecutionElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.core.Element <em>Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.core.Element
 	 * @generated
 	 */
 	public Adapter createElementAdapter() {
@@ -492,20 +507,6 @@ public class ExecutionAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAssignableElementAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.core.Element <em>Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see e4sm.de.metamodel.e4sm.core.Element
-	 * @generated
-	 */
-	public Adapter createCore_ElementAdapter() {
 		return null;
 	}
 

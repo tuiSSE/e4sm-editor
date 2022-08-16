@@ -31,7 +31,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class FlowImpl extends ElementImpl implements Flow {
+public class FlowImpl extends ExecutionElementImpl implements Flow {
 	/**
 	 * The cached value of the '{@link #getTimeFunction() <em>Time Function</em>}' containment reference.
 	 * <!-- begin-user-doc -->

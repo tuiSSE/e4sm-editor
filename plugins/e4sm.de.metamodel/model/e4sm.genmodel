@@ -295,7 +295,7 @@
     <genClasses ecoreClass="execution.ecore#//FlowFinal">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference execution.ecore#//FlowFinal/source"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="execution.ecore#//Element"/>
+    <genClasses image="false" ecoreClass="execution.ecore#//ExecutionElement"/>
     <genClasses image="false" ecoreClass="execution.ecore#//Expression">
       <genOperations ecoreOperation="execution.ecore#//Expression/getTangibleChild"/>
       <genOperations ecoreOperation="execution.ecore#//Expression/getActualParent"/>

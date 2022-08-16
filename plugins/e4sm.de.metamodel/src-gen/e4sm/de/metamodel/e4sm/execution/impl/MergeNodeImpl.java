@@ -32,7 +32,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *
  * @generated
  */
-public class MergeNodeImpl extends ElementImpl implements MergeNode {
+public class MergeNodeImpl extends ExecutionElementImpl implements MergeNode {
 	/**
 	 * The cached value of the '{@link #getTimeFunction() <em>Time Function</em>}' containment reference.
 	 * <!-- begin-user-doc -->

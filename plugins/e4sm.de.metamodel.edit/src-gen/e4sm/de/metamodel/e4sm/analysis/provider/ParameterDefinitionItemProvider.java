@@ -102,27 +102,27 @@ public class ParameterDefinitionItemProvider extends TypedElementItemProvider {
 	 */
 	protected void addMustBeDefinedOnPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
-		.add(new ItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-				getResourceLocator(), getString("_UI_ParameterDefinition_mustBeDefinedOn_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_ParameterDefinition_mustBeDefinedOn_feature", "_UI_ParameterDefinition_type"),
-				AnalysisPackage.Literals.PARAMETER_DEFINITION__MUST_BE_DEFINED_ON, true, false, true, null,
-				null, null) {
-			@Override
-			public Collection<?> getChoiceOfValues(Object object) {
-				List<EClass> choiceOfValues = new ArrayList<EClass>();
-				EList<EClassifier> classifiers = CorePackage.eINSTANCE.getEClassifiers();
-				classifiers.forEach(c -> {
-					if (c instanceof EClass) {
-						if (((EClass) c).getEAllSuperTypes().stream()
-								.anyMatch(e -> e.equals(AnalysisPackage.eINSTANCE.getParameterizableElement()))) {
-							choiceOfValues.add((EClass) c);
-						}
+				.add(new ItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_ParameterDefinition_mustBeDefinedOn_feature"),
+						getString("_UI_PropertyDescriptor_description",
+								"_UI_ParameterDefinition_mustBeDefinedOn_feature", "_UI_ParameterDefinition_type"),
+						AnalysisPackage.Literals.PARAMETER_DEFINITION__MUST_BE_DEFINED_ON, true, false, true, null,
+						null, null) {
+					@Override
+					public Collection<?> getChoiceOfValues(Object object) {
+						List<EClass> choiceOfValues = new ArrayList<EClass>();
+						EList<EClassifier> classifiers = CorePackage.eINSTANCE.getEClassifiers();
+						classifiers.forEach(c -> {
+							if (c instanceof EClass) {
+								if (((EClass) c).getEAllSuperTypes().stream().anyMatch(
+										e -> e.equals(AnalysisPackage.eINSTANCE.getParameterizableElement()))) {
+									choiceOfValues.add((EClass) c);
+								}
+							}
+						});
+						return choiceOfValues;
 					}
 				});
-				return choiceOfValues;
-			}
-		});
 	}
 
 	/**
@@ -175,8 +175,8 @@ public class ParameterDefinitionItemProvider extends TypedElementItemProvider {
 						EList<EClassifier> classifiers = CorePackage.eINSTANCE.getEClassifiers();
 						classifiers.forEach(c -> {
 							if (c instanceof EClass) {
-								if (((EClass) c).getEAllSuperTypes().stream()
-										.anyMatch(e -> e.equals(AnalysisPackage.eINSTANCE.getParameterizableElement()))) {
+								if (((EClass) c).getEAllSuperTypes().stream().anyMatch(
+										e -> e.equals(AnalysisPackage.eINSTANCE.getParameterizableElement()))) {
 									choiceOfValues.add((EClass) c);
 								}
 							}

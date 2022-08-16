@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class DecisionNodeImpl extends ElementImpl implements DecisionNode {
+public class DecisionNodeImpl extends ExecutionElementImpl implements DecisionNode {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

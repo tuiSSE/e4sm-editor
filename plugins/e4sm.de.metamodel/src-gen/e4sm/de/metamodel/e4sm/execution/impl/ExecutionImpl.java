@@ -2,8 +2,8 @@
  */
 package e4sm.de.metamodel.e4sm.execution.impl;
 
-import e4sm.de.metamodel.e4sm.execution.Element;
 import e4sm.de.metamodel.e4sm.execution.Execution;
+import e4sm.de.metamodel.e4sm.execution.ExecutionElement;
 import e4sm.de.metamodel.e4sm.execution.ExecutionPackage;
 import java.util.Collection;
 
@@ -41,7 +41,7 @@ public class ExecutionImpl extends MinimalEObjectImpl.Container implements Execu
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Element> elements;
+	protected EList<ExecutionElement> elements;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -68,9 +68,10 @@ public class ExecutionImpl extends MinimalEObjectImpl.Container implements Execu
 	 * @generated
 	 */
 	@Override
-	public EList<Element> getElements() {
+	public EList<ExecutionElement> getElements() {
 		if (elements == null) {
-			elements = new EObjectContainmentEList<Element>(Element.class, this, ExecutionPackage.EXECUTION__ELEMENTS);
+			elements = new EObjectContainmentEList<ExecutionElement>(ExecutionElement.class, this,
+					ExecutionPackage.EXECUTION__ELEMENTS);
 		}
 		return elements;
 	}
@@ -114,7 +115,7 @@ public class ExecutionImpl extends MinimalEObjectImpl.Container implements Execu
 		switch (featureID) {
 		case ExecutionPackage.EXECUTION__ELEMENTS:
 			getElements().clear();
-			getElements().addAll((Collection<? extends Element>) newValue);
+			getElements().addAll((Collection<? extends ExecutionElement>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);

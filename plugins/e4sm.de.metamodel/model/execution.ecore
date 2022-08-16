@@ -18,30 +18,30 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
         eType="#//ConnectableNode"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Flow" eSuperTypes="#//Element #//DelayableElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Flow" eSuperTypes="#//ExecutionElement #//DelayableElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
         eType="#//ConnectableNode"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
         eType="#//ConnectableNode"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConnectableNode" abstract="true" interface="true"
-      eSuperTypes="#//Element"/>
+      eSuperTypes="#//ExecutionElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="Execution">
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
-        eType="#//Element" containment="true"/>
+        eType="#//ExecutionElement" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FlowFinal" eSuperTypes="#//ConnectableNode">
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
         eType="#//ConnectableNode"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Element" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Expression" abstract="true" eSuperTypes="#//Element">
+  <eClassifiers xsi:type="ecore:EClass" name="ExecutionElement" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Expression" abstract="true" eSuperTypes="#//ExecutionElement">
     <eOperations name="getTangibleChild" eType="#//Expression"/>
-    <eOperations name="getActualParent" eType="#//Element"/>
+    <eOperations name="getActualParent" eType="#//ExecutionElement"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BinaryExpression" abstract="true" eSuperTypes="#//Expression">
     <eOperations name="isRealOperation" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
-    <eOperations name="getActualParent" eType="#//Element"/>
+    <eOperations name="getActualParent" eType="#//ExecutionElement"/>
     <eOperations name="getTangibleChild" eType="#//Expression"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="left" lowerBound="1" eType="#//Expression"
         containment="true"/>
@@ -64,12 +64,12 @@
         defaultValueLiteral="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Variable" eSuperTypes="#//Const #//AssignableElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Const" eSuperTypes="#//Element core.ecore#//NamedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Const" eSuperTypes="#//ExecutionElement core.ecore#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//Expression"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VariableRef" eSuperTypes="#//Expression">
-    <eOperations name="getActualParent" eType="#//Element"/>
+    <eOperations name="getActualParent" eType="#//ExecutionElement"/>
     <eOperations name="getTangibleChild" eType="#//Expression"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="variable" lowerBound="1"
         eType="#//Variable"/>
@@ -94,7 +94,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="timeFunction" eType="#//TimeFunction"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Assignment" eSuperTypes="#//Element">
+  <eClassifiers xsi:type="ecore:EClass" name="Assignment" eSuperTypes="#//ExecutionElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression" lowerBound="1"
         eType="#//Expression" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"

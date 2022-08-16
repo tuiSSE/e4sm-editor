@@ -2,7 +2,7 @@
  */
 package e4sm.de.metamodel.e4sm.core;
 
-import e4sm.de.metamodel.e4sm.execution.Element;
+import e4sm.de.metamodel.e4sm.execution.ExecutionElement;
 import e4sm.de.metamodel.e4sm.execution.Expression;
 
 /**
@@ -62,6 +62,6 @@ public interface ValueSpecification extends TypedElement, Expression {
 	 * @model kind="operation"
 	 * @generated
 	 */
-	Element getActualParent();
+	ExecutionElement getActualParent();
 
 } // ValueSpecification

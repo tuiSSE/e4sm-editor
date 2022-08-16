@@ -78,7 +78,7 @@
     <eOperations name="isComputable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eOperations name="toString" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eOperations name="getTangibleChild" eType="ecore:EClass execution.ecore#//Expression"/>
-    <eOperations name="getActualParent" eType="ecore:EClass execution.ecore#//Element"/>
+    <eOperations name="getActualParent" eType="ecore:EClass execution.ecore#//ExecutionElement"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TypedElement" abstract="true" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//TypeSpecification"/>

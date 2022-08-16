@@ -3,7 +3,7 @@
 package e4sm.de.metamodel.e4sm.execution.impl;
 
 import e4sm.de.metamodel.e4sm.execution.BinaryExpression;
-import e4sm.de.metamodel.e4sm.execution.Element;
+import e4sm.de.metamodel.e4sm.execution.ExecutionElement;
 import e4sm.de.metamodel.e4sm.execution.ExecutionPackage;
 
 import e4sm.de.metamodel.e4sm.execution.Expression;
@@ -180,10 +180,10 @@ public abstract class BinaryExpressionImpl extends ExpressionImpl implements Bin
 	 * @generated NOT
 	 */
 	@Override
-	public Element getActualParent() {
+	public ExecutionElement getActualParent() {
 		var container = this.eContainer();
 		while (container != null) {
-			var c = (Element) container;
+			var c = (ExecutionElement) container;
 			if (c instanceof Variable) {
 				return c;
 			}

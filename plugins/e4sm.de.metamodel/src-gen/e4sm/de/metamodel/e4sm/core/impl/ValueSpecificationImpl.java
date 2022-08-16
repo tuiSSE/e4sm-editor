@@ -6,7 +6,7 @@ import e4sm.de.metamodel.e4sm.core.CorePackage;
 import e4sm.de.metamodel.e4sm.core.LiteralInteger;
 import e4sm.de.metamodel.e4sm.core.ValueSpecification;
 import e4sm.de.metamodel.e4sm.execution.BinaryExpression;
-import e4sm.de.metamodel.e4sm.execution.Element;
+import e4sm.de.metamodel.e4sm.execution.ExecutionElement;
 import e4sm.de.metamodel.e4sm.execution.ExecutionPackage;
 import e4sm.de.metamodel.e4sm.execution.Expression;
 import java.lang.reflect.InvocationTargetException;
@@ -104,7 +104,7 @@ public abstract class ValueSpecificationImpl extends TypedElementImpl implements
 	 * @generated NOT
 	 */
 	@Override
-	public Element getActualParent() {
+	public ExecutionElement getActualParent() {
 		var c = this.eContainer();
 		if (c instanceof BinaryExpression) {
 			BinaryExpression b = (BinaryExpression) c;
@@ -127,7 +127,7 @@ public abstract class ValueSpecificationImpl extends TypedElementImpl implements
 	 */
 	@Override
 	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
-		if (baseClass == Element.class) {
+		if (baseClass == ExecutionElement.class) {
 			switch (baseOperationID) {
 			default:
 				return -1;

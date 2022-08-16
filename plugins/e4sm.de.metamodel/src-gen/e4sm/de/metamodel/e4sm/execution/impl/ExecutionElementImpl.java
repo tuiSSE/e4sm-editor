@@ -2,7 +2,7 @@
  */
 package e4sm.de.metamodel.e4sm.execution.impl;
 
-import e4sm.de.metamodel.e4sm.execution.Element;
+import e4sm.de.metamodel.e4sm.execution.ExecutionElement;
 import e4sm.de.metamodel.e4sm.execution.ExecutionPackage;
 
 import org.eclipse.emf.ecore.EClass;
@@ -16,13 +16,13 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public abstract class ElementImpl extends MinimalEObjectImpl.Container implements Element {
+public abstract class ExecutionElementImpl extends MinimalEObjectImpl.Container implements ExecutionElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ElementImpl() {
+	protected ExecutionElementImpl() {
 		super();
 	}
 
@@ -33,7 +33,7 @@ public abstract class ElementImpl extends MinimalEObjectImpl.Container implement
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ExecutionPackage.Literals.ELEMENT;
+		return ExecutionPackage.Literals.EXECUTION_ELEMENT;
 	}
 
-} //ElementImpl
+} //ExecutionElementImpl
