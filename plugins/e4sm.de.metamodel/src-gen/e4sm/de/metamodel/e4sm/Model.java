@@ -4,7 +4,6 @@ package e4sm.de.metamodel.e4sm;
 
 import e4sm.de.metamodel.e4sm.core.DocumentableElement;
 import e4sm.de.metamodel.e4sm.core.NamedElement;
-import e4sm.de.metamodel.e4sm.core.ParameterizableElement;
 import e4sm.de.metamodel.e4sm.core.TypeSpecification;
 import e4sm.de.metamodel.e4sm.core.Variant;
 import java.util.Map;
@@ -36,7 +35,8 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Model extends NamedElement, ParameterizableElement, DocumentableElement {
+public interface Model
+		extends NamedElement, e4sm.de.metamodel.e4sm.analysis.ParameterizableElement, DocumentableElement {
 	/**
 	 * Returns the value of the '<em><b>Packages</b></em>' containment reference list.
 	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.Package}.

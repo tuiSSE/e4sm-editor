@@ -4,7 +4,6 @@ package e4sm.de.metamodel.e4sm;
 
 import e4sm.de.metamodel.e4sm.core.DocumentableElement;
 import e4sm.de.metamodel.e4sm.core.NamedElement;
-import e4sm.de.metamodel.e4sm.core.ParameterizableElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,7 +28,8 @@ import e4sm.de.metamodel.e4sm.core.ParameterizableElement;
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='ConnectorC1'"
  * @generated
  */
-public interface Connector extends ParameterizableElement, NamedElement, DocumentableElement {
+public interface Connector
+		extends e4sm.de.metamodel.e4sm.analysis.ParameterizableElement, NamedElement, DocumentableElement {
 	/**
 	 * Returns the value of the '<em><b>Source</b></em>' reference.
 	 * <!-- begin-user-doc -->

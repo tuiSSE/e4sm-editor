@@ -2,6 +2,7 @@
  */
 package e4sm.de.metamodel.e4sm;
 
+import e4sm.de.metamodel.e4sm.analysis.AnalysisPackage;
 import e4sm.de.metamodel.e4sm.core.CorePackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -707,7 +708,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__PARAMETERS = CorePackage.PARAMETERIZABLE_ELEMENT__PARAMETERS;
+	int CONNECTOR__PARAMETERS = AnalysisPackage.PARAMETERIZABLE_ELEMENT__PARAMETERS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -716,7 +717,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__NAME = CorePackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 0;
+	int CONNECTOR__NAME = AnalysisPackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
@@ -725,7 +726,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__DOCUMENTATION = CorePackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 1;
+	int CONNECTOR__DOCUMENTATION = AnalysisPackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -734,7 +735,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__SOURCE = CorePackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 2;
+	int CONNECTOR__SOURCE = AnalysisPackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' reference.
@@ -743,7 +744,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__TARGET = CorePackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 3;
+	int CONNECTOR__TARGET = AnalysisPackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Connector</em>' class.
@@ -752,7 +753,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR_FEATURE_COUNT = CorePackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 4;
+	int CONNECTOR_FEATURE_COUNT = AnalysisPackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Compute Name</em>' operation.
@@ -761,7 +762,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR___COMPUTE_NAME = CorePackage.PARAMETERIZABLE_ELEMENT_OPERATION_COUNT + 0;
+	int CONNECTOR___COMPUTE_NAME = AnalysisPackage.PARAMETERIZABLE_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Compute Flow</em>' operation.
@@ -770,7 +771,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR___COMPUTE_FLOW = CorePackage.PARAMETERIZABLE_ELEMENT_OPERATION_COUNT + 1;
+	int CONNECTOR___COMPUTE_FLOW = AnalysisPackage.PARAMETERIZABLE_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Connector</em>' class.
@@ -779,7 +780,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR_OPERATION_COUNT = CorePackage.PARAMETERIZABLE_ELEMENT_OPERATION_COUNT + 2;
+	int CONNECTOR_OPERATION_COUNT = AnalysisPackage.PARAMETERIZABLE_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.

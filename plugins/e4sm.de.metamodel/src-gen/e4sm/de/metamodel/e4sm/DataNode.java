@@ -3,7 +3,6 @@
 package e4sm.de.metamodel.e4sm;
 
 import e4sm.de.metamodel.e4sm.core.DocumentableElement;
-import e4sm.de.metamodel.e4sm.core.ParameterizableElement;
 import e4sm.de.metamodel.e4sm.core.TypedElement;
 
 import e4sm.de.metamodel.e4sm.execution.ConnectableNode;
@@ -23,7 +22,8 @@ import org.eclipse.emf.common.util.EList;
  * @model abstract="true"
  * @generated
  */
-public interface DataNode extends TypedElement, ConnectableNode, ParameterizableElement, DocumentableElement {
+public interface DataNode extends TypedElement, ConnectableNode, e4sm.de.metamodel.e4sm.analysis.ParameterizableElement,
+		DocumentableElement {
 
 	/**
 	 * <!-- begin-user-doc -->

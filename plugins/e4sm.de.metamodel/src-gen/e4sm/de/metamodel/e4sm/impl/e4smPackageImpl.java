@@ -1661,6 +1661,8 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 
 		// Obtain other dependent packages
 		CorePackage theCorePackage = (CorePackage) EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
+		AnalysisPackage theAnalysisPackage = (AnalysisPackage) EPackage.Registry.INSTANCE
+				.getEPackage(AnalysisPackage.eNS_URI);
 		ExecutionPackage theExecutionPackage = (ExecutionPackage) EPackage.Registry.INSTANCE
 				.getEPackage(ExecutionPackage.eNS_URI);
 		EcorePackage theEcorePackage = (EcorePackage) EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
@@ -1671,11 +1673,11 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 
 		// Add supertypes to classes
 		componentEClass.getESuperTypes().add(theCorePackage.getNamedElement());
-		componentEClass.getESuperTypes().add(theCorePackage.getParameterizableElement());
+		componentEClass.getESuperTypes().add(theAnalysisPackage.getParameterizableElement());
 		componentEClass.getESuperTypes().add(theExecutionPackage.getDelayableElement());
 		componentEClass.getESuperTypes().add(theCorePackage.getDocumentableElement());
 		machineLearningComponentEClass.getESuperTypes().add(this.getSoftwareComponent());
-		connectorEClass.getESuperTypes().add(theCorePackage.getParameterizableElement());
+		connectorEClass.getESuperTypes().add(theAnalysisPackage.getParameterizableElement());
 		connectorEClass.getESuperTypes().add(theCorePackage.getNamedElement());
 		connectorEClass.getESuperTypes().add(theCorePackage.getDocumentableElement());
 		physicalConnectorEClass.getESuperTypes().add(this.getConnector());
@@ -1686,10 +1688,10 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		functionEClass.getESuperTypes().add(this.getSoftwareComponent());
 		externalDependencyEClass.getESuperTypes().add(this.getSoftwareComponent());
 		packageEClass.getESuperTypes().add(theCorePackage.getNamedElement());
-		packageEClass.getESuperTypes().add(theCorePackage.getParameterizableElement());
+		packageEClass.getESuperTypes().add(theAnalysisPackage.getParameterizableElement());
 		packageEClass.getESuperTypes().add(theCorePackage.getDocumentableElement());
 		modelEClass.getESuperTypes().add(theCorePackage.getNamedElement());
-		modelEClass.getESuperTypes().add(theCorePackage.getParameterizableElement());
+		modelEClass.getESuperTypes().add(theAnalysisPackage.getParameterizableElement());
 		modelEClass.getESuperTypes().add(theCorePackage.getDocumentableElement());
 		actorEClass.getESuperTypes().add(theCorePackage.getNamedElement());
 		actorEClass.getESuperTypes().add(theCorePackage.getDocumentableElement());
@@ -1711,7 +1713,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		dataStoreEClass.getESuperTypes().add(this.getDataNode());
 		dataNodeEClass.getESuperTypes().add(theCorePackage.getTypedElement());
 		dataNodeEClass.getESuperTypes().add(theExecutionPackage.getConnectableNode());
-		dataNodeEClass.getESuperTypes().add(theCorePackage.getParameterizableElement());
+		dataNodeEClass.getESuperTypes().add(theAnalysisPackage.getParameterizableElement());
 		dataNodeEClass.getESuperTypes().add(theCorePackage.getDocumentableElement());
 
 		// Initialize classes, features, and operations; add parameters

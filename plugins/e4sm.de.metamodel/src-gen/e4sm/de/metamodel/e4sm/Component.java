@@ -4,7 +4,6 @@ package e4sm.de.metamodel.e4sm;
 
 import e4sm.de.metamodel.e4sm.core.DocumentableElement;
 import e4sm.de.metamodel.e4sm.core.NamedElement;
-import e4sm.de.metamodel.e4sm.core.ParameterizableElement;
 import e4sm.de.metamodel.e4sm.execution.DelayableElement;
 import e4sm.de.metamodel.e4sm.execution.Execution;
 import org.eclipse.emf.common.util.EList;
@@ -39,7 +38,8 @@ import org.eclipse.emf.common.util.EList;
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='ComponentC1 ComponentC2 ComponentC3'"
  * @generated
  */
-public interface Component extends NamedElement, ParameterizableElement, DelayableElement, DocumentableElement {
+public interface Component extends NamedElement, e4sm.de.metamodel.e4sm.analysis.ParameterizableElement,
+		DelayableElement, DocumentableElement {
 	/**
 	 * Returns the value of the '<em><b>Components</b></em>' containment reference list.
 	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.Component}.

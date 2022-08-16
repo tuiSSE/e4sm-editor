@@ -31,7 +31,6 @@ import e4sm.de.metamodel.e4sm.core.LiteralShort;
 import e4sm.de.metamodel.e4sm.core.LiteralSpecification;
 import e4sm.de.metamodel.e4sm.core.LiteralString;
 import e4sm.de.metamodel.e4sm.core.NamedElement;
-import e4sm.de.metamodel.e4sm.core.ParameterizableElement;
 import e4sm.de.metamodel.e4sm.core.StringAttribute;
 import e4sm.de.metamodel.e4sm.core.TypeSpecification;
 import e4sm.de.metamodel.e4sm.core.TypedElement;
@@ -182,13 +181,6 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * @generated
 	 */
 	private EClass variantEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass parameterizableElementEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -819,26 +811,6 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * @generated
 	 */
 	@Override
-	public EClass getParameterizableElement() {
-		return parameterizableElementEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getParameterizableElement_Parameters() {
-		return (EReference) parameterizableElementEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getTypeSpecification() {
 		return typeSpecificationEClass;
 	}
@@ -1237,9 +1209,6 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 
 		variantEClass = createEClass(VARIANT);
 
-		parameterizableElementEClass = createEClass(PARAMETERIZABLE_ELEMENT);
-		createEReference(parameterizableElementEClass, PARAMETERIZABLE_ELEMENT__PARAMETERS);
-
 		typeSpecificationEClass = createEClass(TYPE_SPECIFICATION);
 		createEReference(typeSpecificationEClass, TYPE_SPECIFICATION__ATTRIBUTES);
 		createEReference(typeSpecificationEClass, TYPE_SPECIFICATION__SUPER_TYPE);
@@ -1312,8 +1281,6 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		// Obtain other dependent packages
 		ExecutionPackage theExecutionPackage = (ExecutionPackage) EPackage.Registry.INSTANCE
 				.getEPackage(ExecutionPackage.eNS_URI);
-		AnalysisPackage theAnalysisPackage = (AnalysisPackage) EPackage.Registry.INSTANCE
-				.getEPackage(AnalysisPackage.eNS_URI);
 		EcorePackage theEcorePackage = (EcorePackage) EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
 
 		// Create type parameters
@@ -1443,12 +1410,6 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(variantEClass, Variant.class, "Variant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(parameterizableElementEClass, ParameterizableElement.class, "ParameterizableElement", IS_ABSTRACT,
-				IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getParameterizableElement_Parameters(), theAnalysisPackage.getParameter(), null, "parameters",
-				null, 0, -1, ParameterizableElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(typeSpecificationEClass, TypeSpecification.class, "TypeSpecification", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);

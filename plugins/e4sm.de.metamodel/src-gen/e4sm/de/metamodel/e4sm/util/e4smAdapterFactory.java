@@ -41,7 +41,6 @@ import e4sm.de.metamodel.e4sm.execution.ConnectableNode;
 import e4sm.de.metamodel.e4sm.execution.DelayableElement;
 import e4sm.de.metamodel.e4sm.core.Element;
 import e4sm.de.metamodel.e4sm.core.NamedElement;
-import e4sm.de.metamodel.e4sm.core.ParameterizableElement;
 import e4sm.de.metamodel.e4sm.core.TypedElement;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -275,7 +274,7 @@ public class e4smAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseParameterizableElement(ParameterizableElement object) {
+		public Adapter caseParameterizableElement(e4sm.de.metamodel.e4sm.analysis.ParameterizableElement object) {
 			return createParameterizableElementAdapter();
 		}
 
@@ -665,13 +664,13 @@ public class e4smAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.core.ParameterizableElement <em>Parameterizable Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.analysis.ParameterizableElement <em>Parameterizable Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see e4sm.de.metamodel.e4sm.core.ParameterizableElement
+	 * @see e4sm.de.metamodel.e4sm.analysis.ParameterizableElement
 	 * @generated
 	 */
 	public Adapter createParameterizableElementAdapter() {

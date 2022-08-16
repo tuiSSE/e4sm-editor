@@ -15,6 +15,7 @@ import e4sm.de.metamodel.e4sm.analysis.NetworkGenerator;
 import e4sm.de.metamodel.e4sm.analysis.PackageAnalysis;
 import e4sm.de.metamodel.e4sm.analysis.Parameter;
 import e4sm.de.metamodel.e4sm.analysis.ParameterDefinition;
+import e4sm.de.metamodel.e4sm.analysis.ParameterizableElement;
 import e4sm.de.metamodel.e4sm.analysis.PreviousNodeGraphAnalysis;
 import e4sm.de.metamodel.e4sm.analysis.results.ResultsPackage;
 import e4sm.de.metamodel.e4sm.analysis.results.impl.ResultsPackageImpl;
@@ -129,6 +130,13 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 * @generated
 	 */
 	private EClass networkGeneratorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass parameterizableElementEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -605,6 +613,26 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 * @generated
 	 */
 	@Override
+	public EClass getParameterizableElement() {
+		return parameterizableElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getParameterizableElement_Parameters() {
+		return (EReference) parameterizableElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public AnalysisFactory getAnalysisFactory() {
 		return (AnalysisFactory) getEFactoryInstance();
 	}
@@ -677,6 +705,9 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		networkGeneratorEClass = createEClass(NETWORK_GENERATOR);
 		createEOperation(networkGeneratorEClass, NETWORK_GENERATOR___GENERATE_NETWORK__MODEL);
 		createEOperation(networkGeneratorEClass, NETWORK_GENERATOR___GENERATE_NETWORK__PACKAGE);
+
+		parameterizableElementEClass = createEClass(PARAMETERIZABLE_ELEMENT);
+		createEReference(parameterizableElementEClass, PARAMETERIZABLE_ELEMENT__PARAMETERS);
 	}
 
 	/**
@@ -863,6 +894,12 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		g2 = createEGenericType(thee4smPackage.getConnector());
 		g1.getETypeArguments().add(g2);
 		initEOperation(op, g1);
+
+		initEClass(parameterizableElementEClass, ParameterizableElement.class, "ParameterizableElement", IS_ABSTRACT,
+				IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getParameterizableElement_Parameters(), this.getParameter(), null, "parameters", null, 0, -1,
+				ParameterizableElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

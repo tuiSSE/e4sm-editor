@@ -1609,43 +1609,6 @@ public interface CorePackage extends EPackage {
 	int VARIANT_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.core.ParameterizableElement <em>Parameterizable Element</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see e4sm.de.metamodel.e4sm.core.ParameterizableElement
-	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getParameterizableElement()
-	 * @generated
-	 */
-	int PARAMETERIZABLE_ELEMENT = 17;
-
-	/**
-	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETERIZABLE_ELEMENT__PARAMETERS = 0;
-
-	/**
-	 * The number of structural features of the '<em>Parameterizable Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETERIZABLE_ELEMENT_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>Parameterizable Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETERIZABLE_ELEMENT_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.core.impl.TypeSpecificationImpl <em>Type Specification</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1653,7 +1616,7 @@ public interface CorePackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getTypeSpecification()
 	 * @generated
 	 */
-	int TYPE_SPECIFICATION = 18;
+	int TYPE_SPECIFICATION = 17;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1717,7 +1680,7 @@ public interface CorePackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getAttributeSpecification()
 	 * @generated
 	 */
-	int ATTRIBUTE_SPECIFICATION = 19;
+	int ATTRIBUTE_SPECIFICATION = 18;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1763,7 +1726,7 @@ public interface CorePackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getIntegerAttribute()
 	 * @generated
 	 */
-	int INTEGER_ATTRIBUTE = 20;
+	int INTEGER_ATTRIBUTE = 19;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1818,7 +1781,7 @@ public interface CorePackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getDoubleAttribute()
 	 * @generated
 	 */
-	int DOUBLE_ATTRIBUTE = 21;
+	int DOUBLE_ATTRIBUTE = 20;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1873,7 +1836,7 @@ public interface CorePackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getStringAttribute()
 	 * @generated
 	 */
-	int STRING_ATTRIBUTE = 22;
+	int STRING_ATTRIBUTE = 21;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1928,7 +1891,7 @@ public interface CorePackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getBooleanAttribute()
 	 * @generated
 	 */
-	int BOOLEAN_ATTRIBUTE = 23;
+	int BOOLEAN_ATTRIBUTE = 22;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1983,7 +1946,7 @@ public interface CorePackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getClassAttribute()
 	 * @generated
 	 */
-	int CLASS_ATTRIBUTE = 24;
+	int CLASS_ATTRIBUTE = 23;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2038,7 +2001,7 @@ public interface CorePackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getDocumentableElement()
 	 * @generated
 	 */
-	int DOCUMENTABLE_ELEMENT = 25;
+	int DOCUMENTABLE_ELEMENT = 24;
 
 	/**
 	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
@@ -2075,7 +2038,7 @@ public interface CorePackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getUnitOfMeasurement()
 	 * @generated
 	 */
-	int UNIT_OF_MEASUREMENT = 26;
+	int UNIT_OF_MEASUREMENT = 25;
 
 	/**
 	 * The meta object id for the '<em>Date</em>' data type.
@@ -2085,7 +2048,7 @@ public interface CorePackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getDate()
 	 * @generated
 	 */
-	int DATE = 36;
+	int DATE = 35;
 
 	/**
 	 * The meta object id for the '<em>Timestamp</em>' data type.
@@ -2095,7 +2058,7 @@ public interface CorePackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getTimestamp()
 	 * @generated
 	 */
-	int TIMESTAMP = 37;
+	int TIMESTAMP = 36;
 
 	/**
 	 * The meta object id for the '<em>Time</em>' data type.
@@ -2105,7 +2068,7 @@ public interface CorePackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getTime()
 	 * @generated
 	 */
-	int TIME = 38;
+	int TIME = 37;
 
 	/**
 	 * The meta object id for the '<em>Object</em>' data type.
@@ -2115,7 +2078,7 @@ public interface CorePackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getObject()
 	 * @generated
 	 */
-	int OBJECT = 39;
+	int OBJECT = 38;
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.core.NamedElement <em>Named Element</em>}'.
@@ -2500,27 +2463,6 @@ public interface CorePackage extends EPackage {
 	EClass getVariant();
 
 	/**
-	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.core.ParameterizableElement <em>Parameterizable Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Parameterizable Element</em>'.
-	 * @see e4sm.de.metamodel.e4sm.core.ParameterizableElement
-	 * @generated
-	 */
-	EClass getParameterizableElement();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link e4sm.de.metamodel.e4sm.core.ParameterizableElement#getParameters <em>Parameters</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Parameters</em>'.
-	 * @see e4sm.de.metamodel.e4sm.core.ParameterizableElement#getParameters()
-	 * @see #getParameterizableElement()
-	 * @generated
-	 */
-	EReference getParameterizableElement_Parameters();
-
-	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.core.TypeSpecification <em>Type Specification</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2727,7 +2669,7 @@ public interface CorePackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getLong()
 	 * @generated
 	 */
-	int LONG = 32;
+	int LONG = 31;
 
 	/**
 	 * The meta object id for the '<em>Short</em>' data type.
@@ -2736,7 +2678,7 @@ public interface CorePackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getShort()
 	 * @generated
 	 */
-	int SHORT = 33;
+	int SHORT = 32;
 
 	/**
 	 * The meta object id for the '<em>Character</em>' data type.
@@ -2745,7 +2687,7 @@ public interface CorePackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getCharacter()
 	 * @generated
 	 */
-	int CHARACTER = 34;
+	int CHARACTER = 33;
 
 	/**
 	 * The meta object id for the '<em>Byte</em>' data type.
@@ -2754,7 +2696,7 @@ public interface CorePackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getByte()
 	 * @generated
 	 */
-	int BYTE = 35;
+	int BYTE = 34;
 
 	/**
 	 * The meta object id for the '<em>Boolean</em>' data type.
@@ -2763,7 +2705,7 @@ public interface CorePackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getBoolean()
 	 * @generated
 	 */
-	int BOOLEAN = 27;
+	int BOOLEAN = 26;
 
 	/**
 	 * The meta object id for the '<em>String</em>' data type.
@@ -2773,7 +2715,7 @@ public interface CorePackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getString()
 	 * @generated
 	 */
-	int STRING = 28;
+	int STRING = 27;
 
 	/**
 	 * The meta object id for the '<em>Integer</em>' data type.
@@ -2782,7 +2724,7 @@ public interface CorePackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getInteger()
 	 * @generated
 	 */
-	int INTEGER = 29;
+	int INTEGER = 28;
 
 	/**
 	 * The meta object id for the '<em>Float</em>' data type.
@@ -2791,7 +2733,7 @@ public interface CorePackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getFloat()
 	 * @generated
 	 */
-	int FLOAT = 30;
+	int FLOAT = 29;
 
 	/**
 	 * The meta object id for the '<em>Double</em>' data type.
@@ -2800,7 +2742,7 @@ public interface CorePackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getDouble()
 	 * @generated
 	 */
-	int DOUBLE = 31;
+	int DOUBLE = 30;
 
 	/**
 	 * Returns the meta object for data type '{@link java.time.LocalDate <em>Date</em>}'.
@@ -3289,24 +3231,6 @@ public interface CorePackage extends EPackage {
 		 * @generated
 		 */
 		EClass VARIANT = eINSTANCE.getVariant();
-
-		/**
-		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.core.ParameterizableElement <em>Parameterizable Element</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see e4sm.de.metamodel.e4sm.core.ParameterizableElement
-		 * @see e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl#getParameterizableElement()
-		 * @generated
-		 */
-		EClass PARAMETERIZABLE_ELEMENT = eINSTANCE.getParameterizableElement();
-
-		/**
-		 * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PARAMETERIZABLE_ELEMENT__PARAMETERS = eINSTANCE.getParameterizableElement_Parameters();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.core.impl.TypeSpecificationImpl <em>Type Specification</em>}' class.

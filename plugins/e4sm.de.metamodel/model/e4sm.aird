@@ -55,11 +55,11 @@
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="analysis.ecore#/"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_-sOXYK6iEeyZbtNF_uLUAQ" name="core class diagram" repPath="#_-sNwUK6iEeyZbtNF_uLUAQ" changeId="d14dd805-dbd7-4546-aaa5-31564c368ebb">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_-sOXYK6iEeyZbtNF_uLUAQ" name="core class diagram" repPath="#_-sNwUK6iEeyZbtNF_uLUAQ" changeId="72d0402d-ab9a-4172-a651-41c0fa55a438">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="core.ecore#/"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_EP1lYK6tEeyPavM3XJQi5w" name="execution class diagram" repPath="#_EPxT8K6tEeyPavM3XJQi5w" changeId="1cd569e9-722e-4fbb-8f8a-be96323dc106">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_EP1lYK6tEeyPavM3XJQi5w" name="execution class diagram" repPath="#_EPxT8K6tEeyPavM3XJQi5w" changeId="18c371a9-fc13-48d8-829a-c203a3fc1b12">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="execution.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -77,7 +77,7 @@
         <description xmi:type="description_2:CrossTableDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']"/>
         <target xmi:type="ecore:EPackage" href="e4sm.ecore#/"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_pl1JYN2REeub94TrfsycXQ" name="e4sm package dependencies" repPath="#_plytIN2REeub94TrfsycXQ" changeId="44399c88-fa32-4546-b255-a846641f8a3e">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_pl1JYN2REeub94TrfsycXQ" name="e4sm package dependencies" repPath="#_plytIN2REeub94TrfsycXQ" changeId="eae2a003-a11e-4d6a-9be0-5cc29a5cbf20">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']"/>
         <target xmi:type="ecore:EPackage" href="e4sm.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -7065,9 +7065,9 @@
         <children xmi:type="notation:Node" xmi:id="_tHxmIN2REeub94TrfsycXQ" type="2003" element="_tHrfgN2REeub94TrfsycXQ">
           <children xmi:type="notation:Node" xmi:id="_tHxmI92REeub94TrfsycXQ" type="5007"/>
           <children xmi:type="notation:Node" xmi:id="_tHxmJN2REeub94TrfsycXQ" type="7004">
-            <children xmi:type="notation:Node" xmi:id="_ezz10NH4EeywS7g2_6EQQA" type="3010" element="_ezXJ4NH4EeywS7g2_6EQQA">
-              <styles xmi:type="notation:FontStyle" xmi:id="_ezz10dH4EeywS7g2_6EQQA" fontName="Segoe UI" fontHeight="8"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_ezz10tH4EeywS7g2_6EQQA"/>
+            <children xmi:type="notation:Node" xmi:id="_iM6cEB1ZEe2-HoBoc2ly4Q" type="3010" element="_iMoIMB1ZEe2-HoBoc2ly4Q">
+              <styles xmi:type="notation:FontStyle" xmi:id="_iM6cER1ZEe2-HoBoc2ly4Q" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_iM6cEh1ZEe2-HoBoc2ly4Q"/>
             </children>
             <children xmi:type="notation:Node" xmi:id="_qLt0ENK6EeywS7g2_6EQQA" type="3010" element="_qKoO8dK6EeywS7g2_6EQQA">
               <styles xmi:type="notation:FontStyle" xmi:id="_qLt0EdK6EeywS7g2_6EQQA" fontName="Segoe UI" fontHeight="8"/>
@@ -7263,15 +7263,11 @@
               <styles xmi:type="notation:FontStyle" xmi:id="_qK6Q8dH4EeywS7g2_6EQQA" fontName="Segoe UI" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_qK6Q8tH4EeywS7g2_6EQQA"/>
             </children>
-            <children xmi:type="notation:Node" xmi:id="_-oJdwK6kEeyZbtNF_uLUAQ" type="3010" element="_-niZyq6kEeyZbtNF_uLUAQ">
-              <styles xmi:type="notation:FontStyle" xmi:id="_-oJdwa6kEeyZbtNF_uLUAQ" fontName="Segoe UI" fontHeight="8"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_-oJdwq6kEeyZbtNF_uLUAQ"/>
-            </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_20Fy9a6hEeyZbtNF_uLUAQ"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_20Fy9q6hEeyZbtNF_uLUAQ"/>
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="_20Fy8a6hEeyZbtNF_uLUAQ" fontName="Segoe UI" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_20Fy8q6hEeyZbtNF_uLUAQ" x="132" y="84" width="279" height="267"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_20Fy8q6hEeyZbtNF_uLUAQ" x="132" y="36" width="279" height="315"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_OsMQgK6iEeyZbtNF_uLUAQ" type="2003" element="_OsGJ4K6iEeyZbtNF_uLUAQ">
           <children xmi:type="notation:Node" xmi:id="_OsMQg66iEeyZbtNF_uLUAQ" type="5007"/>
@@ -7355,7 +7351,7 @@
           <styles xmi:type="notation:FontStyle" xmi:id="_20Vqkq6hEeyZbtNF_uLUAQ" fontName="Segoe UI" fontHeight="8"/>
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_20Vqk66hEeyZbtNF_uLUAQ" points="[0, 0, 4, 109]$[-2, -37, 2, 72]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_20WRoK6hEeyZbtNF_uLUAQ" id="(0.5051546391752577,0.0)"/>
-          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_20WRoa6hEeyZbtNF_uLUAQ" id="(0.38267148014440433,0.7283018867924528)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_20WRoa6hEeyZbtNF_uLUAQ" id="(0.38267148014440433,0.7699680511182109)"/>
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_20WRoq6hEeyZbtNF_uLUAQ" type="4001" element="_2z8pBK6hEeyZbtNF_uLUAQ" source="_2z93IK6hEeyZbtNF_uLUAQ" target="_20Fy8K6hEeyZbtNF_uLUAQ">
           <children xmi:type="notation:Node" xmi:id="_20WRpq6hEeyZbtNF_uLUAQ" type="6001">
@@ -7371,7 +7367,7 @@
           <styles xmi:type="notation:FontStyle" xmi:id="_20WRpK6hEeyZbtNF_uLUAQ" fontName="Segoe UI" fontHeight="8"/>
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_20WRpa6hEeyZbtNF_uLUAQ" points="[-62, -16, 338, 85]$[-229, -58, 171, 43]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_20WRrK6hEeyZbtNF_uLUAQ" id="(0.21908127208480566,0.1487603305785124)"/>
-          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_20WRra6hEeyZbtNF_uLUAQ" id="(0.38267148014440433,0.7283018867924528)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_20WRra6hEeyZbtNF_uLUAQ" id="(0.38267148014440433,0.7699680511182109)"/>
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_OsOFsK6iEeyZbtNF_uLUAQ" type="4001" element="_OsLCbK6iEeyZbtNF_uLUAQ" source="_2z93IK6hEeyZbtNF_uLUAQ" target="_OsMQgK6iEeyZbtNF_uLUAQ">
           <children xmi:type="notation:Node" xmi:id="_OsOFtK6iEeyZbtNF_uLUAQ" type="6001">
@@ -7403,7 +7399,7 @@
           <styles xmi:type="notation:FontStyle" xmi:id="_OsOsxK6iEeyZbtNF_uLUAQ" fontName="Segoe UI" fontHeight="8"/>
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_OsOsxa6iEeyZbtNF_uLUAQ" points="[0, 0, 424, 375]$[-343, -303, 81, 72]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_OsOszK6iEeyZbtNF_uLUAQ" id="(0.4734982332155477,0.0)"/>
-          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_OsOsza6iEeyZbtNF_uLUAQ" id="(0.38267148014440433,0.7283018867924528)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_OsOsza6iEeyZbtNF_uLUAQ" id="(0.38267148014440433,0.7699680511182109)"/>
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_OsOszq6iEeyZbtNF_uLUAQ" type="4001" element="_OsLCdq6iEeyZbtNF_uLUAQ" source="_OsMQh66iEeyZbtNF_uLUAQ" target="_2z93IK6hEeyZbtNF_uLUAQ">
           <children xmi:type="notation:Node" xmi:id="_OsPT0K6iEeyZbtNF_uLUAQ" type="6001">
@@ -7436,22 +7432,6 @@
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_OsPT266iEeyZbtNF_uLUAQ" points="[0, 0, 341, 248]$[-324, -236, 17, 12]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_OsP64K6iEeyZbtNF_uLUAQ" id="(0.4734982332155477,0.0)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_OsP64a6iEeyZbtNF_uLUAQ" id="(0.9123711340206185,0.03937007874015748)"/>
-        </edges>
-        <edges xmi:type="notation:Edge" xmi:id="_-oKE0K6kEeyZbtNF_uLUAQ" type="4001" element="_-njn_K6kEeyZbtNF_uLUAQ" source="_20Fy8K6hEeyZbtNF_uLUAQ" target="_2z93IK6hEeyZbtNF_uLUAQ">
-          <children xmi:type="notation:Node" xmi:id="_-oKE1K6kEeyZbtNF_uLUAQ" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-oKE1a6kEeyZbtNF_uLUAQ" x="-2" y="-2"/>
-          </children>
-          <children xmi:type="notation:Node" xmi:id="_-oKE1q6kEeyZbtNF_uLUAQ" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-oKE166kEeyZbtNF_uLUAQ" x="-21"/>
-          </children>
-          <children xmi:type="notation:Node" xmi:id="_-oKE2K6kEeyZbtNF_uLUAQ" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-oKE2a6kEeyZbtNF_uLUAQ" x="-25" y="-2"/>
-          </children>
-          <styles xmi:type="notation:ConnectorStyle" xmi:id="_-oKE0a6kEeyZbtNF_uLUAQ"/>
-          <styles xmi:type="notation:FontStyle" xmi:id="_-oKE0q6kEeyZbtNF_uLUAQ" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_-oKE066kEeyZbtNF_uLUAQ" points="[172, 93, -323, -177]$[385, 210, -110, -60]"/>
-          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_-oKr4K6kEeyZbtNF_uLUAQ" id="(0.37906137184115524,0.2509433962264151)"/>
-          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_-oKr4a6kEeyZbtNF_uLUAQ" id="(0.5530035335689046,0.5)"/>
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_ez4HQNH4EeywS7g2_6EQQA" type="4001" element="_ezmaftH4EeywS7g2_6EQQA" source="_tHxmIN2REeub94TrfsycXQ" target="_2z93IK6hEeyZbtNF_uLUAQ">
           <children xmi:type="notation:Node" xmi:id="_e0CfUNH4EeywS7g2_6EQQA" type="6001">
@@ -7498,24 +7478,24 @@
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_qK8tOdH4EeywS7g2_6EQQA"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_qK8tOtH4EeywS7g2_6EQQA" fontName="Segoe UI" fontHeight="8"/>
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_qK8tO9H4EeywS7g2_6EQQA" points="[172, -14, -274, 22]$[327, -27, -119, 9]"/>
-          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_qK97UNH4EeywS7g2_6EQQA" id="(0.37906137184115524,0.2509433962264151)"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_qK97UNH4EeywS7g2_6EQQA" id="(0.37906137184115524,0.365814696485623)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_qK97UdH4EeywS7g2_6EQQA" id="(0.4524714828897338,0.25206611570247933)"/>
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_qK97UtH4EeywS7g2_6EQQA" type="4001" element="_qKxuENH4EeywS7g2_6EQQA" source="_qK0xYNH4EeywS7g2_6EQQA" target="_20Fy8K6hEeyZbtNF_uLUAQ">
           <children xmi:type="notation:Node" xmi:id="_qK97VtH4EeywS7g2_6EQQA" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_F2F-kNH5EeywS7g2_6EQQA" x="-36" y="-10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_F2F-kNH5EeywS7g2_6EQQA" x="-38" y="8"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_qK97WNH4EeywS7g2_6EQQA" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_F2GloNH5EeywS7g2_6EQQA" x="-18"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_F2GloNH5EeywS7g2_6EQQA" x="-18" y="1"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_qK97WtH4EeywS7g2_6EQQA" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_F2HMsNH5EeywS7g2_6EQQA" x="-7" y="11"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_F2HMsNH5EeywS7g2_6EQQA" x="-7" y="12"/>
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_qK97U9H4EeywS7g2_6EQQA"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_qK97VNH4EeywS7g2_6EQQA" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_qK97VdH4EeywS7g2_6EQQA" points="[-119, 41, 327, 5]$[-194, 68, 252, 32]$[-274, 58, 172, 22]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_qK97VdH4EeywS7g2_6EQQA" points="[-119, 41, 327, 5]$[-191, 66, 255, 30]$[-274, 56, 172, 20]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_qK97XNH4EeywS7g2_6EQQA" id="(0.4524714828897338,0.25206611570247933)"/>
-          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_qK97XdH4EeywS7g2_6EQQA" id="(0.37906137184115524,0.2509433962264151)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_qK97XdH4EeywS7g2_6EQQA" id="(0.37906137184115524,0.365814696485623)"/>
         </edges>
       </data>
     </ownedAnnotationEntries>
@@ -7532,10 +7512,10 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_ezXJ4NH4EeywS7g2_6EQQA" name="ParameterizableElement (1)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis">
-        <target xmi:type="ecore:EClass" href="core.ecore#//ParameterizableElement"/>
-        <semanticElements xmi:type="ecore:EClass" href="core.ecore#//ParameterizableElement"/>
-        <ownedStyle xmi:type="diagram:BundledImage" uid="_ezcCYNH4EeywS7g2_6EQQA" labelAlignment="LEFT" labelPosition="node">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_iMoIMB1ZEe2-HoBoc2ly4Q" name="ParameterizableElement (1)" tooltipText="">
+        <target xmi:type="ecore:EClass" href="analysis.ecore#//ParameterizableElement"/>
+        <semanticElements xmi:type="ecore:EClass" href="analysis.ecore#//ParameterizableElement"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_iMpWUB1ZEe2-HoBoc2ly4Q" labelAlignment="LEFT" labelPosition="node">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
@@ -7548,7 +7528,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_2z3wga6hEeyZbtNF_uLUAQ" name="Component (6)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/execution/1.0.0: &#xA; - EReference timeFunction refers to type TimeFunction in package execution&#xA; - EReference execution refers to type Execution in package execution&#xA; - EClassComponent extends type DelayableElement in package execution&#xA;Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassComponent extends type Element in package core&#xA; - EClassComponent extends type NamedElement in package core&#xA; - EClassComponent extends type ParameterizableElement in package core&#xA; - EClassComponent extends type DocumentableElement in package core">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_2z3wga6hEeyZbtNF_uLUAQ" name="Component (6)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA; - EClassComponent extends type ParameterizableElement in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/execution/1.0.0: &#xA; - EReference timeFunction refers to type TimeFunction in package execution&#xA; - EReference execution refers to type Execution in package execution&#xA; - EClassComponent extends type DelayableElement in package execution&#xA;Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassComponent extends type Element in package core&#xA; - EClassComponent extends type NamedElement in package core&#xA; - EClassComponent extends type DocumentableElement in package core">
         <target xmi:type="ecore:EClass" href="e4sm.ecore#//Component"/>
         <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//Component"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_2z3wgq6hEeyZbtNF_uLUAQ" labelAlignment="LEFT" labelPosition="node">
@@ -7556,7 +7536,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_2z3wg66hEeyZbtNF_uLUAQ" name="MachineLearningComponent (6)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/execution/1.0.0: &#xA; - EReference timeFunction refers to type TimeFunction in package execution&#xA; - EReference execution refers to type Execution in package execution&#xA; - EClassMachineLearningComponent extends type DelayableElement in package execution&#xA;Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassMachineLearningComponent extends type Element in package core&#xA; - EClassMachineLearningComponent extends type NamedElement in package core&#xA; - EClassMachineLearningComponent extends type ParameterizableElement in package core&#xA; - EClassMachineLearningComponent extends type DocumentableElement in package core">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_2z3wg66hEeyZbtNF_uLUAQ" name="MachineLearningComponent (6)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA; - EClassMachineLearningComponent extends type ParameterizableElement in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/execution/1.0.0: &#xA; - EReference timeFunction refers to type TimeFunction in package execution&#xA; - EReference execution refers to type Execution in package execution&#xA; - EClassMachineLearningComponent extends type DelayableElement in package execution&#xA;Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassMachineLearningComponent extends type Element in package core&#xA; - EClassMachineLearningComponent extends type NamedElement in package core&#xA; - EClassMachineLearningComponent extends type DocumentableElement in package core">
         <target xmi:type="ecore:EClass" href="e4sm.ecore#//MachineLearningComponent"/>
         <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//MachineLearningComponent"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_2z3whK6hEeyZbtNF_uLUAQ" labelAlignment="LEFT" labelPosition="node">
@@ -7564,7 +7544,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_2z3wha6hEeyZbtNF_uLUAQ" name="Connector (5)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassConnector extends type ParameterizableElement in package core&#xA; - EClassConnector extends type Element in package core&#xA; - EClassConnector extends type NamedElement in package core&#xA; - EClassConnector extends type DocumentableElement in package core">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_2z3wha6hEeyZbtNF_uLUAQ" name="Connector (5)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA; - EClassConnector extends type ParameterizableElement in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassConnector extends type Element in package core&#xA; - EClassConnector extends type NamedElement in package core&#xA; - EClassConnector extends type DocumentableElement in package core">
         <target xmi:type="ecore:EClass" href="e4sm.ecore#//Connector"/>
         <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//Connector"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_2z3whq6hEeyZbtNF_uLUAQ" labelAlignment="LEFT" labelPosition="node">
@@ -7572,7 +7552,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_2z4XkK6hEeyZbtNF_uLUAQ" name="PhysicalConnector (5)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassPhysicalConnector extends type ParameterizableElement in package core&#xA; - EClassPhysicalConnector extends type Element in package core&#xA; - EClassPhysicalConnector extends type NamedElement in package core&#xA; - EClassPhysicalConnector extends type DocumentableElement in package core">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_2z4XkK6hEeyZbtNF_uLUAQ" name="PhysicalConnector (5)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA; - EClassPhysicalConnector extends type ParameterizableElement in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassPhysicalConnector extends type Element in package core&#xA; - EClassPhysicalConnector extends type NamedElement in package core&#xA; - EClassPhysicalConnector extends type DocumentableElement in package core">
         <target xmi:type="ecore:EClass" href="e4sm.ecore#//PhysicalConnector"/>
         <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//PhysicalConnector"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_2z4Xka6hEeyZbtNF_uLUAQ" labelAlignment="LEFT" labelPosition="node">
@@ -7580,7 +7560,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_2z4Xkq6hEeyZbtNF_uLUAQ" name="PhysicalComponent (6)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/execution/1.0.0: &#xA; - EReference timeFunction refers to type TimeFunction in package execution&#xA; - EReference execution refers to type Execution in package execution&#xA; - EClassPhysicalComponent extends type DelayableElement in package execution&#xA;Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassPhysicalComponent extends type Element in package core&#xA; - EClassPhysicalComponent extends type NamedElement in package core&#xA; - EClassPhysicalComponent extends type ParameterizableElement in package core&#xA; - EClassPhysicalComponent extends type DocumentableElement in package core">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_2z4Xkq6hEeyZbtNF_uLUAQ" name="PhysicalComponent (6)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA; - EClassPhysicalComponent extends type ParameterizableElement in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/execution/1.0.0: &#xA; - EReference timeFunction refers to type TimeFunction in package execution&#xA; - EReference execution refers to type Execution in package execution&#xA; - EClassPhysicalComponent extends type DelayableElement in package execution&#xA;Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassPhysicalComponent extends type Element in package core&#xA; - EClassPhysicalComponent extends type NamedElement in package core&#xA; - EClassPhysicalComponent extends type DocumentableElement in package core">
         <target xmi:type="ecore:EClass" href="e4sm.ecore#//PhysicalComponent"/>
         <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//PhysicalComponent"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_2z4Xk66hEeyZbtNF_uLUAQ" labelAlignment="LEFT" labelPosition="node">
@@ -7588,7 +7568,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_2z4XlK6hEeyZbtNF_uLUAQ" name="SoftwareComponent (6)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/execution/1.0.0: &#xA; - EReference timeFunction refers to type TimeFunction in package execution&#xA; - EReference execution refers to type Execution in package execution&#xA; - EClassSoftwareComponent extends type DelayableElement in package execution&#xA;Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassSoftwareComponent extends type Element in package core&#xA; - EClassSoftwareComponent extends type NamedElement in package core&#xA; - EClassSoftwareComponent extends type ParameterizableElement in package core&#xA; - EClassSoftwareComponent extends type DocumentableElement in package core">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_2z4XlK6hEeyZbtNF_uLUAQ" name="SoftwareComponent (6)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA; - EClassSoftwareComponent extends type ParameterizableElement in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/execution/1.0.0: &#xA; - EReference timeFunction refers to type TimeFunction in package execution&#xA; - EReference execution refers to type Execution in package execution&#xA; - EClassSoftwareComponent extends type DelayableElement in package execution&#xA;Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassSoftwareComponent extends type Element in package core&#xA; - EClassSoftwareComponent extends type NamedElement in package core&#xA; - EClassSoftwareComponent extends type DocumentableElement in package core">
         <target xmi:type="ecore:EClass" href="e4sm.ecore#//SoftwareComponent"/>
         <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//SoftwareComponent"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_2z4Xla6hEeyZbtNF_uLUAQ" labelAlignment="LEFT" labelPosition="node">
@@ -7596,7 +7576,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_2z4Xlq6hEeyZbtNF_uLUAQ" name="LogicalConnector (5)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassLogicalConnector extends type ParameterizableElement in package core&#xA; - EClassLogicalConnector extends type Element in package core&#xA; - EClassLogicalConnector extends type NamedElement in package core&#xA; - EClassLogicalConnector extends type DocumentableElement in package core">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_2z4Xlq6hEeyZbtNF_uLUAQ" name="LogicalConnector (5)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA; - EClassLogicalConnector extends type ParameterizableElement in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassLogicalConnector extends type Element in package core&#xA; - EClassLogicalConnector extends type NamedElement in package core&#xA; - EClassLogicalConnector extends type DocumentableElement in package core">
         <target xmi:type="ecore:EClass" href="e4sm.ecore#//LogicalConnector"/>
         <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//LogicalConnector"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_2z4Xl66hEeyZbtNF_uLUAQ" labelAlignment="LEFT" labelPosition="node">
@@ -7604,7 +7584,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_2z4XmK6hEeyZbtNF_uLUAQ" name="Heuristic (6)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/execution/1.0.0: &#xA; - EReference timeFunction refers to type TimeFunction in package execution&#xA; - EReference execution refers to type Execution in package execution&#xA; - EClassHeuristic extends type DelayableElement in package execution&#xA;Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassHeuristic extends type Element in package core&#xA; - EClassHeuristic extends type NamedElement in package core&#xA; - EClassHeuristic extends type ParameterizableElement in package core&#xA; - EClassHeuristic extends type DocumentableElement in package core">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_2z4XmK6hEeyZbtNF_uLUAQ" name="Heuristic (6)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA; - EClassHeuristic extends type ParameterizableElement in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/execution/1.0.0: &#xA; - EReference timeFunction refers to type TimeFunction in package execution&#xA; - EReference execution refers to type Execution in package execution&#xA; - EClassHeuristic extends type DelayableElement in package execution&#xA;Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassHeuristic extends type Element in package core&#xA; - EClassHeuristic extends type NamedElement in package core&#xA; - EClassHeuristic extends type DocumentableElement in package core">
         <target xmi:type="ecore:EClass" href="e4sm.ecore#//Heuristic"/>
         <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//Heuristic"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_2z4-oK6hEeyZbtNF_uLUAQ" labelAlignment="LEFT" labelPosition="node">
@@ -7612,7 +7592,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_2z4-oa6hEeyZbtNF_uLUAQ" name="Function (6)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/execution/1.0.0: &#xA; - EReference timeFunction refers to type TimeFunction in package execution&#xA; - EReference execution refers to type Execution in package execution&#xA; - EClassFunction extends type DelayableElement in package execution&#xA;Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassFunction extends type Element in package core&#xA; - EClassFunction extends type NamedElement in package core&#xA; - EClassFunction extends type ParameterizableElement in package core&#xA; - EClassFunction extends type DocumentableElement in package core">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_2z4-oa6hEeyZbtNF_uLUAQ" name="Function (6)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA; - EClassFunction extends type ParameterizableElement in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/execution/1.0.0: &#xA; - EReference timeFunction refers to type TimeFunction in package execution&#xA; - EReference execution refers to type Execution in package execution&#xA; - EClassFunction extends type DelayableElement in package execution&#xA;Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassFunction extends type Element in package core&#xA; - EClassFunction extends type NamedElement in package core&#xA; - EClassFunction extends type DocumentableElement in package core">
         <target xmi:type="ecore:EClass" href="e4sm.ecore#//Function"/>
         <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//Function"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_2z4-oq6hEeyZbtNF_uLUAQ" labelAlignment="LEFT" labelPosition="node">
@@ -7620,7 +7600,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_2z4-o66hEeyZbtNF_uLUAQ" name="ExternalDependency (6)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/execution/1.0.0: &#xA; - EReference timeFunction refers to type TimeFunction in package execution&#xA; - EReference execution refers to type Execution in package execution&#xA; - EClassExternalDependency extends type DelayableElement in package execution&#xA;Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassExternalDependency extends type Element in package core&#xA; - EClassExternalDependency extends type NamedElement in package core&#xA; - EClassExternalDependency extends type ParameterizableElement in package core&#xA; - EClassExternalDependency extends type DocumentableElement in package core">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_2z4-o66hEeyZbtNF_uLUAQ" name="ExternalDependency (6)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA; - EClassExternalDependency extends type ParameterizableElement in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/execution/1.0.0: &#xA; - EReference timeFunction refers to type TimeFunction in package execution&#xA; - EReference execution refers to type Execution in package execution&#xA; - EClassExternalDependency extends type DelayableElement in package execution&#xA;Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassExternalDependency extends type Element in package core&#xA; - EClassExternalDependency extends type NamedElement in package core&#xA; - EClassExternalDependency extends type DocumentableElement in package core">
         <target xmi:type="ecore:EClass" href="e4sm.ecore#//ExternalDependency"/>
         <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//ExternalDependency"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_2z4-pK6hEeyZbtNF_uLUAQ" labelAlignment="LEFT" labelPosition="node">
@@ -7628,7 +7608,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_2z4-pa6hEeyZbtNF_uLUAQ" name="Package (5)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassPackage extends type Element in package core&#xA; - EClassPackage extends type NamedElement in package core&#xA; - EClassPackage extends type ParameterizableElement in package core&#xA; - EClassPackage extends type DocumentableElement in package core">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_2z4-pa6hEeyZbtNF_uLUAQ" name="Package (5)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA; - EClassPackage extends type ParameterizableElement in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassPackage extends type Element in package core&#xA; - EClassPackage extends type NamedElement in package core&#xA; - EClassPackage extends type DocumentableElement in package core">
         <target xmi:type="ecore:EClass" href="e4sm.ecore#//Package"/>
         <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//Package"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_2z4-pq6hEeyZbtNF_uLUAQ" labelAlignment="LEFT" labelPosition="node">
@@ -7636,7 +7616,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_2z4-p66hEeyZbtNF_uLUAQ" name="Model (5)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EReference variants refers to type Variant in package core&#xA; - EReference types refers to type TypeSpecification in package core&#xA; - EClassModel extends type Element in package core&#xA; - EClassModel extends type NamedElement in package core&#xA; - EClassModel extends type ParameterizableElement in package core&#xA; - EClassModel extends type DocumentableElement in package core">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_2z4-p66hEeyZbtNF_uLUAQ" name="Model (5)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA; - EClassModel extends type ParameterizableElement in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EReference variants refers to type Variant in package core&#xA; - EReference types refers to type TypeSpecification in package core&#xA; - EClassModel extends type Element in package core&#xA; - EClassModel extends type NamedElement in package core&#xA; - EClassModel extends type DocumentableElement in package core">
         <target xmi:type="ecore:EClass" href="e4sm.ecore#//Model"/>
         <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//Model"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_2z4-qK6hEeyZbtNF_uLUAQ" labelAlignment="LEFT" labelPosition="node">
@@ -7676,7 +7656,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_2z6Mw66hEeyZbtNF_uLUAQ" name="Sensor (6)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/execution/1.0.0: &#xA; - EReference timeFunction refers to type TimeFunction in package execution&#xA; - EReference execution refers to type Execution in package execution&#xA; - EClassSensor extends type DelayableElement in package execution&#xA;Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassSensor extends type Element in package core&#xA; - EClassSensor extends type NamedElement in package core&#xA; - EClassSensor extends type ParameterizableElement in package core&#xA; - EClassSensor extends type DocumentableElement in package core">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_2z6Mw66hEeyZbtNF_uLUAQ" name="Sensor (6)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA; - EClassSensor extends type ParameterizableElement in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/execution/1.0.0: &#xA; - EReference timeFunction refers to type TimeFunction in package execution&#xA; - EReference execution refers to type Execution in package execution&#xA; - EClassSensor extends type DelayableElement in package execution&#xA;Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassSensor extends type Element in package core&#xA; - EClassSensor extends type NamedElement in package core&#xA; - EClassSensor extends type DocumentableElement in package core">
         <target xmi:type="ecore:EClass" href="e4sm.ecore#//Sensor"/>
         <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//Sensor"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_2z6MxK6hEeyZbtNF_uLUAQ" labelAlignment="LEFT" labelPosition="node">
@@ -7684,7 +7664,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_2z6Mxa6hEeyZbtNF_uLUAQ" name="Actuator (6)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/execution/1.0.0: &#xA; - EReference timeFunction refers to type TimeFunction in package execution&#xA; - EReference execution refers to type Execution in package execution&#xA; - EClassActuator extends type DelayableElement in package execution&#xA;Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassActuator extends type Element in package core&#xA; - EClassActuator extends type NamedElement in package core&#xA; - EClassActuator extends type ParameterizableElement in package core&#xA; - EClassActuator extends type DocumentableElement in package core">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_2z6Mxa6hEeyZbtNF_uLUAQ" name="Actuator (6)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA; - EClassActuator extends type ParameterizableElement in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/execution/1.0.0: &#xA; - EReference timeFunction refers to type TimeFunction in package execution&#xA; - EReference execution refers to type Execution in package execution&#xA; - EClassActuator extends type DelayableElement in package execution&#xA;Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassActuator extends type Element in package core&#xA; - EClassActuator extends type NamedElement in package core&#xA; - EClassActuator extends type DocumentableElement in package core">
         <target xmi:type="ecore:EClass" href="e4sm.ecore#//Actuator"/>
         <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//Actuator"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_2z6Mxq6hEeyZbtNF_uLUAQ" labelAlignment="LEFT" labelPosition="node">
@@ -7700,7 +7680,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_2z6z0K6hEeyZbtNF_uLUAQ" name="Pin (6)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EReference type refers to type TypeSpecification in package core&#xA; - EClassPin extends type Element in package core&#xA; - EClassPin extends type NamedElement in package core&#xA; - EClassPin extends type TypedElement in package core&#xA; - EClassPin extends type ParameterizableElement in package core&#xA; - EClassPin extends type DocumentableElement in package core&#xA;Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/execution/1.0.0: &#xA; - EClassPin extends type Element in package execution&#xA; - EClassPin extends type ConnectableNode in package execution">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_2z6z0K6hEeyZbtNF_uLUAQ" name="Pin (6)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EReference type refers to type TypeSpecification in package core&#xA; - EClassPin extends type Element in package core&#xA; - EClassPin extends type NamedElement in package core&#xA; - EClassPin extends type TypedElement in package core&#xA; - EClassPin extends type DocumentableElement in package core&#xA;Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA; - EClassPin extends type ParameterizableElement in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/execution/1.0.0: &#xA; - EClassPin extends type Element in package execution&#xA; - EClassPin extends type ConnectableNode in package execution">
         <target xmi:type="ecore:EClass" href="e4sm.ecore#//Pin"/>
         <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//Pin"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_2z6z0a6hEeyZbtNF_uLUAQ" labelAlignment="LEFT" labelPosition="node">
@@ -7708,7 +7688,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_2z6z0q6hEeyZbtNF_uLUAQ" name="InputPin (6)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EReference type refers to type TypeSpecification in package core&#xA; - EClassInputPin extends type Element in package core&#xA; - EClassInputPin extends type NamedElement in package core&#xA; - EClassInputPin extends type TypedElement in package core&#xA; - EClassInputPin extends type ParameterizableElement in package core&#xA; - EClassInputPin extends type DocumentableElement in package core&#xA;Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/execution/1.0.0: &#xA; - EClassInputPin extends type Element in package execution&#xA; - EClassInputPin extends type ConnectableNode in package execution">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_2z6z0q6hEeyZbtNF_uLUAQ" name="InputPin (6)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EReference type refers to type TypeSpecification in package core&#xA; - EClassInputPin extends type Element in package core&#xA; - EClassInputPin extends type NamedElement in package core&#xA; - EClassInputPin extends type TypedElement in package core&#xA; - EClassInputPin extends type DocumentableElement in package core&#xA;Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA; - EClassInputPin extends type ParameterizableElement in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/execution/1.0.0: &#xA; - EClassInputPin extends type Element in package execution&#xA; - EClassInputPin extends type ConnectableNode in package execution">
         <target xmi:type="ecore:EClass" href="e4sm.ecore#//InputPin"/>
         <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//InputPin"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_2z6z066hEeyZbtNF_uLUAQ" labelAlignment="LEFT" labelPosition="node">
@@ -7716,7 +7696,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_2z6z1K6hEeyZbtNF_uLUAQ" name="OutputPin (6)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EReference type refers to type TypeSpecification in package core&#xA; - EClassOutputPin extends type Element in package core&#xA; - EClassOutputPin extends type NamedElement in package core&#xA; - EClassOutputPin extends type TypedElement in package core&#xA; - EClassOutputPin extends type ParameterizableElement in package core&#xA; - EClassOutputPin extends type DocumentableElement in package core&#xA;Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/execution/1.0.0: &#xA; - EClassOutputPin extends type Element in package execution&#xA; - EClassOutputPin extends type ConnectableNode in package execution&#xA; - EClassOutputPin extends type AssignableElement in package execution">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_2z6z1K6hEeyZbtNF_uLUAQ" name="OutputPin (6)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EReference type refers to type TypeSpecification in package core&#xA; - EClassOutputPin extends type Element in package core&#xA; - EClassOutputPin extends type NamedElement in package core&#xA; - EClassOutputPin extends type TypedElement in package core&#xA; - EClassOutputPin extends type DocumentableElement in package core&#xA;Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA; - EClassOutputPin extends type ParameterizableElement in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/execution/1.0.0: &#xA; - EClassOutputPin extends type Element in package execution&#xA; - EClassOutputPin extends type ConnectableNode in package execution&#xA; - EClassOutputPin extends type AssignableElement in package execution">
         <target xmi:type="ecore:EClass" href="e4sm.ecore#//OutputPin"/>
         <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//OutputPin"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_2z6z1a6hEeyZbtNF_uLUAQ" labelAlignment="LEFT" labelPosition="node">
@@ -7732,7 +7712,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_9KZfIPkbEeyb5sxFRJ2abA" name="DataStore (6)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EReference type refers to type TypeSpecification in package core&#xA; - EClassDataStore extends type Element in package core&#xA; - EClassDataStore extends type NamedElement in package core&#xA; - EClassDataStore extends type TypedElement in package core&#xA; - EClassDataStore extends type ParameterizableElement in package core&#xA; - EClassDataStore extends type DocumentableElement in package core&#xA;Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/execution/1.0.0: &#xA; - EClassDataStore extends type Element in package execution&#xA; - EClassDataStore extends type ConnectableNode in package execution">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_9KZfIPkbEeyb5sxFRJ2abA" name="DataStore (6)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EReference type refers to type TypeSpecification in package core&#xA; - EClassDataStore extends type Element in package core&#xA; - EClassDataStore extends type NamedElement in package core&#xA; - EClassDataStore extends type TypedElement in package core&#xA; - EClassDataStore extends type DocumentableElement in package core&#xA;Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA; - EClassDataStore extends type ParameterizableElement in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/execution/1.0.0: &#xA; - EClassDataStore extends type Element in package execution&#xA; - EClassDataStore extends type ConnectableNode in package execution">
         <target xmi:type="ecore:EClass" href="e4sm.ecore#//DataStore"/>
         <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//DataStore"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_9KatQPkbEeyb5sxFRJ2abA" labelAlignment="LEFT" labelPosition="node">
@@ -7740,7 +7720,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_9KbUUPkbEeyb5sxFRJ2abA" name="DataNode (5)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EReference type refers to type TypeSpecification in package core&#xA; - EClassDataNode extends type Element in package core&#xA; - EClassDataNode extends type NamedElement in package core&#xA; - EClassDataNode extends type TypedElement in package core&#xA; - EClassDataNode extends type ParameterizableElement in package core&#xA; - EClassDataNode extends type DocumentableElement in package core&#xA;Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/execution/1.0.0: &#xA; - EClassDataNode extends type Element in package execution&#xA; - EClassDataNode extends type ConnectableNode in package execution">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_9KbUUPkbEeyb5sxFRJ2abA" name="DataNode (5)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EReference type refers to type TypeSpecification in package core&#xA; - EClassDataNode extends type Element in package core&#xA; - EClassDataNode extends type NamedElement in package core&#xA; - EClassDataNode extends type TypedElement in package core&#xA; - EClassDataNode extends type DocumentableElement in package core&#xA;Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis&#xA; - EClassDataNode extends type ParameterizableElement in package analysis&#xA;Dependency to http://de.tu-ilmenau/e4sm/execution/1.0.0: &#xA; - EClassDataNode extends type Element in package execution&#xA; - EClassDataNode extends type ConnectableNode in package execution">
         <target xmi:type="ecore:EClass" href="e4sm.ecore#//DataNode"/>
         <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//DataNode"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_9Kb7YPkbEeyb5sxFRJ2abA" labelAlignment="LEFT" labelPosition="node">
@@ -7749,7 +7729,7 @@
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
       </ownedElements>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_2z0tMK6hEeyZbtNF_uLUAQ" name="http://de.tu-ilmenau/e4sm/analysis/1.0.0" outgoingEdges="_2z8pBK6hEeyZbtNF_uLUAQ _OsLCbK6iEeyZbtNF_uLUAQ" incomingEdges="_OsLCdq6iEeyZbtNF_uLUAQ _-njn_K6kEeyZbtNF_uLUAQ _ezmaftH4EeywS7g2_6EQQA">
+    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_2z0tMK6hEeyZbtNF_uLUAQ" name="http://de.tu-ilmenau/e4sm/analysis/1.0.0" outgoingEdges="_2z8pBK6hEeyZbtNF_uLUAQ _OsLCbK6iEeyZbtNF_uLUAQ" incomingEdges="_OsLCdq6iEeyZbtNF_uLUAQ _ezmaftH4EeywS7g2_6EQQA">
       <target xmi:type="ecore:EPackage" href="analysis.ecore#/"/>
       <semanticElements xmi:type="ecore:EPackage" href="analysis.ecore#/"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -7800,7 +7780,7 @@
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
       </ownedElements>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_2z1UQK6hEeyZbtNF_uLUAQ" name="http://de.tu-ilmenau/e4sm/core/1.0.0" outgoingEdges="_-njn_K6kEeyZbtNF_uLUAQ _qKxHBdH4EeywS7g2_6EQQA" incomingEdges="_2z8B9a6hEeyZbtNF_uLUAQ _2z8pBK6hEeyZbtNF_uLUAQ _OsLCca6iEeyZbtNF_uLUAQ _qKxuENH4EeywS7g2_6EQQA">
+    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_2z1UQK6hEeyZbtNF_uLUAQ" name="http://de.tu-ilmenau/e4sm/core/1.0.0" outgoingEdges="_qKxHBdH4EeywS7g2_6EQQA" incomingEdges="_2z8B9a6hEeyZbtNF_uLUAQ _2z8pBK6hEeyZbtNF_uLUAQ _OsLCca6iEeyZbtNF_uLUAQ _qKxuENH4EeywS7g2_6EQQA">
       <target xmi:type="ecore:EPackage" href="core.ecore#/"/>
       <semanticElements xmi:type="ecore:EPackage" href="core.ecore#/"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -7910,14 +7890,6 @@
         <target xmi:type="ecore:EClass" href="core.ecore#//ValueSpecification"/>
         <semanticElements xmi:type="ecore:EClass" href="core.ecore#//ValueSpecification"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_qKuqwNH4EeywS7g2_6EQQA" labelAlignment="LEFT" labelPosition="node">
-          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']/@style"/>
-        </ownedStyle>
-        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
-      </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_-niZyq6kEeyZbtNF_uLUAQ" name="ParameterizableElement (1)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/analysis/1.0.0: &#xA; - EReference parameters refers to type Parameter in package analysis">
-        <target xmi:type="ecore:EClass" href="core.ecore#//ParameterizableElement"/>
-        <semanticElements xmi:type="ecore:EClass" href="core.ecore#//ParameterizableElement"/>
-        <ownedStyle xmi:type="diagram:BundledImage" uid="_-njA0K6kEeyZbtNF_uLUAQ" labelAlignment="LEFT" labelPosition="node">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
@@ -8054,14 +8026,6 @@
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_OsLpda6iEeyZbtNF_uLUAQ" lineStyle="dash" size="2" strokeColor="239,41,41">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@edgeMappings[name='Package%20Dependency']/@style"/>
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_OsLpdq6iEeyZbtNF_uLUAQ"/>
-      </ownedStyle>
-      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@edgeMappings[name='Package%20Dependency']"/>
-    </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_-njn_K6kEeyZbtNF_uLUAQ" sourceNode="_2z1UQK6hEeyZbtNF_uLUAQ" targetNode="_2z0tMK6hEeyZbtNF_uLUAQ">
-      <target xmi:type="ecore:EPackage" href="core.ecore#/"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_-njn_a6kEeyZbtNF_uLUAQ" lineStyle="dash" size="2" strokeColor="239,41,41">
-        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@edgeMappings[name='Package%20Dependency']/@style"/>
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_-njn_q6kEeyZbtNF_uLUAQ"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@edgeMappings[name='Package%20Dependency']"/>
     </ownedDiagramElements>
@@ -15304,17 +15268,17 @@
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_ClGpsLWDEeyz7LMkFNIwUw" type="4001" element="_CktBFrWDEeyz7LMkFNIwUw" source="_-rALoLWCEeyz7LMkFNIwUw" target="_R4BeULV8Eeyz7LMkFNIwUw">
           <children xmi:type="notation:Node" xmi:id="_ClGptLWDEeyz7LMkFNIwUw" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ClGptbWDEeyz7LMkFNIwUw" x="24" y="-27"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ClGptbWDEeyz7LMkFNIwUw" x="38" y="-75"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_ClGptrWDEeyz7LMkFNIwUw" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ClGpt7WDEeyz7LMkFNIwUw" y="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ClGpt7WDEeyz7LMkFNIwUw" x="57" y="10"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_ClGpuLWDEeyz7LMkFNIwUw" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ClGpubWDEeyz7LMkFNIwUw" y="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ClGpubWDEeyz7LMkFNIwUw" x="19" y="10"/>
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_ClGpsbWDEeyz7LMkFNIwUw" routing="Rectilinear"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_ClGpsrWDEeyz7LMkFNIwUw" fontColor="7490599" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ClGps7WDEeyz7LMkFNIwUw" points="[0, 0, 98, 107]$[0, -107, 98, 0]$[-98, -107, 0, 0]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ClGps7WDEeyz7LMkFNIwUw" points="[22, 50, 120, 157]$[48, 50, 146, 157]$[48, -107, 146, 0]$[-98, -107, 0, 0]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ClGpurWDEeyz7LMkFNIwUw" id="(0.8135593220338984,0.0)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ClGpu7WDEeyz7LMkFNIwUw" id="(1.0,0.7621359223300971)"/>
         </edges>
@@ -16877,7 +16841,7 @@
             <styles xmi:type="notation:FilteringStyle" xmi:id="_aAoqU7sFEeyElbhevNRKMw"/>
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="_aAoDQbsFEeyElbhevNRKMw" fontName="Segoe UI" fontHeight="8" italic="true"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_aAoDQrsFEeyElbhevNRKMw" x="1560" y="79" width="195" height="51"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_aAoDQrsFEeyElbhevNRKMw" x="1536" y="81" width="195" height="51"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_zCV0QLsFEeyElbhevNRKMw" type="2003" element="_zCJnALsFEeyElbhevNRKMw">
           <children xmi:type="notation:Node" xmi:id="_zCWbULsFEeyElbhevNRKMw" type="5007"/>
@@ -17532,17 +17496,17 @@
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_aB1WoLslEeyElbhevNRKMw" type="4001" element="_aBbuJLslEeyElbhevNRKMw" source="_Hl6bcLsFEeyElbhevNRKMw" target="_aAoDQLsFEeyElbhevNRKMw">
           <children xmi:type="notation:Node" xmi:id="_aB19sLslEeyElbhevNRKMw" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_aB19sbslEeyElbhevNRKMw" x="-11" y="-16"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_aB19sbslEeyElbhevNRKMw" x="1" y="-16"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_aB19srslEeyElbhevNRKMw" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_aB19s7slEeyElbhevNRKMw" x="9" y="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_aB19s7slEeyElbhevNRKMw" x="13" y="10"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_aB19tLslEeyElbhevNRKMw" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_aB19tbslEeyElbhevNRKMw" x="6" y="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_aB19tbslEeyElbhevNRKMw" x="4" y="10"/>
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_aB1WobslEeyElbhevNRKMw" routing="Rectilinear"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_aB1WorslEeyElbhevNRKMw" fontColor="7490599" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_aB1Wo7slEeyElbhevNRKMw" points="[0, -25, -110, -20]$[110, -25, 0, -20]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_aB1Wo7slEeyElbhevNRKMw" points="[0, -23, -86, -20]$[86, -23, 0, -20]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_aB19trslEeyElbhevNRKMw" id="(1.0,0.9074074074074074)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_aB19t7slEeyElbhevNRKMw" id="(0.0,0.8979591836734694)"/>
         </edges>
@@ -17580,17 +17544,17 @@
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_nTYFMLslEeyElbhevNRKMw" type="4001" element="_nTFxcbslEeyElbhevNRKMw" source="_aAoDQLsFEeyElbhevNRKMw" target="_hYzkMLslEeyElbhevNRKMw">
           <children xmi:type="notation:Node" xmi:id="_nTYFNLslEeyElbhevNRKMw" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nTYFNbslEeyElbhevNRKMw" x="85" y="1"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nTYFNbslEeyElbhevNRKMw" x="53" y="51"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_nTYFNrslEeyElbhevNRKMw" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nTYFN7slEeyElbhevNRKMw" x="5" y="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nTYFN7slEeyElbhevNRKMw" x="43" y="10"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_nTYFOLslEeyElbhevNRKMw" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nTYFObslEeyElbhevNRKMw" x="3" y="6"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nTYFObslEeyElbhevNRKMw" x="-7" y="-10"/>
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_nTYFMbslEeyElbhevNRKMw" routing="Rectilinear"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_nTYFMrslEeyElbhevNRKMw" fontColor="7490599" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_nTYFM7slEeyElbhevNRKMw" points="[0, 0, 14, -164]$[0, 164, 14, 0]$[-14, 164, 0, 0]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_nTYFM7slEeyElbhevNRKMw" points="[61, -25, 51, -187]$[96, -25, 86, -187]$[96, 162, 86, 0]$[10, 162, 0, 0]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nTYFOrslEeyElbhevNRKMw" id="(0.6839378238341969,1.0)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nTYsQLslEeyElbhevNRKMw" id="(1.0,0.4387755102040816)"/>
         </edges>

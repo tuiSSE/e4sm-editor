@@ -153,11 +153,6 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseParameterizableElement(ParameterizableElement object) {
-			return createParameterizableElementAdapter();
-		}
-
-		@Override
 		public Adapter caseTypeSpecification(TypeSpecification object) {
 			return createTypeSpecificationAdapter();
 		}
@@ -461,20 +456,6 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createVariantAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.core.ParameterizableElement <em>Parameterizable Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see e4sm.de.metamodel.e4sm.core.ParameterizableElement
-	 * @generated
-	 */
-	public Adapter createParameterizableElementAdapter() {
 		return null;
 	}
 

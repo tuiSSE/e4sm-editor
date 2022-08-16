@@ -130,6 +130,11 @@ public class AnalysisAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseParameterizableElement(ParameterizableElement object) {
+			return createParameterizableElementAdapter();
+		}
+
+		@Override
 		public Adapter caseElement(Element object) {
 			return createElementAdapter();
 		}
@@ -328,6 +333,20 @@ public class AnalysisAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNetworkGeneratorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.analysis.ParameterizableElement <em>Parameterizable Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.analysis.ParameterizableElement
+	 * @generated
+	 */
+	public Adapter createParameterizableElementAdapter() {
 		return null;
 	}
 

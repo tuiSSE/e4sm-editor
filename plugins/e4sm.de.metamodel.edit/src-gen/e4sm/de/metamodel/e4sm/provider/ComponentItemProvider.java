@@ -4,6 +4,7 @@ package e4sm.de.metamodel.e4sm.provider;
 
 import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.analysis.AnalysisFactory;
+import e4sm.de.metamodel.e4sm.analysis.AnalysisPackage;
 import e4sm.de.metamodel.e4sm.core.CorePackage;
 import e4sm.de.metamodel.e4sm.e4smFactory;
 import e4sm.de.metamodel.e4sm.e4smPackage;
@@ -150,7 +151,7 @@ public class ComponentItemProvider extends NamedElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(CorePackage.Literals.PARAMETERIZABLE_ELEMENT__PARAMETERS);
+			childrenFeatures.add(AnalysisPackage.Literals.PARAMETERIZABLE_ELEMENT__PARAMETERS);
 			childrenFeatures.add(ExecutionPackage.Literals.DELAYABLE_ELEMENT__TIME_FUNCTION);
 			childrenFeatures.add(e4smPackage.Literals.COMPONENT__COMPONENTS);
 			childrenFeatures.add(e4smPackage.Literals.COMPONENT__PINS);
@@ -246,7 +247,7 @@ public class ComponentItemProvider extends NamedElementItemProvider {
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(CorePackage.Literals.PARAMETERIZABLE_ELEMENT__PARAMETERS,
+		newChildDescriptors.add(createChildParameter(AnalysisPackage.Literals.PARAMETERIZABLE_ELEMENT__PARAMETERS,
 				AnalysisFactory.eINSTANCE.createParameter()));
 
 		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.DELAYABLE_ELEMENT__TIME_FUNCTION,

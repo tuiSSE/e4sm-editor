@@ -237,9 +237,6 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference core.ecore#//TypedElement/type"/>
     </genClasses>
     <genClasses ecoreClass="core.ecore#//Variant"/>
-    <genClasses image="false" ecoreClass="core.ecore#//ParameterizableElement">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//ParameterizableElement/parameters"/>
-    </genClasses>
     <genClasses ecoreClass="core.ecore#//TypeSpecification">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//TypeSpecification/attributes"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference core.ecore#//TypeSpecification/superType"/>
@@ -412,6 +409,9 @@
       <genOperations ecoreOperation="analysis.ecore#//NetworkGenerator/generateNetwork.1">
         <genParameters ecoreParameter="analysis.ecore#//NetworkGenerator/generateNetwork.1/p"/>
       </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="analysis.ecore#//ParameterizableElement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference analysis.ecore#//ParameterizableElement/parameters"/>
     </genClasses>
   </genPackages>
   <genPackages prefix="Results" basePackage="e4sm.de.metamodel.e4sm.analysis" disposableProviderFactory="true"

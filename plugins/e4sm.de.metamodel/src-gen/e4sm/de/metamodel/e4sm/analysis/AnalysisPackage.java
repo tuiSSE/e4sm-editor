@@ -908,6 +908,43 @@ public interface AnalysisPackage extends EPackage {
 	int NETWORK_GENERATOR_OPERATION_COUNT = 2;
 
 	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.analysis.ParameterizableElement <em>Parameterizable Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.analysis.ParameterizableElement
+	 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl#getParameterizableElement()
+	 * @generated
+	 */
+	int PARAMETERIZABLE_ELEMENT = 12;
+
+	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETERIZABLE_ELEMENT__PARAMETERS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Parameterizable Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETERIZABLE_ELEMENT_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Parameterizable Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETERIZABLE_ELEMENT_OPERATION_COUNT = 0;
+
+	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.analysis.AnalysisManager <em>Manager</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1292,6 +1329,27 @@ public interface AnalysisPackage extends EPackage {
 	EOperation getNetworkGenerator__GenerateNetwork__Package();
 
 	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.analysis.ParameterizableElement <em>Parameterizable Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Parameterizable Element</em>'.
+	 * @see e4sm.de.metamodel.e4sm.analysis.ParameterizableElement
+	 * @generated
+	 */
+	EClass getParameterizableElement();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link e4sm.de.metamodel.e4sm.analysis.ParameterizableElement#getParameters <em>Parameters</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Parameters</em>'.
+	 * @see e4sm.de.metamodel.e4sm.analysis.ParameterizableElement#getParameters()
+	 * @see #getParameterizableElement()
+	 * @generated
+	 */
+	EReference getParameterizableElement_Parameters();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1637,6 +1695,24 @@ public interface AnalysisPackage extends EPackage {
 		 */
 		EOperation NETWORK_GENERATOR___GENERATE_NETWORK__PACKAGE = eINSTANCE
 				.getNetworkGenerator__GenerateNetwork__Package();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.analysis.ParameterizableElement <em>Parameterizable Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.analysis.ParameterizableElement
+		 * @see e4sm.de.metamodel.e4sm.analysis.impl.AnalysisPackageImpl#getParameterizableElement()
+		 * @generated
+		 */
+		EClass PARAMETERIZABLE_ELEMENT = eINSTANCE.getParameterizableElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARAMETERIZABLE_ELEMENT__PARAMETERS = eINSTANCE.getParameterizableElement_Parameters();
 
 	}
 

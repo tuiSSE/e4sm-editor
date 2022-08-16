@@ -94,4 +94,9 @@
       <eParameters name="p" eType="ecore:EClass e4sm.ecore#//Package"/>
     </eOperations>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ParameterizableElement" abstract="true"
+      interface="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+        eType="#//Parameter" containment="true"/>
+  </eClassifiers>
 </ecore:EPackage>

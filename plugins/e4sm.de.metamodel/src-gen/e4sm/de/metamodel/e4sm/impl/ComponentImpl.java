@@ -6,9 +6,9 @@ import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.ComponentFiringStrategy;
 import e4sm.de.metamodel.e4sm.DataStore;
 import e4sm.de.metamodel.e4sm.core.NamedElement;
-import e4sm.de.metamodel.e4sm.core.ParameterizableElement;
 import e4sm.de.metamodel.e4sm.Person;
 import e4sm.de.metamodel.e4sm.Pin;
+import e4sm.de.metamodel.e4sm.analysis.AnalysisPackage;
 import e4sm.de.metamodel.e4sm.analysis.Parameter;
 import e4sm.de.metamodel.e4sm.core.CorePackage;
 import e4sm.de.metamodel.e4sm.core.DocumentableElement;
@@ -755,10 +755,10 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == ParameterizableElement.class) {
+		if (baseClass == e4sm.de.metamodel.e4sm.analysis.ParameterizableElement.class) {
 			switch (derivedFeatureID) {
 			case e4smPackage.COMPONENT__PARAMETERS:
-				return CorePackage.PARAMETERIZABLE_ELEMENT__PARAMETERS;
+				return AnalysisPackage.PARAMETERIZABLE_ELEMENT__PARAMETERS;
 			default:
 				return -1;
 			}
@@ -789,9 +789,9 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == ParameterizableElement.class) {
+		if (baseClass == e4sm.de.metamodel.e4sm.analysis.ParameterizableElement.class) {
 			switch (baseFeatureID) {
-			case CorePackage.PARAMETERIZABLE_ELEMENT__PARAMETERS:
+			case AnalysisPackage.PARAMETERIZABLE_ELEMENT__PARAMETERS:
 				return e4smPackage.COMPONENT__PARAMETERS;
 			default:
 				return -1;

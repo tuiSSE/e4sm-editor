@@ -6,6 +6,7 @@ import e4sm.de.metamodel.e4sm.DataNode;
 
 import e4sm.de.metamodel.e4sm.analysis.AnalysisFactory;
 
+import e4sm.de.metamodel.e4sm.analysis.AnalysisPackage;
 import e4sm.de.metamodel.e4sm.core.CorePackage;
 
 import e4sm.de.metamodel.e4sm.core.provider.TypedElementItemProvider;
@@ -88,7 +89,7 @@ public class DataNodeItemProvider extends TypedElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(CorePackage.Literals.PARAMETERIZABLE_ELEMENT__PARAMETERS);
+			childrenFeatures.add(AnalysisPackage.Literals.PARAMETERIZABLE_ELEMENT__PARAMETERS);
 		}
 		return childrenFeatures;
 	}
@@ -162,7 +163,7 @@ public class DataNodeItemProvider extends TypedElementItemProvider {
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(CorePackage.Literals.PARAMETERIZABLE_ELEMENT__PARAMETERS,
+		newChildDescriptors.add(createChildParameter(AnalysisPackage.Literals.PARAMETERIZABLE_ELEMENT__PARAMETERS,
 				AnalysisFactory.eINSTANCE.createParameter()));
 	}
 

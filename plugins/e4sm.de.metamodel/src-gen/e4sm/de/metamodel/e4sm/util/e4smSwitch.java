@@ -41,7 +41,6 @@ import e4sm.de.metamodel.e4sm.execution.ConnectableNode;
 import e4sm.de.metamodel.e4sm.execution.DelayableElement;
 import e4sm.de.metamodel.e4sm.core.Element;
 import e4sm.de.metamodel.e4sm.core.NamedElement;
-import e4sm.de.metamodel.e4sm.core.ParameterizableElement;
 import e4sm.de.metamodel.e4sm.core.TypedElement;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -1147,7 +1146,7 @@ public class e4smSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseParameterizableElement(ParameterizableElement object) {
+	public T caseParameterizableElement(e4sm.de.metamodel.e4sm.analysis.ParameterizableElement object) {
 		return null;
 	}
 
