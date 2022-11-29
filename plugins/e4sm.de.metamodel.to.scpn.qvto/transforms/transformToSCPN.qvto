@@ -48,8 +48,8 @@ mapping Package::packageToSCPN() : SCPNNet{
 	// Transform types
 	//recordTokentype := e.rootObjects()[Model].types->map convert();
 	recordTokentype := object RecordTokentype{
-	id := "data_type_id";
-	name := "DataType";
+	id := "data_id";
+	name := "Data";
 	type := Type::text;
 	
 	// Specify the attributes
@@ -58,7 +58,11 @@ mapping Package::packageToSCPN() : SCPNNet{
 			dataType:="string";
 		};
 	attribute += object AttributeType{
-			name := "l"; //length
+			name := "s"; //size
+			dataType:="int";
+		};
+	attribute += object AttributeType{
+			name := "l"; //length - if multiple elements are available
 			dataType:="int";
 		};
 	attribute += object AttributeType{
@@ -70,10 +74,37 @@ mapping Package::packageToSCPN() : SCPNNet{
 			dataType:="bool";
 		};
 		
+	// TODO: only generate classification stuff if the model has one classification component
+	attribute += object AttributeType{
+			name := "ood"; //out of distribution
+			dataType:="bool";
+		};
+		
+	attribute += object AttributeType{
+			name := "tL"; //trueLabel
+			dataType:="int";
+		};
+		
+	attribute += object AttributeType{
+			name := "gL"; //guessedLabel
+			dataType:="int";
+		};
+		
 	graphics := object GraphicsType {
 		x := 130;
 	 	y := 1600
     };
+	};
+	
+	comment += object CommentType{
+		type:= Type::text;
+		id := "data_comment_id";
+		// TODO: only generate classification stuff if the model has one classification component
+		commentText:="n: name (string)<br>s:size (int)<br>l:length (int)<br>gT:generationTime (DateTime)<br>d:isDefault (bool)<br>tL:trueLabel (int)<br>gL:guessedLabel (int);ood:Out of distribution (bool)";
+		graphics := object GraphicsType {
+			x := 110;
+	 		y := 1650
+    	};
 	};
 	
 	// Attributes
