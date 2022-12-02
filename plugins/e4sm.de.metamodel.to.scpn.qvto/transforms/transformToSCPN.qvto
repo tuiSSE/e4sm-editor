@@ -276,6 +276,7 @@ helper e4sm::QueueType::convertQueueType() : scpn::QueueType {
 mapping Sector::transformSector() : st: List(SubstitutionTransitionType), pl: List(PlaceType), iTr : List(TransitionType), arcs : List (ArcType), tt : List(TimedTransitionType), meas : List(MeasureType){
 	var idName := safeString(self.name);
 	log("\nTransforming sector " +  self.name);
+	/*  TODO: nice to have, transform a sector inside a substitution transition
 	var sTr : SubstitutionTransitionType = object SubstitutionTransitionType {};
 	sTr.id := idName; //In TimeNET: 0.0, 0.1...
 	
@@ -311,6 +312,7 @@ mapping Sector::transformSector() : st: List(SubstitutionTransitionType), pl: Li
     	id:=idName+"_subnet";
     };
     st += sTr;
+    */
     
     if(self.sectors->size()>0){
     	log("Transforming subsectors...");
@@ -341,7 +343,7 @@ mapping Sector::transformSector() : st: List(SubstitutionTransitionType), pl: Li
     meas += res.meas;
     
 
-    log("\tTransformed sector " +  sTr.id);
+    log("\tTransformed sector " +  self.name);
 }
 
 mapping Component::transformComponent() : pl: List(PlaceType), iTr : List(TransitionType), arcs : List (ArcType),
@@ -420,7 +422,7 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 					// or if it has multiple input pins
 					// or if at least an input pin has a "collect" value > 1 set
 					if(self.oclIsTypeOf(e4sm::Sensor) or self.hasNoInputs() or inputPins->size() > 1 or inputPins->select(ip | ip.collect>1)->size()>0) {
-						readyToMain.inscription.text := "new(1)"; //TODO: probably it shouldn't be an integer
+						readyToMain.inscription.text := "new({})";
 					};
 					arcs->add(readyToMain);
 				}
@@ -443,7 +445,7 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 						
 						// If this pin has a collect value set (>1)
 						if(ip.collect > 1) {
-							readyToMain.inscription.text := "new(1)"; //TODO: probably it shouldn't be an integer
+							readyToMain.inscription.text := "new({})";
 						};
 						arcs->add(readyToMain);
 						
@@ -500,7 +502,7 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 			
 			// Create the Arcs
 			var semBack := new ArcType(self.name+"_semBack");
-			semBack.inscription.text := "new(1)";
+			semBack.inscription.text := "new({})";
 			semBack.fromNode := timedTran.id;
 			semBack.toNode := sem.id;
 			arcs->add(semBack);
@@ -616,7 +618,7 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 					arcFromTransition.toNode := outputPinPlace.id;
 					
 					// TODO: maybe the following line only applies to sensors
-					arcFromTransition.inscription.text := "new(1)"; //TODO: improve specification
+					arcFromTransition.inscription.text := "new({})"; //TODO: improve specification
 					
 					// Add multiplicity, if needed
 					if(op.amplify > 1) {
@@ -645,7 +647,7 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 						arcFromTransition.fromNode := timedTran.id;
 					};
 					arcFromTransition.toNode := outputPin.pl->first().id;
-					arcFromTransition.inscription.text :=  "new(1)"; //TODO: improve specification
+					arcFromTransition.inscription.text :=  "new({})"; //TODO: improve specification
 					
 					// Add multiplicity, if needed
 					if(op.oclIsTypeOf(OutputPin) and op.amplify > 1) {

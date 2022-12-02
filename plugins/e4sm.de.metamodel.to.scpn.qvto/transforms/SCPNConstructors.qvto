@@ -22,7 +22,7 @@ constructor PlaceType::PlaceType(given_label : String) {
 	id := safeString(given_label) + placeSuffix;
 	capacity := "0";
 	queue:= scpn::QueueType::Random;
-	tokentype:= "int";
+	tokentype:= "Data";
 	type := scpn::Type::node;
 	watch := false;
 	initialMarking := "";
