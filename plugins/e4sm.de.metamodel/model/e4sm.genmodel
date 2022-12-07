@@ -41,7 +41,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//Component/datastores"/>
       <genOperations ecoreOperation="e4sm.ecore#//Component/computeMainResponsible"
           body="&#x9;&#x9;Person resp = this.getMainResponsible();&#xD;&#xA;&#x9;&#x9;if (resp != null) {&#xD;&#xA;&#x9;&#x9;&#x9;return resp;&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;NamedElement c = (NamedElement) this.eContainer();&#xD;&#xA;&#x9;&#x9;if (!(c instanceof Component)) {&#xD;&#xA;&#x9;&#x9;&#x9;return null;&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;return ((Component)c).getMainResponsible();"/>
-      <genOperations ecoreOperation="e4sm.ecore#//Component/newOperation2"/>
     </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//MachineLearningComponent"/>
     <genClasses ecoreClass="e4sm.ecore#//Connector">
@@ -91,6 +90,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//Model/variants"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//Model/types"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//Model/imports"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//Model/environments"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//Model/classificationClasses"/>
       <genOperations ecoreOperation="e4sm.ecore#//Model/isPersonPicturePathValid">
         <genParameters ecoreParameter="e4sm.ecore#//Model/isPersonPicturePathValid/diagnostics"/>
         <genParameters ecoreParameter="e4sm.ecore#//Model/isPersonPicturePathValid/context"/>
@@ -159,6 +160,26 @@
       <genOperations ecoreOperation="e4sm.ecore#//DataNode/getOutgoingConnectors"/>
       <genOperations ecoreOperation="e4sm.ecore#//DataNode/getIncomingConnectors"/>
     </genClasses>
+    <genClasses ecoreClass="e4sm.ecore#//ClassificationComponent">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//ClassificationComponent/classDetections"/>
+    </genClasses>
+    <genClasses ecoreClass="e4sm.ecore#//Environment">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//Environment/classificationClasses"/>
+    </genClasses>
+    <genClasses ecoreClass="e4sm.ecore#//ClassificationClass"/>
+    <genClasses ecoreClass="e4sm.ecore#//ClassDetection">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//ClassDetection/classificationClass"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//ClassDetection/recall"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//ClassDetection/classPrecisions"/>
+    </genClasses>
+    <genClasses ecoreClass="e4sm.ecore#//ClassificationClassDistribution">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//ClassificationClassDistribution/classificationClass"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//ClassificationClassDistribution/probability"/>
+    </genClasses>
+    <genClasses ecoreClass="e4sm.ecore#//ClassPrecision">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//ClassPrecision/classificationClass"/>
+    </genClasses>
+    <genClasses ecoreClass="e4sm.ecore#//ConfusionMatrix"/>
   </genPackages>
   <genPackages prefix="Core" basePackage="e4sm.de.metamodel.e4sm" ecorePackage="core.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="core.ecore#//UnitOfMeasurement">
