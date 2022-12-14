@@ -160,26 +160,70 @@
       <genOperations ecoreOperation="e4sm.ecore#//DataNode/getOutgoingConnectors"/>
       <genOperations ecoreOperation="e4sm.ecore#//DataNode/getIncomingConnectors"/>
     </genClasses>
-    <genClasses ecoreClass="e4sm.ecore#//ClassificationComponent">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//ClassificationComponent/classDetections"/>
-    </genClasses>
+    <genClasses ecoreClass="e4sm.ecore#//ClassificationComponent"/>
     <genClasses ecoreClass="e4sm.ecore#//Environment">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//Environment/classificationClasses"/>
     </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//ClassificationClass"/>
-    <genClasses ecoreClass="e4sm.ecore#//ClassDetection">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//ClassDetection/classificationClass"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//ClassDetection/recall"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//ClassDetection/classPrecisions"/>
-    </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//ClassificationClassDistribution">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//ClassificationClassDistribution/classificationClass"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//ClassificationClassDistribution/probability"/>
     </genClasses>
-    <genClasses ecoreClass="e4sm.ecore#//ClassPrecision">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//ClassPrecision/classificationClass"/>
+    <genClasses ecoreClass="e4sm.ecore#//MulticlassConfusionMatrix">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//MulticlassConfusionMatrix/entries"/>
+      <genOperations ecoreOperation="e4sm.ecore#//MulticlassConfusionMatrix/getClasses"/>
+      <genOperations ecoreOperation="e4sm.ecore#//MulticlassConfusionMatrix/getTP">
+        <genParameters ecoreParameter="e4sm.ecore#//MulticlassConfusionMatrix/getTP/class"/>
+      </genOperations>
+      <genOperations ecoreOperation="e4sm.ecore#//MulticlassConfusionMatrix/getFP">
+        <genParameters ecoreParameter="e4sm.ecore#//MulticlassConfusionMatrix/getFP/class"/>
+      </genOperations>
+      <genOperations ecoreOperation="e4sm.ecore#//MulticlassConfusionMatrix/getTN">
+        <genParameters ecoreParameter="e4sm.ecore#//MulticlassConfusionMatrix/getTN/class"/>
+      </genOperations>
+      <genOperations ecoreOperation="e4sm.ecore#//MulticlassConfusionMatrix/getFN">
+        <genParameters ecoreParameter="e4sm.ecore#//MulticlassConfusionMatrix/getFN/class"/>
+      </genOperations>
+      <genOperations ecoreOperation="e4sm.ecore#//MulticlassConfusionMatrix/computeBalancedAccuracy"/>
+      <genOperations ecoreOperation="e4sm.ecore#//MulticlassConfusionMatrix/computeClassAccuracy">
+        <genParameters ecoreParameter="e4sm.ecore#//MulticlassConfusionMatrix/computeClassAccuracy/class"/>
+      </genOperations>
+      <genOperations ecoreOperation="e4sm.ecore#//MulticlassConfusionMatrix/computeClassRecall">
+        <genParameters ecoreParameter="e4sm.ecore#//MulticlassConfusionMatrix/computeClassRecall/class"/>
+      </genOperations>
+      <genOperations ecoreOperation="e4sm.ecore#//MulticlassConfusionMatrix/computeClassPrecision">
+        <genParameters ecoreParameter="e4sm.ecore#//MulticlassConfusionMatrix/computeClassPrecision/class"/>
+      </genOperations>
+      <genOperations ecoreOperation="e4sm.ecore#//MulticlassConfusionMatrix/computeClassF1Score">
+        <genParameters ecoreParameter="e4sm.ecore#//MulticlassConfusionMatrix/computeClassF1Score/class"/>
+      </genOperations>
     </genClasses>
-    <genClasses ecoreClass="e4sm.ecore#//ConfusionMatrix"/>
+    <genClasses ecoreClass="e4sm.ecore#//ConfusionMatrixEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//ConfusionMatrixEntry/value"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//ConfusionMatrixEntry/predicted"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//ConfusionMatrixEntry/truth"/>
+    </genClasses>
+    <genClasses ecoreClass="e4sm.ecore#//BinaryConfusionMatrix">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//BinaryConfusionMatrix/tp"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//BinaryConfusionMatrix/tn"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//BinaryConfusionMatrix/fp"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//BinaryConfusionMatrix/fn"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//BinaryConfusionMatrix/positiveClass"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//BinaryConfusionMatrix/negativeClass"/>
+    </genClasses>
+    <genClasses ecoreClass="e4sm.ecore#//BinaryClassificationComponent">
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//BinaryClassificationComponent/confusionMatrixes"/>
+    </genClasses>
+    <genClasses ecoreClass="e4sm.ecore#//MulticlassClassificationComponent">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//MulticlassClassificationComponent/confusionMatrixes"/>
+    </genClasses>
+    <genClasses ecoreClass="e4sm.ecore#//ConfusionMatrix">
+      <genOperations ecoreOperation="e4sm.ecore#//ConfusionMatrix/computeAccuracy"/>
+      <genOperations ecoreOperation="e4sm.ecore#//ConfusionMatrix/computeRecall"/>
+      <genOperations ecoreOperation="e4sm.ecore#//ConfusionMatrix/computePrecision"/>
+      <genOperations ecoreOperation="e4sm.ecore#//ConfusionMatrix/computeF1Score"/>
+      <genOperations ecoreOperation="e4sm.ecore#//ConfusionMatrix/getHighestValue"/>
+    </genClasses>
   </genPackages>
   <genPackages prefix="Core" basePackage="e4sm.de.metamodel.e4sm" ecorePackage="core.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="core.ecore#//UnitOfMeasurement">

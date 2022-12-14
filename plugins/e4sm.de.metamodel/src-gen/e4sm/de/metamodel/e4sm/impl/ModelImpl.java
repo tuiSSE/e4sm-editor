@@ -3,6 +3,8 @@
 package e4sm.de.metamodel.e4sm.impl;
 
 import e4sm.de.metamodel.e4sm.Actor;
+import e4sm.de.metamodel.e4sm.ClassificationClass;
+import e4sm.de.metamodel.e4sm.Environment;
 import e4sm.de.metamodel.e4sm.Import;
 import e4sm.de.metamodel.e4sm.Model;
 import e4sm.de.metamodel.e4sm.analysis.AnalysisPackage;
@@ -53,6 +55,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ModelImpl#getVariants <em>Variants</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ModelImpl#getTypes <em>Types</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ModelImpl#getImports <em>Imports</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.ModelImpl#getEnvironments <em>Environments</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.ModelImpl#getClassificationClasses <em>Classification Classes</em>}</li>
  * </ul>
  *
  * @generated
@@ -151,6 +155,26 @@ public class ModelImpl extends NamedElementImpl implements Model {
 	 * @ordered
 	 */
 	protected EList<Import> imports;
+
+	/**
+	 * The cached value of the '{@link #getEnvironments() <em>Environments</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEnvironments()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Environment> environments;
+
+	/**
+	 * The cached value of the '{@link #getClassificationClasses() <em>Classification Classes</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getClassificationClasses()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ClassificationClass> classificationClasses;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -292,6 +316,34 @@ public class ModelImpl extends NamedElementImpl implements Model {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<Environment> getEnvironments() {
+		if (environments == null) {
+			environments = new EObjectContainmentEList<Environment>(Environment.class, this,
+					e4smPackage.MODEL__ENVIRONMENTS);
+		}
+		return environments;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<ClassificationClass> getClassificationClasses() {
+		if (classificationClasses == null) {
+			classificationClasses = new EObjectContainmentEList<ClassificationClass>(ClassificationClass.class, this,
+					e4smPackage.MODEL__CLASSIFICATION_CLASSES);
+		}
+		return classificationClasses;
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated NOT
@@ -348,6 +400,10 @@ public class ModelImpl extends NamedElementImpl implements Model {
 			return ((InternalEList<?>) getTypes()).basicRemove(otherEnd, msgs);
 		case e4smPackage.MODEL__IMPORTS:
 			return ((InternalEList<?>) getImports()).basicRemove(otherEnd, msgs);
+		case e4smPackage.MODEL__ENVIRONMENTS:
+			return ((InternalEList<?>) getEnvironments()).basicRemove(otherEnd, msgs);
+		case e4smPackage.MODEL__CLASSIFICATION_CLASSES:
+			return ((InternalEList<?>) getClassificationClasses()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -375,6 +431,10 @@ public class ModelImpl extends NamedElementImpl implements Model {
 			return getTypes();
 		case e4smPackage.MODEL__IMPORTS:
 			return getImports();
+		case e4smPackage.MODEL__ENVIRONMENTS:
+			return getEnvironments();
+		case e4smPackage.MODEL__CLASSIFICATION_CLASSES:
+			return getClassificationClasses();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -417,6 +477,14 @@ public class ModelImpl extends NamedElementImpl implements Model {
 			getImports().clear();
 			getImports().addAll((Collection<? extends Import>) newValue);
 			return;
+		case e4smPackage.MODEL__ENVIRONMENTS:
+			getEnvironments().clear();
+			getEnvironments().addAll((Collection<? extends Environment>) newValue);
+			return;
+		case e4smPackage.MODEL__CLASSIFICATION_CLASSES:
+			getClassificationClasses().clear();
+			getClassificationClasses().addAll((Collection<? extends ClassificationClass>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -452,6 +520,12 @@ public class ModelImpl extends NamedElementImpl implements Model {
 		case e4smPackage.MODEL__IMPORTS:
 			getImports().clear();
 			return;
+		case e4smPackage.MODEL__ENVIRONMENTS:
+			getEnvironments().clear();
+			return;
+		case e4smPackage.MODEL__CLASSIFICATION_CLASSES:
+			getClassificationClasses().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -481,6 +555,10 @@ public class ModelImpl extends NamedElementImpl implements Model {
 			return types != null && !types.isEmpty();
 		case e4smPackage.MODEL__IMPORTS:
 			return imports != null && !imports.isEmpty();
+		case e4smPackage.MODEL__ENVIRONMENTS:
+			return environments != null && !environments.isEmpty();
+		case e4smPackage.MODEL__CLASSIFICATION_CLASSES:
+			return classificationClasses != null && !classificationClasses.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

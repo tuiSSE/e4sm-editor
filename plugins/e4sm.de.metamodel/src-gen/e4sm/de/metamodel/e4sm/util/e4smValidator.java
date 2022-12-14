@@ -5,14 +5,22 @@ package e4sm.de.metamodel.e4sm.util;
 import e4sm.de.metamodel.e4sm.Actor;
 
 import e4sm.de.metamodel.e4sm.Actuator;
+import e4sm.de.metamodel.e4sm.BinaryClassificationComponent;
+import e4sm.de.metamodel.e4sm.BinaryConfusionMatrix;
+import e4sm.de.metamodel.e4sm.ClassificationClass;
+import e4sm.de.metamodel.e4sm.ClassificationClassDistribution;
+import e4sm.de.metamodel.e4sm.ClassificationComponent;
 import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.ComponentFiringStrategy;
+import e4sm.de.metamodel.e4sm.ConfusionMatrix;
+import e4sm.de.metamodel.e4sm.ConfusionMatrixEntry;
 import e4sm.de.metamodel.e4sm.Connector;
 import e4sm.de.metamodel.e4sm.ConversionByConvention;
 import e4sm.de.metamodel.e4sm.ConversionByPrefix;
 import e4sm.de.metamodel.e4sm.DataNode;
 import e4sm.de.metamodel.e4sm.DataStore;
 import e4sm.de.metamodel.e4sm.DerivedUnit;
+import e4sm.de.metamodel.e4sm.Environment;
 import e4sm.de.metamodel.e4sm.ExternalDependency;
 import e4sm.de.metamodel.e4sm.Function;
 import e4sm.de.metamodel.e4sm.Heuristic;
@@ -23,6 +31,8 @@ import e4sm.de.metamodel.e4sm.LogicalConnector;
 import e4sm.de.metamodel.e4sm.MachineLearningComponent;
 import e4sm.de.metamodel.e4sm.MeasurementUnit;
 import e4sm.de.metamodel.e4sm.Model;
+import e4sm.de.metamodel.e4sm.MulticlassClassificationComponent;
+import e4sm.de.metamodel.e4sm.MulticlassConfusionMatrix;
 import e4sm.de.metamodel.e4sm.OutputPin;
 import e4sm.de.metamodel.e4sm.Person;
 import e4sm.de.metamodel.e4sm.PhysicalComponent;
@@ -192,6 +202,28 @@ public class e4smValidator extends EObjectValidator {
 			return validateDataStore((DataStore) value, diagnostics, context);
 		case e4smPackage.DATA_NODE:
 			return validateDataNode((DataNode) value, diagnostics, context);
+		case e4smPackage.CLASSIFICATION_COMPONENT:
+			return validateClassificationComponent((ClassificationComponent) value, diagnostics, context);
+		case e4smPackage.ENVIRONMENT:
+			return validateEnvironment((Environment) value, diagnostics, context);
+		case e4smPackage.CLASSIFICATION_CLASS:
+			return validateClassificationClass((ClassificationClass) value, diagnostics, context);
+		case e4smPackage.CLASSIFICATION_CLASS_DISTRIBUTION:
+			return validateClassificationClassDistribution((ClassificationClassDistribution) value, diagnostics,
+					context);
+		case e4smPackage.MULTICLASS_CONFUSION_MATRIX:
+			return validateMulticlassConfusionMatrix((MulticlassConfusionMatrix) value, diagnostics, context);
+		case e4smPackage.CONFUSION_MATRIX_ENTRY:
+			return validateConfusionMatrixEntry((ConfusionMatrixEntry) value, diagnostics, context);
+		case e4smPackage.BINARY_CONFUSION_MATRIX:
+			return validateBinaryConfusionMatrix((BinaryConfusionMatrix) value, diagnostics, context);
+		case e4smPackage.BINARY_CLASSIFICATION_COMPONENT:
+			return validateBinaryClassificationComponent((BinaryClassificationComponent) value, diagnostics, context);
+		case e4smPackage.MULTICLASS_CLASSIFICATION_COMPONENT:
+			return validateMulticlassClassificationComponent((MulticlassClassificationComponent) value, diagnostics,
+					context);
+		case e4smPackage.CONFUSION_MATRIX:
+			return validateConfusionMatrix((ConfusionMatrix) value, diagnostics, context);
 		case e4smPackage.QUEUE_TYPE:
 			return validateQueueType((QueueType) value, diagnostics, context);
 		case e4smPackage.RACE_SEMANTIC:
@@ -1167,6 +1199,338 @@ public class e4smValidator extends EObjectValidator {
 	 */
 	public boolean validateDataNode(DataNode dataNode, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(dataNode, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateClassificationComponent(ClassificationComponent classificationComponent,
+			DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(classificationComponent, diagnostics, context))
+			return false;
+		boolean result = validate_EveryMultiplicityConforms(classificationComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryDataValueConforms(classificationComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryReferenceIsContained(classificationComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryBidirectionalReferenceIsPaired(classificationComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryProxyResolves(classificationComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_UniqueID(classificationComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryKeyUnique(classificationComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryMapEntryUnique(classificationComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateComponent_ComponentC1(classificationComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateComponent_ComponentC2(classificationComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateComponent_ComponentC3(classificationComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateSoftwareComponent_SoftwareComponentC1(classificationComponent, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateEnvironment(Environment environment, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(environment, diagnostics, context))
+			return false;
+		boolean result = validate_EveryMultiplicityConforms(environment, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryDataValueConforms(environment, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryReferenceIsContained(environment, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryBidirectionalReferenceIsPaired(environment, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryProxyResolves(environment, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_UniqueID(environment, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryKeyUnique(environment, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryMapEntryUnique(environment, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateEnvironment_EnvironmentC1(environment, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the EnvironmentC1 constraint of '<em>Environment</em>'. <!--
+	 * begin-user-doc --> C1: The entries of an environment specification should sum to 1.0 <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public boolean validateEnvironment_EnvironmentC1(Environment environment, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		double epsilon = 0.000000001d;
+		double sum = environment.getClassificationClasses().stream().mapToDouble(c -> c.getProbability()).sum();
+		if (Math.abs(sum - 1.0d) > epsilon) { // Sum equals 1?
+			if (diagnostics != null) {
+				diagnostics.add(createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0,
+						"_UI_GenericConstraint_diagnostic",
+						new Object[] {
+								"C1: The entries of an environment specification should sum to 1.0, but equals " + sum,
+								getObjectLabel(environment, context) },
+						new Object[] { environment }, context));
+			}
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateClassificationClass(ClassificationClass classificationClass, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(classificationClass, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateClassificationClassDistribution(
+			ClassificationClassDistribution classificationClassDistribution, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(classificationClassDistribution, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateMulticlassConfusionMatrix(MulticlassConfusionMatrix multiclassConfusionMatrix,
+			DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(multiclassConfusionMatrix, diagnostics, context))
+			return false;
+		boolean result = validate_EveryMultiplicityConforms(multiclassConfusionMatrix, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryDataValueConforms(multiclassConfusionMatrix, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryReferenceIsContained(multiclassConfusionMatrix, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryBidirectionalReferenceIsPaired(multiclassConfusionMatrix, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryProxyResolves(multiclassConfusionMatrix, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_UniqueID(multiclassConfusionMatrix, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryKeyUnique(multiclassConfusionMatrix, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryMapEntryUnique(multiclassConfusionMatrix, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateMulticlassConfusionMatrix_MulticlassConfusionMatrixC1(multiclassConfusionMatrix,
+					diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the MulticlassConfusionMatrixC1 constraint of '<em>Multiclass Confusion Matrix</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean validateMulticlassConfusionMatrix_MulticlassConfusionMatrixC1(
+			MulticlassConfusionMatrix multiclassConfusionMatrix, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		int classes = multiclassConfusionMatrix.getClasses().size();
+		int expectedClasses = classes * classes;
+		if (multiclassConfusionMatrix.getEntries().size() != expectedClasses) {
+			if (diagnostics != null) {
+				diagnostics.add(createDiagnostic(Diagnostic.WARNING, DIAGNOSTIC_SOURCE, 0,
+						"_UI_GenericConstraint_diagnostic",
+						new Object[] { "C1: the number of entries does not match the expected value " + expectedClasses,
+								getObjectLabel(multiclassConfusionMatrix, context) },
+						new Object[] { multiclassConfusionMatrix }, context));
+			}
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateConfusionMatrix(ConfusionMatrix confusionMatrix, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(confusionMatrix, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateConfusionMatrixEntry(ConfusionMatrixEntry confusionMatrixEntry, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(confusionMatrixEntry, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateBinaryConfusionMatrix(BinaryConfusionMatrix binaryConfusionMatrix,
+			DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(binaryConfusionMatrix, diagnostics, context))
+			return false;
+		boolean result = validate_EveryMultiplicityConforms(binaryConfusionMatrix, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryDataValueConforms(binaryConfusionMatrix, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryReferenceIsContained(binaryConfusionMatrix, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryBidirectionalReferenceIsPaired(binaryConfusionMatrix, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryProxyResolves(binaryConfusionMatrix, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_UniqueID(binaryConfusionMatrix, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryKeyUnique(binaryConfusionMatrix, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryMapEntryUnique(binaryConfusionMatrix, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateBinaryConfusionMatrix_BinaryConfusionMatrixC1(binaryConfusionMatrix, diagnostics,
+					context);
+		if (result || diagnostics != null)
+			result &= validateBinaryConfusionMatrix_BinaryConfusionMatrixC2(binaryConfusionMatrix, diagnostics,
+					context);
+		return result;
+	}
+
+	/**
+	 * Validates the BinaryConfusionMatrixC1 constraint of '<em>Binary Confusion Matrix</em>'.
+	 * <!-- begin-user-doc -->
+	 * if positive and negative classes are provided, they shall not be equal
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean validateBinaryConfusionMatrix_BinaryConfusionMatrixC1(BinaryConfusionMatrix binaryConfusionMatrix,
+			DiagnosticChain diagnostics, Map<Object, Object> context) {
+		var pc = binaryConfusionMatrix.getPositiveClass();
+		var nc = binaryConfusionMatrix.getNegativeClass();
+		if (pc != null && nc != null && pc == nc) {
+			if (diagnostics != null) {
+				diagnostics.add(
+						createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic",
+								new Object[] { "The positive and negative classes must be different",
+										getObjectLabel(binaryConfusionMatrix, context) },
+								new Object[] { binaryConfusionMatrix }, context));
+			}
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * Validates the BinaryConfusionMatrixC2 constraint of '<em>Binary Confusion Matrix</em>'.
+	 * <!-- begin-user-doc -->
+	 * Negative is provided, but positive is not.
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean validateBinaryConfusionMatrix_BinaryConfusionMatrixC2(BinaryConfusionMatrix binaryConfusionMatrix,
+			DiagnosticChain diagnostics, Map<Object, Object> context) {
+		var pc = binaryConfusionMatrix.getPositiveClass();
+		var nc = binaryConfusionMatrix.getNegativeClass();
+		if (nc != null && pc == null) {
+			if (diagnostics != null) {
+				diagnostics.add(createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0,
+						"_UI_GenericConstraint_diagnostic",
+						new Object[] { "If you provide a negative class, you must also provide a positive class",
+								getObjectLabel(binaryConfusionMatrix, context) },
+						new Object[] { binaryConfusionMatrix }, context));
+			}
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateBinaryClassificationComponent(BinaryClassificationComponent binaryClassificationComponent,
+			DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(binaryClassificationComponent, diagnostics, context))
+			return false;
+		boolean result = validate_EveryMultiplicityConforms(binaryClassificationComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryDataValueConforms(binaryClassificationComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryReferenceIsContained(binaryClassificationComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryBidirectionalReferenceIsPaired(binaryClassificationComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryProxyResolves(binaryClassificationComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_UniqueID(binaryClassificationComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryKeyUnique(binaryClassificationComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryMapEntryUnique(binaryClassificationComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateComponent_ComponentC1(binaryClassificationComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateComponent_ComponentC2(binaryClassificationComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateComponent_ComponentC3(binaryClassificationComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateSoftwareComponent_SoftwareComponentC1(binaryClassificationComponent, diagnostics,
+					context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateMulticlassClassificationComponent(
+			MulticlassClassificationComponent multiclassClassificationComponent, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(multiclassClassificationComponent, diagnostics, context))
+			return false;
+		boolean result = validate_EveryMultiplicityConforms(multiclassClassificationComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryDataValueConforms(multiclassClassificationComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryReferenceIsContained(multiclassClassificationComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryBidirectionalReferenceIsPaired(multiclassClassificationComponent, diagnostics,
+					context);
+		if (result || diagnostics != null)
+			result &= validate_EveryProxyResolves(multiclassClassificationComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_UniqueID(multiclassClassificationComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryKeyUnique(multiclassClassificationComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryMapEntryUnique(multiclassClassificationComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateComponent_ComponentC1(multiclassClassificationComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateComponent_ComponentC2(multiclassClassificationComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateComponent_ComponentC3(multiclassClassificationComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateSoftwareComponent_SoftwareComponentC1(multiclassClassificationComponent, diagnostics,
+					context);
+		return result;
 	}
 
 	/**

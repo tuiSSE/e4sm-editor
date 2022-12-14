@@ -4,13 +4,19 @@ package e4sm.de.metamodel.e4sm.impl;
 
 import e4sm.de.metamodel.e4sm.Actor;
 import e4sm.de.metamodel.e4sm.Actuator;
+import e4sm.de.metamodel.e4sm.BinaryClassificationComponent;
+import e4sm.de.metamodel.e4sm.BinaryConfusionMatrix;
+import e4sm.de.metamodel.e4sm.ClassificationClass;
+import e4sm.de.metamodel.e4sm.ClassificationClassDistribution;
 import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.ComponentFiringStrategy;
+import e4sm.de.metamodel.e4sm.ConfusionMatrixEntry;
 import e4sm.de.metamodel.e4sm.Connector;
 import e4sm.de.metamodel.e4sm.ConversionByConvention;
 import e4sm.de.metamodel.e4sm.ConversionByPrefix;
 import e4sm.de.metamodel.e4sm.DataStore;
 import e4sm.de.metamodel.e4sm.DerivedUnit;
+import e4sm.de.metamodel.e4sm.Environment;
 import e4sm.de.metamodel.e4sm.ExternalDependency;
 import e4sm.de.metamodel.e4sm.Function;
 import e4sm.de.metamodel.e4sm.Heuristic;
@@ -21,6 +27,8 @@ import e4sm.de.metamodel.e4sm.LogicalConnector;
 import e4sm.de.metamodel.e4sm.MachineLearningComponent;
 import e4sm.de.metamodel.e4sm.MeasurementUnit;
 import e4sm.de.metamodel.e4sm.Model;
+import e4sm.de.metamodel.e4sm.MulticlassClassificationComponent;
+import e4sm.de.metamodel.e4sm.MulticlassConfusionMatrix;
 import e4sm.de.metamodel.e4sm.OutputPin;
 import e4sm.de.metamodel.e4sm.Person;
 import e4sm.de.metamodel.e4sm.PhysicalComponent;
@@ -148,6 +156,22 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 			return createImport();
 		case e4smPackage.DATA_STORE:
 			return createDataStore();
+		case e4smPackage.ENVIRONMENT:
+			return createEnvironment();
+		case e4smPackage.CLASSIFICATION_CLASS:
+			return createClassificationClass();
+		case e4smPackage.CLASSIFICATION_CLASS_DISTRIBUTION:
+			return createClassificationClassDistribution();
+		case e4smPackage.MULTICLASS_CONFUSION_MATRIX:
+			return createMulticlassConfusionMatrix();
+		case e4smPackage.CONFUSION_MATRIX_ENTRY:
+			return createConfusionMatrixEntry();
+		case e4smPackage.BINARY_CONFUSION_MATRIX:
+			return createBinaryConfusionMatrix();
+		case e4smPackage.BINARY_CLASSIFICATION_COMPONENT:
+			return createBinaryClassificationComponent();
+		case e4smPackage.MULTICLASS_CLASSIFICATION_COMPONENT:
+			return createMulticlassClassificationComponent();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -527,6 +551,94 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 	public DataStore createDataStore() {
 		DataStoreImpl dataStore = new DataStoreImpl();
 		return dataStore;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Environment createEnvironment() {
+		EnvironmentImpl environment = new EnvironmentImpl();
+		return environment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ClassificationClass createClassificationClass() {
+		ClassificationClassImpl classificationClass = new ClassificationClassImpl();
+		return classificationClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ClassificationClassDistribution createClassificationClassDistribution() {
+		ClassificationClassDistributionImpl classificationClassDistribution = new ClassificationClassDistributionImpl();
+		return classificationClassDistribution;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public MulticlassConfusionMatrix createMulticlassConfusionMatrix() {
+		MulticlassConfusionMatrixImpl multiclassConfusionMatrix = new MulticlassConfusionMatrixImpl();
+		return multiclassConfusionMatrix;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ConfusionMatrixEntry createConfusionMatrixEntry() {
+		ConfusionMatrixEntryImpl confusionMatrixEntry = new ConfusionMatrixEntryImpl();
+		return confusionMatrixEntry;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public BinaryConfusionMatrix createBinaryConfusionMatrix() {
+		BinaryConfusionMatrixImpl binaryConfusionMatrix = new BinaryConfusionMatrixImpl();
+		return binaryConfusionMatrix;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public BinaryClassificationComponent createBinaryClassificationComponent() {
+		BinaryClassificationComponentImpl binaryClassificationComponent = new BinaryClassificationComponentImpl();
+		return binaryClassificationComponent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public MulticlassClassificationComponent createMulticlassClassificationComponent() {
+		MulticlassClassificationComponentImpl multiclassClassificationComponent = new MulticlassClassificationComponentImpl();
+		return multiclassClassificationComponent;
 	}
 
 	/**
