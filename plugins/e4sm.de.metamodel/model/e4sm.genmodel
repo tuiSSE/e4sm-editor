@@ -197,9 +197,6 @@
       <genOperations ecoreOperation="e4sm.ecore#//MulticlassConfusionMatrix/computeClassF1Score">
         <genParameters ecoreParameter="e4sm.ecore#//MulticlassConfusionMatrix/computeClassF1Score/class"/>
       </genOperations>
-      <genOperations ecoreOperation="e4sm.ecore#//MulticlassConfusionMatrix/computeClassSpecificity">
-        <genParameters ecoreParameter="e4sm.ecore#//MulticlassConfusionMatrix/computeClassSpecificity/class"/>
-      </genOperations>
     </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//ConfusionMatrixEntry">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//ConfusionMatrixEntry/value"/>
@@ -226,7 +223,6 @@
       <genOperations ecoreOperation="e4sm.ecore#//ConfusionMatrix/computePrecision"/>
       <genOperations ecoreOperation="e4sm.ecore#//ConfusionMatrix/computeF1Score"/>
       <genOperations ecoreOperation="e4sm.ecore#//ConfusionMatrix/getHighestValue"/>
-      <genOperations ecoreOperation="e4sm.ecore#//ConfusionMatrix/computeSpecificity"/>
     </genClasses>
   </genPackages>
   <genPackages prefix="Core" basePackage="e4sm.de.metamodel.e4sm" ecorePackage="core.ecore#/">

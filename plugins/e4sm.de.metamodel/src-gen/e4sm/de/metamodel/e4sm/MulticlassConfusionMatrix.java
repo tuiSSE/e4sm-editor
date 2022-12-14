@@ -113,12 +113,4 @@ public interface MulticlassConfusionMatrix extends ConfusionMatrix {
 	 */
 	double computeClassF1Score(ClassificationClass class_);
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	double computeClassSpecificity(ClassificationClass class_);
-
 } // MulticlassConfusionMatrix

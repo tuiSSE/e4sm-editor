@@ -3614,22 +3614,13 @@ public interface e4smPackage extends EPackage {
 	int CONFUSION_MATRIX___GET_HIGHEST_VALUE = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 4;
 
 	/**
-	 * The operation id for the '<em>Compute Specificity</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONFUSION_MATRIX___COMPUTE_SPECIFICITY = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 5;
-
-	/**
 	 * The number of operations of the '<em>Confusion Matrix</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONFUSION_MATRIX_OPERATION_COUNT = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 6;
+	int CONFUSION_MATRIX_OPERATION_COUNT = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3702,15 +3693,6 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int MULTICLASS_CONFUSION_MATRIX___GET_HIGHEST_VALUE = CONFUSION_MATRIX___GET_HIGHEST_VALUE;
-
-	/**
-	 * The operation id for the '<em>Compute Specificity</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MULTICLASS_CONFUSION_MATRIX___COMPUTE_SPECIFICITY = CONFUSION_MATRIX___COMPUTE_SPECIFICITY;
 
 	/**
 	 * The operation id for the '<em>Get Classes</em>' operation.
@@ -3806,23 +3788,13 @@ public interface e4smPackage extends EPackage {
 			+ 9;
 
 	/**
-	 * The operation id for the '<em>Compute Class Specificity</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MULTICLASS_CONFUSION_MATRIX___COMPUTE_CLASS_SPECIFICITY__CLASSIFICATIONCLASS = CONFUSION_MATRIX_OPERATION_COUNT
-			+ 10;
-
-	/**
 	 * The number of operations of the '<em>Multiclass Confusion Matrix</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MULTICLASS_CONFUSION_MATRIX_OPERATION_COUNT = CONFUSION_MATRIX_OPERATION_COUNT + 11;
+	int MULTICLASS_CONFUSION_MATRIX_OPERATION_COUNT = CONFUSION_MATRIX_OPERATION_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -3985,15 +3957,6 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int BINARY_CONFUSION_MATRIX___GET_HIGHEST_VALUE = CONFUSION_MATRIX___GET_HIGHEST_VALUE;
-
-	/**
-	 * The operation id for the '<em>Compute Specificity</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BINARY_CONFUSION_MATRIX___COMPUTE_SPECIFICITY = CONFUSION_MATRIX___COMPUTE_SPECIFICITY;
 
 	/**
 	 * The number of operations of the '<em>Binary Confusion Matrix</em>' class.
@@ -5614,16 +5577,6 @@ public interface e4smPackage extends EPackage {
 	EOperation getMulticlassConfusionMatrix__ComputeClassF1Score__ClassificationClass();
 
 	/**
-	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.MulticlassConfusionMatrix#computeClassSpecificity(e4sm.de.metamodel.e4sm.ClassificationClass) <em>Compute Class Specificity</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Compute Class Specificity</em>' operation.
-	 * @see e4sm.de.metamodel.e4sm.MulticlassConfusionMatrix#computeClassSpecificity(e4sm.de.metamodel.e4sm.ClassificationClass)
-	 * @generated
-	 */
-	EOperation getMulticlassConfusionMatrix__ComputeClassSpecificity__ClassificationClass();
-
-	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.ConfusionMatrix <em>Confusion Matrix</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5682,16 +5635,6 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getConfusionMatrix__GetHighestValue();
-
-	/**
-	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.ConfusionMatrix#computeSpecificity() <em>Compute Specificity</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Compute Specificity</em>' operation.
-	 * @see e4sm.de.metamodel.e4sm.ConfusionMatrix#computeSpecificity()
-	 * @generated
-	 */
-	EOperation getConfusionMatrix__ComputeSpecificity();
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.ConfusionMatrixEntry <em>Confusion Matrix Entry</em>}'.
@@ -6961,15 +6904,6 @@ public interface e4smPackage extends EPackage {
 				.getMulticlassConfusionMatrix__ComputeClassF1Score__ClassificationClass();
 
 		/**
-		 * The meta object literal for the '<em><b>Compute Class Specificity</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation MULTICLASS_CONFUSION_MATRIX___COMPUTE_CLASS_SPECIFICITY__CLASSIFICATIONCLASS = eINSTANCE
-				.getMulticlassConfusionMatrix__ComputeClassSpecificity__ClassificationClass();
-
-		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.ConfusionMatrixImpl <em>Confusion Matrix</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7018,14 +6952,6 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation CONFUSION_MATRIX___GET_HIGHEST_VALUE = eINSTANCE.getConfusionMatrix__GetHighestValue();
-
-		/**
-		 * The meta object literal for the '<em><b>Compute Specificity</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation CONFUSION_MATRIX___COMPUTE_SPECIFICITY = eINSTANCE.getConfusionMatrix__ComputeSpecificity();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.ConfusionMatrixEntryImpl <em>Confusion Matrix Entry</em>}' class.
