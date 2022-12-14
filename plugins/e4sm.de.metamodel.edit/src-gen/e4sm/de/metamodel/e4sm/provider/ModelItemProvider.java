@@ -107,6 +107,8 @@ public class ModelItemProvider extends NamedElementItemProvider {
 			childrenFeatures.add(e4smPackage.Literals.MODEL__VARIANTS);
 			childrenFeatures.add(e4smPackage.Literals.MODEL__TYPES);
 			childrenFeatures.add(e4smPackage.Literals.MODEL__IMPORTS);
+			childrenFeatures.add(e4smPackage.Literals.MODEL__ENVIRONMENTS);
+			childrenFeatures.add(e4smPackage.Literals.MODEL__CLASSIFICATION_CLASSES);
 		}
 		return childrenFeatures;
 	}
@@ -180,6 +182,8 @@ public class ModelItemProvider extends NamedElementItemProvider {
 		case e4smPackage.MODEL__VARIANTS:
 		case e4smPackage.MODEL__TYPES:
 		case e4smPackage.MODEL__IMPORTS:
+		case e4smPackage.MODEL__ENVIRONMENTS:
+		case e4smPackage.MODEL__CLASSIFICATION_CLASSES:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -223,6 +227,12 @@ public class ModelItemProvider extends NamedElementItemProvider {
 
 		newChildDescriptors
 				.add(createChildParameter(e4smPackage.Literals.MODEL__IMPORTS, e4smFactory.eINSTANCE.createImport()));
+
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.MODEL__ENVIRONMENTS,
+				e4smFactory.eINSTANCE.createEnvironment()));
+
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.MODEL__CLASSIFICATION_CLASSES,
+				e4smFactory.eINSTANCE.createClassificationClass()));
 	}
 
 	/**

@@ -540,18 +540,6 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public void newOperation2() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -827,9 +815,6 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 		switch (operationID) {
 		case e4smPackage.COMPONENT___COMPUTE_MAIN_RESPONSIBLE:
 			return computeMainResponsible();
-		case e4smPackage.COMPONENT___NEW_OPERATION2:
-			newOperation2();
-			return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

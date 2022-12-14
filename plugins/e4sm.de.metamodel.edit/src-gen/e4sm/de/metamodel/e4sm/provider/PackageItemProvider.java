@@ -256,6 +256,12 @@ public class PackageItemProvider extends NamedElementItemProvider {
 		newChildDescriptors.add(
 				createChildParameter(e4smPackage.Literals.PACKAGE__COMPONENTS, e4smFactory.eINSTANCE.createActuator()));
 
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.PACKAGE__COMPONENTS,
+				e4smFactory.eINSTANCE.createBinaryClassificationComponent()));
+
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.PACKAGE__COMPONENTS,
+				e4smFactory.eINSTANCE.createMulticlassClassificationComponent()));
+
 		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.PACKAGE__CONNECTORS,
 				e4smFactory.eINSTANCE.createConnector()));
 
