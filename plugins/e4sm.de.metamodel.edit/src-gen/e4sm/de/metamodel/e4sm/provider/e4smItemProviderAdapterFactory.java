@@ -763,6 +763,190 @@ public class e4smItemProviderAdapterFactory extends e4smAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.Environment} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EnvironmentItemProvider environmentItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.Environment}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEnvironmentAdapter() {
+		if (environmentItemProvider == null) {
+			environmentItemProvider = new EnvironmentItemProvider(this);
+		}
+
+		return environmentItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.ClassificationClass} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ClassificationClassItemProvider classificationClassItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.ClassificationClass}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createClassificationClassAdapter() {
+		if (classificationClassItemProvider == null) {
+			classificationClassItemProvider = new ClassificationClassItemProvider(this);
+		}
+
+		return classificationClassItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.ClassificationClassDistribution} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ClassificationClassDistributionItemProvider classificationClassDistributionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.ClassificationClassDistribution}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createClassificationClassDistributionAdapter() {
+		if (classificationClassDistributionItemProvider == null) {
+			classificationClassDistributionItemProvider = new ClassificationClassDistributionItemProvider(this);
+		}
+
+		return classificationClassDistributionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.MulticlassConfusionMatrix} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MulticlassConfusionMatrixItemProvider multiclassConfusionMatrixItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.MulticlassConfusionMatrix}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMulticlassConfusionMatrixAdapter() {
+		if (multiclassConfusionMatrixItemProvider == null) {
+			multiclassConfusionMatrixItemProvider = new MulticlassConfusionMatrixItemProvider(this);
+		}
+
+		return multiclassConfusionMatrixItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.ConfusionMatrixEntry} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ConfusionMatrixEntryItemProvider confusionMatrixEntryItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.ConfusionMatrixEntry}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createConfusionMatrixEntryAdapter() {
+		if (confusionMatrixEntryItemProvider == null) {
+			confusionMatrixEntryItemProvider = new ConfusionMatrixEntryItemProvider(this);
+		}
+
+		return confusionMatrixEntryItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.BinaryConfusionMatrix} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BinaryConfusionMatrixItemProvider binaryConfusionMatrixItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.BinaryConfusionMatrix}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBinaryConfusionMatrixAdapter() {
+		if (binaryConfusionMatrixItemProvider == null) {
+			binaryConfusionMatrixItemProvider = new BinaryConfusionMatrixItemProvider(this);
+		}
+
+		return binaryConfusionMatrixItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.BinaryClassificationComponent} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BinaryClassificationComponentItemProvider binaryClassificationComponentItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.BinaryClassificationComponent}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBinaryClassificationComponentAdapter() {
+		if (binaryClassificationComponentItemProvider == null) {
+			binaryClassificationComponentItemProvider = new BinaryClassificationComponentItemProvider(this);
+		}
+
+		return binaryClassificationComponentItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.MulticlassClassificationComponent} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MulticlassClassificationComponentItemProvider multiclassClassificationComponentItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.MulticlassClassificationComponent}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMulticlassClassificationComponentAdapter() {
+		if (multiclassClassificationComponentItemProvider == null) {
+			multiclassClassificationComponentItemProvider = new MulticlassClassificationComponentItemProvider(this);
+		}
+
+		return multiclassClassificationComponentItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -927,6 +1111,22 @@ public class e4smItemProviderAdapterFactory extends e4smAdapterFactory
 			importItemProvider.dispose();
 		if (dataStoreItemProvider != null)
 			dataStoreItemProvider.dispose();
+		if (environmentItemProvider != null)
+			environmentItemProvider.dispose();
+		if (classificationClassItemProvider != null)
+			classificationClassItemProvider.dispose();
+		if (classificationClassDistributionItemProvider != null)
+			classificationClassDistributionItemProvider.dispose();
+		if (multiclassConfusionMatrixItemProvider != null)
+			multiclassConfusionMatrixItemProvider.dispose();
+		if (confusionMatrixEntryItemProvider != null)
+			confusionMatrixEntryItemProvider.dispose();
+		if (binaryConfusionMatrixItemProvider != null)
+			binaryConfusionMatrixItemProvider.dispose();
+		if (binaryClassificationComponentItemProvider != null)
+			binaryClassificationComponentItemProvider.dispose();
+		if (multiclassClassificationComponentItemProvider != null)
+			multiclassClassificationComponentItemProvider.dispose();
 	}
 
 }
