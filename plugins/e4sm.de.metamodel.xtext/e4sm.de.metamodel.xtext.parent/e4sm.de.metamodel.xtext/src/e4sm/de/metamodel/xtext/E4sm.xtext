@@ -19,7 +19,59 @@ Model returns Model:
 	(packages+=Package ("," packages+=Package)*)?
 	(actors+=Actor ("," actors+=Actor)*)?
 	(variants+=Variant ("," variants+=Variant)*)?
+	(classificationClasses+=ClassificationClass ("," classificationClasses+=ClassificationClass)*)?
+	(environments+=Environment ("," environments+=Environment)*)?
 	'}';
+	
+ClassificationClass returns ClassificationClass:
+	{ClassificationClass}
+	'cl' name=EString 
+;
+
+ClassificationClassDistribution returns ClassificationClassDistribution:
+	{ClassificationClassDistribution}
+	classificationClass=[ClassificationClass] probability=EDouble
+;
+
+
+Environment returns Environment:
+	{Environment}
+	'environment' name=EString
+	'{'
+		(classificationClasses+=ClassificationClassDistribution("," classificationClasses+=ClassificationClassDistribution)*)?
+	'}' 
+;
+
+
+ConfusionMatrix returns ConfusionMatrix:
+ BinaryConfusionMatrix | MulticlassConfusionMatrix
+;
+
+BinaryConfusionMatrix returns BinaryConfusionMatrix:
+	{BinaryConfusionMatrix}
+	'confusion' 'matrix' name=EString
+	('with' 'positive' positiveClass=[ClassificationClass|EString] (',' 'negative' negativeClass=[ClassificationClass|EString])?)?
+	'{'
+       'TP' PROPERTY_ASSIGN tp=EInt ',' 'FN' PROPERTY_ASSIGN fn=EInt
+       ',' 'FP' PROPERTY_ASSIGN fp=EInt ',' 'TN' PROPERTY_ASSIGN tn=EInt
+	'}'
+;
+
+MulticlassConfusionMatrix returns MulticlassConfusionMatrix:
+	{MulticlassConfusionMatrix}
+	'confusion' 'matrix' name=EString
+	'{'
+	(entries+=ConfusionMatrixEntry ("," entries+=ConfusionMatrixEntry)*)?
+	'}'
+;
+
+ConfusionMatrixEntry returns ConfusionMatrixEntry:
+	{ConfusionMatrixEntry}
+	truth=[ClassificationClass|EString] predicted=[ClassificationClass|EString] PROPERTY_ASSIGN value=EInt
+;
+
+
+
 
 Import returns Import:
 	{Import}
@@ -33,8 +85,11 @@ ValueSpecification returns core::ValueSpecification:
 	LiteralShort | LiteralByte | LiteralCharacter | LiteralDate;
 
 Component returns Component:
-	Component_Impl | MachineLearningComponent | PhysicalComponent_Impl | SoftwareComponent_Impl | Heuristic | Function |
+	Component_Impl | MachineLearningComponent | ClassificationComponent | PhysicalComponent_Impl | SoftwareComponent_Impl | Heuristic | Function |
 	ExternalDependency | Sensor | Actuator;
+	
+ClassificationComponent returns ClassificationComponent:
+BinaryClassificationComponent | MulticlassClassificationComponent;
 
 Connector returns Connector:
 	Connector_Impl | PhysicalConnector | LogicalConnector;
@@ -459,6 +514,46 @@ Person returns Person:
 	('pictureFileName' pictureFileName=EString)?
 	// ('responsibleForComponents' '(' responsibleForComponents+=[Component|EString] (","
 	// responsibleForComponents+=[Component|EString])* ')')?
+	'}';
+	
+MulticlassClassificationComponent returns MulticlassClassificationComponent:
+	{MulticlassClassificationComponent}
+	'multiclassClassificationComponent'
+	name=EString
+	'{'
+	('doc' PROPERTY_ASSIGN documentation=EString)?
+	('firingStrategy' firingStrategy=ComponentFiringStrategy)?
+	('takes' timeFunction=ComplexTimefunction)?
+	(pins+=Pin ("," pins+=Pin)*)?
+	('synchronous' synchronous=EBoolean)?
+	('numberOfServers' numberOfServers=EInt)?
+	('mainResponsible' mainResponsible=[Person|EString])?
+	('specifiedInPackage' specifiedInPackage=[Package|EString])?
+	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
+	('components' '{' components+=Component ("," components+=Component)* '}')?
+	('datastores' '{' datastores+=DataStore ("," datastores+=DataStore)* '}')?
+	('runs' '{' execution=Execution '}')?
+	('confusionMatrixes' '{' confusionMatrixes+=MulticlassConfusionMatrix ("," confusionMatrixes+=MulticlassConfusionMatrix)* '}')?
+	'}';
+	
+BinaryClassificationComponent returns BinaryClassificationComponent:
+	{BinaryClassificationComponent}
+	'binaryClassificationComponent'
+	name=EString
+	'{'
+	('doc' PROPERTY_ASSIGN documentation=EString)?
+	('firingStrategy' firingStrategy=ComponentFiringStrategy)?
+	('takes' timeFunction=ComplexTimefunction)?
+	(pins+=Pin ("," pins+=Pin)*)?
+	('synchronous' synchronous=EBoolean)?
+	('numberOfServers' numberOfServers=EInt)?
+	('mainResponsible' mainResponsible=[Person|EString])?
+	('specifiedInPackage' specifiedInPackage=[Package|EString])?
+	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
+	('components' '{' components+=Component ("," components+=Component)* '}')?
+	('datastores' '{' datastores+=DataStore ("," datastores+=DataStore)* '}')?
+	('runs' '{' execution=Execution '}')?
+	('confusionMatrixes' '{' confusionMatrixes+=BinaryConfusionMatrix ("," confusionMatrixes+=BinaryConfusionMatrix)* '}')?
 	'}';
 
 MachineLearningComponent returns MachineLearningComponent:
