@@ -397,7 +397,7 @@ public class BinaryConfusionMatrixImpl extends ConfusionMatrixImpl implements Bi
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Computes the macro recall
+	 * Computes the recall
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
@@ -414,7 +414,7 @@ public class BinaryConfusionMatrixImpl extends ConfusionMatrixImpl implements Bi
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Computes the macro precision
+	 * Computes the precision
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
@@ -425,6 +425,22 @@ public class BinaryConfusionMatrixImpl extends ConfusionMatrixImpl implements Bi
 			res = ((double) tp) / (tp + fp);
 		} catch (ArithmeticException e) {
 			System.out.println("Can not compute precision as the matrix TP and FP are empty");
+		}
+		return res;
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public double computeSpecificity() {
+		double res = -1.0;
+		try {
+			res = ((double) tn) / (tn + fp);
+		} catch (ArithmeticException e) {
+			System.out.println("Can not compute the specificity as the matrix TN and FP are empty");
 		}
 		return res;
 	}
@@ -445,7 +461,7 @@ public class BinaryConfusionMatrixImpl extends ConfusionMatrixImpl implements Bi
 		System.out.println("Can not compute the F1 Score");
 		return -1.0;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -454,12 +470,11 @@ public class BinaryConfusionMatrixImpl extends ConfusionMatrixImpl implements Bi
 	@Override
 	public int getHighestValue() {
 		var max = tp;
-		max = fn > max? fn : max;
-		max = fp > max? fp : max;
-		max = tn > max? tn : max;
+		max = fn > max ? fn : max;
+		max = fp > max ? fp : max;
+		max = tn > max ? tn : max;
 		return max;
 	}
-
 
 	/**
 	 * <!-- begin-user-doc -->

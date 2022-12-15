@@ -1701,6 +1701,16 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
+	public EOperation getMulticlassConfusionMatrix__ComputeClassSpecificity__ClassificationClass() {
+		return multiclassConfusionMatrixEClass.getEOperations().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getConfusionMatrix() {
 		return confusionMatrixEClass;
 	}
@@ -1753,6 +1763,16 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	@Override
 	public EOperation getConfusionMatrix__GetHighestValue() {
 		return confusionMatrixEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getConfusionMatrix__ComputeSpecificity() {
+		return confusionMatrixEClass.getEOperations().get(5);
 	}
 
 	/**
@@ -2144,6 +2164,8 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 				MULTICLASS_CONFUSION_MATRIX___COMPUTE_CLASS_PRECISION__CLASSIFICATIONCLASS);
 		createEOperation(multiclassConfusionMatrixEClass,
 				MULTICLASS_CONFUSION_MATRIX___COMPUTE_CLASS_F1_SCORE__CLASSIFICATIONCLASS);
+		createEOperation(multiclassConfusionMatrixEClass,
+				MULTICLASS_CONFUSION_MATRIX___COMPUTE_CLASS_SPECIFICITY__CLASSIFICATIONCLASS);
 
 		confusionMatrixEntryEClass = createEClass(CONFUSION_MATRIX_ENTRY);
 		createEAttribute(confusionMatrixEntryEClass, CONFUSION_MATRIX_ENTRY__VALUE);
@@ -2171,6 +2193,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		createEOperation(confusionMatrixEClass, CONFUSION_MATRIX___COMPUTE_PRECISION);
 		createEOperation(confusionMatrixEClass, CONFUSION_MATRIX___COMPUTE_F1_SCORE);
 		createEOperation(confusionMatrixEClass, CONFUSION_MATRIX___GET_HIGHEST_VALUE);
+		createEOperation(confusionMatrixEClass, CONFUSION_MATRIX___COMPUTE_SPECIFICITY);
 
 		// Create enums
 		queueTypeEEnum = createEEnum(QUEUE_TYPE);
@@ -2621,6 +2644,10 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 				theEcorePackage.getEDouble(), "computeClassF1Score", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getClassificationClass(), "class_", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		op = initEOperation(getMulticlassConfusionMatrix__ComputeClassSpecificity__ClassificationClass(),
+				theEcorePackage.getEDouble(), "computeClassSpecificity", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getClassificationClass(), "class_", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(confusionMatrixEntryEClass, ConfusionMatrixEntry.class, "ConfusionMatrixEntry", !IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getConfusionMatrixEntry_Value(), theCorePackage.getInteger(), "value", "0", 0, 1,
@@ -2684,6 +2711,9 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 
 		initEOperation(getConfusionMatrix__GetHighestValue(), theEcorePackage.getEInt(), "getHighestValue", 0, 1,
 				IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getConfusionMatrix__ComputeSpecificity(), theEcorePackage.getEDouble(), "computeSpecificity", 0,
+				1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(queueTypeEEnum, QueueType.class, "QueueType");
