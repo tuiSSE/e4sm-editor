@@ -1,0 +1,70 @@
+model Classification{
+	type Image{
+	int x,
+	int y
+}
+	package p{
+	sensor Source {
+		takes Det(33.33)
+		out out_FIcr
+	} ,
+	actuator Destination {
+		in in_4jxS
+	} ,
+	physicalComponent Pi {
+		out out_ypq2 ,
+		in in_YmDf 
+		components {binaryClassificationComponent binTest{
+		out out_AGJj ,
+		in in_actg
+		confusionMatrixes {
+			confusion matrix binaryTest with positive ausrichten{
+				TP:400, FN: 10, FP: 50, TN: 5
+			}
+		}
+		},
+			
+			 multiclassClassificationComponent clTest {
+		out out_CGJj ,
+		in in_bctg
+		// Test from here: https://docs.google.com/spreadsheets/d/1g3Q7_CNSxuSZLSb6_OA05No3XkFtw3Rys50eAhqbLYI/edit#gid=955388229
+		confusionMatrixes {confusion matrix test {
+ausrichten ausrichten:82,	ausrichten befestigen:3,	ausrichten umdrehen:0,	ausrichten einfuegen:10,	ausrichten hinlegen:0,	ausrichten aufheben:1,	ausrichten positionieren:0,	ausrichten schieben:0,	ausrichten rotieren:0,	ausrichten "gleiten lassen":0,	ausrichten drehen:1,	ausrichten festziehen:2,
+befestigen ausrichten:11,	befestigen befestigen:74,	befestigen umdrehen:0,	befestigen einfuegen:1,	befestigen hinlegen:0,	befestigen aufheben:4,	befestigen positionieren:1,	befestigen schieben:0,	befestigen rotieren:0,	befestigen "gleiten lassen":1,	befestigen drehen:3,	befestigen festziehen:5,
+umdrehen ausrichten:1,	umdrehen befestigen:3,	umdrehen umdrehen:76,	umdrehen einfuegen:0,	umdrehen hinlegen:0,	umdrehen aufheben:17,	umdrehen positionieren:0,	umdrehen schieben:0,	umdrehen rotieren:1,	umdrehen "gleiten lassen":0,	umdrehen drehen:1,	umdrehen festziehen:0,
+einfuegen ausrichten:14,	einfuegen befestigen:15,	einfuegen umdrehen:0,	einfuegen einfuegen:58,	einfuegen hinlegen:1,	einfuegen aufheben:6,	einfuegen positionieren:1,	einfuegen schieben:0,	einfuegen rotieren:1,	einfuegen "gleiten lassen":1,	einfuegen drehen:3,	einfuegen festziehen:1,
+hinlegen ausrichten:15,	hinlegen befestigen:7,	hinlegen umdrehen:0,	hinlegen einfuegen:0,	hinlegen hinlegen:26,	hinlegen aufheben:26,	hinlegen positionieren:6,	hinlegen schieben:6,	hinlegen rotieren:6,	hinlegen "gleiten lassen":1,	hinlegen drehen:0,	hinlegen festziehen:6,
+aufheben ausrichten:5,	aufheben befestigen:1,	aufheben umdrehen:3,	aufheben einfuegen:0,	aufheben hinlegen:1,	aufheben aufheben:86,	aufheben positionieren:0,	aufheben schieben:0,	aufheben rotieren:1,	aufheben "gleiten lassen":0,	aufheben drehen:0,	aufheben festziehen:1,
+positionieren ausrichten:8,	positionieren befestigen:3,	positionieren umdrehen:5,	positionieren einfuegen:0,	positionieren hinlegen:7,	positionieren aufheben:17,	positionieren positionieren:45,	positionieren schieben:0,	positionieren rotieren:7,	positionieren "gleiten lassen":0,	positionieren drehen:2,	positionieren festziehen:7,
+schieben ausrichten:20,	schieben befestigen:7,	schieben umdrehen:0,	schieben einfuegen:0,	schieben hinlegen:0,	schieben aufheben:27,	schieben positionieren:7,	schieben schieben:33,	schieben rotieren:7,	schieben "gleiten lassen":0,	schieben drehen:0,	schieben festziehen:0,
+rotieren ausrichten:10,	rotieren befestigen:1,	rotieren umdrehen:4,	rotieren einfuegen:1,	rotieren hinlegen:3,	rotieren aufheben:36,	rotieren positionieren:0,	rotieren schieben:6,	rotieren rotieren:29,	rotieren "gleiten lassen":0,	rotieren drehen:0,	rotieren festziehen:11,
+"gleiten lassen" ausrichten:2,	"gleiten lassen" befestigen:10,	"gleiten lassen" umdrehen:0,	"gleiten lassen" einfuegen:1,	"gleiten lassen" hinlegen:0,	"gleiten lassen" aufheben:2,	"gleiten lassen" positionieren:0,	"gleiten lassen" schieben:1,	"gleiten lassen" rotieren:0,	"gleiten lassen" "gleiten lassen":72,	"gleiten lassen" drehen:9,	"gleiten lassen" festziehen:2,
+drehen ausrichten:1,	drehen befestigen:2,	drehen umdrehen:0,	drehen einfuegen:0,	drehen hinlegen:0,	drehen aufheben:2,	drehen positionieren:0,	drehen schieben:0,	drehen rotieren:1,	drehen "gleiten lassen":0,	drehen drehen:92,	drehen festziehen:2,
+festziehen ausrichten:22,	festziehen befestigen:6,	festziehen umdrehen:1,	festziehen einfuegen:1,	festziehen hinlegen:0,	festziehen aufheben:7,	festziehen positionieren:0,	festziehen schieben:1,	festziehen rotieren:0,	festziehen "gleiten lassen":0,	festziehen drehen:6,	festziehen festziehen:55
+			}, confusion matrix simple {
+				P P:10,	P Q:13,	P R:19,	P S:25,
+Q P:5,	Q Q:545,	Q R:15,	Q S:20,
+R P:166,	R Q:90,	R R:11,	R S:5,
+S P:4,	S Q:1,	S R:5,	S S:3
+				
+			}
+		}
+	}
+ } }
+	physicalConnector con_PFko "Source.out_FIcr" -> "Pi.in_YmDf" ,
+	physicalConnector con_sweq "Pi.out_ypq2" -> "Destination.in_4jxS" ,
+	logicalConnector con_9O3j "Pi.in_YmDf" -> "Pi.clTest.in_bctg" ,
+	logicalConnector con_vFG3 "Pi.clTest.out_CGJj" -> "Pi.out_ypq2" ,
+	logicalConnector con_SXFE "Pi.in_YmDf" -> "Pi.binTest.in_actg" ,
+	logicalConnector con_Owa0 "Pi.binTest.out_AGJj" -> "Pi.out_ypq2" }
+	
+	// Classification classes
+	cl ausrichten, cl befestigen, cl umdrehen, cl einfuegen, cl hinlegen, cl aufheben, cl positionieren, cl schieben, cl rotieren, cl "gleiten lassen", cl drehen, cl festziehen, cl P, cl Q, cl R, cl S
+	
+	environment e1 {
+		ausrichten 0.30,
+		befestigen 0.10,
+		umdrehen 0.01,
+		einfuegen 0.59
+	}
+}
