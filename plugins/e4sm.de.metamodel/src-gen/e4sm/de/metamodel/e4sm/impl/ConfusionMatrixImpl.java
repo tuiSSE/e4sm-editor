@@ -95,6 +95,18 @@ public abstract class ConfusionMatrixImpl extends NamedElementImpl implements Co
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public double computeSpecificity() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -111,6 +123,8 @@ public abstract class ConfusionMatrixImpl extends NamedElementImpl implements Co
 			return computeF1Score();
 		case e4smPackage.CONFUSION_MATRIX___GET_HIGHEST_VALUE:
 			return getHighestValue();
+		case e4smPackage.CONFUSION_MATRIX___COMPUTE_SPECIFICITY:
+			return computeSpecificity();
 		}
 		return super.eInvoke(operationID, arguments);
 	}
