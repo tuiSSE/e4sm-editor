@@ -483,6 +483,9 @@
     <eOperations name="computeClassF1Score" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble">
       <eParameters name="class" eType="#//ClassificationClass"/>
     </eOperations>
+    <eOperations name="computeClassSpecificity" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble">
+      <eParameters name="class" eType="#//ClassificationClass"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="entries" upperBound="-1"
         eType="#//ConfusionMatrixEntry" containment="true"/>
   </eClassifiers>
@@ -525,5 +528,6 @@
     <eOperations name="computePrecision" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
     <eOperations name="computeF1Score" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
     <eOperations name="getHighestValue" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
+    <eOperations name="computeSpecificity" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
   </eClassifiers>
 </ecore:EPackage>
