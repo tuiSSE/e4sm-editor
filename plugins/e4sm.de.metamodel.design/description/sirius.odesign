@@ -1590,9 +1590,10 @@
         <defaultBackground backgroundColor="//@userColorsPalettes[name='E4SMColors']/@entries[name='binary_confusion_matrix_cell_tn_color']"/>
       </ownedColumnMappings>
       <ownedColumnMappings name="feature_col_accuracy" label="Accuracy" headerLabelExpression="Accuracy" canEdit="false" featureName="name" labelExpression="aql:self.computeAccuracy()"/>
-      <ownedColumnMappings name="feature_col_recall" label="Recall" headerLabelExpression="Recall" canEdit="false" featureName="name" labelExpression="aql:self.computeRecall()"/>
+      <ownedColumnMappings name="feature_col_recall" label="Recall" headerLabelExpression="Recall/TPR/Sensitivity" canEdit="false" featureName="name" labelExpression="aql:self.computeRecall()"/>
       <ownedColumnMappings name="feature_col_precision" label="Precision" headerLabelExpression="Precision" canEdit="false" featureName="name" labelExpression="aql:self.computePrecision()"/>
       <ownedColumnMappings name="feature_col_f1_score" label="F1 Score" headerLabelExpression="F1 Score" canEdit="false" featureName="name" labelExpression="aql:self.computeF1Score()"/>
+      <ownedColumnMappings name="feature_col_specificity" label="Specificity" headerLabelExpression="Specificity" canEdit="false" featureName="name" labelExpression="aql:self.computeSpecificity()"/>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="e4sm.de.metamodel.design.Services"/>
     <ownedJavaExtensions qualifiedClassName="e4sm.de.metamodel.design.ConnectorServices"/>

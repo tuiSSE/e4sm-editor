@@ -269,7 +269,36 @@ public class MulticlassConfusionMatrixImpl extends ConfusionMatrixImpl implement
 		double precision = this.computeClassPrecision(class_);
 		return 2 * (recall * precision) / (recall + precision);
 	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public double computeClassSpecificity(ClassificationClass class_) {
+		double fp, tn;
+		fp = this.getFP(class_);
+		tn = this.getTN(class_);
+		return (tn) / (tn + fp);
+	}
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * computes the macro specificity
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public double computeSpecificity() {
+		var classes = this.getClasses();
+		double specificitySum = 0;
+		for (int i = 0; i < classes.size(); i++) {
+			specificitySum += this.computeClassSpecificity(classes.get(i));
+		}
+		return specificitySum / classes.size();		
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -277,7 +306,7 @@ public class MulticlassConfusionMatrixImpl extends ConfusionMatrixImpl implement
 	 */
 	@Override
 	public int getHighestValue() {
-		return this.entries.stream().mapToInt(e->e.getValue()).max().orElse(0);
+		return this.entries.stream().mapToInt(e -> e.getValue()).max().orElse(0);
 	}
 
 	/**
@@ -382,6 +411,8 @@ public class MulticlassConfusionMatrixImpl extends ConfusionMatrixImpl implement
 			return computeClassPrecision((ClassificationClass) arguments.get(0));
 		case e4smPackage.MULTICLASS_CONFUSION_MATRIX___COMPUTE_CLASS_F1_SCORE__CLASSIFICATIONCLASS:
 			return computeClassF1Score((ClassificationClass) arguments.get(0));
+		case e4smPackage.MULTICLASS_CONFUSION_MATRIX___COMPUTE_CLASS_SPECIFICITY__CLASSIFICATIONCLASS:
+			return computeClassSpecificity((ClassificationClass) arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

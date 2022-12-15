@@ -55,4 +55,12 @@ public interface ConfusionMatrix extends NamedElement {
 	 */
 	int getHighestValue();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	double computeSpecificity();
+
 } // ConfusionMatrix
