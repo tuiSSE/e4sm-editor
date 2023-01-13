@@ -67,5 +67,29 @@
             path="model/e4sm.history">
       </migrator>
    </extension>
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="org.eclipse.e4.ui.workbench.swt.E4Application"
+            name="E4SM">
+         <property
+               name="appName"
+               value="E4SM">
+         </property>
+      </product>
+   </extension>
+   <extension
+         id="customIDE"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="org.eclipse.ui.ide.workbench"
+            name="E4SM IDE">
+         <property
+               name="appName"
+               value="E4SM IDE">
+         </property>
+      </product>
+   </extension>
 
 </plugin>
