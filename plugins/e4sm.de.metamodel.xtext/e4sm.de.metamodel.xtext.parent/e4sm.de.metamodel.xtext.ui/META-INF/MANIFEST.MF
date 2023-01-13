@@ -18,7 +18,7 @@ Require-Bundle: e4sm.de.metamodel.xtext,
  org.eclipse.compare,
  org.eclipse.xtext.builder
 Import-Package: org.apache.log4j
-Bundle-RequiredExecutionEnvironment: JavaSE-17
+Bundle-RequiredExecutionEnvironment: JavaSE-19
 Export-Package: e4sm.de.metamodel.xtext.ui.contentassist,
  e4sm.de.metamodel.xtext.ui.internal,
  e4sm.de.metamodel.xtext.ui.quickfix

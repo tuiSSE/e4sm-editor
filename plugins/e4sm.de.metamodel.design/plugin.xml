@@ -14,4 +14,24 @@
            id="e4sm.de.metamodel.design.OpenEmbeddedEditor">
      </javaActions>
   </extension>
+  <extension
+        id="CustomIDE"
+        point="org.eclipse.core.runtime.products">
+     <product
+           application="org.eclipse.ui.ide.workbench"
+           name="E4SM IDE">
+        <property
+              name="appName"
+              value="E4SM IDE">
+        </property>
+        <property
+              name="windowImages"
+              value="platform:/plugin/e4sm.de.metamodel.branding/icons/logo_16.gif,platform:/plugin/e4sm.de.metamodel.branding/icons/logo_32.gif,platform:/plugin/e4sm.de.metamodel.branding/icons/logo_64.gif,platform:/plugin/e4sm.de.metamodel.branding/icons/logo_64.gif,platform:/plugin/e4sm.de.metamodel.branding/icons/logo_64.gif,platform:/plugin/e4sm.de.metamodel.branding/icons/logo_64.gif">
+        </property>
+        <property
+              name="aboutImage"
+              value="platform:/plugin/e4sm.de.metamodel.branding/icons/logo_64.gif">
+        </property>
+     </product>
+  </extension>
 </plugin>
