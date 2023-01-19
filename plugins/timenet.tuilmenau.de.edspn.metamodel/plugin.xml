@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated eDSPN -->
+      <package
+            uri="http://timenet.tu-ilmenau.de/schema/eDSPN"
+            class="de.ilmenau.tu.timenet.schema.eDSPN.EDSPNPackage"
+            genModel="model/eDSPN.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated eDSPN -->
+      <parser
+            type="edspn"
+            class="de.ilmenau.tu.timenet.schema.eDSPN.util.EDSPNResourceFactoryImpl"/>
+   </extension>
+
+</plugin>

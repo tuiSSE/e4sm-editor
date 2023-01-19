@@ -8,13 +8,6 @@
     </component>
   </extension>
   <extension
-        point="org.eclipse.sirius.externalJavaAction">
-     <javaActions
-           actionClass="e4sm.de.metamodel.design.OpenEmbeddedEditor"
-           id="e4sm.de.metamodel.design.OpenEmbeddedEditor">
-     </javaActions>
-  </extension>
-  <extension
         id="CustomIDE"
         point="org.eclipse.core.runtime.products">
      <product

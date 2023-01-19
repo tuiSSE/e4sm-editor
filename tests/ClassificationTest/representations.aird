@@ -9,7 +9,7 @@
         <description xmi:type="description_1:EditionTableDescription" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='table_docs']"/>
         <target xmi:type="e4sm:Model" href="cl.e4smcode#/"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_s4hj0HoXEe2x35S0q7ADlg" name="[DTD] clTest" repPath="#_s4Oo4HoXEe2x35S0q7ADlg" changeId="7748e533-ba6f-4afc-8576-5ac4e8b88f59">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_s4hj0HoXEe2x35S0q7ADlg" name="[DTD] clTest" repPath="#_s4Oo4HoXEe2x35S0q7ADlg" changeId="559ef267-c7e3-4fa9-8ba2-8e087e161494">
         <description xmi:type="description_2:DiagramDescription" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']"/>
         <target xmi:type="e4sm:Package" href="cl.e4smcode#//@packages.0"/>
       </ownedRepresentationDescriptors>
@@ -472,13 +472,13 @@
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_fYyLwHoYEe2x35S0q7ADlg" type="4001" element="_fYpo4HoYEe2x35S0q7ADlg" source="_2sxFFXoXEe2x35S0q7ADlg" target="_zo_LBHoXEe2x35S0q7ADlg">
           <children xmi:type="notation:Node" xmi:id="_fYyy0HoYEe2x35S0q7ADlg" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_fYyy0XoYEe2x35S0q7ADlg" y="-10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_fYyy0XoYEe2x35S0q7ADlg" x="-7" y="-10"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_fYyy0noYEe2x35S0q7ADlg" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_fYyy03oYEe2x35S0q7ADlg" y="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_fYyy03oYEe2x35S0q7ADlg" x="-1" y="7"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_fYyy1HoYEe2x35S0q7ADlg" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_fYyy1XoYEe2x35S0q7ADlg" y="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_fYyy1XoYEe2x35S0q7ADlg" y="8"/>
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_fYyLwXoYEe2x35S0q7ADlg"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_fYyLwnoYEe2x35S0q7ADlg" fontName="Segoe UI" fontHeight="10" italic="true"/>
