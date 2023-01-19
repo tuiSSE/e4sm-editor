@@ -1,0 +1,14 @@
+library transformTypes;
+import SCPNConstructors;
+import SCPNHelpers;
+
+modeltype e4sm "strict" uses e4sm("http://de.tu-ilmenau/e4sm/1.0.0");
+modeltype core "strict" uses core("http://de.tu-ilmenau/e4sm/core/1.0.0");
+modeltype scpn "strict" uses scpn("http://timenet.tu-ilmenau.de/schema/SCPN");
+
+// property typesCount : Integer = 0;
+
+mapping Component::transformComponent() : pl: List(PlaceType), iTr : List(TransitionType), arcs : List (ArcType),
+tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : List(MeasureType) when {self.oclIsKindOf(e4sm::ClassificationComponent)} {
+	log("\nTransforming classification component " +  self.name);
+}
