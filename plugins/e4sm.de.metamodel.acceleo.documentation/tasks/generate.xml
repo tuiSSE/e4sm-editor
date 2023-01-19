@@ -6,7 +6,6 @@
     <!-- The classpath with only the dependencies used by the project -->
     <path id="e4sm.de.metamodel.acceleo.documentation.libraryclasspath">
         <pathelement location="${ECLIPSE_WORKSPACE}/e4sm.de.metamodel.acceleo.documentation/bin"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_19.0.1.v20221102-1007/jre/lib/jrt-fs.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.osgi.annotation.versioning_1.1.2.202109301733.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.osgi.annotation.bundle_2.0.0.202202082230.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.osgi.service.component.annotations_1.5.0.202109301733.jar"/>
