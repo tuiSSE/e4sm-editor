@@ -1,0 +1,1719 @@
+/**
+ */
+package abcd.xy.metamodel.abcd.analysis;
+
+import abcd.xy.metamodel.abcd.core.CorePackage;
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EOperation;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+
+/**
+ * <!-- begin-user-doc -->
+ * The <b>Package</b> for the model.
+ * It contains accessors for the meta objects to represent
+ * <ul>
+ *   <li>each class,</li>
+ *   <li>each feature of each class,</li>
+ *   <li>each operation of each class,</li>
+ *   <li>each enum,</li>
+ *   <li>and each data type</li>
+ * </ul>
+ * <!-- end-user-doc -->
+ * @see abcd.xy.metamodel.abcd.analysis.AnalysisFactory
+ * @model kind="package"
+ * @generated
+ */
+public interface AnalysisPackage extends EPackage {
+	/**
+	 * The package name.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String eNAME = "analysis";
+
+	/**
+	 * The package namespace URI.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String eNS_URI = "http://de.tu-ilmenau/abcd/analysis/1.0.0";
+
+	/**
+	 * The package namespace name.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String eNS_PREFIX = "analysis";
+
+	/**
+	 * The singleton instance of the package.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	AnalysisPackage eINSTANCE = abcd.xy.metamodel.abcd.analysis.impl.AnalysisPackageImpl.init();
+
+	/**
+	 * The meta object id for the '{@link abcd.xy.metamodel.abcd.analysis.impl.AnalysisManagerImpl <em>Manager</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see abcd.xy.metamodel.abcd.analysis.impl.AnalysisManagerImpl
+	 * @see abcd.xy.metamodel.abcd.analysis.impl.AnalysisPackageImpl#getAnalysisManager()
+	 * @generated
+	 */
+	int ANALYSIS_MANAGER = 1;
+
+	/**
+	 * The meta object id for the '{@link abcd.xy.metamodel.abcd.analysis.impl.AnalysisDefinitionImpl <em>Definition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see abcd.xy.metamodel.abcd.analysis.impl.AnalysisDefinitionImpl
+	 * @see abcd.xy.metamodel.abcd.analysis.impl.AnalysisPackageImpl#getAnalysisDefinition()
+	 * @generated
+	 */
+	int ANALYSIS_DEFINITION = 2;
+
+	/**
+	 * The meta object id for the '{@link abcd.xy.metamodel.abcd.analysis.impl.ParameterDefinitionImpl <em>Parameter Definition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see abcd.xy.metamodel.abcd.analysis.impl.ParameterDefinitionImpl
+	 * @see abcd.xy.metamodel.abcd.analysis.impl.AnalysisPackageImpl#getParameterDefinition()
+	 * @generated
+	 */
+	int PARAMETER_DEFINITION = 3;
+
+	/**
+	 * The meta object id for the '{@link abcd.xy.metamodel.abcd.analysis.impl.ParameterImpl <em>Parameter</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see abcd.xy.metamodel.abcd.analysis.impl.ParameterImpl
+	 * @see abcd.xy.metamodel.abcd.analysis.impl.AnalysisPackageImpl#getParameter()
+	 * @generated
+	 */
+	int PARAMETER = 4;
+
+	/**
+	 * The meta object id for the '{@link abcd.xy.metamodel.abcd.analysis.impl.AnalysisImpl <em>Analysis</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see abcd.xy.metamodel.abcd.analysis.impl.AnalysisImpl
+	 * @see abcd.xy.metamodel.abcd.analysis.impl.AnalysisPackageImpl#getAnalysis()
+	 * @generated
+	 */
+	int ANALYSIS = 0;
+
+	/**
+	 * The meta object id for the '{@link abcd.xy.metamodel.abcd.analysis.impl.ModelAnalysisImpl <em>Model Analysis</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see abcd.xy.metamodel.abcd.analysis.impl.ModelAnalysisImpl
+	 * @see abcd.xy.metamodel.abcd.analysis.impl.AnalysisPackageImpl#getModelAnalysis()
+	 * @generated
+	 */
+	int MODEL_ANALYSIS = 5;
+
+	/**
+	 * The meta object id for the '{@link abcd.xy.metamodel.abcd.analysis.impl.GraphAnalysisImpl <em>Graph Analysis</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see abcd.xy.metamodel.abcd.analysis.impl.GraphAnalysisImpl
+	 * @see abcd.xy.metamodel.abcd.analysis.impl.AnalysisPackageImpl#getGraphAnalysis()
+	 * @generated
+	 */
+	int GRAPH_ANALYSIS = 6;
+
+	/**
+	 * The meta object id for the '{@link abcd.xy.metamodel.abcd.analysis.impl.MemoryLessGraphAnalysisImpl <em>Memory Less Graph Analysis</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see abcd.xy.metamodel.abcd.analysis.impl.MemoryLessGraphAnalysisImpl
+	 * @see abcd.xy.metamodel.abcd.analysis.impl.AnalysisPackageImpl#getMemoryLessGraphAnalysis()
+	 * @generated
+	 */
+	int MEMORY_LESS_GRAPH_ANALYSIS = 7;
+
+	/**
+	 * The meta object id for the '{@link abcd.xy.metamodel.abcd.analysis.impl.EntireGraphAnalysisImpl <em>Entire Graph Analysis</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see abcd.xy.metamodel.abcd.analysis.impl.EntireGraphAnalysisImpl
+	 * @see abcd.xy.metamodel.abcd.analysis.impl.AnalysisPackageImpl#getEntireGraphAnalysis()
+	 * @generated
+	 */
+	int ENTIRE_GRAPH_ANALYSIS = 8;
+
+	/**
+	 * The meta object id for the '{@link abcd.xy.metamodel.abcd.analysis.impl.PackageAnalysisImpl <em>Package Analysis</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see abcd.xy.metamodel.abcd.analysis.impl.PackageAnalysisImpl
+	 * @see abcd.xy.metamodel.abcd.analysis.impl.AnalysisPackageImpl#getPackageAnalysis()
+	 * @generated
+	 */
+	int PACKAGE_ANALYSIS = 9;
+
+	/**
+	 * The meta object id for the '{@link abcd.xy.metamodel.abcd.analysis.impl.PreviousNodeGraphAnalysisImpl <em>Previous Node Graph Analysis</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see abcd.xy.metamodel.abcd.analysis.impl.PreviousNodeGraphAnalysisImpl
+	 * @see abcd.xy.metamodel.abcd.analysis.impl.AnalysisPackageImpl#getPreviousNodeGraphAnalysis()
+	 * @generated
+	 */
+	int PREVIOUS_NODE_GRAPH_ANALYSIS = 10;
+
+	/**
+	 * The number of structural features of the '<em>Analysis</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS_FEATURE_COUNT = 0;
+
+	/**
+	 * The operation id for the '<em>Exec</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS___EXEC = 0;
+
+	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS___INIT = 1;
+
+	/**
+	 * The operation id for the '<em>Post Execution</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS___POST_EXECUTION = 2;
+
+	/**
+	 * The operation id for the '<em>Run</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS___RUN = 3;
+
+	/**
+	 * The number of operations of the '<em>Analysis</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS_OPERATION_COUNT = 4;
+
+	/**
+	 * The number of structural features of the '<em>Manager</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS_MANAGER_FEATURE_COUNT = 0;
+
+	/**
+	 * The operation id for the '<em>Start</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS_MANAGER___START__ELIST = 0;
+
+	/**
+	 * The operation id for the '<em>Store Result</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS_MANAGER___STORE_RESULT__ANALYSISEXECUTION = 1;
+
+	/**
+	 * The number of operations of the '<em>Manager</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS_MANAGER_OPERATION_COUNT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS_DEFINITION__NAME = CorePackage.NAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Parameter Definitions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS_DEFINITION__PARAMETER_DEFINITIONS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Analysis</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS_DEFINITION__ANALYSIS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Definition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS_DEFINITION_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Definition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS_DEFINITION_OPERATION_COUNT = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_DEFINITION__NAME = CorePackage.TYPED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_DEFINITION__TYPE = CorePackage.TYPED_ELEMENT__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_DEFINITION__PARAMETERS = CorePackage.TYPED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Unit</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_DEFINITION__UNIT = CorePackage.TYPED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Must Be Defined On</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_DEFINITION__MUST_BE_DEFINED_ON = CorePackage.TYPED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Can Be Defined On</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_DEFINITION__CAN_BE_DEFINED_ON = CorePackage.TYPED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Shall Not Be Defined On</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_DEFINITION__SHALL_NOT_BE_DEFINED_ON = CorePackage.TYPED_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Default Value</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_DEFINITION__DEFAULT_VALUE = CorePackage.TYPED_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
+	 * The number of structural features of the '<em>Parameter Definition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_DEFINITION_FEATURE_COUNT = CorePackage.TYPED_ELEMENT_FEATURE_COUNT + 6;
+
+	/**
+	 * The number of operations of the '<em>Parameter Definition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_DEFINITION_OPERATION_COUNT = CorePackage.TYPED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Parameter Definition</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__PARAMETER_DEFINITION = CorePackage.ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Applies Only On Variants</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__APPLIES_ONLY_ON_VARIANTS = CorePackage.ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Does Not Apply On Variants</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__DOES_NOT_APPLY_ON_VARIANTS = CorePackage.ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Initial Value</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__INITIAL_VALUE = CorePackage.ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Current Value</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__CURRENT_VALUE = CorePackage.ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of structural features of the '<em>Parameter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_FEATURE_COUNT = CorePackage.ELEMENT_FEATURE_COUNT + 5;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER___IS_VALID = CorePackage.ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Parameter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_OPERATION_COUNT = CorePackage.ELEMENT_OPERATION_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Model Analysis</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL_ANALYSIS_FEATURE_COUNT = ANALYSIS_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Exec</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL_ANALYSIS___EXEC = ANALYSIS___EXEC;
+
+	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL_ANALYSIS___INIT = ANALYSIS___INIT;
+
+	/**
+	 * The operation id for the '<em>Post Execution</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL_ANALYSIS___POST_EXECUTION = ANALYSIS___POST_EXECUTION;
+
+	/**
+	 * The operation id for the '<em>Run</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL_ANALYSIS___RUN = ANALYSIS___RUN;
+
+	/**
+	 * The number of operations of the '<em>Model Analysis</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL_ANALYSIS_OPERATION_COUNT = ANALYSIS_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Graph</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH_ANALYSIS__GRAPH = ANALYSIS_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Graph Analysis</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH_ANALYSIS_FEATURE_COUNT = ANALYSIS_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Exec</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH_ANALYSIS___EXEC = ANALYSIS___EXEC;
+
+	/**
+	 * The operation id for the '<em>Post Execution</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH_ANALYSIS___POST_EXECUTION = ANALYSIS___POST_EXECUTION;
+
+	/**
+	 * The operation id for the '<em>Run</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH_ANALYSIS___RUN = ANALYSIS___RUN;
+
+	/**
+	 * The operation id for the '<em>Init Graph</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH_ANALYSIS___INIT_GRAPH = ANALYSIS_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH_ANALYSIS___INIT = ANALYSIS_OPERATION_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Graph Analysis</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH_ANALYSIS_OPERATION_COUNT = ANALYSIS_OPERATION_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Graph</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMORY_LESS_GRAPH_ANALYSIS__GRAPH = GRAPH_ANALYSIS__GRAPH;
+
+	/**
+	 * The number of structural features of the '<em>Memory Less Graph Analysis</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMORY_LESS_GRAPH_ANALYSIS_FEATURE_COUNT = GRAPH_ANALYSIS_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Exec</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMORY_LESS_GRAPH_ANALYSIS___EXEC = GRAPH_ANALYSIS___EXEC;
+
+	/**
+	 * The operation id for the '<em>Post Execution</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMORY_LESS_GRAPH_ANALYSIS___POST_EXECUTION = GRAPH_ANALYSIS___POST_EXECUTION;
+
+	/**
+	 * The operation id for the '<em>Run</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMORY_LESS_GRAPH_ANALYSIS___RUN = GRAPH_ANALYSIS___RUN;
+
+	/**
+	 * The operation id for the '<em>Init Graph</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMORY_LESS_GRAPH_ANALYSIS___INIT_GRAPH = GRAPH_ANALYSIS___INIT_GRAPH;
+
+	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMORY_LESS_GRAPH_ANALYSIS___INIT = GRAPH_ANALYSIS___INIT;
+
+	/**
+	 * The number of operations of the '<em>Memory Less Graph Analysis</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMORY_LESS_GRAPH_ANALYSIS_OPERATION_COUNT = GRAPH_ANALYSIS_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Graph</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTIRE_GRAPH_ANALYSIS__GRAPH = GRAPH_ANALYSIS__GRAPH;
+
+	/**
+	 * The number of structural features of the '<em>Entire Graph Analysis</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTIRE_GRAPH_ANALYSIS_FEATURE_COUNT = GRAPH_ANALYSIS_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Exec</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTIRE_GRAPH_ANALYSIS___EXEC = GRAPH_ANALYSIS___EXEC;
+
+	/**
+	 * The operation id for the '<em>Post Execution</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTIRE_GRAPH_ANALYSIS___POST_EXECUTION = GRAPH_ANALYSIS___POST_EXECUTION;
+
+	/**
+	 * The operation id for the '<em>Run</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTIRE_GRAPH_ANALYSIS___RUN = GRAPH_ANALYSIS___RUN;
+
+	/**
+	 * The operation id for the '<em>Init Graph</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTIRE_GRAPH_ANALYSIS___INIT_GRAPH = GRAPH_ANALYSIS___INIT_GRAPH;
+
+	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTIRE_GRAPH_ANALYSIS___INIT = GRAPH_ANALYSIS___INIT;
+
+	/**
+	 * The number of operations of the '<em>Entire Graph Analysis</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTIRE_GRAPH_ANALYSIS_OPERATION_COUNT = GRAPH_ANALYSIS_OPERATION_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Package Analysis</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE_ANALYSIS_FEATURE_COUNT = ANALYSIS_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Exec</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE_ANALYSIS___EXEC = ANALYSIS___EXEC;
+
+	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE_ANALYSIS___INIT = ANALYSIS___INIT;
+
+	/**
+	 * The operation id for the '<em>Post Execution</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE_ANALYSIS___POST_EXECUTION = ANALYSIS___POST_EXECUTION;
+
+	/**
+	 * The operation id for the '<em>Run</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE_ANALYSIS___RUN = ANALYSIS___RUN;
+
+	/**
+	 * The number of operations of the '<em>Package Analysis</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE_ANALYSIS_OPERATION_COUNT = ANALYSIS_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Graph</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PREVIOUS_NODE_GRAPH_ANALYSIS__GRAPH = GRAPH_ANALYSIS__GRAPH;
+
+	/**
+	 * The number of structural features of the '<em>Previous Node Graph Analysis</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PREVIOUS_NODE_GRAPH_ANALYSIS_FEATURE_COUNT = GRAPH_ANALYSIS_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Exec</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PREVIOUS_NODE_GRAPH_ANALYSIS___EXEC = GRAPH_ANALYSIS___EXEC;
+
+	/**
+	 * The operation id for the '<em>Post Execution</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PREVIOUS_NODE_GRAPH_ANALYSIS___POST_EXECUTION = GRAPH_ANALYSIS___POST_EXECUTION;
+
+	/**
+	 * The operation id for the '<em>Run</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PREVIOUS_NODE_GRAPH_ANALYSIS___RUN = GRAPH_ANALYSIS___RUN;
+
+	/**
+	 * The operation id for the '<em>Init Graph</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PREVIOUS_NODE_GRAPH_ANALYSIS___INIT_GRAPH = GRAPH_ANALYSIS___INIT_GRAPH;
+
+	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PREVIOUS_NODE_GRAPH_ANALYSIS___INIT = GRAPH_ANALYSIS___INIT;
+
+	/**
+	 * The number of operations of the '<em>Previous Node Graph Analysis</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PREVIOUS_NODE_GRAPH_ANALYSIS_OPERATION_COUNT = GRAPH_ANALYSIS_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link abcd.xy.metamodel.abcd.analysis.impl.NetworkGeneratorImpl <em>Network Generator</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see abcd.xy.metamodel.abcd.analysis.impl.NetworkGeneratorImpl
+	 * @see abcd.xy.metamodel.abcd.analysis.impl.AnalysisPackageImpl#getNetworkGenerator()
+	 * @generated
+	 */
+	int NETWORK_GENERATOR = 11;
+
+	/**
+	 * The number of structural features of the '<em>Network Generator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NETWORK_GENERATOR_FEATURE_COUNT = 0;
+
+	/**
+	 * The operation id for the '<em>Generate Network</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NETWORK_GENERATOR___GENERATE_NETWORK__MODEL = 0;
+
+	/**
+	 * The operation id for the '<em>Generate Network</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NETWORK_GENERATOR___GENERATE_NETWORK__PACKAGE = 1;
+
+	/**
+	 * The number of operations of the '<em>Network Generator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NETWORK_GENERATOR_OPERATION_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link abcd.xy.metamodel.abcd.analysis.ParameterizableElement <em>Parameterizable Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see abcd.xy.metamodel.abcd.analysis.ParameterizableElement
+	 * @see abcd.xy.metamodel.abcd.analysis.impl.AnalysisPackageImpl#getParameterizableElement()
+	 * @generated
+	 */
+	int PARAMETERIZABLE_ELEMENT = 12;
+
+	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETERIZABLE_ELEMENT__PARAMETERS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Parameterizable Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETERIZABLE_ELEMENT_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Parameterizable Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETERIZABLE_ELEMENT_OPERATION_COUNT = 0;
+
+	/**
+	 * Returns the meta object for class '{@link abcd.xy.metamodel.abcd.analysis.AnalysisManager <em>Manager</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Manager</em>'.
+	 * @see abcd.xy.metamodel.abcd.analysis.AnalysisManager
+	 * @generated
+	 */
+	EClass getAnalysisManager();
+
+	/**
+	 * Returns the meta object for the '{@link abcd.xy.metamodel.abcd.analysis.AnalysisManager#start(org.eclipse.emf.common.util.EList) <em>Start</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Start</em>' operation.
+	 * @see abcd.xy.metamodel.abcd.analysis.AnalysisManager#start(org.eclipse.emf.common.util.EList)
+	 * @generated
+	 */
+	EOperation getAnalysisManager__Start__EList();
+
+	/**
+	 * Returns the meta object for the '{@link abcd.xy.metamodel.abcd.analysis.AnalysisManager#storeResult(abcd.xy.metamodel.abcd.analysis.results.AnalysisExecution) <em>Store Result</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Store Result</em>' operation.
+	 * @see abcd.xy.metamodel.abcd.analysis.AnalysisManager#storeResult(abcd.xy.metamodel.abcd.analysis.results.AnalysisExecution)
+	 * @generated
+	 */
+	EOperation getAnalysisManager__StoreResult__AnalysisExecution();
+
+	/**
+	 * Returns the meta object for class '{@link abcd.xy.metamodel.abcd.analysis.AnalysisDefinition <em>Definition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Definition</em>'.
+	 * @see abcd.xy.metamodel.abcd.analysis.AnalysisDefinition
+	 * @generated
+	 */
+	EClass getAnalysisDefinition();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link abcd.xy.metamodel.abcd.analysis.AnalysisDefinition#getParameterDefinitions <em>Parameter Definitions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Parameter Definitions</em>'.
+	 * @see abcd.xy.metamodel.abcd.analysis.AnalysisDefinition#getParameterDefinitions()
+	 * @see #getAnalysisDefinition()
+	 * @generated
+	 */
+	EReference getAnalysisDefinition_ParameterDefinitions();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link abcd.xy.metamodel.abcd.analysis.AnalysisDefinition#getAnalysis <em>Analysis</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Analysis</em>'.
+	 * @see abcd.xy.metamodel.abcd.analysis.AnalysisDefinition#getAnalysis()
+	 * @see #getAnalysisDefinition()
+	 * @generated
+	 */
+	EReference getAnalysisDefinition_Analysis();
+
+	/**
+	 * Returns the meta object for class '{@link abcd.xy.metamodel.abcd.analysis.ParameterDefinition <em>Parameter Definition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Parameter Definition</em>'.
+	 * @see abcd.xy.metamodel.abcd.analysis.ParameterDefinition
+	 * @generated
+	 */
+	EClass getParameterDefinition();
+
+	/**
+	 * Returns the meta object for the reference list '{@link abcd.xy.metamodel.abcd.analysis.ParameterDefinition#getParameters <em>Parameters</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Parameters</em>'.
+	 * @see abcd.xy.metamodel.abcd.analysis.ParameterDefinition#getParameters()
+	 * @see #getParameterDefinition()
+	 * @generated
+	 */
+	EReference getParameterDefinition_Parameters();
+
+	/**
+	 * Returns the meta object for the attribute '{@link abcd.xy.metamodel.abcd.analysis.ParameterDefinition#getUnit <em>Unit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Unit</em>'.
+	 * @see abcd.xy.metamodel.abcd.analysis.ParameterDefinition#getUnit()
+	 * @see #getParameterDefinition()
+	 * @generated
+	 */
+	EAttribute getParameterDefinition_Unit();
+
+	/**
+	 * Returns the meta object for the reference list '{@link abcd.xy.metamodel.abcd.analysis.ParameterDefinition#getMustBeDefinedOn <em>Must Be Defined On</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Must Be Defined On</em>'.
+	 * @see abcd.xy.metamodel.abcd.analysis.ParameterDefinition#getMustBeDefinedOn()
+	 * @see #getParameterDefinition()
+	 * @generated
+	 */
+	EReference getParameterDefinition_MustBeDefinedOn();
+
+	/**
+	 * Returns the meta object for the reference list '{@link abcd.xy.metamodel.abcd.analysis.ParameterDefinition#getCanBeDefinedOn <em>Can Be Defined On</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Can Be Defined On</em>'.
+	 * @see abcd.xy.metamodel.abcd.analysis.ParameterDefinition#getCanBeDefinedOn()
+	 * @see #getParameterDefinition()
+	 * @generated
+	 */
+	EReference getParameterDefinition_CanBeDefinedOn();
+
+	/**
+	 * Returns the meta object for the reference list '{@link abcd.xy.metamodel.abcd.analysis.ParameterDefinition#getShallNotBeDefinedOn <em>Shall Not Be Defined On</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Shall Not Be Defined On</em>'.
+	 * @see abcd.xy.metamodel.abcd.analysis.ParameterDefinition#getShallNotBeDefinedOn()
+	 * @see #getParameterDefinition()
+	 * @generated
+	 */
+	EReference getParameterDefinition_ShallNotBeDefinedOn();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link abcd.xy.metamodel.abcd.analysis.ParameterDefinition#getDefaultValue <em>Default Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Default Value</em>'.
+	 * @see abcd.xy.metamodel.abcd.analysis.ParameterDefinition#getDefaultValue()
+	 * @see #getParameterDefinition()
+	 * @generated
+	 */
+	EReference getParameterDefinition_DefaultValue();
+
+	/**
+	 * Returns the meta object for class '{@link abcd.xy.metamodel.abcd.analysis.Parameter <em>Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Parameter</em>'.
+	 * @see abcd.xy.metamodel.abcd.analysis.Parameter
+	 * @generated
+	 */
+	EClass getParameter();
+
+	/**
+	 * Returns the meta object for the reference '{@link abcd.xy.metamodel.abcd.analysis.Parameter#getParameterDefinition <em>Parameter Definition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Parameter Definition</em>'.
+	 * @see abcd.xy.metamodel.abcd.analysis.Parameter#getParameterDefinition()
+	 * @see #getParameter()
+	 * @generated
+	 */
+	EReference getParameter_ParameterDefinition();
+
+	/**
+	 * Returns the meta object for the reference list '{@link abcd.xy.metamodel.abcd.analysis.Parameter#getAppliesOnlyOnVariants <em>Applies Only On Variants</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Applies Only On Variants</em>'.
+	 * @see abcd.xy.metamodel.abcd.analysis.Parameter#getAppliesOnlyOnVariants()
+	 * @see #getParameter()
+	 * @generated
+	 */
+	EReference getParameter_AppliesOnlyOnVariants();
+
+	/**
+	 * Returns the meta object for the reference list '{@link abcd.xy.metamodel.abcd.analysis.Parameter#getDoesNotApplyOnVariants <em>Does Not Apply On Variants</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Does Not Apply On Variants</em>'.
+	 * @see abcd.xy.metamodel.abcd.analysis.Parameter#getDoesNotApplyOnVariants()
+	 * @see #getParameter()
+	 * @generated
+	 */
+	EReference getParameter_DoesNotApplyOnVariants();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link abcd.xy.metamodel.abcd.analysis.Parameter#getInitialValue <em>Initial Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Initial Value</em>'.
+	 * @see abcd.xy.metamodel.abcd.analysis.Parameter#getInitialValue()
+	 * @see #getParameter()
+	 * @generated
+	 */
+	EReference getParameter_InitialValue();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link abcd.xy.metamodel.abcd.analysis.Parameter#getCurrentValue <em>Current Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Current Value</em>'.
+	 * @see abcd.xy.metamodel.abcd.analysis.Parameter#getCurrentValue()
+	 * @see #getParameter()
+	 * @generated
+	 */
+	EReference getParameter_CurrentValue();
+
+	/**
+	 * Returns the meta object for the '{@link abcd.xy.metamodel.abcd.analysis.Parameter#isValid() <em>Is Valid</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Valid</em>' operation.
+	 * @see abcd.xy.metamodel.abcd.analysis.Parameter#isValid()
+	 * @generated
+	 */
+	EOperation getParameter__IsValid();
+
+	/**
+	 * Returns the meta object for class '{@link abcd.xy.metamodel.abcd.analysis.Analysis <em>Analysis</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Analysis</em>'.
+	 * @see abcd.xy.metamodel.abcd.analysis.Analysis
+	 * @generated
+	 */
+	EClass getAnalysis();
+
+	/**
+	 * Returns the meta object for the '{@link abcd.xy.metamodel.abcd.analysis.Analysis#exec() <em>Exec</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Exec</em>' operation.
+	 * @see abcd.xy.metamodel.abcd.analysis.Analysis#exec()
+	 * @generated
+	 */
+	EOperation getAnalysis__Exec();
+
+	/**
+	 * Returns the meta object for the '{@link abcd.xy.metamodel.abcd.analysis.Analysis#init() <em>Init</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Init</em>' operation.
+	 * @see abcd.xy.metamodel.abcd.analysis.Analysis#init()
+	 * @generated
+	 */
+	EOperation getAnalysis__Init();
+
+	/**
+	 * Returns the meta object for the '{@link abcd.xy.metamodel.abcd.analysis.Analysis#postExecution() <em>Post Execution</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Post Execution</em>' operation.
+	 * @see abcd.xy.metamodel.abcd.analysis.Analysis#postExecution()
+	 * @generated
+	 */
+	EOperation getAnalysis__PostExecution();
+
+	/**
+	 * Returns the meta object for the '{@link abcd.xy.metamodel.abcd.analysis.Analysis#run() <em>Run</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Run</em>' operation.
+	 * @see abcd.xy.metamodel.abcd.analysis.Analysis#run()
+	 * @generated
+	 */
+	EOperation getAnalysis__Run();
+
+	/**
+	 * Returns the meta object for class '{@link abcd.xy.metamodel.abcd.analysis.ModelAnalysis <em>Model Analysis</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Model Analysis</em>'.
+	 * @see abcd.xy.metamodel.abcd.analysis.ModelAnalysis
+	 * @generated
+	 */
+	EClass getModelAnalysis();
+
+	/**
+	 * Returns the meta object for class '{@link abcd.xy.metamodel.abcd.analysis.GraphAnalysis <em>Graph Analysis</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Graph Analysis</em>'.
+	 * @see abcd.xy.metamodel.abcd.analysis.GraphAnalysis
+	 * @generated
+	 */
+	EClass getGraphAnalysis();
+
+	/**
+	 * Returns the meta object for the reference '{@link abcd.xy.metamodel.abcd.analysis.GraphAnalysis#getGraph <em>Graph</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Graph</em>'.
+	 * @see abcd.xy.metamodel.abcd.analysis.GraphAnalysis#getGraph()
+	 * @see #getGraphAnalysis()
+	 * @generated
+	 */
+	EReference getGraphAnalysis_Graph();
+
+	/**
+	 * Returns the meta object for the '{@link abcd.xy.metamodel.abcd.analysis.GraphAnalysis#initGraph() <em>Init Graph</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Init Graph</em>' operation.
+	 * @see abcd.xy.metamodel.abcd.analysis.GraphAnalysis#initGraph()
+	 * @generated
+	 */
+	EOperation getGraphAnalysis__InitGraph();
+
+	/**
+	 * Returns the meta object for the '{@link abcd.xy.metamodel.abcd.analysis.GraphAnalysis#init() <em>Init</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Init</em>' operation.
+	 * @see abcd.xy.metamodel.abcd.analysis.GraphAnalysis#init()
+	 * @generated
+	 */
+	EOperation getGraphAnalysis__Init();
+
+	/**
+	 * Returns the meta object for class '{@link abcd.xy.metamodel.abcd.analysis.MemoryLessGraphAnalysis <em>Memory Less Graph Analysis</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Memory Less Graph Analysis</em>'.
+	 * @see abcd.xy.metamodel.abcd.analysis.MemoryLessGraphAnalysis
+	 * @generated
+	 */
+	EClass getMemoryLessGraphAnalysis();
+
+	/**
+	 * Returns the meta object for class '{@link abcd.xy.metamodel.abcd.analysis.EntireGraphAnalysis <em>Entire Graph Analysis</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Entire Graph Analysis</em>'.
+	 * @see abcd.xy.metamodel.abcd.analysis.EntireGraphAnalysis
+	 * @generated
+	 */
+	EClass getEntireGraphAnalysis();
+
+	/**
+	 * Returns the meta object for class '{@link abcd.xy.metamodel.abcd.analysis.PackageAnalysis <em>Package Analysis</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Package Analysis</em>'.
+	 * @see abcd.xy.metamodel.abcd.analysis.PackageAnalysis
+	 * @generated
+	 */
+	EClass getPackageAnalysis();
+
+	/**
+	 * Returns the meta object for class '{@link abcd.xy.metamodel.abcd.analysis.PreviousNodeGraphAnalysis <em>Previous Node Graph Analysis</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Previous Node Graph Analysis</em>'.
+	 * @see abcd.xy.metamodel.abcd.analysis.PreviousNodeGraphAnalysis
+	 * @generated
+	 */
+	EClass getPreviousNodeGraphAnalysis();
+
+	/**
+	 * Returns the meta object for class '{@link abcd.xy.metamodel.abcd.analysis.NetworkGenerator <em>Network Generator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Network Generator</em>'.
+	 * @see abcd.xy.metamodel.abcd.analysis.NetworkGenerator
+	 * @generated
+	 */
+	EClass getNetworkGenerator();
+
+	/**
+	 * Returns the meta object for the '{@link abcd.xy.metamodel.abcd.analysis.NetworkGenerator#generateNetwork(abcd.xy.metamodel.abcd.Model) <em>Generate Network</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Generate Network</em>' operation.
+	 * @see abcd.xy.metamodel.abcd.analysis.NetworkGenerator#generateNetwork(abcd.xy.metamodel.abcd.Model)
+	 * @generated
+	 */
+	EOperation getNetworkGenerator__GenerateNetwork__Model();
+
+	/**
+	 * Returns the meta object for the '{@link abcd.xy.metamodel.abcd.analysis.NetworkGenerator#generateNetwork(abcd.xy.metamodel.abcd.Package) <em>Generate Network</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Generate Network</em>' operation.
+	 * @see abcd.xy.metamodel.abcd.analysis.NetworkGenerator#generateNetwork(abcd.xy.metamodel.abcd.Package)
+	 * @generated
+	 */
+	EOperation getNetworkGenerator__GenerateNetwork__Package();
+
+	/**
+	 * Returns the meta object for class '{@link abcd.xy.metamodel.abcd.analysis.ParameterizableElement <em>Parameterizable Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Parameterizable Element</em>'.
+	 * @see abcd.xy.metamodel.abcd.analysis.ParameterizableElement
+	 * @generated
+	 */
+	EClass getParameterizableElement();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link abcd.xy.metamodel.abcd.analysis.ParameterizableElement#getParameters <em>Parameters</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Parameters</em>'.
+	 * @see abcd.xy.metamodel.abcd.analysis.ParameterizableElement#getParameters()
+	 * @see #getParameterizableElement()
+	 * @generated
+	 */
+	EReference getParameterizableElement_Parameters();
+
+	/**
+	 * Returns the factory that creates the instances of the model.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the factory that creates the instances of the model.
+	 * @generated
+	 */
+	AnalysisFactory getAnalysisFactory();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * Defines literals for the meta objects that represent
+	 * <ul>
+	 *   <li>each class,</li>
+	 *   <li>each feature of each class,</li>
+	 *   <li>each operation of each class,</li>
+	 *   <li>each enum,</li>
+	 *   <li>and each data type</li>
+	 * </ul>
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	interface Literals {
+		/**
+		 * The meta object literal for the '{@link abcd.xy.metamodel.abcd.analysis.impl.AnalysisManagerImpl <em>Manager</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see abcd.xy.metamodel.abcd.analysis.impl.AnalysisManagerImpl
+		 * @see abcd.xy.metamodel.abcd.analysis.impl.AnalysisPackageImpl#getAnalysisManager()
+		 * @generated
+		 */
+		EClass ANALYSIS_MANAGER = eINSTANCE.getAnalysisManager();
+
+		/**
+		 * The meta object literal for the '<em><b>Start</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ANALYSIS_MANAGER___START__ELIST = eINSTANCE.getAnalysisManager__Start__EList();
+
+		/**
+		 * The meta object literal for the '<em><b>Store Result</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ANALYSIS_MANAGER___STORE_RESULT__ANALYSISEXECUTION = eINSTANCE
+				.getAnalysisManager__StoreResult__AnalysisExecution();
+
+		/**
+		 * The meta object literal for the '{@link abcd.xy.metamodel.abcd.analysis.impl.AnalysisDefinitionImpl <em>Definition</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see abcd.xy.metamodel.abcd.analysis.impl.AnalysisDefinitionImpl
+		 * @see abcd.xy.metamodel.abcd.analysis.impl.AnalysisPackageImpl#getAnalysisDefinition()
+		 * @generated
+		 */
+		EClass ANALYSIS_DEFINITION = eINSTANCE.getAnalysisDefinition();
+
+		/**
+		 * The meta object literal for the '<em><b>Parameter Definitions</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ANALYSIS_DEFINITION__PARAMETER_DEFINITIONS = eINSTANCE.getAnalysisDefinition_ParameterDefinitions();
+
+		/**
+		 * The meta object literal for the '<em><b>Analysis</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ANALYSIS_DEFINITION__ANALYSIS = eINSTANCE.getAnalysisDefinition_Analysis();
+
+		/**
+		 * The meta object literal for the '{@link abcd.xy.metamodel.abcd.analysis.impl.ParameterDefinitionImpl <em>Parameter Definition</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see abcd.xy.metamodel.abcd.analysis.impl.ParameterDefinitionImpl
+		 * @see abcd.xy.metamodel.abcd.analysis.impl.AnalysisPackageImpl#getParameterDefinition()
+		 * @generated
+		 */
+		EClass PARAMETER_DEFINITION = eINSTANCE.getParameterDefinition();
+
+		/**
+		 * The meta object literal for the '<em><b>Parameters</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARAMETER_DEFINITION__PARAMETERS = eINSTANCE.getParameterDefinition_Parameters();
+
+		/**
+		 * The meta object literal for the '<em><b>Unit</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PARAMETER_DEFINITION__UNIT = eINSTANCE.getParameterDefinition_Unit();
+
+		/**
+		 * The meta object literal for the '<em><b>Must Be Defined On</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARAMETER_DEFINITION__MUST_BE_DEFINED_ON = eINSTANCE.getParameterDefinition_MustBeDefinedOn();
+
+		/**
+		 * The meta object literal for the '<em><b>Can Be Defined On</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARAMETER_DEFINITION__CAN_BE_DEFINED_ON = eINSTANCE.getParameterDefinition_CanBeDefinedOn();
+
+		/**
+		 * The meta object literal for the '<em><b>Shall Not Be Defined On</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARAMETER_DEFINITION__SHALL_NOT_BE_DEFINED_ON = eINSTANCE
+				.getParameterDefinition_ShallNotBeDefinedOn();
+
+		/**
+		 * The meta object literal for the '<em><b>Default Value</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARAMETER_DEFINITION__DEFAULT_VALUE = eINSTANCE.getParameterDefinition_DefaultValue();
+
+		/**
+		 * The meta object literal for the '{@link abcd.xy.metamodel.abcd.analysis.impl.ParameterImpl <em>Parameter</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see abcd.xy.metamodel.abcd.analysis.impl.ParameterImpl
+		 * @see abcd.xy.metamodel.abcd.analysis.impl.AnalysisPackageImpl#getParameter()
+		 * @generated
+		 */
+		EClass PARAMETER = eINSTANCE.getParameter();
+
+		/**
+		 * The meta object literal for the '<em><b>Parameter Definition</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARAMETER__PARAMETER_DEFINITION = eINSTANCE.getParameter_ParameterDefinition();
+
+		/**
+		 * The meta object literal for the '<em><b>Applies Only On Variants</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARAMETER__APPLIES_ONLY_ON_VARIANTS = eINSTANCE.getParameter_AppliesOnlyOnVariants();
+
+		/**
+		 * The meta object literal for the '<em><b>Does Not Apply On Variants</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARAMETER__DOES_NOT_APPLY_ON_VARIANTS = eINSTANCE.getParameter_DoesNotApplyOnVariants();
+
+		/**
+		 * The meta object literal for the '<em><b>Initial Value</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARAMETER__INITIAL_VALUE = eINSTANCE.getParameter_InitialValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Current Value</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARAMETER__CURRENT_VALUE = eINSTANCE.getParameter_CurrentValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Valid</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PARAMETER___IS_VALID = eINSTANCE.getParameter__IsValid();
+
+		/**
+		 * The meta object literal for the '{@link abcd.xy.metamodel.abcd.analysis.impl.AnalysisImpl <em>Analysis</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see abcd.xy.metamodel.abcd.analysis.impl.AnalysisImpl
+		 * @see abcd.xy.metamodel.abcd.analysis.impl.AnalysisPackageImpl#getAnalysis()
+		 * @generated
+		 */
+		EClass ANALYSIS = eINSTANCE.getAnalysis();
+
+		/**
+		 * The meta object literal for the '<em><b>Exec</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ANALYSIS___EXEC = eINSTANCE.getAnalysis__Exec();
+
+		/**
+		 * The meta object literal for the '<em><b>Init</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ANALYSIS___INIT = eINSTANCE.getAnalysis__Init();
+
+		/**
+		 * The meta object literal for the '<em><b>Post Execution</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ANALYSIS___POST_EXECUTION = eINSTANCE.getAnalysis__PostExecution();
+
+		/**
+		 * The meta object literal for the '<em><b>Run</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ANALYSIS___RUN = eINSTANCE.getAnalysis__Run();
+
+		/**
+		 * The meta object literal for the '{@link abcd.xy.metamodel.abcd.analysis.impl.ModelAnalysisImpl <em>Model Analysis</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see abcd.xy.metamodel.abcd.analysis.impl.ModelAnalysisImpl
+		 * @see abcd.xy.metamodel.abcd.analysis.impl.AnalysisPackageImpl#getModelAnalysis()
+		 * @generated
+		 */
+		EClass MODEL_ANALYSIS = eINSTANCE.getModelAnalysis();
+
+		/**
+		 * The meta object literal for the '{@link abcd.xy.metamodel.abcd.analysis.impl.GraphAnalysisImpl <em>Graph Analysis</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see abcd.xy.metamodel.abcd.analysis.impl.GraphAnalysisImpl
+		 * @see abcd.xy.metamodel.abcd.analysis.impl.AnalysisPackageImpl#getGraphAnalysis()
+		 * @generated
+		 */
+		EClass GRAPH_ANALYSIS = eINSTANCE.getGraphAnalysis();
+
+		/**
+		 * The meta object literal for the '<em><b>Graph</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GRAPH_ANALYSIS__GRAPH = eINSTANCE.getGraphAnalysis_Graph();
+
+		/**
+		 * The meta object literal for the '<em><b>Init Graph</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GRAPH_ANALYSIS___INIT_GRAPH = eINSTANCE.getGraphAnalysis__InitGraph();
+
+		/**
+		 * The meta object literal for the '<em><b>Init</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GRAPH_ANALYSIS___INIT = eINSTANCE.getGraphAnalysis__Init();
+
+		/**
+		 * The meta object literal for the '{@link abcd.xy.metamodel.abcd.analysis.impl.MemoryLessGraphAnalysisImpl <em>Memory Less Graph Analysis</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see abcd.xy.metamodel.abcd.analysis.impl.MemoryLessGraphAnalysisImpl
+		 * @see abcd.xy.metamodel.abcd.analysis.impl.AnalysisPackageImpl#getMemoryLessGraphAnalysis()
+		 * @generated
+		 */
+		EClass MEMORY_LESS_GRAPH_ANALYSIS = eINSTANCE.getMemoryLessGraphAnalysis();
+
+		/**
+		 * The meta object literal for the '{@link abcd.xy.metamodel.abcd.analysis.impl.EntireGraphAnalysisImpl <em>Entire Graph Analysis</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see abcd.xy.metamodel.abcd.analysis.impl.EntireGraphAnalysisImpl
+		 * @see abcd.xy.metamodel.abcd.analysis.impl.AnalysisPackageImpl#getEntireGraphAnalysis()
+		 * @generated
+		 */
+		EClass ENTIRE_GRAPH_ANALYSIS = eINSTANCE.getEntireGraphAnalysis();
+
+		/**
+		 * The meta object literal for the '{@link abcd.xy.metamodel.abcd.analysis.impl.PackageAnalysisImpl <em>Package Analysis</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see abcd.xy.metamodel.abcd.analysis.impl.PackageAnalysisImpl
+		 * @see abcd.xy.metamodel.abcd.analysis.impl.AnalysisPackageImpl#getPackageAnalysis()
+		 * @generated
+		 */
+		EClass PACKAGE_ANALYSIS = eINSTANCE.getPackageAnalysis();
+
+		/**
+		 * The meta object literal for the '{@link abcd.xy.metamodel.abcd.analysis.impl.PreviousNodeGraphAnalysisImpl <em>Previous Node Graph Analysis</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see abcd.xy.metamodel.abcd.analysis.impl.PreviousNodeGraphAnalysisImpl
+		 * @see abcd.xy.metamodel.abcd.analysis.impl.AnalysisPackageImpl#getPreviousNodeGraphAnalysis()
+		 * @generated
+		 */
+		EClass PREVIOUS_NODE_GRAPH_ANALYSIS = eINSTANCE.getPreviousNodeGraphAnalysis();
+
+		/**
+		 * The meta object literal for the '{@link abcd.xy.metamodel.abcd.analysis.impl.NetworkGeneratorImpl <em>Network Generator</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see abcd.xy.metamodel.abcd.analysis.impl.NetworkGeneratorImpl
+		 * @see abcd.xy.metamodel.abcd.analysis.impl.AnalysisPackageImpl#getNetworkGenerator()
+		 * @generated
+		 */
+		EClass NETWORK_GENERATOR = eINSTANCE.getNetworkGenerator();
+
+		/**
+		 * The meta object literal for the '<em><b>Generate Network</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NETWORK_GENERATOR___GENERATE_NETWORK__MODEL = eINSTANCE
+				.getNetworkGenerator__GenerateNetwork__Model();
+
+		/**
+		 * The meta object literal for the '<em><b>Generate Network</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NETWORK_GENERATOR___GENERATE_NETWORK__PACKAGE = eINSTANCE
+				.getNetworkGenerator__GenerateNetwork__Package();
+
+		/**
+		 * The meta object literal for the '{@link abcd.xy.metamodel.abcd.analysis.ParameterizableElement <em>Parameterizable Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see abcd.xy.metamodel.abcd.analysis.ParameterizableElement
+		 * @see abcd.xy.metamodel.abcd.analysis.impl.AnalysisPackageImpl#getParameterizableElement()
+		 * @generated
+		 */
+		EClass PARAMETERIZABLE_ELEMENT = eINSTANCE.getParameterizableElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARAMETERIZABLE_ELEMENT__PARAMETERS = eINSTANCE.getParameterizableElement_Parameters();
+
+	}
+
+} //AnalysisPackage

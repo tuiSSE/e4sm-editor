@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:e4sm="http://de.tu-ilmenau/e4sm/1.0.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:style_1="http://www.eclipse.org/sirius/description/style/1.1.0" xmlns:table="http://www.eclipse.org/sirius/table/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/table/description/1.1.0 http://www.eclipse.org/sirius/table/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style http://www.eclipse.org/sirius/description/style/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description/style">
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:abcd="http://de.tu-ilmenau/abcd/1.0.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:style_1="http://www.eclipse.org/sirius/description/style/1.1.0" xmlns:table="http://www.eclipse.org/sirius/table/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/table/description/1.1.0 http://www.eclipse.org/sirius/table/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style http://www.eclipse.org/sirius/description/style/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description/style">
   <viewpoint:DAnalysis uid="_AFVLELfcEeupgN33SxbatQ" selectedViews="_U_IrgLfcEeupgN33SxbatQ" version="14.3.1.202003261200">
-    <semanticResources>Showcase.e4sm</semanticResources>
+    <semanticResources>Showcase.abcd</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_U_IrgLfcEeupgN33SxbatQ">
-      <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']"/>
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_U_c0lrfcEeupgN33SxbatQ" name="[PM] Showcase Model" repPath="#_U_Wt8LfcEeupgN33SxbatQ">
-        <description xmi:type="description_1:EditionTableDescription" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='table_persons']"/>
-        <target xmi:type="e4sm:Model" href="Showcase.e4sm#_CGg_sLfcEeupgN33SxbatQ"/>
+        <description xmi:type="description_1:EditionTableDescription" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='table_persons']"/>
+        <target xmi:type="abcd:Model" href="Showcase.abcd#_CGg_sLfcEeupgN33SxbatQ"/>
       </ownedRepresentationDescriptors>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_VM-TMLfcEeupgN33SxbatQ" name="[DTD] Package" repPath="#_VM9FELfcEeupgN33SxbatQ" changeId="9ad3ba5e-8b99-4479-9d20-7187c6cd1c13">
-        <description xmi:type="description_2:DiagramDescription" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']"/>
-        <target xmi:type="e4sm:Package" href="Showcase.e4sm#_QiXlQLfcEeupgN33SxbatQ"/>
+        <description xmi:type="description_2:DiagramDescription" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']"/>
+        <target xmi:type="abcd:Package" href="Showcase.abcd#_QiXlQLfcEeupgN33SxbatQ"/>
       </ownedRepresentationDescriptors>
     </ownedViews>
   </viewpoint:DAnalysis>
   <table:DTable uid="_U_Wt8LfcEeupgN33SxbatQ">
-    <target xmi:type="e4sm:Model" href="Showcase.e4sm#_CGg_sLfcEeupgN33SxbatQ"/>
+    <target xmi:type="abcd:Model" href="Showcase.abcd#_CGg_sLfcEeupgN33SxbatQ"/>
     <columns xmi:type="table:DFeatureColumn" uid="_U_bmcLfcEeupgN33SxbatQ" label="Name" featureName="name">
-      <originMapping xmi:type="description_1:FeatureColumnMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='table_persons']/@ownedColumnMappings[name='table_persons_name_col']"/>
+      <originMapping xmi:type="description_1:FeatureColumnMapping" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='table_persons']/@ownedColumnMappings[name='table_persons_name_col']"/>
     </columns>
     <columns xmi:type="table:DFeatureColumn" uid="_U_c0kLfcEeupgN33SxbatQ" label="Surname" featureName="surname">
-      <originMapping xmi:type="description_1:FeatureColumnMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='table_persons']/@ownedColumnMappings[name='table_persons_surname_col']"/>
+      <originMapping xmi:type="description_1:FeatureColumnMapping" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='table_persons']/@ownedColumnMappings[name='table_persons_surname_col']"/>
     </columns>
     <columns xmi:type="table:DFeatureColumn" uid="_U_c0krfcEeupgN33SxbatQ" label="Department" featureName="department">
-      <originMapping xmi:type="description_1:FeatureColumnMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='table_persons']/@ownedColumnMappings[name='table_persons_department_col']"/>
+      <originMapping xmi:type="description_1:FeatureColumnMapping" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='table_persons']/@ownedColumnMappings[name='table_persons_department_col']"/>
     </columns>
     <columns xmi:type="table:DFeatureColumn" uid="_U_c0lLfcEeupgN33SxbatQ" label="Picture Filename" featureName="pictureFileName">
-      <originMapping xmi:type="description_1:FeatureColumnMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='table_persons']/@ownedColumnMappings[name='table_persons_picture_file_col']"/>
+      <originMapping xmi:type="description_1:FeatureColumnMapping" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='table_persons']/@ownedColumnMappings[name='table_persons_picture_file_col']"/>
     </columns>
-    <description xmi:type="description_1:EditionTableDescription" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='table_persons']"/>
+    <description xmi:type="description_1:EditionTableDescription" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='table_persons']"/>
   </table:DTable>
   <diagram:DSemanticDiagram uid="_VM9FELfcEeupgN33SxbatQ">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_VM-6QLfcEeupgN33SxbatQ" source="GMF_DIAGRAMS">
@@ -669,30 +669,30 @@
       </data>
     </ownedAnnotationEntries>
     <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_WHVpsbfcEeupgN33SxbatQ" name="Sector &quot;Collection of Physical Components&quot;" tooltipText="Sector &quot;Collection of Physical Components">
-      <target xmi:type="e4sm:Sector" href="Showcase.e4sm#_WHVpsLfcEeupgN33SxbatQ"/>
-      <semanticElements xmi:type="e4sm:Sector" href="Showcase.e4sm#_WHVpsLfcEeupgN33SxbatQ"/>
+      <target xmi:type="abcd:Sector" href="Showcase.abcd#_WHVpsLfcEeupgN33SxbatQ"/>
+      <semanticElements xmi:type="abcd:Sector" href="Showcase.abcd#_WHVpsLfcEeupgN33SxbatQ"/>
       <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_SnDXdboZEeupgN33SxbatQ" labelSize="14" showIcon="false" description="_SnDXc7oZEeupgN33SxbatQ" borderSize="1" borderSizeComputationExpression="1" borderColor="224,133,3" backgroundColor="209,209,209">
         <labelFormat>bold</labelFormat>
       </ownedStyle>
-      <actualMapping xmi:type="description_2:ContainerMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Sector']"/>
+      <actualMapping xmi:type="description_2:ContainerMapping" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Sector']"/>
       <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_YWisMLfcEeupgN33SxbatQ" name="Physical Component" tooltipText="Physical Component &quot;Physical Component">
-        <target xmi:type="e4sm:PhysicalComponent" href="Showcase.e4sm#_YWiFILfcEeupgN33SxbatQ"/>
-        <semanticElements xmi:type="e4sm:PhysicalComponent" href="Showcase.e4sm#_YWiFILfcEeupgN33SxbatQ"/>
+        <target xmi:type="abcd:PhysicalComponent" href="Showcase.abcd#_YWiFILfcEeupgN33SxbatQ"/>
+        <semanticElements xmi:type="abcd:PhysicalComponent" href="Showcase.abcd#_YWiFILfcEeupgN33SxbatQ"/>
         <ownedBorderedNodes xmi:type="diagram:DNode" uid="_CPISYblLEeupgN33SxbatQ" name="IN" width="3" height="3">
-          <target xmi:type="e4sm:InputPin" href="Showcase.e4sm#_CPISYLlLEeupgN33SxbatQ"/>
-          <semanticElements xmi:type="e4sm:InputPin" href="Showcase.e4sm#_CPISYLlLEeupgN33SxbatQ"/>
+          <target xmi:type="abcd:InputPin" href="Showcase.abcd#_CPISYLlLEeupgN33SxbatQ"/>
+          <semanticElements xmi:type="abcd:InputPin" href="Showcase.abcd#_CPISYLlLEeupgN33SxbatQ"/>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_SnDXe7oZEeupgN33SxbatQ" labelSize="9" showIcon="false" description="_SnA7NLoZEeupgN33SxbatQ" labelPosition="node" color="255,255,255">
             <labelFormat>bold</labelFormat>
           </ownedStyle>
-          <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin']"/>
+          <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin']"/>
         </ownedBorderedNodes>
         <ownedBorderedNodes xmi:type="diagram:DNode" uid="_CiQpwblLEeupgN33SxbatQ" name="O" width="3" height="3">
-          <target xmi:type="e4sm:OutputPin" href="Showcase.e4sm#_CiQpwLlLEeupgN33SxbatQ"/>
-          <semanticElements xmi:type="e4sm:OutputPin" href="Showcase.e4sm#_CiQpwLlLEeupgN33SxbatQ"/>
+          <target xmi:type="abcd:OutputPin" href="Showcase.abcd#_CiQpwLlLEeupgN33SxbatQ"/>
+          <semanticElements xmi:type="abcd:OutputPin" href="Showcase.abcd#_CiQpwLlLEeupgN33SxbatQ"/>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_SnDXfroZEeupgN33SxbatQ" labelSize="9" showIcon="false" description="_SnA7OLoZEeupgN33SxbatQ" labelPosition="node" color="209,209,209">
             <labelFormat>bold</labelFormat>
           </ownedStyle>
-          <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin']"/>
+          <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin']"/>
         </ownedBorderedNodes>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
@@ -700,21 +700,21 @@
         <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_SnDXeLoZEeupgN33SxbatQ" labelSize="13" description="_SnBiQLoZEeupgN33SxbatQ" borderSize="1" borderSizeComputationExpression="1" borderColor="224,133,3" backgroundColor="253,206,137" foregroundColor="253,206,137">
           <labelFormat>bold</labelFormat>
         </ownedStyle>
-        <actualMapping xmi:type="description_2:ContainerMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_PhisicalComponent']"/>
+        <actualMapping xmi:type="description_2:ContainerMapping" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']/@defaultLayer/@containerMappings[name='diag1_PhisicalComponent']"/>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_axhg4bfcEeupgN33SxbatQ" name="Sensor" tooltipText="Sensor &quot;Sensor">
-        <target xmi:type="e4sm:Sensor" href="Showcase.e4sm#_axhg4LfcEeupgN33SxbatQ"/>
-        <semanticElements xmi:type="e4sm:Sensor" href="Showcase.e4sm#_axhg4LfcEeupgN33SxbatQ"/>
+        <target xmi:type="abcd:Sensor" href="Showcase.abcd#_axhg4LfcEeupgN33SxbatQ"/>
+        <semanticElements xmi:type="abcd:Sensor" href="Showcase.abcd#_axhg4LfcEeupgN33SxbatQ"/>
         <ownedBorderedNodes xmi:type="diagram:DNode" uid="_gH5TMbfdEeupgN33SxbatQ" name="O" width="3" height="3">
-          <target xmi:type="e4sm:OutputPin" href="Showcase.e4sm#_gH5TMLfdEeupgN33SxbatQ"/>
-          <semanticElements xmi:type="e4sm:OutputPin" href="Showcase.e4sm#_gH5TMLfdEeupgN33SxbatQ"/>
+          <target xmi:type="abcd:OutputPin" href="Showcase.abcd#_gH5TMLfdEeupgN33SxbatQ"/>
+          <semanticElements xmi:type="abcd:OutputPin" href="Showcase.abcd#_gH5TMLfdEeupgN33SxbatQ"/>
           <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
           <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
           <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_SnD-i7oZEeupgN33SxbatQ" labelSize="9" showIcon="false" description="_SnA7OLoZEeupgN33SxbatQ" labelPosition="node" color="209,209,209">
             <labelFormat>bold</labelFormat>
           </ownedStyle>
-          <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin']"/>
+          <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin']"/>
         </ownedBorderedNodes>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
@@ -722,21 +722,21 @@
         <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_SnD-iLoZEeupgN33SxbatQ" labelSize="13" description="_SnCJUboZEeupgN33SxbatQ" borderSize="1" borderSizeComputationExpression="1" borderColor="224,133,3" backgroundColor="253,206,137" foregroundColor="253,206,137">
           <labelFormat>bold</labelFormat>
         </ownedStyle>
-        <actualMapping xmi:type="description_2:ContainerMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Sensor']"/>
+        <actualMapping xmi:type="description_2:ContainerMapping" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Sensor']"/>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_cNER0LfcEeupgN33SxbatQ" name="Actuator" tooltipText="Actuator &quot;Actuator">
-        <target xmi:type="e4sm:Actuator" href="Showcase.e4sm#_cNDqwLfcEeupgN33SxbatQ"/>
-        <semanticElements xmi:type="e4sm:Actuator" href="Showcase.e4sm#_cNDqwLfcEeupgN33SxbatQ"/>
+        <target xmi:type="abcd:Actuator" href="Showcase.abcd#_cNDqwLfcEeupgN33SxbatQ"/>
+        <semanticElements xmi:type="abcd:Actuator" href="Showcase.abcd#_cNDqwLfcEeupgN33SxbatQ"/>
         <ownedBorderedNodes xmi:type="diagram:DNode" uid="_gnFJkbfdEeupgN33SxbatQ" name="IN" width="3" height="3">
-          <target xmi:type="e4sm:InputPin" href="Showcase.e4sm#_gnFJkLfdEeupgN33SxbatQ"/>
-          <semanticElements xmi:type="e4sm:InputPin" href="Showcase.e4sm#_gnFJkLfdEeupgN33SxbatQ"/>
+          <target xmi:type="abcd:InputPin" href="Showcase.abcd#_gnFJkLfdEeupgN33SxbatQ"/>
+          <semanticElements xmi:type="abcd:InputPin" href="Showcase.abcd#_gnFJkLfdEeupgN33SxbatQ"/>
           <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
           <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
           <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_SnD-hboZEeupgN33SxbatQ" labelSize="9" showIcon="false" description="_SnA7NLoZEeupgN33SxbatQ" labelPosition="node" color="255,255,255">
             <labelFormat>bold</labelFormat>
           </ownedStyle>
-          <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin']"/>
+          <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin']"/>
         </ownedBorderedNodes>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
@@ -744,27 +744,27 @@
         <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_SnD-groZEeupgN33SxbatQ" labelSize="13" description="_SnD-gLoZEeupgN33SxbatQ" borderSize="1" borderSizeComputationExpression="1" borderColor="224,133,3" backgroundColor="253,206,137" foregroundColor="253,206,137">
           <labelFormat>bold</labelFormat>
         </ownedStyle>
-        <actualMapping xmi:type="description_2:ContainerMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Actuator']"/>
+        <actualMapping xmi:type="description_2:ContainerMapping" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Actuator']"/>
       </ownedDiagramElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_hIBv8bfcEeupgN33SxbatQ" name="Generic Software Component" tooltipText="Software Component &quot;Generic Software Component">
-      <target xmi:type="e4sm:SoftwareComponent" href="Showcase.e4sm#_hIBv8LfcEeupgN33SxbatQ"/>
-      <semanticElements xmi:type="e4sm:SoftwareComponent" href="Showcase.e4sm#_hIBv8LfcEeupgN33SxbatQ"/>
+      <target xmi:type="abcd:SoftwareComponent" href="Showcase.abcd#_hIBv8LfcEeupgN33SxbatQ"/>
+      <semanticElements xmi:type="abcd:SoftwareComponent" href="Showcase.abcd#_hIBv8LfcEeupgN33SxbatQ"/>
       <ownedBorderedNodes xmi:type="diagram:DNode" uid="_3-DsgLfcEeupgN33SxbatQ" name="O" outgoingEdges="_xNeOkL40EeuB8-YlCB2Eiw" width="3" height="3">
-        <target xmi:type="e4sm:OutputPin" href="Showcase.e4sm#_3-DFcLfcEeupgN33SxbatQ"/>
-        <semanticElements xmi:type="e4sm:OutputPin" href="Showcase.e4sm#_3-DFcLfcEeupgN33SxbatQ"/>
+        <target xmi:type="abcd:OutputPin" href="Showcase.abcd#_3-DFcLfcEeupgN33SxbatQ"/>
+        <semanticElements xmi:type="abcd:OutputPin" href="Showcase.abcd#_3-DFcLfcEeupgN33SxbatQ"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_SnEllLoZEeupgN33SxbatQ" labelSize="9" showIcon="false" description="_SnA7OLoZEeupgN33SxbatQ" labelPosition="node" color="209,209,209">
           <labelFormat>bold</labelFormat>
         </ownedStyle>
-        <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin']"/>
+        <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin']"/>
       </ownedBorderedNodes>
       <ownedBorderedNodes xmi:type="diagram:DNode" uid="_BfBEEblLEeupgN33SxbatQ" name="IN" width="3" height="3">
-        <target xmi:type="e4sm:InputPin" href="Showcase.e4sm#_BfBEELlLEeupgN33SxbatQ"/>
-        <semanticElements xmi:type="e4sm:InputPin" href="Showcase.e4sm#_BfBEELlLEeupgN33SxbatQ"/>
+        <target xmi:type="abcd:InputPin" href="Showcase.abcd#_BfBEELlLEeupgN33SxbatQ"/>
+        <semanticElements xmi:type="abcd:InputPin" href="Showcase.abcd#_BfBEELlLEeupgN33SxbatQ"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_SnElkboZEeupgN33SxbatQ" labelSize="9" showIcon="false" description="_SnA7NLoZEeupgN33SxbatQ" labelPosition="node" color="255,255,255">
           <labelFormat>bold</labelFormat>
         </ownedStyle>
-        <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin']"/>
+        <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin']"/>
       </ownedBorderedNodes>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
@@ -772,26 +772,26 @@
       <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_SnD-j7oZEeupgN33SxbatQ" labelSize="13" description="_SnD-jboZEeupgN33SxbatQ" borderSize="1" borderSizeComputationExpression="1" borderColor="214,197,66" backgroundColor="252,233,79" foregroundColor="252,233,79">
         <labelFormat>bold</labelFormat>
       </ownedStyle>
-      <actualMapping xmi:type="description_2:ContainerMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_SoftwareComponent']"/>
+      <actualMapping xmi:type="description_2:ContainerMapping" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']/@defaultLayer/@containerMappings[name='diag1_SoftwareComponent']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_jHMyYbfcEeupgN33SxbatQ" name="Machine Learning Component" tooltipText="Machine Learning Component &quot;Machine Learning Component">
-      <target xmi:type="e4sm:MachineLearningComponent" href="Showcase.e4sm#_jHMyYLfcEeupgN33SxbatQ"/>
-      <semanticElements xmi:type="e4sm:MachineLearningComponent" href="Showcase.e4sm#_jHMyYLfcEeupgN33SxbatQ"/>
+      <target xmi:type="abcd:MachineLearningComponent" href="Showcase.abcd#_jHMyYLfcEeupgN33SxbatQ"/>
+      <semanticElements xmi:type="abcd:MachineLearningComponent" href="Showcase.abcd#_jHMyYLfcEeupgN33SxbatQ"/>
       <ownedBorderedNodes xmi:type="diagram:DNode" uid="_1iXtMbfcEeupgN33SxbatQ" name="IN" incomingEdges="_xNeOkL40EeuB8-YlCB2Eiw" width="3" height="3">
-        <target xmi:type="e4sm:InputPin" href="Showcase.e4sm#_1iXtMLfcEeupgN33SxbatQ"/>
-        <semanticElements xmi:type="e4sm:InputPin" href="Showcase.e4sm#_1iXtMLfcEeupgN33SxbatQ"/>
+        <target xmi:type="abcd:InputPin" href="Showcase.abcd#_1iXtMLfcEeupgN33SxbatQ"/>
+        <semanticElements xmi:type="abcd:InputPin" href="Showcase.abcd#_1iXtMLfcEeupgN33SxbatQ"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_SnCwaLoZEeupgN33SxbatQ" labelSize="9" showIcon="false" description="_SnA7NLoZEeupgN33SxbatQ" labelPosition="node" color="255,255,255">
           <labelFormat>bold</labelFormat>
         </ownedStyle>
-        <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin']"/>
+        <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin']"/>
       </ownedBorderedNodes>
       <ownedBorderedNodes xmi:type="diagram:DNode" uid="_AFDngblLEeupgN33SxbatQ" name="O" width="3" height="3">
-        <target xmi:type="e4sm:OutputPin" href="Showcase.e4sm#_AFDngLlLEeupgN33SxbatQ"/>
-        <semanticElements xmi:type="e4sm:OutputPin" href="Showcase.e4sm#_AFDngLlLEeupgN33SxbatQ"/>
+        <target xmi:type="abcd:OutputPin" href="Showcase.abcd#_AFDngLlLEeupgN33SxbatQ"/>
+        <semanticElements xmi:type="abcd:OutputPin" href="Showcase.abcd#_AFDngLlLEeupgN33SxbatQ"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_SnCwa7oZEeupgN33SxbatQ" labelSize="9" showIcon="false" description="_SnA7OLoZEeupgN33SxbatQ" labelPosition="node" color="209,209,209">
           <labelFormat>bold</labelFormat>
         </ownedStyle>
-        <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin']"/>
+        <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin']"/>
       </ownedBorderedNodes>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
@@ -799,26 +799,26 @@
       <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_SnCwZboZEeupgN33SxbatQ" labelSize="13" description="_SnCwY7oZEeupgN33SxbatQ" borderSize="1" borderSizeComputationExpression="1" borderColor="114,73,110" backgroundColor="217,196,215" foregroundColor="217,196,215">
         <labelFormat>bold</labelFormat>
       </ownedStyle>
-      <actualMapping xmi:type="description_2:ContainerMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_MachineLearningComponent']"/>
+      <actualMapping xmi:type="description_2:ContainerMapping" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']/@defaultLayer/@containerMappings[name='diag1_MachineLearningComponent']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_mPIMobfcEeupgN33SxbatQ" name="Heuristic Component" tooltipText="Heuristic &quot;Heuristic Component">
-      <target xmi:type="e4sm:Heuristic" href="Showcase.e4sm#_mPIMoLfcEeupgN33SxbatQ"/>
-      <semanticElements xmi:type="e4sm:Heuristic" href="Showcase.e4sm#_mPIMoLfcEeupgN33SxbatQ"/>
+      <target xmi:type="abcd:Heuristic" href="Showcase.abcd#_mPIMoLfcEeupgN33SxbatQ"/>
+      <semanticElements xmi:type="abcd:Heuristic" href="Showcase.abcd#_mPIMoLfcEeupgN33SxbatQ"/>
       <ownedBorderedNodes xmi:type="diagram:DNode" uid="_2Q5AEbfcEeupgN33SxbatQ" name="IN" incomingEdges="_xNe1oL40EeuB8-YlCB2Eiw" width="3" height="3">
-        <target xmi:type="e4sm:InputPin" href="Showcase.e4sm#_2Q5AELfcEeupgN33SxbatQ"/>
-        <semanticElements xmi:type="e4sm:InputPin" href="Showcase.e4sm#_2Q5AELfcEeupgN33SxbatQ"/>
+        <target xmi:type="abcd:InputPin" href="Showcase.abcd#_2Q5AELfcEeupgN33SxbatQ"/>
+        <semanticElements xmi:type="abcd:InputPin" href="Showcase.abcd#_2Q5AELfcEeupgN33SxbatQ"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_SnCwcboZEeupgN33SxbatQ" labelSize="9" showIcon="false" description="_SnA7NLoZEeupgN33SxbatQ" labelPosition="node" color="255,255,255">
           <labelFormat>bold</labelFormat>
         </ownedStyle>
-        <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin']"/>
+        <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin']"/>
       </ownedBorderedNodes>
       <ownedBorderedNodes xmi:type="diagram:DNode" uid="_Ahd2sblLEeupgN33SxbatQ" name="O" width="3" height="3">
-        <target xmi:type="e4sm:OutputPin" href="Showcase.e4sm#_Ahd2sLlLEeupgN33SxbatQ"/>
-        <semanticElements xmi:type="e4sm:OutputPin" href="Showcase.e4sm#_Ahd2sLlLEeupgN33SxbatQ"/>
+        <target xmi:type="abcd:OutputPin" href="Showcase.abcd#_Ahd2sLlLEeupgN33SxbatQ"/>
+        <semanticElements xmi:type="abcd:OutputPin" href="Showcase.abcd#_Ahd2sLlLEeupgN33SxbatQ"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_SnDXcboZEeupgN33SxbatQ" labelSize="9" showIcon="false" description="_SnA7OLoZEeupgN33SxbatQ" labelPosition="node" color="209,209,209">
           <labelFormat>bold</labelFormat>
         </ownedStyle>
-        <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin']"/>
+        <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin']"/>
       </ownedBorderedNodes>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
@@ -826,29 +826,29 @@
       <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_SnCwbroZEeupgN33SxbatQ" labelSize="13" description="_SnBiSroZEeupgN33SxbatQ" borderSize="1" borderSizeComputationExpression="1" borderColor="156,12,12" backgroundColor="246,139,139" foregroundColor="246,139,139">
         <labelFormat>bold</labelFormat>
       </ownedStyle>
-      <actualMapping xmi:type="description_2:ContainerMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_HeuristicComponent']"/>
+      <actualMapping xmi:type="description_2:ContainerMapping" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']/@defaultLayer/@containerMappings[name='diag1_HeuristicComponent']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_pHF4QLfcEeupgN33SxbatQ" name="External Dependency" tooltipText="External Dependency &quot;External Dependency">
-      <target xmi:type="e4sm:ExternalDependency" href="Showcase.e4sm#_pHFRMLfcEeupgN33SxbatQ"/>
-      <semanticElements xmi:type="e4sm:ExternalDependency" href="Showcase.e4sm#_pHFRMLfcEeupgN33SxbatQ"/>
+      <target xmi:type="abcd:ExternalDependency" href="Showcase.abcd#_pHFRMLfcEeupgN33SxbatQ"/>
+      <semanticElements xmi:type="abcd:ExternalDependency" href="Showcase.abcd#_pHFRMLfcEeupgN33SxbatQ"/>
       <ownedBorderedNodes xmi:type="diagram:DNode" uid="_3JIPoLfcEeupgN33SxbatQ" name="IN" width="3" height="3">
-        <target xmi:type="e4sm:InputPin" href="Showcase.e4sm#_3JHokLfcEeupgN33SxbatQ"/>
-        <semanticElements xmi:type="e4sm:InputPin" href="Showcase.e4sm#_3JHokLfcEeupgN33SxbatQ"/>
+        <target xmi:type="abcd:InputPin" href="Showcase.abcd#_3JHokLfcEeupgN33SxbatQ"/>
+        <semanticElements xmi:type="abcd:InputPin" href="Showcase.abcd#_3JHokLfcEeupgN33SxbatQ"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_SnElm7oZEeupgN33SxbatQ" labelSize="9" showIcon="false" description="_SnA7NLoZEeupgN33SxbatQ" labelPosition="node" color="255,255,255">
           <labelFormat>bold</labelFormat>
         </ownedStyle>
-        <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin']"/>
+        <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin']"/>
       </ownedBorderedNodes>
       <ownedBorderedNodes xmi:type="diagram:DNode" uid="_A5sJcblLEeupgN33SxbatQ" name="O" width="3" height="3">
-        <target xmi:type="e4sm:OutputPin" href="Showcase.e4sm#_A5sJcLlLEeupgN33SxbatQ"/>
-        <semanticElements xmi:type="e4sm:OutputPin" href="Showcase.e4sm#_A5sJcLlLEeupgN33SxbatQ"/>
+        <target xmi:type="abcd:OutputPin" href="Showcase.abcd#_A5sJcLlLEeupgN33SxbatQ"/>
+        <semanticElements xmi:type="abcd:OutputPin" href="Showcase.abcd#_A5sJcLlLEeupgN33SxbatQ"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_SnElnroZEeupgN33SxbatQ" labelSize="9" showIcon="false" description="_SnA7OLoZEeupgN33SxbatQ" labelPosition="node" color="209,209,209">
           <labelFormat>bold</labelFormat>
         </ownedStyle>
-        <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin']"/>
+        <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin']"/>
       </ownedBorderedNodes>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
@@ -856,26 +856,26 @@
       <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_SnElmLoZEeupgN33SxbatQ" labelSize="13" labelColor="255,255,255" description="_SnEllroZEeupgN33SxbatQ" borderSize="1" borderSizeComputationExpression="1" borderColor="217,196,215" backgroundColor="114,73,110" foregroundColor="114,73,110">
         <labelFormat>bold</labelFormat>
       </ownedStyle>
-      <actualMapping xmi:type="description_2:ContainerMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag2_ExternalDependency']"/>
+      <actualMapping xmi:type="description_2:ContainerMapping" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']/@defaultLayer/@containerMappings[name='diag2_ExternalDependency']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_qv0JkbfcEeupgN33SxbatQ" name="In-House Function" tooltipText="Function &quot;In-House Function">
-      <target xmi:type="e4sm:Function" href="Showcase.e4sm#_qv0JkLfcEeupgN33SxbatQ"/>
-      <semanticElements xmi:type="e4sm:Function" href="Showcase.e4sm#_qv0JkLfcEeupgN33SxbatQ"/>
+      <target xmi:type="abcd:Function" href="Showcase.abcd#_qv0JkLfcEeupgN33SxbatQ"/>
+      <semanticElements xmi:type="abcd:Function" href="Showcase.abcd#_qv0JkLfcEeupgN33SxbatQ"/>
       <ownedBorderedNodes xmi:type="diagram:DNode" uid="_4VzeIbfcEeupgN33SxbatQ" name="O" outgoingEdges="_xNe1oL40EeuB8-YlCB2Eiw" width="3" height="3">
-        <target xmi:type="e4sm:OutputPin" href="Showcase.e4sm#_4VzeILfcEeupgN33SxbatQ"/>
-        <semanticElements xmi:type="e4sm:OutputPin" href="Showcase.e4sm#_4VzeILfcEeupgN33SxbatQ"/>
+        <target xmi:type="abcd:OutputPin" href="Showcase.abcd#_4VzeILfcEeupgN33SxbatQ"/>
+        <semanticElements xmi:type="abcd:OutputPin" href="Showcase.abcd#_4VzeILfcEeupgN33SxbatQ"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_SnFMpboZEeupgN33SxbatQ" labelSize="9" showIcon="false" description="_SnA7OLoZEeupgN33SxbatQ" labelPosition="node" color="209,209,209">
           <labelFormat>bold</labelFormat>
         </ownedStyle>
-        <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin']"/>
+        <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin']"/>
       </ownedBorderedNodes>
       <ownedBorderedNodes xmi:type="diagram:DNode" uid="_B0PtMblLEeupgN33SxbatQ" name="IN" width="3" height="3">
-        <target xmi:type="e4sm:InputPin" href="Showcase.e4sm#_B0PtMLlLEeupgN33SxbatQ"/>
-        <semanticElements xmi:type="e4sm:InputPin" href="Showcase.e4sm#_B0PtMLlLEeupgN33SxbatQ"/>
+        <target xmi:type="abcd:InputPin" href="Showcase.abcd#_B0PtMLlLEeupgN33SxbatQ"/>
+        <semanticElements xmi:type="abcd:InputPin" href="Showcase.abcd#_B0PtMLlLEeupgN33SxbatQ"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_SnFMoroZEeupgN33SxbatQ" labelSize="9" showIcon="false" description="_SnA7NLoZEeupgN33SxbatQ" labelPosition="node" color="255,255,255">
           <labelFormat>bold</labelFormat>
         </ownedStyle>
-        <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin']"/>
+        <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin']"/>
       </ownedBorderedNodes>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
@@ -883,26 +883,26 @@
       <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_SnEloboZEeupgN33SxbatQ" labelSize="13" description="_SnCJWLoZEeupgN33SxbatQ" borderSize="1" borderSizeComputationExpression="1" borderColor="77,137,20" backgroundColor="204,242,166" foregroundColor="204,242,166">
         <labelFormat>bold</labelFormat>
       </ownedStyle>
-      <actualMapping xmi:type="description_2:ContainerMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag2_Function']"/>
+      <actualMapping xmi:type="description_2:ContainerMapping" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']/@defaultLayer/@containerMappings[name='diag2_Function']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_u0uwgbfcEeupgN33SxbatQ" name="Generic Component" tooltipText="Component &quot;Generic Component">
-      <target xmi:type="e4sm:Component" href="Showcase.e4sm#_u0uwgLfcEeupgN33SxbatQ"/>
-      <semanticElements xmi:type="e4sm:Component" href="Showcase.e4sm#_u0uwgLfcEeupgN33SxbatQ"/>
+      <target xmi:type="abcd:Component" href="Showcase.abcd#_u0uwgLfcEeupgN33SxbatQ"/>
+      <semanticElements xmi:type="abcd:Component" href="Showcase.abcd#_u0uwgLfcEeupgN33SxbatQ"/>
       <ownedBorderedNodes xmi:type="diagram:DNode" uid="_EaiaAblLEeupgN33SxbatQ" name="IN" width="3" height="3">
-        <target xmi:type="e4sm:InputPin" href="Showcase.e4sm#_EaiaALlLEeupgN33SxbatQ"/>
-        <semanticElements xmi:type="e4sm:InputPin" href="Showcase.e4sm#_EaiaALlLEeupgN33SxbatQ"/>
+        <target xmi:type="abcd:InputPin" href="Showcase.abcd#_EaiaALlLEeupgN33SxbatQ"/>
+        <semanticElements xmi:type="abcd:InputPin" href="Showcase.abcd#_EaiaALlLEeupgN33SxbatQ"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_SnA7NroZEeupgN33SxbatQ" labelSize="9" showIcon="false" description="_SnA7NLoZEeupgN33SxbatQ" labelPosition="node" color="255,255,255">
           <labelFormat>bold</labelFormat>
         </ownedStyle>
-        <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin']"/>
+        <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin']"/>
       </ownedBorderedNodes>
       <ownedBorderedNodes xmi:type="diagram:DNode" uid="_Eso2oblLEeupgN33SxbatQ" name="O" width="3" height="3">
-        <target xmi:type="e4sm:OutputPin" href="Showcase.e4sm#_Eso2oLlLEeupgN33SxbatQ"/>
-        <semanticElements xmi:type="e4sm:OutputPin" href="Showcase.e4sm#_Eso2oLlLEeupgN33SxbatQ"/>
+        <target xmi:type="abcd:OutputPin" href="Showcase.abcd#_Eso2oLlLEeupgN33SxbatQ"/>
+        <semanticElements xmi:type="abcd:OutputPin" href="Showcase.abcd#_Eso2oLlLEeupgN33SxbatQ"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_SnA7OroZEeupgN33SxbatQ" labelSize="9" showIcon="false" description="_SnA7OLoZEeupgN33SxbatQ" labelPosition="node" color="209,209,209">
           <labelFormat>bold</labelFormat>
         </ownedStyle>
-        <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin']"/>
+        <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin']"/>
       </ownedBorderedNodes>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
@@ -910,32 +910,32 @@
       <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_SnA7MroZEeupgN33SxbatQ" labelSize="13" labelColor="39,76,114" description="_SnA7MLoZEeupgN33SxbatQ" borderSize="1" borderSizeComputationExpression="1" borderColor="39,76,114" backgroundColor="194,239,255" foregroundColor="194,239,255">
         <labelFormat>bold</labelFormat>
       </ownedStyle>
-      <actualMapping xmi:type="description_2:ContainerMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']"/>
+      <actualMapping xmi:type="description_2:ContainerMapping" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_8BwygbfcEeupgN33SxbatQ" name="Containment Example" tooltipText="Physical Component &quot;Containment Example">
-      <target xmi:type="e4sm:PhysicalComponent" href="Showcase.e4sm#_8BwygLfcEeupgN33SxbatQ"/>
-      <semanticElements xmi:type="e4sm:PhysicalComponent" href="Showcase.e4sm#_8BwygLfcEeupgN33SxbatQ"/>
+      <target xmi:type="abcd:PhysicalComponent" href="Showcase.abcd#_8BwygLfcEeupgN33SxbatQ"/>
+      <semanticElements xmi:type="abcd:PhysicalComponent" href="Showcase.abcd#_8BwygLfcEeupgN33SxbatQ"/>
       <ownedBorderedNodes xmi:type="diagram:DNode" uid="__craMbfcEeupgN33SxbatQ" name="IN" outgoingEdges="_xNe1pb40EeuB8-YlCB2Eiw" width="3" height="3">
-        <target xmi:type="e4sm:InputPin" href="Showcase.e4sm#__craMLfcEeupgN33SxbatQ"/>
-        <semanticElements xmi:type="e4sm:InputPin" href="Showcase.e4sm#__craMLfcEeupgN33SxbatQ"/>
+        <target xmi:type="abcd:InputPin" href="Showcase.abcd#__craMLfcEeupgN33SxbatQ"/>
+        <semanticElements xmi:type="abcd:InputPin" href="Showcase.abcd#__craMLfcEeupgN33SxbatQ"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_SnBiRboZEeupgN33SxbatQ" labelSize="9" showIcon="false" description="_SnA7NLoZEeupgN33SxbatQ" labelPosition="node" color="255,255,255">
           <labelFormat>bold</labelFormat>
         </ownedStyle>
-        <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin']"/>
+        <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin']"/>
       </ownedBorderedNodes>
       <ownedBorderedNodes xmi:type="diagram:DNode" uid="_AQmKcLfdEeupgN33SxbatQ" name="O" outgoingEdges="_j7-BwLfdEeupgN33SxbatQ" incomingEdges="_xNe1r740EeuB8-YlCB2Eiw" width="3" height="3">
-        <target xmi:type="e4sm:OutputPin" href="Showcase.e4sm#_AQljYLfdEeupgN33SxbatQ"/>
-        <semanticElements xmi:type="e4sm:OutputPin" href="Showcase.e4sm#_AQljYLfdEeupgN33SxbatQ"/>
+        <target xmi:type="abcd:OutputPin" href="Showcase.abcd#_AQljYLfdEeupgN33SxbatQ"/>
+        <semanticElements xmi:type="abcd:OutputPin" href="Showcase.abcd#_AQljYLfdEeupgN33SxbatQ"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_SnBiSLoZEeupgN33SxbatQ" labelSize="9" showIcon="false" description="_SnA7OLoZEeupgN33SxbatQ" labelPosition="node" color="209,209,209">
           <labelFormat>bold</labelFormat>
         </ownedStyle>
-        <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin']"/>
+        <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin']"/>
       </ownedBorderedNodes>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
@@ -943,28 +943,28 @@
       <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_SnA7ProZEeupgN33SxbatQ" labelSize="13" description="_SnA7PLoZEeupgN33SxbatQ" borderSize="1" borderSizeComputationExpression="1" borderColor="224,133,3" backgroundColor="253,206,137" foregroundColor="253,206,137">
         <labelFormat>bold</labelFormat>
       </ownedStyle>
-      <actualMapping xmi:type="description_2:ContainerMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_PhisicalComponent']"/>
+      <actualMapping xmi:type="description_2:ContainerMapping" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']/@defaultLayer/@containerMappings[name='diag1_PhisicalComponent']"/>
       <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_B7uPgLfdEeupgN33SxbatQ" name="1" tooltipText="Function &quot;1">
-        <target xmi:type="e4sm:Function" href="Showcase.e4sm#_B7tocLfdEeupgN33SxbatQ"/>
-        <semanticElements xmi:type="e4sm:Function" href="Showcase.e4sm#_B7tocLfdEeupgN33SxbatQ"/>
+        <target xmi:type="abcd:Function" href="Showcase.abcd#_B7tocLfdEeupgN33SxbatQ"/>
+        <semanticElements xmi:type="abcd:Function" href="Showcase.abcd#_B7tocLfdEeupgN33SxbatQ"/>
         <ownedBorderedNodes xmi:type="diagram:DNode" uid="_PAaN0bfdEeupgN33SxbatQ" name="IN" incomingEdges="_xNe1pb40EeuB8-YlCB2Eiw" width="3" height="3">
-          <target xmi:type="e4sm:InputPin" href="Showcase.e4sm#_PAaN0LfdEeupgN33SxbatQ"/>
-          <semanticElements xmi:type="e4sm:InputPin" href="Showcase.e4sm#_PAaN0LfdEeupgN33SxbatQ"/>
+          <target xmi:type="abcd:InputPin" href="Showcase.abcd#_PAaN0LfdEeupgN33SxbatQ"/>
+          <semanticElements xmi:type="abcd:InputPin" href="Showcase.abcd#_PAaN0LfdEeupgN33SxbatQ"/>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_SnCJXboZEeupgN33SxbatQ" labelSize="9" showIcon="false" description="_SnA7NLoZEeupgN33SxbatQ" labelPosition="node" color="255,255,255">
             <labelFormat>bold</labelFormat>
           </ownedStyle>
-          <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin']"/>
+          <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin']"/>
         </ownedBorderedNodes>
         <ownedBorderedNodes xmi:type="diagram:DNode" uid="_PT7mwbfdEeupgN33SxbatQ" name="O" outgoingEdges="_xNe1qr40EeuB8-YlCB2Eiw" width="3" height="3">
-          <target xmi:type="e4sm:OutputPin" href="Showcase.e4sm#_PT7mwLfdEeupgN33SxbatQ"/>
-          <semanticElements xmi:type="e4sm:OutputPin" href="Showcase.e4sm#_PT7mwLfdEeupgN33SxbatQ"/>
+          <target xmi:type="abcd:OutputPin" href="Showcase.abcd#_PT7mwLfdEeupgN33SxbatQ"/>
+          <semanticElements xmi:type="abcd:OutputPin" href="Showcase.abcd#_PT7mwLfdEeupgN33SxbatQ"/>
           <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
           <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
           <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_SnCJYLoZEeupgN33SxbatQ" labelSize="9" showIcon="false" description="_SnA7OLoZEeupgN33SxbatQ" labelPosition="node" color="209,209,209">
             <labelFormat>bold</labelFormat>
           </ownedStyle>
-          <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin']"/>
+          <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin']"/>
         </ownedBorderedNodes>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
@@ -972,40 +972,40 @@
         <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_SnCJWroZEeupgN33SxbatQ" labelSize="13" description="_SnCJWLoZEeupgN33SxbatQ" borderSize="1" borderSizeComputationExpression="1" borderColor="77,137,20" backgroundColor="204,242,166" foregroundColor="204,242,166">
           <labelFormat>bold</labelFormat>
         </ownedStyle>
-        <actualMapping xmi:type="description_2:ContainerMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag2_Function']"/>
+        <actualMapping xmi:type="description_2:ContainerMapping" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']/@defaultLayer/@containerMappings[name='diag2_Function']"/>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_MN9UUbfdEeupgN33SxbatQ" name="2" tooltipText="Heuristic &quot;2">
-        <target xmi:type="e4sm:Heuristic" href="Showcase.e4sm#_MN9UULfdEeupgN33SxbatQ"/>
-        <semanticElements xmi:type="e4sm:Heuristic" href="Showcase.e4sm#_MN9UULfdEeupgN33SxbatQ"/>
+        <target xmi:type="abcd:Heuristic" href="Showcase.abcd#_MN9UULfdEeupgN33SxbatQ"/>
+        <semanticElements xmi:type="abcd:Heuristic" href="Showcase.abcd#_MN9UULfdEeupgN33SxbatQ"/>
         <ownedBorderedNodes xmi:type="diagram:DNode" uid="_PzX70bfdEeupgN33SxbatQ" name="IN" incomingEdges="_xNe1qr40EeuB8-YlCB2Eiw" width="3" height="3">
-          <target xmi:type="e4sm:InputPin" href="Showcase.e4sm#_PzX70LfdEeupgN33SxbatQ"/>
-          <semanticElements xmi:type="e4sm:InputPin" href="Showcase.e4sm#_PzX70LfdEeupgN33SxbatQ"/>
+          <target xmi:type="abcd:InputPin" href="Showcase.abcd#_PzX70LfdEeupgN33SxbatQ"/>
+          <semanticElements xmi:type="abcd:InputPin" href="Showcase.abcd#_PzX70LfdEeupgN33SxbatQ"/>
           <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
           <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
           <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_SnBiT7oZEeupgN33SxbatQ" labelSize="9" showIcon="false" description="_SnA7NLoZEeupgN33SxbatQ" labelPosition="node" color="255,255,255">
             <labelFormat>bold</labelFormat>
           </ownedStyle>
-          <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin']"/>
+          <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin']"/>
         </ownedBorderedNodes>
         <ownedBorderedNodes xmi:type="diagram:DNode" uid="_QIl94bfdEeupgN33SxbatQ" name="O" outgoingEdges="_xNe1r740EeuB8-YlCB2Eiw" width="3" height="3">
-          <target xmi:type="e4sm:OutputPin" href="Showcase.e4sm#_QIl94LfdEeupgN33SxbatQ"/>
-          <semanticElements xmi:type="e4sm:OutputPin" href="Showcase.e4sm#_QIl94LfdEeupgN33SxbatQ"/>
+          <target xmi:type="abcd:OutputPin" href="Showcase.abcd#_QIl94LfdEeupgN33SxbatQ"/>
+          <semanticElements xmi:type="abcd:OutputPin" href="Showcase.abcd#_QIl94LfdEeupgN33SxbatQ"/>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_SnBiVboZEeupgN33SxbatQ" labelSize="9" showIcon="false" description="_SnA7OLoZEeupgN33SxbatQ" labelPosition="node" color="209,209,209">
             <labelFormat>bold</labelFormat>
           </ownedStyle>
-          <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin']"/>
+          <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin']"/>
         </ownedBorderedNodes>
         <ownedBorderedNodes xmi:type="diagram:DNode" uid="_HP5dkblLEeupgN33SxbatQ" name="IN" incomingEdges="_xNfctL40EeuB8-YlCB2Eiw" width="3" height="3">
-          <target xmi:type="e4sm:InputPin" href="Showcase.e4sm#_HP5dkLlLEeupgN33SxbatQ"/>
-          <semanticElements xmi:type="e4sm:InputPin" href="Showcase.e4sm#_HP5dkLlLEeupgN33SxbatQ"/>
+          <target xmi:type="abcd:InputPin" href="Showcase.abcd#_HP5dkLlLEeupgN33SxbatQ"/>
+          <semanticElements xmi:type="abcd:InputPin" href="Showcase.abcd#_HP5dkLlLEeupgN33SxbatQ"/>
           <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
           <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
           <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_SnBiUroZEeupgN33SxbatQ" labelSize="9" showIcon="false" description="_SnA7NLoZEeupgN33SxbatQ" labelPosition="node" color="255,255,255">
             <labelFormat>bold</labelFormat>
           </ownedStyle>
-          <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin']"/>
+          <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin']"/>
         </ownedBorderedNodes>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
@@ -1013,21 +1013,21 @@
         <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_SnBiTLoZEeupgN33SxbatQ" labelSize="13" description="_SnBiSroZEeupgN33SxbatQ" borderSize="1" borderSizeComputationExpression="1" borderColor="156,12,12" backgroundColor="246,139,139" foregroundColor="246,139,139">
           <labelFormat>bold</labelFormat>
         </ownedStyle>
-        <actualMapping xmi:type="description_2:ContainerMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_HeuristicComponent']"/>
+        <actualMapping xmi:type="description_2:ContainerMapping" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']/@defaultLayer/@containerMappings[name='diag1_HeuristicComponent']"/>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_KDbVIblLEeupgN33SxbatQ" name="1" tooltipText="Sensor &quot;1">
-        <target xmi:type="e4sm:Sensor" href="Showcase.e4sm#_KDbVILlLEeupgN33SxbatQ"/>
-        <semanticElements xmi:type="e4sm:Sensor" href="Showcase.e4sm#_KDbVILlLEeupgN33SxbatQ"/>
+        <target xmi:type="abcd:Sensor" href="Showcase.abcd#_KDbVILlLEeupgN33SxbatQ"/>
+        <semanticElements xmi:type="abcd:Sensor" href="Showcase.abcd#_KDbVILlLEeupgN33SxbatQ"/>
         <ownedBorderedNodes xmi:type="diagram:DNode" uid="_LRZkIblLEeupgN33SxbatQ" name="O" outgoingEdges="_xNfctL40EeuB8-YlCB2Eiw" width="3" height="3">
-          <target xmi:type="e4sm:OutputPin" href="Showcase.e4sm#_LRZkILlLEeupgN33SxbatQ"/>
-          <semanticElements xmi:type="e4sm:OutputPin" href="Showcase.e4sm#_LRZkILlLEeupgN33SxbatQ"/>
+          <target xmi:type="abcd:OutputPin" href="Showcase.abcd#_LRZkILlLEeupgN33SxbatQ"/>
+          <semanticElements xmi:type="abcd:OutputPin" href="Showcase.abcd#_LRZkILlLEeupgN33SxbatQ"/>
           <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
           <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
           <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_SnCJVroZEeupgN33SxbatQ" labelSize="9" showIcon="false" description="_SnA7OLoZEeupgN33SxbatQ" labelPosition="node" color="209,209,209">
             <labelFormat>bold</labelFormat>
           </ownedStyle>
-          <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin']"/>
+          <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin']"/>
         </ownedBorderedNodes>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
@@ -1035,22 +1035,22 @@
         <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_SnCJU7oZEeupgN33SxbatQ" labelSize="13" description="_SnCJUboZEeupgN33SxbatQ" borderSize="1" borderSizeComputationExpression="1" borderColor="224,133,3" backgroundColor="253,206,137" foregroundColor="253,206,137">
           <labelFormat>bold</labelFormat>
         </ownedStyle>
-        <actualMapping xmi:type="description_2:ContainerMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Sensor']"/>
+        <actualMapping xmi:type="description_2:ContainerMapping" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Sensor']"/>
       </ownedDiagramElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_h-nkQbfdEeupgN33SxbatQ" name="Physical Connection" tooltipText="Physical Component &quot;Physical Connection">
-      <target xmi:type="e4sm:PhysicalComponent" href="Showcase.e4sm#_h-nkQLfdEeupgN33SxbatQ"/>
-      <semanticElements xmi:type="e4sm:PhysicalComponent" href="Showcase.e4sm#_h-nkQLfdEeupgN33SxbatQ"/>
+      <target xmi:type="abcd:PhysicalComponent" href="Showcase.abcd#_h-nkQLfdEeupgN33SxbatQ"/>
+      <semanticElements xmi:type="abcd:PhysicalComponent" href="Showcase.abcd#_h-nkQLfdEeupgN33SxbatQ"/>
       <ownedBorderedNodes xmi:type="diagram:DNode" uid="_jhN_cbfdEeupgN33SxbatQ" name="IN" incomingEdges="_j7-BwLfdEeupgN33SxbatQ" width="3" height="3">
-        <target xmi:type="e4sm:InputPin" href="Showcase.e4sm#_jhN_cLfdEeupgN33SxbatQ"/>
-        <semanticElements xmi:type="e4sm:InputPin" href="Showcase.e4sm#_jhN_cLfdEeupgN33SxbatQ"/>
+        <target xmi:type="abcd:InputPin" href="Showcase.abcd#_jhN_cLfdEeupgN33SxbatQ"/>
+        <semanticElements xmi:type="abcd:InputPin" href="Showcase.abcd#_jhN_cLfdEeupgN33SxbatQ"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_SnCwYboZEeupgN33SxbatQ" labelSize="9" showIcon="false" description="_SnA7NLoZEeupgN33SxbatQ" labelPosition="node" color="255,255,255">
           <labelFormat>bold</labelFormat>
         </ownedStyle>
-        <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin']"/>
+        <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin']"/>
       </ownedBorderedNodes>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
@@ -1058,73 +1058,73 @@
       <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_SnBiQroZEeupgN33SxbatQ" labelSize="13" description="_SnBiQLoZEeupgN33SxbatQ" borderSize="1" borderSizeComputationExpression="1" borderColor="224,133,3" backgroundColor="253,206,137" foregroundColor="253,206,137">
         <labelFormat>bold</labelFormat>
       </ownedStyle>
-      <actualMapping xmi:type="description_2:ContainerMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_PhisicalComponent']"/>
+      <actualMapping xmi:type="description_2:ContainerMapping" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']/@defaultLayer/@containerMappings[name='diag1_PhisicalComponent']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_j7-BwLfdEeupgN33SxbatQ" sourceNode="_AQmKcLfdEeupgN33SxbatQ" targetNode="_jhN_cbfdEeupgN33SxbatQ">
-      <target xmi:type="e4sm:PhysicalConnector" href="Showcase.e4sm#_j78zoLfdEeupgN33SxbatQ"/>
-      <semanticElements xmi:type="e4sm:PhysicalConnector" href="Showcase.e4sm#_j78zoLfdEeupgN33SxbatQ"/>
+      <target xmi:type="abcd:PhysicalConnector" href="Showcase.abcd#_j78zoLfdEeupgN33SxbatQ"/>
+      <semanticElements xmi:type="abcd:PhysicalConnector" href="Showcase.abcd#_j78zoLfdEeupgN33SxbatQ"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_Sm5xBLoaEeupgN33SxbatQ" size="3" strokeColor="0,0,0">
-        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_physical_connector']/@style"/>
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_physical_connector']/@style"/>
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_Sm5xBboaEeupgN33SxbatQ" labelSize="12"/>
       </ownedStyle>
-      <actualMapping xmi:type="description_2:EdgeMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_physical_connector']"/>
+      <actualMapping xmi:type="description_2:EdgeMapping" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_physical_connector']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_xNeOkL40EeuB8-YlCB2Eiw" sourceNode="_3-DsgLfcEeupgN33SxbatQ" targetNode="_1iXtMbfcEeupgN33SxbatQ">
-      <target xmi:type="e4sm:LogicalConnector" href="Showcase.e4sm#_5LnEwLfcEeupgN33SxbatQ"/>
-      <semanticElements xmi:type="e4sm:LogicalConnector" href="Showcase.e4sm#_5LnEwLfcEeupgN33SxbatQ"/>
+      <target xmi:type="abcd:LogicalConnector" href="Showcase.abcd#_5LnEwLfcEeupgN33SxbatQ"/>
+      <semanticElements xmi:type="abcd:LogicalConnector" href="Showcase.abcd#_5LnEwLfcEeupgN33SxbatQ"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_xNeOkb40EeuB8-YlCB2Eiw" size="3" strokeColor="255,255,255">
-        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_logical_connector']/@style"/>
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_logical_connector']/@style"/>
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_xNeOkr40EeuB8-YlCB2Eiw" labelSize="12"/>
       </ownedStyle>
-      <actualMapping xmi:type="description_2:EdgeMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_logical_connector']"/>
+      <actualMapping xmi:type="description_2:EdgeMapping" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_logical_connector']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_xNe1oL40EeuB8-YlCB2Eiw" sourceNode="_4VzeIbfcEeupgN33SxbatQ" targetNode="_2Q5AEbfcEeupgN33SxbatQ">
-      <target xmi:type="e4sm:LogicalConnector" href="Showcase.e4sm#_5w3t8LfcEeupgN33SxbatQ"/>
-      <semanticElements xmi:type="e4sm:LogicalConnector" href="Showcase.e4sm#_5w3t8LfcEeupgN33SxbatQ"/>
+      <target xmi:type="abcd:LogicalConnector" href="Showcase.abcd#_5w3t8LfcEeupgN33SxbatQ"/>
+      <semanticElements xmi:type="abcd:LogicalConnector" href="Showcase.abcd#_5w3t8LfcEeupgN33SxbatQ"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_xNe1ob40EeuB8-YlCB2Eiw" size="3" strokeColor="255,255,255">
-        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_logical_connector']/@style"/>
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_logical_connector']/@style"/>
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_xNe1or40EeuB8-YlCB2Eiw" labelSize="12"/>
       </ownedStyle>
-      <actualMapping xmi:type="description_2:EdgeMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_logical_connector']"/>
+      <actualMapping xmi:type="description_2:EdgeMapping" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_logical_connector']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_xNe1pb40EeuB8-YlCB2Eiw" sourceNode="__craMbfcEeupgN33SxbatQ" targetNode="_PAaN0bfdEeupgN33SxbatQ">
-      <target xmi:type="e4sm:LogicalConnector" href="Showcase.e4sm#_SBKpELfdEeupgN33SxbatQ"/>
-      <semanticElements xmi:type="e4sm:LogicalConnector" href="Showcase.e4sm#_SBKpELfdEeupgN33SxbatQ"/>
+      <target xmi:type="abcd:LogicalConnector" href="Showcase.abcd#_SBKpELfdEeupgN33SxbatQ"/>
+      <semanticElements xmi:type="abcd:LogicalConnector" href="Showcase.abcd#_SBKpELfdEeupgN33SxbatQ"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_xNe1pr40EeuB8-YlCB2Eiw" description="_WXPkPLocEeupgN33SxbatQ" targetArrow="NoDecoration" size="3" strokeColor="255,255,255">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_xNe1p740EeuB8-YlCB2Eiw" labelSize="12"/>
       </ownedStyle>
-      <actualMapping xmi:type="description_2:EdgeMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_logical_connector']"/>
+      <actualMapping xmi:type="description_2:EdgeMapping" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_logical_connector']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_xNe1qr40EeuB8-YlCB2Eiw" sourceNode="_PT7mwbfdEeupgN33SxbatQ" targetNode="_PzX70bfdEeupgN33SxbatQ">
-      <target xmi:type="e4sm:LogicalConnector" href="Showcase.e4sm#_SaHUkLfdEeupgN33SxbatQ"/>
-      <semanticElements xmi:type="e4sm:LogicalConnector" href="Showcase.e4sm#_SaHUkLfdEeupgN33SxbatQ"/>
+      <target xmi:type="abcd:LogicalConnector" href="Showcase.abcd#_SaHUkLfdEeupgN33SxbatQ"/>
+      <semanticElements xmi:type="abcd:LogicalConnector" href="Showcase.abcd#_SaHUkLfdEeupgN33SxbatQ"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_xNe1q740EeuB8-YlCB2Eiw" size="3" strokeColor="255,255,255">
-        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_logical_connector']/@style"/>
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_logical_connector']/@style"/>
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_xNe1rL40EeuB8-YlCB2Eiw" labelSize="12"/>
       </ownedStyle>
-      <actualMapping xmi:type="description_2:EdgeMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_logical_connector']"/>
+      <actualMapping xmi:type="description_2:EdgeMapping" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_logical_connector']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_xNe1r740EeuB8-YlCB2Eiw" sourceNode="_QIl94bfdEeupgN33SxbatQ" targetNode="_AQmKcLfdEeupgN33SxbatQ">
-      <target xmi:type="e4sm:LogicalConnector" href="Showcase.e4sm#_SzePwLfdEeupgN33SxbatQ"/>
-      <semanticElements xmi:type="e4sm:LogicalConnector" href="Showcase.e4sm#_SzePwLfdEeupgN33SxbatQ"/>
+      <target xmi:type="abcd:LogicalConnector" href="Showcase.abcd#_SzePwLfdEeupgN33SxbatQ"/>
+      <semanticElements xmi:type="abcd:LogicalConnector" href="Showcase.abcd#_SzePwLfdEeupgN33SxbatQ"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_xNfcsL40EeuB8-YlCB2Eiw" description="_WXPkPLocEeupgN33SxbatQ" targetArrow="NoDecoration" size="3" strokeColor="255,255,255">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_xNfcsb40EeuB8-YlCB2Eiw" labelSize="12"/>
       </ownedStyle>
-      <actualMapping xmi:type="description_2:EdgeMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_logical_connector']"/>
+      <actualMapping xmi:type="description_2:EdgeMapping" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_logical_connector']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_xNfctL40EeuB8-YlCB2Eiw" sourceNode="_LRZkIblLEeupgN33SxbatQ" targetNode="_HP5dkblLEeupgN33SxbatQ">
-      <target xmi:type="e4sm:LogicalConnector" href="Showcase.e4sm#_OkV7kLlLEeupgN33SxbatQ"/>
-      <semanticElements xmi:type="e4sm:LogicalConnector" href="Showcase.e4sm#_OkV7kLlLEeupgN33SxbatQ"/>
+      <target xmi:type="abcd:LogicalConnector" href="Showcase.abcd#_OkV7kLlLEeupgN33SxbatQ"/>
+      <semanticElements xmi:type="abcd:LogicalConnector" href="Showcase.abcd#_OkV7kLlLEeupgN33SxbatQ"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_xNfctb40EeuB8-YlCB2Eiw" size="3" strokeColor="255,255,255">
-        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_logical_connector']/@style"/>
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_logical_connector']/@style"/>
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_xNfctr40EeuB8-YlCB2Eiw" labelSize="12"/>
       </ownedStyle>
-      <actualMapping xmi:type="description_2:EdgeMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_logical_connector']"/>
+      <actualMapping xmi:type="description_2:EdgeMapping" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_logical_connector']"/>
     </ownedDiagramElements>
-    <description xmi:type="description_2:DiagramDescription" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']"/>
+    <description xmi:type="description_2:DiagramDescription" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']"/>
     <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_VM9FEbfcEeupgN33SxbatQ"/>
-    <activatedLayers xmi:type="description_2:Layer" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer"/>
-    <activatedLayers xmi:type="description_2:AdditionalLayer" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@additionalLayers[name='d2_layer_readability']"/>
-    <target xmi:type="e4sm:Package" href="Showcase.e4sm#_QiXlQLfcEeupgN33SxbatQ"/>
+    <activatedLayers xmi:type="description_2:Layer" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']/@defaultLayer"/>
+    <activatedLayers xmi:type="description_2:AdditionalLayer" href="platform:/resource/abcd.xy.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='ABCD_Viewpoint']/@ownedRepresentations[name='abcd_diagram_2']/@additionalLayers[name='d2_layer_readability']"/>
+    <target xmi:type="abcd:Package" href="Showcase.abcd#_QiXlQLfcEeupgN33SxbatQ"/>
   </diagram:DSemanticDiagram>
 </xmi:XMI>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<abcd:Package xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:abcd="http://de.tu-ilmenau/abcd/1.0.0" name="Scenario 2">
+  <components xsi:type="abcd:PhysicalComponent" name="Computing Cluster">
+    <components xsi:type="abcd:MachineLearningComponent" name="Skeleton Detection"/>
+    <components xsi:type="abcd:MachineLearningComponent" name="Actions Detection"/>
+    <components xsi:type="abcd:MachineLearningComponent" name="Objects Detection"/>
+    <components xsi:type="abcd:Heuristic" name="Detect Process Phase"/>
+  </components>
+  <components xsi:type="abcd:MachineLearningComponent" name="ML1"/>
+  <components xsi:type="abcd:Heuristic" name="Heuristic 1"/>
+  <sectors name="Assembly area and warehouse with sensors"/>
+</abcd:Package>

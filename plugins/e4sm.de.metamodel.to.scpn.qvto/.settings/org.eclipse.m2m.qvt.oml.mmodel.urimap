@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="ASCII"?>
-<uriMap:MappingContainer xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:uriMap="http:///www.eclipse.org/m2m/qvt/oml/MModelUriMap/1.0.0">
-  <mapping sourceURI="http://de.tu-ilmenau/e4sm/1.0.0" targetURI="platform:/resource/e4sm.de.metamodel/model/e4sm.ecore"/>
-  <mapping sourceURI="http://timenet.tu-ilmenau.de/schema/SCPN" targetURI="platform:/resource/timenet.tuilmenau.de.scpn.metamodel/model/scpn.ecore"/>
-</uriMap:MappingContainer>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<abcd:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:abcd="http://de.tu-ilmenau/abcd/1.0.0" xmi:id="_WuRt8LI2EeuWI7I5oKywHA" name="ConstraintsTestModel" personsPicturesPath="/ConstraintsTest/images/">
+  <packages xmi:id="_WuRt8bI2EeuWI7I5oKywHA" name="Connector TestCases">
+    <components xmi:id="_WuRt8rI2EeuWI7I5oKywHA" name="GoodComponent">
+      <pins xsi:type="abcd:OutputPin" xmi:id="_WuRt87I2EeuWI7I5oKywHA"/>
+    </components>
+    <components xmi:id="_WuRt9LI2EeuWI7I5oKywHA" name="BadComponent">
+      <pins xsi:type="abcd:InputPin" xmi:id="_WuRt9bI2EeuWI7I5oKywHA"/>
+      <pins xsi:type="abcd:OutputPin" xmi:id="_WuRt9rI2EeuWI7I5oKywHA"/>
+      <pins xsi:type="abcd:InputPin" xmi:id="_WuRt97I2EeuWI7I5oKywHA"/>
+    </components>
+    <connectors xmi:id="_WuRt-LI2EeuWI7I5oKywHA"/>
+    <connectors xmi:id="_WuRt-bI2EeuWI7I5oKywHA" name="Connector_C1"/>
+  </packages>
+  <packages xmi:id="_WuRt-rI2EeuWI7I5oKywHA" name="PysicalConnector TestCases">
+    <components xsi:type="abcd:PhysicalComponent" xmi:id="_WuRt-7I2EeuWI7I5oKywHA" name="Bad Physical Component">
+      <pins xsi:type="abcd:OutputPin" xmi:id="_WuRt_LI2EeuWI7I5oKywHA"/>
+      <pins xsi:type="abcd:InputPin" xmi:id="_WuRt_bI2EeuWI7I5oKywHA"/>
+    </components>
+    <components xsi:type="abcd:SoftwareComponent" xmi:id="_WuRt_rI2EeuWI7I5oKywHA" name="Software Component">
+      <pins xsi:type="abcd:InputPin" xmi:id="_WuRt_7I2EeuWI7I5oKywHA"/>
+    </components>
+    <components xsi:type="abcd:PhysicalComponent" xmi:id="_WuRuALI2EeuWI7I5oKywHA" name="Good Physical Component">
+      <pins xsi:type="abcd:InputPin" xmi:id="_WuRuAbI2EeuWI7I5oKywHA"/>
+      <pins xsi:type="abcd:OutputPin" xmi:id="_WuRuArI2EeuWI7I5oKywHA"/>
+    </components>
+    <components xsi:type="abcd:PhysicalComponent" xmi:id="_WuRuA7I2EeuWI7I5oKywHA" name="A Physical Component">
+      <pins xsi:type="abcd:OutputPin" xmi:id="_WuRuBLI2EeuWI7I5oKywHA"/>
+      <pins xsi:type="abcd:InputPin" xmi:id="_WuRuBbI2EeuWI7I5oKywHA"/>
+    </components>
+    <connectors xsi:type="abcd:PhysicalConnector" xmi:id="_nKoWMLI3EeuWI7I5oKywHA"/>
+    <connectors xsi:type="abcd:PhysicalConnector" xmi:id="_nx_4MLI3EeuWI7I5oKywHA"/>
+    <connectors xsi:type="abcd:PhysicalConnector" xmi:id="__EC7ALI6EeuWI7I5oKywHA" name="C3"/>
+    <connectors xsi:type="abcd:PhysicalConnector" xmi:id="_EzkpoLI7EeuWI7I5oKywHA" name="C2"/>
+    <connectors xsi:type="abcd:PhysicalConnector" xmi:id="_Jnd2cLI7EeuWI7I5oKywHA" name="C1"/>
+  </packages>
+  <packages xmi:id="_6h67ALI3EeuWI7I5oKywHA" name="Component TestCases" specifiesComponent="_O7hGMLKMEeuiPoBjhRFFrQ">
+    <components xsi:type="abcd:PhysicalComponent" xmi:id="_LJiC8LI3EeuWI7I5oKywHA" name="Violates C2" specifiedInPackage="_P5kDcLI3EeuWI7I5oKywHA">
+      <components xsi:type="abcd:PhysicalComponent" xmi:id="_SbGMELI3EeuWI7I5oKywHA" name="SpecifiedInComponent"/>
+    </components>
+    <components xsi:type="abcd:PhysicalComponent" xmi:id="_Gyy2wLI4EeuWI7I5oKywHA" name="Good Component1" specifiedInPackage="_ItwuoLI4EeuWI7I5oKywHA"/>
+    <components xsi:type="abcd:PhysicalComponent" xmi:id="_LCVZULI4EeuWI7I5oKywHA" name="Good Component 2">
+      <components xsi:type="abcd:PhysicalComponent" xmi:id="_M45SULI4EeuWI7I5oKywHA" name="New Physical Component"/>
+    </components>
+    <components xsi:type="abcd:PhysicalComponent" xmi:id="_Pzv54LI4EeuWI7I5oKywHA" name="Violates C1"/>
+    <components xsi:type="abcd:PhysicalComponent" xmi:id="_MuAs0LKMEeuiPoBjhRFFrQ" name="Container">
+      <components xsi:type="abcd:PhysicalComponent" xmi:id="_NcfjcLKMEeuiPoBjhRFFrQ" name="Subcontainer">
+        <components xsi:type="abcd:PhysicalComponent" xmi:id="_O7hGMLKMEeuiPoBjhRFFrQ" name="Also Violates C1" specifiedInPackage="_6h67ALI3EeuWI7I5oKywHA"/>
+      </components>
+    </components>
+    <packages xmi:id="_P5kDcLI3EeuWI7I5oKywHA" name="Specify C2" specifiesComponent="_LJiC8LI3EeuWI7I5oKywHA">
+      <components xsi:type="abcd:PhysicalComponent" xmi:id="_Q0FyALI3EeuWI7I5oKywHA" name="Specified in Package"/>
+    </packages>
+    <packages xmi:id="_ItwuoLI4EeuWI7I5oKywHA" name="Specify Good Component" specifiesComponent="_Gyy2wLI4EeuWI7I5oKywHA"/>
+  </packages>
+  <packages xmi:id="_rz-iEH9aEeyTs9gBHln3JQ" name="SoftwareComponent TestCases">
+    <sectors xmi:id="_y0uA8H9aEeyTs9gBHln3JQ" name="A Sector">
+      <components xsi:type="abcd:SoftwareComponent" xmi:id="_1QQ2UH9aEeyTs9gBHln3JQ" name="Violates C1"/>
+      <components xsi:type="abcd:Heuristic" xmi:id="_59SmIH9aEeyTs9gBHln3JQ" name="Violates C1"/>
+      <components xsi:type="abcd:PhysicalComponent" xmi:id="_P8u48H9bEeyTs9gBHln3JQ" name="Ok">
+        <components xsi:type="abcd:SoftwareComponent" xmi:id="_RNhycH9bEeyTs9gBHln3JQ" name="Ok">
+          <pins xsi:type="abcd:OutputPin" xmi:id="_RNhycX9bEeyTs9gBHln3JQ"/>
+          <pins xsi:type="abcd:InputPin" xmi:id="_RNhycn9bEeyTs9gBHln3JQ"/>
+        </components>
+        <pins xsi:type="abcd:OutputPin" xmi:id="_P8vgAH9bEeyTs9gBHln3JQ"/>
+        <pins xsi:type="abcd:InputPin" xmi:id="_P8vgAX9bEeyTs9gBHln3JQ"/>
+      </components>
+    </sectors>
+  </packages>
+  <packages xmi:id="_983IIH9cEeyG66o6Osh0ew" name="Package TestCases">
+    <components xsi:type="abcd:SoftwareComponent" xmi:id="_DOQwUH9dEeyG66o6Osh0ew" name="Component To Be Specified" specifiedInPackage="_FRCgYH9dEeyG66o6Osh0ew"/>
+    <packages xmi:id="__pnk4H9cEeyG66o6Osh0ew" name="Violates C1"/>
+    <packages xmi:id="_FRCgYH9dEeyG66o6Osh0ew" name="Does Not Violate C1" specifiesComponent="_DOQwUH9dEeyG66o6Osh0ew"/>
+  </packages>
+  <packages xmi:id="_Bnj7cH9hEeyp_5B0a6JkUQ" name="Pin TestCases">
+    <components xsi:type="abcd:PhysicalComponent" xmi:id="_Fb36kH9hEeyp_5B0a6JkUQ" name="New Physical Component">
+      <pins xsi:type="abcd:OutputPin" xmi:id="_Fb36kX9hEeyp_5B0a6JkUQ" outgoingConnectors="_HXEb8H9hEeyp_5B0a6JkUQ"/>
+      <pins xsi:type="abcd:InputPin" xmi:id="_Fb36kn9hEeyp_5B0a6JkUQ" name="Violates C1"/>
+    </components>
+    <components xsi:type="abcd:Actuator" xmi:id="_GlRLkH9hEeyp_5B0a6JkUQ" name="New Actuator">
+      <pins xsi:type="abcd:InputPin" xmi:id="_GlRLkX9hEeyp_5B0a6JkUQ" incomingConnectors="_HXEb8H9hEeyp_5B0a6JkUQ"/>
+    </components>
+    <components xsi:type="abcd:Sensor" xmi:id="_JxFAQH9hEeyp_5B0a6JkUQ" name="New Sensor">
+      <pins xsi:type="abcd:OutputPin" xmi:id="_JxFAQX9hEeyp_5B0a6JkUQ" name="Violates C1"/>
+    </components>
+    <connectors xsi:type="abcd:PhysicalConnector" xmi:id="_HXEb8H9hEeyp_5B0a6JkUQ" source="_Fb36kX9hEeyp_5B0a6JkUQ" target="_GlRLkX9hEeyp_5B0a6JkUQ"/>
+  </packages>
+  <actors xmi:id="_WuRuC7I2EeuWI7I5oKywHA" name="TestActor"/>
+  <actors xsi:type="abcd:Human" xmi:id="_WuRuDLI2EeuWI7I5oKywHA" name="Test Human"/>
+  <actors xsi:type="abcd:Robot" xmi:id="_WuRuDbI2EeuWI7I5oKywHA" name="Test Robot"/>
+  <actors xsi:type="abcd:Person" xmi:id="_WuRuDrI2EeuWI7I5oKywHA" name="Test" surname="Person" department="DEP"/>
+</abcd:Model>

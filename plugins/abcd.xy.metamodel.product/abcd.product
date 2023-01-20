@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?pde version="3.5"?>
+
+<product name="ABCD Product" uid="abcd.product" id="abcd.xy.metamodel.branding.product" application="org.eclipse.ui.ide.workbench" version="1.0.0.qualifier" useFeatures="true" includeLaunchers="true">
+
+   <aboutInfo>
+      <image path="/icons/about.bmp"/>
+       <text>
+         ABCD Editor
+
+		 Version  1.0.0
+		
+		Technische Universität Ilmenau
+		
+		Visit https://www.abcd-projekt.de
+      </text>
+   </aboutInfo>
+
+   <configIni use="default">
+   </configIni>
+
+   <launcherArgs>
+      <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts
+      </vmArgsMac>
+   </launcherArgs>
+
+   <windowImages i16="/abcd.xy.metamodel.branding/icons/logo_16.gif" i32="/abcd.xy.metamodel.branding/icons/logo_32.gif" i64="/abcd.xy.metamodel.branding/icons/logo_64.gif"/>
+
+   <splash
+      location="abcd.xy.metamodel.branding" />
+   <launcher name="ABCD_editor">
+      <win useIco="false">
+         <ico path="/abcd.xy.metamodel.branding/icons/icon.ico"/>
+         <bmp
+            winSmallHigh="/abcd.xy.metamodel.branding/icons/logo_16.bmp"
+            winSmallLow="/abcd.xy.metamodel.branding/icons/logo_16_8.bmp"
+            winMediumHigh="/abcd.xy.metamodel.branding/icons/logo_32.gif"
+            winMediumLow="/abcd.xy.metamodel.branding/icons/logo_32.gif"/>
+      </win>
+   </launcher>
+
+   <vm>
+      <windows include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17</windows>
+   </vm>
+
+   <plugins>
+   </plugins>
+
+   <features>
+      <feature id="org.eclipse.e4.rcp" installMode="root"/>
+      <feature id="org.eclipse.platform" installMode="root"/>
+      <feature id="org.eclipse.emf.ecore" installMode="root"/>
+      <feature id="org.eclipse.emf.common" installMode="root"/>
+      <feature id="org.eclipse.equinox.p2.core.feature" installMode="root"/>
+      <feature id="abcd.xy.metamodel.feature" installMode="root"/>
+      <feature id="abcd.xy.metamodel.design.feature" installMode="root"/>
+      <feature id="abcd.xy.metamodel.to.scpn.qvto.feature" installMode="root"/>
+   </features>
+
+   <configurations>
+      <plugin id="org.apache.felix.scr" autoStart="true" startLevel="2" />
+      <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" />
+      <plugin id="org.eclipse.equinox.event" autoStart="true" startLevel="2" />
+      <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="1" />
+   </configurations>
+
+   <preferencesInfo>
+      <targetfile overwrite="false"/>
+   </preferencesInfo>
+
+   <cssInfo>
+   </cssInfo>
+
+</product>

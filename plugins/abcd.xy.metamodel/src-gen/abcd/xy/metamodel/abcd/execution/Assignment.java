@@ -1,0 +1,67 @@
+/**
+ */
+package abcd.xy.metamodel.abcd.execution;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Assignment</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link abcd.xy.metamodel.abcd.execution.Assignment#getExpression <em>Expression</em>}</li>
+ *   <li>{@link abcd.xy.metamodel.abcd.execution.Assignment#getTarget <em>Target</em>}</li>
+ * </ul>
+ *
+ * @see abcd.xy.metamodel.abcd.execution.ExecutionPackage#getAssignment()
+ * @model
+ * @generated
+ */
+public interface Assignment extends ExecutionElement {
+	/**
+	 * Returns the value of the '<em><b>Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Expression</em>' containment reference.
+	 * @see #setExpression(Expression)
+	 * @see abcd.xy.metamodel.abcd.execution.ExecutionPackage#getAssignment_Expression()
+	 * @model containment="true" required="true"
+	 * @generated
+	 */
+	Expression getExpression();
+
+	/**
+	 * Sets the value of the '{@link abcd.xy.metamodel.abcd.execution.Assignment#getExpression <em>Expression</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Expression</em>' containment reference.
+	 * @see #getExpression()
+	 * @generated
+	 */
+	void setExpression(Expression value);
+
+	/**
+	 * Returns the value of the '<em><b>Target</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Target</em>' containment reference.
+	 * @see #setTarget(AssignableElementReference)
+	 * @see abcd.xy.metamodel.abcd.execution.ExecutionPackage#getAssignment_Target()
+	 * @model containment="true" required="true"
+	 * @generated
+	 */
+	AssignableElementReference getTarget();
+
+	/**
+	 * Sets the value of the '{@link abcd.xy.metamodel.abcd.execution.Assignment#getTarget <em>Target</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Target</em>' containment reference.
+	 * @see #getTarget()
+	 * @generated
+	 */
+	void setTarget(AssignableElementReference value);
+
+} // Assignment

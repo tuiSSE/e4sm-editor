@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="analysis" nsURI="http://de.tu-ilmenau/abcd/analysis/1.0.0" nsPrefix="analysis">
+  <eClassifiers xsi:type="ecore:EClass" name="Analysis" abstract="true">
+    <eOperations name="exec"/>
+    <eOperations name="init" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eOperations name="postExecution"/>
+    <eOperations name="run" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AnalysisManager">
+    <eOperations name="start" eType="ecore:EClass analysis_results.ecore#//AnalysisExecution">
+      <eParameters name="a" upperBound="-1" eType="#//Analysis"/>
+    </eOperations>
+    <eOperations name="storeResult" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="res" eType="ecore:EClass analysis_results.ecore#//AnalysisExecution"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AnalysisDefinition" eSuperTypes="core.ecore#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameterDefinitions" upperBound="-1"
+        eType="#//ParameterDefinition" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="analysis" lowerBound="1"
+        eType="#//Analysis" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ParameterDefinition" eSuperTypes="core.ecore#//TypedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+        eType="#//Parameter" eOpposite="#//Parameter/parameterDefinition"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="unit" eType="ecore:EEnum core.ecore#//UnitOfMeasurement"
+        defaultValueLiteral="none"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mustBeDefinedOn" upperBound="-1"
+        eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EClass"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="canBeDefinedOn" upperBound="-1"
+        eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EClass"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="shallNotBeDefinedOn" upperBound="-1"
+        eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EClass"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultValue" eType="ecore:EClass core.ecore#//ValueSpecification"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="core.ecore#//Element">
+    <eOperations name="isValid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameterDefinition" lowerBound="1"
+        eType="#//ParameterDefinition" eOpposite="#//ParameterDefinition/parameters"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="appliesOnlyOnVariants"
+        upperBound="-1" eType="ecore:EClass core.ecore#//Variant"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="doesNotApplyOnVariants"
+        upperBound="-1" eType="ecore:EClass core.ecore#//Variant"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="initialValue" eType="ecore:EClass core.ecore#//ValueSpecification"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="currentValue" eType="ecore:EClass core.ecore#//ValueSpecification"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ModelAnalysis" abstract="true" eSuperTypes="#//Analysis"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GraphAnalysis" abstract="true" eSuperTypes="#//Analysis">
+    <eTypeParameters name="C"/>
+    <eOperations name="initGraph"/>
+    <eOperations name="init" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="graph">
+      <eGenericType eClassifier="ecore:EClass guava.ecore#//Graph">
+        <eTypeArguments eTypeParameter="#//GraphAnalysis/C"/>
+      </eGenericType>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MemoryLessGraphAnalysis">
+    <eTypeParameters name="C"/>
+    <eGenericSuperTypes eClassifier="#//GraphAnalysis">
+      <eTypeArguments eTypeParameter="#//MemoryLessGraphAnalysis/C"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EntireGraphAnalysis">
+    <eTypeParameters name="C"/>
+    <eGenericSuperTypes eClassifier="#//GraphAnalysis">
+      <eTypeArguments eTypeParameter="#//EntireGraphAnalysis/C"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PackageAnalysis" eSuperTypes="#//Analysis"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PreviousNodeGraphAnalysis">
+    <eTypeParameters name="C"/>
+    <eGenericSuperTypes eClassifier="#//GraphAnalysis">
+      <eTypeArguments eTypeParameter="#//PreviousNodeGraphAnalysis/C"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NetworkGenerator">
+    <eOperations name="generateNetwork">
+      <eGenericType eClassifier="ecore:EClass guava.ecore#//ImmutableNetwork">
+        <eTypeArguments eClassifier="ecore:EClass abcd.ecore#//Component"/>
+        <eTypeArguments eClassifier="ecore:EClass abcd.ecore#//Connector"/>
+      </eGenericType>
+      <eParameters name="m" eType="ecore:EClass abcd.ecore#//Model"/>
+    </eOperations>
+    <eOperations name="generateNetwork">
+      <eGenericType eClassifier="ecore:EClass guava.ecore#//ImmutableNetwork">
+        <eTypeArguments eClassifier="ecore:EClass abcd.ecore#//Component"/>
+        <eTypeArguments eClassifier="ecore:EClass abcd.ecore#//Connector"/>
+      </eGenericType>
+      <eParameters name="p" eType="ecore:EClass abcd.ecore#//Package"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ParameterizableElement" abstract="true"
+      interface="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+        eType="#//Parameter" containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>

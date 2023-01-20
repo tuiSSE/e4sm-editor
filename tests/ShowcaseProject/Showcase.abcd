@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<abcd:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:abcd="http://de.tu-ilmenau/abcd/1.0.0" xmi:id="_CGg_sLfcEeupgN33SxbatQ" name="Showcase Model" personsPicturesPath="/ShowcaseProject/images/persons/">
+  <packages xmi:id="_QiXlQLfcEeupgN33SxbatQ" name="Package">
+    <components xsi:type="abcd:SoftwareComponent" xmi:id="_hIBv8LfcEeupgN33SxbatQ" name="Generic Software Component">
+      <pins xsi:type="abcd:OutputPin" xmi:id="_3-DFcLfcEeupgN33SxbatQ"/>
+      <pins xsi:type="abcd:InputPin" xmi:id="_BfBEELlLEeupgN33SxbatQ"/>
+    </components>
+    <components xsi:type="abcd:MachineLearningComponent" xmi:id="_jHMyYLfcEeupgN33SxbatQ" name="Machine Learning Component">
+      <pins xsi:type="abcd:InputPin" xmi:id="_1iXtMLfcEeupgN33SxbatQ"/>
+      <pins xsi:type="abcd:OutputPin" xmi:id="_AFDngLlLEeupgN33SxbatQ"/>
+    </components>
+    <components xsi:type="abcd:Heuristic" xmi:id="_mPIMoLfcEeupgN33SxbatQ" name="Heuristic Component">
+      <pins xsi:type="abcd:InputPin" xmi:id="_2Q5AELfcEeupgN33SxbatQ"/>
+      <pins xsi:type="abcd:OutputPin" xmi:id="_Ahd2sLlLEeupgN33SxbatQ"/>
+    </components>
+    <components xsi:type="abcd:ExternalDependency" xmi:id="_pHFRMLfcEeupgN33SxbatQ" name="External Dependency">
+      <pins xsi:type="abcd:InputPin" xmi:id="_3JHokLfcEeupgN33SxbatQ"/>
+      <pins xsi:type="abcd:OutputPin" xmi:id="_A5sJcLlLEeupgN33SxbatQ"/>
+    </components>
+    <components xsi:type="abcd:Function" xmi:id="_qv0JkLfcEeupgN33SxbatQ" name="In-House Function">
+      <pins xsi:type="abcd:OutputPin" xmi:id="_4VzeILfcEeupgN33SxbatQ"/>
+      <pins xsi:type="abcd:InputPin" xmi:id="_B0PtMLlLEeupgN33SxbatQ"/>
+    </components>
+    <components xmi:id="_u0uwgLfcEeupgN33SxbatQ" name="Generic Component">
+      <pins xsi:type="abcd:InputPin" xmi:id="_EaiaALlLEeupgN33SxbatQ"/>
+      <pins xsi:type="abcd:OutputPin" xmi:id="_Eso2oLlLEeupgN33SxbatQ"/>
+    </components>
+    <components xsi:type="abcd:PhysicalComponent" xmi:id="_8BwygLfcEeupgN33SxbatQ" name="Containment Example">
+      <components xsi:type="abcd:Function" xmi:id="_B7tocLfdEeupgN33SxbatQ" name="1">
+        <pins xsi:type="abcd:InputPin" xmi:id="_PAaN0LfdEeupgN33SxbatQ"/>
+        <pins xsi:type="abcd:OutputPin" xmi:id="_PT7mwLfdEeupgN33SxbatQ"/>
+      </components>
+      <components xsi:type="abcd:Heuristic" xmi:id="_MN9UULfdEeupgN33SxbatQ" name="2">
+        <pins xsi:type="abcd:InputPin" xmi:id="_PzX70LfdEeupgN33SxbatQ"/>
+        <pins xsi:type="abcd:OutputPin" xmi:id="_QIl94LfdEeupgN33SxbatQ"/>
+        <pins xsi:type="abcd:InputPin" xmi:id="_HP5dkLlLEeupgN33SxbatQ"/>
+      </components>
+      <components xsi:type="abcd:Sensor" xmi:id="_KDbVILlLEeupgN33SxbatQ" name="1">
+        <pins xsi:type="abcd:OutputPin" xmi:id="_LRZkILlLEeupgN33SxbatQ"/>
+      </components>
+      <pins xsi:type="abcd:InputPin" xmi:id="__craMLfcEeupgN33SxbatQ"/>
+      <pins xsi:type="abcd:OutputPin" xmi:id="_AQljYLfdEeupgN33SxbatQ"/>
+    </components>
+    <components xsi:type="abcd:PhysicalComponent" xmi:id="_h-nkQLfdEeupgN33SxbatQ" name="Physical Connection">
+      <pins xsi:type="abcd:InputPin" xmi:id="_jhN_cLfdEeupgN33SxbatQ"/>
+    </components>
+    <connectors xsi:type="abcd:LogicalConnector" xmi:id="_5LnEwLfcEeupgN33SxbatQ" source="_3-DFcLfcEeupgN33SxbatQ" target="_1iXtMLfcEeupgN33SxbatQ"/>
+    <connectors xsi:type="abcd:LogicalConnector" xmi:id="_5w3t8LfcEeupgN33SxbatQ" source="_4VzeILfcEeupgN33SxbatQ" target="_2Q5AELfcEeupgN33SxbatQ"/>
+    <connectors xsi:type="abcd:LogicalConnector" xmi:id="_SBKpELfdEeupgN33SxbatQ" source="__craMLfcEeupgN33SxbatQ" target="_PAaN0LfdEeupgN33SxbatQ"/>
+    <connectors xsi:type="abcd:LogicalConnector" xmi:id="_SaHUkLfdEeupgN33SxbatQ" source="_PT7mwLfdEeupgN33SxbatQ" target="_PzX70LfdEeupgN33SxbatQ"/>
+    <connectors xsi:type="abcd:LogicalConnector" xmi:id="_SzePwLfdEeupgN33SxbatQ" source="_QIl94LfdEeupgN33SxbatQ" target="_AQljYLfdEeupgN33SxbatQ"/>
+    <connectors xsi:type="abcd:PhysicalConnector" xmi:id="_j78zoLfdEeupgN33SxbatQ" source="_AQljYLfdEeupgN33SxbatQ" target="_jhN_cLfdEeupgN33SxbatQ"/>
+    <connectors xsi:type="abcd:LogicalConnector" xmi:id="_OkV7kLlLEeupgN33SxbatQ" source="_LRZkILlLEeupgN33SxbatQ" target="_HP5dkLlLEeupgN33SxbatQ"/>
+    <sectors xmi:id="_WHVpsLfcEeupgN33SxbatQ" name="Collection of Physical Components">
+      <components xmi:id="_YWiFILfcEeupgN33SxbatQ" name="Physical Component">
+        <pins xsi:type="abcd:InputPin" xmi:id="_CPISYLlLEeupgN33SxbatQ"/>
+        <pins xsi:type="abcd:OutputPin" xmi:id="_CiQpwLlLEeupgN33SxbatQ"/>
+      </components>
+      <components xsi:type="abcd:Sensor" xmi:id="_axhg4LfcEeupgN33SxbatQ" name="Sensor">
+        <pins xsi:type="abcd:OutputPin" xmi:id="_gH5TMLfdEeupgN33SxbatQ"/>
+      </components>
+      <components xsi:type="abcd:Actuator" xmi:id="_cNDqwLfcEeupgN33SxbatQ" name="Actuator">
+        <pins xsi:type="abcd:InputPin" xmi:id="_gnFJkLfdEeupgN33SxbatQ"/>
+      </components>
+    </sectors>
+  </packages>
+</abcd:Model>

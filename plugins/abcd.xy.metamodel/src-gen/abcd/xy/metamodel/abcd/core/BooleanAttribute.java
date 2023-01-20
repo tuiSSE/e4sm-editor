@@ -1,0 +1,44 @@
+/**
+ */
+package abcd.xy.metamodel.abcd.core;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Boolean Attribute</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link abcd.xy.metamodel.abcd.core.BooleanAttribute#isDefaultValue <em>Default Value</em>}</li>
+ * </ul>
+ *
+ * @see abcd.xy.metamodel.abcd.core.CorePackage#getBooleanAttribute()
+ * @model
+ * @generated
+ */
+public interface BooleanAttribute extends AttributeSpecification {
+	/**
+	 * Returns the value of the '<em><b>Default Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Default Value</em>' attribute.
+	 * @see #setDefaultValue(boolean)
+	 * @see abcd.xy.metamodel.abcd.core.CorePackage#getBooleanAttribute_DefaultValue()
+	 * @model
+	 * @generated
+	 */
+	boolean isDefaultValue();
+
+	/**
+	 * Sets the value of the '{@link abcd.xy.metamodel.abcd.core.BooleanAttribute#isDefaultValue <em>Default Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Default Value</em>' attribute.
+	 * @see #isDefaultValue()
+	 * @generated
+	 */
+	void setDefaultValue(boolean value);
+
+} // BooleanAttribute

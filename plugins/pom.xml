@@ -1,7 +1,7 @@
 <project>
  <modelVersion>4.0.0</modelVersion>
- <groupId>e4sm.de.metamodel</groupId>
- <artifactId>e4smEditor</artifactId>
+ <groupId>abcd.xy.metamodel</groupId>
+ <artifactId>abcdEditor</artifactId>
  <version>1.0.0-SNAPSHOT</version>
  <packaging>pom</packaging>
 
@@ -127,18 +127,18 @@
  </build>
   <modules>
    <!--TODO ADD YOUR MODULES HERE-->
-   <module>e4sm.de.antlr4.petri.grammar</module>
-   <module>e4sm.de.metamodel</module>
-   <module>e4sm.de.metamodel.edit</module>
-   <module>e4sm.de.metamodel.editor</module>
-   <module>e4sm.de.metamodel.feature</module>
-   <module>e4sm.de.metamodel.to.scpn.qvto.feature</module>
-   <module>e4sm.de.metamodel.design.feature</module>
+   <module>abcd.xy.antlr4.petri.grammar</module>
+   <module>abcd.xy.metamodel</module>
+   <module>abcd.xy.metamodel.edit</module>
+   <module>abcd.xy.metamodel.editor</module>
+   <module>abcd.xy.metamodel.feature</module>
+   <module>abcd.xy.metamodel.to.scpn.qvto.feature</module>
+   <module>abcd.xy.metamodel.design.feature</module>
    <module>timenet.tuilmenau.de.scpn.metamodel</module>
-   <module>e4sm.de.metamodel.to.scpn.qvto</module>
-   <module>e4sm.de.metamodel.xtext/e4sm.de.metamodel.xtext.parent</module>
-   <module>e4sm.de.metamodel.design</module>
-   <module>e4sm.de.metamodel.branding</module>
-   <module>e4sm.de.metamodel.product</module>
+   <module>abcd.xy.metamodel.to.scpn.qvto</module>
+   <module>abcd.xy.metamodel.xtext/abcd.xy.metamodel.xtext.parent</module>
+   <module>abcd.xy.metamodel.design</module>
+   <module>abcd.xy.metamodel.branding</module>
+   <module>abcd.xy.metamodel.product</module>
  </modules>
 </project>

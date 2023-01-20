@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: abcd.xy.metamodel.xtext.tests
+Bundle-ManifestVersion: 2
+Bundle-Name: abcd.xy.metamodel.xtext.tests
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: abcd.xy.metamodel.xtext.tests; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: abcd.xy.metamodel.xtext,
+ abcd.xy.metamodel,
+ org.eclipse.xtext.testing,
+ org.eclipse.xtext.xbase.testing,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-19
+Export-Package: abcd.xy.metamodel.xtext.tests;x-internal=true

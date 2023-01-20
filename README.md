@@ -1,5 +1,5 @@
-# E4SM Editor
-This project contains [Eclipse](https://eclipse.org) plugins required to realize the E4SM Editor. The editor has been realized with [Eclipse Sirius](https://www.eclipse.org/sirius/).
+# ABCD Editor
+This project contains [Eclipse](https://eclipse.org) plugins required to realize the ABCD Editor. The editor has been realized with [Eclipse Sirius](https://www.eclipse.org/sirius/).
 
 ## Table of Contents
  [[_TOC_]]
@@ -22,33 +22,33 @@ In order to be executable, all model elements need to have a *precise formal sem
 - **Security**: The editor should consider and analyze security aspects too, but this currently out of focus due to the lack of a specialized employee.
 
 ## Plugins overview
-### [e4sm.de.antlr4.petri.grammar](plugins/e4sm.de.antlr4.petri.grammar)
+### [abcd.xy.antlr4.petri.grammar](plugins/abcd.xy.antlr4.petri.grammar)
 Contains an ANTLR grammar which specifies which strings are valid inside TimeNET's SCPN models. It should be used to parse and validate the content of the strings which are manually inserted in the model editors.
 
-### [e4sm.de.metamodel](plugins/e4sm.de.metamodel)
-It contains the **ecore metamodel specification** for the E4SM data model. It includes Java interfaces and implementation classes for all the classes in the model, plus a factory and package (metadata) implementation class.
+### [abcd.xy.metamodel](plugins/abcd.xy.metamodel)
+It contains the **ecore metamodel specification** for the ABCD data model. It includes Java interfaces and implementation classes for all the classes in the model, plus a factory and package (metadata) implementation class.
 
-### [e4sm.de.metamodel.edit](plugins/e4sm.de.metamodel.edit)
+### [abcd.xy.metamodel.edit](plugins/abcd.xy.metamodel.edit)
 Generated implementation classes (called `ItemProviders`) that adapt the model classes for editing and display. In this project you can find all elements **icons** which are used almost everywhere.
 
-### [e4sm.de.metamodel.editor](plugins/e4sm.de.metamodel.editor)
+### [abcd.xy.metamodel.editor](plugins/abcd.xy.metamodel.editor)
 It contains a structured, simple editor that conforms to the recommended style for Eclipse EMF model editors.
 
-### [e4sm.de.metamodel.design](plugins/e4sm.de.metamodel.design)
-Contains the Sirius Viewpoint Specification Project of the graphical E4SM editor (diagrams).
+### [abcd.xy.metamodel.design](plugins/abcd.xy.metamodel.design)
+Contains the Sirius Viewpoint Specification Project of the graphical ABCD editor (diagrams).
 
 ## Packaging folder overview
-### [e4sm.de.metamodel.feature](packaging/e4sm.de.metamodel.feature)
+### [abcd.xy.metamodel.feature](packaging/abcd.xy.metamodel.feature)
 It contains a feature project containing the metamodel projects (metamodel, edit, editor) and the Sirius viewpoint specification project.
 
-### [e4sm.de.metamodel.update](packaging/e4sm.de.metamodel.update)
+### [abcd.xy.metamodel.update](packaging/abcd.xy.metamodel.update)
 It contains the project needed to build the update site in order to distribute the editor.
 
 ## Acknowledgments
-This work has received funding from the _[Carl Zeiss Foundation](https://www.carl-zeiss-stiftung.de/english)_ as part of the project _"Engineering for Smart Manufacturing"_ (E4SM) under grant agreement no. P2017-01-005.
+This work has received funding from the _[Carl Zeiss Foundation](https://www.carl-zeiss-stiftung.de/english)_ as part of the project _"Engineering for Smart Manufacturing"_ (ABCD) under grant agreement no. P2017-01-005.
 
 ### More information
-- [E4SM Project Website](https://e4sm-projekt.de) (in German only)
+- [ABCD Project Website](https://abcd-projekt.de) (in German only)
 #### Regulations
 - **Safety**: ISO 26262 "Road vehicles – Functional safety", is an international standard for functional safety of electrical and/or electronic systems that are installed in serial production road vehicles.
 - **Security**: ISO/IEC 27001 is an international standard on how to manage information security.

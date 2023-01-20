@@ -1,0 +1,2 @@
+rootProject.name = 'abcd.xy.antlr4.petri.grammar'
+println 'Building the SCPN AntlrGrammar'

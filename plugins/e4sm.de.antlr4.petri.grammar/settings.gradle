@@ -1,2 +1,0 @@
-rootProject.name = 'e4sm.de.antlr4.petri.grammar'
-println 'Building the SCPN AntlrGrammar'

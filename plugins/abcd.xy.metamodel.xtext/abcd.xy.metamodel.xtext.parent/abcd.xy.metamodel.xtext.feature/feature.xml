@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature id="abcd.xy.metamodel.xtext.feature"
+	label="ABcd Feature "
+	version="1.0.0.qualifier">
+	<plugin
+			id="abcd.xy.metamodel.xtext"
+			download-size="0"
+			install-size="0"
+			version="0.0.0"
+			unpack="false"/>
+	<plugin
+			id="abcd.xy.metamodel.xtext.ide"
+			download-size="0"
+			install-size="0"
+			version="0.0.0"
+			unpack="false"/>
+	<plugin
+			id="abcd.xy.metamodel.xtext.ui"
+			download-size="0"
+			install-size="0"
+			version="0.0.0"
+			unpack="false"/>
+</feature>

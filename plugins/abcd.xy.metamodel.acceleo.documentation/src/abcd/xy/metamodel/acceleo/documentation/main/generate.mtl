@@ -1,0 +1,315 @@
+[comment encoding = UTF-8 /]
+[**
+ * The documentation of the module generate.
+ */]
+[module generate('http://de.tu-ilmenau/abcd/1.0.0')]
+[import abcd::xy::metamodel::acceleo::documentation::services::documentationServices /]
+
+[**
+ * The documentation of the template generateElement.
+ * @param aModel
+ */]
+[template public generateElement(aModel : Model)]
+[comment @main/]
+[file (aModel.name+'.html', false, 'UTF-8')]
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>[aModel.name/] - Documentation</title>
+  <meta name="description" content="The Interface documentation of the [aModel.name/] model">
+  <meta name="author" content="ABCD Project - SSE Department">
+
+  <meta property="og:title" content="A Basic HTML5 Template">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="A simple HTML5 Template for new projects.">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+</head>
+
+<body>
+  <h1 id="[aModel.getXMIID()/]">Model [aModel.itemName()/]</h1>
+  [for (aPackage : Package | aModel.packages)]
+  	[aPackage.generatePackage()/]
+  [/for]
+  <script src="js/scripts.js"></script>
+</body>
+</html>
+
+[/file]
+[file ('css/' + 'styles.css', false, 'UTF-8')]
+*{
+	font-family: helvetica, arial, sans-serif;
+    color: #444444;
+}
+body{
+  padding: 6pt;
+  background-color:rgb(241, 243, 243);
+}
+
+ul {
+  list-style-type: none;
+}
+
+.documentation{
+	background-color:rgb(250, 250, 250);
+	padding: 7px;
+}
+
+.input-pin::before {
+  content: 'input ';
+}
+
+.output-pin::before {
+  content: 'output ';
+}
+
+.item-name{
+  font-style: italic;
+  color: black;
+}
+
+.componentName {
+	height:40px;
+	line-height: 40px;
+    padding-left: 10px;
+}
+
+.PhysicalComponent{
+	background-color:#fdce89;
+}
+.Sensor{
+	background-color:#ffb499;
+}
+.Actuator{
+	background-color:#ff8033;
+}
+
+.MachineLearningComponent{
+	background-color:#d9c4d7;
+}
+
+.Function{
+	background-color:#ccf2a6;
+}
+
+.Heuristic{
+	background-color:#f68b8b;
+}
+
+.ExternalDependency{
+	background-color:#72496e;
+	color:#ffffff;
+}
+
+.SoftwareComponent{
+	background-color:#fce94f;
+}
+
+.toc{
+	display:block;
+	float:right;
+	background:white;
+	border: 1px solid gray;
+	padding: 4px;
+    max-height: 30vh;
+    overflow-y: auto;
+	overflow-x: hidden;
+}
+
+.tt {
+  font-family: "Lucida Console", "Menlo", "Monaco", "Courier", monospace;
+}
+
+.indent{
+	margin:0;
+	margin-left:30px;
+}
+[/file]
+[file ('js/' +'scripts.js', false, 'UTF-8')]
+	// extract all headers
+
+var headers = ['['/][']'/]
+
+function walk (nodes) {
+  nodes.forEach((node) => {
+    var sub = Array.from(node.childNodes)
+    if (sub.length) {
+      walk(sub)
+    }
+    if (/h['['/]1-6[']'/]/i.test(node.tagName)) {
+      headers.push({
+        id: node.getAttribute('id'),
+        level: parseInt(node.tagName.replace('H', '')),
+        title: node.innerText
+      })
+    }
+  })
+}
+
+walk(Array.from(document.body.childNodes))
+
+console.dir(headers)
+
+// generate TOC
+
+var link = (header) =>
+  '<li><a href="#' + header.id + '">' + header.title + '</a></li>'
+
+var html = '<ul class="toc">'
+
+headers.forEach((header, index) => {
+  if (index) {
+    var prev = headers['['/]index - 1[']'/]
+  }
+  if (!index || prev.level === header.level) {
+    html += link(header)
+  }
+  else if (prev.level > header.level) {
+    html += '</ul>' + link(header)
+  }
+  else if (prev.level < header.level) {
+    html += '<ul>' + link(header)
+  }
+})
+
+html += '</ul>'
+
+document.body.insertAdjacentHTML('afterbegin', html)
+
+function expandCamelCase(text){
+	return text.replace(/(['['/]a-z])(['['/]A-Z])/g, '$1 $2');
+}
+
+document.querySelectorAll('.camel-exp').forEach((c)=>{
+	c.innerText = expandCamelCase(c.innerText);
+});
+[/file]
+[/template]
+
+
+[template public generatePackage(aPackage : Package)]
+<h2 id="[aPackage.getXMIID()/]">Package [aPackage.itemName()/]</h2>
+
+[aPackage.generateDocumentation()/]
+
+  [for (aSector : Sector | aPackage.sectors)]
+  	[aSector.generateSector()/]
+  [/for]
+[for (c : Component | aPackage.components)]
+	[c.generateComponent()/]
+[/for]
+[/template]
+
+[template public generateSector(sec : Sector)]
+<h3 id="[sec.getXMIID()/]">Sector [sec.itemName()/]</h3>
+
+[sec.generateDocumentation()/]
+  [if(not sec.sectors->isEmpty())]
+  Contains Sectors:
+  <div class="indent">	
+  [for (aSector : Sector | sec.sectors)]
+  	[aSector.generateSector()/]
+  [/for]
+  </div>	
+  [/if]
+	[for (c : Component | sec.components)]
+		[c.generateComponent()/]
+		<div class="indent">
+		[if (c.specifiedInPackage <> null)]
+		 	[generatePackage(c.specifiedInPackage)/]
+		[/if]
+		</div>
+	[/for]
+  
+[/template]
+
+[template public generateDocumentation(doc : core::DocumentableElement) ? (not doc.documentation.oclIsUndefined())]
+<div class="documentation">
+<i>[doc.documentation/]</i>
+</div>
+[/template]
+
+[template public generateComponent(aComponent : Component)]
+<h4 id="[aComponent.getXMIID()/]" class="componentName [aComponent.eClass().name/]"><span class="camel-exp">[aComponent.eClass().name/]</span> [aComponent.itemName()/]</h4>
+
+[aComponent.generateDocumentation()/]
+
+[if(not aComponent.oclIsTypeOf(Sensor))]
+	<p id="[aComponent.getXMIID() + '_dep'/]">Receives data from: 
+	[for (inP : InputPin | aComponent.pins->filter(abcd::InputPin)) separator (', ') ]
+		[for (c : Component | inP.eContainer(abcd::Package).connectors->select(c|c.target=inP).source.eContainer(abcd::Component)) separator (', ')]
+			<a href="#[c.getXMIID()/]">[c.name/]</a>
+		[/for]
+	[/for]
+	</p>
+[/if]
+
+[if (not aComponent.pins->filter(abcd::InputPin)->isEmpty())]
+<h5 id="[aComponent.getXMIID() + '_in'/]">Inputs</h5>
+	<ul class="input-pin-list">
+	[for (ip : InputPin | aComponent.pins->filter(abcd::InputPin))]
+		[ip.generateInputPin()/]
+	[/for]
+	</ul>
+[/if]
+
+[if (not aComponent.pins->filter(abcd::OutputPin)->isEmpty())]
+<h5 id="[aComponent.getXMIID() + '_out'/]">Outputs</h5>
+<ul class="output-pin-list">
+[for (op : OutputPin | aComponent.pins->filter(abcd::OutputPin))]
+	[op.generateOutputPin()/]
+[/for]
+</ul>
+[/if]
+
+[if(not aComponent.components->isEmpty())]
+<details open="open">
+[comment]	<h4 id="[aComponent.getXMIID() + '_subComp'/]">Contains the Components</h4>[/comment]
+<summary>Contains the Components</summary>	
+<div class="indent">
+	[for (subComp : Component | aComponent.components)]
+		[generateComponent(subComp)/]
+	[/for]
+	</div>
+</details>
+[/if]
+
+
+[if (aComponent.specifiedInPackage <> null)]
+<div>This component is specified in another package</div>
+<div class="indent">
+ 	[generatePackage(aComponent.specifiedInPackage)/]
+</div>
+[/if]
+<hr>
+[/template]
+
+[template public generateInputPin(aPin : InputPin)]
+<li id="[aPin.getXMIID()/]" class="input-pin">[aPin.itemName()/]
+[if (aPin.type <> null)]
+	[aPin.type.generateTypeSpecification()/]
+[/if]
+</li>
+[/template]
+
+[template public generateOutputPin(aPin : OutputPin)]
+
+<li id="[aPin.getXMIID()/]" class="output-pin">[aPin.itemName()/]
+[if (aPin.type <> null)]
+	[aPin.type.generateTypeSpecification()/]
+[/if]
+</li>
+[/template]
+
+[template public generateTypeSpecification(aType : core::TypeSpecification)]
+	:&nbsp;<span class="tt">[aType.name/]</span>
+[/template]
+
+[template public itemName(e : core::NamedElement)]
+	<span class="item-name">[e.name/]</span>
+[/template]

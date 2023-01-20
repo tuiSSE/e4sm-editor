@@ -1,0 +1,20 @@
+/**
+ */
+package abcd.xy.metamodel.abcd;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Machine Learning Component</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <!-- begin-model-doc -->
+ * A software component which returns results based on a machine learning method estimate (e.g. classification...)
+ * <!-- end-model-doc -->
+ *
+ *
+ * @see abcd.xy.metamodel.abcd.abcdPackage#getMachineLearningComponent()
+ * @model
+ * @generated
+ */
+public interface MachineLearningComponent extends SoftwareComponent {
+} // MachineLearningComponent

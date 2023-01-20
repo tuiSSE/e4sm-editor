@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<!DOCTYPE plugin>
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated abcd -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="abcd.xy.metamodel.abcd.presentation.abcdModelWizardID"
+            name="%_UI_abcdModelWizard_label"
+            class="abcd.xy.metamodel.abcd.presentation.abcdModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/abcdModelFile.gif">
+         <description>%_UI_abcdModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated abcd -->
+      <editor
+            id="abcd.xy.metamodel.abcd.presentation.abcdEditorID"
+            name="%_UI_abcdEditor_label"
+            icon="icons/full/obj16/abcdModelFile.gif"
+            extensions="abcd"
+            class="abcd.xy.metamodel.abcd.presentation.abcdEditor"
+            contributorClass="abcd.xy.metamodel.abcd.presentation.abcdActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated abcd -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="abcd.xy.metamodel.abcd.core.presentation.CoreModelWizardID"
+            name="%_UI_CoreModelWizard_label"
+            class="abcd.xy.metamodel.abcd.core.presentation.CoreModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/CoreModelFile.gif">
+         <description>%_UI_CoreModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated abcd -->
+      <editor
+            id="abcd.xy.metamodel.abcd.core.presentation.CoreEditorID"
+            name="%_UI_CoreEditor_label"
+            icon="icons/full/obj16/CoreModelFile.gif"
+            extensions="core"
+            class="abcd.xy.metamodel.abcd.core.presentation.CoreEditor"
+            contributorClass="abcd.xy.metamodel.abcd.core.presentation.CoreActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated abcd -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="abcd.xy.metamodel.abcd.analysis.presentation.AnalysisModelWizardID"
+            name="%_UI_AnalysisModelWizard_label"
+            class="abcd.xy.metamodel.abcd.analysis.presentation.AnalysisModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/AnalysisModelFile.gif">
+         <description>%_UI_AnalysisModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated abcd -->
+      <editor
+            id="abcd.xy.metamodel.abcd.analysis.presentation.AnalysisEditorID"
+            name="%_UI_AnalysisEditor_label"
+            icon="icons/full/obj16/AnalysisModelFile.gif"
+            extensions="analysis"
+            class="abcd.xy.metamodel.abcd.analysis.presentation.AnalysisEditor"
+            contributorClass="abcd.xy.metamodel.abcd.analysis.presentation.AnalysisActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated abcd -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="abcd.xy.metamodel.abcd.analysis.results.presentation.ResultsModelWizardID"
+            name="%_UI_ResultsModelWizard_label"
+            class="abcd.xy.metamodel.abcd.analysis.results.presentation.ResultsModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ResultsModelFile.gif">
+         <description>%_UI_ResultsModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated abcd -->
+      <editor
+            id="abcd.xy.metamodel.abcd.analysis.results.presentation.ResultsEditorID"
+            name="%_UI_ResultsEditor_label"
+            icon="icons/full/obj16/ResultsModelFile.gif"
+            extensions="results"
+            class="abcd.xy.metamodel.abcd.analysis.results.presentation.ResultsEditor"
+            contributorClass="abcd.xy.metamodel.abcd.analysis.results.presentation.ResultsActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated abcd -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="abcd.xy.metamodel.abcd.execution.presentation.ExecutionModelWizardID"
+            name="%_UI_ExecutionModelWizard_label"
+            class="abcd.xy.metamodel.abcd.execution.presentation.ExecutionModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ExecutionModelFile.gif">
+         <description>%_UI_ExecutionModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated abcd -->
+      <editor
+            id="abcd.xy.metamodel.abcd.execution.presentation.ExecutionEditorID"
+            name="%_UI_ExecutionEditor_label"
+            icon="icons/full/obj16/ExecutionModelFile.gif"
+            extensions="execution"
+            class="abcd.xy.metamodel.abcd.execution.presentation.ExecutionEditor"
+            contributorClass="abcd.xy.metamodel.abcd.execution.presentation.ExecutionActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

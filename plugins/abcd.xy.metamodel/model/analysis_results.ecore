@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="results" nsURI="http://de.tu-ilmenau/abcd/analysis/results/1.0.0"
+    nsPrefix="results">
+  <eAnnotations source="http://www.eclipse.org/edapt">
+    <details key="historyURI" value="abcd.history"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="AnalysisResult" abstract="true" eSuperTypes="core.ecore#//NamedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Diagram" abstract="true" eSuperTypes="#//AnalysisResult"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Plot" abstract="true" eSuperTypes="#//Diagram"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TwoDimensionalPlot" eSuperTypes="#//Plot">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="xLabel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="yLabel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ThreeDimensionalPlot" eSuperTypes="#//TwoDimensionalPlot">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="zLabel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ScalarValue" eSuperTypes="#//Data">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Data" abstract="true" eSuperTypes="#//AnalysisResult"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AnalysisExecution">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="analysisResults" upperBound="-1"
+        eType="#//AnalysisResult" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="started" eType="ecore:EDataType core.ecore#//Timestamp"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="finished" eType="ecore:EDataType core.ecore#//Timestamp"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="analysis" eType="ecore:EClass analysis.ecore#//Analysis"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="runOnModel" eType="ecore:EClass abcd.ecore#//Model"/>
+  </eClassifiers>
+</ecore:EPackage>

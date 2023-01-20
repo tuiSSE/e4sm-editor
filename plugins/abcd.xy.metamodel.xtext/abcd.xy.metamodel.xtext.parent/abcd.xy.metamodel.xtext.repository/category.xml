@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+	<feature id="abcd.xy.metamodel.xtext.feature" version="0.0.0">
+		<category name="main"/>
+	</feature>
+	<feature id="abcd.xy.metamodel.xtext.feature.source" version="0.0.0">
+		<category name="main.source"/>
+	</feature>
+	<category-def name="main" label="ABcd"/>
+	<category-def name="main.source" label="ABcd (Sources)"/>
+</site>

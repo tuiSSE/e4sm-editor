@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/abcd.xy.metamodel.feature_0.1.0.202104221701.jar" id="abcd.xy.metamodel.feature" version="0.1.0.202104221701">
+      <category name="ABCDModel"/>
+   </feature>
+   <category-def name="ABCDModel" label="ABCD Editor"/>
+</site>
