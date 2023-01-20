@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:e4sm="http://de.tu-ilmenau/e4sm/1.0.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:style_1="http://www.eclipse.org/sirius/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style http://www.eclipse.org/sirius/description/style/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description/style">
-  <viewpoint:DAnalysis uid="__kCJwKkSEeuSwIJdvzi-Bw" selectedViews="_51kDQKmPEeubitAespeWQg" version="14.6.0.202110251100">
+  <viewpoint:DAnalysis uid="__kCJwKkSEeuSwIJdvzi-Bw" selectedViews="_51kDQKmPEeubitAespeWQg" version="15.0.0.202209061200">
     <semanticResources>Constraints.e4sm</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_51kDQKmPEeubitAespeWQg">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']"/>
@@ -16,7 +16,7 @@
         <description xmi:type="description_1:DiagramDescription" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']"/>
         <target xmi:type="e4sm:Package" href="Constraints.e4sm#_WuRt-rI2EeuWI7I5oKywHA"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_CGaAILI4EeuWI7I5oKywHA" name="[DTD] Component TestCases" repPath="#_CGZZELI4EeuWI7I5oKywHA" changeId="12a0a1ce-5170-4457-b4a3-79b174fd3c99">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_CGaAILI4EeuWI7I5oKywHA" name="[DTD] Component TestCases" repPath="#_CGZZELI4EeuWI7I5oKywHA" changeId="1f465c74-7611-4bb3-968b-17976eeb2fc4">
         <description xmi:type="description_1:DiagramDescription" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']"/>
         <target xmi:type="e4sm:Package" href="Constraints.e4sm#_6h67ALI3EeuWI7I5oKywHA"/>
       </ownedRepresentationDescriptors>
@@ -819,7 +819,7 @@
     </ownedAnnotationEntries>
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_CGb1UrI4EeuWI7I5oKywHA" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_CGb1U7I4EeuWI7I5oKywHA">
-        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_CGb1VLI4EeuWI7I5oKywHA" borderSizeComputationExpression="1" labelSize="12" tooltipExpression="aql:'Physical Component &quot;'+self.name + '&quot; ('+self.uuid+')'">
+        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_CSeD8JjEEe2U7oxIASr2dA" borderSizeComputationExpression="1" labelSize="12" tooltipExpression="aql:'Physical Component &quot;'+self.name+'&quot;'">
           <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_orange']"/>
           <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           <backgroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
@@ -828,7 +828,7 @@
         </computedStyleDescriptions>
       </data>
     </ownedAnnotationEntries>
-    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_CGbOQLI4EeuWI7I5oKywHA" name="Violates C2" tooltipText="Physical Component &quot;Violates C2&quot; ()">
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_CGbOQLI4EeuWI7I5oKywHA" name="Violates C2" tooltipText="Physical Component &quot;Violates C2&quot;">
       <target xmi:type="e4sm:PhysicalComponent" href="Constraints.e4sm#_LJiC8LI3EeuWI7I5oKywHA"/>
       <semanticElements xmi:type="e4sm:PhysicalComponent" href="Constraints.e4sm#_LJiC8LI3EeuWI7I5oKywHA"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_4QqpcbKMEeu6iujpASB66g">
@@ -841,17 +841,17 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_PhisicalComponent']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_PhisicalComponent']"/>
-      <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_CGb1UbI4EeuWI7I5oKywHA" name="SpecifiedInComponent" tooltipText="Physical Component &quot;SpecifiedInComponent&quot; ()">
+      <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_CGb1UbI4EeuWI7I5oKywHA" name="SpecifiedInComponent" tooltipText="Physical Component &quot;SpecifiedInComponent&quot;">
         <target xmi:type="e4sm:PhysicalComponent" href="Constraints.e4sm#_SbGMELI3EeuWI7I5oKywHA"/>
         <semanticElements xmi:type="e4sm:PhysicalComponent" href="Constraints.e4sm#_SbGMELI3EeuWI7I5oKywHA"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_CGb1VbI4EeuWI7I5oKywHA" labelSize="12" description="_CGb1VLI4EeuWI7I5oKywHA" borderSize="1" borderSizeComputationExpression="1" borderColor="224,133,3" backgroundColor="253,206,137" foregroundColor="253,206,137"/>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_CShuUZjEEe2U7oxIASr2dA" labelSize="12" description="_CSeD8JjEEe2U7oxIASr2dA" borderSize="1" borderSizeComputationExpression="1" borderColor="224,133,3" backgroundColor="253,206,137" foregroundColor="253,206,137"/>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_PhisicalComponent']"/>
       </ownedDiagramElements>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_Gyy2wbI4EeuWI7I5oKywHA" name="Good Component1" tooltipText="Physical Component &quot;Good Component1&quot; ()">
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_Gyy2wbI4EeuWI7I5oKywHA" name="Good Component1" tooltipText="Physical Component &quot;Good Component1&quot;">
       <target xmi:type="e4sm:PhysicalComponent" href="Constraints.e4sm#_Gyy2wLI4EeuWI7I5oKywHA"/>
       <semanticElements xmi:type="e4sm:PhysicalComponent" href="Constraints.e4sm#_Gyy2wLI4EeuWI7I5oKywHA"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_6MsRQrKMEeu6iujpASB66g">
@@ -860,10 +860,10 @@
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_Gyy2wrI4EeuWI7I5oKywHA" labelSize="12" description="_CGb1VLI4EeuWI7I5oKywHA" borderSize="1" borderSizeComputationExpression="1" borderColor="224,133,3" backgroundColor="253,206,137" foregroundColor="253,206,137"/>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_CSerAZjEEe2U7oxIASr2dA" labelSize="12" description="_CSeD8JjEEe2U7oxIASr2dA" borderSize="1" borderSizeComputationExpression="1" borderColor="224,133,3" backgroundColor="253,206,137" foregroundColor="253,206,137"/>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_PhisicalComponent']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_LCWAYLI4EeuWI7I5oKywHA" name="Good Component 2" tooltipText="Physical Component &quot;Good Component 2&quot; ()">
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_LCWAYLI4EeuWI7I5oKywHA" name="Good Component 2" tooltipText="Physical Component &quot;Good Component 2&quot;">
       <target xmi:type="e4sm:PhysicalComponent" href="Constraints.e4sm#_LCVZULI4EeuWI7I5oKywHA"/>
       <semanticElements xmi:type="e4sm:PhysicalComponent" href="Constraints.e4sm#_LCVZULI4EeuWI7I5oKywHA"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -873,36 +873,33 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_PhisicalComponent']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_PhisicalComponent']"/>
-      <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_M45SUbI4EeuWI7I5oKywHA" name="New Physical Component" tooltipText="Physical Component &quot;New Physical Component&quot; ()">
+      <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_M45SUbI4EeuWI7I5oKywHA" name="New Physical Component" tooltipText="Physical Component &quot;New Physical Component&quot;">
         <target xmi:type="e4sm:PhysicalComponent" href="Constraints.e4sm#_M45SULI4EeuWI7I5oKywHA"/>
         <semanticElements xmi:type="e4sm:PhysicalComponent" href="Constraints.e4sm#_M45SULI4EeuWI7I5oKywHA"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_M455YLI4EeuWI7I5oKywHA" labelSize="12" description="_CGb1VLI4EeuWI7I5oKywHA" borderSize="1" borderSizeComputationExpression="1" borderColor="224,133,3" backgroundColor="253,206,137" foregroundColor="253,206,137"/>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_CSkxoZjEEe2U7oxIASr2dA" labelSize="12" description="_CSeD8JjEEe2U7oxIASr2dA" borderSize="1" borderSizeComputationExpression="1" borderColor="224,133,3" backgroundColor="253,206,137" foregroundColor="253,206,137"/>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_PhisicalComponent']"/>
       </ownedDiagramElements>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_Pzv54bI4EeuWI7I5oKywHA" name="Violates C1" tooltipText="Physical Component &quot;Violates C1&quot; ()">
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_Pzv54bI4EeuWI7I5oKywHA" name="Violates C1" tooltipText="Physical Component &quot;Violates C1&quot;">
       <target xmi:type="e4sm:PhysicalComponent" href="Constraints.e4sm#_Pzv54LI4EeuWI7I5oKywHA"/>
       <semanticElements xmi:type="e4sm:PhysicalComponent" href="Constraints.e4sm#_Pzv54LI4EeuWI7I5oKywHA"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_z5vFcLKMEeu6iujpASB66g">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='Arrow%20on%20Specified%20Components']"/>
-      </decorations>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_Pzwg8LI4EeuWI7I5oKywHA" labelSize="12" description="_CGb1VLI4EeuWI7I5oKywHA" borderSize="1" borderSizeComputationExpression="1" borderColor="224,133,3" backgroundColor="253,206,137" foregroundColor="253,206,137"/>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_CSggMZjEEe2U7oxIASr2dA" labelSize="12" description="_CSeD8JjEEe2U7oxIASr2dA" borderSize="1" borderSizeComputationExpression="1" borderColor="224,133,3" backgroundColor="253,206,137" foregroundColor="253,206,137"/>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_PhisicalComponent']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_MuBT4LKMEeuiPoBjhRFFrQ" name="Container" tooltipText="Physical Component &quot;Container&quot; ()">
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_MuBT4LKMEeuiPoBjhRFFrQ" name="Container" tooltipText="Physical Component &quot;Container&quot;">
       <target xmi:type="e4sm:PhysicalComponent" href="Constraints.e4sm#_MuAs0LKMEeuiPoBjhRFFrQ"/>
       <semanticElements xmi:type="e4sm:PhysicalComponent" href="Constraints.e4sm#_MuAs0LKMEeuiPoBjhRFFrQ"/>
       <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_NclqFrKMEeuiPoBjhRFFrQ" labelSize="12" borderSize="1" borderSizeComputationExpression="1" borderColor="224,133,3" backgroundColor="253,206,137" foregroundColor="253,206,137">
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_PhisicalComponent']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_PhisicalComponent']"/>
-      <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_NcgKgLKMEeuiPoBjhRFFrQ" name="Subcontainer" tooltipText="Physical Component &quot;Subcontainer&quot; ()">
+      <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_NcgKgLKMEeuiPoBjhRFFrQ" name="Subcontainer" tooltipText="Physical Component &quot;Subcontainer&quot;">
         <target xmi:type="e4sm:PhysicalComponent" href="Constraints.e4sm#_NcfjcLKMEeuiPoBjhRFFrQ"/>
         <semanticElements xmi:type="e4sm:PhysicalComponent" href="Constraints.e4sm#_NcfjcLKMEeuiPoBjhRFFrQ"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -912,7 +909,7 @@
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_PhisicalComponent']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_PhisicalComponent']"/>
-        <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_O7hGMbKMEeuiPoBjhRFFrQ" name="Also Violates C1" tooltipText="Physical Component &quot;Also Violates C1&quot; ()">
+        <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_O7hGMbKMEeuiPoBjhRFFrQ" name="Also Violates C1" tooltipText="Physical Component &quot;Also Violates C1&quot;">
           <target xmi:type="e4sm:PhysicalComponent" href="Constraints.e4sm#_O7hGMLKMEeuiPoBjhRFFrQ"/>
           <semanticElements xmi:type="e4sm:PhysicalComponent" href="Constraints.e4sm#_O7hGMLKMEeuiPoBjhRFFrQ"/>
           <decorations xmi:type="viewpoint:Decoration" uid="_yf6y0bKMEeu6iujpASB66g">
@@ -921,7 +918,7 @@
           <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
           <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
           <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-          <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_O7htQLKMEeuiPoBjhRFFrQ" labelSize="12" description="_CGb1VLI4EeuWI7I5oKywHA" borderSize="1" borderSizeComputationExpression="1" borderColor="224,133,3" backgroundColor="253,206,137" foregroundColor="253,206,137"/>
+          <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_CSnN4ZjEEe2U7oxIASr2dA" labelSize="12" description="_CSeD8JjEEe2U7oxIASr2dA" borderSize="1" borderSizeComputationExpression="1" borderColor="224,133,3" backgroundColor="253,206,137" foregroundColor="253,206,137"/>
           <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_PhisicalComponent']"/>
         </ownedDiagramElements>
       </ownedDiagramElements>
