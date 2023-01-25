@@ -1,0 +1,136 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Welcome to UML Designer</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" /> 
+</head>
+
+<body>
+    <div class="container-fluid">
+      <div class="row-fluid">
+      
+       <div class="span9">
+      	<div class="hero-unit">
+      	<h1>Welcome to the E4SM Editor</h1>
+
+<h2>Getting Started</h2>
+
+<h3>Creating a E4SM Model:</h3>
+
+<p><span style="font-size:14px">first off you need to create a modelling project, go through the toolbar like so</span>&nbsp; -&nbsp;<em>File &gt; New &gt; Modelling Project</em></p>
+
+<p><span style="font-size:14px">now choose a name</span><em> -&nbsp;</em>Project name: &lt;ExampleProject&gt;</p>
+
+<p><span style="font-size:14px">then press <em>finish</em></span></p>
+
+<p>&nbsp;</p><br />
+
+<p><span style="font-size:14px">in order to create a E4SM model you need to right-click on your new modelling project and make your way through like this</span> -&nbsp;<em>New &gt; Other... &gt; E4SM Model Creation Wizard &gt; E4SM Model</em></p>
+
+<p><span style="font-size:14px">now choose a name ending in <strong>.e4sm</strong></span> - File name: &lt;ExampleModel.e4sm&gt;</p>
+
+<p><span style="font-size:14px">then press <em>finish</em></span></p>
+
+<p>&nbsp;</p><br />
+
+<p>extending the model requires you to double-left-click a <strong>.e4sm</strong>&nbsp; model-file, you should be able to see a kind of collapsed &quot;path&quot;</p>
+
+<p>click on the small arrow to make the Modell component appear, right-clicking this &quot;Modell&quot; gives you the option to start creating parts via the <strong>New Child </strong>functionality</p>
+
+<p>at this point you can freely build whatever model you want to</p>
+
+<p>&nbsp;</p><br />
+
+<h3>Using other Representations:</h3>
+
+<p>the E4SM Editor provides the option to build a package via drag-and-drop<br />
+if you want to use this functionality you will need to have already created a package via the New Child functionality in a model<br />
+<br />
+all you then need to do is right-click the package in the left-side model explorer and follow this - <em>New Representation &gt; [DTD]</em>&nbsp;<br />
+<br />
+choose a name and press ok, the view should automatically open itself along with the drag-and-drop palette on the right side</p>
+
+<p>&nbsp;</p>
+
+<p>other useful representations can be created for the model-component, such as a <strong>Class Diagram</strong>, <strong>Documentation Table</strong> and <strong>Person Management Table</strong></p>
+
+<p>&nbsp;</p><br />
+
+<p>&nbsp;</p>
+
+<h3>Undoing components:</h3>
+
+<p>undoing the creation or deletion of your latest component can be achieved via right-clicking the Modell component and choosing the &quot;Undo &lt;...&gt;&quot; option<br />
+<br />
+the &quot;Redo &lt;...&gt;&quot; option cancels out the &quot;Undo &lt;...&gt;&quot; option, if there ever arises a need to undo the latest undo</p>
+
+	<p>&nbsp;</p><br />
+
+	<h3>Using text-format to create a model:</h3>
+
+	<p>with this editor it&#39;s also possible to create a model only using text</p>
+
+	<p>first you will need to manually create a new file with <strong>.e4smcode</strong> as its ending</p>
+
+		<p>in this file one can now simply write like so -&nbsp;</p>
+
+		<p>model binaryModel{<br />
+
+			package p1 {<br />
+
+			sensor s1 {<br />
+
+			out s1_out<br />
+
+			},<br />
+
+		binaryClassificationComponent b1 {<br />
+
+			in b1_in,<br />
+
+			out b2_out<br />
+
+			numberOfServers 3 confusionMatrixes { confusion matrix cm1 {TP : 200, FN : 2, FP: 5, TN: 8}<br />
+
+			}<br />
+
+			},<br />
+
+		actuator a1 {<br />
+
+			in a1_in<br />
+
+			}<br />
+
+		connector c1 "s1.s1_out" -> "b1.b1_in",<br />
+
+		connector c2 "b1.b2_out" -> "a1.a1_in"<br />
+
+			}<br />
+
+		}</p><br />
+
+		<p>Known issues:</p>
+
+		<p>deleting the physical and software components of packages is currently not possible, but they can be erased via the &quot;Undo &lt;...&gt;&quot; option if they were the last thing to be added</p>
+
+
+	        
+        </div>
+      
+	  <hr class="separator"></hr>
+      
+      <footer>
+      <div class="layout_footer">
+        
+      </div>  
+      </footer>
+   
+        </div><!--/span-->
+      </div><!--/row-->
+    </div><!--/.fluid-container-->
+</body>
+</html>

@@ -15,7 +15,7 @@
       </vmArgsMac>
    </launcherArgs>
 
-   <windowImages i16="/e4sm.de.metamodel.branding/icons/logo_16.gif" i32="/e4sm.de.metamodel.branding/icons/logo_32.gif" i48="/e4sm.de.metamodel.branding/icons/logo_64.gif" i64="/e4sm.de.metamodel.branding/icons/logo_64.gif" i128="/e4sm.de.metamodel.branding/icons/logo_64.gif" i256="/e4sm.de.metamodel.branding/icons/logo_64.gif"/>
+   <windowImages i16="/e4sm.de.metamodel.branding/icons/logo_16.gif" i32="/e4sm.de.metamodel.branding/icons/logo_32.gif" i64="/e4sm.de.metamodel.branding/icons/logo_64.gif"/>
 
    <splash
       location="e4sm.de.metamodel.branding" />
@@ -23,10 +23,11 @@
       <win useIco="false">
          <ico path="/e4sm.de.branding/icons/icon.ico"/>
          <bmp
-            winSmallHigh="/e4sm.de.metamodel.branding/icons/logo_16.bmp"
-            winSmallLow="/e4sm.de.metamodel.branding/icons/logo_16_8.bmp"/>
+            winSmallHigh="/e4sm.de.metamodel.branding/icons/logo_16.bmp"/>
       </win>
    </launcher>
+
+   <intro introId="e4sm.de.intro.custom.intro"/>
 
    <vm>
    </vm>

@@ -26,7 +26,7 @@
         </property>
         <property
               name="windowImages"
-              value="platform:/plugin/e4sm.de.metamodel.branding/icons/logo_16.gif,platform:/plugin/e4sm.de.metamodel.branding/icons/logo_32.gif,platform:/plugin/e4sm.de.metamodel.branding/icons/logo_64.gif,platform:/plugin/e4sm.de.metamodel.branding/icons/logo_64.gif,platform:/plugin/e4sm.de.metamodel.branding/icons/logo_64.gif,platform:/plugin/e4sm.de.metamodel.branding/icons/logo_64.gif">
+              value="platform:/plugin/e4sm.de.metamodel.branding/icons/logo_16.gif,platform:/plugin/e4sm.de.metamodel.branding/icons/logo_32.gif,platform:/plugin/e4sm.de.metamodel.branding/icons/logo_64.gif">
         </property>
         <property
               name="aboutImage"
