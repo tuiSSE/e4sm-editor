@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 "use strict";
-//Version: 2022-05-19
+//Version: 2023-01-25
 const fs = require('fs').promises;
 const path = require('path');
 const
@@ -264,48 +264,49 @@ function simplifyNet(net) {
 
     // Find the arc leading to the immediateTransition, check that it is only one
     const leftArcs = getArcsToElement(net, iT.id);
+	if(leftArcs.length !== 1)
+		return;
+	
     const leftInscription = getInscriptionText(leftArcs[0]);
     let lPlace = null;
-    if (leftArcs.length === 1) {
-      const lArc = leftArcs[0]['$'];
 
-      // Get the place which is supplying this immediateTransition
-      lPlace = getPlaceByID(net, lArc.fromNode);
-      // Check if the incoming place has only one outgoing arc
-      const outgoingArcs = getArcsFromElement(net, lPlace['$'].id);
-      if (outgoingArcs.length !== 1) {
-        return;
-      }
-    }
-    else return;
+	  const lArc = leftArcs[0]['$'];
+
+	  // Get the place which is supplying this immediateTransition
+	  lPlace = getPlaceByID(net, lArc.fromNode);
+	  // Check if the incoming place has only one outgoing arc
+	  const outgoingArcs = getArcsFromElement(net, lPlace['$'].id);
+	  if (outgoingArcs.length !== 1) {
+		return;
+	  }
+
     // Find the arc leaving from the immediateTransition, check that it is only one
     const rightArcs = getArcsFromElement(net, iT.id);
+	if(rightArcs.length!==1) return;
     const rightInscription = getInscriptionText(rightArcs[0]);
     if (leftInscription !== rightInscription) {
       return;
     }
-    if (rightArcs.length === 1) {
-      const rArc = rightArcs[0]['$'];
-      // Get the place the arc leads to
-      const rPlace = getPlaceByID(net, rArc.toNode);
-      // Check it the outgoing place has only one incoming arc
-      const incomingArcs = getArcsFromElement(net, rPlace['$'].id);
-      if (incomingArcs.length === 1) {
-        // TODO: maybe also check that the type of lPlace and rPlace is the same.
-        // It shouldn't be necessary as in that case the left and right inscriptions would not be identical.
+	
+	const rArc = rightArcs[0]['$'];
+	// Get the place the arc leads to
+	const rPlace = getPlaceByID(net, rArc.toNode);
+	// Check it the outgoing place has only one incoming arc
+	const incomingArcs = getArcsFromElement(net, rPlace['$'].id);
+	if (incomingArcs.length === 1) {
+	// TODO: maybe also check that the type of lPlace and rPlace is the same.
+	// It shouldn't be necessary as in that case the left and right inscriptions would not be identical.
 
-        // This immediate transition can be simplified!
-        immediateTransNode.simplify = true;
-        immediateTransNode.lPlaceID = lPlace['$'].id;
-        immediateTransNode.rPlaceID = rPlace['$'].id;
-        immediateTransNode.rPlaceLabel = getLabel(rPlace);
-        immediateTransNode.lPlaceLabel = getLabel(lPlace);
-        leftArcs[0].simplify = true;
-        rightArcs[0].simplify = true;
-      }
-      else return;
-    }
-    else return;
+	// This immediate transition can be simplified!
+	immediateTransNode.simplify = true;
+	immediateTransNode.lPlaceID = lPlace['$'].id;
+	immediateTransNode.rPlaceID = rPlace['$'].id;
+	immediateTransNode.rPlaceLabel = getLabel(rPlace);
+	immediateTransNode.lPlaceLabel = getLabel(lPlace);
+	leftArcs[0].simplify = true;
+	rightArcs[0].simplify = true;
+	}
+	else return;
   });
   removeSimplifyableElements(net);
   return net;

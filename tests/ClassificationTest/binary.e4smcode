@@ -1,0 +1,18 @@
+model binaryModel{
+	package p1 {
+	sensor s1 {
+		out s1_out
+	},
+		binaryClassificationComponent b1 {
+		in b1_in,
+		out b2_out
+		numberOfServers 3 confusionMatrixes { confusion matrix cm1 {TP : 200, FN : 2, FP: 5, TN: 8}
+	}
+	},
+	actuator a1 {
+		in a1_in
+	}
+	connector c1 "s1.s1_out" -> "b1.b1_in",
+	connector c2 "b1.b2_out" -> "a1.a1_in"
+	}
+}

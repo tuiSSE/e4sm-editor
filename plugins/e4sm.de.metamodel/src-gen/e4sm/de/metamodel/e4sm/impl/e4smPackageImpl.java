@@ -1521,6 +1521,16 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getClassificationComponent_Environment() {
+		return (EReference) classificationComponentEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getEnvironment() {
 		return environmentEClass;
 	}
@@ -2137,6 +2147,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		createEOperation(dataNodeEClass, DATA_NODE___GET_INCOMING_CONNECTORS);
 
 		classificationComponentEClass = createEClass(CLASSIFICATION_COMPONENT);
+		createEReference(classificationComponentEClass, CLASSIFICATION_COMPONENT__ENVIRONMENT);
 
 		environmentEClass = createEClass(ENVIRONMENT);
 		createEReference(environmentEClass, ENVIRONMENT__CLASSIFICATION_CLASSES);
@@ -2581,6 +2592,9 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 
 		initEClass(classificationComponentEClass, ClassificationComponent.class, "ClassificationComponent", IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getClassificationComponent_Environment(), this.getEnvironment(), null, "environment", null, 0, 1,
+				ClassificationComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(environmentEClass, Environment.class, "Environment", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);

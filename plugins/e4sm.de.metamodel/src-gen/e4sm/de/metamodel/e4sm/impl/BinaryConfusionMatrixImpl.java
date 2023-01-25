@@ -428,7 +428,7 @@ public class BinaryConfusionMatrixImpl extends ConfusionMatrixImpl implements Bi
 		}
 		return res;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

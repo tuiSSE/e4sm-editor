@@ -282,7 +282,7 @@ public class MulticlassConfusionMatrixImpl extends ConfusionMatrixImpl implement
 		tn = this.getTN(class_);
 		return (tn) / (tn + fp);
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * computes the macro specificity
@@ -296,7 +296,7 @@ public class MulticlassConfusionMatrixImpl extends ConfusionMatrixImpl implement
 		for (int i = 0; i < classes.size(); i++) {
 			specificitySum += this.computeClassSpecificity(classes.get(i));
 		}
-		return specificitySum / classes.size();		
+		return specificitySum / classes.size();
 	}
 
 	/**

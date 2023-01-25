@@ -4,56 +4,56 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://timenet.tu-ilmenau.de/schema/SCPN etc/schemas/SCPN.xsd">
   <place capacity="0" id="p.0" initialMarking="" queue="Random"
     tokentype="Data" type="node" watch="false">
-    <graphics orientation="0" x="1140" y="730"/>
-    <label id="p.0.0" text="P0" type="text">
+    <graphics orientation="0" x="210" y="320"/>
+    <label id="p.0.0" text="CN_Ready" type="text">
       <graphics x="-10" y="-40"/>
     </label>
   </place>
   <place capacity="0" id="p.5" initialMarking="" queue="Random"
     tokentype="Data" type="node" watch="false">
-    <graphics orientation="0" x="1360" y="740"/>
-    <label id="p.5.0" text="P01" type="text">
+    <graphics orientation="0" x="450" y="320"/>
+    <label id="p.5.0" text="CN_DataGen" type="text">
       <graphics x="-10" y="-40"/>
     </label>
   </place>
   <place capacity="0" id="p.17" initialMarking="" queue="Random"
     tokentype="Data" type="node" watch="false">
-    <graphics orientation="0" x="1640" y="740"/>
-    <label id="p.17.0" text="P011" type="text">
+    <graphics orientation="0" x="700" y="250"/>
+    <label id="p.17.0" text="CL_Ct" type="text">
       <graphics x="-10" y="-40"/>
     </label>
   </place>
   <place capacity="0" id="p.9" initialMarking="" queue="Random"
     tokentype="Data" type="node" watch="false">
-    <graphics orientation="0" x="1950" y="670"/>
+    <graphics orientation="0" x="1010" y="180"/>
     <label id="clTest_out1_id" text="TP" type="text">
       <graphics x="-10" y="-40"/>
     </label>
   </place>
   <place capacity="0" id="p.11" initialMarking="" queue="Random"
     tokentype="Data" type="node" watch="false">
-    <graphics orientation="0" x="1640" y="840"/>
-    <label id="p.11.0" text="P0111" type="text">
+    <graphics orientation="0" x="700" y="350"/>
+    <label id="p.11.0" text="CN_Cf" type="text">
       <graphics x="-10" y="-40"/>
     </label>
   </place>
   <place capacity="0" id="p.23" initialMarking="" queue="Random"
     tokentype="Data" type="node" watch="false">
-    <graphics orientation="0" x="1950" y="840"/>
+    <graphics orientation="0" x="1010" y="350"/>
     <label id="p.23.0" text="TN" type="text">
       <graphics x="-10" y="-40"/>
     </label>
   </place>
   <place capacity="0" id="p.27" initialMarking="" queue="Random"
     tokentype="Data" type="node" watch="false">
-    <graphics orientation="0" x="1950" y="740"/>
+    <graphics orientation="0" x="1010" y="250"/>
     <label id="clTest_out1_id" text="FN" type="text">
       <graphics x="-10" y="-40"/>
     </label>
   </place>
   <place capacity="0" id="p.28" initialMarking="" queue="Random"
     tokentype="Data" type="node" watch="false">
-    <graphics orientation="0" x="1950" y="920"/>
+    <graphics orientation="0" x="1010" y="430"/>
     <label id="clTest_out1_id" text="FP" type="text">
       <graphics x="-10" y="-40"/>
     </label>
@@ -61,7 +61,7 @@
   <timedTransition id="Source_ready_timed_trans_id"
     serverType="ExclusiveServer" specType="Automatic" takeFirst="false"
     timeFunction="Det(33.33)" type="node" watch="true">
-    <graphics orientation="0" x="1020" y="730"/>
+    <graphics orientation="0" x="90" y="320"/>
     <label id="Source_ready_id" text="Source_ready" type="text">
       <graphics x="30" y="30"/>
     </label>
@@ -69,90 +69,80 @@
   <immediateTransition id="p.1" priority="1"
     serverType="ExclusiveServer" specType="Automatic" takeFirst="false"
     type="node" watch="false" weight="1-$OOD_RATIO_CL1">
-    <graphics orientation="0" x="1250" y="670"/>
-    <label id="p.1.0" text="T0" type="text">
-      <graphics x="-10" y="-40"/>
+    <graphics orientation="0" x="320" y="320"/>
+    <label id="p.1.0" text="CN_Not_ODD" type="text">
+      <graphics x="-10" y="-50"/>
     </label>
   </immediateTransition>
   <immediateTransition id="p.2" priority="1"
     serverType="ExclusiveServer" specType="Automatic" takeFirst="false"
     type="node" watch="false" weight="$OOD_RATIO_CL1">
-    <graphics orientation="0" x="1250" y="810"/>
-    <label id="p.2.0" text="T1" type="text">
-      <graphics x="-10" y="-40"/>
+    <graphics orientation="0" x="320" y="510"/>
+    <label id="p.2.0" text="CN_ODD" type="text">
+      <graphics x="0" y="-40"/>
     </label>
   </immediateTransition>
-  <immediateTransition id="p.8" priority="1"
+  <immediateTransition id="p.8" localGuard="" priority="1"
     serverType="ExclusiveServer" specType="Automatic" takeFirst="false"
     type="node" watch="false" weight="0.8817204301075269">
-    <graphics orientation="0" x="1510" y="740"/>
-    <label id="p.8.0" text="Class1" type="text">
+    <graphics orientation="0" x="570" y="250"/>
+    <label id="p.8.0" text="CN_ClassTruth" type="text">
       <graphics x="-10" y="-40"/>
     </label>
   </immediateTransition>
   <immediateTransition id="p.25" priority="1"
     serverType="ExclusiveServer" specType="Automatic" takeFirst="false"
     type="node" watch="false" weight="0.975609756">
-    <graphics orientation="0" x="1800" y="670"/>
-    <label id="p.25.0" text="T2" type="text">
+    <graphics orientation="0" x="860" y="180"/>
+    <label id="p.25.0" text="CN_Ct_TP" type="text">
       <graphics x="-10" y="-40"/>
     </label>
   </immediateTransition>
   <immediateTransition id="p.26" priority="1"
     serverType="ExclusiveServer" specType="Automatic" takeFirst="false"
     type="node" watch="false" weight="1.0 - 0.975609756">
-    <graphics orientation="0" x="1800" y="740"/>
-    <label id="p.26.0" text="T21" type="text">
+    <graphics orientation="0" x="860" y="250"/>
+    <label id="p.26.0" text="CN_Ct_FN" type="text">
       <graphics x="-10" y="-40"/>
     </label>
   </immediateTransition>
-  <immediateTransition id="p.13" priority="1"
+  <immediateTransition id="p.13" localGuard="x.ood==false" priority="1"
     serverType="ExclusiveServer" specType="Automatic" takeFirst="false"
     type="node" watch="false" weight="1-0.8817204301075269">
-    <graphics orientation="0" x="1510" y="840"/>
-    <label id="p.13.0" text="Class2" type="text">
+    <graphics orientation="0" x="570" y="350"/>
+    <label id="p.13.0" text="CN_ClassOther" type="text">
       <graphics x="-10" y="-40"/>
     </label>
   </immediateTransition>
   <immediateTransition id="p.19" priority="1"
     serverType="ExclusiveServer" specType="Automatic" takeFirst="false"
     type="node" watch="false" weight="0.090909090909">
-    <graphics orientation="0" x="1800" y="840"/>
-    <label id="p.19.0" text="T22" type="text">
+    <graphics orientation="0" x="860" y="350"/>
+    <label id="p.19.0" text="CN_Cf_TN" type="text">
       <graphics x="-10" y="-40"/>
     </label>
   </immediateTransition>
   <immediateTransition id="p.20" priority="1"
     serverType="ExclusiveServer" specType="Automatic" takeFirst="false"
     type="node" watch="false" weight="1.0 - 0.090909090909">
-    <graphics orientation="0" x="1800" y="920"/>
-    <label id="p.20.0" text="T211" type="text">
+    <graphics orientation="0" x="860" y="430"/>
+    <label id="p.20.0" text="CN_Cf_FP" type="text">
       <graphics x="-10" y="-40"/>
     </label>
   </immediateTransition>
-  <arc fromNode="p.0" id="p.3" toNode="p.1" type="connector">
-    <inscription id="p.3.0" text="x" type="inscriptionText">
-      <graphics x="-5" y="-10"/>
-    </inscription>
-  </arc>
   <arc fromNode="p.0" id="p.4" toNode="p.2" type="connector">
     <inscription id="p.4.0" text="x" type="inscriptionText">
-      <graphics x="-5" y="-10"/>
+      <graphics x="-5" y="-15"/>
     </inscription>
   </arc>
   <arc fromNode="p.1" id="p.6" toNode="p.5" type="connector">
-    <inscription id="p.6.0" text="x(ood=false)" type="inscriptionText">
-      <graphics x="-35" y="-55"/>
-    </inscription>
-  </arc>
-  <arc fromNode="p.2" id="p.7" toNode="p.5" type="connector">
-    <inscription id="p.7.0" text="x(ood=true)" type="inscriptionText">
-      <graphics x="-5" y="-5"/>
+    <inscription id="p.6.0" text="x" type="inscriptionText">
+      <graphics x="-35" y="-40"/>
     </inscription>
   </arc>
   <arc fromNode="p.5" id="p.12" toNode="p.8" type="connector">
     <inscription id="p.12.0" text="x" type="inscriptionText">
-      <graphics x="-15" y="10"/>
+      <graphics x="0" y="-15"/>
     </inscription>
   </arc>
   <arc fromNode="p.8" id="p.18" toNode="p.17" type="connector">
@@ -162,12 +152,12 @@
   </arc>
   <arc fromNode="p.17" id="p.39" toNode="p.26" type="connector">
     <inscription id="p.39.0" text="x" type="inscriptionText">
-      <graphics x="0" y="0"/>
+      <graphics x="0" y="-10"/>
     </inscription>
   </arc>
   <arc fromNode="p.17" id="p.40" toNode="p.25" type="connector">
     <inscription id="p.40.0" text="x" type="inscriptionText">
-      <graphics x="0" y="-5"/>
+      <graphics x="0" y="-25"/>
     </inscription>
   </arc>
   <arc fromNode="Source_ready_timed_trans_id"
@@ -188,22 +178,17 @@
   </arc>
   <arc fromNode="p.5" id="p.15" toNode="p.13" type="connector">
     <inscription id="p.15.0" text="x" type="inscriptionText">
-      <graphics x="0" y="0"/>
+      <graphics x="0" y="-15"/>
     </inscription>
   </arc>
   <arc fromNode="p.11" id="p.21" toNode="p.19" type="connector">
     <inscription id="p.21.0" text="x" type="inscriptionText">
-      <graphics x="0" y="0"/>
+      <graphics x="0" y="-10"/>
     </inscription>
   </arc>
   <arc fromNode="p.11" id="p.22" toNode="p.20" type="connector">
     <inscription id="p.22.0" text="x" type="inscriptionText">
       <graphics x="0" y="0"/>
-    </inscription>
-  </arc>
-  <arc fromNode="p.19" id="p.24" toNode="p.23" type="connector">
-    <inscription id="p.24.0" text="x" type="inscriptionText">
-      <graphics x="-15" y="-20"/>
     </inscription>
   </arc>
   <arc fromNode="p.20" id="p.29" toNode="p.28" type="connector">
@@ -213,72 +198,93 @@
   </arc>
   <arc fromNode="p.26" id="p.30" toNode="p.27" type="connector">
     <inscription id="p.30.0" text="x" type="inscriptionText">
-      <graphics x="0" y="0"/>
+      <graphics x="-15" y="-10"/>
+    </inscription>
+  </arc>
+  <arc fromNode="p.2" id="p.7" toNode="p.11" type="connector">
+    <inscription id="p.7.0" text="x(ood=true)" type="inscriptionText">
+      <graphics x="-370" y="-20"/>
+    </inscription>
+    <handle id="p.7.1">
+      <graphics orientation="0" x="700" y="510"/>
+    </handle>
+  </arc>
+  <arc fromNode="p.0" id="p.3" toNode="p.1" type="connector">
+    <inscription id="p.3.0" text="x" type="inscriptionText">
+      <graphics x="-5" y="-10"/>
+    </inscription>
+  </arc>
+  <arc fromNode="p.19" id="p.24" toNode="p.23" type="connector">
+    <inscription id="p.24.0" text="x" type="inscriptionText">
+      <graphics x="-15" y="-20"/>
     </inscription>
   </arc>
   <measure eval="Instantaneous" expression="#TP" id="p.31" name="TP_m"
-    result="24450.99" type="text" watch="true">
-    <graphics x="1990" y="670"/>
+    result="" type="text" watch="true">
+    <graphics x="1050" y="180"/>
   </measure>
   <measure eval="Instantaneous" expression="#TP / (0.001 + #TP + #FN)"
-    id="p.32" name="Recall" result="0.9238318" type="text" watch="true">
-    <graphics x="1990" y="480"/>
+    id="p.32" name="Recall" result="" type="text" watch="true">
+    <graphics x="1130" y="330"/>
   </measure>
   <measure eval="Instantaneous" expression="#FN" id="p.33" name="FN_m"
-    result="619.0476" type="text" watch="true">
-    <graphics x="1990" y="730"/>
+    result="" type="text" watch="true">
+    <graphics x="1050" y="240"/>
   </measure>
   <measure eval="Instantaneous" expression="#TN" id="p.34" name="TN_m"
-    result="314.3589" type="text" watch="true">
-    <graphics x="1990" y="830"/>
+    result="" type="text" watch="true">
+    <graphics x="1050" y="340"/>
   </measure>
   <measure eval="Instantaneous" expression="#FP" id="p.35" name="FP_m"
-    result="3064.826" type="text" watch="true">
-    <graphics x="1990" y="920"/>
+    result="" type="text" watch="true">
+    <graphics x="1050" y="420"/>
   </measure>
   <measure eval="Instantaneous" expression="#TP / (0.001 + #TP + #FP)"
-    id="p.36" name="Precision" result="0.841716" type="text" watch="true">
-    <graphics x="1990" y="520"/>
+    id="p.36" name="Precision" result="" type="text" watch="true">
+    <graphics x="1130" y="370"/>
   </measure>
   <measure eval="Instantaneous" expression="#TN / (0.001 + #TN + #FP)"
-    id="p.38" name="Specificity" result="0.08851259" type="text" watch="true">
-    <graphics x="1990" y="450"/>
+    id="p.38" name="Specificity" result="" type="text" watch="true">
+    <graphics x="1130" y="300"/>
   </measure>
   <measure eval="Instantaneous"
     expression="#TP / (0.001 + #TP + ((#FN+#FP)/2))" id="p.42"
-    name="F1Score1" result="0.8808631" type="text" watch="true">
-    <graphics x="1990" y="410"/>
+    name="F1Score1" result="" type="text" watch="true">
+    <graphics x="1130" y="260"/>
   </measure>
   <measure eval="Instantaneous"
     expression="(#TP + #TN) / (0.001 + #TP + #TN + #FP + #FN)" id="p.37"
-    name="Accuracy" result="0.824765" type="text" watch="true">
-    <graphics x="1990" y="380"/>
+    name="Accuracy" result="" type="text" watch="true">
+    <graphics x="1130" y="230"/>
   </measure>
   <comment
     commentText="n: name (string)&lt;br>s:size (int)&lt;br>l:length (int)&lt;br>gT:generationTime (DateTime)&lt;br>d:isDefault (bool)&lt;br>tL:trueLabel (int)&lt;br>gL:guessedLabel (int);ood:Out of distribution (bool)"
     id="data_comment_id" type="text">
-    <graphics x="110" y="1650"/>
+    <graphics x="110" y="510"/>
   </comment>
   <comment commentText="based on Environment, sum should be 1" id="p.16" type="text">
-    <graphics x="1450" y="660"/>
+    <graphics x="470" y="170"/>
   </comment>
   <comment commentText="Based on Recall (aka Sensitivity)" id="p.41" type="text">
-    <graphics x="1750" y="600"/>
+    <graphics x="810" y="110"/>
   </comment>
   <comment commentText="Based on Specificity" id="p.43" type="text">
-    <graphics x="1740" y="780"/>
+    <graphics x="800" y="290"/>
   </comment>
   <comment commentText="(TN + FP) / ( TP + FN + TN + FP)" id="p.44" type="text">
-    <graphics x="1430" y="870"/>
+    <graphics x="490" y="380"/>
   </comment>
   <comment commentText="(TP + FN) / ( TP + FN + TN + FP)" id="p.45" type="text">
-    <graphics x="1430" y="680"/>
+    <graphics x="490" y="190"/>
   </comment>
   <comment commentText="or 1 - Prob(Class1)" id="p.46" type="text">
-    <graphics x="1460" y="890"/>
+    <graphics x="520" y="400"/>
+  </comment>
+  <comment commentText="Component Named: CN" id="p.47" type="text">
+    <graphics x="80" y="110"/>
   </comment>
   <recordTokentype id="data_id" name="Data" type="text">
-    <graphics x="130" y="1600"/>
+    <graphics x="160" y="470"/>
     <attribute dataType="string" name="n"/>
     <attribute dataType="int" name="s"/>
     <attribute dataType="int" name="l"/>

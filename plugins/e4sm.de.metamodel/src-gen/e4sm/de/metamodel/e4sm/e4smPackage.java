@@ -3326,13 +3326,22 @@ public interface e4smPackage extends EPackage {
 	int CLASSIFICATION_COMPONENT__NUMBER_OF_SERVERS = MACHINE_LEARNING_COMPONENT__NUMBER_OF_SERVERS;
 
 	/**
+	 * The feature id for the '<em><b>Environment</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSIFICATION_COMPONENT__ENVIRONMENT = MACHINE_LEARNING_COMPONENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Classification Component</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLASSIFICATION_COMPONENT_FEATURE_COUNT = MACHINE_LEARNING_COMPONENT_FEATURE_COUNT + 0;
+	int CLASSIFICATION_COMPONENT_FEATURE_COUNT = MACHINE_LEARNING_COMPONENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Compute Main Responsible</em>' operation.
@@ -4122,6 +4131,15 @@ public interface e4smPackage extends EPackage {
 	int BINARY_CLASSIFICATION_COMPONENT__NUMBER_OF_SERVERS = CLASSIFICATION_COMPONENT__NUMBER_OF_SERVERS;
 
 	/**
+	 * The feature id for the '<em><b>Environment</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_CLASSIFICATION_COMPONENT__ENVIRONMENT = CLASSIFICATION_COMPONENT__ENVIRONMENT;
+
+	/**
 	 * The feature id for the '<em><b>Confusion Matrixes</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4282,6 +4300,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int MULTICLASS_CLASSIFICATION_COMPONENT__NUMBER_OF_SERVERS = CLASSIFICATION_COMPONENT__NUMBER_OF_SERVERS;
+
+	/**
+	 * The feature id for the '<em><b>Environment</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTICLASS_CLASSIFICATION_COMPONENT__ENVIRONMENT = CLASSIFICATION_COMPONENT__ENVIRONMENT;
 
 	/**
 	 * The feature id for the '<em><b>Confusion Matrixes</b></em>' containment reference list.
@@ -5428,6 +5455,17 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getClassificationComponent();
+
+	/**
+	 * Returns the meta object for the reference '{@link e4sm.de.metamodel.e4sm.ClassificationComponent#getEnvironment <em>Environment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Environment</em>'.
+	 * @see e4sm.de.metamodel.e4sm.ClassificationComponent#getEnvironment()
+	 * @see #getClassificationComponent()
+	 * @generated
+	 */
+	EReference getClassificationComponent_Environment();
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.Environment <em>Environment</em>}'.
@@ -6796,6 +6834,14 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EClass CLASSIFICATION_COMPONENT = eINSTANCE.getClassificationComponent();
+
+		/**
+		 * The meta object literal for the '<em><b>Environment</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CLASSIFICATION_COMPONENT__ENVIRONMENT = eINSTANCE.getClassificationComponent_Environment();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.EnvironmentImpl <em>Environment</em>}' class.

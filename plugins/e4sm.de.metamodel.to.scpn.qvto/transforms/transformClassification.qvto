@@ -8,7 +8,3 @@ modeltype scpn "strict" uses scpn("http://timenet.tu-ilmenau.de/schema/SCPN");
 
 // property typesCount : Integer = 0;
 
-mapping Component::transformComponent() : pl: List(PlaceType), iTr : List(TransitionType), arcs : List (ArcType),
-tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : List(MeasureType) when {self.oclIsKindOf(e4sm::ClassificationComponent)} {
-	log("\nTransforming classification component " +  self.name);
-}

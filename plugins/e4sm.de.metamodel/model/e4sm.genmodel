@@ -160,7 +160,9 @@
       <genOperations ecoreOperation="e4sm.ecore#//DataNode/getOutgoingConnectors"/>
       <genOperations ecoreOperation="e4sm.ecore#//DataNode/getIncomingConnectors"/>
     </genClasses>
-    <genClasses ecoreClass="e4sm.ecore#//ClassificationComponent"/>
+    <genClasses ecoreClass="e4sm.ecore#//ClassificationComponent">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//ClassificationComponent/environment"/>
+    </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//Environment">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//Environment/classificationClasses"/>
     </genClasses>
