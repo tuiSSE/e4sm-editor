@@ -42,8 +42,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getDocumentation <em>Documentation</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getComponents <em>Components</em>}</li>
- *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getSoftwareComponents <em>Software Components</em>}</li>
- *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getPhysicalComponents <em>Physical Components</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getConnectors <em>Connectors</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getSectors <em>Sectors</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getMainResponsible <em>Main Responsible</em>}</li>
@@ -220,29 +218,6 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 		return components;
 	}
 
-	/**
-	 * <!-- begin-user-doc --> Returns all software components directly contained by
-	 * this package (subsets components) <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	@Override
-	public EList<SoftwareComponent> getSoftwareComponents() {
-		return ECollections.toEList(this.getComponents().stream().filter(c -> c instanceof SoftwareComponent)
-				.map(e -> (SoftwareComponent) e).toList());
-	}
-
-	/**
-	 * <!-- begin-user-doc --> Returns all physical components directly contained by
-	 * this package (subsets components) <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	@Override
-	public EList<PhysicalComponent> getPhysicalComponents() {
-		return ECollections.toEList(this.getComponents().stream().filter(c -> c instanceof PhysicalComponent)
-				.map(e -> (PhysicalComponent) e).toList());
-	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -493,10 +468,6 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 			return getDocumentation();
 		case e4smPackage.PACKAGE__COMPONENTS:
 			return getComponents();
-		case e4smPackage.PACKAGE__SOFTWARE_COMPONENTS:
-			return getSoftwareComponents();
-		case e4smPackage.PACKAGE__PHYSICAL_COMPONENTS:
-			return getPhysicalComponents();
 		case e4smPackage.PACKAGE__CONNECTORS:
 			return getConnectors();
 		case e4smPackage.PACKAGE__SECTORS:
@@ -535,10 +506,6 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 		case e4smPackage.PACKAGE__COMPONENTS:
 			getComponents().clear();
 			getComponents().addAll((Collection<? extends Component>) newValue);
-			return;
-		case e4smPackage.PACKAGE__SOFTWARE_COMPONENTS:
-			getSoftwareComponents().clear();
-			getSoftwareComponents().addAll((Collection<? extends SoftwareComponent>) newValue);
 			return;
 		case e4smPackage.PACKAGE__CONNECTORS:
 			getConnectors().clear();
@@ -582,9 +549,6 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 		case e4smPackage.PACKAGE__COMPONENTS:
 			getComponents().clear();
 			return;
-		case e4smPackage.PACKAGE__SOFTWARE_COMPONENTS:
-			getSoftwareComponents().clear();
-			return;
 		case e4smPackage.PACKAGE__CONNECTORS:
 			getConnectors().clear();
 			return;
@@ -621,10 +585,6 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 					: !DOCUMENTATION_EDEFAULT.equals(documentation);
 		case e4smPackage.PACKAGE__COMPONENTS:
 			return components != null && !components.isEmpty();
-		case e4smPackage.PACKAGE__SOFTWARE_COMPONENTS:
-			return !getSoftwareComponents().isEmpty();
-		case e4smPackage.PACKAGE__PHYSICAL_COMPONENTS:
-			return !getPhysicalComponents().isEmpty();
 		case e4smPackage.PACKAGE__CONNECTORS:
 			return connectors != null && !connectors.isEmpty();
 		case e4smPackage.PACKAGE__SECTORS:

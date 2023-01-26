@@ -821,7 +821,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getPackage_SoftwareComponents() {
+	public EReference getPackage_Connectors() {
 		return (EReference) packageEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -831,7 +831,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getPackage_PhysicalComponents() {
+	public EReference getPackage_Sectors() {
 		return (EReference) packageEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -841,7 +841,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getPackage_Connectors() {
+	public EReference getPackage_MainResponsible() {
 		return (EReference) packageEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -851,7 +851,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getPackage_Sectors() {
+	public EReference getPackage_Packages() {
 		return (EReference) packageEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -861,7 +861,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getPackage_MainResponsible() {
+	public EReference getPackage_SpecifiesComponent() {
 		return (EReference) packageEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -871,28 +871,8 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getPackage_Packages() {
-		return (EReference) packageEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getPackage_SpecifiesComponent() {
-		return (EReference) packageEClass.getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getPackage_Datastores() {
-		return (EReference) packageEClass.getEStructuralFeatures().get(8);
+		return (EReference) packageEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -2055,8 +2035,6 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 
 		packageEClass = createEClass(PACKAGE);
 		createEReference(packageEClass, PACKAGE__COMPONENTS);
-		createEReference(packageEClass, PACKAGE__SOFTWARE_COMPONENTS);
-		createEReference(packageEClass, PACKAGE__PHYSICAL_COMPONENTS);
 		createEReference(packageEClass, PACKAGE__CONNECTORS);
 		createEReference(packageEClass, PACKAGE__SECTORS);
 		createEReference(packageEClass, PACKAGE__MAIN_RESPONSIBLE);
@@ -2395,12 +2373,6 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		initEReference(getPackage_Components(), this.getComponent(), null, "components", null, 0, -1,
 				e4sm.de.metamodel.e4sm.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPackage_SoftwareComponents(), this.getSoftwareComponent(), null, "softwareComponents", null,
-				0, -1, e4sm.de.metamodel.e4sm.Package.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEReference(getPackage_PhysicalComponents(), this.getPhysicalComponent(), null, "physicalComponents", null,
-				0, -1, e4sm.de.metamodel.e4sm.Package.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getPackage_Connectors(), this.getConnector(), null, "connectors", null, 0, -1,
 				e4sm.de.metamodel.e4sm.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

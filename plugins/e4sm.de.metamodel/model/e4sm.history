@@ -2235,86 +2235,40 @@
       </changes>
       <changes xsi:type="history:Create" xmi:id="_CSN3xYBfEeyzqsUCyRmHHA" referenceName="eStructuralFeatures">
         <target href="e4sm.ecore#//Package"/>
-        <element href="e4sm.ecore#//Package/softwareComponents"/>
-        <changes xsi:type="history:Set" xmi:id="_CSN3xoBfEeyzqsUCyRmHHA" featureName="name" dataValue="softwareComponents">
-          <element href="e4sm.ecore#//Package/softwareComponents"/>
-        </changes>
-        <changes xsi:type="history:Set" xmi:id="_CSN3x4BfEeyzqsUCyRmHHA" featureName="upperBound" dataValue="-1" oldDataValue="1">
-          <element href="e4sm.ecore#//Package/softwareComponents"/>
-        </changes>
-        <changes xsi:type="history:Set" xmi:id="_CSN3yIBfEeyzqsUCyRmHHA" featureName="volatile" dataValue="true" oldDataValue="false">
-          <element href="e4sm.ecore#//Package/softwareComponents"/>
-        </changes>
-        <changes xsi:type="history:Set" xmi:id="_CSN3yYBfEeyzqsUCyRmHHA" featureName="transient" dataValue="true" oldDataValue="false">
-          <element href="e4sm.ecore#//Package/softwareComponents"/>
-        </changes>
-        <changes xsi:type="history:Set" xmi:id="_CSN3yoBfEeyzqsUCyRmHHA" featureName="derived" dataValue="true" oldDataValue="false">
-          <element href="e4sm.ecore#//Package/softwareComponents"/>
-        </changes>
+        <changes xsi:type="history:Set" xmi:id="_CSN3xoBfEeyzqsUCyRmHHA" featureName="name" dataValue="softwareComponents"/>
+        <changes xsi:type="history:Set" xmi:id="_CSN3x4BfEeyzqsUCyRmHHA" featureName="upperBound" dataValue="-1" oldDataValue="1"/>
+        <changes xsi:type="history:Set" xmi:id="_CSN3yIBfEeyzqsUCyRmHHA" featureName="volatile" dataValue="true" oldDataValue="false"/>
+        <changes xsi:type="history:Set" xmi:id="_CSN3yYBfEeyzqsUCyRmHHA" featureName="transient" dataValue="true" oldDataValue="false"/>
+        <changes xsi:type="history:Set" xmi:id="_CSN3yoBfEeyzqsUCyRmHHA" featureName="derived" dataValue="true" oldDataValue="false"/>
         <changes xsi:type="history:Set" xmi:id="_CSN3y4BfEeyzqsUCyRmHHA" featureName="eType">
-          <element href="e4sm.ecore#//Package/softwareComponents"/>
           <referenceValue href="e4sm.ecore#//SoftwareComponent"/>
         </changes>
       </changes>
       <changes xsi:type="history:Create" xmi:id="_CSN3zIBfEeyzqsUCyRmHHA" referenceName="eAnnotations">
-        <target href="e4sm.ecore#//Package/softwareComponents"/>
-        <element href="e4sm.ecore#//Package/softwareComponents/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%"/>
-        <changes xsi:type="history:Set" xmi:id="_CSN3zYBfEeyzqsUCyRmHHA" featureName="source" dataValue="http://www.eclipse.org/emf/2002/GenModel">
-          <element href="e4sm.ecore#//Package/softwareComponents/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%"/>
-        </changes>
+        <changes xsi:type="history:Set" xmi:id="_CSN3zYBfEeyzqsUCyRmHHA" featureName="source" dataValue="http://www.eclipse.org/emf/2002/GenModel"/>
       </changes>
       <changes xsi:type="history:Create" xmi:id="_CSN3zoBfEeyzqsUCyRmHHA" referenceName="details">
-        <target href="e4sm.ecore#//Package/softwareComponents/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%"/>
-        <element href="e4sm.ecore#//Package/softwareComponents/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
-        <changes xsi:type="history:Set" xmi:id="_CSN3z4BfEeyzqsUCyRmHHA" featureName="key" dataValue="documentation">
-          <element href="e4sm.ecore#//Package/softwareComponents/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
-        </changes>
-        <changes xsi:type="history:Set" xmi:id="_CSN30IBfEeyzqsUCyRmHHA" featureName="value" dataValue="A subset of components only containing software components">
-          <element href="e4sm.ecore#//Package/softwareComponents/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
-        </changes>
+        <changes xsi:type="history:Set" xmi:id="_CSN3z4BfEeyzqsUCyRmHHA" featureName="key" dataValue="documentation"/>
+        <changes xsi:type="history:Set" xmi:id="_CSN30IBfEeyzqsUCyRmHHA" featureName="value" dataValue="A subset of components only containing software components"/>
       </changes>
       <changes xsi:type="history:Create" xmi:id="_CSN30YBfEeyzqsUCyRmHHA" referenceName="eStructuralFeatures">
         <target href="e4sm.ecore#//Package"/>
-        <element href="e4sm.ecore#//Package/physicalComponents"/>
-        <changes xsi:type="history:Set" xmi:id="_CSN30oBfEeyzqsUCyRmHHA" featureName="name" dataValue="physicalComponents">
-          <element href="e4sm.ecore#//Package/physicalComponents"/>
-        </changes>
-        <changes xsi:type="history:Set" xmi:id="_CSN304BfEeyzqsUCyRmHHA" featureName="upperBound" dataValue="-1" oldDataValue="1">
-          <element href="e4sm.ecore#//Package/physicalComponents"/>
-        </changes>
-        <changes xsi:type="history:Set" xmi:id="_CSN31IBfEeyzqsUCyRmHHA" featureName="changeable" dataValue="false" oldDataValue="true">
-          <element href="e4sm.ecore#//Package/physicalComponents"/>
-        </changes>
-        <changes xsi:type="history:Set" xmi:id="_CSN31YBfEeyzqsUCyRmHHA" featureName="volatile" dataValue="true" oldDataValue="false">
-          <element href="e4sm.ecore#//Package/physicalComponents"/>
-        </changes>
-        <changes xsi:type="history:Set" xmi:id="_CSN31oBfEeyzqsUCyRmHHA" featureName="transient" dataValue="true" oldDataValue="false">
-          <element href="e4sm.ecore#//Package/physicalComponents"/>
-        </changes>
-        <changes xsi:type="history:Set" xmi:id="_CSN314BfEeyzqsUCyRmHHA" featureName="derived" dataValue="true" oldDataValue="false">
-          <element href="e4sm.ecore#//Package/physicalComponents"/>
-        </changes>
+        <changes xsi:type="history:Set" xmi:id="_CSN30oBfEeyzqsUCyRmHHA" featureName="name" dataValue="physicalComponents"/>
+        <changes xsi:type="history:Set" xmi:id="_CSN304BfEeyzqsUCyRmHHA" featureName="upperBound" dataValue="-1" oldDataValue="1"/>
+        <changes xsi:type="history:Set" xmi:id="_CSN31IBfEeyzqsUCyRmHHA" featureName="changeable" dataValue="false" oldDataValue="true"/>
+        <changes xsi:type="history:Set" xmi:id="_CSN31YBfEeyzqsUCyRmHHA" featureName="volatile" dataValue="true" oldDataValue="false"/>
+        <changes xsi:type="history:Set" xmi:id="_CSN31oBfEeyzqsUCyRmHHA" featureName="transient" dataValue="true" oldDataValue="false"/>
+        <changes xsi:type="history:Set" xmi:id="_CSN314BfEeyzqsUCyRmHHA" featureName="derived" dataValue="true" oldDataValue="false"/>
         <changes xsi:type="history:Set" xmi:id="_CSN32IBfEeyzqsUCyRmHHA" featureName="eType">
-          <element href="e4sm.ecore#//Package/physicalComponents"/>
           <referenceValue href="e4sm.ecore#//PhysicalComponent"/>
         </changes>
       </changes>
       <changes xsi:type="history:Create" xmi:id="_CSN32YBfEeyzqsUCyRmHHA" referenceName="eAnnotations">
-        <target href="e4sm.ecore#//Package/physicalComponents"/>
-        <element href="e4sm.ecore#//Package/physicalComponents/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%"/>
-        <changes xsi:type="history:Set" xmi:id="_CSN32oBfEeyzqsUCyRmHHA" featureName="source" dataValue="http://www.eclipse.org/emf/2002/GenModel">
-          <element href="e4sm.ecore#//Package/physicalComponents/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%"/>
-        </changes>
+        <changes xsi:type="history:Set" xmi:id="_CSN32oBfEeyzqsUCyRmHHA" featureName="source" dataValue="http://www.eclipse.org/emf/2002/GenModel"/>
       </changes>
       <changes xsi:type="history:Create" xmi:id="_CSN324BfEeyzqsUCyRmHHA" referenceName="details">
-        <target href="e4sm.ecore#//Package/physicalComponents/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%"/>
-        <element href="e4sm.ecore#//Package/physicalComponents/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
-        <changes xsi:type="history:Set" xmi:id="_CSN33IBfEeyzqsUCyRmHHA" featureName="key" dataValue="documentation">
-          <element href="e4sm.ecore#//Package/physicalComponents/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
-        </changes>
-        <changes xsi:type="history:Set" xmi:id="_CSN33YBfEeyzqsUCyRmHHA" featureName="value" dataValue="A subset of components only containing physical components">
-          <element href="e4sm.ecore#//Package/physicalComponents/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
-        </changes>
+        <changes xsi:type="history:Set" xmi:id="_CSN33IBfEeyzqsUCyRmHHA" featureName="key" dataValue="documentation"/>
+        <changes xsi:type="history:Set" xmi:id="_CSN33YBfEeyzqsUCyRmHHA" featureName="value" dataValue="A subset of components only containing physical components"/>
       </changes>
       <changes xsi:type="history:Create" xmi:id="_CSN33oBfEeyzqsUCyRmHHA" referenceName="eStructuralFeatures">
         <target href="e4sm.ecore#//Package"/>

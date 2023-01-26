@@ -1556,31 +1556,13 @@ public interface e4smPackage extends EPackage {
 	int PACKAGE__COMPONENTS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Software Components</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PACKAGE__SOFTWARE_COMPONENTS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Physical Components</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PACKAGE__PHYSICAL_COMPONENTS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 4;
-
-	/**
 	 * The feature id for the '<em><b>Connectors</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__CONNECTORS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 5;
+	int PACKAGE__CONNECTORS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Sectors</b></em>' containment reference list.
@@ -1589,7 +1571,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__SECTORS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 6;
+	int PACKAGE__SECTORS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Main Responsible</b></em>' reference.
@@ -1598,7 +1580,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__MAIN_RESPONSIBLE = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 7;
+	int PACKAGE__MAIN_RESPONSIBLE = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Packages</b></em>' containment reference list.
@@ -1607,7 +1589,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__PACKAGES = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 8;
+	int PACKAGE__PACKAGES = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Specifies Component</b></em>' reference.
@@ -1616,7 +1598,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__SPECIFIES_COMPONENT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 9;
+	int PACKAGE__SPECIFIES_COMPONENT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Datastores</b></em>' containment reference list.
@@ -1625,7 +1607,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__DATASTORES = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 10;
+	int PACKAGE__DATASTORES = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of structural features of the '<em>Package</em>' class.
@@ -1634,7 +1616,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 11;
+	int PACKAGE_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 9;
 
 	/**
 	 * The operation id for the '<em>Get All Components</em>' operation.
@@ -4720,28 +4702,6 @@ public interface e4smPackage extends EPackage {
 	EReference getPackage_Components();
 
 	/**
-	 * Returns the meta object for the reference list '{@link e4sm.de.metamodel.e4sm.Package#getSoftwareComponents <em>Software Components</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Software Components</em>'.
-	 * @see e4sm.de.metamodel.e4sm.Package#getSoftwareComponents()
-	 * @see #getPackage()
-	 * @generated
-	 */
-	EReference getPackage_SoftwareComponents();
-
-	/**
-	 * Returns the meta object for the reference list '{@link e4sm.de.metamodel.e4sm.Package#getPhysicalComponents <em>Physical Components</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Physical Components</em>'.
-	 * @see e4sm.de.metamodel.e4sm.Package#getPhysicalComponents()
-	 * @see #getPackage()
-	 * @generated
-	 */
-	EReference getPackage_PhysicalComponents();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link e4sm.de.metamodel.e4sm.Package#getConnectors <em>Connectors</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6229,22 +6189,6 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PACKAGE__COMPONENTS = eINSTANCE.getPackage_Components();
-
-		/**
-		 * The meta object literal for the '<em><b>Software Components</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PACKAGE__SOFTWARE_COMPONENTS = eINSTANCE.getPackage_SoftwareComponents();
-
-		/**
-		 * The meta object literal for the '<em><b>Physical Components</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PACKAGE__PHYSICAL_COMPONENTS = eINSTANCE.getPackage_PhysicalComponents();
 
 		/**
 		 * The meta object literal for the '<em><b>Connectors</b></em>' containment reference list feature.
