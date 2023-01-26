@@ -23,6 +23,7 @@ import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -183,7 +184,7 @@ public abstract class DataNodeImpl extends TypedElementImpl implements DataNode 
 					resultList.add(c);
 			});
 		}
-		return resultList;
+		return ECollections.unmodifiableEList(resultList);
 	}
 
 	/**
@@ -224,7 +225,7 @@ public abstract class DataNodeImpl extends TypedElementImpl implements DataNode 
 			});
 		}
 
-		return resultList;
+		return ECollections.unmodifiableEList(resultList);
 	}
 
 	/**

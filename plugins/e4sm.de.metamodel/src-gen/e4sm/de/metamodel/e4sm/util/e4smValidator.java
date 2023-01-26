@@ -1345,6 +1345,9 @@ public class e4smValidator extends EObjectValidator {
 	public boolean validateMulticlassConfusionMatrix_MulticlassConfusionMatrixC1(
 			MulticlassConfusionMatrix multiclassConfusionMatrix, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
+		if (multiclassConfusionMatrix == null || multiclassConfusionMatrix.getClasses() == null) {
+			return true;
+		}
 		int classes = multiclassConfusionMatrix.getClasses().size();
 		int expectedClasses = classes * classes;
 		if (multiclassConfusionMatrix.getEntries().size() != expectedClasses) {

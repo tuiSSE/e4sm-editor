@@ -86,8 +86,8 @@ public class MulticlassConfusionMatrixImpl extends ConfusionMatrixImpl implement
 	 */
 	@Override
 	public EList<ClassificationClass> getClasses() {
-		return ECollections
-				.toEList(this.entries.stream().map(a -> a.getTruth()).distinct().collect(Collectors.toList()));
+		return ECollections.unmodifiableEList(
+				this.entries.stream().map(a -> a.getTruth()).distinct().collect(Collectors.toList()));
 	}
 
 	/**
