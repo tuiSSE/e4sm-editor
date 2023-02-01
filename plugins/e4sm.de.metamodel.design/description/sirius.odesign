@@ -420,7 +420,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="pd_create_component" label="Generic Component" containerMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="pd_create_component" label="Generic Component" containerMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']" iconPath="/e4sm.de.metamodel.edit/icons/full/obj16/Component.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -440,7 +440,7 @@
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:ToolGroup" name="tool_group_create_physical_components" label="Physical Components">
-            <tools xsi:type="tool:ContainerCreationDescription" name="pd_create_physical_component" label="Physical Component" containerMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_PhisicalComponent']">
+            <tools xsi:type="tool:ContainerCreationDescription" name="pd_create_physical_component" label="Physical Component" containerMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_PhisicalComponent']" iconPath="/e4sm.de.metamodel.edit/icons/full/obj16/PhysicalComponent.gif">
               <variable name="container"/>
               <viewVariable name="containerView"/>
               <initialOperation>
@@ -459,7 +459,7 @@
                 </firstModelOperations>
               </initialOperation>
             </tools>
-            <tools xsi:type="tool:ContainerCreationDescription" name="pd_create_sensor" label="Sensor" containerMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Sensor']">
+            <tools xsi:type="tool:ContainerCreationDescription" name="pd_create_sensor" label="Sensor" containerMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Sensor']" iconPath="/e4sm.de.metamodel.edit/icons/full/obj16/Sensor.gif">
               <variable name="container"/>
               <viewVariable name="containerView"/>
               <initialOperation>
@@ -475,7 +475,7 @@
                 </firstModelOperations>
               </initialOperation>
             </tools>
-            <tools xsi:type="tool:ContainerCreationDescription" name="pd_create_actuator" label="Actuator" containerMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Actuator']">
+            <tools xsi:type="tool:ContainerCreationDescription" name="pd_create_actuator" label="Actuator" containerMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Actuator']" iconPath="/e4sm.de.metamodel.edit/icons/full/obj16/Actuator.gif">
               <variable name="container"/>
               <viewVariable name="containerView"/>
               <initialOperation>
@@ -493,7 +493,7 @@
             </tools>
           </ownedTools>
           <ownedTools xsi:type="tool:ToolGroup" name="diag2_createSoftwareComponents" label="Create Software Components">
-            <tools xsi:type="tool:ContainerCreationDescription" name="pd_create_mlc" label="Software Component" containerMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_SoftwareComponent']">
+            <tools xsi:type="tool:ContainerCreationDescription" name="pd_create_mlc" label="Software Component" containerMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_SoftwareComponent']" iconPath="/e4sm.de.metamodel.edit/icons/full/obj16/SoftwareComponent.gif">
               <variable name="container"/>
               <viewVariable name="containerView"/>
               <initialOperation>
@@ -512,7 +512,7 @@
                 </firstModelOperations>
               </initialOperation>
             </tools>
-            <tools xsi:type="tool:ContainerCreationDescription" name="ad_create_mld" label="Machine Learning Component" containerMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_MachineLearningComponent']">
+            <tools xsi:type="tool:ContainerCreationDescription" name="ad_create_mld" label="Machine Learning Component" containerMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_MachineLearningComponent']" iconPath="/e4sm.de.metamodel.edit/icons/full/obj16/MachineLearningComponent.gif">
               <variable name="container"/>
               <viewVariable name="containerView"/>
               <initialOperation>
@@ -531,7 +531,7 @@
                 </firstModelOperations>
               </initialOperation>
             </tools>
-            <tools xsi:type="tool:ContainerCreationDescription" name="pd_create_heuristic" label="Heuristic" containerMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_HeuristicComponent']">
+            <tools xsi:type="tool:ContainerCreationDescription" name="pd_create_heuristic" label="Heuristic" containerMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_HeuristicComponent']" iconPath="/e4sm.de.metamodel.edit/icons/full/obj16/Heuristic.gif">
               <variable name="container"/>
               <viewVariable name="containerView"/>
               <initialOperation>
@@ -550,7 +550,7 @@
                 </firstModelOperations>
               </initialOperation>
             </tools>
-            <tools xsi:type="tool:ContainerCreationDescription" name="pd_create_external_dependency" label="External Dependency" containerMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag2_ExternalDependency']">
+            <tools xsi:type="tool:ContainerCreationDescription" name="pd_create_external_dependency" label="External Dependency" containerMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag2_ExternalDependency']" iconPath="/e4sm.de.metamodel.edit/icons/full/obj16/ExternalDependency.gif">
               <variable name="container"/>
               <viewVariable name="containerView"/>
               <initialOperation>
@@ -569,7 +569,7 @@
                 </firstModelOperations>
               </initialOperation>
             </tools>
-            <tools xsi:type="tool:ContainerCreationDescription" name="pd_create_function" label="Function" containerMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag2_Function']">
+            <tools xsi:type="tool:ContainerCreationDescription" name="pd_create_function" label="Function" containerMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag2_Function']" iconPath="/e4sm.de.metamodel.edit/icons/full/obj16/Function.gif">
               <variable name="container"/>
               <viewVariable name="containerView"/>
               <initialOperation>
@@ -588,7 +588,7 @@
                 </firstModelOperations>
               </initialOperation>
             </tools>
-            <tools xsi:type="tool:ContainerCreationDescription" name="ad_create_binary_classification" label="Binary Classification Component" containerMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_ClassificationComponent']">
+            <tools xsi:type="tool:ContainerCreationDescription" name="ad_create_binary_classification" label="Binary Classification Component" containerMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_ClassificationComponent']" iconPath="/e4sm.de.metamodel.edit/icons/full/obj16/BinaryClassificationComponent.gif">
               <variable name="container"/>
               <viewVariable name="containerView"/>
               <initialOperation>
@@ -607,7 +607,7 @@
                 </firstModelOperations>
               </initialOperation>
             </tools>
-            <tools xsi:type="tool:ContainerCreationDescription" name="ad_create_multiclass_classification" label="Multiclass Classification Component" containerMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_ClassificationComponent']">
+            <tools xsi:type="tool:ContainerCreationDescription" name="ad_create_multiclass_classification" label="Multiclass Classification Component" containerMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_ClassificationComponent']" iconPath="/e4sm.de.metamodel.edit/icons/full/obj16/MulticlassClassificationComponent.gif">
               <variable name="container"/>
               <viewVariable name="containerView"/>
               <initialOperation>
