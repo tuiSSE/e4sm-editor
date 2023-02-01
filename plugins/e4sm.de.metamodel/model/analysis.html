@@ -1,0 +1,467 @@
+<!-- This file was created using the HTML documentation generator. -->
+<!-- Creation date: Thu Jan 26 17:10:11 CET 2023-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+      	<title>Metamodel Documentation (platform:/resource/e4sm.de.metamodel/model/analysis.ecore)</title>
+    	<script type="text/javascript">
+//<![CDATA[				    	
+// TOC script based on code taken from http://www.quirksmode.org/dom/toc.html
+function makeTOC() {
+	
+	var toc = document.createElement('div')				
+	toc.id = "toc";
+	toc.innerHTML = "Table of Contents"				
+	document.body.appendChild(toc);
+				
+	var innertocDiv = createTOC()				
+	toc.appendChild(innertocDiv);
+}
+
+
+function createTOC() {
+	var y = document.createElement('div');
+	y.id = 'innertoc';
+	//var a = y.appendChild(document.createElement('span'));
+	//a.onclick = showhideTOC;
+	//a.id = 'contentheader';
+	//a.innerHTML = 'Show Table of Contents';
+	var z = y.appendChild(document.createElement('div'));
+	//z.onclick = showhideTOC;
+	var toBeTOCced = getElementsByTagNames('h1,h2,h3');
+	if (toBeTOCced.length < 2) return false;
+	var hCount = 0;
+	var hhCount = 0;
+	var hhhCount = 0;
+	for (var i=0;i<toBeTOCced.length;i++) {
+	var tmp = document.createElement('a');
+	tmp.className = 'page';
+	var text;
+	var textPre;
+	if (toBeTOCced[i].nodeName == 'h2'){
+		tmp.className += ' indent';
+		textPre = hCount + "."+ ++hhCount + ". "; 
+	}
+	else if (toBeTOCced[i].nodeName == 'h3'){
+		tmp.className += ' extraindent';
+		textPre = hCount + "."+ hhCount + "."+ ++hhhCount +". "; 
+	}
+	else {
+		textPre = ++hCount + ". "; 
+		hhCount = 0;
+		hhhCount = 0;
+	}
+	text = textPre + toBeTOCced[i].textContent;
+	toBeTOCced[i].innerHTML = textPre + toBeTOCced[i].innerHTML;
+	
+	tmp.innerHTML = text; 
+	z.appendChild(tmp);
+	var headerId = toBeTOCced[i].id || 'link' + i;
+	tmp.href = '#' + headerId;
+	toBeTOCced[i].id = headerId;
+	}
+	return y;
+}
+
+function getElementsByTagNames(list,obj) {
+	if (!obj) var obj = document;
+	var tagNames = list.split(',');
+	var resultArray = new Array();
+	for (var i=0;i<tagNames.length;i++) {
+		var tags = obj.getElementsByTagName(tagNames[i]);
+		for (var j=0;j<tags.length;j++) {
+			resultArray.push(tags[j]);
+		}
+	}
+	var testNode = resultArray[0];
+	if (!testNode) return [];
+	if (testNode.sourceIndex) {
+		resultArray.sort(function (a,b) {
+				return a.sourceIndex - b.sourceIndex;
+		});
+	}
+	else if (testNode.compareDocumentPosition) {
+		resultArray.sort(function (a,b) {
+				return 3 - (a.compareDocumentPosition(b) & 6);
+		});
+	}
+	return resultArray;
+}
+	    	
+//]]>				    	
+	    	</script>
+	    	<link rel="stylesheet" type="text/css" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" /> 
+	    	<style>
+#toc {
+	position: fixed;
+	  right: 0;
+	  top: 0;
+	  background-color:#eee;
+	  overflow: scroll;
+	  border: 1px dashed;
+}
+
+#toc #innertoc { 
+	display: none;
+	height: 500px;
+} /* Hide the full TOC by default */
+
+#toc:hover #innertoc{
+	display: block; /* Show it on hover */
+}
+	td {
+	border: 1px solid;
+	}
+	.page{
+	display:table-row;
+	}
+	.indent {
+	text-indent:12pt;
+	}
+	.extraindent {
+	text-indent:14pt;
+	}
+
+	    	</style>
+	    	<link rel="stylesheet" type="text/css" href="style.css" />
+	</head>
+	<body onload="makeTOC();">
+<h1 id="analysis"><a href="#analysis"><span class="packageName">analysis</span> package</a></h1>
+
+<div class="">EPackage properties:</div>
+<div class="keyValue"><span class="label">Namespace Prefix: </span><span class="teletype">analysis</span></div>
+<div class="keyValue"><span class="label">Namespace URI: </span><span class="teletype">http://de.tu-ilmenau/e4sm/analysis/1.0.0</span></div>
+<h2 id="analysisAnalysis"><a href="#analysisAnalysis"><a href="#analysisAnalysis">Analysis</a></a></h2>
+
+<div class="eclassProps">EClass properties:<div class="eclassPropList"><span class="label">Abstract</span></div></div><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Operations</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="analysisAnalysis.exec" class="teletype">exec</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><div class="alert">MISSING TYPE elem!</div></span></div>
+<div class="label">Cardinality: [0..1]</div>
+ </td><td> </td>
+		</tr><tr>	<td><div id="analysisAnalysis.init" class="teletype">init</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype">EBoolean</span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="label">Returns:</div>
+EBoolean[0..1]
+ </td><td> </td>
+		</tr><tr>	<td><div id="analysisAnalysis.postExecution" class="teletype">postExecution</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><div class="alert">MISSING TYPE elem!</div></span></div>
+<div class="label">Cardinality: [0..1]</div>
+ </td><td> </td>
+		</tr><tr>	<td><div id="analysisAnalysis.run" class="teletype">run</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype">EBoolean</span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="label">Returns:</div>
+EBoolean[0..1]
+ </td><td> </td>
+		</tr></table>
+<a href="#analysis.Analysis.op"></a>
+<h2 id="analysisAnalysisDefinition"><a href="#analysisAnalysisDefinition"><a href="#analysisAnalysisDefinition">AnalysisDefinition</a></a></h2>
+
+<h4><b>Supertype:</b><a href="#coreNamedElement">NamedElement</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">References</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="analysisAnalysisDefinition.analysis" class="teletype">analysis</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#analysisAnalysis">Analysis</a></span></div>
+<div class="label">Cardinality: [1..1]</div>
+<div class="label">Containment</div>
+</td> 
+<td> </td>
+		</tr><tr>	<td><div id="analysisAnalysisDefinition.parameterDefinitions" class="teletype">parameterDefinitions</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#analysisParameterDefinition">ParameterDefinition</a></span></div>
+<div class="label">Cardinality: [0..*]</div>
+<div class="label">Containment</div>
+</td> 
+<td> </td>
+		</tr></table>
+<a href="#analysis.AnalysisDefinition.ref"></a>
+<h2 id="analysisAnalysisManager"><a href="#analysisAnalysisManager"><a href="#analysisAnalysisManager">AnalysisManager</a></a></h2>
+
+<table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Operations</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="analysisAnalysisManager.start" class="teletype">start</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#resultsAnalysisExecution">AnalysisExecution</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="label">Returns:</div>
+<a href="#resultsAnalysisExecution">AnalysisExecution</a>[0..1]
+<div class="label">Parameters:
+<ul>
+<li><a href="#analysisAnalysis">Analysis</a>[0..*] <span class="teletype>"a</span></li>
+</ul>
+ </td><td> </td>
+		</tr><tr>	<td><div id="analysisAnalysisManager.storeResult" class="teletype">storeResult</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype">EBoolean</span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="label">Returns:</div>
+EBoolean[0..1]
+<div class="label">Parameters:
+<ul>
+<li><a href="#resultsAnalysisExecution">AnalysisExecution</a>[0..1] <span class="teletype>"res</span></li>
+</ul>
+ </td><td> </td>
+		</tr></table>
+<a href="#analysis.AnalysisManager.op"></a>
+<h2 id="analysisEntireGraphAnalysis"><a href="#analysisEntireGraphAnalysis"><a href="#analysisEntireGraphAnalysis">EntireGraphAnalysis</a></a></h2>
+
+<h4><b>Supertype:</b><a href="#analysisGraphAnalysis">GraphAnalysis</a></h4><h2 id="analysisGraphAnalysis"><a href="#analysisGraphAnalysis"><a href="#analysisGraphAnalysis">GraphAnalysis</a></a></h2>
+
+<div class="eclassProps">EClass properties:<div class="eclassPropList"><span class="label">Abstract</span></div></div><h4><b>Supertype:</b><a href="#analysisAnalysis">Analysis</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">References</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="analysisGraphAnalysis.graph" class="teletype">graph</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#guavaGraph">Graph</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+</td> 
+<td> </td>
+		</tr></table>
+<a href="#analysis.GraphAnalysis.ref"></a>
+<table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Operations</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="analysisGraphAnalysis.init" class="teletype">init</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype">EBoolean</span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="label">Returns:</div>
+EBoolean[0..1]
+ </td><td> </td>
+		</tr><tr>	<td><div id="analysisGraphAnalysis.initGraph" class="teletype">initGraph</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><div class="alert">MISSING TYPE elem!</div></span></div>
+<div class="label">Cardinality: [0..1]</div>
+ </td><td> </td>
+		</tr></table>
+<a href="#analysis.GraphAnalysis.op"></a>
+<h2 id="analysisMemoryLessGraphAnalysis"><a href="#analysisMemoryLessGraphAnalysis"><a href="#analysisMemoryLessGraphAnalysis">MemoryLessGraphAnalysis</a></a></h2>
+
+<h4><b>Supertype:</b><a href="#analysisGraphAnalysis">GraphAnalysis</a></h4><h2 id="analysisModelAnalysis"><a href="#analysisModelAnalysis"><a href="#analysisModelAnalysis">ModelAnalysis</a></a></h2>
+
+<div class="eclassProps">EClass properties:<div class="eclassPropList"><span class="label">Abstract</span></div></div><h4><b>Supertype:</b><a href="#analysisAnalysis">Analysis</a></h4><h2 id="analysisNetworkGenerator"><a href="#analysisNetworkGenerator"><a href="#analysisNetworkGenerator">NetworkGenerator</a></a></h2>
+
+<table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Operations</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="analysisNetworkGenerator.generateNetwork" class="teletype">generateNetwork</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#guavaImmutableNetwork">ImmutableNetwork</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="label">Returns:</div>
+<a href="#guavaImmutableNetwork">ImmutableNetwork</a>[0..1]
+<div class="label">Parameters:
+<ul>
+<li><a href="#e4smModel">Model</a>[0..1] <span class="teletype>"m</span></li>
+</ul>
+ </td><td> </td>
+		</tr><tr>	<td><div id="analysisNetworkGenerator.generateNetwork" class="teletype">generateNetwork</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#guavaImmutableNetwork">ImmutableNetwork</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="label">Returns:</div>
+<a href="#guavaImmutableNetwork">ImmutableNetwork</a>[0..1]
+<div class="label">Parameters:
+<ul>
+<li><a href="#e4smPackage">Package</a>[0..1] <span class="teletype>"p</span></li>
+</ul>
+ </td><td> </td>
+		</tr></table>
+<a href="#analysis.NetworkGenerator.op"></a>
+<h2 id="analysisPackageAnalysis"><a href="#analysisPackageAnalysis"><a href="#analysisPackageAnalysis">PackageAnalysis</a></a></h2>
+
+<h4><b>Supertype:</b><a href="#analysisAnalysis">Analysis</a></h4><h2 id="analysisParameter"><a href="#analysisParameter"><a href="#analysisParameter">Parameter</a></a></h2>
+
+<h4><b>Supertype:</b><a href="#coreElement">Element</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">References</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="analysisParameter.appliesOnlyOnVariants" class="teletype">appliesOnlyOnVariants</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#coreVariant">Variant</a></span></div>
+<div class="label">Cardinality: [0..*]</div>
+</td> 
+<td> </td>
+		</tr><tr>	<td><div id="analysisParameter.currentValue" class="teletype">currentValue</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#coreValueSpecification">ValueSpecification</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="label">Containment</div>
+</td> 
+<td> </td>
+		</tr><tr>	<td><div id="analysisParameter.doesNotApplyOnVariants" class="teletype">doesNotApplyOnVariants</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#coreVariant">Variant</a></span></div>
+<div class="label">Cardinality: [0..*]</div>
+</td> 
+<td> </td>
+		</tr><tr>	<td><div id="analysisParameter.initialValue" class="teletype">initialValue</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#coreValueSpecification">ValueSpecification</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="label">Containment</div>
+</td> 
+<td> </td>
+		</tr><tr>	<td><div id="analysisParameter.parameterDefinition" class="teletype">parameterDefinition</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#analysisParameterDefinition">ParameterDefinition</a></span></div>
+<div class="label">Cardinality: [1..1]</div>
+<div class="keyValue"><span class="label">Op: </span><span class="teletype">parameters</span></div>
+</td> 
+<td> </td>
+		</tr></table>
+<a href="#analysis.Parameter.ref"></a>
+<table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Operations</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="analysisParameter.isValid" class="teletype">isValid</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype">EBoolean</span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="label">Returns:</div>
+EBoolean[0..1]
+ </td><td> </td>
+		</tr></table>
+<a href="#analysis.Parameter.op"></a>
+<h2 id="analysisParameterDefinition"><a href="#analysisParameterDefinition"><a href="#analysisParameterDefinition">ParameterDefinition</a></a></h2>
+
+<h4><b>Supertype:</b><a href="#coreTypedElement">TypedElement</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Attributes</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="analysisParameterDefinition.unit" class="teletype">unit</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#coreUnitOfMeasurement">UnitOfMeasurement</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="keyValue"><span class="label">Default: </span><span class="teletype">none</span></div>
+ </td> <td></td>
+		</tr></table>
+<a href="#analysis.ParameterDefinition.attr"></a>
+<table>
+<tr>
+	<th colspan="3"><div class="tableHeader">References</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="analysisParameterDefinition.canBeDefinedOn" class="teletype">canBeDefinedOn</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"></span></div>
+<div class="label">Cardinality: [0..*]</div>
+</td> 
+<td> </td>
+		</tr><tr>	<td><div id="analysisParameterDefinition.defaultValue" class="teletype">defaultValue</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#coreValueSpecification">ValueSpecification</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="label">Containment</div>
+</td> 
+<td> </td>
+		</tr><tr>	<td><div id="analysisParameterDefinition.mustBeDefinedOn" class="teletype">mustBeDefinedOn</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"></span></div>
+<div class="label">Cardinality: [0..*]</div>
+</td> 
+<td> </td>
+		</tr><tr>	<td><div id="analysisParameterDefinition.parameters" class="teletype">parameters</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#analysisParameter">Parameter</a></span></div>
+<div class="label">Cardinality: [0..*]</div>
+<div class="keyValue"><span class="label">Op: </span><span class="teletype">parameterDefinition</span></div>
+</td> 
+<td> </td>
+		</tr><tr>	<td><div id="analysisParameterDefinition.shallNotBeDefinedOn" class="teletype">shallNotBeDefinedOn</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"></span></div>
+<div class="label">Cardinality: [0..*]</div>
+</td> 
+<td> </td>
+		</tr></table>
+<a href="#analysis.ParameterDefinition.ref"></a>
+<h2 id="analysisParameterizableElement"><a href="#analysisParameterizableElement"><a href="#analysisParameterizableElement">ParameterizableElement</a></a></h2>
+
+<div class="eclassProps">EClass properties:<div class="eclassPropList"><span class="label">Interface</span>, <span class="label">Abstract</span></div></div><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">References</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="analysisParameterizableElement.parameters" class="teletype">parameters</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#analysisParameter">Parameter</a></span></div>
+<div class="label">Cardinality: [0..*]</div>
+<div class="label">Containment</div>
+</td> 
+<td> </td>
+		</tr></table>
+<a href="#analysis.ParameterizableElement.ref"></a>
+<h2 id="analysisPreviousNodeGraphAnalysis"><a href="#analysisPreviousNodeGraphAnalysis"><a href="#analysisPreviousNodeGraphAnalysis">PreviousNodeGraphAnalysis</a></a></h2>
+
+<h4><b>Supertype:</b><a href="#analysisGraphAnalysis">GraphAnalysis</a></h4></body>
+</html>
