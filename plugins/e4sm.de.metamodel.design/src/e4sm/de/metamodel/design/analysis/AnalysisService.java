@@ -69,7 +69,7 @@ public class AnalysisService {
 	//	results.add(ar);
 	// }
 
-	public void toSCPN(Package p, String outputPath) {
+	public boolean toSCPN(Package p, String outputPath) {
 		Utils.debug("Converting package to SCPN");
 		Utils.debug("Package: " + p.getName());
 		Model m = Utils.getModel(p);
@@ -92,11 +92,13 @@ public class AnalysisService {
 		}
 		Utils.debug("\nProject path: " + projectPath);
 		Utils.debug("\nModel file name: " + modelFileName);
+		Utils.debug("\nGiven outputPath is: " + outputPath);
 
-		if (outputPath == null || outputPath == "") {
+		if (outputPath == null || outputPath.isEmpty()) {
 			Utils.debug("Output path not provided, setting the default path /SCPN/<modelName>.xml");
 			// Using the default output SCPN/model_name.xml"
 			outputPath = projectPath + "SCPN/" + modelFileName + ".xml";
+			Utils.debug("\noutputPath set to: " + outputPath);
 		}
 
 		// Refer to an existing transformation via URI
@@ -161,7 +163,7 @@ public class AnalysisService {
 			} catch (IOException e) {
 				System.err.println("Failed to save output SCPN");
 				e.printStackTrace();
-				return;
+				return false;
 			}
 			Utils.debug("SCPN net saved to " + outputPath);
 
@@ -195,6 +197,7 @@ public class AnalysisService {
 				System.err.println(e.toString());
 				e.printStackTrace();
 			}
+			return true;
 
 		} else {
 			System.err.println("Sirius - Transformation failed");
@@ -202,6 +205,7 @@ public class AnalysisService {
 			IStatus status = BasicDiagnostic.toIStatus(result);
 			Activator.getDefault().getLog().log(status);
 		}
+		return false;
 	}
 
 	private Boolean startAnalysisExecution() {

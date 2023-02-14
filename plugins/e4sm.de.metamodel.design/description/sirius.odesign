@@ -827,7 +827,18 @@
               <menuItemDescription xsi:type="tool_1:OperationAction" name="compute_package_SCPN" label="to SCPN" icon="/e4sm.de.metamodel.design/icons/specified.gif">
                 <view name="views"/>
                 <initialOperation>
-                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:diagram.target.oclAsType(e4sm::Package).toSCPN('')"/>
+                  <firstModelOperations xsi:type="tool_1:If" conditionExpression="aql:diagram.target.oclAsType(e4sm::Package).toSCPN('')">
+                    <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="New Dialog">
+                      <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                        <initialOperation/>
+                      </buttons>
+                      <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                        <initialOperation/>
+                      </buttons>
+                      <page name="Default Page" labelExpression="Page" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='start_simulation_group']/@itemDescriptions.0/@menuItemDescription.4/@initialOperation/@firstModelOperations/@subModelOperations.0/@groups.0"/>
+                      <groups name="Default Group" labelExpression="Group" semanticCandidateExpression="var:self"/>
+                    </subModelOperations>
+                  </firstModelOperations>
                 </initialOperation>
               </menuItemDescription>
               <menuItemDescription xsi:type="tool_1:OperationAction" name="compute_module_documentation" label="Generate Documentation" precondition="false" icon="/e4sm.de.metamodel.design/icons/specified.gif">
