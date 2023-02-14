@@ -5,12 +5,19 @@
 
    <aboutInfo>
       <image path="/e4sm.de.metamodel.branding/icons/logo_64.gif"/>
+      <text>
+         Welcome to the E4SM Editor&apos;s About Page
+Here you can .....
+      </text>
    </aboutInfo>
 
    <configIni use="default">
    </configIni>
 
    <launcherArgs>
+      <programArgs>-pluginCustomization
+plugins\e4sm.de.metamodel.branding_1.0.0\plugin_customization.ini
+      </programArgs>
       <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts
       </vmArgsMac>
    </launcherArgs>
@@ -31,6 +38,7 @@
 
    <vm>
    </vm>
+
 
    <plugins>
       <plugin id="org.eclipse.e4.core.services"/>
@@ -102,18 +110,29 @@
       <feature id="org.eclipse.m2m.qvt.oml.runtime" installMode="root"/>
       <feature id="org.eclipse.xtext.xbase.lib" installMode="root"/>
       <feature id="org.eclipse.m2m.qvt.oml.editor" installMode="root"/>
+      <feature id="org.eclipse.help.source" installMode="root"/>
+      <feature id="org.eclipse.rcp.source" installMode="root"/>
+      <feature id="org.eclipse.equinox.p2.user.ui.source" installMode="root"/>
+      <feature id="org.eclipse.equinox.p2.rcp.feature.source" installMode="root"/>
+      <feature id="org.eclipse.equinox.p2.core.feature.source" installMode="root"/>
+      <feature id="org.eclipse.equinox.p2.extras.feature.source" installMode="root"/>
+      <feature id="org.eclipse.e4.rcp.source" installMode="root"/>
+      <feature id="e4sm.de.custom.metadesign.feature" installMode="root"/>
    </features>
 
    <configurations>
       <plugin id="org.apache.felix.scr" autoStart="true" startLevel="2" />
       <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.debug.ui" autoStart="true" startLevel="2" />
+      <plugin id="org.eclipse.debug.ui.launchview" autoStart="true" startLevel="1" />
       <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" />
       <plugin id="org.eclipse.equinox.event" autoStart="true" startLevel="2" />
       <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="1" />
    </configurations>
 
    <preferencesInfo>
-      <targetfile overwrite="false"/>
+      <sourcefile path="C:\Users\erba4908\Documents\test\test.epf"/>
+      <targetfile overwrite="false" path="/e4sm.de.metamodel.design/plugin_customization.ini"/>
    </preferencesInfo>
 
    <cssInfo>

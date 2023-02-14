@@ -25,6 +25,14 @@
               name="aboutImage"
               value="platform:/plugin/e4sm.de.metamodel.branding/icons/logo_64.gif">
         </property>
+        <property
+              name="preferenceCustomization"
+              value="platform:/plugin/e4sm.de.metamodel.design/plugin_customization.ini">
+        </property>
+        <property
+              name="aboutText"
+              value="Welcome to the E4SM Editor&apos;s About Page&#x0A;Here you can .....">
+        </property>
      </product>
   </extension>
 </plugin>
