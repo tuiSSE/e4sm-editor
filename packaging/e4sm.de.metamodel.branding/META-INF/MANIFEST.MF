@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: E4SM Branding
 Bundle-SymbolicName: e4sm.de.metamodel.branding;singleton:=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 1.0.0
 Bundle-Vendor: TU Ilmenau
 Require-Bundle: org.eclipse.ui.intro.universal,
  org.eclipse.ui.intro;bundle-version="3.4.200",

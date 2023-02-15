@@ -69,11 +69,16 @@ public class AnalysisService {
 	//	results.add(ar);
 	// }
 
-	public boolean toSCPN(Package p, String outputPath) {
+	public int toSCPN(Package p, String outputPath) {
 		Utils.debug("Converting package to SCPN");
+		var pName = p.getName();
+		if(pName == null || pName.isEmpty()){
+			Utils.debug("Package name is empty, transformation canceled");
+			return 1;
+		}
 		Utils.debug("Package: " + p.getName());
 		Model m = Utils.getModel(p);
-
+		
 		// Get the path of the input model
 		var inputURI = EcoreUtil.getURI(m);
 		System.err.println(inputURI.toString());
@@ -97,7 +102,7 @@ public class AnalysisService {
 		if (outputPath == null || outputPath.isEmpty()) {
 			Utils.debug("Output path not provided, setting the default path /SCPN/<modelName>.xml");
 			// Using the default output SCPN/model_name.xml"
-			outputPath = projectPath + "SCPN/" + modelFileName + ".xml";
+			outputPath = projectPath + "SCPN/" + p.getName() + ".xml";
 			Utils.debug("\noutputPath set to: " + outputPath);
 		}
 
@@ -134,7 +139,7 @@ public class AnalysisService {
 		// setup the execution environment details ->
 		// configuration properties, logger, monitor object etc.
 		ExecutionContextImpl context = new ExecutionContextImpl();
-		context.setConfigProperty("packageID", p.getName());
+		context.setConfigProperty("packageName", p.getName());
 
 		// run the transformation assigned to the executor with the given
 		// input and output and execution context -> ChangeTheWorld(in, out)
@@ -163,7 +168,7 @@ public class AnalysisService {
 			} catch (IOException e) {
 				System.err.println("Failed to save output SCPN");
 				e.printStackTrace();
-				return false;
+				return 2;
 			}
 			Utils.debug("SCPN net saved to " + outputPath);
 
@@ -177,9 +182,11 @@ public class AnalysisService {
 				var absoluteScpnPath = FileLocator.resolve(new URL(scpnFolderURI.toString())).getPath();
 				var npmCommand = "tn-fix-xml "+ modelFileName + " -a -o";
 				
-				var command = "cmd.exe /C cd \"" + absoluteScpnPath + "\" && " + npmCommand;
-				Utils.debug("\nRunning command: " + command);
-				var pr = rt.exec(command);
+				//var command = "cmd.exe /C cd \"" + absoluteScpnPath + "\" && " + npmCommand;
+
+				//Utils.debug("\nRunning command: " + command);
+
+				var pr = rt.exec(new String[] {"cmd.exe", "/C cd " + absoluteScpnPath + "\" &&" + npmCommand});
 				var in = new BufferedReader(new InputStreamReader(pr.getInputStream()));
 				String line = null;
 
@@ -197,7 +204,7 @@ public class AnalysisService {
 				System.err.println(e.toString());
 				e.printStackTrace();
 			}
-			return true;
+			return 0;
 
 		} else {
 			System.err.println("Sirius - Transformation failed");
@@ -205,7 +212,7 @@ public class AnalysisService {
 			IStatus status = BasicDiagnostic.toIStatus(result);
 			Activator.getDefault().getLog().log(status);
 		}
-		return false;
+		return 3;
 	}
 
 	private Boolean startAnalysisExecution() {

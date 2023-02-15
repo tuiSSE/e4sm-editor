@@ -160,7 +160,7 @@
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='diag2_drop_sector_on_sector'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='diag2_drop_physical_component_on_sector']" name="e4sm_diagram_2" label="Data Transfer Diagram (DTD)" titleExpression="aql:'[DTD] ' + self.oclAsType(e4sm::Package).name" domainClass="e4sm::Package" enablePopupBars="true">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='diag2_drop_sector_on_sector'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='diag2_drop_physical_component_on_sector']" name="e4sm_diagram_2" label="Data Transfer Diagram (DTD)" titleExpression="aql:'[DTD] ' + self.oclAsType(e4sm::Package).name" initialisation="true" domainClass="e4sm::Package" enablePopupBars="true">
       <metamodel href="http://de.tu-ilmenau/e4sm/1.0.0#/"/>
       <metamodel href="http://de.tu-ilmenau/e4sm/execution/1.0.0#/"/>
       <filters xsi:type="filter:CompositeFilterDescription" name="dtd_composite_filters" label="Hide Contained Components">
@@ -798,7 +798,7 @@
               </menuItemDescription>
             </itemDescriptions>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:GroupMenu" name="start_simulation_group" label="Simulations" locationURI="tabbar:selectMenu">
+          <ownedTools xsi:type="tool_1:GroupMenu" name="start_simulation_group" label="Simulations" locationURI="menu:root">
             <itemDescriptions xsi:type="tool_1:PopupMenu" name="popup_compute_dependency_tree" label="Transformations">
               <menuItemDescription xsi:type="tool_1:OperationAction" name="compute_package_dependency_graph" label="Package Dependency Graph" icon="/e4sm.de.metamodel.design/icons/specified.gif">
                 <view name="views"/>
@@ -827,17 +827,47 @@
               <menuItemDescription xsi:type="tool_1:OperationAction" name="compute_package_SCPN" label="to SCPN" icon="/e4sm.de.metamodel.design/icons/specified.gif">
                 <view name="views"/>
                 <initialOperation>
-                  <firstModelOperations xsi:type="tool_1:If" conditionExpression="aql:diagram.target.oclAsType(e4sm::Package).toSCPN('')">
-                    <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="New Dialog">
-                      <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
-                        <initialOperation/>
-                      </buttons>
-                      <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
-                        <initialOperation/>
-                      </buttons>
-                      <page name="Default Page" labelExpression="Page" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='start_simulation_group']/@itemDescriptions.0/@menuItemDescription.4/@initialOperation/@firstModelOperations/@subModelOperations.0/@groups.0"/>
-                      <groups name="Default Group" labelExpression="Group" semanticCandidateExpression="var:self"/>
-                    </subModelOperations>
+                  <firstModelOperations xsi:type="tool_1:Switch">
+                    <cases conditionExpression="aql:diagram.target.oclAsType(e4sm::Package).toSCPN('')=0">
+                      <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="toSCPN">
+                        <buttons labelExpression="Got it" default="true" closeDialogOnClick="true">
+                          <initialOperation/>
+                        </buttons>
+                        <page name="Default Page" labelExpression="Transformation was successful! Output was placed into the SCPN folder" semanticCandidateExpression="var:self"/>
+                      </subModelOperations>
+                    </cases>
+                    <cases conditionExpression="aql:diagram.target.oclAsType(e4sm::Package).toSCPN('')=1">
+                      <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="toSCPN - Error case 1">
+                        <buttons labelExpression="Got it" default="true" closeDialogOnClick="true">
+                          <initialOperation/>
+                        </buttons>
+                        <page name="Default Page" labelExpression="Package name was empty, transformation canceled!" semanticCandidateExpression="var:self"/>
+                      </subModelOperations>
+                    </cases>
+                    <cases conditionExpression="aql:diagram.target.oclAsType(e4sm::Package).toSCPN('')=2">
+                      <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="toSCPN - Error case 2">
+                        <buttons labelExpression="Got it" default="true" closeDialogOnClick="true">
+                          <initialOperation/>
+                        </buttons>
+                        <page name="Default Page" labelExpression="Failed to save output SCPN!" semanticCandidateExpression="var:self"/>
+                      </subModelOperations>
+                    </cases>
+                    <cases conditionExpression="aql:diagram.target.oclAsType(e4sm::Package).toSCPN('')=3">
+                      <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="toSCPN - Error case 3">
+                        <buttons labelExpression="Got it" default="true" closeDialogOnClick="true">
+                          <initialOperation/>
+                        </buttons>
+                        <page name="Default Page" labelExpression="Transformation failed!" semanticCandidateExpression="var:self"/>
+                      </subModelOperations>
+                    </cases>
+                    <default>
+                      <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="toSCPN">
+                        <buttons labelExpression="Got it" default="true" closeDialogOnClick="true">
+                          <initialOperation/>
+                        </buttons>
+                        <page name="Default Page" labelExpression="An error occured while trying to transform! No case matched!" semanticCandidateExpression="var:self"/>
+                      </subModelOperations>
+                    </default>
                   </firstModelOperations>
                 </initialOperation>
               </menuItemDescription>
