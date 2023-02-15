@@ -17,6 +17,7 @@ import java.util.Optional;
 
 import e4sm.de.metamodel.design.Activator;
 import e4sm.de.metamodel.design.Utils;
+import e4sm.de.metamodel.design.NodeTools;
 import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.Connector;
 import e4sm.de.metamodel.e4sm.Model;
@@ -180,13 +181,13 @@ public class AnalysisService {
 				var scpnFolderURI = URI.createURI(scpnFolderPath);
 				
 				var absoluteScpnPath = FileLocator.resolve(new URL(scpnFolderURI.toString())).getPath();
-				var npmCommand = "tn-fix-xml "+ modelFileName + " -a -o";
+				var npmCommand = "tn-fix-xml "+ pName + " -a -o";
 				
-				//var command = "cmd.exe /C cd \"" + absoluteScpnPath + "\" && " + npmCommand;
+				var command = "cmd.exe /C \"cd \"" + absoluteScpnPath + "\" && " + npmCommand+"\"";
 
-				//Utils.debug("\nRunning command: " + command);
+				Utils.debug("\nRunning command: " + command);
 
-				var pr = rt.exec(new String[] {"cmd.exe", "/C cd " + absoluteScpnPath + "\" &&" + npmCommand});
+				var pr = rt.exec(new String[] {"cmd.exe", "/C \"cd " + absoluteScpnPath + "\" &&" + npmCommand+"\""});
 				var in = new BufferedReader(new InputStreamReader(pr.getInputStream()));
 				String line = null;
 
@@ -195,16 +196,34 @@ public class AnalysisService {
 				}
 
 				int exitVal = pr.waitFor();
-				System.out.println("Exited with error code " + exitVal);
+				System.out.println("Exited with exit code " + exitVal);
+				// TODO: check exit code == 0 for success
 			} catch (IOException e) {
 				System.err.println("Execution error during tn-fix-xml");
 				System.out.println(e.toString());
 				e.printStackTrace();
+				return 3; // Generic error
 			} catch (InterruptedException e) {
 				System.err.println(e.toString());
 				e.printStackTrace();
+				return 3; // Generic error
 			}
-			return 0;
+			
+			// @TODO erik
+			if(!NodeTools.checkNpm()) {
+				// Error: npm not available
+				return 4;
+			}
+			
+			if(!NodeTools.checkTnFix()) {
+				// Error: command tn-fix-xml not available
+				return 5;
+			}
+			
+			NodeTools.optimizePN(/*xml file path*/);
+			//TODO: check if the command worked or not
+			
+			return 0;// Success
 
 		} else {
 			System.err.println("Sirius - Transformation failed");
@@ -212,7 +231,7 @@ public class AnalysisService {
 			IStatus status = BasicDiagnostic.toIStatus(result);
 			Activator.getDefault().getLog().log(status);
 		}
-		return 3;
+		return 3; // Generic error
 	}
 
 	private Boolean startAnalysisExecution() {
