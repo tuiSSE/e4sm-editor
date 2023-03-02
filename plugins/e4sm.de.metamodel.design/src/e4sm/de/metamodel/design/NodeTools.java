@@ -3,6 +3,13 @@
  */
 package e4sm.de.metamodel.design;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URL;
+
+import org.eclipse.core.runtime.FileLocator;
+import org.eclipse.emf.common.util.URI;
 
 final public class NodeTools {
 	private NodeTools() {
@@ -11,27 +18,113 @@ final public class NodeTools {
 	/**
 	 * Check if the npm command is available
 	 * @return true if it is, false otherwise
-	 * @todo erik
 	 */
 	public static boolean checkNpm() {
-		return true;
+		try{
+			var rt = Runtime.getRuntime();
+			var pr = rt.exec(new String[] {"cmd.exe", "/c", "npm -version"});
+			int exitVal = pr.waitFor();
+			if(exitVal == 0) {
+				Utils.debug("npm found");
+				return true;
+			}
+		}
+		catch(IOException e){
+			System.err.println("Execution error during npm version check");
+			System.out.println(e.toString());
+			e.printStackTrace();
+		}
+		catch(InterruptedException e) {
+			System.err.println(e.toString());
+			e.printStackTrace();
+		}
+		System.err.println("npm not found, please check installation");
+		return false;
 	}
 	
 	/**
 	 * Check if the tn-fix-xml command is available
 	 * @return true if it is, false otherwise
-	 * @todo erik
 	 */
 	public static boolean checkTnFix() {
-		return true;
+		try{
+			var rt = Runtime.getRuntime();
+			var pr = rt.exec(new String[] {"cmd.exe", "/c", "tn-fix-xml"});
+			int exitVal = pr.waitFor();
+			if(exitVal == 0) {
+				Utils.debug("tn-fix-xml found");
+				return true;
+			}
+		}
+		catch(IOException e){
+			System.err.println("Execution error during tn-fix-xml check");
+			System.out.println(e.toString());
+			e.printStackTrace();
+		}
+		catch(InterruptedException e) {
+			System.err.println(e.toString());
+			e.printStackTrace();
+		}
+		System.err.println("tn-fix-xml not found, please check installation");
+		return false;
 	}
 	
 	/**
 	 * 
 	 * @return
 	 */
-	public static boolean optimizePN(/*Model path*/) {
-		//  tn-fix-xml <p.xml> -o
-		return true;
+	public static boolean optimizePN(String path, String pName) {
+		
+		try {
+			var rt = Runtime.getRuntime();
+			var name = pName + ".xml";
+			var npmCommand = "tn-fix-xml "+ name + " -a -o";
+			
+			
+			System.out.println("npmCommand: " + npmCommand);
+			
+			
+			var command = "cmd.exe /C \"cd \"" + path + "\" && " + npmCommand+"\"";
+			Utils.debug("\nRunning command: " + command);
+			
+			System.out.println("Path: " + path);
+			
+			
+			String changeDir = "cd " + path;
+			
+			
+			System.out.println("changeDir: " + changeDir);
+			
+			String usedCommand = changeDir + " && " + npmCommand;
+			
+			
+			System.out.println("usedCommand: " + usedCommand);
+			
+			
+			var pr = rt.exec(new String[] {"cmd.exe", "/c", usedCommand});
+			var in = new BufferedReader(new InputStreamReader(pr.getInputStream()));
+			String line = null;
+
+			while ((line = in.readLine()) != null) {
+				System.out.println(line);
+			}
+			
+			int exitVal = pr.waitFor();
+			System.out.println("Exited with exit code " + exitVal);
+			if(exitVal == 0) { //check exit code == 0 for success
+				System.out.println("Success");
+				return true;
+			}	
+		} catch (IOException e) {
+			System.err.println("Execution error during tn-fix-xml");
+			System.out.println(e.toString());
+			e.printStackTrace();
+			return false;
+		} catch (InterruptedException e) {
+			System.err.println(e.toString());
+			e.printStackTrace();
+			return false;
+		}
+		return false;
 	}
 }

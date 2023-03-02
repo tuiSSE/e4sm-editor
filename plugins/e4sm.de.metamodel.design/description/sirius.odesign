@@ -824,57 +824,93 @@
                   <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:diagram.target.oclAsType(e4sm::Package).generateNetwork().exportToDOTFile('network.gv')"/>
                 </initialOperation>
               </menuItemDescription>
-              <menuItemDescription xsi:type="tool_1:OperationAction" name="compute_package_SCPN" label="to SCPN" icon="/e4sm.de.metamodel.design/icons/specified.gif">
-                <view name="views"/>
-                <initialOperation>
-                  <firstModelOperations xsi:type="tool_1:Switch">
-                    <cases conditionExpression="aql:diagram.target.oclAsType(e4sm::Package).toSCPN('')=0">
-                      <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="toSCPN">
-                        <buttons labelExpression="Got it" default="true" closeDialogOnClick="true">
-                          <initialOperation/>
-                        </buttons>
-                        <page name="Default Page" labelExpression="Transformation was successful! Output was placed into the SCPN folder" semanticCandidateExpression="var:self"/>
-                      </subModelOperations>
-                    </cases>
-                    <cases conditionExpression="aql:diagram.target.oclAsType(e4sm::Package).toSCPN('')=1">
-                      <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="toSCPN - Error case 1">
-                        <buttons labelExpression="Got it" default="true" closeDialogOnClick="true">
-                          <initialOperation/>
-                        </buttons>
-                        <page name="Default Page" labelExpression="Package name was empty, transformation canceled!" semanticCandidateExpression="var:self"/>
-                      </subModelOperations>
-                    </cases>
-                    <cases conditionExpression="aql:diagram.target.oclAsType(e4sm::Package).toSCPN('')=2">
-                      <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="toSCPN - Error case 2">
-                        <buttons labelExpression="Got it" default="true" closeDialogOnClick="true">
-                          <initialOperation/>
-                        </buttons>
-                        <page name="Default Page" labelExpression="Failed to save output SCPN!" semanticCandidateExpression="var:self"/>
-                      </subModelOperations>
-                    </cases>
-                    <cases conditionExpression="aql:diagram.target.oclAsType(e4sm::Package).toSCPN('')=3">
-                      <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="toSCPN - Error case 3">
-                        <buttons labelExpression="Got it" default="true" closeDialogOnClick="true">
-                          <initialOperation/>
-                        </buttons>
-                        <page name="Default Page" labelExpression="Transformation failed!" semanticCandidateExpression="var:self"/>
-                      </subModelOperations>
-                    </cases>
-                    <default>
-                      <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="toSCPN">
-                        <buttons labelExpression="Got it" default="true" closeDialogOnClick="true">
-                          <initialOperation/>
-                        </buttons>
-                        <page name="Default Page" labelExpression="An error occured while trying to transform! No case matched!" semanticCandidateExpression="var:self"/>
-                      </subModelOperations>
-                    </default>
-                  </firstModelOperations>
-                </initialOperation>
-              </menuItemDescription>
               <menuItemDescription xsi:type="tool_1:OperationAction" name="compute_module_documentation" label="Generate Documentation" precondition="false" icon="/e4sm.de.metamodel.design/icons/specified.gif">
                 <view name="views"/>
                 <initialOperation>
                   <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:diagram.target.eContainer(e4sm::Model).generateDocumentation()"/>
+                </initialOperation>
+              </menuItemDescription>
+              <menuItemDescription xsi:type="tool_1:OperationAction" name="compute_package_SCPN" label="to SCPN" icon="/e4sm.de.metamodel.design/icons/specified.gif">
+                <view name="views"/>
+                <initialOperation>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                    <subModelOperations xsi:type="tool_1:Let" variableName="transfResult" valueExpression="aql:diagram.target.oclAsType(e4sm::Package).toSCPN('')">
+                      <subModelOperations xsi:type="tool_1:Switch">
+                        <cases conditionExpression="aql:transfResult=0">
+                          <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="toSCPN">
+                            <buttons labelExpression="Got it" default="true" closeDialogOnClick="true">
+                              <initialOperation/>
+                            </buttons>
+                            <page name="Default Page" labelExpression="Transformation was successful! Output was placed into the SCPN folder" semanticCandidateExpression="var:self"/>
+                          </subModelOperations>
+                        </cases>
+                        <cases conditionExpression="aql:transfResult=1">
+                          <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="toSCPN - Error case 1">
+                            <buttons labelExpression="Got it" default="true" closeDialogOnClick="true">
+                              <initialOperation/>
+                            </buttons>
+                            <page name="Default Page" labelExpression="Package name was empty, transformation canceled!" semanticCandidateExpression="var:self"/>
+                          </subModelOperations>
+                        </cases>
+                        <cases conditionExpression="aql:transfResult=2">
+                          <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="toSCPN - Error case 2">
+                            <buttons labelExpression="Got it" default="true" closeDialogOnClick="true">
+                              <initialOperation/>
+                            </buttons>
+                            <page name="Default Page" labelExpression="Failed to save output SCPN!" semanticCandidateExpression="var:self"/>
+                          </subModelOperations>
+                        </cases>
+                        <cases conditionExpression="aql:transfResult=3">
+                          <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="toSCPN - Error case 3">
+                            <buttons labelExpression="Got it" default="true" closeDialogOnClick="true">
+                              <initialOperation/>
+                            </buttons>
+                            <page name="Default Page" labelExpression="Transformation failed! (generic error!)" semanticCandidateExpression="var:self"/>
+                          </subModelOperations>
+                        </cases>
+                        <cases conditionExpression="aql:transfResult=4">
+                          <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="toSCPN - Error case 4">
+                            <buttons labelExpression="Got it" default="true" closeDialogOnClick="true">
+                              <initialOperation/>
+                            </buttons>
+                            <page name="Default Page" labelExpression="npm could not be found, transformation has been canceled!" semanticCandidateExpression="var:self"/>
+                          </subModelOperations>
+                        </cases>
+                        <cases conditionExpression="aql:transfResult=5">
+                          <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="toSCPN - Error case 5">
+                            <buttons labelExpression="Got it" default="true" closeDialogOnClick="true">
+                              <initialOperation/>
+                            </buttons>
+                            <page name="Default Page" labelExpression="Command tn-fix-xml could not be found, transformation has been canceled!" semanticCandidateExpression="var:self"/>
+                          </subModelOperations>
+                        </cases>
+                        <cases conditionExpression="aql:transfResult=6">
+                          <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="toSCPN - Error case 6">
+                            <buttons labelExpression="Got it" default="true" closeDialogOnClick="true">
+                              <initialOperation/>
+                            </buttons>
+                            <page name="Default Page" labelExpression="Transformation was successful, but the optimization failed!" semanticCandidateExpression="var:self"/>
+                          </subModelOperations>
+                        </cases>
+                        <cases conditionExpression="aql:transfResult=7">
+                          <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="toSCPN">
+                            <buttons labelExpression="Got it" default="true" closeDialogOnClick="true">
+                              <initialOperation/>
+                            </buttons>
+                            <page name="Default Page" labelExpression="Transformation and optimization was successful! " semanticCandidateExpression="var:self"/>
+                          </subModelOperations>
+                        </cases>
+                        <default>
+                          <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="toSCPN">
+                            <buttons labelExpression="Got it" default="true" closeDialogOnClick="true">
+                              <initialOperation/>
+                            </buttons>
+                            <page name="Default Page" labelExpression="An unexpected error occured while trying to transform! No case matched!" semanticCandidateExpression="var:self"/>
+                          </subModelOperations>
+                        </default>
+                      </subModelOperations>
+                    </subModelOperations>
+                  </firstModelOperations>
                 </initialOperation>
               </menuItemDescription>
             </itemDescriptions>

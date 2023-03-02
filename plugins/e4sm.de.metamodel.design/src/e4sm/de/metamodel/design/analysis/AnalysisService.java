@@ -174,7 +174,7 @@ public class AnalysisService {
 			Utils.debug("SCPN net saved to " + outputPath);
 
 			Utils.debug("\nMaking net compatible with TimeNet...");
-			try {
+			/*try {
 				var rt = Runtime.getRuntime();
 
 				var scpnFolderPath = projectPath + "SCPN/";
@@ -208,8 +208,9 @@ public class AnalysisService {
 				e.printStackTrace();
 				return 3; // Generic error
 			}
+			*/
 			
-			// @TODO erik
+			
 			if(!NodeTools.checkNpm()) {
 				// Error: npm not available
 				return 4;
@@ -220,7 +221,23 @@ public class AnalysisService {
 				return 5;
 			}
 			
-			NodeTools.optimizePN(/*xml file path*/);
+			var scpnFolderPath = projectPath + "SCPN/";
+			var scpnFolderURI = URI.createURI(scpnFolderPath);
+			
+			String absoluteScpnPath = null;
+			
+			try {
+				absoluteScpnPath = FileLocator.resolve(new URL(scpnFolderURI.toString())).getPath();
+			} catch (IOException e) {
+				System.err.println(e.toString());
+				e.printStackTrace();
+			}
+			
+			if(!absoluteScpnPath.isEmpty()) {
+				boolean check = NodeTools.optimizePN(absoluteScpnPath, pName);
+				if(check) {return 7;}
+				else {return 6;}
+			}
 			//TODO: check if the command worked or not
 			
 			return 0;// Success
