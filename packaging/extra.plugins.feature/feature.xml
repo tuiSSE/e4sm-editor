@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="extra.plugins.feature"
+      id="e4sm.de.extra.plugins.feature"
       label="Feature"
       version="1.0.0.qualifier"
       provider-name="E4SM">
