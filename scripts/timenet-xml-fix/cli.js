@@ -348,7 +348,7 @@ function removeSimplifyableElements(net) {
   // remove the immediate transitions that are marked with simplify:true
   let removedTransitions = 0;
   let removedPlaces = 0;
-  let immT = net.immediateTransition.find(iT => iT.simplify === true);
+  let immT = net?.immediateTransition?.find(iT => iT.simplify === true);
   while (immT) {
     removedTransitions += 1;
     // simplify this immediateTransition
@@ -373,7 +373,7 @@ function removeSimplifyableElements(net) {
 
     // check if rPlace is referenced in any measure
     const regex = new RegExp(immT.rPlaceLabel, "g");
-    net.measure.forEach(m => {
+    net?.measure?.forEach(m => {
       m['$'].expression = m['$'].expression.replace(regex, immT.lPlaceLabel);
     });
 
