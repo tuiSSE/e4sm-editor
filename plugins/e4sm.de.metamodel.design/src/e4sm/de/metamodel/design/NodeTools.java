@@ -78,7 +78,7 @@ final public class NodeTools {
 		try {
 			var rt = Runtime.getRuntime();
 			var name = pName + ".xml";
-			var npmCommand = "tn-fix-xml "+ name + " -a -o";
+			var npmCommand = "tn-fix-xml \""+ name + "\" -a -o";
 			
 			
 			System.out.println("npmCommand: " + npmCommand);
