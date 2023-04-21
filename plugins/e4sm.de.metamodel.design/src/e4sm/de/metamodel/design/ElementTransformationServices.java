@@ -19,7 +19,6 @@ import org.eclipse.sirius.diagram.ui.business.internal.view.RootLayoutData;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.ui.IEditorPart;
 
-
 import e4sm.de.metamodel.e4sm.Actuator;
 import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.ExternalDependency;
