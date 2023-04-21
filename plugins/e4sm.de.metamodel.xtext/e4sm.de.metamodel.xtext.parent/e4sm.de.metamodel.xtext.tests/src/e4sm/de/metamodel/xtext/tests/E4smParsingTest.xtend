@@ -4,22 +4,24 @@
 package e4sm.de.metamodel.xtext.tests
 
 import com.google.inject.Inject
-import e4sm.de.metamodel.e4sm.Model
-import org.eclipse.xtext.testing.InjectWith
-import org.eclipse.xtext.testing.extensions.InjectionExtension
-import org.eclipse.xtext.testing.util.ParseHelper
-import org.junit.jupiter.api.Assertions
-import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.^extension.ExtendWith
 import e4sm.de.metamodel.e4sm.ComponentFiringStrategy
-import org.eclipse.xtext.testing.XtextRunner
-import org.junit.runner.RunWith
-import org.eclipse.xtext.serializer.impl.Serializer
+import e4sm.de.metamodel.e4sm.Model
 import e4sm.de.metamodel.e4sm.e4smPackage
+import e4sm.de.metamodel.e4sm.execution.InputPinReference
 import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl
+import org.eclipse.xtext.serializer.impl.Serializer
+import org.eclipse.xtext.testing.InjectWith
+import org.eclipse.xtext.testing.XtextRunner
+import org.eclipse.xtext.testing.extensions.InjectionExtension
+import org.eclipse.xtext.testing.util.ParseHelper
+import org.junit.jupiter.api.Assertions
+import org.junit.Test;
+import org.junit.jupiter.api.^extension.ExtendWith
+import org.junit.runner.RunWith
+import e4sm.de.metamodel.e4sm.execution.Variable
 
 @RunWith(XtextRunner)
 @ExtendWith(InjectionExtension)
@@ -41,6 +43,7 @@ class E4smParsingTest {
 					runs {
 						var testLiteral = 3;
 						const testSum = 3 + 3;
+						var inputAccess = $pinName;
 						const testMultiplication = 6 * 7;
 						in1 -> out1 takes Exp(1.0);
 					}
@@ -94,21 +97,30 @@ class E4smParsingTest {
 		val resource = resSet.getResource(URI.createURI("Scenarios.e4sm"), true)
 		println("Resource loaded")
 		// val f = e4smFactory.eINSTANCE
-//    val myModel =  f.createModel => [
-//      name = "Test"
-//    ]
+		//    val myModel =  f.createModel => [
+		//      name = "Test"
+		//    ]
 		val myModel = resource.contents.get(0) as Model
 		println("Model '" + myModel.name + "' loaded, serializing it...")
 
 		println(serializer.serialize(myModel))
 
 	}
-
+	
 	@Test
-	def void parseFiringStrategy() {
+	def void parseFiringStrategy () {
 		val result = parseHelper.parse(toBeParsed)
 		Assertions.assertEquals(result.packages.get(0).components.get(6).name, "H")
 		Assertions.assertEquals(result.packages.get(0).components.get(6).firingStrategy, ComponentFiringStrategy::OR)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+	}
+
+	@Test
+	def void parseInputPinReference() {
+		val result = parseHelper.parse(toBeParsed)
+		Assertions.assertEquals((result.packages.get(0).components.get(0).execution.elements.get(2) as Variable).name, "inputAccess")
+		Assertions.assertEquals(((result.packages.get(0).components.get(0).execution.elements.get(2) as Variable).expression.tangibleChild as InputPinReference).inputPin.name, "pinName")
 		val errors = result.eResource.errors
 		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
 	}
