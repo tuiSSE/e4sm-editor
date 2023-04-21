@@ -1,10 +1,19 @@
 modeltype execution "strict" uses execution("http://de.tu-ilmenau/e4sm/execution/1.0.0");
 
 modeltype e4sm "strict" uses e4sm("http://de.tu-ilmenau/e4sm/1.0.0");
+modeltype scpn "strict" uses scpn("http://timenet.tu-ilmenau.de/schema/SCPN");
 
 transformation SCPNHelpers() {
 /** Helpers **/
 	//A helper is an operation that performs a computation on one or more source objects and provides a result. It is illegal to create or update object instances except for pre-defined types like sets, tuples, and for intermediate properties.
+	
+	helper getMeasureReference(p : PlaceType) : String{
+	 return "#" + p.label.text;
+	}
+	
+	helper getMeasureReference(p : TransitionType) : String{
+	 return "#" + p.label.text;
+	}
 	
 	helper safeString(s:String) : String{
 	assert warning (not s.oclIsUndefined()) with log("Safestring received a null parameter, one element in the model does not have a name., using a placeholder");
@@ -19,9 +28,12 @@ transformation SCPNHelpers() {
 	*/
 	helper timeExpressionToString(tf : execution::TimeFunction) : String {
 	    // if the time function is not set, just return the default value
+	    log("TIME FUNCTION: ");
 	    if(tf = null){
+	    log("NULL");
 	    	return "EXP(1.0)";
 	    };
+	    log(tf.getString());
 	    return tf.getString();
 	}
 	
@@ -32,5 +44,28 @@ transformation SCPNHelpers() {
 	
 	query Component::isSensor() : Boolean {
 		return self.oclIsTypeOf(e4sm::Sensor) or self.hasNoInputs();
+	}
+	
+	/**
+    Converts an E4SM Queue to a Petri net place queue
+	*/
+	helper e4sm::QueueType::convertQueueType() : scpn::QueueType {
+		switch {
+		case  (self = e4sm::QueueType::RANDOM){
+				return scpn::QueueType::Random;
+			}
+			case  (self = e4sm::QueueType::FIFO){
+				return scpn::QueueType::FIFO;
+			}
+			case  (self = e4sm::QueueType::LIFO){
+				return scpn::QueueType::LIFO;
+			}
+			else{
+				log("Unsupported queue type " + self.toString());
+				return scpn::QueueType::Random;
+			}
+		};
+		//Not needed, but it removes the warning
+		return scpn::QueueType::Random;
 	}
 }
