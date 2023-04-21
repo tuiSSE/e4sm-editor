@@ -18,7 +18,7 @@ import org.eclipse.emf.common.util.BasicMonitor;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
+// import org.eclipse.emf.ecore.EObject;
 
 
 /**
@@ -81,7 +81,7 @@ public class GenerateAll {
 		gen0.setGenerationID(generationID);
 		gen0.doGenerate(BasicMonitor.toMonitor(monitor));
 			
-		EObject model = gen0.getModel();	
+		/*EObject model = */gen0.getModel();	
 		
 	}
 
