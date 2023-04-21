@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:e4sm="http://de.tu-ilmenau/e4sm/1.0.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:style_1="http://www.eclipse.org/sirius/description/style/1.1.0" xmlns:table="http://www.eclipse.org/sirius/table/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/table/description/1.1.0 http://www.eclipse.org/sirius/table/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style http://www.eclipse.org/sirius/description/style/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description/style">
+  <viewpoint:DAnalysis uid="_VvKdoMJ7Ee2ujKgqgw-nYg" selectedViews="_vRzqEMJ-Ee2hGvYzNxiBvQ" version="15.0.0.202209061200">
+    <semanticResources>My.e4sm</semanticResources>
+    <semanticResources>My.analysis</semanticResources>
+    <ownedViews xmi:type="viewpoint:DView" uid="_vRzqEMJ-Ee2hGvYzNxiBvQ">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']"/>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_vUYc8MJ-Ee2hGvYzNxiBvQ" name="[DTD] My package" repPath="#_vUDs0MJ-Ee2hGvYzNxiBvQ" changeId="1ab08019-a40e-4129-8b1b-d771db884354">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']"/>
+        <target xmi:type="e4sm:Package" href="My.e4sm#_YKNjwcJ7Ee2ujKgqgw-nYg"/>
+      </ownedRepresentationDescriptors>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_vVgeVMJ-Ee2hGvYzNxiBvQ" name="[DOCT] My" repPath="#_vVU4IMJ-Ee2hGvYzNxiBvQ">
+        <description xmi:type="description_2:EditionTableDescription" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='table_docs']"/>
+        <target xmi:type="e4sm:Model" href="My.e4sm#_YKNjwMJ7Ee2ujKgqgw-nYg"/>
+      </ownedRepresentationDescriptors>
+    </ownedViews>
+  </viewpoint:DAnalysis>
+  <diagram:DSemanticDiagram uid="_vUDs0MJ-Ee2hGvYzNxiBvQ">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_vUubMMJ-Ee2hGvYzNxiBvQ" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_vUvCQMJ-Ee2hGvYzNxiBvQ" type="Sirius" element="_vUDs0MJ-Ee2hGvYzNxiBvQ" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_bopYYMQOEe2eONYNhM9iTw" type="2002" element="_boSzEMQOEe2eONYNhM9iTw">
+          <children xmi:type="notation:Node" xmi:id="_botp0MQOEe2eONYNhM9iTw" type="5006"/>
+          <children xmi:type="notation:Node" xmi:id="_bouQ4MQOEe2eONYNhM9iTw" type="7001">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_bouQ4cQOEe2eONYNhM9iTw"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_bouQ4sQOEe2eONYNhM9iTw"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_bopYYcQOEe2eONYNhM9iTw" fontColor="7490599" fontName="Segoe UI" fontHeight="12"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_bopYYsQOEe2eONYNhM9iTw" x="348" y="216"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_vUvCQcJ-Ee2hGvYzNxiBvQ"/>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_vVGOoMJ-Ee2hGvYzNxiBvQ" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_vVG1sMJ-Ee2hGvYzNxiBvQ">
+        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_boY5sMQOEe2eONYNhM9iTw" borderSizeComputationExpression="1" labelSize="12" tooltipExpression="aql:'Component &quot;'+self.name +'&quot;'">
+          <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
+          <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
+          <backgroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+          <foregroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+          <labelBorderStyle xmi:type="style_1:LabelBorderStyleDescription" href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.2"/>
+        </computedStyleDescriptions>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_boSzEMQOEe2eONYNhM9iTw" tooltipText="Component &quot;&quot;">
+      <target xmi:type="e4sm:Component" href="My.e4sm#_83v7UMJ-Ee2hGvYzNxiBvQ"/>
+      <semanticElements xmi:type="e4sm:Component" href="My.e4sm#_83v7UMJ-Ee2hGvYzNxiBvQ"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_boau4MQOEe2eONYNhM9iTw" labelSize="12" labelColor="39,76,114" description="_boY5sMQOEe2eONYNhM9iTw" borderSize="1" borderSizeComputationExpression="1" borderColor="39,76,114" backgroundColor="194,239,255" foregroundColor="194,239,255"/>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']"/>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_vULooMJ-Ee2hGvYzNxiBvQ"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer"/>
+    <target xmi:type="e4sm:Package" href="My.e4sm#_YKNjwcJ7Ee2ujKgqgw-nYg"/>
+  </diagram:DSemanticDiagram>
+  <table:DTable uid="_vVU4IMJ-Ee2hGvYzNxiBvQ">
+    <target xmi:type="e4sm:Model" href="My.e4sm#_YKNjwMJ7Ee2ujKgqgw-nYg"/>
+    <lines xmi:type="table:DLine" uid="_vVa-wMJ-Ee2hGvYzNxiBvQ" label=" ">
+      <target xmi:type="e4sm:Package" href="My.e4sm#_YKNjwcJ7Ee2ujKgqgw-nYg"/>
+      <semanticElements xmi:type="e4sm:Package" href="My.e4sm#_YKNjwcJ7Ee2ujKgqgw-nYg"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='table_docs']/@ownedLineMappings[name='elements_row']"/>
+      <cells xmi:type="table:DCell" uid="_vVgeUMJ-Ee2hGvYzNxiBvQ" label="My package" column="_vVf3QMJ-Ee2hGvYzNxiBvQ">
+        <target xmi:type="e4sm:Package" href="My.e4sm#_YKNjwcJ7Ee2ujKgqgw-nYg"/>
+        <semanticElements xmi:type="e4sm:Package" href="My.e4sm#_YKNjwcJ7Ee2ujKgqgw-nYg"/>
+      </cells>
+      <cells xmi:type="table:DCell" uid="_vVgeUsJ-Ee2hGvYzNxiBvQ" label="" column="_vVf3QsJ-Ee2hGvYzNxiBvQ">
+        <target xmi:type="e4sm:Package" href="My.e4sm#_YKNjwcJ7Ee2ujKgqgw-nYg"/>
+        <semanticElements xmi:type="e4sm:Package" href="My.e4sm#_YKNjwcJ7Ee2ujKgqgw-nYg"/>
+      </cells>
+      <currentStyle xmi:type="table:DTableElementStyle" uid="_vVbl0MJ-Ee2hGvYzNxiBvQ" backgroundColor="255,245,181"/>
+    </lines>
+    <columns xmi:type="table:DFeatureColumn" uid="_vVf3QMJ-Ee2hGvYzNxiBvQ" label="Name" cells="_vVgeUMJ-Ee2hGvYzNxiBvQ" featureName="name">
+      <originMapping xmi:type="description_2:FeatureColumnMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='table_docs']/@ownedColumnMappings[name='table_doc_name_col']"/>
+    </columns>
+    <columns xmi:type="table:DFeatureColumn" uid="_vVf3QsJ-Ee2hGvYzNxiBvQ" label="Documentation" cells="_vVgeUsJ-Ee2hGvYzNxiBvQ" featureName="documentation">
+      <originMapping xmi:type="description_2:FeatureColumnMapping" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='table_docs']/@ownedColumnMappings[name='table_doc_doc']"/>
+    </columns>
+    <description xmi:type="description_2:EditionTableDescription" href="platform:/resource/e4sm.de.metamodel.design/description/sirius.odesign#//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='table_docs']"/>
+  </table:DTable>
+</xmi:XMI>

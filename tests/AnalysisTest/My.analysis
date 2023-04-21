@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<analysis:AnalysisDefinition xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:analysis="http://de.tu-ilmenau/e4sm/analysis/1.0.0" xmlns:core="http://de.tu-ilmenau/e4sm/core/1.0.0" name="AnalysisLibrary">
+  <parameterDefinitions name="par_definition">
+    <parameters href="My.e4sm#_xW4AgMJ7Ee2ujKgqgw-nYg"/>
+    <parameters href="My.e4sm#_9YOLIMJ-Ee2hGvYzNxiBvQ"/>
+    <canBeDefinedOn href="http://de.tu-ilmenau/e4sm/1.0.0#//Package"/>
+    <defaultValue xsi:type="core:LiteralDouble"/>
+  </parameterDefinitions>
+</analysis:AnalysisDefinition>

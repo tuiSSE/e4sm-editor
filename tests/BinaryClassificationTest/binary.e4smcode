@@ -1,5 +1,6 @@
 model binaryModel{
 	package p1 {
+	processingUnits : -1
 		sensor "Sensor 1" {
 			out s1_out
 		},
