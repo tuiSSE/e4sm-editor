@@ -12,9 +12,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Addition</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object
+ * '<em><b>Addition</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
@@ -28,8 +27,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 public class AdditionImpl extends BinaryExpressionImpl implements Addition {
 	/**
 	 * The default value of the '{@link #isAddition() <em>Addition</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isAddition()
 	 * @generated
 	 * @ordered
@@ -37,8 +35,7 @@ public class AdditionImpl extends BinaryExpressionImpl implements Addition {
 	protected static final boolean ADDITION_EDEFAULT = false;
 	/**
 	 * The cached value of the '{@link #isAddition() <em>Addition</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isAddition()
 	 * @generated
 	 * @ordered
@@ -46,8 +43,7 @@ public class AdditionImpl extends BinaryExpressionImpl implements Addition {
 	protected boolean addition = ADDITION_EDEFAULT;
 	/**
 	 * The default value of the '{@link #isSubtraction() <em>Subtraction</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isSubtraction()
 	 * @generated
 	 * @ordered
@@ -55,8 +51,7 @@ public class AdditionImpl extends BinaryExpressionImpl implements Addition {
 	protected static final boolean SUBTRACTION_EDEFAULT = false;
 	/**
 	 * The cached value of the '{@link #isSubtraction() <em>Subtraction</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isSubtraction()
 	 * @generated
 	 * @ordered
@@ -64,8 +59,7 @@ public class AdditionImpl extends BinaryExpressionImpl implements Addition {
 	protected boolean subtraction = SUBTRACTION_EDEFAULT;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected AdditionImpl() {
@@ -73,8 +67,7 @@ public class AdditionImpl extends BinaryExpressionImpl implements Addition {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -83,8 +76,7 @@ public class AdditionImpl extends BinaryExpressionImpl implements Addition {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -93,8 +85,7 @@ public class AdditionImpl extends BinaryExpressionImpl implements Addition {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -107,8 +98,7 @@ public class AdditionImpl extends BinaryExpressionImpl implements Addition {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -117,8 +107,7 @@ public class AdditionImpl extends BinaryExpressionImpl implements Addition {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -131,8 +120,7 @@ public class AdditionImpl extends BinaryExpressionImpl implements Addition {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -141,8 +129,7 @@ public class AdditionImpl extends BinaryExpressionImpl implements Addition {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -157,8 +144,7 @@ public class AdditionImpl extends BinaryExpressionImpl implements Addition {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -175,8 +161,7 @@ public class AdditionImpl extends BinaryExpressionImpl implements Addition {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -193,8 +178,7 @@ public class AdditionImpl extends BinaryExpressionImpl implements Addition {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -209,8 +193,7 @@ public class AdditionImpl extends BinaryExpressionImpl implements Addition {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -223,22 +206,16 @@ public class AdditionImpl extends BinaryExpressionImpl implements Addition {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (addition: ");
-		result.append(addition);
-		result.append(", subtraction: ");
-		result.append(subtraction);
-		result.append(')');
-		return result.toString();
+		if (isRealOperation()) {
+			return "( " + left.toString() + (addition ? " + " : " - ") + right.toString() + " )";
+		}
+		return left.toString();
 	}
 
-} //AdditionImpl
+} // AdditionImpl

@@ -420,13 +420,22 @@ public interface ExecutionPackage extends EPackage {
 	int EXPRESSION___GET_ACTUAL_PARENT = EXECUTION_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPRESSION___TO_STRING = EXECUTION_ELEMENT_OPERATION_COUNT + 2;
+
+	/**
 	 * The number of operations of the '<em>Expression</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXPRESSION_OPERATION_COUNT = EXECUTION_ELEMENT_OPERATION_COUNT + 2;
+	int EXPRESSION_OPERATION_COUNT = EXECUTION_ELEMENT_OPERATION_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.execution.impl.BinaryExpressionImpl <em>Binary Expression</em>}' class.
@@ -464,6 +473,15 @@ public interface ExecutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int BINARY_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_EXPRESSION___TO_STRING = EXPRESSION___TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Is Real Operation</em>' operation.
@@ -537,6 +555,15 @@ public interface ExecutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int UNARY_EXPRESSION___GET_ACTUAL_PARENT = EXPRESSION___GET_ACTUAL_PARENT;
+
+	/**
+	 * The operation id for the '<em>To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNARY_EXPRESSION___TO_STRING = EXPRESSION___TO_STRING;
 
 	/**
 	 * The number of operations of the '<em>Unary Expression</em>' class.
@@ -630,13 +657,22 @@ public interface ExecutionPackage extends EPackage {
 	int ADDITION___IS_REAL_OPERATION = BINARY_EXPRESSION_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADDITION___TO_STRING = BINARY_EXPRESSION_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Addition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ADDITION_OPERATION_COUNT = BINARY_EXPRESSION_OPERATION_COUNT + 1;
+	int ADDITION_OPERATION_COUNT = BINARY_EXPRESSION_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.execution.impl.MultiplicationImpl <em>Multiplication</em>}' class.
@@ -721,13 +757,22 @@ public interface ExecutionPackage extends EPackage {
 	int MULTIPLICATION___IS_REAL_OPERATION = BINARY_EXPRESSION_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTIPLICATION___TO_STRING = BINARY_EXPRESSION_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Multiplication</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MULTIPLICATION_OPERATION_COUNT = BINARY_EXPRESSION_OPERATION_COUNT + 1;
+	int MULTIPLICATION_OPERATION_COUNT = BINARY_EXPRESSION_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.execution.impl.VariableImpl <em>Variable</em>}' class.
@@ -750,76 +795,14 @@ public interface ExecutionPackage extends EPackage {
 	int CONST = 14;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.execution.ReferenceableItem <em>Referenceable Item</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.execution.ReferenceableItem
+	 * @see e4sm.de.metamodel.e4sm.execution.impl.ExecutionPackageImpl#getReferenceableItem()
 	 * @generated
-	 * @ordered
 	 */
-	int CONST__NAME = EXECUTION_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONST__EXPRESSION = EXECUTION_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Const</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONST_FEATURE_COUNT = EXECUTION_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>Const</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONST_OPERATION_COUNT = EXECUTION_ELEMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VARIABLE__NAME = CONST__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VARIABLE__EXPRESSION = CONST__EXPRESSION;
-
-	/**
-	 * The number of structural features of the '<em>Variable</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VARIABLE_FEATURE_COUNT = CONST_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Variable</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VARIABLE_OPERATION_COUNT = CONST_OPERATION_COUNT + 0;
+	int REFERENCEABLE_ITEM = 21;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.execution.impl.VariableRefImpl <em>Variable Ref</em>}' class.
@@ -830,6 +813,182 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 */
 	int VARIABLE_REF = 15;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.execution.impl.TimeFunctionImpl <em>Time Function</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.execution.impl.TimeFunctionImpl
+	 * @see e4sm.de.metamodel.e4sm.execution.impl.ExecutionPackageImpl#getTimeFunction()
+	 * @generated
+	 */
+	int TIME_FUNCTION = 16;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.execution.DelayableElement <em>Delayable Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.execution.DelayableElement
+	 * @see e4sm.de.metamodel.e4sm.execution.impl.ExecutionPackageImpl#getDelayableElement()
+	 * @generated
+	 */
+	int DELAYABLE_ELEMENT = 17;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.execution.impl.AssignmentImpl <em>Assignment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.execution.impl.AssignmentImpl
+	 * @see e4sm.de.metamodel.e4sm.execution.impl.ExecutionPackageImpl#getAssignment()
+	 * @generated
+	 */
+	int ASSIGNMENT = 18;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.execution.impl.AssignableElementReferenceImpl <em>Assignable Element Reference</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.execution.impl.AssignableElementReferenceImpl
+	 * @see e4sm.de.metamodel.e4sm.execution.impl.ExecutionPackageImpl#getAssignableElementReference()
+	 * @generated
+	 */
+	int ASSIGNABLE_ELEMENT_REFERENCE = 19;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.execution.AssignableElement <em>Assignable Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.execution.AssignableElement
+	 * @see e4sm.de.metamodel.e4sm.execution.impl.ExecutionPackageImpl#getAssignableElement()
+	 * @generated
+	 */
+	int ASSIGNABLE_ELEMENT = 20;
+
+	/**
+	 * The number of structural features of the '<em>Assignable Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIGNABLE_ELEMENT_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Assignable Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIGNABLE_ELEMENT_OPERATION_COUNT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE__NAME = ASSIGNABLE_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE__EXPRESSION = ASSIGNABLE_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Variable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_FEATURE_COUNT = ASSIGNABLE_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Variable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_OPERATION_COUNT = ASSIGNABLE_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCEABLE_ITEM__NAME = EXECUTION_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCEABLE_ITEM__EXPRESSION = EXECUTION_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Referenceable Item</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCEABLE_ITEM_FEATURE_COUNT = EXECUTION_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Referenceable Item</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCEABLE_ITEM_OPERATION_COUNT = EXECUTION_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONST__NAME = REFERENCEABLE_ITEM__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONST__EXPRESSION = REFERENCEABLE_ITEM__EXPRESSION;
+
+	/**
+	 * The number of structural features of the '<em>Const</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONST_FEATURE_COUNT = REFERENCEABLE_ITEM_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Const</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONST_OPERATION_COUNT = REFERENCEABLE_ITEM_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Variable</b></em>' reference.
@@ -848,6 +1007,15 @@ public interface ExecutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int VARIABLE_REF_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_REF___TO_STRING = EXPRESSION___TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Get Actual Parent</em>' operation.
@@ -877,16 +1045,6 @@ public interface ExecutionPackage extends EPackage {
 	int VARIABLE_REF_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.execution.impl.TimeFunctionImpl <em>Time Function</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see e4sm.de.metamodel.e4sm.execution.impl.TimeFunctionImpl
-	 * @see e4sm.de.metamodel.e4sm.execution.impl.ExecutionPackageImpl#getTimeFunction()
-	 * @generated
-	 */
-	int TIME_FUNCTION = 16;
-
-	/**
 	 * The feature id for the '<em><b>Function</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -896,7 +1054,7 @@ public interface ExecutionPackage extends EPackage {
 	int TIME_FUNCTION__FUNCTION = 0;
 
 	/**
-	 * The feature id for the '<em><b>Par1</b></em>' attribute.
+	 * The feature id for the '<em><b>Par1</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -905,7 +1063,7 @@ public interface ExecutionPackage extends EPackage {
 	int TIME_FUNCTION__PAR1 = 1;
 
 	/**
-	 * The feature id for the '<em><b>Par2</b></em>' attribute.
+	 * The feature id for the '<em><b>Par2</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -941,16 +1099,6 @@ public interface ExecutionPackage extends EPackage {
 	int TIME_FUNCTION_OPERATION_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.execution.DelayableElement <em>Delayable Element</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see e4sm.de.metamodel.e4sm.execution.DelayableElement
-	 * @see e4sm.de.metamodel.e4sm.execution.impl.ExecutionPackageImpl#getDelayableElement()
-	 * @generated
-	 */
-	int DELAYABLE_ELEMENT = 17;
-
-	/**
 	 * The feature id for the '<em><b>Time Function</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -976,16 +1124,6 @@ public interface ExecutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int DELAYABLE_ELEMENT_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.execution.impl.AssignmentImpl <em>Assignment</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see e4sm.de.metamodel.e4sm.execution.impl.AssignmentImpl
-	 * @see e4sm.de.metamodel.e4sm.execution.impl.ExecutionPackageImpl#getAssignment()
-	 * @generated
-	 */
-	int ASSIGNMENT = 18;
 
 	/**
 	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1024,16 +1162,6 @@ public interface ExecutionPackage extends EPackage {
 	int ASSIGNMENT_OPERATION_COUNT = EXECUTION_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.execution.impl.AssignableElementReferenceImpl <em>Assignable Element Reference</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see e4sm.de.metamodel.e4sm.execution.impl.AssignableElementReferenceImpl
-	 * @see e4sm.de.metamodel.e4sm.execution.impl.ExecutionPackageImpl#getAssignableElementReference()
-	 * @generated
-	 */
-	int ASSIGNABLE_ELEMENT_REFERENCE = 19;
-
-	/**
 	 * The feature id for the '<em><b>Ref</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1061,32 +1189,141 @@ public interface ExecutionPackage extends EPackage {
 	int ASSIGNABLE_ELEMENT_REFERENCE_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.execution.AssignableElement <em>Assignable Element</em>}' class.
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.execution.impl.InputPinReferenceImpl <em>Input Pin Reference</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see e4sm.de.metamodel.e4sm.execution.AssignableElement
-	 * @see e4sm.de.metamodel.e4sm.execution.impl.ExecutionPackageImpl#getAssignableElement()
+	 * @see e4sm.de.metamodel.e4sm.execution.impl.InputPinReferenceImpl
+	 * @see e4sm.de.metamodel.e4sm.execution.impl.ExecutionPackageImpl#getInputPinReference()
 	 * @generated
 	 */
-	int ASSIGNABLE_ELEMENT = 20;
+	int INPUT_PIN_REFERENCE = 22;
 
 	/**
-	 * The number of structural features of the '<em>Assignable Element</em>' class.
+	 * The feature id for the '<em><b>Input Pin</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIGNABLE_ELEMENT_FEATURE_COUNT = 0;
+	int INPUT_PIN_REFERENCE__INPUT_PIN = EXPRESSION_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Assignable Element</em>' class.
+	 * The number of structural features of the '<em>Input Pin Reference</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIGNABLE_ELEMENT_OPERATION_COUNT = 0;
+	int INPUT_PIN_REFERENCE_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get Actual Parent</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_PIN_REFERENCE___GET_ACTUAL_PARENT = EXPRESSION_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Tangible Child</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_PIN_REFERENCE___GET_TANGIBLE_CHILD = EXPRESSION_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_PIN_REFERENCE___TO_STRING = EXPRESSION_OPERATION_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Input Pin Reference</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_PIN_REFERENCE_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 3;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.execution.impl.InputPinAttributeReferenceImpl <em>Input Pin Attribute Reference</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.execution.impl.InputPinAttributeReferenceImpl
+	 * @see e4sm.de.metamodel.e4sm.execution.impl.ExecutionPackageImpl#getInputPinAttributeReference()
+	 * @generated
+	 */
+	int INPUT_PIN_ATTRIBUTE_REFERENCE = 23;
+
+	/**
+	 * The feature id for the '<em><b>Input Pin</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_PIN_ATTRIBUTE_REFERENCE__INPUT_PIN = INPUT_PIN_REFERENCE__INPUT_PIN;
+
+	/**
+	 * The feature id for the '<em><b>Attribute</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_PIN_ATTRIBUTE_REFERENCE__ATTRIBUTE = INPUT_PIN_REFERENCE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Input Pin Attribute Reference</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_PIN_ATTRIBUTE_REFERENCE_FEATURE_COUNT = INPUT_PIN_REFERENCE_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get Actual Parent</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_PIN_ATTRIBUTE_REFERENCE___GET_ACTUAL_PARENT = INPUT_PIN_REFERENCE_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Tangible Child</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_PIN_ATTRIBUTE_REFERENCE___GET_TANGIBLE_CHILD = INPUT_PIN_REFERENCE_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_PIN_ATTRIBUTE_REFERENCE___TO_STRING = INPUT_PIN_REFERENCE_OPERATION_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Input Pin Attribute Reference</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_PIN_ATTRIBUTE_REFERENCE_OPERATION_COUNT = INPUT_PIN_REFERENCE_OPERATION_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.execution.TimeFunctions <em>Time Functions</em>}' enum.
@@ -1096,7 +1333,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.execution.impl.ExecutionPackageImpl#getTimeFunctions()
 	 * @generated
 	 */
-	int TIME_FUNCTIONS = 21;
+	int TIME_FUNCTIONS = 24;
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.execution.DecisionNode <em>Decision Node</em>}'.
@@ -1297,6 +1534,16 @@ public interface ExecutionPackage extends EPackage {
 	EOperation getExpression__GetActualParent();
 
 	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.execution.Expression#toString() <em>To String</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>To String</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.execution.Expression#toString()
+	 * @generated
+	 */
+	EOperation getExpression__ToString();
+
+	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.execution.BinaryExpression <em>Binary Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1411,6 +1658,16 @@ public interface ExecutionPackage extends EPackage {
 	EOperation getAddition__IsRealOperation();
 
 	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.execution.Addition#toString() <em>To String</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>To String</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.execution.Addition#toString()
+	 * @generated
+	 */
+	EOperation getAddition__ToString();
+
+	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.execution.Multiplication <em>Multiplication</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1453,6 +1710,16 @@ public interface ExecutionPackage extends EPackage {
 	EOperation getMultiplication__IsRealOperation();
 
 	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.execution.Multiplication#toString() <em>To String</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>To String</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.execution.Multiplication#toString()
+	 * @generated
+	 */
+	EOperation getMultiplication__ToString();
+
+	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.execution.Variable <em>Variable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1471,17 +1738,6 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getConst();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link e4sm.de.metamodel.e4sm.execution.Const#getExpression <em>Expression</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Expression</em>'.
-	 * @see e4sm.de.metamodel.e4sm.execution.Const#getExpression()
-	 * @see #getConst()
-	 * @generated
-	 */
-	EReference getConst_Expression();
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.execution.VariableRef <em>Variable Ref</em>}'.
@@ -1546,26 +1802,26 @@ public interface ExecutionPackage extends EPackage {
 	EAttribute getTimeFunction_Function();
 
 	/**
-	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.execution.TimeFunction#getPar1 <em>Par1</em>}'.
+	 * Returns the meta object for the containment reference '{@link e4sm.de.metamodel.e4sm.execution.TimeFunction#getPar1 <em>Par1</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Par1</em>'.
+	 * @return the meta object for the containment reference '<em>Par1</em>'.
 	 * @see e4sm.de.metamodel.e4sm.execution.TimeFunction#getPar1()
 	 * @see #getTimeFunction()
 	 * @generated
 	 */
-	EAttribute getTimeFunction_Par1();
+	EReference getTimeFunction_Par1();
 
 	/**
-	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.execution.TimeFunction#getPar2 <em>Par2</em>}'.
+	 * Returns the meta object for the containment reference '{@link e4sm.de.metamodel.e4sm.execution.TimeFunction#getPar2 <em>Par2</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Par2</em>'.
+	 * @return the meta object for the containment reference '<em>Par2</em>'.
 	 * @see e4sm.de.metamodel.e4sm.execution.TimeFunction#getPar2()
 	 * @see #getTimeFunction()
 	 * @generated
 	 */
-	EAttribute getTimeFunction_Par2();
+	EReference getTimeFunction_Par2();
 
 	/**
 	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.execution.TimeFunction#getString() <em>Get String</em>}' operation.
@@ -1660,6 +1916,129 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getAssignableElement();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.execution.ReferenceableItem <em>Referenceable Item</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Referenceable Item</em>'.
+	 * @see e4sm.de.metamodel.e4sm.execution.ReferenceableItem
+	 * @generated
+	 */
+	EClass getReferenceableItem();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link e4sm.de.metamodel.e4sm.execution.ReferenceableItem#getExpression <em>Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Expression</em>'.
+	 * @see e4sm.de.metamodel.e4sm.execution.ReferenceableItem#getExpression()
+	 * @see #getReferenceableItem()
+	 * @generated
+	 */
+	EReference getReferenceableItem_Expression();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.execution.InputPinReference <em>Input Pin Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Input Pin Reference</em>'.
+	 * @see e4sm.de.metamodel.e4sm.execution.InputPinReference
+	 * @generated
+	 */
+	EClass getInputPinReference();
+
+	/**
+	 * Returns the meta object for the reference '{@link e4sm.de.metamodel.e4sm.execution.InputPinReference#getInputPin <em>Input Pin</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Input Pin</em>'.
+	 * @see e4sm.de.metamodel.e4sm.execution.InputPinReference#getInputPin()
+	 * @see #getInputPinReference()
+	 * @generated
+	 */
+	EReference getInputPinReference_InputPin();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.execution.InputPinReference#getActualParent() <em>Get Actual Parent</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Actual Parent</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.execution.InputPinReference#getActualParent()
+	 * @generated
+	 */
+	EOperation getInputPinReference__GetActualParent();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.execution.InputPinReference#getTangibleChild() <em>Get Tangible Child</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Tangible Child</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.execution.InputPinReference#getTangibleChild()
+	 * @generated
+	 */
+	EOperation getInputPinReference__GetTangibleChild();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.execution.InputPinReference#toString() <em>To String</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>To String</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.execution.InputPinReference#toString()
+	 * @generated
+	 */
+	EOperation getInputPinReference__ToString();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.execution.InputPinAttributeReference <em>Input Pin Attribute Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Input Pin Attribute Reference</em>'.
+	 * @see e4sm.de.metamodel.e4sm.execution.InputPinAttributeReference
+	 * @generated
+	 */
+	EClass getInputPinAttributeReference();
+
+	/**
+	 * Returns the meta object for the reference '{@link e4sm.de.metamodel.e4sm.execution.InputPinAttributeReference#getAttribute <em>Attribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Attribute</em>'.
+	 * @see e4sm.de.metamodel.e4sm.execution.InputPinAttributeReference#getAttribute()
+	 * @see #getInputPinAttributeReference()
+	 * @generated
+	 */
+	EReference getInputPinAttributeReference_Attribute();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.execution.InputPinAttributeReference#getActualParent() <em>Get Actual Parent</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Actual Parent</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.execution.InputPinAttributeReference#getActualParent()
+	 * @generated
+	 */
+	EOperation getInputPinAttributeReference__GetActualParent();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.execution.InputPinAttributeReference#getTangibleChild() <em>Get Tangible Child</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Tangible Child</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.execution.InputPinAttributeReference#getTangibleChild()
+	 * @generated
+	 */
+	EOperation getInputPinAttributeReference__GetTangibleChild();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.execution.InputPinAttributeReference#toString() <em>To String</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>To String</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.execution.InputPinAttributeReference#toString()
+	 * @generated
+	 */
+	EOperation getInputPinAttributeReference__ToString();
 
 	/**
 	 * Returns the meta object for enum '{@link e4sm.de.metamodel.e4sm.execution.TimeFunctions <em>Time Functions</em>}'.
@@ -1865,6 +2244,14 @@ public interface ExecutionPackage extends EPackage {
 		EOperation EXPRESSION___GET_ACTUAL_PARENT = eINSTANCE.getExpression__GetActualParent();
 
 		/**
+		 * The meta object literal for the '<em><b>To String</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation EXPRESSION___TO_STRING = eINSTANCE.getExpression__ToString();
+
+		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.execution.impl.BinaryExpressionImpl <em>Binary Expression</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1959,6 +2346,14 @@ public interface ExecutionPackage extends EPackage {
 		EOperation ADDITION___IS_REAL_OPERATION = eINSTANCE.getAddition__IsRealOperation();
 
 		/**
+		 * The meta object literal for the '<em><b>To String</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ADDITION___TO_STRING = eINSTANCE.getAddition__ToString();
+
+		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.execution.impl.MultiplicationImpl <em>Multiplication</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1993,6 +2388,14 @@ public interface ExecutionPackage extends EPackage {
 		EOperation MULTIPLICATION___IS_REAL_OPERATION = eINSTANCE.getMultiplication__IsRealOperation();
 
 		/**
+		 * The meta object literal for the '<em><b>To String</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation MULTIPLICATION___TO_STRING = eINSTANCE.getMultiplication__ToString();
+
+		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.execution.impl.VariableImpl <em>Variable</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2011,14 +2414,6 @@ public interface ExecutionPackage extends EPackage {
 		 * @generated
 		 */
 		EClass CONST = eINSTANCE.getConst();
-
-		/**
-		 * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CONST__EXPRESSION = eINSTANCE.getConst_Expression();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.execution.impl.VariableRefImpl <em>Variable Ref</em>}' class.
@@ -2073,20 +2468,20 @@ public interface ExecutionPackage extends EPackage {
 		EAttribute TIME_FUNCTION__FUNCTION = eINSTANCE.getTimeFunction_Function();
 
 		/**
-		 * The meta object literal for the '<em><b>Par1</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Par1</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute TIME_FUNCTION__PAR1 = eINSTANCE.getTimeFunction_Par1();
+		EReference TIME_FUNCTION__PAR1 = eINSTANCE.getTimeFunction_Par1();
 
 		/**
-		 * The meta object literal for the '<em><b>Par2</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Par2</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute TIME_FUNCTION__PAR2 = eINSTANCE.getTimeFunction_Par2();
+		EReference TIME_FUNCTION__PAR2 = eINSTANCE.getTimeFunction_Par2();
 
 		/**
 		 * The meta object literal for the '<em><b>Get String</b></em>' operation.
@@ -2167,6 +2562,110 @@ public interface ExecutionPackage extends EPackage {
 		 * @generated
 		 */
 		EClass ASSIGNABLE_ELEMENT = eINSTANCE.getAssignableElement();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.execution.ReferenceableItem <em>Referenceable Item</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.execution.ReferenceableItem
+		 * @see e4sm.de.metamodel.e4sm.execution.impl.ExecutionPackageImpl#getReferenceableItem()
+		 * @generated
+		 */
+		EClass REFERENCEABLE_ITEM = eINSTANCE.getReferenceableItem();
+
+		/**
+		 * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference REFERENCEABLE_ITEM__EXPRESSION = eINSTANCE.getReferenceableItem_Expression();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.execution.impl.InputPinReferenceImpl <em>Input Pin Reference</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.execution.impl.InputPinReferenceImpl
+		 * @see e4sm.de.metamodel.e4sm.execution.impl.ExecutionPackageImpl#getInputPinReference()
+		 * @generated
+		 */
+		EClass INPUT_PIN_REFERENCE = eINSTANCE.getInputPinReference();
+
+		/**
+		 * The meta object literal for the '<em><b>Input Pin</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INPUT_PIN_REFERENCE__INPUT_PIN = eINSTANCE.getInputPinReference_InputPin();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Actual Parent</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation INPUT_PIN_REFERENCE___GET_ACTUAL_PARENT = eINSTANCE.getInputPinReference__GetActualParent();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Tangible Child</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation INPUT_PIN_REFERENCE___GET_TANGIBLE_CHILD = eINSTANCE.getInputPinReference__GetTangibleChild();
+
+		/**
+		 * The meta object literal for the '<em><b>To String</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation INPUT_PIN_REFERENCE___TO_STRING = eINSTANCE.getInputPinReference__ToString();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.execution.impl.InputPinAttributeReferenceImpl <em>Input Pin Attribute Reference</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.execution.impl.InputPinAttributeReferenceImpl
+		 * @see e4sm.de.metamodel.e4sm.execution.impl.ExecutionPackageImpl#getInputPinAttributeReference()
+		 * @generated
+		 */
+		EClass INPUT_PIN_ATTRIBUTE_REFERENCE = eINSTANCE.getInputPinAttributeReference();
+
+		/**
+		 * The meta object literal for the '<em><b>Attribute</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INPUT_PIN_ATTRIBUTE_REFERENCE__ATTRIBUTE = eINSTANCE.getInputPinAttributeReference_Attribute();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Actual Parent</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation INPUT_PIN_ATTRIBUTE_REFERENCE___GET_ACTUAL_PARENT = eINSTANCE
+				.getInputPinAttributeReference__GetActualParent();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Tangible Child</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation INPUT_PIN_ATTRIBUTE_REFERENCE___GET_TANGIBLE_CHILD = eINSTANCE
+				.getInputPinAttributeReference__GetTangibleChild();
+
+		/**
+		 * The meta object literal for the '<em><b>To String</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation INPUT_PIN_ATTRIBUTE_REFERENCE___TO_STRING = eINSTANCE.getInputPinAttributeReference__ToString();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.execution.TimeFunctions <em>Time Functions</em>}' enum.

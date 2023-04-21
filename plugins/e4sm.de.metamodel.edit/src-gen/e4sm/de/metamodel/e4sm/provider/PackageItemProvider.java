@@ -54,6 +54,7 @@ public class PackageItemProvider extends NamedElementItemProvider {
 			addMainResponsiblePropertyDescriptor(object);
 			addPackagesPropertyDescriptor(object);
 			addSpecifiesComponentPropertyDescriptor(object);
+			addProcessingUnitsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -117,6 +118,22 @@ public class PackageItemProvider extends NamedElementItemProvider {
 						getString("_UI_PropertyDescriptor_description", "_UI_Package_specifiesComponent_feature",
 								"_UI_Package_type"),
 						e4smPackage.Literals.PACKAGE__SPECIFIES_COMPONENT, true, false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Processing Units feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addProcessingUnitsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Package_processingUnits_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Package_processingUnits_feature",
+								"_UI_Package_type"),
+						e4smPackage.Literals.PACKAGE__PROCESSING_UNITS, true, false, false,
+						ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -201,6 +218,7 @@ public class PackageItemProvider extends NamedElementItemProvider {
 
 		switch (notification.getFeatureID(e4sm.de.metamodel.e4sm.Package.class)) {
 		case e4smPackage.PACKAGE__DOCUMENTATION:
+		case e4smPackage.PACKAGE__PROCESSING_UNITS:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		case e4smPackage.PACKAGE__PARAMETERS:

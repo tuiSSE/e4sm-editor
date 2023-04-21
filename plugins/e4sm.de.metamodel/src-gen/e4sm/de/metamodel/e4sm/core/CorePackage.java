@@ -216,7 +216,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_SPECIFICATION___BOOLEAN_VALUE = TYPED_ELEMENT_OPERATION_COUNT + 2;
+	int VALUE_SPECIFICATION___BOOLEAN_VALUE = TYPED_ELEMENT_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Integer Value</em>' operation.
@@ -225,7 +225,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_SPECIFICATION___INTEGER_VALUE = TYPED_ELEMENT_OPERATION_COUNT + 3;
+	int VALUE_SPECIFICATION___INTEGER_VALUE = TYPED_ELEMENT_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Is Computable</em>' operation.
@@ -234,7 +234,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_SPECIFICATION___IS_COMPUTABLE = TYPED_ELEMENT_OPERATION_COUNT + 4;
+	int VALUE_SPECIFICATION___IS_COMPUTABLE = TYPED_ELEMENT_OPERATION_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>To String</em>' operation.
@@ -243,7 +243,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_SPECIFICATION___TO_STRING = TYPED_ELEMENT_OPERATION_COUNT + 5;
+	int VALUE_SPECIFICATION___TO_STRING = TYPED_ELEMENT_OPERATION_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Get Tangible Child</em>' operation.
@@ -252,7 +252,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_SPECIFICATION___GET_TANGIBLE_CHILD = TYPED_ELEMENT_OPERATION_COUNT + 6;
+	int VALUE_SPECIFICATION___GET_TANGIBLE_CHILD = TYPED_ELEMENT_OPERATION_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Get Actual Parent</em>' operation.
@@ -261,7 +261,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_SPECIFICATION___GET_ACTUAL_PARENT = TYPED_ELEMENT_OPERATION_COUNT + 7;
+	int VALUE_SPECIFICATION___GET_ACTUAL_PARENT = TYPED_ELEMENT_OPERATION_COUNT + 8;
 
 	/**
 	 * The number of operations of the '<em>Value Specification</em>' class.
@@ -270,7 +270,7 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_SPECIFICATION_OPERATION_COUNT = TYPED_ELEMENT_OPERATION_COUNT + 8;
+	int VALUE_SPECIFICATION_OPERATION_COUNT = TYPED_ELEMENT_OPERATION_COUNT + 9;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.core.impl.LiteralSpecificationImpl <em>Literal Specification</em>}' class.

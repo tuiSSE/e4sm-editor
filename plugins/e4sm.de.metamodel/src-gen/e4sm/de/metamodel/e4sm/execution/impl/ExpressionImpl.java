@@ -67,12 +67,26 @@ public abstract class ExpressionImpl extends ExecutionElementImpl implements Exp
 	 * @generated
 	 */
 	@Override
+	public String toString() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 		case ExecutionPackage.EXPRESSION___GET_TANGIBLE_CHILD:
 			return getTangibleChild();
 		case ExecutionPackage.EXPRESSION___GET_ACTUAL_PARENT:
 			return getActualParent();
+		case ExecutionPackage.EXPRESSION___TO_STRING:
+			return toString();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

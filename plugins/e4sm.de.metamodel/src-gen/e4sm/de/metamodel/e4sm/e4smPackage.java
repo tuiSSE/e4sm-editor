@@ -1610,13 +1610,22 @@ public interface e4smPackage extends EPackage {
 	int PACKAGE__DATASTORES = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
+	 * The feature id for the '<em><b>Processing Units</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__PROCESSING_UNITS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 9;
+
+	/**
 	 * The number of structural features of the '<em>Package</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 9;
+	int PACKAGE_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 10;
 
 	/**
 	 * The operation id for the '<em>Get All Components</em>' operation.
@@ -2659,13 +2668,22 @@ public interface e4smPackage extends EPackage {
 	int OUTPUT_PIN__OUTPUT_UNCERTAINTY = PIN_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Token Specification</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_PIN__TOKEN_SPECIFICATION = PIN_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Output Pin</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OUTPUT_PIN_FEATURE_COUNT = PIN_FEATURE_COUNT + 2;
+	int OUTPUT_PIN_FEATURE_COUNT = PIN_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Get Outgoing Connectors</em>' operation.
@@ -4338,6 +4356,345 @@ public interface e4smPackage extends EPackage {
 	int MULTICLASS_CLASSIFICATION_COMPONENT_OPERATION_COUNT = CLASSIFICATION_COMPONENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.TokenSpecificationImpl <em>Token Specification</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.TokenSpecificationImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getTokenSpecification()
+	 * @generated
+	 */
+	int TOKEN_SPECIFICATION = 42;
+
+	/**
+	 * The feature id for the '<em><b>Input Size</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOKEN_SPECIFICATION__INPUT_SIZE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Collect Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOKEN_SPECIFICATION__COLLECT_SIZE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOKEN_SPECIFICATION__TYPE = 2;
+
+	/**
+	 * The number of structural features of the '<em>Token Specification</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOKEN_SPECIFICATION_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Token Specification</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOKEN_SPECIFICATION_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.DataSizeImpl <em>Data Size</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.DataSizeImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getDataSize()
+	 * @generated
+	 */
+	int DATA_SIZE = 43;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SIZE__NAME = CorePackage.NAMED_ELEMENT__NAME;
+
+	/**
+	 * The number of structural features of the '<em>Data Size</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SIZE_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SIZE___GET_SIZE = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Data Size</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SIZE_OPERATION_COUNT = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.StaticSizeImpl <em>Static Size</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.StaticSizeImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getStaticSize()
+	 * @generated
+	 */
+	int STATIC_SIZE = 44;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATIC_SIZE__NAME = DATA_SIZE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATIC_SIZE__SIZE = DATA_SIZE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Static Size</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATIC_SIZE_FEATURE_COUNT = DATA_SIZE_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATIC_SIZE___GET_SIZE = DATA_SIZE___GET_SIZE;
+
+	/**
+	 * The number of operations of the '<em>Static Size</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATIC_SIZE_OPERATION_COUNT = DATA_SIZE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.SetImpl <em>Set</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.SetImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getSet()
+	 * @generated
+	 */
+	int SET = 45;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET__NAME = DATA_SIZE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Values</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET__VALUES = DATA_SIZE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Set</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_FEATURE_COUNT = DATA_SIZE_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET___GET_SIZE = DATA_SIZE___GET_SIZE;
+
+	/**
+	 * The number of operations of the '<em>Set</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_OPERATION_COUNT = DATA_SIZE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.SetValueImpl <em>Set Value</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.SetValueImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getSetValue()
+	 * @generated
+	 */
+	int SET_VALUE = 46;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_VALUE__NAME = CorePackage.NAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Probability</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_VALUE__PROBABILITY = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_VALUE__SIZE = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Set Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_VALUE_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Set Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_VALUE_OPERATION_COUNT = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.DynamicRangeImpl <em>Dynamic Range</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.DynamicRangeImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getDynamicRange()
+	 * @generated
+	 */
+	int DYNAMIC_RANGE = 47;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DYNAMIC_RANGE__NAME = DATA_SIZE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Min</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DYNAMIC_RANGE__MIN = DATA_SIZE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Max</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DYNAMIC_RANGE__MAX = DATA_SIZE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Size Factor</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DYNAMIC_RANGE__SIZE_FACTOR = DATA_SIZE_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Dynamic Range</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DYNAMIC_RANGE_FEATURE_COUNT = DATA_SIZE_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Get Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DYNAMIC_RANGE___GET_SIZE = DATA_SIZE___GET_SIZE;
+
+	/**
+	 * The number of operations of the '<em>Dynamic Range</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DYNAMIC_RANGE_OPERATION_COUNT = DATA_SIZE_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.QueueType <em>Queue Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4345,7 +4702,7 @@ public interface e4smPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getQueueType()
 	 * @generated
 	 */
-	int QUEUE_TYPE = 42;
+	int QUEUE_TYPE = 48;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.RaceSemantic <em>Race Semantic</em>}' enum.
@@ -4355,7 +4712,7 @@ public interface e4smPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getRaceSemantic()
 	 * @generated
 	 */
-	int RACE_SEMANTIC = 43;
+	int RACE_SEMANTIC = 49;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.ComponentFiringStrategy <em>Component Firing Strategy</em>}' enum.
@@ -4365,7 +4722,17 @@ public interface e4smPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getComponentFiringStrategy()
 	 * @generated
 	 */
-	int COMPONENT_FIRING_STRATEGY = 44;
+	int COMPONENT_FIRING_STRATEGY = 50;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.SizeComputation <em>Size Computation</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.SizeComputation
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getSizeComputation()
+	 * @generated
+	 */
+	int SIZE_COMPUTATION = 51;
 
 	/**
 	 * The meta object id for the '<em>Connectionspeed</em>' data type.
@@ -4375,7 +4742,7 @@ public interface e4smPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getConnectionspeed()
 	 * @generated
 	 */
-	int CONNECTIONSPEED = 45;
+	int CONNECTIONSPEED = 52;
 
 	/**
 	 * The meta object id for the '<em>JSON</em>' data type.
@@ -4385,7 +4752,7 @@ public interface e4smPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getJSON()
 	 * @generated
 	 */
-	int JSON = 46;
+	int JSON = 53;
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.Component <em>Component</em>}'.
@@ -4768,6 +5135,17 @@ public interface e4smPackage extends EPackage {
 	EReference getPackage_Datastores();
 
 	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.Package#getProcessingUnits <em>Processing Units</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Processing Units</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Package#getProcessingUnits()
+	 * @see #getPackage()
+	 * @generated
+	 */
+	EAttribute getPackage_ProcessingUnits();
+
+	/**
 	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.Package#getAllComponents() <em>Get All Components</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5135,6 +5513,17 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getOutputPin_OutputUncertainty();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link e4sm.de.metamodel.e4sm.OutputPin#getTokenSpecification <em>Token Specification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Token Specification</em>'.
+	 * @see e4sm.de.metamodel.e4sm.OutputPin#getTokenSpecification()
+	 * @see #getOutputPin()
+	 * @generated
+	 */
+	EReference getOutputPin_TokenSpecification();
 
 	/**
 	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.OutputPin#computeName() <em>Compute Name</em>}' operation.
@@ -5692,6 +6081,186 @@ public interface e4smPackage extends EPackage {
 	EOperation getConfusionMatrix__ComputeSpecificity();
 
 	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.TokenSpecification <em>Token Specification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Token Specification</em>'.
+	 * @see e4sm.de.metamodel.e4sm.TokenSpecification
+	 * @generated
+	 */
+	EClass getTokenSpecification();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link e4sm.de.metamodel.e4sm.TokenSpecification#getInputSize <em>Input Size</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Input Size</em>'.
+	 * @see e4sm.de.metamodel.e4sm.TokenSpecification#getInputSize()
+	 * @see #getTokenSpecification()
+	 * @generated
+	 */
+	EReference getTokenSpecification_InputSize();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.TokenSpecification#getCollectSize <em>Collect Size</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Collect Size</em>'.
+	 * @see e4sm.de.metamodel.e4sm.TokenSpecification#getCollectSize()
+	 * @see #getTokenSpecification()
+	 * @generated
+	 */
+	EAttribute getTokenSpecification_CollectSize();
+
+	/**
+	 * Returns the meta object for the reference '{@link e4sm.de.metamodel.e4sm.TokenSpecification#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Type</em>'.
+	 * @see e4sm.de.metamodel.e4sm.TokenSpecification#getType()
+	 * @see #getTokenSpecification()
+	 * @generated
+	 */
+	EReference getTokenSpecification_Type();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.DataSize <em>Data Size</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Data Size</em>'.
+	 * @see e4sm.de.metamodel.e4sm.DataSize
+	 * @generated
+	 */
+	EClass getDataSize();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.DataSize#getSize() <em>Get Size</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Size</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.DataSize#getSize()
+	 * @generated
+	 */
+	EOperation getDataSize__GetSize();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.StaticSize <em>Static Size</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Static Size</em>'.
+	 * @see e4sm.de.metamodel.e4sm.StaticSize
+	 * @generated
+	 */
+	EClass getStaticSize();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.StaticSize#getSize <em>Size</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Size</em>'.
+	 * @see e4sm.de.metamodel.e4sm.StaticSize#getSize()
+	 * @see #getStaticSize()
+	 * @generated
+	 */
+	EAttribute getStaticSize_Size();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.Set <em>Set</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Set</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Set
+	 * @generated
+	 */
+	EClass getSet();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link e4sm.de.metamodel.e4sm.Set#getValues <em>Values</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Values</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Set#getValues()
+	 * @see #getSet()
+	 * @generated
+	 */
+	EReference getSet_Values();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.SetValue <em>Set Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Set Value</em>'.
+	 * @see e4sm.de.metamodel.e4sm.SetValue
+	 * @generated
+	 */
+	EClass getSetValue();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.SetValue#getProbability <em>Probability</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Probability</em>'.
+	 * @see e4sm.de.metamodel.e4sm.SetValue#getProbability()
+	 * @see #getSetValue()
+	 * @generated
+	 */
+	EAttribute getSetValue_Probability();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.SetValue#getSize <em>Size</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Size</em>'.
+	 * @see e4sm.de.metamodel.e4sm.SetValue#getSize()
+	 * @see #getSetValue()
+	 * @generated
+	 */
+	EAttribute getSetValue_Size();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.DynamicRange <em>Dynamic Range</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Dynamic Range</em>'.
+	 * @see e4sm.de.metamodel.e4sm.DynamicRange
+	 * @generated
+	 */
+	EClass getDynamicRange();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.DynamicRange#getMin <em>Min</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Min</em>'.
+	 * @see e4sm.de.metamodel.e4sm.DynamicRange#getMin()
+	 * @see #getDynamicRange()
+	 * @generated
+	 */
+	EAttribute getDynamicRange_Min();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.DynamicRange#getMax <em>Max</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Max</em>'.
+	 * @see e4sm.de.metamodel.e4sm.DynamicRange#getMax()
+	 * @see #getDynamicRange()
+	 * @generated
+	 */
+	EAttribute getDynamicRange_Max();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.DynamicRange#getSizeFactor <em>Size Factor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Size Factor</em>'.
+	 * @see e4sm.de.metamodel.e4sm.DynamicRange#getSizeFactor()
+	 * @see #getDynamicRange()
+	 * @generated
+	 */
+	EAttribute getDynamicRange_SizeFactor();
+
+	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.ConfusionMatrixEntry <em>Confusion Matrix Entry</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5881,6 +6450,16 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getComponentFiringStrategy();
+
+	/**
+	 * Returns the meta object for enum '{@link e4sm.de.metamodel.e4sm.SizeComputation <em>Size Computation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Size Computation</em>'.
+	 * @see e4sm.de.metamodel.e4sm.SizeComputation
+	 * @generated
+	 */
+	EEnum getSizeComputation();
 
 	/**
 	 * Returns the meta object for data type '{@link java.lang.Object <em>Connectionspeed</em>}'.
@@ -6239,6 +6818,14 @@ public interface e4smPackage extends EPackage {
 		EReference PACKAGE__DATASTORES = eINSTANCE.getPackage_Datastores();
 
 		/**
+		 * The meta object literal for the '<em><b>Processing Units</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PACKAGE__PROCESSING_UNITS = eINSTANCE.getPackage_ProcessingUnits();
+
+		/**
 		 * The meta object literal for the '<em><b>Get All Components</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6538,6 +7125,14 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute OUTPUT_PIN__OUTPUT_UNCERTAINTY = eINSTANCE.getOutputPin_OutputUncertainty();
+
+		/**
+		 * The meta object literal for the '<em><b>Token Specification</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OUTPUT_PIN__TOKEN_SPECIFICATION = eINSTANCE.getOutputPin_TokenSpecification();
 
 		/**
 		 * The meta object literal for the '<em><b>Compute Name</b></em>' operation.
@@ -7018,6 +7613,154 @@ public interface e4smPackage extends EPackage {
 		EOperation CONFUSION_MATRIX___COMPUTE_SPECIFICITY = eINSTANCE.getConfusionMatrix__ComputeSpecificity();
 
 		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.TokenSpecificationImpl <em>Token Specification</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.TokenSpecificationImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getTokenSpecification()
+		 * @generated
+		 */
+		EClass TOKEN_SPECIFICATION = eINSTANCE.getTokenSpecification();
+
+		/**
+		 * The meta object literal for the '<em><b>Input Size</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TOKEN_SPECIFICATION__INPUT_SIZE = eINSTANCE.getTokenSpecification_InputSize();
+
+		/**
+		 * The meta object literal for the '<em><b>Collect Size</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TOKEN_SPECIFICATION__COLLECT_SIZE = eINSTANCE.getTokenSpecification_CollectSize();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TOKEN_SPECIFICATION__TYPE = eINSTANCE.getTokenSpecification_Type();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.DataSizeImpl <em>Data Size</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.DataSizeImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getDataSize()
+		 * @generated
+		 */
+		EClass DATA_SIZE = eINSTANCE.getDataSize();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Size</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DATA_SIZE___GET_SIZE = eINSTANCE.getDataSize__GetSize();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.StaticSizeImpl <em>Static Size</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.StaticSizeImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getStaticSize()
+		 * @generated
+		 */
+		EClass STATIC_SIZE = eINSTANCE.getStaticSize();
+
+		/**
+		 * The meta object literal for the '<em><b>Size</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STATIC_SIZE__SIZE = eINSTANCE.getStaticSize_Size();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.SetImpl <em>Set</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.SetImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getSet()
+		 * @generated
+		 */
+		EClass SET = eINSTANCE.getSet();
+
+		/**
+		 * The meta object literal for the '<em><b>Values</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SET__VALUES = eINSTANCE.getSet_Values();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.SetValueImpl <em>Set Value</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.SetValueImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getSetValue()
+		 * @generated
+		 */
+		EClass SET_VALUE = eINSTANCE.getSetValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Probability</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SET_VALUE__PROBABILITY = eINSTANCE.getSetValue_Probability();
+
+		/**
+		 * The meta object literal for the '<em><b>Size</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SET_VALUE__SIZE = eINSTANCE.getSetValue_Size();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.DynamicRangeImpl <em>Dynamic Range</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.DynamicRangeImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getDynamicRange()
+		 * @generated
+		 */
+		EClass DYNAMIC_RANGE = eINSTANCE.getDynamicRange();
+
+		/**
+		 * The meta object literal for the '<em><b>Min</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DYNAMIC_RANGE__MIN = eINSTANCE.getDynamicRange_Min();
+
+		/**
+		 * The meta object literal for the '<em><b>Max</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DYNAMIC_RANGE__MAX = eINSTANCE.getDynamicRange_Max();
+
+		/**
+		 * The meta object literal for the '<em><b>Size Factor</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DYNAMIC_RANGE__SIZE_FACTOR = eINSTANCE.getDynamicRange_SizeFactor();
+
+		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.ConfusionMatrixEntryImpl <em>Confusion Matrix Entry</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7176,6 +7919,16 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum COMPONENT_FIRING_STRATEGY = eINSTANCE.getComponentFiringStrategy();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.SizeComputation <em>Size Computation</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.SizeComputation
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getSizeComputation()
+		 * @generated
+		 */
+		EEnum SIZE_COMPUTATION = eINSTANCE.getSizeComputation();
 
 		/**
 		 * The meta object literal for the '<em>Connectionspeed</em>' data type.

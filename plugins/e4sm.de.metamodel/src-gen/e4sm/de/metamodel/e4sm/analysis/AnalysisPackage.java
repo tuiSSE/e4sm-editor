@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.EReference;
  * <!-- end-user-doc -->
  * @see e4sm.de.metamodel.e4sm.analysis.AnalysisFactory
  * @model kind="package"
+ *        annotation="http://www.eclipse.org/edapt historyURI='e4sm.history'"
  * @generated
  */
 public interface AnalysisPackage extends EPackage {

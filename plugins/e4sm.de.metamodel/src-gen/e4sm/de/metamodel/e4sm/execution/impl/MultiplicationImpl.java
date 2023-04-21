@@ -12,9 +12,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Multiplication</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object
+ * '<em><b>Multiplication</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
@@ -28,8 +27,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 public class MultiplicationImpl extends BinaryExpressionImpl implements Multiplication {
 	/**
 	 * The default value of the '{@link #isMultiplication() <em>Multiplication</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #isMultiplication()
 	 * @generated
 	 * @ordered
@@ -37,8 +36,7 @@ public class MultiplicationImpl extends BinaryExpressionImpl implements Multipli
 	protected static final boolean MULTIPLICATION_EDEFAULT = false;
 	/**
 	 * The cached value of the '{@link #isMultiplication() <em>Multiplication</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isMultiplication()
 	 * @generated
 	 * @ordered
@@ -46,8 +44,7 @@ public class MultiplicationImpl extends BinaryExpressionImpl implements Multipli
 	protected boolean multiplication = MULTIPLICATION_EDEFAULT;
 	/**
 	 * The default value of the '{@link #isDivision() <em>Division</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isDivision()
 	 * @generated
 	 * @ordered
@@ -55,8 +52,7 @@ public class MultiplicationImpl extends BinaryExpressionImpl implements Multipli
 	protected static final boolean DIVISION_EDEFAULT = false;
 	/**
 	 * The cached value of the '{@link #isDivision() <em>Division</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isDivision()
 	 * @generated
 	 * @ordered
@@ -64,8 +60,7 @@ public class MultiplicationImpl extends BinaryExpressionImpl implements Multipli
 	protected boolean division = DIVISION_EDEFAULT;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected MultiplicationImpl() {
@@ -73,8 +68,7 @@ public class MultiplicationImpl extends BinaryExpressionImpl implements Multipli
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -83,8 +77,7 @@ public class MultiplicationImpl extends BinaryExpressionImpl implements Multipli
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -93,8 +86,7 @@ public class MultiplicationImpl extends BinaryExpressionImpl implements Multipli
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -107,8 +99,7 @@ public class MultiplicationImpl extends BinaryExpressionImpl implements Multipli
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -117,8 +108,7 @@ public class MultiplicationImpl extends BinaryExpressionImpl implements Multipli
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -131,8 +121,7 @@ public class MultiplicationImpl extends BinaryExpressionImpl implements Multipli
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -141,8 +130,7 @@ public class MultiplicationImpl extends BinaryExpressionImpl implements Multipli
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -157,8 +145,7 @@ public class MultiplicationImpl extends BinaryExpressionImpl implements Multipli
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -175,8 +162,7 @@ public class MultiplicationImpl extends BinaryExpressionImpl implements Multipli
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -193,8 +179,7 @@ public class MultiplicationImpl extends BinaryExpressionImpl implements Multipli
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -209,8 +194,7 @@ public class MultiplicationImpl extends BinaryExpressionImpl implements Multipli
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -223,22 +207,16 @@ public class MultiplicationImpl extends BinaryExpressionImpl implements Multipli
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated not
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (multiplication: ");
-		result.append(multiplication);
-		result.append(", division: ");
-		result.append(division);
-		result.append(')');
-		return result.toString();
+		if (isRealOperation()) {
+			return "(" + left.toString() + (multiplication ? " * " : " / ") + right.toString() + ")";
+		}
+		return left.toString();
 	}
 
-} //MultiplicationImpl
+} // MultiplicationImpl

@@ -67,8 +67,6 @@ import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.ISetSelectionTarget;
-
-import e4sm.de.metamodel.e4sm.Model;
 import e4sm.de.metamodel.e4sm.e4smFactory;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 import e4sm.de.metamodel.e4sm.provider.e4smEditPlugin;
@@ -208,30 +206,10 @@ public class e4smModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	protected EObject createInitialModel() {
-
 		EClass eClass = (EClass) _e4smPackage.getEClassifier(initialObjectCreationPage.getInitialObjectName());
-
 		EObject rootObject = _e4smFactory.create(eClass);
-
-		if (rootObject instanceof Model) {
-
-		Model m = (Model) rootObject;
-
-		String modelName = getModelFile().getName().replace(".e4sm", "");
-
-		m.setName(modelName);
-
-		e4sm.de.metamodel.e4sm.Package defaultP = _e4smFactory.createPackage();
-
-		defaultP.setName(modelName + " package");
-
-		((Model) rootObject).getPackages().add(defaultP);
-
-		}
-
 		return rootObject;
-
-		}
+	}
 
 	/**
 	 * Do the work after everything is specified.

@@ -12,6 +12,6 @@ package e4sm.de.metamodel.e4sm.execution;
  * @model
  * @generated
  */
-public interface Variable extends Const, AssignableElement {
+public interface Variable extends AssignableElement, ReferenceableItem {
 
 } // Variable

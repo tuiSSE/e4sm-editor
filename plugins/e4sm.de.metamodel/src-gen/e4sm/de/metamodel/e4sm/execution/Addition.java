@@ -74,4 +74,12 @@ public interface Addition extends BinaryExpression {
 	 * @generated
 	 */
 	boolean isRealOperation();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true"
+	 * @generated
+	 */
+	String toString();
 } // Addition

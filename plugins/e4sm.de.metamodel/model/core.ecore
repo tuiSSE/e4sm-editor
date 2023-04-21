@@ -40,7 +40,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LiteralInteger" eSuperTypes="#//LiteralSpecification">
     <eOperations name="getTangibleChild" eType="ecore:EClass execution.ecore#//Expression"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//Integer"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LiteralBoolean" eSuperTypes="#//LiteralSpecification">
     <eOperations name="getValue" eType="#//Boolean"/>
@@ -50,7 +50,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//Float"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LiteralDouble" eSuperTypes="#//LiteralSpecification">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//Double"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"
         defaultValueLiteral="0.0"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LiteralLong" eSuperTypes="#//LiteralSpecification">

@@ -154,6 +154,12 @@ public class AssignmentItemProvider extends ExecutionElementItemProvider {
 				ExecutionFactory.eINSTANCE.createVariableRef()));
 
 		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.ASSIGNMENT__EXPRESSION,
+				ExecutionFactory.eINSTANCE.createInputPinReference()));
+
+		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.ASSIGNMENT__EXPRESSION,
+				ExecutionFactory.eINSTANCE.createInputPinAttributeReference()));
+
+		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.ASSIGNMENT__EXPRESSION,
 				CoreFactory.eINSTANCE.createLiteralNull()));
 
 		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.ASSIGNMENT__EXPRESSION,

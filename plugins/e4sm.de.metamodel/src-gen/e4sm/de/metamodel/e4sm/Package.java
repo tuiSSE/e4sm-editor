@@ -29,6 +29,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link e4sm.de.metamodel.e4sm.Package#getPackages <em>Packages</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Package#getSpecifiesComponent <em>Specifies Component</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Package#getDatastores <em>Datastores</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.Package#getProcessingUnits <em>Processing Units</em>}</li>
  * </ul>
  *
  * @see e4sm.de.metamodel.e4sm.e4smPackage#getPackage()
@@ -159,6 +160,33 @@ public interface Package extends NamedElement, ParameterizableElement, Documenta
 	 * @generated
 	 */
 	EList<DataStore> getDatastores();
+
+	/**
+	 * Returns the value of the '<em><b>Processing Units</b></em>' attribute.
+	 * The default value is <code>"-1"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * When set to a value > 0, all components of this package share a thread pool with n threads. Components can only execute when they hold a token from the thread pool.
+	 * 
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Processing Units</em>' attribute.
+	 * @see #setProcessingUnits(int)
+	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getPackage_ProcessingUnits()
+	 * @model default="-1"
+	 * @generated
+	 */
+	int getProcessingUnits();
+
+	/**
+	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.Package#getProcessingUnits <em>Processing Units</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Processing Units</em>' attribute.
+	 * @see #getProcessingUnits()
+	 * @generated
+	 */
+	void setProcessingUnits(int value);
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -6,7 +6,7 @@ import e4sm.de.metamodel.e4sm.execution.BinaryExpression;
 import e4sm.de.metamodel.e4sm.execution.ExecutionElement;
 import e4sm.de.metamodel.e4sm.execution.ExecutionPackage;
 import e4sm.de.metamodel.e4sm.execution.Expression;
-import e4sm.de.metamodel.e4sm.execution.Variable;
+import e4sm.de.metamodel.e4sm.execution.ReferenceableItem;
 import e4sm.de.metamodel.e4sm.execution.VariableRef;
 
 import java.lang.reflect.InvocationTargetException;
@@ -40,7 +40,7 @@ public class VariableRefImpl extends ExpressionImpl implements VariableRef {
 	 * @generated
 	 * @ordered
 	 */
-	protected Variable variable;
+	protected ReferenceableItem variable;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -67,10 +67,10 @@ public class VariableRefImpl extends ExpressionImpl implements VariableRef {
 	 * @generated
 	 */
 	@Override
-	public Variable getVariable() {
+	public ReferenceableItem getVariable() {
 		if (variable != null && variable.eIsProxy()) {
 			InternalEObject oldVariable = (InternalEObject) variable;
-			variable = (Variable) eResolveProxy(oldVariable);
+			variable = (ReferenceableItem) eResolveProxy(oldVariable);
 			if (variable != oldVariable) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ExecutionPackage.VARIABLE_REF__VARIABLE,
@@ -85,7 +85,7 @@ public class VariableRefImpl extends ExpressionImpl implements VariableRef {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Variable basicGetVariable() {
+	public ReferenceableItem basicGetVariable() {
 		return variable;
 	}
 
@@ -95,8 +95,8 @@ public class VariableRefImpl extends ExpressionImpl implements VariableRef {
 	 * @generated
 	 */
 	@Override
-	public void setVariable(Variable newVariable) {
-		Variable oldVariable = variable;
+	public void setVariable(ReferenceableItem newVariable) {
+		ReferenceableItem oldVariable = variable;
 		variable = newVariable;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ExecutionPackage.VARIABLE_REF__VARIABLE, oldVariable,
@@ -160,7 +160,7 @@ public class VariableRefImpl extends ExpressionImpl implements VariableRef {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 		case ExecutionPackage.VARIABLE_REF__VARIABLE:
-			setVariable((Variable) newValue);
+			setVariable((ReferenceableItem) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -175,7 +175,7 @@ public class VariableRefImpl extends ExpressionImpl implements VariableRef {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 		case ExecutionPackage.VARIABLE_REF__VARIABLE:
-			setVariable((Variable) null);
+			setVariable((ReferenceableItem) null);
 			return;
 		}
 		super.eUnset(featureID);

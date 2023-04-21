@@ -38,6 +38,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Expression" abstract="true" eSuperTypes="#//ExecutionElement">
     <eOperations name="getTangibleChild" eType="#//Expression"/>
     <eOperations name="getActualParent" eType="#//ExecutionElement"/>
+    <eOperations name="toString" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BinaryExpression" abstract="true" eSuperTypes="#//Expression">
     <eOperations name="isRealOperation" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
@@ -51,6 +52,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="UnaryExpression" abstract="true" eSuperTypes="#//Expression"/>
   <eClassifiers xsi:type="ecore:EClass" name="Addition" eSuperTypes="#//BinaryExpression">
     <eOperations name="isRealOperation" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
+    <eOperations name="toString" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="addition" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"
         defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="subtraction" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"
@@ -58,27 +60,31 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Multiplication" eSuperTypes="#//BinaryExpression">
     <eOperations name="isRealOperation" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
+    <eOperations name="toString" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="multiplication" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"
         defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="division" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"
         defaultValueLiteral="false"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Variable" eSuperTypes="#//Const #//AssignableElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Const" eSuperTypes="#//ExecutionElement core.ecore#//NamedElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//Expression"
-        containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Variable" eSuperTypes="#//AssignableElement #//ReferenceableItem"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Const" eSuperTypes="#//ReferenceableItem">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A const element can be assigned only once upon its initialization"/>
+    </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VariableRef" eSuperTypes="#//Expression">
     <eOperations name="getActualParent" eType="#//ExecutionElement"/>
     <eOperations name="getTangibleChild" eType="#//Expression"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="variable" lowerBound="1"
-        eType="#//Variable"/>
+        eType="#//ReferenceableItem"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TimeFunction">
     <eOperations name="getString" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="function" eType="#//TimeFunctions"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="par1" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="par2" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="par1" lowerBound="1" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="par2" eType="#//Expression"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="TimeFunctions">
     <eLiterals name="Det"/>
@@ -104,4 +110,23 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="ref" lowerBound="1" eType="#//AssignableElement"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AssignableElement" abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ReferenceableItem" abstract="true" interface="true"
+      eSuperTypes="#//ExecutionElement core.ecore#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//Expression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InputPinReference" eSuperTypes="#//Expression">
+    <eOperations name="getActualParent" eType="#//ExecutionElement"/>
+    <eOperations name="getTangibleChild" eType="#//Expression"/>
+    <eOperations name="toString" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inputPin" lowerBound="1"
+        eType="ecore:EClass e4sm.ecore#//InputPin"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InputPinAttributeReference" eSuperTypes="#//InputPinReference">
+    <eOperations name="getActualParent" eType="#//ExecutionElement"/>
+    <eOperations name="getTangibleChild" eType="#//Expression"/>
+    <eOperations name="toString" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" lowerBound="1"
+        eType="ecore:EClass core.ecore#//AttributeSpecification"/>
+  </eClassifiers>
 </ecore:EPackage>

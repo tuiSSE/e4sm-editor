@@ -81,7 +81,7 @@ public class ConstItemProvider extends ExecutionElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ExecutionPackage.Literals.CONST__EXPRESSION);
+			childrenFeatures.add(ExecutionPackage.Literals.REFERENCEABLE_ITEM__EXPRESSION);
 		}
 		return childrenFeatures;
 	}
@@ -166,46 +166,52 @@ public class ConstItemProvider extends ExecutionElementItemProvider {
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.CONST__EXPRESSION,
+		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.REFERENCEABLE_ITEM__EXPRESSION,
 				ExecutionFactory.eINSTANCE.createAddition()));
 
-		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.CONST__EXPRESSION,
+		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.REFERENCEABLE_ITEM__EXPRESSION,
 				ExecutionFactory.eINSTANCE.createMultiplication()));
 
-		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.CONST__EXPRESSION,
+		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.REFERENCEABLE_ITEM__EXPRESSION,
 				ExecutionFactory.eINSTANCE.createVariableRef()));
 
-		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.CONST__EXPRESSION,
+		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.REFERENCEABLE_ITEM__EXPRESSION,
+				ExecutionFactory.eINSTANCE.createInputPinReference()));
+
+		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.REFERENCEABLE_ITEM__EXPRESSION,
+				ExecutionFactory.eINSTANCE.createInputPinAttributeReference()));
+
+		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.REFERENCEABLE_ITEM__EXPRESSION,
 				CoreFactory.eINSTANCE.createLiteralNull()));
 
-		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.CONST__EXPRESSION,
+		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.REFERENCEABLE_ITEM__EXPRESSION,
 				CoreFactory.eINSTANCE.createLiteralString()));
 
-		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.CONST__EXPRESSION,
+		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.REFERENCEABLE_ITEM__EXPRESSION,
 				CoreFactory.eINSTANCE.createLiteralInteger()));
 
-		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.CONST__EXPRESSION,
+		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.REFERENCEABLE_ITEM__EXPRESSION,
 				CoreFactory.eINSTANCE.createLiteralBoolean()));
 
-		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.CONST__EXPRESSION,
+		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.REFERENCEABLE_ITEM__EXPRESSION,
 				CoreFactory.eINSTANCE.createLiteralFloat()));
 
-		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.CONST__EXPRESSION,
+		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.REFERENCEABLE_ITEM__EXPRESSION,
 				CoreFactory.eINSTANCE.createLiteralDouble()));
 
-		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.CONST__EXPRESSION,
+		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.REFERENCEABLE_ITEM__EXPRESSION,
 				CoreFactory.eINSTANCE.createLiteralLong()));
 
-		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.CONST__EXPRESSION,
+		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.REFERENCEABLE_ITEM__EXPRESSION,
 				CoreFactory.eINSTANCE.createLiteralShort()));
 
-		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.CONST__EXPRESSION,
+		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.REFERENCEABLE_ITEM__EXPRESSION,
 				CoreFactory.eINSTANCE.createLiteralByte()));
 
-		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.CONST__EXPRESSION,
+		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.REFERENCEABLE_ITEM__EXPRESSION,
 				CoreFactory.eINSTANCE.createLiteralCharacter()));
 
-		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.CONST__EXPRESSION,
+		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.REFERENCEABLE_ITEM__EXPRESSION,
 				CoreFactory.eINSTANCE.createLiteralDate()));
 	}
 

@@ -17,8 +17,10 @@ import e4sm.de.metamodel.e4sm.Connector;
 import e4sm.de.metamodel.e4sm.ConversionByConvention;
 import e4sm.de.metamodel.e4sm.ConversionByPrefix;
 import e4sm.de.metamodel.e4sm.DataNode;
+import e4sm.de.metamodel.e4sm.DataSize;
 import e4sm.de.metamodel.e4sm.DataStore;
 import e4sm.de.metamodel.e4sm.DerivedUnit;
+import e4sm.de.metamodel.e4sm.DynamicRange;
 import e4sm.de.metamodel.e4sm.Environment;
 import e4sm.de.metamodel.e4sm.ExternalDependency;
 import e4sm.de.metamodel.e4sm.Function;
@@ -42,8 +44,13 @@ import e4sm.de.metamodel.e4sm.RaceSemantic;
 import e4sm.de.metamodel.e4sm.Robot;
 import e4sm.de.metamodel.e4sm.Sector;
 import e4sm.de.metamodel.e4sm.Sensor;
+import e4sm.de.metamodel.e4sm.Set;
+import e4sm.de.metamodel.e4sm.SetValue;
 import e4sm.de.metamodel.e4sm.SimpleUnit;
+import e4sm.de.metamodel.e4sm.SizeComputation;
 import e4sm.de.metamodel.e4sm.SoftwareComponent;
+import e4sm.de.metamodel.e4sm.StaticSize;
+import e4sm.de.metamodel.e4sm.TokenSpecification;
 import e4sm.de.metamodel.e4sm.UnitConversion;
 import e4sm.de.metamodel.e4sm.UnitPrefix;
 import e4sm.de.metamodel.e4sm.analysis.AnalysisPackage;
@@ -57,6 +64,8 @@ import e4sm.de.metamodel.e4sm.execution.ExecutionPackage;
 import e4sm.de.metamodel.e4sm.execution.impl.ExecutionPackageImpl;
 import e4sm.de.metamodel.e4sm.guava.GuavaPackage;
 import e4sm.de.metamodel.e4sm.guava.impl.GuavaPackageImpl;
+import e4sm.de.metamodel.e4sm.security.SecurityPackage;
+import e4sm.de.metamodel.e4sm.security.impl.SecurityPackageImpl;
 import e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl;
 import e4sm.de.metamodel.e4sm.util.e4smValidator;
 import org.eclipse.emf.ecore.EAttribute;
@@ -350,6 +359,48 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass tokenSpecificationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dataSizeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass staticSizeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass setEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass setValueEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dynamicRangeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass confusionMatrixEntryEClass = null;
 
 	/**
@@ -393,6 +444,13 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	private EEnum componentFiringStrategyEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum sizeComputationEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -462,7 +520,15 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		EcorePackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
-		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
+		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ResultsPackage.eNS_URI);
+		ResultsPackageImpl theResultsPackage = (ResultsPackageImpl) (registeredPackage instanceof ResultsPackageImpl
+				? registeredPackage
+				: ResultsPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(AnalysisPackage.eNS_URI);
+		AnalysisPackageImpl theAnalysisPackage = (AnalysisPackageImpl) (registeredPackage instanceof AnalysisPackageImpl
+				? registeredPackage
+				: AnalysisPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
 		CorePackageImpl theCorePackage = (CorePackageImpl) (registeredPackage instanceof CorePackageImpl
 				? registeredPackage
 				: CorePackage.eINSTANCE);
@@ -470,34 +536,32 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		ExecutionPackageImpl theExecutionPackage = (ExecutionPackageImpl) (registeredPackage instanceof ExecutionPackageImpl
 				? registeredPackage
 				: ExecutionPackage.eINSTANCE);
-		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(AnalysisPackage.eNS_URI);
-		AnalysisPackageImpl theAnalysisPackage = (AnalysisPackageImpl) (registeredPackage instanceof AnalysisPackageImpl
-				? registeredPackage
-				: AnalysisPackage.eINSTANCE);
-		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ResultsPackage.eNS_URI);
-		ResultsPackageImpl theResultsPackage = (ResultsPackageImpl) (registeredPackage instanceof ResultsPackageImpl
-				? registeredPackage
-				: ResultsPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(GuavaPackage.eNS_URI);
 		GuavaPackageImpl theGuavaPackage = (GuavaPackageImpl) (registeredPackage instanceof GuavaPackageImpl
 				? registeredPackage
 				: GuavaPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(SecurityPackage.eNS_URI);
+		SecurityPackageImpl theSecurityPackage = (SecurityPackageImpl) (registeredPackage instanceof SecurityPackageImpl
+				? registeredPackage
+				: SecurityPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		thee4smPackage.createPackageContents();
+		theResultsPackage.createPackageContents();
+		theAnalysisPackage.createPackageContents();
 		theCorePackage.createPackageContents();
 		theExecutionPackage.createPackageContents();
-		theAnalysisPackage.createPackageContents();
-		theResultsPackage.createPackageContents();
 		theGuavaPackage.createPackageContents();
+		theSecurityPackage.createPackageContents();
 
 		// Initialize created meta-data
 		thee4smPackage.initializePackageContents();
+		theResultsPackage.initializePackageContents();
+		theAnalysisPackage.initializePackageContents();
 		theCorePackage.initializePackageContents();
 		theExecutionPackage.initializePackageContents();
-		theAnalysisPackage.initializePackageContents();
-		theResultsPackage.initializePackageContents();
 		theGuavaPackage.initializePackageContents();
+		theSecurityPackage.initializePackageContents();
 
 		// Register package validator
 		EValidator.Registry.INSTANCE.put(thee4smPackage, new EValidator.Descriptor() {
@@ -881,6 +945,16 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getPackage_ProcessingUnits() {
+		return (EAttribute) packageEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getPackage__GetAllComponents() {
 		return packageEClass.getEOperations().get(0);
 	}
@@ -1223,6 +1297,16 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	@Override
 	public EAttribute getOutputPin_OutputUncertainty() {
 		return (EAttribute) outputPinEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getOutputPin_TokenSpecification() {
+		return (EReference) outputPinEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1771,6 +1855,176 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getTokenSpecification() {
+		return tokenSpecificationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getTokenSpecification_InputSize() {
+		return (EReference) tokenSpecificationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTokenSpecification_CollectSize() {
+		return (EAttribute) tokenSpecificationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getTokenSpecification_Type() {
+		return (EReference) tokenSpecificationEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getDataSize() {
+		return dataSizeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getDataSize__GetSize() {
+		return dataSizeEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getStaticSize() {
+		return staticSizeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getStaticSize_Size() {
+		return (EAttribute) staticSizeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getSet() {
+		return setEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getSet_Values() {
+		return (EReference) setEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getSetValue() {
+		return setValueEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getSetValue_Probability() {
+		return (EAttribute) setValueEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getSetValue_Size() {
+		return (EAttribute) setValueEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getDynamicRange() {
+		return dynamicRangeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDynamicRange_Min() {
+		return (EAttribute) dynamicRangeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDynamicRange_Max() {
+		return (EAttribute) dynamicRangeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDynamicRange_SizeFactor() {
+		return (EAttribute) dynamicRangeEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getConfusionMatrixEntry() {
 		return confusionMatrixEntryEClass;
 	}
@@ -1951,6 +2205,16 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
+	public EEnum getSizeComputation() {
+		return sizeComputationEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EDataType getConnectionspeed() {
 		return connectionspeedEDataType;
 	}
@@ -2041,6 +2305,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		createEReference(packageEClass, PACKAGE__PACKAGES);
 		createEReference(packageEClass, PACKAGE__SPECIFIES_COMPONENT);
 		createEReference(packageEClass, PACKAGE__DATASTORES);
+		createEAttribute(packageEClass, PACKAGE__PROCESSING_UNITS);
 		createEOperation(packageEClass, PACKAGE___GET_ALL_COMPONENTS);
 		createEOperation(packageEClass, PACKAGE___GET_MAX_FLOW);
 
@@ -2086,6 +2351,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		outputPinEClass = createEClass(OUTPUT_PIN);
 		createEAttribute(outputPinEClass, OUTPUT_PIN__AMPLIFY);
 		createEAttribute(outputPinEClass, OUTPUT_PIN__OUTPUT_UNCERTAINTY);
+		createEReference(outputPinEClass, OUTPUT_PIN__TOKEN_SPECIFICATION);
 		createEOperation(outputPinEClass, OUTPUT_PIN___COMPUTE_NAME);
 
 		personEClass = createEClass(PERSON);
@@ -2184,10 +2450,34 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		createEOperation(confusionMatrixEClass, CONFUSION_MATRIX___GET_HIGHEST_VALUE);
 		createEOperation(confusionMatrixEClass, CONFUSION_MATRIX___COMPUTE_SPECIFICITY);
 
+		tokenSpecificationEClass = createEClass(TOKEN_SPECIFICATION);
+		createEReference(tokenSpecificationEClass, TOKEN_SPECIFICATION__INPUT_SIZE);
+		createEAttribute(tokenSpecificationEClass, TOKEN_SPECIFICATION__COLLECT_SIZE);
+		createEReference(tokenSpecificationEClass, TOKEN_SPECIFICATION__TYPE);
+
+		dataSizeEClass = createEClass(DATA_SIZE);
+		createEOperation(dataSizeEClass, DATA_SIZE___GET_SIZE);
+
+		staticSizeEClass = createEClass(STATIC_SIZE);
+		createEAttribute(staticSizeEClass, STATIC_SIZE__SIZE);
+
+		setEClass = createEClass(SET);
+		createEReference(setEClass, SET__VALUES);
+
+		setValueEClass = createEClass(SET_VALUE);
+		createEAttribute(setValueEClass, SET_VALUE__PROBABILITY);
+		createEAttribute(setValueEClass, SET_VALUE__SIZE);
+
+		dynamicRangeEClass = createEClass(DYNAMIC_RANGE);
+		createEAttribute(dynamicRangeEClass, DYNAMIC_RANGE__MIN);
+		createEAttribute(dynamicRangeEClass, DYNAMIC_RANGE__MAX);
+		createEAttribute(dynamicRangeEClass, DYNAMIC_RANGE__SIZE_FACTOR);
+
 		// Create enums
 		queueTypeEEnum = createEEnum(QUEUE_TYPE);
 		raceSemanticEEnum = createEEnum(RACE_SEMANTIC);
 		componentFiringStrategyEEnum = createEEnum(COMPONENT_FIRING_STRATEGY);
+		sizeComputationEEnum = createEEnum(SIZE_COMPUTATION);
 
 		// Create data types
 		connectionspeedEDataType = createEDataType(CONNECTIONSPEED);
@@ -2282,6 +2572,11 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		binaryClassificationComponentEClass.getESuperTypes().add(this.getClassificationComponent());
 		multiclassClassificationComponentEClass.getESuperTypes().add(this.getClassificationComponent());
 		confusionMatrixEClass.getESuperTypes().add(theCorePackage.getNamedElement());
+		dataSizeEClass.getESuperTypes().add(theCorePackage.getNamedElement());
+		staticSizeEClass.getESuperTypes().add(this.getDataSize());
+		setEClass.getESuperTypes().add(this.getDataSize());
+		setValueEClass.getESuperTypes().add(theCorePackage.getNamedElement());
+		dynamicRangeEClass.getESuperTypes().add(this.getDataSize());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(componentEClass, Component.class, "Component", !IS_ABSTRACT, !IS_INTERFACE,
@@ -2391,6 +2686,9 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		initEReference(getPackage_Datastores(), this.getDataStore(), null, "datastores", null, 0, -1,
 				e4sm.de.metamodel.e4sm.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPackage_ProcessingUnits(), theEcorePackage.getEInt(), "processingUnits", "-1", 0, 1,
+				e4sm.de.metamodel.e4sm.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+				!IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getPackage__GetAllComponents(), this.getComponent(), "getAllComponents", 0, -1, IS_UNIQUE,
 				IS_ORDERED);
@@ -2489,6 +2787,9 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		initEAttribute(getOutputPin_OutputUncertainty(), ecorePackage.getEDouble(), "outputUncertainty", "0.0", 0, 1,
 				OutputPin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
+		initEReference(getOutputPin_TokenSpecification(), this.getTokenSpecification(), null, "tokenSpecification",
+				null, 0, 1, OutputPin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getOutputPin__ComputeName(), ecorePackage.getEString(), "computeName", 0, 1, IS_UNIQUE,
 				IS_ORDERED);
@@ -2701,6 +3002,50 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		initEOperation(getConfusionMatrix__ComputeSpecificity(), theEcorePackage.getEDouble(), "computeSpecificity", 0,
 				1, IS_UNIQUE, IS_ORDERED);
 
+		initEClass(tokenSpecificationEClass, TokenSpecification.class, "TokenSpecification", !IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTokenSpecification_InputSize(), this.getDataSize(), null, "inputSize", null, 0, -1,
+				TokenSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTokenSpecification_CollectSize(), this.getSizeComputation(), "collectSize", "SUM", 0, 1,
+				TokenSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEReference(getTokenSpecification_Type(), theCorePackage.getTypeSpecification(), null, "type", null, 0, 1,
+				TokenSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(dataSizeEClass, DataSize.class, "DataSize", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEOperation(getDataSize__GetSize(), theEcorePackage.getEDouble(), "getSize", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(staticSizeEClass, StaticSize.class, "StaticSize", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getStaticSize_Size(), theEcorePackage.getEDouble(), "size", null, 0, 1, StaticSize.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(setEClass, Set.class, "Set", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSet_Values(), this.getSetValue(), null, "values", null, 0, -1, Set.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+
+		initEClass(setValueEClass, SetValue.class, "SetValue", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSetValue_Probability(), theEcorePackage.getEDouble(), "probability", null, 0, 1,
+				SetValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSetValue_Size(), theEcorePackage.getEDouble(), "size", null, 0, 1, SetValue.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(dynamicRangeEClass, DynamicRange.class, "DynamicRange", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDynamicRange_Min(), theEcorePackage.getEInt(), "min", "0", 0, 1, DynamicRange.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDynamicRange_Max(), theEcorePackage.getEInt(), "max", "0", 0, 1, DynamicRange.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDynamicRange_SizeFactor(), theEcorePackage.getEDouble(), "sizeFactor", null, 0, 1,
+				DynamicRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+
 		// Initialize enums and add enum literals
 		initEEnum(queueTypeEEnum, QueueType.class, "QueueType");
 		addEEnumLiteral(queueTypeEEnum, QueueType.FIFO);
@@ -2718,6 +3063,10 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		initEEnum(componentFiringStrategyEEnum, ComponentFiringStrategy.class, "ComponentFiringStrategy");
 		addEEnumLiteral(componentFiringStrategyEEnum, ComponentFiringStrategy.AND);
 		addEEnumLiteral(componentFiringStrategyEEnum, ComponentFiringStrategy.OR);
+
+		initEEnum(sizeComputationEEnum, SizeComputation.class, "SizeComputation");
+		addEEnumLiteral(sizeComputationEEnum, SizeComputation.SUM);
+		addEEnumLiteral(sizeComputationEEnum, SizeComputation.MULTIPLY);
 
 		// Initialize data types
 		initEDataType(connectionspeedEDataType, Object.class, "Connectionspeed", IS_SERIALIZABLE,

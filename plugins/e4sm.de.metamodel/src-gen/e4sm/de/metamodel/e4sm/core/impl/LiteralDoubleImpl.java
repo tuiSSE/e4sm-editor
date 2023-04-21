@@ -147,18 +147,11 @@ public class LiteralDoubleImpl extends LiteralSpecificationImpl implements Liter
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated not
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (value: ");
-		result.append(value);
-		result.append(')');
-		return result.toString();
+		return Double.toString(value);
 	}
 
 } //LiteralDoubleImpl

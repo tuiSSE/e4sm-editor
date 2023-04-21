@@ -29,4 +29,12 @@ public interface Expression extends ExecutionElement {
 	 * @generated
 	 */
 	ExecutionElement getActualParent();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true"
+	 * @generated
+	 */
+	String toString();
 } // Expression

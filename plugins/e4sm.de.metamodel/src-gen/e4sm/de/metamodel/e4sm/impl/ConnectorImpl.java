@@ -279,10 +279,12 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 					// Return the time function average
 					TimeFunctions f = tf.getFunction();
 					if (f == TimeFunctions.EXP) {
-						return tf.getPar1();
+						throw new UnsupportedOperationException("Compute the expression, when possible");
+						//return 0.0; //tf.getPar1();
 					}
 					if (f == TimeFunctions.DET) {
-						return tf.getPar1();
+						throw new UnsupportedOperationException("Compute the expression, when possible");
+						//return 0.0; // tf.getPar1();
 					}
 					// TODO: implement the average of other functions
 					throw new IllegalArgumentException("Unexpected value: " + tf.getFunction());

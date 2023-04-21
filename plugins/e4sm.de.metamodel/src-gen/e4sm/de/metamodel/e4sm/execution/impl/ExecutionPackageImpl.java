@@ -33,9 +33,12 @@ import e4sm.de.metamodel.e4sm.execution.Expression;
 import e4sm.de.metamodel.e4sm.execution.Flow;
 import e4sm.de.metamodel.e4sm.execution.FlowFinal;
 import e4sm.de.metamodel.e4sm.execution.ForkNode;
+import e4sm.de.metamodel.e4sm.execution.InputPinAttributeReference;
+import e4sm.de.metamodel.e4sm.execution.InputPinReference;
 import e4sm.de.metamodel.e4sm.execution.MergeNode;
 
 import e4sm.de.metamodel.e4sm.execution.Multiplication;
+import e4sm.de.metamodel.e4sm.execution.ReferenceableItem;
 import e4sm.de.metamodel.e4sm.execution.TimeFunction;
 import e4sm.de.metamodel.e4sm.execution.TimeFunctions;
 import e4sm.de.metamodel.e4sm.execution.UnaryExpression;
@@ -46,6 +49,8 @@ import e4sm.de.metamodel.e4sm.guava.GuavaPackage;
 import e4sm.de.metamodel.e4sm.guava.impl.GuavaPackageImpl;
 
 import e4sm.de.metamodel.e4sm.impl.e4smPackageImpl;
+import e4sm.de.metamodel.e4sm.security.SecurityPackage;
+import e4sm.de.metamodel.e4sm.security.impl.SecurityPackageImpl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -215,6 +220,27 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass referenceableItemEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass inputPinReferenceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass inputPinAttributeReferenceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum timeFunctionsEEnum = null;
 
 	/**
@@ -275,38 +301,44 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		e4smPackageImpl thee4smPackage = (e4smPackageImpl) (registeredPackage instanceof e4smPackageImpl
 				? registeredPackage
 				: e4smPackage.eINSTANCE);
-		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
-		CorePackageImpl theCorePackage = (CorePackageImpl) (registeredPackage instanceof CorePackageImpl
-				? registeredPackage
-				: CorePackage.eINSTANCE);
-		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(AnalysisPackage.eNS_URI);
-		AnalysisPackageImpl theAnalysisPackage = (AnalysisPackageImpl) (registeredPackage instanceof AnalysisPackageImpl
-				? registeredPackage
-				: AnalysisPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ResultsPackage.eNS_URI);
 		ResultsPackageImpl theResultsPackage = (ResultsPackageImpl) (registeredPackage instanceof ResultsPackageImpl
 				? registeredPackage
 				: ResultsPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(AnalysisPackage.eNS_URI);
+		AnalysisPackageImpl theAnalysisPackage = (AnalysisPackageImpl) (registeredPackage instanceof AnalysisPackageImpl
+				? registeredPackage
+				: AnalysisPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
+		CorePackageImpl theCorePackage = (CorePackageImpl) (registeredPackage instanceof CorePackageImpl
+				? registeredPackage
+				: CorePackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(GuavaPackage.eNS_URI);
 		GuavaPackageImpl theGuavaPackage = (GuavaPackageImpl) (registeredPackage instanceof GuavaPackageImpl
 				? registeredPackage
 				: GuavaPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(SecurityPackage.eNS_URI);
+		SecurityPackageImpl theSecurityPackage = (SecurityPackageImpl) (registeredPackage instanceof SecurityPackageImpl
+				? registeredPackage
+				: SecurityPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theExecutionPackage.createPackageContents();
 		thee4smPackage.createPackageContents();
-		theCorePackage.createPackageContents();
-		theAnalysisPackage.createPackageContents();
 		theResultsPackage.createPackageContents();
+		theAnalysisPackage.createPackageContents();
+		theCorePackage.createPackageContents();
 		theGuavaPackage.createPackageContents();
+		theSecurityPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theExecutionPackage.initializePackageContents();
 		thee4smPackage.initializePackageContents();
-		theCorePackage.initializePackageContents();
-		theAnalysisPackage.initializePackageContents();
 		theResultsPackage.initializePackageContents();
+		theAnalysisPackage.initializePackageContents();
+		theCorePackage.initializePackageContents();
 		theGuavaPackage.initializePackageContents();
+		theSecurityPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theExecutionPackage.freeze();
@@ -512,6 +544,16 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
+	public EOperation getExpression__ToString() {
+		return expressionEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getBinaryExpression() {
 		return binaryExpressionEClass;
 	}
@@ -622,6 +664,16 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
+	public EOperation getAddition__ToString() {
+		return additionEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getMultiplication() {
 		return multiplicationEClass;
 	}
@@ -662,6 +714,16 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
+	public EOperation getMultiplication__ToString() {
+		return multiplicationEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getVariable() {
 		return variableEClass;
 	}
@@ -674,16 +736,6 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	@Override
 	public EClass getConst() {
 		return constEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getConst_Expression() {
-		return (EReference) constEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -752,8 +804,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EAttribute getTimeFunction_Par1() {
-		return (EAttribute) timeFunctionEClass.getEStructuralFeatures().get(1);
+	public EReference getTimeFunction_Par1() {
+		return (EReference) timeFunctionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -762,8 +814,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EAttribute getTimeFunction_Par2() {
-		return (EAttribute) timeFunctionEClass.getEStructuralFeatures().get(2);
+	public EReference getTimeFunction_Par2() {
+		return (EReference) timeFunctionEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -862,6 +914,126 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
+	public EClass getReferenceableItem() {
+		return referenceableItemEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getReferenceableItem_Expression() {
+		return (EReference) referenceableItemEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getInputPinReference() {
+		return inputPinReferenceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getInputPinReference_InputPin() {
+		return (EReference) inputPinReferenceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getInputPinReference__GetActualParent() {
+		return inputPinReferenceEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getInputPinReference__GetTangibleChild() {
+		return inputPinReferenceEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getInputPinReference__ToString() {
+		return inputPinReferenceEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getInputPinAttributeReference() {
+		return inputPinAttributeReferenceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getInputPinAttributeReference_Attribute() {
+		return (EReference) inputPinAttributeReferenceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getInputPinAttributeReference__GetActualParent() {
+		return inputPinAttributeReferenceEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getInputPinAttributeReference__GetTangibleChild() {
+		return inputPinAttributeReferenceEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getInputPinAttributeReference__ToString() {
+		return inputPinAttributeReferenceEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EEnum getTimeFunctions() {
 		return timeFunctionsEEnum;
 	}
@@ -923,6 +1095,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		expressionEClass = createEClass(EXPRESSION);
 		createEOperation(expressionEClass, EXPRESSION___GET_TANGIBLE_CHILD);
 		createEOperation(expressionEClass, EXPRESSION___GET_ACTUAL_PARENT);
+		createEOperation(expressionEClass, EXPRESSION___TO_STRING);
 
 		binaryExpressionEClass = createEClass(BINARY_EXPRESSION);
 		createEReference(binaryExpressionEClass, BINARY_EXPRESSION__LEFT);
@@ -937,16 +1110,17 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		createEAttribute(additionEClass, ADDITION__ADDITION);
 		createEAttribute(additionEClass, ADDITION__SUBTRACTION);
 		createEOperation(additionEClass, ADDITION___IS_REAL_OPERATION);
+		createEOperation(additionEClass, ADDITION___TO_STRING);
 
 		multiplicationEClass = createEClass(MULTIPLICATION);
 		createEAttribute(multiplicationEClass, MULTIPLICATION__MULTIPLICATION);
 		createEAttribute(multiplicationEClass, MULTIPLICATION__DIVISION);
 		createEOperation(multiplicationEClass, MULTIPLICATION___IS_REAL_OPERATION);
+		createEOperation(multiplicationEClass, MULTIPLICATION___TO_STRING);
 
 		variableEClass = createEClass(VARIABLE);
 
 		constEClass = createEClass(CONST);
-		createEReference(constEClass, CONST__EXPRESSION);
 
 		variableRefEClass = createEClass(VARIABLE_REF);
 		createEReference(variableRefEClass, VARIABLE_REF__VARIABLE);
@@ -955,8 +1129,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 
 		timeFunctionEClass = createEClass(TIME_FUNCTION);
 		createEAttribute(timeFunctionEClass, TIME_FUNCTION__FUNCTION);
-		createEAttribute(timeFunctionEClass, TIME_FUNCTION__PAR1);
-		createEAttribute(timeFunctionEClass, TIME_FUNCTION__PAR2);
+		createEReference(timeFunctionEClass, TIME_FUNCTION__PAR1);
+		createEReference(timeFunctionEClass, TIME_FUNCTION__PAR2);
 		createEOperation(timeFunctionEClass, TIME_FUNCTION___GET_STRING);
 
 		delayableElementEClass = createEClass(DELAYABLE_ELEMENT);
@@ -970,6 +1144,21 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		createEReference(assignableElementReferenceEClass, ASSIGNABLE_ELEMENT_REFERENCE__REF);
 
 		assignableElementEClass = createEClass(ASSIGNABLE_ELEMENT);
+
+		referenceableItemEClass = createEClass(REFERENCEABLE_ITEM);
+		createEReference(referenceableItemEClass, REFERENCEABLE_ITEM__EXPRESSION);
+
+		inputPinReferenceEClass = createEClass(INPUT_PIN_REFERENCE);
+		createEReference(inputPinReferenceEClass, INPUT_PIN_REFERENCE__INPUT_PIN);
+		createEOperation(inputPinReferenceEClass, INPUT_PIN_REFERENCE___GET_ACTUAL_PARENT);
+		createEOperation(inputPinReferenceEClass, INPUT_PIN_REFERENCE___GET_TANGIBLE_CHILD);
+		createEOperation(inputPinReferenceEClass, INPUT_PIN_REFERENCE___TO_STRING);
+
+		inputPinAttributeReferenceEClass = createEClass(INPUT_PIN_ATTRIBUTE_REFERENCE);
+		createEReference(inputPinAttributeReferenceEClass, INPUT_PIN_ATTRIBUTE_REFERENCE__ATTRIBUTE);
+		createEOperation(inputPinAttributeReferenceEClass, INPUT_PIN_ATTRIBUTE_REFERENCE___GET_ACTUAL_PARENT);
+		createEOperation(inputPinAttributeReferenceEClass, INPUT_PIN_ATTRIBUTE_REFERENCE___GET_TANGIBLE_CHILD);
+		createEOperation(inputPinAttributeReferenceEClass, INPUT_PIN_ATTRIBUTE_REFERENCE___TO_STRING);
 
 		// Create enums
 		timeFunctionsEEnum = createEEnum(TIME_FUNCTIONS);
@@ -1002,6 +1191,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		// Obtain other dependent packages
 		EcorePackage theEcorePackage = (EcorePackage) EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
 		CorePackage theCorePackage = (CorePackage) EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
+		e4smPackage thee4smPackage = (e4smPackage) EPackage.Registry.INSTANCE.getEPackage(e4smPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -1022,12 +1212,15 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		unaryExpressionEClass.getESuperTypes().add(this.getExpression());
 		additionEClass.getESuperTypes().add(this.getBinaryExpression());
 		multiplicationEClass.getESuperTypes().add(this.getBinaryExpression());
-		variableEClass.getESuperTypes().add(this.getConst());
 		variableEClass.getESuperTypes().add(this.getAssignableElement());
-		constEClass.getESuperTypes().add(this.getExecutionElement());
-		constEClass.getESuperTypes().add(theCorePackage.getNamedElement());
+		variableEClass.getESuperTypes().add(this.getReferenceableItem());
+		constEClass.getESuperTypes().add(this.getReferenceableItem());
 		variableRefEClass.getESuperTypes().add(this.getExpression());
 		assignmentEClass.getESuperTypes().add(this.getExecutionElement());
+		referenceableItemEClass.getESuperTypes().add(this.getExecutionElement());
+		referenceableItemEClass.getESuperTypes().add(theCorePackage.getNamedElement());
+		inputPinReferenceEClass.getESuperTypes().add(this.getExpression());
+		inputPinAttributeReferenceEClass.getESuperTypes().add(this.getInputPinReference());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(decisionNodeEClass, DecisionNode.class, "DecisionNode", !IS_ABSTRACT, !IS_INTERFACE,
@@ -1086,6 +1279,9 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		initEOperation(getExpression__GetActualParent(), this.getExecutionElement(), "getActualParent", 0, 1, IS_UNIQUE,
 				IS_ORDERED);
 
+		initEOperation(getExpression__ToString(), theEcorePackage.getEString(), "toString", 1, 1, IS_UNIQUE,
+				IS_ORDERED);
+
 		initEClass(binaryExpressionEClass, BinaryExpression.class, "BinaryExpression", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBinaryExpression_Left(), this.getExpression(), null, "left", null, 1, 1,
@@ -1118,6 +1314,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		initEOperation(getAddition__IsRealOperation(), theEcorePackage.getEBoolean(), "isRealOperation", 0, 1,
 				IS_UNIQUE, IS_ORDERED);
 
+		initEOperation(getAddition__ToString(), theEcorePackage.getEString(), "toString", 1, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(multiplicationEClass, Multiplication.class, "Multiplication", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMultiplication_Multiplication(), theEcorePackage.getEBoolean(), "multiplication", "false", 0,
@@ -1130,19 +1328,19 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		initEOperation(getMultiplication__IsRealOperation(), theEcorePackage.getEBoolean(), "isRealOperation", 0, 1,
 				IS_UNIQUE, IS_ORDERED);
 
+		initEOperation(getMultiplication__ToString(), theEcorePackage.getEString(), "toString", 1, 1, IS_UNIQUE,
+				IS_ORDERED);
+
 		initEClass(variableEClass, Variable.class, "Variable", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(constEClass, Const.class, "Const", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getConst_Expression(), this.getExpression(), null, "expression", null, 0, 1, Const.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(variableRefEClass, VariableRef.class, "VariableRef", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getVariableRef_Variable(), this.getVariable(), null, "variable", null, 1, 1, VariableRef.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getVariableRef_Variable(), this.getReferenceableItem(), null, "variable", null, 1, 1,
+				VariableRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getVariableRef__GetActualParent(), this.getExecutionElement(), "getActualParent", 0, 1,
 				IS_UNIQUE, IS_ORDERED);
@@ -1154,10 +1352,12 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 				IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTimeFunction_Function(), this.getTimeFunctions(), "function", null, 0, 1, TimeFunction.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTimeFunction_Par1(), theEcorePackage.getEDouble(), "par1", null, 1, 1, TimeFunction.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTimeFunction_Par2(), theEcorePackage.getEDouble(), "par2", null, 0, 1, TimeFunction.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTimeFunction_Par1(), this.getExpression(), null, "par1", null, 1, 1, TimeFunction.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTimeFunction_Par2(), this.getExpression(), null, "par2", null, 0, 1, TimeFunction.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getTimeFunction__GetString(), theEcorePackage.getEString(), "getString", 0, 1, IS_UNIQUE,
 				IS_ORDERED);
@@ -1185,6 +1385,42 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 
 		initEClass(assignableElementEClass, AssignableElement.class, "AssignableElement", IS_ABSTRACT, IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(referenceableItemEClass, ReferenceableItem.class, "ReferenceableItem", IS_ABSTRACT, IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getReferenceableItem_Expression(), this.getExpression(), null, "expression", null, 0, 1,
+				ReferenceableItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(inputPinReferenceEClass, InputPinReference.class, "InputPinReference", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getInputPinReference_InputPin(), thee4smPackage.getInputPin(), null, "inputPin", null, 1, 1,
+				InputPinReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getInputPinReference__GetActualParent(), this.getExecutionElement(), "getActualParent", 0, 1,
+				IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getInputPinReference__GetTangibleChild(), this.getExpression(), "getTangibleChild", 0, 1,
+				IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getInputPinReference__ToString(), theEcorePackage.getEString(), "toString", 1, 1, IS_UNIQUE,
+				IS_ORDERED);
+
+		initEClass(inputPinAttributeReferenceEClass, InputPinAttributeReference.class, "InputPinAttributeReference",
+				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getInputPinAttributeReference_Attribute(), theCorePackage.getAttributeSpecification(), null,
+				"attribute", null, 1, 1, InputPinAttributeReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getInputPinAttributeReference__GetActualParent(), this.getExecutionElement(), "getActualParent",
+				0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getInputPinAttributeReference__GetTangibleChild(), this.getExpression(), "getTangibleChild", 0,
+				1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getInputPinAttributeReference__ToString(), theEcorePackage.getEString(), "toString", 1, 1,
+				IS_UNIQUE, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(timeFunctionsEEnum, TimeFunctions.class, "TimeFunctions");

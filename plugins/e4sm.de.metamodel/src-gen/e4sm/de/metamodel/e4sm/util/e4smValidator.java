@@ -18,8 +18,10 @@ import e4sm.de.metamodel.e4sm.Connector;
 import e4sm.de.metamodel.e4sm.ConversionByConvention;
 import e4sm.de.metamodel.e4sm.ConversionByPrefix;
 import e4sm.de.metamodel.e4sm.DataNode;
+import e4sm.de.metamodel.e4sm.DataSize;
 import e4sm.de.metamodel.e4sm.DataStore;
 import e4sm.de.metamodel.e4sm.DerivedUnit;
+import e4sm.de.metamodel.e4sm.DynamicRange;
 import e4sm.de.metamodel.e4sm.Environment;
 import e4sm.de.metamodel.e4sm.ExternalDependency;
 import e4sm.de.metamodel.e4sm.Function;
@@ -43,8 +45,13 @@ import e4sm.de.metamodel.e4sm.RaceSemantic;
 import e4sm.de.metamodel.e4sm.Robot;
 import e4sm.de.metamodel.e4sm.Sector;
 import e4sm.de.metamodel.e4sm.Sensor;
+import e4sm.de.metamodel.e4sm.Set;
+import e4sm.de.metamodel.e4sm.SetValue;
 import e4sm.de.metamodel.e4sm.SimpleUnit;
+import e4sm.de.metamodel.e4sm.SizeComputation;
 import e4sm.de.metamodel.e4sm.SoftwareComponent;
+import e4sm.de.metamodel.e4sm.StaticSize;
+import e4sm.de.metamodel.e4sm.TokenSpecification;
 import e4sm.de.metamodel.e4sm.UnitConversion;
 import e4sm.de.metamodel.e4sm.UnitPrefix;
 import e4sm.de.metamodel.e4sm.Package;
@@ -224,12 +231,26 @@ public class e4smValidator extends EObjectValidator {
 					context);
 		case e4smPackage.CONFUSION_MATRIX:
 			return validateConfusionMatrix((ConfusionMatrix) value, diagnostics, context);
+		case e4smPackage.TOKEN_SPECIFICATION:
+			return validateTokenSpecification((TokenSpecification) value, diagnostics, context);
+		case e4smPackage.DATA_SIZE:
+			return validateDataSize((DataSize) value, diagnostics, context);
+		case e4smPackage.STATIC_SIZE:
+			return validateStaticSize((StaticSize) value, diagnostics, context);
+		case e4smPackage.SET:
+			return validateSet((Set) value, diagnostics, context);
+		case e4smPackage.SET_VALUE:
+			return validateSetValue((SetValue) value, diagnostics, context);
+		case e4smPackage.DYNAMIC_RANGE:
+			return validateDynamicRange((DynamicRange) value, diagnostics, context);
 		case e4smPackage.QUEUE_TYPE:
 			return validateQueueType((QueueType) value, diagnostics, context);
 		case e4smPackage.RACE_SEMANTIC:
 			return validateRaceSemantic((RaceSemantic) value, diagnostics, context);
 		case e4smPackage.COMPONENT_FIRING_STRATEGY:
 			return validateComponentFiringStrategy((ComponentFiringStrategy) value, diagnostics, context);
+		case e4smPackage.SIZE_COMPUTATION:
+			return validateSizeComputation((SizeComputation) value, diagnostics, context);
 		case e4smPackage.CONNECTIONSPEED:
 			return validateConnectionspeed(value, diagnostics, context);
 		case e4smPackage.JSON:
@@ -1373,6 +1394,62 @@ public class e4smValidator extends EObjectValidator {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateTokenSpecification(TokenSpecification tokenSpecification, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(tokenSpecification, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateDataSize(DataSize dataSize, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(dataSize, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateStaticSize(StaticSize staticSize, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(staticSize, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateSet(Set set, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(set, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateSetValue(SetValue setValue, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(setValue, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateDynamicRange(DynamicRange dynamicRange, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(dynamicRange, diagnostics, context);
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -1559,6 +1636,16 @@ public class e4smValidator extends EObjectValidator {
 	 */
 	public boolean validateComponentFiringStrategy(ComponentFiringStrategy componentFiringStrategy,
 			DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateSizeComputation(SizeComputation sizeComputation, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
 		return true;
 	}
 

@@ -2,12 +2,12 @@
  */
 package e4sm.de.metamodel.e4sm.analysis.provider;
 
+import e4sm.de.metamodel.e4sm.e4smPackage;
 import e4sm.de.metamodel.e4sm.analysis.AnalysisPackage;
 import e4sm.de.metamodel.e4sm.analysis.ParameterDefinition;
 import e4sm.de.metamodel.e4sm.provider.e4smEditPlugin;
 
 import e4sm.de.metamodel.e4sm.core.CoreFactory;
-import e4sm.de.metamodel.e4sm.core.CorePackage;
 import e4sm.de.metamodel.e4sm.core.provider.TypedElementItemProvider;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -111,7 +111,7 @@ public class ParameterDefinitionItemProvider extends TypedElementItemProvider {
 					@Override
 					public Collection<?> getChoiceOfValues(Object object) {
 						List<EClass> choiceOfValues = new ArrayList<EClass>();
-						EList<EClassifier> classifiers = CorePackage.eINSTANCE.getEClassifiers();
+						EList<EClassifier> classifiers = e4smPackage.eINSTANCE.getEClassifiers();
 						classifiers.forEach(c -> {
 							if (c instanceof EClass) {
 								if (((EClass) c).getEAllSuperTypes().stream().anyMatch(
@@ -141,7 +141,7 @@ public class ParameterDefinitionItemProvider extends TypedElementItemProvider {
 			@Override
 			public Collection<?> getChoiceOfValues(Object object) {
 				List<EClass> choiceOfValues = new ArrayList<EClass>();
-				EList<EClassifier> classifiers = CorePackage.eINSTANCE.getEClassifiers();
+				EList<EClassifier> classifiers = e4smPackage.eINSTANCE.getEClassifiers();
 				classifiers.forEach(c -> {
 					if (c instanceof EClass) {
 						if (((EClass) c).getEAllSuperTypes().stream()
@@ -172,7 +172,7 @@ public class ParameterDefinitionItemProvider extends TypedElementItemProvider {
 					@Override
 					public Collection<?> getChoiceOfValues(Object object) {
 						List<EClass> choiceOfValues = new ArrayList<EClass>();
-						EList<EClassifier> classifiers = CorePackage.eINSTANCE.getEClassifiers();
+						EList<EClassifier> classifiers = e4smPackage.eINSTANCE.getEClassifiers();
 						classifiers.forEach(c -> {
 							if (c instanceof EClass) {
 								if (((EClass) c).getEAllSuperTypes().stream().anyMatch(
