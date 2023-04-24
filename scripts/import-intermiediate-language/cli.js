@@ -151,6 +151,7 @@ async function loadJSONFile(path) {
  * @returns 
  */
 async function writeStringToFile(content, path) {
+    console.debug("Writing file to " + path);
     try {
       await writeFile(path, content);
       return;
