@@ -111,6 +111,10 @@ public class AnalysisSwitch<T> extends Switch<T> {
 			Parameter parameter = (Parameter) theEObject;
 			T result = caseParameter(parameter);
 			if (result == null)
+				result = caseTypedElement(parameter);
+			if (result == null)
+				result = caseNamedElement(parameter);
+			if (result == null)
 				result = caseElement(parameter);
 			if (result == null)
 				result = defaultCase(theEObject);

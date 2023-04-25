@@ -395,13 +395,31 @@ public interface AnalysisPackage extends EPackage {
 	int PARAMETER_DEFINITION_OPERATION_COUNT = CorePackage.TYPED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__NAME = CorePackage.TYPED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__TYPE = CorePackage.TYPED_ELEMENT__TYPE;
+
+	/**
 	 * The feature id for the '<em><b>Parameter Definition</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__PARAMETER_DEFINITION = CorePackage.ELEMENT_FEATURE_COUNT + 0;
+	int PARAMETER__PARAMETER_DEFINITION = CorePackage.TYPED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Applies Only On Variants</b></em>' reference list.
@@ -410,7 +428,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__APPLIES_ONLY_ON_VARIANTS = CorePackage.ELEMENT_FEATURE_COUNT + 1;
+	int PARAMETER__APPLIES_ONLY_ON_VARIANTS = CorePackage.TYPED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Does Not Apply On Variants</b></em>' reference list.
@@ -419,7 +437,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__DOES_NOT_APPLY_ON_VARIANTS = CorePackage.ELEMENT_FEATURE_COUNT + 2;
+	int PARAMETER__DOES_NOT_APPLY_ON_VARIANTS = CorePackage.TYPED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Initial Value</b></em>' containment reference.
@@ -428,7 +446,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__INITIAL_VALUE = CorePackage.ELEMENT_FEATURE_COUNT + 3;
+	int PARAMETER__INITIAL_VALUE = CorePackage.TYPED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Current Value</b></em>' containment reference.
@@ -437,7 +455,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__CURRENT_VALUE = CorePackage.ELEMENT_FEATURE_COUNT + 4;
+	int PARAMETER__CURRENT_VALUE = CorePackage.TYPED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Parameter</em>' class.
@@ -446,7 +464,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_FEATURE_COUNT = CorePackage.ELEMENT_FEATURE_COUNT + 5;
+	int PARAMETER_FEATURE_COUNT = CorePackage.TYPED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -455,7 +473,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER___IS_VALID = CorePackage.ELEMENT_OPERATION_COUNT + 0;
+	int PARAMETER___IS_VALID = CorePackage.TYPED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Parameter</em>' class.
@@ -464,7 +482,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_OPERATION_COUNT = CorePackage.ELEMENT_OPERATION_COUNT + 1;
+	int PARAMETER_OPERATION_COUNT = CorePackage.TYPED_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Model Analysis</em>' class.

@@ -7,7 +7,7 @@ import e4sm.de.metamodel.e4sm.analysis.Parameter;
 import e4sm.de.metamodel.e4sm.analysis.ParameterDefinition;
 import e4sm.de.metamodel.e4sm.core.ValueSpecification;
 import e4sm.de.metamodel.e4sm.core.Variant;
-import e4sm.de.metamodel.e4sm.core.impl.ElementImpl;
+import e4sm.de.metamodel.e4sm.core.impl.TypedElementImpl;
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
@@ -42,7 +42,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *
  * @generated
  */
-public class ParameterImpl extends ElementImpl implements Parameter {
+public class ParameterImpl extends TypedElementImpl implements Parameter {
 	/**
 	 * The cached value of the '{@link #getParameterDefinition() <em>Parameter Definition</em>}' reference.
 	 * <!-- begin-user-doc -->

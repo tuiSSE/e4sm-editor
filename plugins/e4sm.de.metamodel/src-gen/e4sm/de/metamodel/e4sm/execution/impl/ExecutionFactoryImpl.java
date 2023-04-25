@@ -89,6 +89,8 @@ public class ExecutionFactoryImpl extends EFactoryImpl implements ExecutionFacto
 			return createInputPinReference();
 		case ExecutionPackage.INPUT_PIN_ATTRIBUTE_REFERENCE:
 			return createInputPinAttributeReference();
+		case ExecutionPackage.PARAMETER_REFERENCE:
+			return createParameterReference();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -298,6 +300,17 @@ public class ExecutionFactoryImpl extends EFactoryImpl implements ExecutionFacto
 	public InputPinAttributeReference createInputPinAttributeReference() {
 		InputPinAttributeReferenceImpl inputPinAttributeReference = new InputPinAttributeReferenceImpl();
 		return inputPinAttributeReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ParameterReference createParameterReference() {
+		ParameterReferenceImpl parameterReference = new ParameterReferenceImpl();
+		return parameterReference;
 	}
 
 	/**

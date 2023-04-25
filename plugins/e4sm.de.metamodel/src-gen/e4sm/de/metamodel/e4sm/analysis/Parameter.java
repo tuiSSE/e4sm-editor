@@ -2,7 +2,7 @@
  */
 package e4sm.de.metamodel.e4sm.analysis;
 
-import e4sm.de.metamodel.e4sm.core.Element;
+import e4sm.de.metamodel.e4sm.core.TypedElement;
 import e4sm.de.metamodel.e4sm.core.ValueSpecification;
 import e4sm.de.metamodel.e4sm.core.Variant;
 import org.eclipse.emf.common.util.EList;
@@ -27,7 +27,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Parameter extends Element {
+public interface Parameter extends TypedElement {
 	/**
 	 * Returns the value of the '<em><b>Parameter Definition</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link e4sm.de.metamodel.e4sm.analysis.ParameterDefinition#getParameters <em>Parameters</em>}'.
@@ -37,7 +37,7 @@ public interface Parameter extends Element {
 	 * @see #setParameterDefinition(ParameterDefinition)
 	 * @see e4sm.de.metamodel.e4sm.analysis.AnalysisPackage#getParameter_ParameterDefinition()
 	 * @see e4sm.de.metamodel.e4sm.analysis.ParameterDefinition#getParameters
-	 * @model opposite="parameters" required="true"
+	 * @model opposite="parameters"
 	 * @generated
 	 */
 	ParameterDefinition getParameterDefinition();

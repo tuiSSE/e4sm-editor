@@ -555,6 +555,16 @@
       <genOperations ecoreOperation="execution.ecore#//InputPinAttributeReference/getTangibleChild"/>
       <genOperations ecoreOperation="execution.ecore#//InputPinAttributeReference/toString"/>
     </genClasses>
+    <genClasses ecoreClass="execution.ecore#//ParameterReference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference execution.ecore#//ParameterReference/parameter"/>
+      <genOperations ecoreOperation="execution.ecore#//ParameterReference/getTangibleChild"/>
+      <genOperations ecoreOperation="execution.ecore#//ParameterReference/getActualParent"/>
+      <genOperations ecoreOperation="execution.ecore#//ParameterReference/toString"/>
+    </genClasses>
+    <genClasses ecoreClass="execution.ecore#//Exponentiation">
+      <genOperations ecoreOperation="execution.ecore#//Exponentiation/toString"/>
+      <genOperations ecoreOperation="execution.ecore#//Exponentiation/isRealOperation"/>
+    </genClasses>
   </genPackages>
   <genPackages prefix="Guava" basePackage="e4sm.de.metamodel.e4sm" disposableProviderFactory="true"
       ecorePackage="guava.ecore#/">

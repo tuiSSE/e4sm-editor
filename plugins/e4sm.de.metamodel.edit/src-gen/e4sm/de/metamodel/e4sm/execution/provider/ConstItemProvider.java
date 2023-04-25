@@ -182,6 +182,9 @@ public class ConstItemProvider extends ExecutionElementItemProvider {
 				ExecutionFactory.eINSTANCE.createInputPinAttributeReference()));
 
 		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.REFERENCEABLE_ITEM__EXPRESSION,
+				ExecutionFactory.eINSTANCE.createParameterReference()));
+
+		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.REFERENCEABLE_ITEM__EXPRESSION,
 				CoreFactory.eINSTANCE.createLiteralNull()));
 
 		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.REFERENCEABLE_ITEM__EXPRESSION,

@@ -189,6 +189,9 @@ public class VariableItemProvider extends ItemProviderAdapter implements IEditin
 				ExecutionFactory.eINSTANCE.createInputPinAttributeReference()));
 
 		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.REFERENCEABLE_ITEM__EXPRESSION,
+				ExecutionFactory.eINSTANCE.createParameterReference()));
+
+		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.REFERENCEABLE_ITEM__EXPRESSION,
 				CoreFactory.eINSTANCE.createLiteralNull()));
 
 		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.REFERENCEABLE_ITEM__EXPRESSION,

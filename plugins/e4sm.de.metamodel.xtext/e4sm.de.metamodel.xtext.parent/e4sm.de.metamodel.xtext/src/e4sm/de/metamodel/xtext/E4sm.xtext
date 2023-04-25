@@ -114,16 +114,16 @@ EString returns ecore::EString:
 	STRING | ID;
 
 Parameter returns analysis::Parameter:
-	'par'
-	'{'
-	'parameterDefinition' PROPERTY_ASSIGN parameterDefinition=[analysis::ParameterDefinition|EString]
+	{analysis::Parameter}
+	'par' name=EString  (':=' initialValue=ValueSpecification)?
+	('{'
+	('parameterDefinition' PROPERTY_ASSIGN parameterDefinition=[analysis::ParameterDefinition|EString])?
 	('appliesOnlyOnVariants' '(' appliesOnlyOnVariants+=[core::Variant|EString] (","
 	appliesOnlyOnVariants+=[core::Variant|EString])* ')')?
 	('doesNotApplyOnVariants' '(' doesNotApplyOnVariants+=[core::Variant|EString] (","
 	doesNotApplyOnVariants+=[core::Variant|EString])* ')')?
-	('initialValue' PROPERTY_ASSIGN initialValue=ValueSpecification)?
 	('currentValue' PROPERTY_ASSIGN currentValue=ValueSpecification)?
-	'}';
+	'}')?;
 
 Package returns Package:
 	'package'
@@ -819,7 +819,7 @@ AssignableElement returns execution::AssignableElement:
 	Variable | OutputPin;
 
 Primary returns execution::Expression:
-	ValueSpecification | VariableRef | InputPinAttributeReference | InputPinReference |
+	ParameterReference | ValueSpecification | VariableRef | InputPinAttributeReference | InputPinReference |
 	'(' Addition ')';
 
 LiteralInteger returns core::LiteralInteger:
@@ -828,6 +828,12 @@ LiteralInteger returns core::LiteralInteger:
 ReferenceableItem returns execution::ReferenceableItem:
 	Variable | Const
 ;
+
+ParameterReference returns execution::ParameterReference: 
+	{execution::ParameterReference}
+	'@'parameter=[analysis::Parameter]
+;
+
 
 
 InputPinReference returns execution::InputPinReference:

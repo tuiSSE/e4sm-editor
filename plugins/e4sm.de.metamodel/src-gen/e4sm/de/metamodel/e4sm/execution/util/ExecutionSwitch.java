@@ -324,6 +324,17 @@ public class ExecutionSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case ExecutionPackage.PARAMETER_REFERENCE: {
+			ParameterReference parameterReference = (ParameterReference) theEObject;
+			T result = caseParameterReference(parameterReference);
+			if (result == null)
+				result = caseExpression(parameterReference);
+			if (result == null)
+				result = caseExecutionElement(parameterReference);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		default:
 			return defaultCase(theEObject);
 		}
@@ -701,6 +712,21 @@ public class ExecutionSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseInputPinAttributeReference(InputPinAttributeReference object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Parameter Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Parameter Reference</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseParameterReference(ParameterReference object) {
 		return null;
 	}
 

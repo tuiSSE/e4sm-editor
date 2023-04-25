@@ -38,10 +38,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="defaultValue" eType="ecore:EClass core.ecore#//ValueSpecification"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="core.ecore#//Element">
+  <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="core.ecore#//TypedElement">
     <eOperations name="isValid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parameterDefinition" lowerBound="1"
-        eType="#//ParameterDefinition" eOpposite="#//ParameterDefinition/parameters"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameterDefinition" eType="#//ParameterDefinition"
+        eOpposite="#//ParameterDefinition/parameters"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="appliesOnlyOnVariants"
         upperBound="-1" eType="ecore:EClass core.ecore#//Variant"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="doesNotApplyOnVariants"

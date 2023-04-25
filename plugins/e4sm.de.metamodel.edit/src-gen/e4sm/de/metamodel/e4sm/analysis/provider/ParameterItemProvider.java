@@ -8,7 +8,7 @@ import e4sm.de.metamodel.e4sm.analysis.ParameterDefinition;
 import e4sm.de.metamodel.e4sm.provider.e4smEditPlugin;
 
 import e4sm.de.metamodel.e4sm.core.CoreFactory;
-import e4sm.de.metamodel.e4sm.core.provider.ElementItemProvider;
+import e4sm.de.metamodel.e4sm.core.provider.TypedElementItemProvider;
 import java.util.Collection;
 import java.util.List;
 
@@ -29,7 +29,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ParameterItemProvider extends ElementItemProvider {
+public class ParameterItemProvider extends TypedElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

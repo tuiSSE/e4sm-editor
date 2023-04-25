@@ -1282,203 +1282,226 @@ public class E4smGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	public class ParameterElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "e4sm.de.metamodel.xtext.E4sm.Parameter");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cParKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cParameterDefinitionKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final RuleCall cPROPERTY_ASSIGNTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
-		private final Assignment cParameterDefinitionAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final CrossReference cParameterDefinitionParameterDefinitionCrossReference_4_0 = (CrossReference)cParameterDefinitionAssignment_4.eContents().get(0);
-		private final RuleCall cParameterDefinitionParameterDefinitionEStringParserRuleCall_4_0_1 = (RuleCall)cParameterDefinitionParameterDefinitionCrossReference_4_0.eContents().get(1);
-		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cAppliesOnlyOnVariantsKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
-		private final Assignment cAppliesOnlyOnVariantsAssignment_5_2 = (Assignment)cGroup_5.eContents().get(2);
-		private final CrossReference cAppliesOnlyOnVariantsVariantCrossReference_5_2_0 = (CrossReference)cAppliesOnlyOnVariantsAssignment_5_2.eContents().get(0);
-		private final RuleCall cAppliesOnlyOnVariantsVariantEStringParserRuleCall_5_2_0_1 = (RuleCall)cAppliesOnlyOnVariantsVariantCrossReference_5_2_0.eContents().get(1);
-		private final Group cGroup_5_3 = (Group)cGroup_5.eContents().get(3);
-		private final Keyword cCommaKeyword_5_3_0 = (Keyword)cGroup_5_3.eContents().get(0);
-		private final Assignment cAppliesOnlyOnVariantsAssignment_5_3_1 = (Assignment)cGroup_5_3.eContents().get(1);
-		private final CrossReference cAppliesOnlyOnVariantsVariantCrossReference_5_3_1_0 = (CrossReference)cAppliesOnlyOnVariantsAssignment_5_3_1.eContents().get(0);
-		private final RuleCall cAppliesOnlyOnVariantsVariantEStringParserRuleCall_5_3_1_0_1 = (RuleCall)cAppliesOnlyOnVariantsVariantCrossReference_5_3_1_0.eContents().get(1);
-		private final Keyword cRightParenthesisKeyword_5_4 = (Keyword)cGroup_5.eContents().get(4);
-		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cDoesNotApplyOnVariantsKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
-		private final Assignment cDoesNotApplyOnVariantsAssignment_6_2 = (Assignment)cGroup_6.eContents().get(2);
-		private final CrossReference cDoesNotApplyOnVariantsVariantCrossReference_6_2_0 = (CrossReference)cDoesNotApplyOnVariantsAssignment_6_2.eContents().get(0);
-		private final RuleCall cDoesNotApplyOnVariantsVariantEStringParserRuleCall_6_2_0_1 = (RuleCall)cDoesNotApplyOnVariantsVariantCrossReference_6_2_0.eContents().get(1);
-		private final Group cGroup_6_3 = (Group)cGroup_6.eContents().get(3);
-		private final Keyword cCommaKeyword_6_3_0 = (Keyword)cGroup_6_3.eContents().get(0);
-		private final Assignment cDoesNotApplyOnVariantsAssignment_6_3_1 = (Assignment)cGroup_6_3.eContents().get(1);
-		private final CrossReference cDoesNotApplyOnVariantsVariantCrossReference_6_3_1_0 = (CrossReference)cDoesNotApplyOnVariantsAssignment_6_3_1.eContents().get(0);
-		private final RuleCall cDoesNotApplyOnVariantsVariantEStringParserRuleCall_6_3_1_0_1 = (RuleCall)cDoesNotApplyOnVariantsVariantCrossReference_6_3_1_0.eContents().get(1);
-		private final Keyword cRightParenthesisKeyword_6_4 = (Keyword)cGroup_6.eContents().get(4);
-		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
-		private final Keyword cInitialValueKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
-		private final RuleCall cPROPERTY_ASSIGNTerminalRuleCall_7_1 = (RuleCall)cGroup_7.eContents().get(1);
-		private final Assignment cInitialValueAssignment_7_2 = (Assignment)cGroup_7.eContents().get(2);
-		private final RuleCall cInitialValueValueSpecificationParserRuleCall_7_2_0 = (RuleCall)cInitialValueAssignment_7_2.eContents().get(0);
-		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
-		private final Keyword cCurrentValueKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
-		private final RuleCall cPROPERTY_ASSIGNTerminalRuleCall_8_1 = (RuleCall)cGroup_8.eContents().get(1);
-		private final Assignment cCurrentValueAssignment_8_2 = (Assignment)cGroup_8.eContents().get(2);
-		private final RuleCall cCurrentValueValueSpecificationParserRuleCall_8_2_0 = (RuleCall)cCurrentValueAssignment_8_2.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
+		private final Action cParameterAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cParKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameEStringParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cColonEqualsSignKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cInitialValueAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cInitialValueValueSpecificationParserRuleCall_3_1_0 = (RuleCall)cInitialValueAssignment_3_1.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cLeftCurlyBracketKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Group cGroup_4_1 = (Group)cGroup_4.eContents().get(1);
+		private final Keyword cParameterDefinitionKeyword_4_1_0 = (Keyword)cGroup_4_1.eContents().get(0);
+		private final RuleCall cPROPERTY_ASSIGNTerminalRuleCall_4_1_1 = (RuleCall)cGroup_4_1.eContents().get(1);
+		private final Assignment cParameterDefinitionAssignment_4_1_2 = (Assignment)cGroup_4_1.eContents().get(2);
+		private final CrossReference cParameterDefinitionParameterDefinitionCrossReference_4_1_2_0 = (CrossReference)cParameterDefinitionAssignment_4_1_2.eContents().get(0);
+		private final RuleCall cParameterDefinitionParameterDefinitionEStringParserRuleCall_4_1_2_0_1 = (RuleCall)cParameterDefinitionParameterDefinitionCrossReference_4_1_2_0.eContents().get(1);
+		private final Group cGroup_4_2 = (Group)cGroup_4.eContents().get(2);
+		private final Keyword cAppliesOnlyOnVariantsKeyword_4_2_0 = (Keyword)cGroup_4_2.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_4_2_1 = (Keyword)cGroup_4_2.eContents().get(1);
+		private final Assignment cAppliesOnlyOnVariantsAssignment_4_2_2 = (Assignment)cGroup_4_2.eContents().get(2);
+		private final CrossReference cAppliesOnlyOnVariantsVariantCrossReference_4_2_2_0 = (CrossReference)cAppliesOnlyOnVariantsAssignment_4_2_2.eContents().get(0);
+		private final RuleCall cAppliesOnlyOnVariantsVariantEStringParserRuleCall_4_2_2_0_1 = (RuleCall)cAppliesOnlyOnVariantsVariantCrossReference_4_2_2_0.eContents().get(1);
+		private final Group cGroup_4_2_3 = (Group)cGroup_4_2.eContents().get(3);
+		private final Keyword cCommaKeyword_4_2_3_0 = (Keyword)cGroup_4_2_3.eContents().get(0);
+		private final Assignment cAppliesOnlyOnVariantsAssignment_4_2_3_1 = (Assignment)cGroup_4_2_3.eContents().get(1);
+		private final CrossReference cAppliesOnlyOnVariantsVariantCrossReference_4_2_3_1_0 = (CrossReference)cAppliesOnlyOnVariantsAssignment_4_2_3_1.eContents().get(0);
+		private final RuleCall cAppliesOnlyOnVariantsVariantEStringParserRuleCall_4_2_3_1_0_1 = (RuleCall)cAppliesOnlyOnVariantsVariantCrossReference_4_2_3_1_0.eContents().get(1);
+		private final Keyword cRightParenthesisKeyword_4_2_4 = (Keyword)cGroup_4_2.eContents().get(4);
+		private final Group cGroup_4_3 = (Group)cGroup_4.eContents().get(3);
+		private final Keyword cDoesNotApplyOnVariantsKeyword_4_3_0 = (Keyword)cGroup_4_3.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_4_3_1 = (Keyword)cGroup_4_3.eContents().get(1);
+		private final Assignment cDoesNotApplyOnVariantsAssignment_4_3_2 = (Assignment)cGroup_4_3.eContents().get(2);
+		private final CrossReference cDoesNotApplyOnVariantsVariantCrossReference_4_3_2_0 = (CrossReference)cDoesNotApplyOnVariantsAssignment_4_3_2.eContents().get(0);
+		private final RuleCall cDoesNotApplyOnVariantsVariantEStringParserRuleCall_4_3_2_0_1 = (RuleCall)cDoesNotApplyOnVariantsVariantCrossReference_4_3_2_0.eContents().get(1);
+		private final Group cGroup_4_3_3 = (Group)cGroup_4_3.eContents().get(3);
+		private final Keyword cCommaKeyword_4_3_3_0 = (Keyword)cGroup_4_3_3.eContents().get(0);
+		private final Assignment cDoesNotApplyOnVariantsAssignment_4_3_3_1 = (Assignment)cGroup_4_3_3.eContents().get(1);
+		private final CrossReference cDoesNotApplyOnVariantsVariantCrossReference_4_3_3_1_0 = (CrossReference)cDoesNotApplyOnVariantsAssignment_4_3_3_1.eContents().get(0);
+		private final RuleCall cDoesNotApplyOnVariantsVariantEStringParserRuleCall_4_3_3_1_0_1 = (RuleCall)cDoesNotApplyOnVariantsVariantCrossReference_4_3_3_1_0.eContents().get(1);
+		private final Keyword cRightParenthesisKeyword_4_3_4 = (Keyword)cGroup_4_3.eContents().get(4);
+		private final Group cGroup_4_4 = (Group)cGroup_4.eContents().get(4);
+		private final Keyword cCurrentValueKeyword_4_4_0 = (Keyword)cGroup_4_4.eContents().get(0);
+		private final RuleCall cPROPERTY_ASSIGNTerminalRuleCall_4_4_1 = (RuleCall)cGroup_4_4.eContents().get(1);
+		private final Assignment cCurrentValueAssignment_4_4_2 = (Assignment)cGroup_4_4.eContents().get(2);
+		private final RuleCall cCurrentValueValueSpecificationParserRuleCall_4_4_2_0 = (RuleCall)cCurrentValueAssignment_4_4_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4_5 = (Keyword)cGroup_4.eContents().get(5);
 		
 		//Parameter returns analysis::Parameter:
-		//    'par'
-		//    '{'
-		//    'parameterDefinition' PROPERTY_ASSIGN parameterDefinition=[analysis::ParameterDefinition|EString]
+		//    {analysis::Parameter}
+		//    'par' name=EString  (':=' initialValue=ValueSpecification)?
+		//    ('{'
+		//    ('parameterDefinition' PROPERTY_ASSIGN parameterDefinition=[analysis::ParameterDefinition|EString])?
 		//    ('appliesOnlyOnVariants' '(' appliesOnlyOnVariants+=[core::Variant|EString] (","
 		//    appliesOnlyOnVariants+=[core::Variant|EString])* ')')?
 		//    ('doesNotApplyOnVariants' '(' doesNotApplyOnVariants+=[core::Variant|EString] (","
 		//    doesNotApplyOnVariants+=[core::Variant|EString])* ')')?
-		//    ('initialValue' PROPERTY_ASSIGN initialValue=ValueSpecification)?
 		//    ('currentValue' PROPERTY_ASSIGN currentValue=ValueSpecification)?
-		//    '}';
+		//    '}')?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'par'
-		//'{'
-		//'parameterDefinition' PROPERTY_ASSIGN parameterDefinition=[analysis::ParameterDefinition|EString]
+		//{analysis::Parameter}
+		//'par' name=EString  (':=' initialValue=ValueSpecification)?
+		//('{'
+		//('parameterDefinition' PROPERTY_ASSIGN parameterDefinition=[analysis::ParameterDefinition|EString])?
 		//('appliesOnlyOnVariants' '(' appliesOnlyOnVariants+=[core::Variant|EString] (","
 		//appliesOnlyOnVariants+=[core::Variant|EString])* ')')?
 		//('doesNotApplyOnVariants' '(' doesNotApplyOnVariants+=[core::Variant|EString] (","
 		//doesNotApplyOnVariants+=[core::Variant|EString])* ')')?
-		//('initialValue' PROPERTY_ASSIGN initialValue=ValueSpecification)?
 		//('currentValue' PROPERTY_ASSIGN currentValue=ValueSpecification)?
-		//'}'
+		//'}')?
 		public Group getGroup() { return cGroup; }
 		
+		//{analysis::Parameter}
+		public Action getParameterAction_0() { return cParameterAction_0; }
+		
 		//'par'
-		public Keyword getParKeyword_0() { return cParKeyword_0; }
+		public Keyword getParKeyword_1() { return cParKeyword_1; }
 		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
-		
-		//'parameterDefinition'
-		public Keyword getParameterDefinitionKeyword_2() { return cParameterDefinitionKeyword_2; }
-		
-		//PROPERTY_ASSIGN
-		public RuleCall getPROPERTY_ASSIGNTerminalRuleCall_3() { return cPROPERTY_ASSIGNTerminalRuleCall_3; }
-		
-		//parameterDefinition=[analysis::ParameterDefinition|EString]
-		public Assignment getParameterDefinitionAssignment_4() { return cParameterDefinitionAssignment_4; }
-		
-		//[analysis::ParameterDefinition|EString]
-		public CrossReference getParameterDefinitionParameterDefinitionCrossReference_4_0() { return cParameterDefinitionParameterDefinitionCrossReference_4_0; }
+		//name=EString
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
 		
 		//EString
-		public RuleCall getParameterDefinitionParameterDefinitionEStringParserRuleCall_4_0_1() { return cParameterDefinitionParameterDefinitionEStringParserRuleCall_4_0_1; }
+		public RuleCall getNameEStringParserRuleCall_2_0() { return cNameEStringParserRuleCall_2_0; }
+		
+		//(':=' initialValue=ValueSpecification)?
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//':='
+		public Keyword getColonEqualsSignKeyword_3_0() { return cColonEqualsSignKeyword_3_0; }
+		
+		//initialValue=ValueSpecification
+		public Assignment getInitialValueAssignment_3_1() { return cInitialValueAssignment_3_1; }
+		
+		//ValueSpecification
+		public RuleCall getInitialValueValueSpecificationParserRuleCall_3_1_0() { return cInitialValueValueSpecificationParserRuleCall_3_1_0; }
+		
+		//('{'
+		//('parameterDefinition' PROPERTY_ASSIGN parameterDefinition=[analysis::ParameterDefinition|EString])?
+		//('appliesOnlyOnVariants' '(' appliesOnlyOnVariants+=[core::Variant|EString] (","
+		//appliesOnlyOnVariants+=[core::Variant|EString])* ')')?
+		//('doesNotApplyOnVariants' '(' doesNotApplyOnVariants+=[core::Variant|EString] (","
+		//doesNotApplyOnVariants+=[core::Variant|EString])* ')')?
+		//('currentValue' PROPERTY_ASSIGN currentValue=ValueSpecification)?
+		//'}')?
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_4_0() { return cLeftCurlyBracketKeyword_4_0; }
+		
+		//('parameterDefinition' PROPERTY_ASSIGN parameterDefinition=[analysis::ParameterDefinition|EString])?
+		public Group getGroup_4_1() { return cGroup_4_1; }
+		
+		//'parameterDefinition'
+		public Keyword getParameterDefinitionKeyword_4_1_0() { return cParameterDefinitionKeyword_4_1_0; }
+		
+		//PROPERTY_ASSIGN
+		public RuleCall getPROPERTY_ASSIGNTerminalRuleCall_4_1_1() { return cPROPERTY_ASSIGNTerminalRuleCall_4_1_1; }
+		
+		//parameterDefinition=[analysis::ParameterDefinition|EString]
+		public Assignment getParameterDefinitionAssignment_4_1_2() { return cParameterDefinitionAssignment_4_1_2; }
+		
+		//[analysis::ParameterDefinition|EString]
+		public CrossReference getParameterDefinitionParameterDefinitionCrossReference_4_1_2_0() { return cParameterDefinitionParameterDefinitionCrossReference_4_1_2_0; }
+		
+		//EString
+		public RuleCall getParameterDefinitionParameterDefinitionEStringParserRuleCall_4_1_2_0_1() { return cParameterDefinitionParameterDefinitionEStringParserRuleCall_4_1_2_0_1; }
 		
 		//('appliesOnlyOnVariants' '(' appliesOnlyOnVariants+=[core::Variant|EString] (","
 		//appliesOnlyOnVariants+=[core::Variant|EString])* ')')?
-		public Group getGroup_5() { return cGroup_5; }
+		public Group getGroup_4_2() { return cGroup_4_2; }
 		
 		//'appliesOnlyOnVariants'
-		public Keyword getAppliesOnlyOnVariantsKeyword_5_0() { return cAppliesOnlyOnVariantsKeyword_5_0; }
+		public Keyword getAppliesOnlyOnVariantsKeyword_4_2_0() { return cAppliesOnlyOnVariantsKeyword_4_2_0; }
 		
 		//'('
-		public Keyword getLeftParenthesisKeyword_5_1() { return cLeftParenthesisKeyword_5_1; }
+		public Keyword getLeftParenthesisKeyword_4_2_1() { return cLeftParenthesisKeyword_4_2_1; }
 		
 		//appliesOnlyOnVariants+=[core::Variant|EString]
-		public Assignment getAppliesOnlyOnVariantsAssignment_5_2() { return cAppliesOnlyOnVariantsAssignment_5_2; }
+		public Assignment getAppliesOnlyOnVariantsAssignment_4_2_2() { return cAppliesOnlyOnVariantsAssignment_4_2_2; }
 		
 		//[core::Variant|EString]
-		public CrossReference getAppliesOnlyOnVariantsVariantCrossReference_5_2_0() { return cAppliesOnlyOnVariantsVariantCrossReference_5_2_0; }
+		public CrossReference getAppliesOnlyOnVariantsVariantCrossReference_4_2_2_0() { return cAppliesOnlyOnVariantsVariantCrossReference_4_2_2_0; }
 		
 		//EString
-		public RuleCall getAppliesOnlyOnVariantsVariantEStringParserRuleCall_5_2_0_1() { return cAppliesOnlyOnVariantsVariantEStringParserRuleCall_5_2_0_1; }
+		public RuleCall getAppliesOnlyOnVariantsVariantEStringParserRuleCall_4_2_2_0_1() { return cAppliesOnlyOnVariantsVariantEStringParserRuleCall_4_2_2_0_1; }
 		
 		//(","
 		//   appliesOnlyOnVariants+=[core::Variant|EString])*
-		public Group getGroup_5_3() { return cGroup_5_3; }
+		public Group getGroup_4_2_3() { return cGroup_4_2_3; }
 		
 		//","
-		public Keyword getCommaKeyword_5_3_0() { return cCommaKeyword_5_3_0; }
+		public Keyword getCommaKeyword_4_2_3_0() { return cCommaKeyword_4_2_3_0; }
 		
 		//appliesOnlyOnVariants+=[core::Variant|EString]
-		public Assignment getAppliesOnlyOnVariantsAssignment_5_3_1() { return cAppliesOnlyOnVariantsAssignment_5_3_1; }
+		public Assignment getAppliesOnlyOnVariantsAssignment_4_2_3_1() { return cAppliesOnlyOnVariantsAssignment_4_2_3_1; }
 		
 		//[core::Variant|EString]
-		public CrossReference getAppliesOnlyOnVariantsVariantCrossReference_5_3_1_0() { return cAppliesOnlyOnVariantsVariantCrossReference_5_3_1_0; }
+		public CrossReference getAppliesOnlyOnVariantsVariantCrossReference_4_2_3_1_0() { return cAppliesOnlyOnVariantsVariantCrossReference_4_2_3_1_0; }
 		
 		//EString
-		public RuleCall getAppliesOnlyOnVariantsVariantEStringParserRuleCall_5_3_1_0_1() { return cAppliesOnlyOnVariantsVariantEStringParserRuleCall_5_3_1_0_1; }
+		public RuleCall getAppliesOnlyOnVariantsVariantEStringParserRuleCall_4_2_3_1_0_1() { return cAppliesOnlyOnVariantsVariantEStringParserRuleCall_4_2_3_1_0_1; }
 		
 		//')'
-		public Keyword getRightParenthesisKeyword_5_4() { return cRightParenthesisKeyword_5_4; }
+		public Keyword getRightParenthesisKeyword_4_2_4() { return cRightParenthesisKeyword_4_2_4; }
 		
 		//('doesNotApplyOnVariants' '(' doesNotApplyOnVariants+=[core::Variant|EString] (","
 		//doesNotApplyOnVariants+=[core::Variant|EString])* ')')?
-		public Group getGroup_6() { return cGroup_6; }
+		public Group getGroup_4_3() { return cGroup_4_3; }
 		
 		//'doesNotApplyOnVariants'
-		public Keyword getDoesNotApplyOnVariantsKeyword_6_0() { return cDoesNotApplyOnVariantsKeyword_6_0; }
+		public Keyword getDoesNotApplyOnVariantsKeyword_4_3_0() { return cDoesNotApplyOnVariantsKeyword_4_3_0; }
 		
 		//'('
-		public Keyword getLeftParenthesisKeyword_6_1() { return cLeftParenthesisKeyword_6_1; }
+		public Keyword getLeftParenthesisKeyword_4_3_1() { return cLeftParenthesisKeyword_4_3_1; }
 		
 		//doesNotApplyOnVariants+=[core::Variant|EString]
-		public Assignment getDoesNotApplyOnVariantsAssignment_6_2() { return cDoesNotApplyOnVariantsAssignment_6_2; }
+		public Assignment getDoesNotApplyOnVariantsAssignment_4_3_2() { return cDoesNotApplyOnVariantsAssignment_4_3_2; }
 		
 		//[core::Variant|EString]
-		public CrossReference getDoesNotApplyOnVariantsVariantCrossReference_6_2_0() { return cDoesNotApplyOnVariantsVariantCrossReference_6_2_0; }
+		public CrossReference getDoesNotApplyOnVariantsVariantCrossReference_4_3_2_0() { return cDoesNotApplyOnVariantsVariantCrossReference_4_3_2_0; }
 		
 		//EString
-		public RuleCall getDoesNotApplyOnVariantsVariantEStringParserRuleCall_6_2_0_1() { return cDoesNotApplyOnVariantsVariantEStringParserRuleCall_6_2_0_1; }
+		public RuleCall getDoesNotApplyOnVariantsVariantEStringParserRuleCall_4_3_2_0_1() { return cDoesNotApplyOnVariantsVariantEStringParserRuleCall_4_3_2_0_1; }
 		
 		//(","
 		//   doesNotApplyOnVariants+=[core::Variant|EString])*
-		public Group getGroup_6_3() { return cGroup_6_3; }
+		public Group getGroup_4_3_3() { return cGroup_4_3_3; }
 		
 		//","
-		public Keyword getCommaKeyword_6_3_0() { return cCommaKeyword_6_3_0; }
+		public Keyword getCommaKeyword_4_3_3_0() { return cCommaKeyword_4_3_3_0; }
 		
 		//doesNotApplyOnVariants+=[core::Variant|EString]
-		public Assignment getDoesNotApplyOnVariantsAssignment_6_3_1() { return cDoesNotApplyOnVariantsAssignment_6_3_1; }
+		public Assignment getDoesNotApplyOnVariantsAssignment_4_3_3_1() { return cDoesNotApplyOnVariantsAssignment_4_3_3_1; }
 		
 		//[core::Variant|EString]
-		public CrossReference getDoesNotApplyOnVariantsVariantCrossReference_6_3_1_0() { return cDoesNotApplyOnVariantsVariantCrossReference_6_3_1_0; }
+		public CrossReference getDoesNotApplyOnVariantsVariantCrossReference_4_3_3_1_0() { return cDoesNotApplyOnVariantsVariantCrossReference_4_3_3_1_0; }
 		
 		//EString
-		public RuleCall getDoesNotApplyOnVariantsVariantEStringParserRuleCall_6_3_1_0_1() { return cDoesNotApplyOnVariantsVariantEStringParserRuleCall_6_3_1_0_1; }
+		public RuleCall getDoesNotApplyOnVariantsVariantEStringParserRuleCall_4_3_3_1_0_1() { return cDoesNotApplyOnVariantsVariantEStringParserRuleCall_4_3_3_1_0_1; }
 		
 		//')'
-		public Keyword getRightParenthesisKeyword_6_4() { return cRightParenthesisKeyword_6_4; }
-		
-		//('initialValue' PROPERTY_ASSIGN initialValue=ValueSpecification)?
-		public Group getGroup_7() { return cGroup_7; }
-		
-		//'initialValue'
-		public Keyword getInitialValueKeyword_7_0() { return cInitialValueKeyword_7_0; }
-		
-		//PROPERTY_ASSIGN
-		public RuleCall getPROPERTY_ASSIGNTerminalRuleCall_7_1() { return cPROPERTY_ASSIGNTerminalRuleCall_7_1; }
-		
-		//initialValue=ValueSpecification
-		public Assignment getInitialValueAssignment_7_2() { return cInitialValueAssignment_7_2; }
-		
-		//ValueSpecification
-		public RuleCall getInitialValueValueSpecificationParserRuleCall_7_2_0() { return cInitialValueValueSpecificationParserRuleCall_7_2_0; }
+		public Keyword getRightParenthesisKeyword_4_3_4() { return cRightParenthesisKeyword_4_3_4; }
 		
 		//('currentValue' PROPERTY_ASSIGN currentValue=ValueSpecification)?
-		public Group getGroup_8() { return cGroup_8; }
+		public Group getGroup_4_4() { return cGroup_4_4; }
 		
 		//'currentValue'
-		public Keyword getCurrentValueKeyword_8_0() { return cCurrentValueKeyword_8_0; }
+		public Keyword getCurrentValueKeyword_4_4_0() { return cCurrentValueKeyword_4_4_0; }
 		
 		//PROPERTY_ASSIGN
-		public RuleCall getPROPERTY_ASSIGNTerminalRuleCall_8_1() { return cPROPERTY_ASSIGNTerminalRuleCall_8_1; }
+		public RuleCall getPROPERTY_ASSIGNTerminalRuleCall_4_4_1() { return cPROPERTY_ASSIGNTerminalRuleCall_4_4_1; }
 		
 		//currentValue=ValueSpecification
-		public Assignment getCurrentValueAssignment_8_2() { return cCurrentValueAssignment_8_2; }
+		public Assignment getCurrentValueAssignment_4_4_2() { return cCurrentValueAssignment_4_4_2; }
 		
 		//ValueSpecification
-		public RuleCall getCurrentValueValueSpecificationParserRuleCall_8_2_0() { return cCurrentValueValueSpecificationParserRuleCall_8_2_0; }
+		public RuleCall getCurrentValueValueSpecificationParserRuleCall_4_4_2_0() { return cCurrentValueValueSpecificationParserRuleCall_4_4_2_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
+		public Keyword getRightCurlyBracketKeyword_4_5() { return cRightCurlyBracketKeyword_4_5; }
 	}
 	public class PackageElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "e4sm.de.metamodel.xtext.E4sm.Package");
@@ -11181,47 +11204,51 @@ public class E4smGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	public class PrimaryElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "e4sm.de.metamodel.xtext.E4sm.Primary");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cValueSpecificationParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cVariableRefParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cInputPinAttributeReferenceParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cInputPinReferenceParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final Group cGroup_4 = (Group)cAlternatives.eContents().get(4);
-		private final Keyword cLeftParenthesisKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final RuleCall cAdditionParserRuleCall_4_1 = (RuleCall)cGroup_4.eContents().get(1);
-		private final Keyword cRightParenthesisKeyword_4_2 = (Keyword)cGroup_4.eContents().get(2);
+		private final RuleCall cParameterReferenceParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cValueSpecificationParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cVariableRefParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cInputPinAttributeReferenceParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cInputPinReferenceParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final Group cGroup_5 = (Group)cAlternatives.eContents().get(5);
+		private final Keyword cLeftParenthesisKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final RuleCall cAdditionParserRuleCall_5_1 = (RuleCall)cGroup_5.eContents().get(1);
+		private final Keyword cRightParenthesisKeyword_5_2 = (Keyword)cGroup_5.eContents().get(2);
 		
 		//Primary returns execution::Expression:
-		//    ValueSpecification | VariableRef | InputPinAttributeReference | InputPinReference |
+		//    ParameterReference | ValueSpecification | VariableRef | InputPinAttributeReference | InputPinReference |
 		//    '(' Addition ')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//ValueSpecification | VariableRef | InputPinAttributeReference | InputPinReference |
+		//ParameterReference | ValueSpecification | VariableRef | InputPinAttributeReference | InputPinReference |
 		//'(' Addition ')'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
+		//ParameterReference
+		public RuleCall getParameterReferenceParserRuleCall_0() { return cParameterReferenceParserRuleCall_0; }
+		
 		//ValueSpecification
-		public RuleCall getValueSpecificationParserRuleCall_0() { return cValueSpecificationParserRuleCall_0; }
+		public RuleCall getValueSpecificationParserRuleCall_1() { return cValueSpecificationParserRuleCall_1; }
 		
 		//VariableRef
-		public RuleCall getVariableRefParserRuleCall_1() { return cVariableRefParserRuleCall_1; }
+		public RuleCall getVariableRefParserRuleCall_2() { return cVariableRefParserRuleCall_2; }
 		
 		//InputPinAttributeReference
-		public RuleCall getInputPinAttributeReferenceParserRuleCall_2() { return cInputPinAttributeReferenceParserRuleCall_2; }
+		public RuleCall getInputPinAttributeReferenceParserRuleCall_3() { return cInputPinAttributeReferenceParserRuleCall_3; }
 		
 		//InputPinReference
-		public RuleCall getInputPinReferenceParserRuleCall_3() { return cInputPinReferenceParserRuleCall_3; }
+		public RuleCall getInputPinReferenceParserRuleCall_4() { return cInputPinReferenceParserRuleCall_4; }
 		
 		//'(' Addition ')'
-		public Group getGroup_4() { return cGroup_4; }
+		public Group getGroup_5() { return cGroup_5; }
 		
 		//'('
-		public Keyword getLeftParenthesisKeyword_4_0() { return cLeftParenthesisKeyword_4_0; }
+		public Keyword getLeftParenthesisKeyword_5_0() { return cLeftParenthesisKeyword_5_0; }
 		
 		//Addition
-		public RuleCall getAdditionParserRuleCall_4_1() { return cAdditionParserRuleCall_4_1; }
+		public RuleCall getAdditionParserRuleCall_5_1() { return cAdditionParserRuleCall_5_1; }
 		
 		//')'
-		public Keyword getRightParenthesisKeyword_4_2() { return cRightParenthesisKeyword_4_2; }
+		public Keyword getRightParenthesisKeyword_5_2() { return cRightParenthesisKeyword_5_2; }
 	}
 	public class LiteralIntegerElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "e4sm.de.metamodel.xtext.E4sm.LiteralInteger");
@@ -11257,6 +11284,40 @@ public class E4smGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		
 		//Const
 		public RuleCall getConstParserRuleCall_1() { return cConstParserRuleCall_1; }
+	}
+	public class ParameterReferenceElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "e4sm.de.metamodel.xtext.E4sm.ParameterReference");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cParameterReferenceAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cCommercialAtKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cParameterAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final CrossReference cParameterParameterCrossReference_2_0 = (CrossReference)cParameterAssignment_2.eContents().get(0);
+		private final RuleCall cParameterParameterIDTerminalRuleCall_2_0_1 = (RuleCall)cParameterParameterCrossReference_2_0.eContents().get(1);
+		
+		//ParameterReference returns execution::ParameterReference:
+		//    {execution::ParameterReference}
+		//    '@'parameter=[analysis::Parameter]
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{execution::ParameterReference}
+		//'@'parameter=[analysis::Parameter]
+		public Group getGroup() { return cGroup; }
+		
+		//{execution::ParameterReference}
+		public Action getParameterReferenceAction_0() { return cParameterReferenceAction_0; }
+		
+		//'@'
+		public Keyword getCommercialAtKeyword_1() { return cCommercialAtKeyword_1; }
+		
+		//parameter=[analysis::Parameter]
+		public Assignment getParameterAssignment_2() { return cParameterAssignment_2; }
+		
+		//[analysis::Parameter]
+		public CrossReference getParameterParameterCrossReference_2_0() { return cParameterParameterCrossReference_2_0; }
+		
+		//ID
+		public RuleCall getParameterParameterIDTerminalRuleCall_2_0_1() { return cParameterParameterIDTerminalRuleCall_2_0_1; }
 	}
 	public class InputPinReferenceElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "e4sm.de.metamodel.xtext.E4sm.InputPinReference");
@@ -12345,6 +12406,7 @@ public class E4smGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	private final PrimaryElements pPrimary;
 	private final LiteralIntegerElements pLiteralInteger;
 	private final ReferenceableItemElements pReferenceableItem;
+	private final ParameterReferenceElements pParameterReference;
 	private final InputPinReferenceElements pInputPinReference;
 	private final InputPinAttributeReferenceElements pInputPinAttributeReference;
 	private final VariableElements pVariable;
@@ -12472,6 +12534,7 @@ public class E4smGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		this.pPrimary = new PrimaryElements();
 		this.pLiteralInteger = new LiteralIntegerElements();
 		this.pReferenceableItem = new ReferenceableItemElements();
+		this.pParameterReference = new ParameterReferenceElements();
 		this.pInputPinReference = new InputPinReferenceElements();
 		this.pInputPinAttributeReference = new InputPinAttributeReferenceElements();
 		this.pVariable = new VariableElements();
@@ -12769,16 +12832,16 @@ public class E4smGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	}
 	
 	//Parameter returns analysis::Parameter:
-	//    'par'
-	//    '{'
-	//    'parameterDefinition' PROPERTY_ASSIGN parameterDefinition=[analysis::ParameterDefinition|EString]
+	//    {analysis::Parameter}
+	//    'par' name=EString  (':=' initialValue=ValueSpecification)?
+	//    ('{'
+	//    ('parameterDefinition' PROPERTY_ASSIGN parameterDefinition=[analysis::ParameterDefinition|EString])?
 	//    ('appliesOnlyOnVariants' '(' appliesOnlyOnVariants+=[core::Variant|EString] (","
 	//    appliesOnlyOnVariants+=[core::Variant|EString])* ')')?
 	//    ('doesNotApplyOnVariants' '(' doesNotApplyOnVariants+=[core::Variant|EString] (","
 	//    doesNotApplyOnVariants+=[core::Variant|EString])* ')')?
-	//    ('initialValue' PROPERTY_ASSIGN initialValue=ValueSpecification)?
 	//    ('currentValue' PROPERTY_ASSIGN currentValue=ValueSpecification)?
-	//    '}';
+	//    '}')?;
 	public ParameterElements getParameterAccess() {
 		return pParameter;
 	}
@@ -14015,7 +14078,7 @@ public class E4smGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	}
 	
 	//Primary returns execution::Expression:
-	//    ValueSpecification | VariableRef | InputPinAttributeReference | InputPinReference |
+	//    ParameterReference | ValueSpecification | VariableRef | InputPinAttributeReference | InputPinReference |
 	//    '(' Addition ')';
 	public PrimaryElements getPrimaryAccess() {
 		return pPrimary;
@@ -14044,6 +14107,18 @@ public class E4smGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	
 	public ParserRule getReferenceableItemRule() {
 		return getReferenceableItemAccess().getRule();
+	}
+	
+	//ParameterReference returns execution::ParameterReference:
+	//    {execution::ParameterReference}
+	//    '@'parameter=[analysis::Parameter]
+	//;
+	public ParameterReferenceElements getParameterReferenceAccess() {
+		return pParameterReference;
+	}
+	
+	public ParserRule getParameterReferenceRule() {
+		return getParameterReferenceAccess().getRule();
 	}
 	
 	//InputPinReference returns execution::InputPinReference:

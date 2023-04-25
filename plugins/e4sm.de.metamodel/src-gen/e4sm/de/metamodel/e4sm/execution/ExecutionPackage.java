@@ -1326,6 +1326,70 @@ public interface ExecutionPackage extends EPackage {
 	int INPUT_PIN_ATTRIBUTE_REFERENCE_OPERATION_COUNT = INPUT_PIN_REFERENCE_OPERATION_COUNT + 3;
 
 	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.execution.impl.ParameterReferenceImpl <em>Parameter Reference</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.execution.impl.ParameterReferenceImpl
+	 * @see e4sm.de.metamodel.e4sm.execution.impl.ExecutionPackageImpl#getParameterReference()
+	 * @generated
+	 */
+	int PARAMETER_REFERENCE = 24;
+
+	/**
+	 * The feature id for the '<em><b>Parameter</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_REFERENCE__PARAMETER = EXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Parameter Reference</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_REFERENCE_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get Tangible Child</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_REFERENCE___GET_TANGIBLE_CHILD = EXPRESSION_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Actual Parent</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_REFERENCE___GET_ACTUAL_PARENT = EXPRESSION_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_REFERENCE___TO_STRING = EXPRESSION_OPERATION_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Parameter Reference</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_REFERENCE_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 3;
+
+	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.execution.TimeFunctions <em>Time Functions</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1333,7 +1397,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.execution.impl.ExecutionPackageImpl#getTimeFunctions()
 	 * @generated
 	 */
-	int TIME_FUNCTIONS = 24;
+	int TIME_FUNCTIONS = 25;
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.execution.DecisionNode <em>Decision Node</em>}'.
@@ -2041,6 +2105,57 @@ public interface ExecutionPackage extends EPackage {
 	EOperation getInputPinAttributeReference__ToString();
 
 	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.execution.ParameterReference <em>Parameter Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Parameter Reference</em>'.
+	 * @see e4sm.de.metamodel.e4sm.execution.ParameterReference
+	 * @generated
+	 */
+	EClass getParameterReference();
+
+	/**
+	 * Returns the meta object for the reference '{@link e4sm.de.metamodel.e4sm.execution.ParameterReference#getParameter <em>Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Parameter</em>'.
+	 * @see e4sm.de.metamodel.e4sm.execution.ParameterReference#getParameter()
+	 * @see #getParameterReference()
+	 * @generated
+	 */
+	EReference getParameterReference_Parameter();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.execution.ParameterReference#getTangibleChild() <em>Get Tangible Child</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Tangible Child</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.execution.ParameterReference#getTangibleChild()
+	 * @generated
+	 */
+	EOperation getParameterReference__GetTangibleChild();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.execution.ParameterReference#getActualParent() <em>Get Actual Parent</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Actual Parent</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.execution.ParameterReference#getActualParent()
+	 * @generated
+	 */
+	EOperation getParameterReference__GetActualParent();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.execution.ParameterReference#toString() <em>To String</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>To String</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.execution.ParameterReference#toString()
+	 * @generated
+	 */
+	EOperation getParameterReference__ToString();
+
+	/**
 	 * Returns the meta object for enum '{@link e4sm.de.metamodel.e4sm.execution.TimeFunctions <em>Time Functions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2666,6 +2781,48 @@ public interface ExecutionPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation INPUT_PIN_ATTRIBUTE_REFERENCE___TO_STRING = eINSTANCE.getInputPinAttributeReference__ToString();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.execution.impl.ParameterReferenceImpl <em>Parameter Reference</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.execution.impl.ParameterReferenceImpl
+		 * @see e4sm.de.metamodel.e4sm.execution.impl.ExecutionPackageImpl#getParameterReference()
+		 * @generated
+		 */
+		EClass PARAMETER_REFERENCE = eINSTANCE.getParameterReference();
+
+		/**
+		 * The meta object literal for the '<em><b>Parameter</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARAMETER_REFERENCE__PARAMETER = eINSTANCE.getParameterReference_Parameter();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Tangible Child</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PARAMETER_REFERENCE___GET_TANGIBLE_CHILD = eINSTANCE.getParameterReference__GetTangibleChild();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Actual Parent</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PARAMETER_REFERENCE___GET_ACTUAL_PARENT = eINSTANCE.getParameterReference__GetActualParent();
+
+		/**
+		 * The meta object literal for the '<em><b>To String</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PARAMETER_REFERENCE___TO_STRING = eINSTANCE.getParameterReference__ToString();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.execution.TimeFunctions <em>Time Functions</em>}' enum.

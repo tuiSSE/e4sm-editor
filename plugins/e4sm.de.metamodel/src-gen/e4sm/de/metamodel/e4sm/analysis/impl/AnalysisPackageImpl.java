@@ -761,7 +761,7 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		// Add supertypes to classes
 		analysisDefinitionEClass.getESuperTypes().add(theCorePackage.getNamedElement());
 		parameterDefinitionEClass.getESuperTypes().add(theCorePackage.getTypedElement());
-		parameterEClass.getESuperTypes().add(theCorePackage.getElement());
+		parameterEClass.getESuperTypes().add(theCorePackage.getTypedElement());
 		modelAnalysisEClass.getESuperTypes().add(this.getAnalysis());
 		graphAnalysisEClass.getESuperTypes().add(this.getAnalysis());
 		EGenericType g1 = createEGenericType(this.getGraphAnalysis());
@@ -834,7 +834,7 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getParameter_ParameterDefinition(), this.getParameterDefinition(),
-				this.getParameterDefinition_Parameters(), "parameterDefinition", null, 1, 1, Parameter.class,
+				this.getParameterDefinition_Parameters(), "parameterDefinition", null, 0, 1, Parameter.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getParameter_AppliesOnlyOnVariants(), theCorePackage.getVariant(), null, "appliesOnlyOnVariants",

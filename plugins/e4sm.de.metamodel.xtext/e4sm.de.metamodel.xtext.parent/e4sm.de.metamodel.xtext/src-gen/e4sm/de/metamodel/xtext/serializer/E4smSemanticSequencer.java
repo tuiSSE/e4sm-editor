@@ -69,6 +69,7 @@ import e4sm.de.metamodel.e4sm.execution.InputPinAttributeReference;
 import e4sm.de.metamodel.e4sm.execution.InputPinReference;
 import e4sm.de.metamodel.e4sm.execution.MergeNode;
 import e4sm.de.metamodel.e4sm.execution.Multiplication;
+import e4sm.de.metamodel.e4sm.execution.ParameterReference;
 import e4sm.de.metamodel.e4sm.execution.TimeFunction;
 import e4sm.de.metamodel.e4sm.execution.Variable;
 import e4sm.de.metamodel.e4sm.execution.VariableRef;
@@ -350,6 +351,9 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case ExecutionPackage.MULTIPLICATION:
 				sequence_Multiplication(context, (Multiplication) semanticObject); 
+				return; 
+			case ExecutionPackage.PARAMETER_REFERENCE:
+				sequence_ParameterReference(context, (ParameterReference) semanticObject); 
 				return; 
 			case ExecutionPackage.TIME_FUNCTION:
 				sequence_ExeTimeFunction(context, (TimeFunction) semanticObject); 
@@ -1720,14 +1724,36 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     Primary returns ParameterReference
+	 *     ParameterReference returns ParameterReference
+	 *
+	 * Constraint:
+	 *     parameter=[Parameter|ID]
+	 * </pre>
+	 */
+	protected void sequence_ParameterReference(ISerializationContext context, ParameterReference semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, ExecutionPackage.Literals.PARAMETER_REFERENCE__PARAMETER) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ExecutionPackage.Literals.PARAMETER_REFERENCE__PARAMETER));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getParameterReferenceAccess().getParameterParameterIDTerminalRuleCall_2_0_1(), semanticObject.eGet(ExecutionPackage.Literals.PARAMETER_REFERENCE__PARAMETER, false));
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     Parameter returns Parameter
 	 *
 	 * Constraint:
 	 *     (
-	 *         parameterDefinition=[ParameterDefinition|EString] 
+	 *         name=EString 
+	 *         initialValue=ValueSpecification? 
+	 *         parameterDefinition=[ParameterDefinition|EString]? 
 	 *         (appliesOnlyOnVariants+=[Variant|EString] appliesOnlyOnVariants+=[Variant|EString]*)? 
 	 *         (doesNotApplyOnVariants+=[Variant|EString] doesNotApplyOnVariants+=[Variant|EString]*)? 
-	 *         initialValue=ValueSpecification? 
 	 *         currentValue=ValueSpecification?
 	 *     )
 	 * </pre>

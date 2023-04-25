@@ -38,6 +38,7 @@ import e4sm.de.metamodel.e4sm.execution.InputPinReference;
 import e4sm.de.metamodel.e4sm.execution.MergeNode;
 
 import e4sm.de.metamodel.e4sm.execution.Multiplication;
+import e4sm.de.metamodel.e4sm.execution.ParameterReference;
 import e4sm.de.metamodel.e4sm.execution.ReferenceableItem;
 import e4sm.de.metamodel.e4sm.execution.TimeFunction;
 import e4sm.de.metamodel.e4sm.execution.TimeFunctions;
@@ -235,6 +236,13 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	private EClass inputPinAttributeReferenceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass parameterReferenceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1034,6 +1042,56 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
+	public EClass getParameterReference() {
+		return parameterReferenceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getParameterReference_Parameter() {
+		return (EReference) parameterReferenceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getParameterReference__GetTangibleChild() {
+		return parameterReferenceEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getParameterReference__GetActualParent() {
+		return parameterReferenceEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getParameterReference__ToString() {
+		return parameterReferenceEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EEnum getTimeFunctions() {
 		return timeFunctionsEEnum;
 	}
@@ -1160,6 +1218,12 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		createEOperation(inputPinAttributeReferenceEClass, INPUT_PIN_ATTRIBUTE_REFERENCE___GET_TANGIBLE_CHILD);
 		createEOperation(inputPinAttributeReferenceEClass, INPUT_PIN_ATTRIBUTE_REFERENCE___TO_STRING);
 
+		parameterReferenceEClass = createEClass(PARAMETER_REFERENCE);
+		createEReference(parameterReferenceEClass, PARAMETER_REFERENCE__PARAMETER);
+		createEOperation(parameterReferenceEClass, PARAMETER_REFERENCE___GET_TANGIBLE_CHILD);
+		createEOperation(parameterReferenceEClass, PARAMETER_REFERENCE___GET_ACTUAL_PARENT);
+		createEOperation(parameterReferenceEClass, PARAMETER_REFERENCE___TO_STRING);
+
 		// Create enums
 		timeFunctionsEEnum = createEEnum(TIME_FUNCTIONS);
 	}
@@ -1192,6 +1256,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		EcorePackage theEcorePackage = (EcorePackage) EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
 		CorePackage theCorePackage = (CorePackage) EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
 		e4smPackage thee4smPackage = (e4smPackage) EPackage.Registry.INSTANCE.getEPackage(e4smPackage.eNS_URI);
+		AnalysisPackage theAnalysisPackage = (AnalysisPackage) EPackage.Registry.INSTANCE
+				.getEPackage(AnalysisPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -1221,6 +1287,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		referenceableItemEClass.getESuperTypes().add(theCorePackage.getNamedElement());
 		inputPinReferenceEClass.getESuperTypes().add(this.getExpression());
 		inputPinAttributeReferenceEClass.getESuperTypes().add(this.getInputPinReference());
+		parameterReferenceEClass.getESuperTypes().add(this.getExpression());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(decisionNodeEClass, DecisionNode.class, "DecisionNode", !IS_ABSTRACT, !IS_INTERFACE,
@@ -1421,6 +1488,21 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 
 		initEOperation(getInputPinAttributeReference__ToString(), theEcorePackage.getEString(), "toString", 1, 1,
 				IS_UNIQUE, IS_ORDERED);
+
+		initEClass(parameterReferenceEClass, ParameterReference.class, "ParameterReference", !IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getParameterReference_Parameter(), theAnalysisPackage.getParameter(), null, "parameter", null, 1,
+				1, ParameterReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getParameterReference__GetTangibleChild(), this.getExpression(), "getTangibleChild", 0, 1,
+				IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getParameterReference__GetActualParent(), this.getExecutionElement(), "getActualParent", 0, 1,
+				IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getParameterReference__ToString(), theEcorePackage.getEString(), "toString", 1, 1, IS_UNIQUE,
+				IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(timeFunctionsEEnum, TimeFunctions.class, "TimeFunctions");
