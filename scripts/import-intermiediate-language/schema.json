@@ -7,7 +7,7 @@
     "name": {
       "type": "string",
       "description": "The name of the model, it shall not start with a number and shall not contain a |",
-      "pattern": "^([a-z]|[A-Z]|_)[^|]*$"
+      "pattern": "^([a-z]|[A-Z]|_)[^!]*$"
     },
     "timestamp": {
       "type": "number"
@@ -22,12 +22,12 @@
           "id": {
             "description": "A model-unique ID for this component, it shall not contain a |",
             "type": "string",
-            "pattern": "^[^|]*$"
+            "pattern": "^[^!]*$"
           },
           "name": {
             "type": "string",
             "description": "The name of the component, it shall not start with a number and shall not contain a |",
-            "pattern": "^([a-z]|[A-Z]|_)[^|]*$"
+            "pattern": "^([a-z]|[A-Z]|_)[^!]*$"
           },
           "outputSize": {
             "description": "A formula computing the size of the output",
@@ -43,7 +43,7 @@
                 "id": {
                   "type": "string",
                   "description": "The name of the input pin, it shall not start with a number and shall not contain a |",
-                  "pattern": "^([a-z]|[A-Z]|_)[^|]*$"
+                  "pattern": "^([a-z]|[A-Z]|_)[^!]*$"
                 }
               },
               "required": [
@@ -61,7 +61,7 @@
                 "id": {
                   "type": "string",
                   "description": "The name of the output pin, it shall not start with a number and shall not contain a |",
-                  "pattern": "^([a-z]|[A-Z]|_)[^|]*$"
+                  "pattern": "^([a-z]|[A-Z]|_)[^!]*$"
                 },
                 "dataFunction": {
                   "type": "string"
@@ -100,7 +100,7 @@
                 "name": {
                   "type": "string",
                   "description": "The name of the parameter, it shall not start with a number and shall not contain a |",
-                  "pattern": "^([a-z]|[A-Z]|_)[^|]*$"
+                  "pattern": "^([a-z]|[A-Z]|_)[^!]*$"
                 },
                 "type": {
                   "enum": [
@@ -165,12 +165,12 @@
           "id": {
             "description": "A model-unique ID for this source, it must not contain a |",
             "type": "string",
-            "pattern": "^[^|]*$"
+            "pattern": "^[^!]*$"
           },
           "name": {
             "type": "string",
       		"description" : "The name of the source, it shall not start with a number and shall not contain a |",
-      		"pattern": "^([a-z]|[A-Z]|_)[^|]*$"
+      		"pattern": "^([a-z]|[A-Z]|_)[^!]*$"
           },
           "outputSize": {
             "description": "A formula computing the size of the output",

@@ -3,6 +3,7 @@ import { Validator } from 'jsonschema';
 import { readFile, writeFile } from 'fs/promises';
 import commandLineArgs from 'command-line-args';
 import commandLineUsage from 'command-line-usage'
+import generateE4SM from './modules/transformations.js';
 
 const optionDefinitions = [
     { name: 'source', alias: 's', type: String, description: "The path of the input file, in the intermediate language format" },
@@ -37,68 +38,6 @@ async function run() {
     writeStringToFile(res, options.target ?? "out.e4smcode");
 
     //runTests();
-}
-
-/**
- * Transforms the given object to an E4SM model
- * @param {object} input 
- * @returns string
- */
-function generateE4SM(input) {
-    return `model "${input.name}_model"{
-        package "${input.name}" {
-            ${generateComponents(input.components)}
-            ${generateConnectors(input.connections)}
-        }
-    }`;
-}
-
-function generateComponents(components){
-    let result = "// Components\n";
-    for (let i = 0; i < components.length; i++) {
-        const c = components[i];
-        result += `component "${c.name}|${c.id}" {
-            takes Det(${c.executionFunction.meanValue})
-            ${generateInputPins(c.inputPins)}
-            ${generateOutputPins(c.outputPins)}
-        }`;
-        if ((i + 1) < components.length)
-            result += ",\n";
-    };
-    return result;
-}
-
-function generateInputPins(pins){
-    let result = "// Input Pins\n";
-    for (let i = 0; i < pins.length; i++) {
-        const p = pins[i];
-        result += `in "${p.id}"`;
-        //if ((i + 1) < pins.length)
-            result += ",\n";
-    };
-    return result;
-}
-
-function generateOutputPins(pins){
-    let result = "// Output Pins\n";
-    for (let i = 0; i < pins.length; i++) {
-        const p = pins[i];
-        result += `out "${p.id}"`;
-        if ((i + 1) < pins.length)
-            result += ",\n";
-    };
-    return result;
-}
-
-function generateConnectors(connectors) {
-    let result = "// Connectors\n";
-    for (let i = 0; i < connectors.length; i++) {
-        const c = connectors[i];
-        result += `connector "${c.source}_to_${c.target}" "${c.source}"->"${c.target}"`;
-        if ((i + 1) < connectors.length)
-            result += ",\n";
-    };
-    return result;
 }
 
 function printHelp() {
