@@ -6,8 +6,8 @@
   "properties": {
     "name": {
       "type": "string",
-      "description": "The name of the model, it shall not start with a number and shall not contain a |",
-      "pattern": "^([a-z]|[A-Z]|_)[^!]*$"
+      "description": "The name of the model, it shall not start with a number and shall not contain special characters",
+      "pattern": "^([a-z]|[A-Z]|_)[a-zA-Z0-9_ ]*$"
     },
     "timestamp": {
       "type": "number"
@@ -20,14 +20,14 @@
         "additionalProperties": false,
         "properties": {
           "id": {
-            "description": "A model-unique ID for this component, it shall not contain a |",
+            "description": "A model-unique ID for this component, it shall not contain a double underscore __",
             "type": "string",
-            "pattern": "^[^!]*$"
+            "pattern": "^(?!.*__)"
           },
           "name": {
             "type": "string",
-            "description": "The name of the component, it shall not start with a number and shall not contain a |",
-            "pattern": "^([a-z]|[A-Z]|_)[^!]*$"
+            "description": "The name of the component, it shall not start with a number and shall not contain special characters",
+            "pattern": "^([a-z]|[A-Z]|_)[a-zA-Z0-9_ ]*$"
           },
           "outputSize": {
             "description": "A formula computing the size of the output",
@@ -42,8 +42,8 @@
               "properties": {
                 "id": {
                   "type": "string",
-                  "description": "The name of the input pin, it shall not start with a number and shall not contain a |",
-                  "pattern": "^([a-z]|[A-Z]|_)[^!]*$"
+                  "description": "The name of the input pin, it shall not start with a number and shall not contain special characters",
+                  "pattern": "^([a-z]|[A-Z]|_)[a-zA-Z0-9_ ]*$"
                 }
               },
               "required": [
@@ -60,8 +60,8 @@
               "properties": {
                 "id": {
                   "type": "string",
-                  "description": "The name of the output pin, it shall not start with a number and shall not contain a |",
-                  "pattern": "^([a-z]|[A-Z]|_)[^!]*$"
+                  "description": "The name of the output pin, it shall not start with a number and shall not contain special characters",
+                  "pattern": "^([a-z]|[A-Z]|_)[a-zA-Z0-9_ ]*$"
                 },
                 "dataFunction": {
                   "type": "string"
@@ -99,8 +99,8 @@
               "properties": {
                 "name": {
                   "type": "string",
-                  "description": "The name of the parameter, it shall not start with a number and shall not contain a |",
-                  "pattern": "^([a-z]|[A-Z]|_)[^!]*$"
+                  "description": "The name of the parameter, it shall not start with a number and shall not contain special characters",
+                  "pattern": "^([a-z]|[A-Z]|_)[a-zA-Z0-9_ ]*$"
                 },
                 "type": {
                   "enum": [
@@ -163,14 +163,14 @@
         "additionalProperties": false,
         "properties": {
           "id": {
-            "description": "A model-unique ID for this source, it must not contain a |",
+            "description": "A model-unique ID for this source, it must not contain a  double underscore __",
             "type": "string",
-            "pattern": "^[^!]*$"
+            "pattern": "^(?!.*__)"
           },
           "name": {
             "type": "string",
-      		"description" : "The name of the source, it shall not start with a number and shall not contain a |",
-      		"pattern": "^([a-z]|[A-Z]|_)[^!]*$"
+      		"description" : "The name of the source, it shall not start with a number",
+      		"pattern": "^([a-z]|[A-Z]|_)[a-zA-Z0-9_]*$"
           },
           "outputSize": {
             "description": "A formula computing the size of the output",
@@ -184,8 +184,9 @@
               "additionalProperties": false,
               "properties": {
                 "id": {
+                  "description": "A component-unique identifier for the pin.",
                   "type": "string",
-                  "pattern": "^([a-z]|[A-Z]|_).*"
+                  "pattern": "^([a-z]|[A-Z]|_)[a-zA-Z0-9_]*$"
                 },
                 "dataFunction": {
                   "type": "string"

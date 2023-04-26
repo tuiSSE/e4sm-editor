@@ -6,7 +6,9 @@ import e4sm.de.metamodel.e4sm.analysis.Parameter;
 import e4sm.de.metamodel.e4sm.execution.ExecutionPackage;
 import e4sm.de.metamodel.e4sm.execution.ParameterReference;
 
+import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -102,6 +104,16 @@ public class ParameterReferenceImpl extends ExpressionImpl implements ParameterR
 	 * @generated
 	 */
 	@Override
+	public String toString() {
+		return "$" + this.getParameter().getName();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case ExecutionPackage.PARAMETER_REFERENCE__PARAMETER:
@@ -154,6 +166,20 @@ public class ParameterReferenceImpl extends ExpressionImpl implements ParameterR
 			return parameter != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+		case ExecutionPackage.PARAMETER_REFERENCE___TO_STRING:
+			return toString();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //ParameterReferenceImpl

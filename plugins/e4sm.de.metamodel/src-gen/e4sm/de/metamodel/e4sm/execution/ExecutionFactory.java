@@ -175,6 +175,15 @@ public interface ExecutionFactory extends EFactory {
 	ParameterReference createParameterReference();
 
 	/**
+	 * Returns a new object of class '<em>Exponentiation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Exponentiation</em>'.
+	 * @generated
+	 */
+	Exponentiation createExponentiation();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -29,6 +29,7 @@ import e4sm.de.metamodel.e4sm.execution.Execution;
 import e4sm.de.metamodel.e4sm.execution.ExecutionElement;
 import e4sm.de.metamodel.e4sm.execution.ExecutionFactory;
 import e4sm.de.metamodel.e4sm.execution.ExecutionPackage;
+import e4sm.de.metamodel.e4sm.execution.Exponentiation;
 import e4sm.de.metamodel.e4sm.execution.Expression;
 import e4sm.de.metamodel.e4sm.execution.Flow;
 import e4sm.de.metamodel.e4sm.execution.FlowFinal;
@@ -243,6 +244,13 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	private EClass parameterReferenceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass exponentiationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1092,6 +1100,36 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
+	public EClass getExponentiation() {
+		return exponentiationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getExponentiation__ToString() {
+		return exponentiationEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getExponentiation__IsRealOperation() {
+		return exponentiationEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EEnum getTimeFunctions() {
 		return timeFunctionsEEnum;
 	}
@@ -1224,6 +1262,10 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		createEOperation(parameterReferenceEClass, PARAMETER_REFERENCE___GET_ACTUAL_PARENT);
 		createEOperation(parameterReferenceEClass, PARAMETER_REFERENCE___TO_STRING);
 
+		exponentiationEClass = createEClass(EXPONENTIATION);
+		createEOperation(exponentiationEClass, EXPONENTIATION___TO_STRING);
+		createEOperation(exponentiationEClass, EXPONENTIATION___IS_REAL_OPERATION);
+
 		// Create enums
 		timeFunctionsEEnum = createEEnum(TIME_FUNCTIONS);
 	}
@@ -1288,6 +1330,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		inputPinReferenceEClass.getESuperTypes().add(this.getExpression());
 		inputPinAttributeReferenceEClass.getESuperTypes().add(this.getInputPinReference());
 		parameterReferenceEClass.getESuperTypes().add(this.getExpression());
+		exponentiationEClass.getESuperTypes().add(this.getBinaryExpression());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(decisionNodeEClass, DecisionNode.class, "DecisionNode", !IS_ABSTRACT, !IS_INTERFACE,
@@ -1503,6 +1546,15 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 
 		initEOperation(getParameterReference__ToString(), theEcorePackage.getEString(), "toString", 1, 1, IS_UNIQUE,
 				IS_ORDERED);
+
+		initEClass(exponentiationEClass, Exponentiation.class, "Exponentiation", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+
+		initEOperation(getExponentiation__ToString(), theEcorePackage.getEString(), "toString", 1, 1, IS_UNIQUE,
+				IS_ORDERED);
+
+		initEOperation(getExponentiation__IsRealOperation(), theEcorePackage.getEBoolean(), "isRealOperation", 0, 1,
+				IS_UNIQUE, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(timeFunctionsEEnum, TimeFunctions.class, "TimeFunctions");

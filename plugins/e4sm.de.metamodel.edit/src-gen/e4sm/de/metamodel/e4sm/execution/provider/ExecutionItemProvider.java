@@ -197,6 +197,9 @@ public class ExecutionItemProvider extends ItemProviderAdapter implements IEditi
 				ExecutionFactory.eINSTANCE.createParameterReference()));
 
 		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.EXECUTION__ELEMENTS,
+				ExecutionFactory.eINSTANCE.createExponentiation()));
+
+		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.EXECUTION__ELEMENTS,
 				e4smFactory.eINSTANCE.createInputPin()));
 
 		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.EXECUTION__ELEMENTS,

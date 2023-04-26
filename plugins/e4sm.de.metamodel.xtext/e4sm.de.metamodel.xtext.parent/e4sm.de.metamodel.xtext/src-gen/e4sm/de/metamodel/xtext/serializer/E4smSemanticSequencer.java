@@ -62,6 +62,7 @@ import e4sm.de.metamodel.e4sm.execution.Assignment;
 import e4sm.de.metamodel.e4sm.execution.Const;
 import e4sm.de.metamodel.e4sm.execution.Execution;
 import e4sm.de.metamodel.e4sm.execution.ExecutionPackage;
+import e4sm.de.metamodel.e4sm.execution.Exponentiation;
 import e4sm.de.metamodel.e4sm.execution.Flow;
 import e4sm.de.metamodel.e4sm.execution.FlowFinal;
 import e4sm.de.metamodel.e4sm.execution.ForkNode;
@@ -330,6 +331,9 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case ExecutionPackage.EXECUTION:
 				sequence_Execution(context, (Execution) semanticObject); 
+				return; 
+			case ExecutionPackage.EXPONENTIATION:
+				sequence_Exponentiation(context, (Exponentiation) semanticObject); 
 				return; 
 			case ExecutionPackage.FLOW:
 				sequence_Flow(context, (Flow) semanticObject); 
@@ -659,7 +663,14 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Connector_Impl returns Connector
 	 *
 	 * Constraint:
-	 *     (name=EString source=[Pin|EString] target=[Pin|EString] documentation=EString? (parameters+=Parameter parameters+=Parameter*)?)
+	 *     (
+	 *         name=EString 
+	 *         source=[Pin|EString] 
+	 *         target=[Pin|EString] 
+	 *         documentation=EString? 
+	 *         timeFunction=ComplexTimefunction? 
+	 *         (parameters+=Parameter parameters+=Parameter*)?
+	 *     )
 	 * </pre>
 	 */
 	protected void sequence_Connector_Impl(ISerializationContext context, Connector semanticObject) {
@@ -1037,6 +1048,35 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * </pre>
 	 */
 	protected void sequence_Execution(ISerializationContext context, Execution semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Exponentiation returns Exponentiation
+	 *     Exponentiation.Exponentiation_2_0 returns Exponentiation
+	 *
+	 * Constraint:
+	 *     (
+	 *         left=Primary | 
+	 *         (
+	 *             left=Exponentiation_Exponentiation_2_0 
+	 *             (
+	 *                 right=LiteralInteger | 
+	 *                 right=LiteralBoolean | 
+	 *                 right=LiteralFloat | 
+	 *                 right=LiteralDouble | 
+	 *                 right=LiteralLong | 
+	 *                 right=LiteralShort | 
+	 *                 right=LiteralByte
+	 *             )
+	 *         )
+	 *     )
+	 * </pre>
+	 */
+	protected void sequence_Exponentiation(ISerializationContext context, Exponentiation semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1515,7 +1555,14 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     LogicalConnector returns LogicalConnector
 	 *
 	 * Constraint:
-	 *     (name=EString source=[Pin|EString] target=[Pin|EString] documentation=EString? (parameters+=Parameter parameters+=Parameter*)?)
+	 *     (
+	 *         name=EString 
+	 *         source=[Pin|EString] 
+	 *         target=[Pin|EString] 
+	 *         documentation=EString? 
+	 *         timeFunction=ComplexTimefunction? 
+	 *         (parameters+=Parameter parameters+=Parameter*)?
+	 *     )
 	 * </pre>
 	 */
 	protected void sequence_LogicalConnector(ISerializationContext context, LogicalConnector semanticObject) {
@@ -1647,7 +1694,7 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Multiplication.Multiplication_2_0 returns Multiplication
 	 *
 	 * Constraint:
-	 *     (left=Primary | (left=Multiplication_Multiplication_2_0 (multiplication?='*' | division?='/') right=Primary))
+	 *     (left=Exponentiation | (left=Multiplication_Multiplication_2_0 (multiplication?='*' | division?='/') right=Exponentiation))
 	 * </pre>
 	 */
 	protected void sequence_Multiplication(ISerializationContext context, Multiplication semanticObject) {
@@ -1819,6 +1866,7 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         documentation=EString? 
 	 *         minSpeed=Connectionspeed? 
 	 *         maxSpeed=Connectionspeed? 
+	 *         timeFunction=ComplexTimefunction? 
 	 *         (parameters+=Parameter parameters+=Parameter*)?
 	 *     )
 	 * </pre>

@@ -170,6 +170,8 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseDocumentableElement(connector);
 			if (result == null)
+				result = caseDelayableElement(connector);
+			if (result == null)
 				result = caseElement(connector);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -186,6 +188,8 @@ public class e4smSwitch<T> extends Switch<T> {
 				result = caseNamedElement(physicalConnector);
 			if (result == null)
 				result = caseDocumentableElement(physicalConnector);
+			if (result == null)
+				result = caseDelayableElement(physicalConnector);
 			if (result == null)
 				result = caseElement(physicalConnector);
 			if (result == null)
@@ -241,6 +245,8 @@ public class e4smSwitch<T> extends Switch<T> {
 				result = caseNamedElement(logicalConnector);
 			if (result == null)
 				result = caseDocumentableElement(logicalConnector);
+			if (result == null)
+				result = caseDelayableElement(logicalConnector);
 			if (result == null)
 				result = caseElement(logicalConnector);
 			if (result == null)

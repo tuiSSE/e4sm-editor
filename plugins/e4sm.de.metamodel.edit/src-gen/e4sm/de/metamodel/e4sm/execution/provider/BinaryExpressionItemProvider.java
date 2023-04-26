@@ -194,6 +194,9 @@ public class BinaryExpressionItemProvider extends ExpressionItemProvider {
 				ExecutionFactory.eINSTANCE.createParameterReference()));
 
 		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.BINARY_EXPRESSION__LEFT,
+				ExecutionFactory.eINSTANCE.createExponentiation()));
+
+		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.BINARY_EXPRESSION__LEFT,
 				CoreFactory.eINSTANCE.createLiteralNull()));
 
 		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.BINARY_EXPRESSION__LEFT,
@@ -243,6 +246,9 @@ public class BinaryExpressionItemProvider extends ExpressionItemProvider {
 
 		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.BINARY_EXPRESSION__RIGHT,
 				ExecutionFactory.eINSTANCE.createParameterReference()));
+
+		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.BINARY_EXPRESSION__RIGHT,
+				ExecutionFactory.eINSTANCE.createExponentiation()));
 
 		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.BINARY_EXPRESSION__RIGHT,
 				CoreFactory.eINSTANCE.createLiteralNull()));

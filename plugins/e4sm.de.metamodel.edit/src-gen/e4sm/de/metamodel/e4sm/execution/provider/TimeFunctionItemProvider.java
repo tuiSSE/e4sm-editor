@@ -199,6 +199,9 @@ public class TimeFunctionItemProvider extends ItemProviderAdapter implements IEd
 				ExecutionFactory.eINSTANCE.createParameterReference()));
 
 		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.TIME_FUNCTION__PAR1,
+				ExecutionFactory.eINSTANCE.createExponentiation()));
+
+		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.TIME_FUNCTION__PAR1,
 				CoreFactory.eINSTANCE.createLiteralNull()));
 
 		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.TIME_FUNCTION__PAR1,
@@ -248,6 +251,9 @@ public class TimeFunctionItemProvider extends ItemProviderAdapter implements IEd
 
 		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.TIME_FUNCTION__PAR2,
 				ExecutionFactory.eINSTANCE.createParameterReference()));
+
+		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.TIME_FUNCTION__PAR2,
+				ExecutionFactory.eINSTANCE.createExponentiation()));
 
 		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.TIME_FUNCTION__PAR2,
 				CoreFactory.eINSTANCE.createLiteralNull()));

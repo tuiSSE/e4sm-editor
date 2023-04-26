@@ -453,6 +453,7 @@ Connector_Impl returns Connector:
 	source=[Pin|EString] '->' target=[Pin|EString]
 	('{'
 	('doc' PROPERTY_ASSIGN documentation=EString)?
+	('takes' timeFunction=ComplexTimefunction)?
 	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
 	'}')?;
 
@@ -727,6 +728,7 @@ PhysicalConnector returns PhysicalConnector:
 	('doc' PROPERTY_ASSIGN documentation=EString)?
 	('minSpeed' minSpeed=Connectionspeed)?
 	('maxSpeed' maxSpeed=Connectionspeed)?
+	('takes' timeFunction=ComplexTimefunction)?
 	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
 	'}')?;
 
@@ -736,6 +738,7 @@ LogicalConnector returns LogicalConnector:
 	source=[Pin|EString] '->' target=[Pin|EString]
 	('{'
 	('doc' PROPERTY_ASSIGN documentation=EString)?
+	('takes' timeFunction=ComplexTimefunction)?
 	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
 	'}')?;
 
@@ -807,13 +810,23 @@ Addition returns execution::Expression:
 	{execution::Addition}
 	left=Multiplication ({execution::Addition.left=current}
 	(addition?='+' | subtraction?='-')
-	right=Multiplication)*;
+	right=Multiplication)*
+;
 
 Multiplication returns execution::Expression:
 	{execution::Multiplication}
-	left=Primary ({execution::Multiplication.left=current}
+	left=Exponentiation ({execution::Multiplication.left=current}
 	(multiplication?='*' | division?='/')
-	right=Primary)*;
+	right=Exponentiation)*
+;
+	
+Exponentiation returns execution::Exponentiation: 
+	{execution::Exponentiation}
+	left=Primary ({execution::Exponentiation.left=current}
+	'^'
+	right = (LiteralInteger | LiteralBoolean | LiteralFloat | LiteralDouble | LiteralLong |	LiteralShort | LiteralByte))*
+;
+
 
 AssignableElement returns execution::AssignableElement:
 	Variable | OutputPin;

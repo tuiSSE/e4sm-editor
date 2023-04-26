@@ -1390,6 +1390,88 @@ public interface ExecutionPackage extends EPackage {
 	int PARAMETER_REFERENCE_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 3;
 
 	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.execution.impl.ExponentiationImpl <em>Exponentiation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.execution.impl.ExponentiationImpl
+	 * @see e4sm.de.metamodel.e4sm.execution.impl.ExecutionPackageImpl#getExponentiation()
+	 * @generated
+	 */
+	int EXPONENTIATION = 25;
+
+	/**
+	 * The feature id for the '<em><b>Left</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPONENTIATION__LEFT = BINARY_EXPRESSION__LEFT;
+
+	/**
+	 * The feature id for the '<em><b>Right</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPONENTIATION__RIGHT = BINARY_EXPRESSION__RIGHT;
+
+	/**
+	 * The number of structural features of the '<em>Exponentiation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPONENTIATION_FEATURE_COUNT = BINARY_EXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Actual Parent</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPONENTIATION___GET_ACTUAL_PARENT = BINARY_EXPRESSION___GET_ACTUAL_PARENT;
+
+	/**
+	 * The operation id for the '<em>Get Tangible Child</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPONENTIATION___GET_TANGIBLE_CHILD = BINARY_EXPRESSION___GET_TANGIBLE_CHILD;
+
+	/**
+	 * The operation id for the '<em>To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPONENTIATION___TO_STRING = BINARY_EXPRESSION_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Is Real Operation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPONENTIATION___IS_REAL_OPERATION = BINARY_EXPRESSION_OPERATION_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Exponentiation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPONENTIATION_OPERATION_COUNT = BINARY_EXPRESSION_OPERATION_COUNT + 2;
+
+	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.execution.TimeFunctions <em>Time Functions</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1397,7 +1479,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.execution.impl.ExecutionPackageImpl#getTimeFunctions()
 	 * @generated
 	 */
-	int TIME_FUNCTIONS = 25;
+	int TIME_FUNCTIONS = 26;
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.execution.DecisionNode <em>Decision Node</em>}'.
@@ -2156,6 +2238,36 @@ public interface ExecutionPackage extends EPackage {
 	EOperation getParameterReference__ToString();
 
 	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.execution.Exponentiation <em>Exponentiation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Exponentiation</em>'.
+	 * @see e4sm.de.metamodel.e4sm.execution.Exponentiation
+	 * @generated
+	 */
+	EClass getExponentiation();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.execution.Exponentiation#toString() <em>To String</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>To String</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.execution.Exponentiation#toString()
+	 * @generated
+	 */
+	EOperation getExponentiation__ToString();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.execution.Exponentiation#isRealOperation() <em>Is Real Operation</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Real Operation</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.execution.Exponentiation#isRealOperation()
+	 * @generated
+	 */
+	EOperation getExponentiation__IsRealOperation();
+
+	/**
 	 * Returns the meta object for enum '{@link e4sm.de.metamodel.e4sm.execution.TimeFunctions <em>Time Functions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2823,6 +2935,32 @@ public interface ExecutionPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PARAMETER_REFERENCE___TO_STRING = eINSTANCE.getParameterReference__ToString();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.execution.impl.ExponentiationImpl <em>Exponentiation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.execution.impl.ExponentiationImpl
+		 * @see e4sm.de.metamodel.e4sm.execution.impl.ExecutionPackageImpl#getExponentiation()
+		 * @generated
+		 */
+		EClass EXPONENTIATION = eINSTANCE.getExponentiation();
+
+		/**
+		 * The meta object literal for the '<em><b>To String</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation EXPONENTIATION___TO_STRING = eINSTANCE.getExponentiation__ToString();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Real Operation</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation EXPONENTIATION___IS_REAL_OPERATION = eINSTANCE.getExponentiation__IsRealOperation();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.execution.TimeFunctions <em>Time Functions</em>}' enum.

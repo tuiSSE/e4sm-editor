@@ -2529,6 +2529,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		connectorEClass.getESuperTypes().add(theAnalysisPackage.getParameterizableElement());
 		connectorEClass.getESuperTypes().add(theCorePackage.getNamedElement());
 		connectorEClass.getESuperTypes().add(theCorePackage.getDocumentableElement());
+		connectorEClass.getESuperTypes().add(theExecutionPackage.getDelayableElement());
 		physicalConnectorEClass.getESuperTypes().add(this.getConnector());
 		physicalComponentEClass.getESuperTypes().add(this.getComponent());
 		softwareComponentEClass.getESuperTypes().add(this.getComponent());

@@ -163,6 +163,9 @@ public class AssignmentItemProvider extends ExecutionElementItemProvider {
 				ExecutionFactory.eINSTANCE.createParameterReference()));
 
 		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.ASSIGNMENT__EXPRESSION,
+				ExecutionFactory.eINSTANCE.createExponentiation()));
+
+		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.ASSIGNMENT__EXPRESSION,
 				CoreFactory.eINSTANCE.createLiteralNull()));
 
 		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.ASSIGNMENT__EXPRESSION,

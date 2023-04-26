@@ -559,11 +559,13 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference execution.ecore#//ParameterReference/parameter"/>
       <genOperations ecoreOperation="execution.ecore#//ParameterReference/getTangibleChild"/>
       <genOperations ecoreOperation="execution.ecore#//ParameterReference/getActualParent"/>
-      <genOperations ecoreOperation="execution.ecore#//ParameterReference/toString"/>
+      <genOperations ecoreOperation="execution.ecore#//ParameterReference/toString"
+          body="return &quot;$&quot; + this.getParameter().getName();"/>
     </genClasses>
     <genClasses ecoreClass="execution.ecore#//Exponentiation">
-      <genOperations ecoreOperation="execution.ecore#//Exponentiation/toString"/>
-      <genOperations ecoreOperation="execution.ecore#//Exponentiation/isRealOperation"/>
+      <genOperations ecoreOperation="execution.ecore#//Exponentiation/toString" body="if (right instanceof LiteralInteger) {&#xD;&#xA;&#x9;&#x9;&#x9;int exp = ((LiteralInteger) right).getValue();&#xD;&#xA;&#x9;&#x9;&#x9;if (exp == 0) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;return &quot;1&quot;;&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;if (exp > 0) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;var result = &quot;(&quot;;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;for (int i = 0; i &lt; exp; i++) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;result += &quot;(&quot; + left.toString() + &quot;)&quot;;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;if (i + 1 &lt; exp) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;result += &quot; * &quot;;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;result += &quot;)&quot;;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;return result;&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;if (exp &lt; 0) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;var result = &quot;1.0 / (&quot;;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;for (int i = 0; i &lt; exp; i++) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;result += &quot;(&quot; + left.toString() + &quot;)&quot;;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;if (i + 1 &lt; exp) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;result += &quot; * &quot;;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;result += &quot;)&quot;;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;return result;&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;// This won't work on TimeNET:&#xD;&#xA;&#x9;&#x9;return &quot;(&quot; + left.toString() + &quot;)&quot; + &quot;^&quot; + right.toString();"/>
+      <genOperations ecoreOperation="execution.ecore#//Exponentiation/isRealOperation"
+          body="return true;"/>
     </genClasses>
   </genPackages>
   <genPackages prefix="Guava" basePackage="e4sm.de.metamodel.e4sm" disposableProviderFactory="true"

@@ -13,6 +13,9 @@ transformation transformToSCPN(in e:e4sm, out s:scpn);
 configuration property packageName : String;
 configuration property logComponents : Boolean;
 
+// TODO: transform the components_parameters
+
+
 main() {
 	log("\nTransforming E4SM Model to Stochastic Colored Petri Net");
 	
@@ -298,6 +301,11 @@ mapping Connector::connectorToSCPN(): arcs:List(ArcType), tt:TimedTransitionType
 	    
 		tt := new TimedTransitionType(self.computeName());
 	}
+	
+	// If it has a time function, apply that to the timed transition
+	if(self.timeFunction) {
+		tt.timeFunction := timeExpressionToString(self.timeFunction);
+	};
 
 	var arc1 := new ArcType(self.computeName() + "_1");
 	var arc2 := new ArcType(self.computeName() + "_2");

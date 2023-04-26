@@ -12,6 +12,8 @@ import e4sm.de.metamodel.e4sm.core.CorePackage;
 import e4sm.de.metamodel.e4sm.core.DocumentableElement;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
+import e4sm.de.metamodel.e4sm.execution.DelayableElement;
+import e4sm.de.metamodel.e4sm.execution.ExecutionPackage;
 import java.lang.reflect.InvocationTargetException;
 import e4sm.de.metamodel.e4sm.core.Element;
 import e4sm.de.metamodel.e4sm.core.NamedElement;
@@ -43,6 +45,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ConnectorImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ConnectorImpl#getName <em>Name</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ConnectorImpl#getDocumentation <em>Documentation</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.ConnectorImpl#getTimeFunction <em>Time Function</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ConnectorImpl#getSource <em>Source</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ConnectorImpl#getTarget <em>Target</em>}</li>
  * </ul>
@@ -99,6 +102,16 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @ordered
 	 */
 	protected String documentation = DOCUMENTATION_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getTimeFunction() <em>Time Function</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTimeFunction()
+	 * @generated
+	 * @ordered
+	 */
+	protected TimeFunction timeFunction;
 
 	/**
 	 * The cached value of the '{@link #getSource() <em>Source</em>}' reference.
@@ -198,6 +211,58 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.CONNECTOR__DOCUMENTATION,
 					oldDocumentation, documentation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public TimeFunction getTimeFunction() {
+		return timeFunction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetTimeFunction(TimeFunction newTimeFunction, NotificationChain msgs) {
+		TimeFunction oldTimeFunction = timeFunction;
+		timeFunction = newTimeFunction;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					e4smPackage.CONNECTOR__TIME_FUNCTION, oldTimeFunction, newTimeFunction);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setTimeFunction(TimeFunction newTimeFunction) {
+		if (newTimeFunction != timeFunction) {
+			NotificationChain msgs = null;
+			if (timeFunction != null)
+				msgs = ((InternalEObject) timeFunction).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - e4smPackage.CONNECTOR__TIME_FUNCTION, null, msgs);
+			if (newTimeFunction != null)
+				msgs = ((InternalEObject) newTimeFunction).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - e4smPackage.CONNECTOR__TIME_FUNCTION, null, msgs);
+			msgs = basicSetTimeFunction(newTimeFunction, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.CONNECTOR__TIME_FUNCTION, newTimeFunction,
+					newTimeFunction));
 	}
 
 	/**
@@ -310,6 +375,8 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 		switch (featureID) {
 		case e4smPackage.CONNECTOR__PARAMETERS:
 			return ((InternalEList<?>) getParameters()).basicRemove(otherEnd, msgs);
+		case e4smPackage.CONNECTOR__TIME_FUNCTION:
+			return basicSetTimeFunction(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -328,6 +395,8 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 			return getName();
 		case e4smPackage.CONNECTOR__DOCUMENTATION:
 			return getDocumentation();
+		case e4smPackage.CONNECTOR__TIME_FUNCTION:
+			return getTimeFunction();
 		case e4smPackage.CONNECTOR__SOURCE:
 			return getSource();
 		case e4smPackage.CONNECTOR__TARGET:
@@ -354,6 +423,9 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 			return;
 		case e4smPackage.CONNECTOR__DOCUMENTATION:
 			setDocumentation((String) newValue);
+			return;
+		case e4smPackage.CONNECTOR__TIME_FUNCTION:
+			setTimeFunction((TimeFunction) newValue);
 			return;
 		case e4smPackage.CONNECTOR__SOURCE:
 			setSource((DataNode) newValue);
@@ -382,6 +454,9 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 		case e4smPackage.CONNECTOR__DOCUMENTATION:
 			setDocumentation(DOCUMENTATION_EDEFAULT);
 			return;
+		case e4smPackage.CONNECTOR__TIME_FUNCTION:
+			setTimeFunction((TimeFunction) null);
+			return;
 		case e4smPackage.CONNECTOR__SOURCE:
 			setSource((DataNode) null);
 			return;
@@ -407,6 +482,8 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 		case e4smPackage.CONNECTOR__DOCUMENTATION:
 			return DOCUMENTATION_EDEFAULT == null ? documentation != null
 					: !DOCUMENTATION_EDEFAULT.equals(documentation);
+		case e4smPackage.CONNECTOR__TIME_FUNCTION:
+			return timeFunction != null;
 		case e4smPackage.CONNECTOR__SOURCE:
 			return source != null;
 		case e4smPackage.CONNECTOR__TARGET:
@@ -444,6 +521,14 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 				return -1;
 			}
 		}
+		if (baseClass == DelayableElement.class) {
+			switch (derivedFeatureID) {
+			case e4smPackage.CONNECTOR__TIME_FUNCTION:
+				return ExecutionPackage.DELAYABLE_ELEMENT__TIME_FUNCTION;
+			default:
+				return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -472,6 +557,14 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 			switch (baseFeatureID) {
 			case CorePackage.DOCUMENTABLE_ELEMENT__DOCUMENTATION:
 				return e4smPackage.CONNECTOR__DOCUMENTATION;
+			default:
+				return -1;
+			}
+		}
+		if (baseClass == DelayableElement.class) {
+			switch (baseFeatureID) {
+			case ExecutionPackage.DELAYABLE_ELEMENT__TIME_FUNCTION:
+				return e4smPackage.CONNECTOR__TIME_FUNCTION;
 			default:
 				return -1;
 			}

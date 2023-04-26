@@ -1,6 +1,6 @@
 {
    "name":"StreamVizzard ILM",
-   "timestamp":1682409165,
+   "timestamp":1682499389,
    "components":[
       {
          "id":"40",
@@ -35,7 +35,7 @@
          "parameters":[
             {
                "name":"mode",
-               "value":0
+               "value":1
             }
          ],
          "executionFunction":{
@@ -128,19 +128,19 @@
    ],
    "connections":[
       {
-         "source":"VideoFile!39.OUT_0",
-         "target":"Canny!40.IN_0",
-         "transferTime":0.01
+         "source":"VideoFile__39.OUT_0",
+         "target":"Canny__40.IN_0",
+         "transferTime":1
       },
       {
-         "source":"Canny!40.OUT_0",
-         "target":"Convert!41.IN_0",
-         "transferTime":0.01
+         "source":"Canny__40.OUT_0",
+         "target":"Convert__41.IN_0",
+         "transferTime":1
       },
       {
-         "source":"Convert!41.OUT_0",
-         "target":"GaussianBlur!42.IN_0",
-         "transferTime":0.01
+         "source":"Convert__41.OUT_0",
+         "target":"GaussianBlur__42.IN_0",
+         "transferTime":1
       }
    ]
 }
