@@ -4,11 +4,6 @@
 //Version: 2023-01-25
 const fs = require('fs').promises;
 const path = require('path');
-const
-  {
-    argv,
-    exit
-  } = require('process');
 
 try {
   require.resolve('xml2js');
@@ -318,6 +313,7 @@ function simplifyNet(net) {
  * @param {string} placeID
  * @returns {string} the label of the element with the given ID
  */
+// eslint-disable-next-line no-unused-vars
 function getLabelByPlaceID(net, placeID) {
   return getLabel(getPlaceByID(net, placeID));
 }
@@ -417,6 +413,7 @@ function getElByID(net, ID, type) {
   return net[type].find(el => el['$'].id === ID);
 }
 
+// eslint-disable-next-line no-unused-vars
 function removeArcByID(net, ID) {
   removeElementByID(net, ID, 'arc');
 }
