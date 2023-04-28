@@ -113,7 +113,7 @@ function generateComponents(components) {
         }`;
         if ((i + 1) < components.length)
             result += ",\n";
-    };
+    }
     return result;
 }
 
@@ -133,7 +133,7 @@ function generateSensors(sensors) {
         },`; // always print the comma, as it is followed by other components...
         //if ((i + 1) < sensors.length)
         //    result += ",\n";
-    };
+    }
     return result;
 }
 
@@ -152,7 +152,7 @@ function generateParameters(parameters) {
         result += `par "${p.name}" := ${p.value}`;
         if ((i + 1) < parameters.length)
             result += ",\n";
-    };
+    }
     result += "}"
     return result;
 }
@@ -169,7 +169,7 @@ function generateInputPins(iPins) {
         result += `in "${p.id}"`;
         //if ((i + 1) < pins.length)
         result += ",\n";
-    };
+    }
     return result;
 }
 
@@ -191,7 +191,7 @@ function generateOutputPins(oPins) {
         result += `out "${p.id}"`;
         if ((i + 1) < oPins.length)
             result += ",\n";
-    };
+    }
     return result;
 }
 
@@ -212,7 +212,7 @@ function generateConnectors(connectors) {
         }
         if ((i + 1) < connectors.length)
             result += ",\n";
-    };
+    }
     return result;
 }
 

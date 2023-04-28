@@ -265,24 +265,24 @@ function simplifyNet(net) {
     // Find the arc leading to the immediateTransition, check that it is only one
     const leftArcs = getArcsToElement(net, iT.id);
 	if(leftArcs.length !== 1)
-		return;
+		{return;}
 	
     const leftInscription = getInscriptionText(leftArcs[0]);
     let lPlace = null;
 
-	  const lArc = leftArcs[0]['$'];
+    const lArc = leftArcs[0]['$'];
 
-	  // Get the place which is supplying this immediateTransition
-	  lPlace = getPlaceByID(net, lArc.fromNode);
-	  // Check if the incoming place has only one outgoing arc
-	  const outgoingArcs = getArcsFromElement(net, lPlace['$'].id);
-	  if (outgoingArcs.length !== 1) {
-		return;
-	  }
+    // Get the place which is supplying this immediateTransition
+    lPlace = getPlaceByID(net, lArc.fromNode);
+    // Check if the incoming place has only one outgoing arc
+    const outgoingArcs = getArcsFromElement(net, lPlace['$'].id);
+    if (outgoingArcs.length !== 1) {
+      return;
+    }
 
     // Find the arc leaving from the immediateTransition, check that it is only one
     const rightArcs = getArcsFromElement(net, iT.id);
-	if(rightArcs.length!==1) return;
+	if(rightArcs.length!==1) {return;}
     const rightInscription = getInscriptionText(rightArcs[0]);
     if (leftInscription !== rightInscription) {
       return;
@@ -576,7 +576,7 @@ function moveGraphicInCircle(el, origin, radius, angle) {
     el.graphics[0]['$']['y'] = Math.round(origin.y + radius * Math.sin(angle));
   }
   else {
-    fatalError(`Element with ID "${t.id}" does not have a graphic`);
+    fatalError(`Element with ID "${el.id}" does not have a graphic`);
   }
 }
 
