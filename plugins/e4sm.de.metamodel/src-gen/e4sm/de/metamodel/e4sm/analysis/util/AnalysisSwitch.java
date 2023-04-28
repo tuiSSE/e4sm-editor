@@ -4,6 +4,7 @@ package e4sm.de.metamodel.e4sm.analysis.util;
 
 import e4sm.de.metamodel.e4sm.analysis.*;
 
+import e4sm.de.metamodel.e4sm.core.DocumentableElement;
 import e4sm.de.metamodel.e4sm.core.Element;
 import e4sm.de.metamodel.e4sm.core.NamedElement;
 import e4sm.de.metamodel.e4sm.core.TypedElement;
@@ -89,6 +90,8 @@ public class AnalysisSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseNamedElement(analysisDefinition);
 			if (result == null)
+				result = caseDocumentableElement(analysisDefinition);
+			if (result == null)
 				result = caseElement(analysisDefinition);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -99,6 +102,8 @@ public class AnalysisSwitch<T> extends Switch<T> {
 			T result = caseParameterDefinition(parameterDefinition);
 			if (result == null)
 				result = caseTypedElement(parameterDefinition);
+			if (result == null)
+				result = caseDocumentableElement(parameterDefinition);
 			if (result == null)
 				result = caseNamedElement(parameterDefinition);
 			if (result == null)
@@ -112,6 +117,8 @@ public class AnalysisSwitch<T> extends Switch<T> {
 			T result = caseParameter(parameter);
 			if (result == null)
 				result = caseTypedElement(parameter);
+			if (result == null)
+				result = caseDocumentableElement(parameter);
 			if (result == null)
 				result = caseNamedElement(parameter);
 			if (result == null)
@@ -421,6 +428,21 @@ public class AnalysisSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseNamedElement(NamedElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Documentable Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Documentable Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDocumentableElement(DocumentableElement object) {
 		return null;
 	}
 

@@ -2,6 +2,7 @@
  */
 package e4sm.de.metamodel.e4sm.analysis;
 
+import e4sm.de.metamodel.e4sm.core.DocumentableElement;
 import e4sm.de.metamodel.e4sm.core.NamedElement;
 import org.eclipse.emf.common.util.EList;
 
@@ -22,7 +23,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface AnalysisDefinition extends NamedElement {
+public interface AnalysisDefinition extends NamedElement, DocumentableElement {
 	/**
 	 * Returns the value of the '<em><b>Parameter Definitions</b></em>' containment reference list.
 	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.analysis.ParameterDefinition}.

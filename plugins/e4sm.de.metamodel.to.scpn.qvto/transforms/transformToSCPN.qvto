@@ -5,6 +5,7 @@ import transformTypes;
 
 modeltype e4sm "strict" uses e4sm("http://de.tu-ilmenau/e4sm/1.0.0");
 modeltype execution "strict" uses execution("http://de.tu-ilmenau/e4sm/execution/1.0.0");
+modeltype analysis "strict" uses analysis("http://de.tu-ilmenau/e4sm/analysis/1.0.0");
 modeltype core "strict" uses core("http://de.tu-ilmenau/e4sm/core/1.0.0");
 modeltype scpn "strict" uses scpn("http://timenet.tu-ilmenau.de/schema/SCPN");
 
@@ -51,6 +52,7 @@ mapping Package::packageToSCPN() : SCPNNet{
 	log("\nTransforming package " +  self.name);
 	// Transform types
 	//recordTokentype := e.rootObjects()[Model].types->map convert();
+	parameter+= self.parameters->map parameterToSCPN(self.name);
 	recordTokentype := object RecordTokentype{
 	id := "data_id";
 	name := "Data";
@@ -161,6 +163,7 @@ mapping Package::packageToSCPN() : SCPNNet{
 		timedTransition += res.tt;
 		substitutionTransition += res.st;
 		measure += res.meas;
+		parameter += res.pars;
 		
 		log("\n=== Transforming all Classification components ===");
 		var bin = self.components[BinaryClassificationComponent]->map transformBinaryClassificationComponent(hasThreadPool, self);
@@ -224,7 +227,7 @@ mapping Package::packageToSCPN() : SCPNNet{
 
 mapping Package::transformSpecificationPackage() : st: List(SubstitutionTransitionType), pl: List(PlaceType),
 	iTr : List(TransitionType), arcs : List (ArcType), tt : List(TimedTransitionType),
-	meas : List(MeasureType)	
+	meas : List(MeasureType), pars:List(ParameterType)	
 	{
 	log("\nTransforming specification package " +  self.name);
 	var hasThreadPool : Boolean := self.processingUnits > 0;
@@ -243,6 +246,7 @@ mapping Package::transformSpecificationPackage() : st: List(SubstitutionTransiti
 		tt += res.tt;
 		st += res.st;
 		meas += res.meas;
+		pars += res.pars;
 		
 		log("\n=== Transforming all Classification components ===");
 		var bin = self.components[BinaryClassificationComponent]->map transformBinaryClassificationComponent(hasThreadPool, self);
@@ -291,6 +295,35 @@ mapping Package::transformSpecificationPackage() : st: List(SubstitutionTransiti
 	};
 }
 
+mapping analysis::Parameter::parameterToSCPN(namespace : String): scpn::ParameterType{
+    result.name := self.name;
+    if(namespace->size() > 0){
+    	result.name := namespace + "_" + result.name;
+    };
+    result.dataType := "string";
+    if(self.initialValue.oclIsTypeOf(LiteralInteger)){
+    	 result.dataType := "int";
+    	 result.defaultValue := self.initialValue.oclAsType(LiteralInteger).value.toString();
+    }else if(self.initialValue.oclIsTypeOf(LiteralDouble)){
+    	 result.dataType := "real";
+    	 result.defaultValue := self.initialValue.oclAsType(LiteralDouble).value.toString();
+    }else if(self.initialValue.oclIsTypeOf(LiteralFloat)){
+    	 result.dataType := "real";
+    	 result.defaultValue := self.initialValue.oclAsType(LiteralFloat).value.toString();
+    }else if(self.initialValue.oclIsTypeOf(LiteralBoolean)){
+    	 result.dataType := "bool";
+    	 result.defaultValue := self.initialValue.oclAsType(LiteralBoolean).value.toString();
+    }else if(self.initialValue.oclIsTypeOf(LiteralString)){
+    	result.dataType := "string";
+    	 result.defaultValue := "&quot;" + self.initialValue.oclAsType(LiteralString).value.toString() + "&quot;";
+    };
+    if(self.documentation->size() > 0){
+        result.description := self.documentation;
+    };
+    result.defaultValue := self.initialValue.toString();
+    
+}
+
 mapping Connector::connectorToSCPN(): arcs:List(ArcType), tt:TimedTransitionType {
 	init{
 	    var name := self.computeName();
@@ -329,7 +362,8 @@ mapping Connector::connectorToSCPN(): arcs:List(ArcType), tt:TimedTransitionType
 	log("Transformed connector " +  name);
 }
 
-mapping Sector::transformSector(hasThreadPool : Boolean, poolPackage : e4sm::Package) : st: List(SubstitutionTransitionType), pl: List(PlaceType), iTr : List(TransitionType), arcs : List (ArcType), tt : List(TimedTransitionType), meas : List(MeasureType){
+mapping Sector::transformSector(hasThreadPool : Boolean, poolPackage : e4sm::Package) : st: List(SubstitutionTransitionType), 
+	pl: List(PlaceType), iTr : List(TransitionType), arcs : List (ArcType), tt : List(TimedTransitionType), meas : List(MeasureType), pars : List(ParameterType){
 	var idName := safeString(self.name);
 	log("\nTransforming sector " +  self.name);
 	/*  TODO: nice to have, transform a sector inside a substitution transition
@@ -397,15 +431,18 @@ mapping Sector::transformSector(hasThreadPool : Boolean, poolPackage : e4sm::Pac
     tt += res.tt; 
     st += res.st;
     meas += res.meas;
+    pars += res.pars;
     
 
     log("\tTransformed sector " +  self.name);
 }
 
 mapping Component::transformComponent(hasThreadPool : Boolean, poolPackage : e4sm::Package) : pl: List(PlaceType), iTr : List(TransitionType), arcs : List (ArcType),
-tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : List(MeasureType) when {not self.oclIsKindOf(e4sm::BinaryClassificationComponent)} {		
+tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : List(MeasureType), pars : List(ParameterType) when {not self.oclIsKindOf(e4sm::BinaryClassificationComponent)} {		
 	init{
 		log("\nTransforming component " +  self.name);
+		
+		pars += self.parameters->map parameterToSCPN(self.name);
 		
 		var inputPins : OrderedSet(InputPin) := self.pins[e4sm::InputPin];
 		var outputPins : OrderedSet(e4sm::OutputPin) := self.pins[e4sm::OutputPin];
@@ -422,6 +459,7 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 			tt += res.tt;
 			st += res.st;
 			meas += res.meas;
+			pars += res.pars;
 		};
 		
 		// Datastores

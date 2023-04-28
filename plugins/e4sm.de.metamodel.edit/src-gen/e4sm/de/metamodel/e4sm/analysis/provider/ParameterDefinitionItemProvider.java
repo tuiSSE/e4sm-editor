@@ -8,6 +8,7 @@ import e4sm.de.metamodel.e4sm.analysis.ParameterDefinition;
 import e4sm.de.metamodel.e4sm.provider.e4smEditPlugin;
 
 import e4sm.de.metamodel.e4sm.core.CoreFactory;
+import e4sm.de.metamodel.e4sm.core.CorePackage;
 import e4sm.de.metamodel.e4sm.core.provider.TypedElementItemProvider;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -54,6 +55,7 @@ public class ParameterDefinitionItemProvider extends TypedElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addDocumentationPropertyDescriptor(object);
 			addParametersPropertyDescriptor(object);
 			addUnitPropertyDescriptor(object);
 			addMustBeDefinedOnPropertyDescriptor(object);
@@ -61,6 +63,22 @@ public class ParameterDefinitionItemProvider extends TypedElementItemProvider {
 			addShallNotBeDefinedOnPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Documentation feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDocumentationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_DocumentableElement_documentation_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_DocumentableElement_documentation_feature",
+						"_UI_DocumentableElement_type"),
+				CorePackage.Literals.DOCUMENTABLE_ELEMENT__DOCUMENTATION, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -262,6 +280,7 @@ public class ParameterDefinitionItemProvider extends TypedElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ParameterDefinition.class)) {
+		case AnalysisPackage.PARAMETER_DEFINITION__DOCUMENTATION:
 		case AnalysisPackage.PARAMETER_DEFINITION__UNIT:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;

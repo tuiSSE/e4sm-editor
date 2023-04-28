@@ -760,8 +760,11 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 
 		// Add supertypes to classes
 		analysisDefinitionEClass.getESuperTypes().add(theCorePackage.getNamedElement());
+		analysisDefinitionEClass.getESuperTypes().add(theCorePackage.getDocumentableElement());
 		parameterDefinitionEClass.getESuperTypes().add(theCorePackage.getTypedElement());
+		parameterDefinitionEClass.getESuperTypes().add(theCorePackage.getDocumentableElement());
 		parameterEClass.getESuperTypes().add(theCorePackage.getTypedElement());
+		parameterEClass.getESuperTypes().add(theCorePackage.getDocumentableElement());
 		modelAnalysisEClass.getESuperTypes().add(this.getAnalysis());
 		graphAnalysisEClass.getESuperTypes().add(this.getAnalysis());
 		EGenericType g1 = createEGenericType(this.getGraphAnalysis());

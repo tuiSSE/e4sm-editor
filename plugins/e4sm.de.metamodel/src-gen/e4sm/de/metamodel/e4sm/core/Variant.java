@@ -12,5 +12,5 @@ package e4sm.de.metamodel.e4sm.core;
  * @model
  * @generated
  */
-public interface Variant extends NamedElement {
+public interface Variant extends NamedElement, DocumentableElement {
 } // Variant

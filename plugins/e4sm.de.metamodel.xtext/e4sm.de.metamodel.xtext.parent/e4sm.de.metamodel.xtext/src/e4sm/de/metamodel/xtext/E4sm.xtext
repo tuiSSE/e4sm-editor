@@ -117,6 +117,7 @@ Parameter returns analysis::Parameter:
 	{analysis::Parameter}
 	'par' name=EString  (':=' initialValue=ValueSpecification)?
 	('{'
+	('doc' PROPERTY_ASSIGN documentation=EString)?
 	('parameterDefinition' PROPERTY_ASSIGN parameterDefinition=[analysis::ParameterDefinition|EString])?
 	('appliesOnlyOnVariants' '(' appliesOnlyOnVariants+=[core::Variant|EString] (","
 	appliesOnlyOnVariants+=[core::Variant|EString])* ')')?
@@ -155,13 +156,17 @@ Actor_Impl returns Actor:
 Variant returns core::Variant:
 	{core::Variant}
 	'variant'
-	name=EString;
-
+	name=EString
+	('{'
+	('doc' PROPERTY_ASSIGN documentation=EString)?
+	'}')?
+;
 ParameterDefinition returns analysis::ParameterDefinition:
 	{analysis::ParameterDefinition}
 	'ParameterDefinition'
 	name=EString
 	'{'
+	('doc' PROPERTY_ASSIGN documentation=EString)?
 	('unit' unit=UnitOfMeasurement)?
 	// ('type' type=[ecore::EDataType|EString])?
 	('parameters' '(' parameters+=[analysis::Parameter|EString] ("," parameters+=[analysis::Parameter|EString])* ')')?

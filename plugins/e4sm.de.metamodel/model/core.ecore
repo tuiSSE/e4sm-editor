@@ -95,7 +95,7 @@
     <eLiterals name="mbps" value="8"/>
     <eLiterals name="none"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Variant" eSuperTypes="#//NamedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Variant" eSuperTypes="#//NamedElement #//DocumentableElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="TypeSpecification" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
         eType="#//AttributeSpecification" containment="true"/>

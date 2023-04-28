@@ -1313,6 +1313,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		valueSpecificationEClass.getESuperTypes().add(theExecutionPackage.getExpression());
 		typedElementEClass.getESuperTypes().add(this.getNamedElement());
 		variantEClass.getESuperTypes().add(this.getNamedElement());
+		variantEClass.getESuperTypes().add(this.getDocumentableElement());
 		typeSpecificationEClass.getESuperTypes().add(this.getNamedElement());
 		attributeSpecificationEClass.getESuperTypes().add(this.getNamedElement());
 		integerAttributeEClass.getESuperTypes().add(this.getAttributeSpecification());

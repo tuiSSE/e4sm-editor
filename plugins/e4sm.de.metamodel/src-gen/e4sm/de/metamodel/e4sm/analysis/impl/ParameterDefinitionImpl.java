@@ -5,6 +5,8 @@ package e4sm.de.metamodel.e4sm.analysis.impl;
 import e4sm.de.metamodel.e4sm.analysis.AnalysisPackage;
 import e4sm.de.metamodel.e4sm.analysis.Parameter;
 import e4sm.de.metamodel.e4sm.analysis.ParameterDefinition;
+import e4sm.de.metamodel.e4sm.core.CorePackage;
+import e4sm.de.metamodel.e4sm.core.DocumentableElement;
 import e4sm.de.metamodel.e4sm.core.UnitOfMeasurement;
 import e4sm.de.metamodel.e4sm.core.ValueSpecification;
 import e4sm.de.metamodel.e4sm.core.impl.TypedElementImpl;
@@ -32,6 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link e4sm.de.metamodel.e4sm.analysis.impl.ParameterDefinitionImpl#getDocumentation <em>Documentation</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.analysis.impl.ParameterDefinitionImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.analysis.impl.ParameterDefinitionImpl#getUnit <em>Unit</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.analysis.impl.ParameterDefinitionImpl#getMustBeDefinedOn <em>Must Be Defined On</em>}</li>
@@ -43,6 +46,26 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public class ParameterDefinitionImpl extends TypedElementImpl implements ParameterDefinition {
+	/**
+	 * The default value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDocumentation()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DOCUMENTATION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDocumentation()
+	 * @generated
+	 * @ordered
+	 */
+	protected String documentation = DOCUMENTATION_EDEFAULT;
+
 	/**
 	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -130,6 +153,30 @@ public class ParameterDefinitionImpl extends TypedElementImpl implements Paramet
 	@Override
 	protected EClass eStaticClass() {
 		return AnalysisPackage.Literals.PARAMETER_DEFINITION;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getDocumentation() {
+		return documentation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setDocumentation(String newDocumentation) {
+		String oldDocumentation = documentation;
+		documentation = newDocumentation;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AnalysisPackage.PARAMETER_DEFINITION__DOCUMENTATION,
+					oldDocumentation, documentation));
 	}
 
 	/**
@@ -303,6 +350,8 @@ public class ParameterDefinitionImpl extends TypedElementImpl implements Paramet
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+		case AnalysisPackage.PARAMETER_DEFINITION__DOCUMENTATION:
+			return getDocumentation();
 		case AnalysisPackage.PARAMETER_DEFINITION__PARAMETERS:
 			return getParameters();
 		case AnalysisPackage.PARAMETER_DEFINITION__UNIT:
@@ -328,6 +377,9 @@ public class ParameterDefinitionImpl extends TypedElementImpl implements Paramet
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+		case AnalysisPackage.PARAMETER_DEFINITION__DOCUMENTATION:
+			setDocumentation((String) newValue);
+			return;
 		case AnalysisPackage.PARAMETER_DEFINITION__PARAMETERS:
 			getParameters().clear();
 			getParameters().addAll((Collection<? extends Parameter>) newValue);
@@ -362,6 +414,9 @@ public class ParameterDefinitionImpl extends TypedElementImpl implements Paramet
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+		case AnalysisPackage.PARAMETER_DEFINITION__DOCUMENTATION:
+			setDocumentation(DOCUMENTATION_EDEFAULT);
+			return;
 		case AnalysisPackage.PARAMETER_DEFINITION__PARAMETERS:
 			getParameters().clear();
 			return;
@@ -392,6 +447,9 @@ public class ParameterDefinitionImpl extends TypedElementImpl implements Paramet
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+		case AnalysisPackage.PARAMETER_DEFINITION__DOCUMENTATION:
+			return DOCUMENTATION_EDEFAULT == null ? documentation != null
+					: !DOCUMENTATION_EDEFAULT.equals(documentation);
 		case AnalysisPackage.PARAMETER_DEFINITION__PARAMETERS:
 			return parameters != null && !parameters.isEmpty();
 		case AnalysisPackage.PARAMETER_DEFINITION__UNIT:
@@ -414,12 +472,50 @@ public class ParameterDefinitionImpl extends TypedElementImpl implements Paramet
 	 * @generated
 	 */
 	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == DocumentableElement.class) {
+			switch (derivedFeatureID) {
+			case AnalysisPackage.PARAMETER_DEFINITION__DOCUMENTATION:
+				return CorePackage.DOCUMENTABLE_ELEMENT__DOCUMENTATION;
+			default:
+				return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == DocumentableElement.class) {
+			switch (baseFeatureID) {
+			case CorePackage.DOCUMENTABLE_ELEMENT__DOCUMENTATION:
+				return AnalysisPackage.PARAMETER_DEFINITION__DOCUMENTATION;
+			default:
+				return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public String toString() {
 		if (eIsProxy())
 			return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (unit: ");
+		result.append(" (documentation: ");
+		result.append(documentation);
+		result.append(", unit: ");
 		result.append(unit);
 		result.append(')');
 		return result.toString();

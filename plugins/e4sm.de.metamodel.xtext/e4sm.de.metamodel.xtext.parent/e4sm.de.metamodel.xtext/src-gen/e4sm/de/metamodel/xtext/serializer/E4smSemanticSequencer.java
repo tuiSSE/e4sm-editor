@@ -1760,7 +1760,13 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     ParameterDefinition returns ParameterDefinition
 	 *
 	 * Constraint:
-	 *     (name=EString unit=UnitOfMeasurement? (parameters+=[Parameter|EString] parameters+=[Parameter|EString]*)? defaultValue=ValueSpecification?)
+	 *     (
+	 *         name=EString 
+	 *         documentation=EString? 
+	 *         unit=UnitOfMeasurement? 
+	 *         (parameters+=[Parameter|EString] parameters+=[Parameter|EString]*)? 
+	 *         defaultValue=ValueSpecification?
+	 *     )
 	 * </pre>
 	 */
 	protected void sequence_ParameterDefinition(ISerializationContext context, ParameterDefinition semanticObject) {
@@ -1798,6 +1804,7 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     (
 	 *         name=EString 
 	 *         initialValue=ValueSpecification? 
+	 *         documentation=EString? 
 	 *         parameterDefinition=[ParameterDefinition|EString]? 
 	 *         (appliesOnlyOnVariants+=[Variant|EString] appliesOnlyOnVariants+=[Variant|EString]*)? 
 	 *         (doesNotApplyOnVariants+=[Variant|EString] doesNotApplyOnVariants+=[Variant|EString]*)? 
@@ -2040,17 +2047,11 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Variant returns Variant
 	 *
 	 * Constraint:
-	 *     name=EString
+	 *     (name=EString documentation=EString?)
 	 * </pre>
 	 */
 	protected void sequence_Variant(ISerializationContext context, Variant semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, CorePackage.Literals.NAMED_ELEMENT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CorePackage.Literals.NAMED_ELEMENT__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getVariantAccess().getNameEStringParserRuleCall_2_0(), semanticObject.getName());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

@@ -368,6 +368,8 @@ public class CoreSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseNamedElement(variant);
 			if (result == null)
+				result = caseDocumentableElement(variant);
+			if (result == null)
 				result = caseElement(variant);
 			if (result == null)
 				result = defaultCase(theEObject);

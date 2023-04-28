@@ -36,19 +36,22 @@ public class ExponentiationImpl extends BinaryExpressionImpl implements Exponent
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
+	 * @generated not
 	 */
 	@Override
 	public String toString() {
-		if (right instanceof LiteralInteger) {
-			int exp = ((LiteralInteger) right).getValue();
+		if(this.right == null) {
+			return this.left.toString();
+		}
+		if (this.right instanceof LiteralInteger) {
+			int exp = ((LiteralInteger) this.right).getValue();
 			if (exp == 0) {
 				return "1";
 			}
 			if (exp > 0) {
 				var result = "(";
 				for (int i = 0; i < exp; i++) {
-					result += "(" + left.toString() + ")";
+					result += "(" + this.left.toString() + ")";
 					if (i + 1 < exp) {
 						result += " * ";
 					}
@@ -59,7 +62,7 @@ public class ExponentiationImpl extends BinaryExpressionImpl implements Exponent
 			if (exp < 0) {
 				var result = "1.0 / (";
 				for (int i = 0; i < exp; i++) {
-					result += "(" + left.toString() + ")";
+					result += "(" + this.left.toString() + ")";
 					if (i + 1 < exp) {
 						result += " * ";
 					}
@@ -69,16 +72,19 @@ public class ExponentiationImpl extends BinaryExpressionImpl implements Exponent
 			}
 		}
 		// This won't work on TimeNET:
-		return "(" + left.toString() + ")" + "^" + right.toString();
+		return "(" + this.left.toString() + ")" + "^" + this.right.toString();
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
+	 * @generated not
 	 */
 	@Override
 	public boolean isRealOperation() {
-		return true;
+		if(this.right != null) {
+			return true;
+		}
+		return false;
 	}
 
 	/**

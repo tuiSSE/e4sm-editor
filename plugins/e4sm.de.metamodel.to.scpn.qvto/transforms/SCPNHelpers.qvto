@@ -33,8 +33,9 @@ transformation SCPNHelpers() {
 	    log("NULL");
 	    	return "EXP(1.0)";
 	    };
-	    log(tf.getString());
-	    return tf.getString();
+	    var ts : String := tf.getString();
+	    log(ts);
+	    return ts;
 	}
 	
 	helper Component::hasNoInputs() : Boolean {
