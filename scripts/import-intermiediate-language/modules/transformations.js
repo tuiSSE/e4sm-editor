@@ -85,6 +85,19 @@ function generateE4SM(input) {
 
 /**
  * 
+ * @param {ExecutionFunction} ef 
+ * @returns {String}
+ */
+function executionFunctionToString(ef){
+    if(ef.variance > 0){
+        return `Norm(${ef.meanValue} , ${ef.variance})`
+    }
+    return `Det(${ef.meanValue})`;
+}
+
+
+/**
+ * 
  * @param {Component[]} components 
  * @returns {string}
  */
@@ -93,7 +106,7 @@ function generateComponents(components) {
     for (let i = 0; i < components.length; i++) {
         const c = components[i];
         result += `component "${c.name}${ID_SEPARATOR}${c.id}" {
-            takes Det(${c.executionFunction.meanValue})
+            takes ${executionFunctionToString(c.executionFunction)}
             ${generateInputPins(c.inputPins)}
             ${generateOutputPins(c.outputPins)}
             ${generateParameters(c.parameters)}
@@ -114,7 +127,7 @@ function generateSensors(sensors) {
     for (let i = 0; i < sensors.length; i++) {
         const s = sensors[i];
         result += `sensor "${s.name}${ID_SEPARATOR}${s.id}" {
-            takes Det(${s.executionFunction.meanValue})
+            takes ${executionFunctionToString(s.executionFunction)}
             ${generateOutputPins(s.outputPins)} // TODO: results.value need to end up in the model
             ${generateParameters(s.parameters)}
         },`; // always print the comma, as it is followed by other components...
