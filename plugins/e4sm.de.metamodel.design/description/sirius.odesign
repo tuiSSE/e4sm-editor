@@ -837,11 +837,11 @@
                     <subModelOperations xsi:type="tool_1:Let" variableName="transfResult" valueExpression="aql:diagram.target.oclAsType(e4sm::Package).toSCPN('')">
                       <subModelOperations xsi:type="tool_1:Switch">
                         <cases conditionExpression="aql:transfResult=0">
-                          <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="toSCPN">
+                          <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="toSCPN - Success">
                             <buttons labelExpression="Got it" default="true" closeDialogOnClick="true">
                               <initialOperation/>
                             </buttons>
-                            <page name="Default Page" labelExpression="Transformation was successful! Output was placed into the SCPN folder" semanticCandidateExpression="var:self"/>
+                            <page name="Default Page" labelExpression="Transformation and optimization was successful! Output was placed into the SCPN folder." semanticCandidateExpression="var:self"/>
                           </subModelOperations>
                         </cases>
                         <cases conditionExpression="aql:transfResult=1">
@@ -893,11 +893,11 @@
                           </subModelOperations>
                         </cases>
                         <cases conditionExpression="aql:transfResult=7">
-                          <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="toSCPN">
+                          <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="toSCPN - Error case 7">
                             <buttons labelExpression="Got it" default="true" closeDialogOnClick="true">
                               <initialOperation/>
                             </buttons>
-                            <page name="Default Page" labelExpression="Transformation and optimization was successful! " semanticCandidateExpression="var:self"/>
+                            <page name="Default Page" labelExpression="Generic Error, unknown cause!" semanticCandidateExpression="var:self"/>
                           </subModelOperations>
                         </cases>
                         <default>
@@ -931,6 +931,43 @@
                 <view name="views"/>
                 <initialOperation>
                   <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:diagram.target.oclAsType(e4sm::Package).computePackageDependencyGraph()"/>
+                </initialOperation>
+              </menuItemDescription>
+            </itemDescriptions>
+            <itemDescriptions xsi:type="tool_1:PopupMenu" name="popup_timenet_simulation" label="Simulation">
+              <menuItemDescription xsi:type="tool_1:OperationAction" name="timenet_simulation_start" label="Timenet Simulation" icon="/e4sm.de.metamodel.design/icons/specified.gif">
+                <view name="views"/>
+                <initialOperation>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                    <subModelOperations xsi:type="tool_1:Let" variableName="simResult" valueExpression="aql:diagram.target.oclAsType(e4sm::Package).runner()">
+                      <subModelOperations xsi:type="tool_1:Switch">
+                        <cases conditionExpression="aql:simResult=0">
+                          <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="simRunner - Success">
+                            <buttons labelExpression="Got it" default="true" closeDialogOnClick="true">
+                              <initialOperation/>
+                            </buttons>
+                            <page name="Default Page" labelExpression="Timenet Simulation was successfully started in the background!" semanticCandidateExpression="var:self"/>
+                          </subModelOperations>
+                        </cases>
+                        <cases conditionExpression="aql:simResult=1">
+                          <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="simRunner - Error Case 1">
+                            <buttons labelExpression="Got it" default="true" closeDialogOnClick="true">
+                              <initialOperation/>
+                            </buttons>
+                            <page name="Default Page" labelExpression="Package name is empty, process canceled" semanticCandidateExpression="var:self"/>
+                          </subModelOperations>
+                        </cases>
+                        <default>
+                          <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="simRunner">
+                            <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                              <initialOperation/>
+                            </buttons>
+                            <page name="Default Page" labelExpression="Unexpected Error!" semanticCandidateExpression="var:self"/>
+                          </subModelOperations>
+                        </default>
+                      </subModelOperations>
+                    </subModelOperations>
+                  </firstModelOperations>
                 </initialOperation>
               </menuItemDescription>
             </itemDescriptions>
@@ -1680,6 +1717,7 @@
     <ownedJavaExtensions qualifiedClassName="e4sm.de.metamodel.design.analysis.NetworkUtils"/>
     <ownedJavaExtensions qualifiedClassName="e4sm.de.metamodel.design.Utils"/>
     <ownedJavaExtensions qualifiedClassName="e4sm.de.metamodel.design.Documentation"/>
+    <ownedJavaExtensions qualifiedClassName="e4sm.de.metamodel.design.analysis.ImportTimenetRunner"/>
   </ownedViewpoints>
   <userColorsPalettes name="E4SMColors">
     <entries xsi:type="description:UserFixedColor" red="255" green="121" blue="0" name="ilm_orange"/>

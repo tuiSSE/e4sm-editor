@@ -12,18 +12,18 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import client.Client;
 import client.SimulationParameters;
-import communication.ProtocolException;
+//import communication.ProtocolException;
 import e4sm.de.metamodel.e4sm.Model;
 import e4sm.de.metamodel.e4sm.Package;
-import gpal.codegen.CodeGen;
+//import gpal.codegen.CodeGen;
 import gpsc.simulation.ServerThread;
-import server.Server;
+//import server.Server;
 
 
 
 public class TimenetSimRunner {
 	public static int simRunner(Package p) {
-		System.out.println("DEBUG: Preparing CodeGen");
+		System.out.println("DEBUG: Preparing simulation process");
 		
 		var pName = p.getName();	
 		if(pName == null || pName.isEmpty()){
@@ -121,11 +121,12 @@ public class TimenetSimRunner {
 	      Thread serverThread = new Thread(serverCode);
 	      serverThread.start();*/
 	      
+		
+		//already given ServerThread structure from the TimeNet project
 		ServerThread serverThread = null;
 		try {
 			serverThread = new ServerThread(serverPort, modelDirectory, System.out, System.err);
 		} catch (IOException e2) {
-			// TODO Auto-generated catch block
 			e2.printStackTrace();
 		}
 		serverThread.start();
@@ -138,13 +139,12 @@ public class TimenetSimRunner {
 		try {
 			addr = InetAddress.getLocalHost();
 		} catch (UnknownHostException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		System.out.println("Local HostAddress:  " + addr.getHostAddress());
 		// Gets the host name for this IP address.
 		System.out.println("Local host name: " + addr.getHostName());
-		var serverHost=addr.getHostAddress();
+		var serverHost = addr.getHostAddress();
 		var startTime = "0";
 		var endTime = "10000";
 		SimulationParameters params = new SimulationParameters();
@@ -161,7 +161,8 @@ public class TimenetSimRunner {
 		params.setEndTime(endTime);					//set the End Time of the simulation
 		params.setLogging(true);					//de- or activate logging
 		
-		
+		//setting up thread structure to run the client
+		//without blocking the active use of the whole eclipse product
 		class ClientParallel extends Thread{
 			
 			File netFile;

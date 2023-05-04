@@ -25,6 +25,7 @@ import e4sm.de.metamodel.e4sm.analysis.AnalysisDefinition;
 import e4sm.de.metamodel.e4sm.analysis.Parameter;
 import e4sm.de.metamodel.e4sm.Package;
 import e4sm.de.metamodel.e4sm.Sensor;
+import e4sm.de.timenet.runner.TimenetSimRunner;
 
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.IStatus;
@@ -235,12 +236,12 @@ public class AnalysisService {
 			
 			if(!absoluteScpnPath.isEmpty()) {
 				boolean check = NodeTools.optimizePN(absoluteScpnPath, pName);
-				if(check) {return 7;}
-				else {return 6;}
+				if(check) {
+					return 0;
+				} else {return 6;}
 			}
-			//TODO: check if the command worked or not
 			
-			return 0;// Success
+			return 7;
 
 		} else {
 			System.err.println("Sirius - Transformation failed");

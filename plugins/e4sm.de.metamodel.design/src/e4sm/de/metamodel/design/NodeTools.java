@@ -22,7 +22,13 @@ final public class NodeTools {
 	public static boolean checkNpm() {
 		try{
 			var rt = Runtime.getRuntime();
-			var pr = rt.exec(new String[] {"cmd.exe", "/c", "npm -version"});
+			Process pr;
+			if(System.getProperty("os.name").toLowerCase().startsWith("windows")) {
+				pr = rt.exec(new String[] {"cmd.exe", "/c", "npm -version"});
+			}
+			else{
+				pr = rt.exec(new String[] {" /bin/sh", "-c", "npm -version"});
+			}
 			int exitVal = pr.waitFor();
 			if(exitVal == 0) {
 				Utils.debug("npm found");
@@ -49,7 +55,13 @@ final public class NodeTools {
 	public static boolean checkTnFix() {
 		try{
 			var rt = Runtime.getRuntime();
-			var pr = rt.exec(new String[] {"cmd.exe", "/c", "tn-fix-xml"});
+			Process pr;
+			if(System.getProperty("os.name").toLowerCase().startsWith("windows")) {
+				pr = rt.exec(new String[] {"cmd.exe", "/c", "tn-fix-xml"});
+			}
+			else {
+				pr = rt.exec(new String[] {"/bin/sh", "-c", "tn-fix-xml"});
+			}
 			int exitVal = pr.waitFor();
 			if(exitVal == 0) {
 				Utils.debug("tn-fix-xml found");
@@ -77,31 +89,39 @@ final public class NodeTools {
 		
 		try {
 			var rt = Runtime.getRuntime();
-			var name = pName + ".xml";
-			var npmCommand = "tn-fix-xml \""+ name + "\" -a -o";
-			
+			var name = pName + ".xml"; //#name_of_package.xml
+			var npmCommand = "tn-fix-xml \""+ name + "\" -a -o"; //tn-fix-xml #name_of_package.xml -a -o
 			
 			System.out.println("npmCommand: " + npmCommand);
 			
 			
-			var command = "cmd.exe /C \"cd \"" + path + "\" && " + npmCommand+"\"";
-			Utils.debug("\nRunning command: " + command);
+			if(System.getProperty("os.name").toLowerCase().startsWith("windows")) {
+				var commandWin = "cmd.exe /C \"cd \"" + path + "\" && " + npmCommand+"\""; //cmd.exe cd #path_to_package && npmCommand
+				Utils.debug("\nRunning command: " + commandWin);
+			}
+			else {
+				var commandUnix = "/bin/sh -c \"cd \"" + path + "\" && " + npmCommand+"\"";
+				Utils.debug("\nRunning command: " + commandUnix);
+			}
 			
 			System.out.println("Path: " + path);
 			
-			
 			String changeDir = "cd " + path;
-			
-			
+
 			System.out.println("changeDir: " + changeDir);
 			
 			String usedCommand = changeDir + " && " + npmCommand;
 			
-			
 			System.out.println("usedCommand: " + usedCommand);
 			
+			Process pr;
+			if(System.getProperty("os.name").toLowerCase().startsWith("windows")) {
+				pr = rt.exec(new String[] {"cmd.exe", "/c", usedCommand});
+			}
+			else {
+				pr = rt.exec(new String[] {"/bin/sh", "-c", usedCommand});
+			}
 			
-			var pr = rt.exec(new String[] {"cmd.exe", "/c", usedCommand});
 			var in = new BufferedReader(new InputStreamReader(pr.getInputStream()));
 			String line = null;
 
