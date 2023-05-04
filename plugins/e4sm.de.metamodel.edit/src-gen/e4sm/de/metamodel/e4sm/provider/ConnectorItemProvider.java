@@ -9,6 +9,8 @@ import e4sm.de.metamodel.e4sm.analysis.AnalysisFactory;
 import e4sm.de.metamodel.e4sm.analysis.AnalysisPackage;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
+import e4sm.de.metamodel.e4sm.execution.ExecutionFactory;
+import e4sm.de.metamodel.e4sm.execution.ExecutionPackage;
 import e4sm.de.metamodel.e4sm.core.CorePackage;
 import java.util.Collection;
 import java.util.HashSet;
@@ -194,6 +196,7 @@ public class ConnectorItemProvider extends ItemProviderAdapter implements IEditi
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(AnalysisPackage.Literals.PARAMETERIZABLE_ELEMENT__PARAMETERS);
+			childrenFeatures.add(ExecutionPackage.Literals.DELAYABLE_ELEMENT__TIME_FUNCTION);
 		}
 		return childrenFeatures;
 	}
@@ -285,6 +288,7 @@ public class ConnectorItemProvider extends ItemProviderAdapter implements IEditi
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		case e4smPackage.CONNECTOR__PARAMETERS:
+		case e4smPackage.CONNECTOR__TIME_FUNCTION:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -304,6 +308,9 @@ public class ConnectorItemProvider extends ItemProviderAdapter implements IEditi
 
 		newChildDescriptors.add(createChildParameter(AnalysisPackage.Literals.PARAMETERIZABLE_ELEMENT__PARAMETERS,
 				AnalysisFactory.eINSTANCE.createParameter()));
+
+		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.DELAYABLE_ELEMENT__TIME_FUNCTION,
+				ExecutionFactory.eINSTANCE.createTimeFunction()));
 	}
 
 	/**

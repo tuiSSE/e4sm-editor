@@ -22,56 +22,46 @@ Model returns Model:
 	(classificationClasses+=ClassificationClass ("," classificationClasses+=ClassificationClass)*)?
 	(environments+=Environment ("," environments+=Environment)*)?
 	'}';
-	
+
 ClassificationClass returns ClassificationClass:
 	{ClassificationClass}
-	'cl' name=EString 
-;
+	'cl' name=EString;
 
 ClassificationClassDistribution returns ClassificationClassDistribution:
 	{ClassificationClassDistribution}
-	classificationClass=[ClassificationClass] probability=EDouble
-;
-
+	classificationClass=[ClassificationClass] probability=EDouble;
 
 Environment returns Environment:
 	{Environment}
 	'environment' name=EString
 	'{'
-		(classificationClasses+=ClassificationClassDistribution("," classificationClasses+=ClassificationClassDistribution)*)?
-	'}' 
-;
-
+	(classificationClasses+=ClassificationClassDistribution ("," classificationClasses+=ClassificationClassDistribution)
+	*)?
+	'}';
 
 ConfusionMatrix returns ConfusionMatrix:
- BinaryConfusionMatrix | MulticlassConfusionMatrix
-;
+	BinaryConfusionMatrix | MulticlassConfusionMatrix;
 
 BinaryConfusionMatrix returns BinaryConfusionMatrix:
 	{BinaryConfusionMatrix}
 	'confusion' 'matrix' name=EString
-	('with' 'positive' positiveClass=[ClassificationClass|EString] (',' 'negative' negativeClass=[ClassificationClass|EString])?)?
+	('with' 'positive' positiveClass=[ClassificationClass|EString] (',' 'negative'
+	negativeClass=[ClassificationClass|EString])?)?
 	'{'
-       'TP' PROPERTY_ASSIGN tp=EInt ',' 'FN' PROPERTY_ASSIGN fn=EInt
-       ',' 'FP' PROPERTY_ASSIGN fp=EInt ',' 'TN' PROPERTY_ASSIGN tn=EInt
-	'}'
-;
+	'TP' PROPERTY_ASSIGN tp=EInt ',' 'FN' PROPERTY_ASSIGN fn=EInt
+	',' 'FP' PROPERTY_ASSIGN fp=EInt ',' 'TN' PROPERTY_ASSIGN tn=EInt
+	'}';
 
 MulticlassConfusionMatrix returns MulticlassConfusionMatrix:
 	{MulticlassConfusionMatrix}
 	'confusion' 'matrix' name=EString
 	'{'
 	(entries+=ConfusionMatrixEntry ("," entries+=ConfusionMatrixEntry)*)?
-	'}'
-;
+	'}';
 
 ConfusionMatrixEntry returns ConfusionMatrixEntry:
 	{ConfusionMatrixEntry}
-	truth=[ClassificationClass|EString] predicted=[ClassificationClass|EString] PROPERTY_ASSIGN value=EInt
-;
-
-
-
+	truth=[ClassificationClass|EString] predicted=[ClassificationClass|EString] PROPERTY_ASSIGN value=EInt;
 
 Import returns Import:
 	{Import}
@@ -85,11 +75,12 @@ ValueSpecification returns core::ValueSpecification:
 	LiteralShort | LiteralByte | LiteralCharacter | LiteralDate;
 
 Component returns Component:
-	Component_Impl | MachineLearningComponent | ClassificationComponent | PhysicalComponent_Impl | SoftwareComponent_Impl | Heuristic | Function |
+	Component_Impl | MachineLearningComponent | ClassificationComponent | PhysicalComponent_Impl |
+	SoftwareComponent_Impl | Heuristic | Function |
 	ExternalDependency | Sensor | Actuator;
-	
+
 ClassificationComponent returns ClassificationComponent:
-BinaryClassificationComponent | MulticlassClassificationComponent;
+	BinaryClassificationComponent | MulticlassClassificationComponent;
 
 Connector returns Connector:
 	Connector_Impl | PhysicalConnector | LogicalConnector;
@@ -111,12 +102,10 @@ DataStore returns DataStore:
 	('{'
 	('doc' PROPERTY_ASSIGN documentation=EString)?
 	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
-	'}')?
-;
+	'}')?;
 
 DataNode returns DataNode:
-	Pin | DataStore
-;
+	Pin | DataStore;
 
 Pin returns Pin:
 	InputPin | OutputPin;
@@ -125,16 +114,17 @@ EString returns ecore::EString:
 	STRING | ID;
 
 Parameter returns analysis::Parameter:
-	'par'
-	'{'
-	'parameterDefinition' PROPERTY_ASSIGN parameterDefinition=[analysis::ParameterDefinition|EString]
+	{analysis::Parameter}
+	'par' name=EString  (':=' initialValue=ValueSpecification)?
+	('{'
+	('doc' PROPERTY_ASSIGN documentation=EString)?
+	('parameterDefinition' PROPERTY_ASSIGN parameterDefinition=[analysis::ParameterDefinition|EString])?
 	('appliesOnlyOnVariants' '(' appliesOnlyOnVariants+=[core::Variant|EString] (","
 	appliesOnlyOnVariants+=[core::Variant|EString])* ')')?
 	('doesNotApplyOnVariants' '(' doesNotApplyOnVariants+=[core::Variant|EString] (","
 	doesNotApplyOnVariants+=[core::Variant|EString])* ')')?
-	('initialValue' PROPERTY_ASSIGN initialValue=ValueSpecification)?
 	('currentValue' PROPERTY_ASSIGN currentValue=ValueSpecification)?
-	'}';
+	'}')?;
 
 Package returns Package:
 	'package'
@@ -143,6 +133,7 @@ Package returns Package:
 	('doc' PROPERTY_ASSIGN documentation=EString)?
 	('mainResponsible' PROPERTY_ASSIGN mainResponsible=[Person|EString])?
 	('specifiesComponent' PROPERTY_ASSIGN specifiesComponent=[Component|EString])?
+	('processingUnits' PROPERTY_ASSIGN processingUnits=EInt)?
 	(parameters+=Parameter ("," parameters+=Parameter)*)?
 	(components+=Component ("," components+=Component)*)?
 	(connectors+=Connector ("," connectors+=Connector)*)?
@@ -158,21 +149,24 @@ Actor_Impl returns Actor:
 	{Actor}
 	'actor'
 	name=EString
-    ('{'
+	('{'
 	('doc' PROPERTY_ASSIGN documentation=EString)?
-	'}')?
-	;
+	'}')?;
 
 Variant returns core::Variant:
 	{core::Variant}
 	'variant'
-	name=EString;
-
+	name=EString
+	('{'
+	('doc' PROPERTY_ASSIGN documentation=EString)?
+	'}')?
+;
 ParameterDefinition returns analysis::ParameterDefinition:
 	{analysis::ParameterDefinition}
 	'ParameterDefinition'
 	name=EString
 	'{'
+	('doc' PROPERTY_ASSIGN documentation=EString)?
 	('unit' unit=UnitOfMeasurement)?
 	// ('type' type=[ecore::EDataType|EString])?
 	('parameters' '(' parameters+=[analysis::Parameter|EString] ("," parameters+=[analysis::Parameter|EString])* ')')?
@@ -285,9 +279,6 @@ EEnumLiteral returns ecore::EEnumLiteral:
 	('eAnnotations' '{' eAnnotations+=EAnnotation ("," eAnnotations+=EAnnotation)* '}')?
 	'}';
 
-EInt returns ecore::EInt:
-	'-'? INT;
-
 EOperation returns ecore::EOperation:
 	{ecore::EOperation}
 	'EOperation'
@@ -373,34 +364,21 @@ LiteralString returns core::LiteralString:
 	{core::LiteralString}
 	value=STRING;
 
-//LiteralInteger returns core::LiteralInteger:
-//	{core::LiteralInteger}
-//	'LiteralInteger'
-//	name=EString
-//	'{'
-//		('value' value=Integer)?
-//		// ('type' type=[ecore::EDataType|EString])?
-//	'}';
 LiteralBoolean returns core::LiteralBoolean:
 	{core::LiteralBoolean}
 	(value?='true' | 'false');
 
 LiteralFloat returns core::LiteralFloat:
 	{core::LiteralFloat}
-	'f' INT '.' INT;
+	value=Float;
 
 LiteralDouble returns core::LiteralDouble:
 	{core::LiteralDouble}
-	INT '.' INT;
+	value=EDouble;
 
 LiteralLong returns core::LiteralLong:
 	{core::LiteralLong}
-	'LiteralLong'
-	name=EString
-	'{'
-	('value' value=Long)?
-	// ('type' type=[ecore::EDataType|EString])?
-	'}';
+	value=Long;
 
 LiteralShort returns core::LiteralShort:
 	{core::LiteralShort}
@@ -438,24 +416,13 @@ LiteralDate returns core::LiteralDate:
 	// ('type' type=[ecore::EDataType|EString])?
 	'}';
 
-String0 returns core::String:
-	'String' /* TODO: implement this rule and an appropriate IValueConverter */ ;
-
-Integer returns core::Integer:
-	'Integer' /* TODO: implement this rule and an appropriate IValueConverter */ ;
-
-Boolean returns core::Boolean:
-	'Boolean' /* TODO: implement this rule and an appropriate IValueConverter */ ;
-
 Float returns core::Float:
-	'Float' /* TODO: implement this rule and an appropriate IValueConverter */ ;
-
-Double returns core::Double:
-	'Double' /* TODO: implement this rule and an appropriate IValueConverter */ ;
+	'f' INT '.' INT;
 
 Long returns core::Long:
-	'Long' /* TODO: implement this rule and an appropriate IValueConverter */ ;
+	'l' INT;
 
+// 'Long' /* TODO: implement this rule and an appropriate IValueConverter */ ;
 Short returns core::Short:
 	'Short' /* TODO: implement this rule and an appropriate IValueConverter */ ;
 
@@ -491,6 +458,7 @@ Connector_Impl returns Connector:
 	source=[Pin|EString] '->' target=[Pin|EString]
 	('{'
 	('doc' PROPERTY_ASSIGN documentation=EString)?
+	('takes' timeFunction=ComplexTimefunction)?
 	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
 	'}')?;
 
@@ -515,7 +483,7 @@ Person returns Person:
 	// ('responsibleForComponents' '(' responsibleForComponents+=[Component|EString] (","
 	// responsibleForComponents+=[Component|EString])* ')')?
 	'}';
-	
+
 MulticlassClassificationComponent returns MulticlassClassificationComponent:
 	{MulticlassClassificationComponent}
 	'multiclassClassificationComponent'
@@ -533,9 +501,10 @@ MulticlassClassificationComponent returns MulticlassClassificationComponent:
 	('components' '{' components+=Component ("," components+=Component)* '}')?
 	('datastores' '{' datastores+=DataStore ("," datastores+=DataStore)* '}')?
 	('runs' '{' execution=Execution '}')?
-	('confusionMatrixes' '{' confusionMatrixes+=MulticlassConfusionMatrix ("," confusionMatrixes+=MulticlassConfusionMatrix)* '}')?
+	('confusionMatrixes' '{' confusionMatrixes+=MulticlassConfusionMatrix (","
+	confusionMatrixes+=MulticlassConfusionMatrix)* '}')?
 	'}';
-	
+
 BinaryClassificationComponent returns BinaryClassificationComponent:
 	{BinaryClassificationComponent}
 	'binaryClassificationComponent'
@@ -553,7 +522,8 @@ BinaryClassificationComponent returns BinaryClassificationComponent:
 	('components' '{' components+=Component ("," components+=Component)* '}')?
 	('datastores' '{' datastores+=DataStore ("," datastores+=DataStore)* '}')?
 	('runs' '{' execution=Execution '}')?
-	('confusionMatrixes' '{' confusionMatrixes+=BinaryConfusionMatrix ("," confusionMatrixes+=BinaryConfusionMatrix)* '}')?
+	('confusionMatrixes' '{' confusionMatrixes+=BinaryConfusionMatrix ("," confusionMatrixes+=BinaryConfusionMatrix)*
+	'}')?
 	'}';
 
 MachineLearningComponent returns MachineLearningComponent:
@@ -676,7 +646,7 @@ Sensor returns Sensor:
 	('firingStrategy' firingStrategy=ComponentFiringStrategy)?
 	('takes' timeFunction=ComplexTimefunction)?
 	(pins+=Pin ("," pins+=Pin)*)?
-	//'timeFunction' timeFunction=TimeFunction
+	// 'timeFunction' timeFunction=TimeFunction
 	('mainResponsible' mainResponsible=[Person|EString])?
 	('specifiedInPackage' specifiedInPackage=[Package|EString])?
 	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
@@ -704,10 +674,9 @@ Actuator returns Actuator:
 
 enum RaceSemantic returns RaceSemantic:
 	FCFS='FCFS' | DUPLICATE='DUPLICATE' | MERGE='MERGE' | MERGE_AND_DUPLICATE='MERGE_AND_DUPLICATE';
-	
-enum ComponentFiringStrategy returns ComponentFiringStrategy:
-	AND='AND'| AND='&&' | OR = 'OR' | OR = '||';
 
+enum ComponentFiringStrategy returns ComponentFiringStrategy:
+	AND='AND' | AND='&&' | OR='OR' | OR='||';
 
 InputPin returns InputPin:
 	{InputPin}
@@ -743,8 +712,18 @@ enum QueueType returns QueueType:
 	FIFO='FIFO' | LIFO='LIFO' | RANDOM='RANDOM' | LATEST_ONLY='LATEST_ONLY' | STORE='STORE';
 
 EDouble returns ecore::EDouble:
-	'-'? INT? '.' INT (('E' | 'e') '-'? INT)?;
+	DOUBLE;
 
+terminal DOUBLE returns ecore::EDouble :
+	'-'? INT? '.' INT (('E' | 'e') '-'? INT)?
+;
+
+EInt returns ecore::EInt:
+	POSSIBLY_NEGATIVE_INT
+;
+
+terminal POSSIBLY_NEGATIVE_INT returns ecore::EInt:
+	'-'? INT;
 
 PhysicalConnector returns PhysicalConnector:
 	'physicalConnector'
@@ -754,6 +733,7 @@ PhysicalConnector returns PhysicalConnector:
 	('doc' PROPERTY_ASSIGN documentation=EString)?
 	('minSpeed' minSpeed=Connectionspeed)?
 	('maxSpeed' maxSpeed=Connectionspeed)?
+	('takes' timeFunction=ComplexTimefunction)?
 	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
 	'}')?;
 
@@ -763,29 +743,26 @@ LogicalConnector returns LogicalConnector:
 	source=[Pin|EString] '->' target=[Pin|EString]
 	('{'
 	('doc' PROPERTY_ASSIGN documentation=EString)?
+	('takes' timeFunction=ComplexTimefunction)?
 	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
-	'}')?
-	;
+	'}')?;
 
 Connectionspeed returns Connectionspeed:
 	'Connectionspeed' /* TODO: implement this rule and an appropriate IValueConverter */ ;
 
 Human_Impl returns Human:
 	{Human}
-	'human'	name=EString
-    ('{'
+	'human' name=EString
+	('{'
 	('doc' PROPERTY_ASSIGN documentation=EString)?
-	'}')?
-	;
+	'}')?;
 
 Robot returns Robot:
 	{Robot}
-	'robot'	name=EString
+	'robot' name=EString
 	('{'
 	('doc' PROPERTY_ASSIGN documentation=EString)?
-	'}')?
-	;
-	
+	'}')?;
 
 /* EXECUTION */
 Execution returns execution::Execution:
@@ -793,7 +770,7 @@ Execution returns execution::Execution:
 	elements+=Elements+;
 
 Elements returns execution::ExecutionElement:
-	Flow | ConnectableNode | Addition | Variable | Const | Assignment;
+	Flow | ConnectableNode | Addition | ReferenceableItem | Assignment;
 
 ConnectableNode returns execution::ConnectableNode:
 	FlowFinal | ForkNode | MergeNode // TODO
@@ -810,7 +787,7 @@ ExeTimeFunction returns execution::TimeFunction:
 	{execution::TimeFunction}
 	// TODO: this should also be able to accept integer values.
 	// Placing EDouble|EInt here makes XText stop working
-	function=TimeFunctions '(' par1=EDouble (',' par2=EDouble)? ')';
+	function=TimeFunctions '(' par1=Expression (',' par2=Expression)? ')';
 
 enum TimeFunctions returns execution::TimeFunctions:
 	Det='Det' | Exp='Exp' | Uni='Uni' | DUni='DUni' | Norm='Norm' | LogNorm='LogNorm' | Wei='Wei' | DUni='Triang';
@@ -834,31 +811,60 @@ MergeNode returns execution::MergeNode:
 Expression returns execution::Expression:
 	Addition;
 
-//UnaryExpression returns execution::Expression:
-//	ValueSpecification | VariableRef;
-
 Addition returns execution::Expression:
 	{execution::Addition}
 	left=Multiplication ({execution::Addition.left=current}
 	(addition?='+' | subtraction?='-')
-	right=Multiplication)*;
+	right=Multiplication)*
+;
 
 Multiplication returns execution::Expression:
 	{execution::Multiplication}
-	left=Primary ({execution::Multiplication.left=current}
+	left=Exponentiation ({execution::Multiplication.left=current}
 	(multiplication?='*' | division?='/')
-	right=Primary)*;
+	right=Exponentiation)*
+;
 	
-AssignableElement returns execution::AssignableElement:
-	Variable | OutputPin
+Exponentiation returns execution::Exponentiation: 
+	{execution::Exponentiation}
+	left=Primary ({execution::Exponentiation.left=current}
+	'^'
+	right = (LiteralInteger | LiteralBoolean | LiteralFloat | LiteralDouble | LiteralLong |	LiteralShort | LiteralByte))*
 ;
 
+
+AssignableElement returns execution::AssignableElement:
+	Variable | OutputPin;
+
 Primary returns execution::Expression:
-	ValueSpecification | VariableRef |
+	ParameterReference | ValueSpecification | VariableRef | InputPinAttributeReference | InputPinReference |
 	'(' Addition ')';
-	
+
 LiteralInteger returns core::LiteralInteger:
-	value=INT;
+	value=EInt;
+
+ReferenceableItem returns execution::ReferenceableItem:
+	Variable | Const
+;
+
+ParameterReference returns execution::ParameterReference: 
+	{execution::ParameterReference}
+	'@'parameter=[analysis::Parameter]
+;
+
+
+
+InputPinReference returns execution::InputPinReference:
+	{execution::InputPinReference}
+	'$'inputPin=[InputPin]
+;
+
+InputPinAttributeReference returns execution::InputPinAttributeReference:
+	{execution::InputPinAttributeReference}
+	'$'inputPin=[InputPin]'.'attribute=[core::AttributeSpecification]
+;
+
+
 
 Variable returns execution::Variable:
 	'var' name=ID ('=' expression=Expression)? ';';
@@ -867,17 +873,14 @@ Const returns execution::Const:
 	'const' name=ID ('=' expression=Expression)? ';';
 
 Assignment returns execution::Assignment:
- 	target=AssignableElementReference '=' expression=Expression ';'
-;
+	target=AssignableElementReference '=' expression=Expression ';';
 
 AssignableElementReference returns execution::AssignableElementReference:
-	ref=[execution::AssignableElement]
-;
-
+	ref=[execution::AssignableElement];
 
 VariableRef returns execution::VariableRef:
 	{execution::VariableRef}
-	variable=[execution::Variable];
+	variable=[execution::ReferenceableItem];
 
 /* TYPES */
 TypeSpecification returns core::TypeSpecification:

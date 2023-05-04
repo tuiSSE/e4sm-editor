@@ -4,12 +4,15 @@ package e4sm.de.metamodel.e4sm.impl;
 
 import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.OutputPin;
+import e4sm.de.metamodel.e4sm.TokenSpecification;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 
 import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -22,6 +25,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.OutputPinImpl#getAmplify <em>Amplify</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.OutputPinImpl#getOutputUncertainty <em>Output Uncertainty</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.OutputPinImpl#getTokenSpecification <em>Token Specification</em>}</li>
  * </ul>
  *
  * @generated
@@ -64,6 +68,16 @@ public class OutputPinImpl extends PinImpl implements OutputPin {
 	 * @ordered
 	 */
 	protected double outputUncertainty = OUTPUT_UNCERTAINTY_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getTokenSpecification() <em>Token Specification</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTokenSpecification()
+	 * @generated
+	 * @ordered
+	 */
+	protected TokenSpecification tokenSpecification;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -138,6 +152,59 @@ public class OutputPinImpl extends PinImpl implements OutputPin {
 	 * @generated
 	 */
 	@Override
+	public TokenSpecification getTokenSpecification() {
+		return tokenSpecification;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetTokenSpecification(TokenSpecification newTokenSpecification,
+			NotificationChain msgs) {
+		TokenSpecification oldTokenSpecification = tokenSpecification;
+		tokenSpecification = newTokenSpecification;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					e4smPackage.OUTPUT_PIN__TOKEN_SPECIFICATION, oldTokenSpecification, newTokenSpecification);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setTokenSpecification(TokenSpecification newTokenSpecification) {
+		if (newTokenSpecification != tokenSpecification) {
+			NotificationChain msgs = null;
+			if (tokenSpecification != null)
+				msgs = ((InternalEObject) tokenSpecification).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - e4smPackage.OUTPUT_PIN__TOKEN_SPECIFICATION, null, msgs);
+			if (newTokenSpecification != null)
+				msgs = ((InternalEObject) newTokenSpecification).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - e4smPackage.OUTPUT_PIN__TOKEN_SPECIFICATION, null, msgs);
+			msgs = basicSetTokenSpecification(newTokenSpecification, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.OUTPUT_PIN__TOKEN_SPECIFICATION,
+					newTokenSpecification, newTokenSpecification));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public String computeName() {
 		if (this.getName() != null && !this.getName().isBlank()) {
 			return this.getName();
@@ -152,12 +219,28 @@ public class OutputPinImpl extends PinImpl implements OutputPin {
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case e4smPackage.OUTPUT_PIN__TOKEN_SPECIFICATION:
+			return basicSetTokenSpecification(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case e4smPackage.OUTPUT_PIN__AMPLIFY:
 			return getAmplify();
 		case e4smPackage.OUTPUT_PIN__OUTPUT_UNCERTAINTY:
 			return getOutputUncertainty();
+		case e4smPackage.OUTPUT_PIN__TOKEN_SPECIFICATION:
+			return getTokenSpecification();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -175,6 +258,9 @@ public class OutputPinImpl extends PinImpl implements OutputPin {
 			return;
 		case e4smPackage.OUTPUT_PIN__OUTPUT_UNCERTAINTY:
 			setOutputUncertainty((Double) newValue);
+			return;
+		case e4smPackage.OUTPUT_PIN__TOKEN_SPECIFICATION:
+			setTokenSpecification((TokenSpecification) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -194,6 +280,9 @@ public class OutputPinImpl extends PinImpl implements OutputPin {
 		case e4smPackage.OUTPUT_PIN__OUTPUT_UNCERTAINTY:
 			setOutputUncertainty(OUTPUT_UNCERTAINTY_EDEFAULT);
 			return;
+		case e4smPackage.OUTPUT_PIN__TOKEN_SPECIFICATION:
+			setTokenSpecification((TokenSpecification) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -210,6 +299,8 @@ public class OutputPinImpl extends PinImpl implements OutputPin {
 			return amplify != AMPLIFY_EDEFAULT;
 		case e4smPackage.OUTPUT_PIN__OUTPUT_UNCERTAINTY:
 			return outputUncertainty != OUTPUT_UNCERTAINTY_EDEFAULT;
+		case e4smPackage.OUTPUT_PIN__TOKEN_SPECIFICATION:
+			return tokenSpecification != null;
 		}
 		return super.eIsSet(featureID);
 	}

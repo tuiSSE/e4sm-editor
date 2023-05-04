@@ -6,9 +6,7 @@ import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.Connector;
 import e4sm.de.metamodel.e4sm.DataStore;
 import e4sm.de.metamodel.e4sm.Person;
-import e4sm.de.metamodel.e4sm.PhysicalComponent;
 import e4sm.de.metamodel.e4sm.Sector;
-import e4sm.de.metamodel.e4sm.SoftwareComponent;
 import e4sm.de.metamodel.e4sm.analysis.AnalysisPackage;
 import e4sm.de.metamodel.e4sm.analysis.Parameter;
 import e4sm.de.metamodel.e4sm.analysis.ParameterizableElement;
@@ -48,6 +46,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getPackages <em>Packages</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getSpecifiesComponent <em>Specifies Component</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getDatastores <em>Datastores</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getProcessingUnits <em>Processing Units</em>}</li>
  * </ul>
  *
  * @generated
@@ -153,6 +152,26 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	protected EList<DataStore> datastores;
 
 	/**
+	 * The default value of the '{@link #getProcessingUnits() <em>Processing Units</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProcessingUnits()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int PROCESSING_UNITS_EDEFAULT = -1;
+
+	/**
+	 * The cached value of the '{@link #getProcessingUnits() <em>Processing Units</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProcessingUnits()
+	 * @generated
+	 * @ordered
+	 */
+	protected int processingUnits = PROCESSING_UNITS_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -217,7 +236,6 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 		}
 		return components;
 	}
-
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -385,6 +403,30 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int getProcessingUnits() {
+		return processingUnits;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setProcessingUnits(int newProcessingUnits) {
+		int oldProcessingUnits = processingUnits;
+		processingUnits = newProcessingUnits;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.PACKAGE__PROCESSING_UNITS,
+					oldProcessingUnits, processingUnits));
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -484,6 +526,8 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 			return basicGetSpecifiesComponent();
 		case e4smPackage.PACKAGE__DATASTORES:
 			return getDatastores();
+		case e4smPackage.PACKAGE__PROCESSING_UNITS:
+			return getProcessingUnits();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -529,6 +573,9 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 			getDatastores().clear();
 			getDatastores().addAll((Collection<? extends DataStore>) newValue);
 			return;
+		case e4smPackage.PACKAGE__PROCESSING_UNITS:
+			setProcessingUnits((Integer) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -567,6 +614,9 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 		case e4smPackage.PACKAGE__DATASTORES:
 			getDatastores().clear();
 			return;
+		case e4smPackage.PACKAGE__PROCESSING_UNITS:
+			setProcessingUnits(PROCESSING_UNITS_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -597,6 +647,8 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 			return specifiesComponent != null;
 		case e4smPackage.PACKAGE__DATASTORES:
 			return datastores != null && !datastores.isEmpty();
+		case e4smPackage.PACKAGE__PROCESSING_UNITS:
+			return processingUnits != PROCESSING_UNITS_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -679,6 +731,8 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (documentation: ");
 		result.append(documentation);
+		result.append(", processingUnits: ");
+		result.append(processingUnits);
 		result.append(')');
 		return result.toString();
 	}

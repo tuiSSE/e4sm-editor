@@ -5,9 +5,11 @@ package e4sm.de.metamodel.e4sm.analysis.impl;
 import e4sm.de.metamodel.e4sm.analysis.AnalysisPackage;
 import e4sm.de.metamodel.e4sm.analysis.Parameter;
 import e4sm.de.metamodel.e4sm.analysis.ParameterDefinition;
+import e4sm.de.metamodel.e4sm.core.CorePackage;
+import e4sm.de.metamodel.e4sm.core.DocumentableElement;
 import e4sm.de.metamodel.e4sm.core.ValueSpecification;
 import e4sm.de.metamodel.e4sm.core.Variant;
-import e4sm.de.metamodel.e4sm.core.impl.ElementImpl;
+import e4sm.de.metamodel.e4sm.core.impl.TypedElementImpl;
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
@@ -33,6 +35,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link e4sm.de.metamodel.e4sm.analysis.impl.ParameterImpl#getDocumentation <em>Documentation</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.analysis.impl.ParameterImpl#getParameterDefinition <em>Parameter Definition</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.analysis.impl.ParameterImpl#getAppliesOnlyOnVariants <em>Applies Only On Variants</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.analysis.impl.ParameterImpl#getDoesNotApplyOnVariants <em>Does Not Apply On Variants</em>}</li>
@@ -42,7 +45,27 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *
  * @generated
  */
-public class ParameterImpl extends ElementImpl implements Parameter {
+public class ParameterImpl extends TypedElementImpl implements Parameter {
+	/**
+	 * The default value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDocumentation()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DOCUMENTATION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDocumentation()
+	 * @generated
+	 * @ordered
+	 */
+	protected String documentation = DOCUMENTATION_EDEFAULT;
+
 	/**
 	 * The cached value of the '{@link #getParameterDefinition() <em>Parameter Definition</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -110,6 +133,30 @@ public class ParameterImpl extends ElementImpl implements Parameter {
 	@Override
 	protected EClass eStaticClass() {
 		return AnalysisPackage.Literals.PARAMETER;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getDocumentation() {
+		return documentation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setDocumentation(String newDocumentation) {
+		String oldDocumentation = documentation;
+		documentation = newDocumentation;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AnalysisPackage.PARAMETER__DOCUMENTATION,
+					oldDocumentation, documentation));
 	}
 
 	/**
@@ -382,6 +429,8 @@ public class ParameterImpl extends ElementImpl implements Parameter {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+		case AnalysisPackage.PARAMETER__DOCUMENTATION:
+			return getDocumentation();
 		case AnalysisPackage.PARAMETER__PARAMETER_DEFINITION:
 			if (resolve)
 				return getParameterDefinition();
@@ -407,6 +456,9 @@ public class ParameterImpl extends ElementImpl implements Parameter {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+		case AnalysisPackage.PARAMETER__DOCUMENTATION:
+			setDocumentation((String) newValue);
+			return;
 		case AnalysisPackage.PARAMETER__PARAMETER_DEFINITION:
 			setParameterDefinition((ParameterDefinition) newValue);
 			return;
@@ -436,6 +488,9 @@ public class ParameterImpl extends ElementImpl implements Parameter {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+		case AnalysisPackage.PARAMETER__DOCUMENTATION:
+			setDocumentation(DOCUMENTATION_EDEFAULT);
+			return;
 		case AnalysisPackage.PARAMETER__PARAMETER_DEFINITION:
 			setParameterDefinition((ParameterDefinition) null);
 			return;
@@ -463,6 +518,9 @@ public class ParameterImpl extends ElementImpl implements Parameter {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+		case AnalysisPackage.PARAMETER__DOCUMENTATION:
+			return DOCUMENTATION_EDEFAULT == null ? documentation != null
+					: !DOCUMENTATION_EDEFAULT.equals(documentation);
 		case AnalysisPackage.PARAMETER__PARAMETER_DEFINITION:
 			return parameterDefinition != null;
 		case AnalysisPackage.PARAMETER__APPLIES_ONLY_ON_VARIANTS:
@@ -483,12 +541,65 @@ public class ParameterImpl extends ElementImpl implements Parameter {
 	 * @generated
 	 */
 	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == DocumentableElement.class) {
+			switch (derivedFeatureID) {
+			case AnalysisPackage.PARAMETER__DOCUMENTATION:
+				return CorePackage.DOCUMENTABLE_ELEMENT__DOCUMENTATION;
+			default:
+				return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == DocumentableElement.class) {
+			switch (baseFeatureID) {
+			case CorePackage.DOCUMENTABLE_ELEMENT__DOCUMENTATION:
+				return AnalysisPackage.PARAMETER__DOCUMENTATION;
+			default:
+				return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 		case AnalysisPackage.PARAMETER___IS_VALID:
 			return isValid();
 		}
 		return super.eInvoke(operationID, arguments);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy())
+			return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (documentation: ");
+		result.append(documentation);
+		result.append(')');
+		return result.toString();
 	}
 
 } //ParameterImpl

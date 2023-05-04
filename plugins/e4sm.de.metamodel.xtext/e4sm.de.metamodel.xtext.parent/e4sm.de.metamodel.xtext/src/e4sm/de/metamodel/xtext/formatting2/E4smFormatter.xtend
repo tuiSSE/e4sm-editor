@@ -3,13 +3,17 @@
  */
 package e4sm.de.metamodel.xtext.formatting2
 
-import com.google.inject.Inject
+import e4sm.de.metamodel.e4sm.Component
+import e4sm.de.metamodel.e4sm.Connector
 import e4sm.de.metamodel.e4sm.Model
+import e4sm.de.metamodel.e4sm.Package
+import e4sm.de.metamodel.e4sm.Person
+import e4sm.de.metamodel.e4sm.Pin
+import e4sm.de.metamodel.e4sm.core.TypeSpecification
 import e4sm.de.metamodel.xtext.services.E4smGrammarAccess
+import javax.inject.Inject
 import org.eclipse.xtext.formatting2.AbstractFormatter2
 import org.eclipse.xtext.formatting2.IFormattableDocument
-import e4sm.de.metamodel.e4sm.Person
-import e4sm.de.metamodel.e4sm.core.TypeSpecification
 
 //import org.eclipse.emf.ecore.EObject
 //import org.eclipse.xtext.formatting2.ITextReplacer
@@ -44,20 +48,20 @@ class E4smFormatter extends AbstractFormatter2 {
 		model.regionFor.keyword('package').prepend[newLine]
 		model.regionFor.keyword('type').prepend[newLine]
 		model.regionFor.keyword('person').prepend[indent]
-		
+
 		for (_package : model.packages) {
 			_package.format(doc)
 		}
 		for (actor : model.actors) {
 			actor.format(doc)
 		}
-		
-		for (ts : model.types){
+
+		for (ts : model.types) {
 			ts.format(doc)
 		}
 	}
 
-	def dispatch void format(e4sm.de.metamodel.e4sm.Package _package, extension IFormattableDocument doc) {
+	def dispatch void format(Package _package, extension IFormattableDocument doc) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
 		for (component : _package.components) {
 			component.format(doc)
@@ -77,7 +81,7 @@ class E4smFormatter extends AbstractFormatter2 {
 		interior(open, close)[indent]
 	}
 
-	def dispatch void format(e4sm.de.metamodel.e4sm.Component _component, extension IFormattableDocument doc) {
+	def dispatch void format(Component _component, extension IFormattableDocument doc) {
 		_component.regionFor.keyword('component').prepend[newLine]
 		_component.regionFor.keyword('actuator').prepend[newLine]
 		_component.regionFor.keyword('sensor').prepend[newLine]
@@ -87,8 +91,7 @@ class E4smFormatter extends AbstractFormatter2 {
 		_component.regionFor.keyword('heuristic').prepend[newLine]
 		_component.regionFor.keyword('function').prepend[newLine]
 		_component.regionFor.keyword('externalDependency').prepend[newLine]
-		
-		
+
 		_component.regionFor.keyword('{').prepend[space = " "]
 		interior(
 			_component.regionFor.keyword('{').append[newLine],
@@ -100,14 +103,14 @@ class E4smFormatter extends AbstractFormatter2 {
 			pin.format(doc)
 			pin.prepend[indent]
 		}
-		
-		for(childComponent : _component.components){
+
+		for (childComponent : _component.components) {
 			childComponent.format(doc)
 			childComponent.prepend[indent]
 		}
 	}
 
-	def dispatch void format(e4sm.de.metamodel.e4sm.Pin _pin, extension IFormattableDocument doc) {
+	def dispatch void format(Pin _pin, extension IFormattableDocument doc) {
 		_pin.regionFor.keyword('in').prepend[newLine]
 		_pin.regionFor.keyword('out').prepend[newLine]
 		val open = _pin.regionFor.keyword('{')
@@ -117,43 +120,43 @@ class E4smFormatter extends AbstractFormatter2 {
 		interior(open, close)[indent]
 	}
 
-	def dispatch void format(e4sm.de.metamodel.e4sm.Connector _connector, extension IFormattableDocument doc) {
+	def dispatch void format(Connector _connector, extension IFormattableDocument doc) {
 		// formatIntoSingleLine(doc, _connector);
 		_connector.regionFor.keyword('connector').prepend[newLine].append[oneSpace]
 		_connector.regionFor.keyword('physicalConnector').prepend[newLine].append[oneSpace]
 		_connector.regionFor.keyword('logicalConnector').prepend[newLine].append[oneSpace]
 		_connector.regionFor.keyword(',').surround[noSpace]
 	}
-	
+
 	def dispatch void format(Person _person, extension IFormattableDocument doc) {
 		// formatIntoSingleLine(doc, _connector);
 		_person.regionFor.keyword('person').prepend[newLine].append[oneSpace]
 		_person.regionFor.keyword(',').surround[noSpace]
-		
+
 		_person.regionFor.keyword('department').prepend[newLine]
 		_person.regionFor.keyword('pictureFileName').prepend[newLine]
 		_person.regionFor.keyword('responsibleForComponents').prepend[newLine]
-		
+
 		val open = _person.regionFor.keyword('{')
 		val close = _person.regionFor.keyword('}')
 		open.append[newLine]
 		close.prepend[newLine]
 		interior(open, close)[indent]
 	}
-	
+
 	def dispatch void format(TypeSpecification _typeSpec, extension IFormattableDocument doc) {
-		// formatIntoSingleLine(doc, _connector);
+		// formatIntoSingleLine(doc, _connector); 
 		_typeSpec.regionFor.keyword(',').surround[noSpace].append[newLine]
-		
+
 		val open = _typeSpec.regionFor.keyword('{')
 		val close = _typeSpec.regionFor.keyword('}')
-		
+
 		// if the typeSpecification has attributes		
-		if(!_typeSpec.attributes.empty){
+		if (!_typeSpec.attributes.empty) {
 			open.append[newLine]
 			close.prepend[newLine]
 			interior(open, close)[indent]
-		}	
+		}
 	}
 
 // TODO: implement for EDataType, EClass, EAnnotation, ETypeParameter, EEnum, EGenericType, EEnumLiteral, EOperation, EParameter, EAttribute, EReference, Component, Sector, MachineLearningComponent, PhysicalComponent, SoftwareComponent, Heuristic, Function, ExternalDependency, Sensor, Actuator

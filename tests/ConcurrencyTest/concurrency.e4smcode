@@ -1,0 +1,60 @@
+model Concurrency {
+	package P{
+	processingUnits : 4
+		softwareComponent C1{			
+		in in_ZFc0 ,
+		out out_O0qk
+		,
+		out out_pY5Y numberOfServers 5
+		} ,
+	sensor S {
+		out out_nUGn
+	} ,
+	actuator A {
+		in in_8r76
+	} ,
+	physicalComponent P_In {
+		out out_Tr2W
+	} ,
+	physicalComponent P_Out {
+		in in_2PAe
+	} ,
+	physicalComponent P {
+		out out_Rh3Z ,
+		in in_sBZ4 ,
+		in in_Urpn ,
+		out out_6iGr
+	} ,
+	sensor S1 {
+		out out_PWeF
+	} ,
+	sensor S2 {
+		out out_gAvV
+	} ,
+	actuator Act1 {
+		in in_sWFp
+	} ,
+	actuator Act2 {
+		in in_y4wC
+	} ,
+	sensor S3 {
+		out out_CRZv
+	} ,
+	actuator A3 {
+		in in_Om3C
+	} , binaryClassificationComponent Binary {
+			out out_k0Ny ,
+			in in_pYJQ
+			confusionMatrixes { confusion matrix cm1 {TP : 400, FN : 4, FP: 5, TN: 8}}
+		}
+	connector con_sLc2 "S.out_nUGn" -> "C1.in_ZFc0" ,
+	connector con_Vxs5 "C1.out_O0qk" -> "A.in_8r76" ,
+	connector con_KSdj "C1.out_pY5Y" -> "A.in_8r76" ,
+	physicalConnector con_bxwf "P_In.out_Tr2W" -> "P_Out.in_2PAe" ,
+	physicalConnector con_Q2pv "S2.out_gAvV" -> "P.in_Urpn" ,
+	physicalConnector con_0ogb "S1.out_PWeF" -> "P.in_sBZ4" ,
+	physicalConnector con_9K4e "P.out_Rh3Z" -> "Act1.in_sWFp" ,
+	physicalConnector con_xgVM "P.out_6iGr" -> "Act2.in_y4wC" ,
+	connector con_WnTU "S3.out_CRZv" -> "Binary.in_pYJQ" ,
+	connector con_uOSv "Binary.out_k0Ny" -> "A3.in_Om3C" }
+}

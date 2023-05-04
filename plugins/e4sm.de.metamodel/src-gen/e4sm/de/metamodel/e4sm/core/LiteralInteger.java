@@ -28,7 +28,7 @@ public interface LiteralInteger extends LiteralSpecification {
 	 * @return the value of the '<em>Value</em>' attribute.
 	 * @see #setValue(int)
 	 * @see e4sm.de.metamodel.e4sm.core.CorePackage#getLiteralInteger_Value()
-	 * @model dataType="e4sm.de.metamodel.e4sm.core.Integer"
+	 * @model
 	 * @generated
 	 */
 	int getValue();

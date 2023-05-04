@@ -148,6 +148,42 @@ public interface ExecutionFactory extends EFactory {
 	AssignableElementReference createAssignableElementReference();
 
 	/**
+	 * Returns a new object of class '<em>Input Pin Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Input Pin Reference</em>'.
+	 * @generated
+	 */
+	InputPinReference createInputPinReference();
+
+	/**
+	 * Returns a new object of class '<em>Input Pin Attribute Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Input Pin Attribute Reference</em>'.
+	 * @generated
+	 */
+	InputPinAttributeReference createInputPinAttributeReference();
+
+	/**
+	 * Returns a new object of class '<em>Parameter Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Parameter Reference</em>'.
+	 * @generated
+	 */
+	ParameterReference createParameterReference();
+
+	/**
+	 * Returns a new object of class '<em>Exponentiation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Exponentiation</em>'.
+	 * @generated
+	 */
+	Exponentiation createExponentiation();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

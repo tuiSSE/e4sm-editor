@@ -49,48 +49,48 @@ public interface TimeFunction extends EObject {
 	void setFunction(TimeFunctions value);
 
 	/**
-	 * Returns the value of the '<em><b>Par1</b></em>' attribute.
+	 * Returns the value of the '<em><b>Par1</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Par1</em>' attribute.
-	 * @see #setPar1(double)
+	 * @return the value of the '<em>Par1</em>' containment reference.
+	 * @see #setPar1(Expression)
 	 * @see e4sm.de.metamodel.e4sm.execution.ExecutionPackage#getTimeFunction_Par1()
-	 * @model required="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	double getPar1();
+	Expression getPar1();
 
 	/**
-	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.execution.TimeFunction#getPar1 <em>Par1</em>}' attribute.
+	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.execution.TimeFunction#getPar1 <em>Par1</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Par1</em>' attribute.
+	 * @param value the new value of the '<em>Par1</em>' containment reference.
 	 * @see #getPar1()
 	 * @generated
 	 */
-	void setPar1(double value);
+	void setPar1(Expression value);
 
 	/**
-	 * Returns the value of the '<em><b>Par2</b></em>' attribute.
+	 * Returns the value of the '<em><b>Par2</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Par2</em>' attribute.
-	 * @see #setPar2(double)
+	 * @return the value of the '<em>Par2</em>' containment reference.
+	 * @see #setPar2(Expression)
 	 * @see e4sm.de.metamodel.e4sm.execution.ExecutionPackage#getTimeFunction_Par2()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
-	double getPar2();
+	Expression getPar2();
 
 	/**
-	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.execution.TimeFunction#getPar2 <em>Par2</em>}' attribute.
+	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.execution.TimeFunction#getPar2 <em>Par2</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Par2</em>' attribute.
+	 * @param value the new value of the '<em>Par2</em>' containment reference.
 	 * @see #getPar2()
 	 * @generated
 	 */
-	void setPar2(double value);
+	void setPar2(Expression value);
 
 	/**
 	 * <!-- begin-user-doc -->

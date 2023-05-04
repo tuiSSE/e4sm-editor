@@ -174,6 +174,31 @@ public class ExecutionAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseReferenceableItem(ReferenceableItem object) {
+			return createReferenceableItemAdapter();
+		}
+
+		@Override
+		public Adapter caseInputPinReference(InputPinReference object) {
+			return createInputPinReferenceAdapter();
+		}
+
+		@Override
+		public Adapter caseInputPinAttributeReference(InputPinAttributeReference object) {
+			return createInputPinAttributeReferenceAdapter();
+		}
+
+		@Override
+		public Adapter caseParameterReference(ParameterReference object) {
+			return createParameterReferenceAdapter();
+		}
+
+		@Override
+		public Adapter caseExponentiation(Exponentiation object) {
+			return createExponentiationAdapter();
+		}
+
+		@Override
 		public Adapter caseElement(Element object) {
 			return createElementAdapter();
 		}
@@ -507,6 +532,76 @@ public class ExecutionAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAssignableElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.execution.ReferenceableItem <em>Referenceable Item</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.execution.ReferenceableItem
+	 * @generated
+	 */
+	public Adapter createReferenceableItemAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.execution.InputPinReference <em>Input Pin Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.execution.InputPinReference
+	 * @generated
+	 */
+	public Adapter createInputPinReferenceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.execution.InputPinAttributeReference <em>Input Pin Attribute Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.execution.InputPinAttributeReference
+	 * @generated
+	 */
+	public Adapter createInputPinAttributeReferenceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.execution.ParameterReference <em>Parameter Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.execution.ParameterReference
+	 * @generated
+	 */
+	public Adapter createParameterReferenceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.execution.Exponentiation <em>Exponentiation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.execution.Exponentiation
+	 * @generated
+	 */
+	public Adapter createExponentiationAdapter() {
 		return null;
 	}
 

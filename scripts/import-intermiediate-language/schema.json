@@ -1,0 +1,285 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "id": "https://sse.tu-ilmenau.de/intermediate/schemas/1",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the model, it shall not start with a number and shall not contain special characters",
+      "pattern": "^([a-z]|[A-Z]|_)[a-zA-Z0-9_ ]*$"
+    },
+    "timestamp": {
+      "type": "number"
+    },
+    "components": {
+      "description":"An array of components",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "description": "A model-unique ID for this component, it shall not contain a double underscore __",
+            "type": "string",
+            "pattern": "^(?!.*__)"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the component, it shall not start with a number and shall not contain special characters",
+            "pattern": "^([a-z]|[A-Z]|_)[a-zA-Z0-9_ ]*$"
+          },
+          "outputSize": {
+            "description": "A formula computing the size of the output",
+            "type": "string"
+          },
+          "inputPins": {
+            "description":"An array of input pin objects",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "The name of the input pin, it shall not start with a number and shall not contain special characters",
+                  "pattern": "^([a-z]|[A-Z]|_)[a-zA-Z0-9_ ]*$"
+                }
+              },
+              "required": [
+                "id"
+              ]
+            }
+          },
+          "outputPins": {
+            "description":"An array of output pin objects",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "The name of the output pin, it shall not start with a number and shall not contain special characters",
+                  "pattern": "^([a-z]|[A-Z]|_)[a-zA-Z0-9_ ]*$"
+                },
+                "dataFunction": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id"
+              ]
+            }
+          },
+          "executionFunction": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "meanValue": {
+                "type": "string"
+              },
+              "variance": {
+                "type": "number"
+              },
+              "maxError": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "meanValue"
+            ]
+          },
+          "parameters": {
+            "description": "An array of parameters",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "The name of the parameter, it shall not start with a number and shall not contain special characters",
+                  "pattern": "^([a-z]|[A-Z]|_)[a-zA-Z0-9_ ]*$"
+                },
+                "type": {
+                  "enum": [
+                    "int",
+                    "real",
+                    "string",
+                    "bool",
+                    "DateTime"
+                  ]
+                },
+                "value": {
+                  "description": "The value of the given parameter for this simulation (number, string or boolean)",
+                  "type": [
+                    "number",
+                    "string",
+                    "boolean"
+                  ]
+                }
+              },
+              "required": [
+                "name",
+                "value"
+              ]
+            }
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "executionFunction"
+        ]
+      }
+    },
+    "connections": {
+      "description":"An array of connectors",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string"
+          },
+          "target": {
+            "type": "string"
+          },
+          "transferTime": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "source",
+          "target"
+        ]
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "description": "A model-unique ID for this source, it must not contain a  double underscore __",
+            "type": "string",
+            "pattern": "^(?!.*__)"
+          },
+          "name": {
+            "type": "string",
+      		"description" : "The name of the source, it shall not start with a number",
+      		"pattern": "^([a-z]|[A-Z]|_)[a-zA-Z0-9_]*$"
+          },
+          "outputSize": {
+            "description": "A formula computing the size of the output",
+            "type": "string"
+          },
+          "outputPins": {
+            "description":"An array of output pin objects",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "description": "A component-unique identifier for the pin.",
+                  "type": "string",
+                  "pattern": "^([a-z]|[A-Z]|_)[a-zA-Z0-9_]*$"
+                },
+                "dataFunction": {
+                  "type": "string"
+                },
+                "results": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "value": {
+                        "type": "number"
+                      },
+                      "probability": {
+                        "type": "number"
+                      },
+                      "outputSize":{
+                        "type":"number"
+                      }
+                    }
+                  }
+                }
+              },
+              "required": [
+                "id"
+              ]
+            }
+          },
+          "executionFunction": {
+            "type": "object",
+            "properties": {
+              "meanValue": {
+                "type": ["string", "number"]
+              },
+              "variance": {
+                "type": "number"
+              },
+              "maxError": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "meanValue"
+            ]
+          },
+          "parameters": {
+            "description": "An array of parameters",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "description": "The name of the parameter",
+                  "type": "string"
+                },
+                "type": {
+                  "enum": [
+                    "int",
+                    "real",
+                    "string",
+                    "bool",
+                    "DateTime"
+                  ]
+                },
+                "value": {
+                  "description": "The value of the given parameter for this simulation (number, string or boolean)",
+                  "type": [
+                    "number",
+                    "string",
+                    "boolean"
+                  ]
+                }
+              },
+              "required": [
+                "name",
+                "value",
+                "type"
+              ]
+            }
+          }
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "executionFunction"
+      ]
+    }
+  },
+  "required": [
+    "name",
+    "components",
+    "sources",
+    "connections"
+  ]
+}

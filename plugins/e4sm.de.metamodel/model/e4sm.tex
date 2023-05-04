@@ -1,0 +1,1842 @@
+% This file was created using the TeX documentation generator.
+% Creation date: Thu Mar 16 15:06:21 CET 2023
+\documentclass{article}
+\usepackage[hypertex]{hyperref}
+\usepackage{url}
+\usepackage{times}
+\usepackage{ltablex}
+\usepackage{float}
+\usepackage{courier}
+\usepackage{color}
+\usepackage{lmodern}
+
+\title{Metamodel Documentation (platform:/resource/e4sm.de.metamodel/model/e4sm.ecore)}
+\date{Thu Mar 16 15:06:21 CET 2023}
+\author{}
+
+\begin{document}
+\section[e4sm]{The \textsc{e4sm} metamodel}
+\label{e4sm}
+
+\paragraph{EPackage properties:} \hspace{0pt} \\ \indent
+\textbf{Namespace Prefix:} \texttt{e4sm}
+
+\textbf{Namespace URI:} \texttt{http://de.tu-ilmenau/e4sm/1.0.0}
+\subsection[Actor]{Actor}
+\label{e4smActor}
+
+An Entity which interfaces with the system
+\textbf{Supertypes: }\texttt{DocumentableElement, NamedElement}
+\subsection[Actuator]{Actuator}
+\label{e4smActuator}
+
+A physical component which transforms a digital signal into a physical oneConstraints:- C1: An actuator shall not have output pins
+\textbf{Supertype: }\texttt{PhysicalComponent}
+\subsection[BinaryClassificationComponent]{BinaryClassificationComponent}
+\label{e4smBinaryClassificationComponent}
+
+\textbf{Supertype: }\texttt{ClassificationComponent}
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{|c| p{4 cm} | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{References}} \\
+\hline
+Name & Properties & Documentation \\ \hline \hline
+\texttt{confusionMatrixes}
+ & 
+\textbf{T:} \texttt{BinaryConfusionMatrix}
+\newline
+\textbf{Cardinality:} [0..*]
+\newline
+\textbf{Containment}
+ & \\ \hline
+\caption{References of the BinaryClassificationComponent EClass}
+\end{tabularx}
+\label{e4smBinaryClassificationComponentref}
+\end{table}
+\subsection[BinaryConfusionMatrix]{BinaryConfusionMatrix}
+\label{e4smBinaryConfusionMatrix}
+
+If positive and negative classes are not provided: true | false is assumed.If only positive is provided, then positive | not positive is assumed.If both are provided, they must not be equal.
+\textbf{Supertype: }\texttt{ConfusionMatrix}
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{|c| p{4 cm} | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{Attributes}} \\
+\hline
+Name & Properties & Documentation \\ \hline \hline
+\texttt{fn}
+ & 
+\textbf{T:} \texttt{}
+\newline
+\textbf{Cardinality:} [0..1]
+\newline
+\textbf{Default:} \texttt{0}
+ & \\ \hline
+\texttt{fp}
+ & 
+\textbf{T:} \texttt{}
+\newline
+\textbf{Cardinality:} [0..1]
+\newline
+\textbf{Default:} \texttt{0}
+ & \\ \hline
+\texttt{tn}
+ & 
+\textbf{T:} \texttt{}
+\newline
+\textbf{Cardinality:} [0..1]
+\newline
+\textbf{Default:} \texttt{0}
+ & \\ \hline
+\texttt{tp}
+ & 
+\textbf{T:} \texttt{}
+\newline
+\textbf{Cardinality:} [0..1]
+\newline
+\textbf{Default:} \texttt{0}
+ & \\ \hline
+\caption{Attributes of the BinaryConfusionMatrix EClass}
+\end{tabularx}
+\label{e4smBinaryConfusionMatrixattr}
+\end{table}
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{|c| p{4 cm} | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{References}} \\
+\hline
+Name & Properties & Documentation \\ \hline \hline
+\texttt{negativeClass}
+ & 
+\textbf{T:} \texttt{ClassificationClass}
+\newline
+\textbf{Cardinality:} [0..1]
+ & \\ \hline
+\texttt{positiveClass}
+ & 
+\textbf{T:} \texttt{ClassificationClass}
+\newline
+\textbf{Cardinality:} [0..1]
+ & \\ \hline
+\caption{References of the BinaryConfusionMatrix EClass}
+\end{tabularx}
+\label{e4smBinaryConfusionMatrixref}
+\end{table}
+\subsection[ClassificationClass]{ClassificationClass}
+\label{e4smClassificationClass}
+
+\textbf{Supertype: }\texttt{NamedElement}
+\subsection[ClassificationClassDistribution]{ClassificationClassDistribution}
+\label{e4smClassificationClassDistribution}
+
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{|c| p{4 cm} | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{Attributes}} \\
+\hline
+Name & Properties & Documentation \\ \hline \hline
+\texttt{probability}
+ & 
+\textbf{T:} \texttt{}
+\newline
+\textbf{Cardinality:} [1..1]
+ & \\ \hline
+\caption{Attributes of the ClassificationClassDistribution EClass}
+\end{tabularx}
+\label{e4smClassificationClassDistributionattr}
+\end{table}
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{|c| p{4 cm} | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{References}} \\
+\hline
+Name & Properties & Documentation \\ \hline \hline
+\texttt{classificationClass}
+ & 
+\textbf{T:} \texttt{ClassificationClass}
+\newline
+\textbf{Cardinality:} [1..1]
+ & \\ \hline
+\caption{References of the ClassificationClassDistribution EClass}
+\end{tabularx}
+\label{e4smClassificationClassDistributionref}
+\end{table}
+\subsection[ClassificationComponent]{ClassificationComponent}
+\label{e4smClassificationComponent}
+
+\paragraph{EClass properties:} \hspace{0pt} \\ \indent
+\textbf{Abstract}
+\\
+\textbf{Supertype: }\texttt{MachineLearningComponent}
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{|c| p{4 cm} | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{References}} \\
+\hline
+Name & Properties & Documentation \\ \hline \hline
+\texttt{environment}
+ & 
+\textbf{T:} \texttt{Environment}
+\newline
+\textbf{Cardinality:} [0..1]
+ & \\ \hline
+\caption{References of the ClassificationComponent EClass}
+\end{tabularx}
+\label{e4smClassificationComponentref}
+\end{table}
+\subsection[Component]{Component}
+\label{e4smComponent}
+
+Generic component, which should be used to temporally specify an element before deciding how it will be realised.Constraints:- C1: no loops allowed between the component container (Package) and component "specifiedInPackage"- C2: components->size()>0, then specifiedInPackage=null - If the component contains other components, it can't be specified in a package.
+\textbf{Supertypes: }\texttt{DelayableElement, DocumentableElement, NamedElement, ParameterizableElement}
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{|c| p{4 cm} | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{Attributes}} \\
+\hline
+Name & Properties & Documentation \\ \hline \hline
+\texttt{firingStrategy}
+ & 
+\textbf{T:} \texttt{ComponentFiringStrategy}
+\newline
+\textbf{Cardinality:} [1..1]
+\newline
+\textbf{Default:} \texttt{AND}
+ & \\ \hline
+\caption{Attributes of the Component EClass}
+\end{tabularx}
+\label{e4smComponentattr}
+\end{table}
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{|c| p{4 cm} | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{References}} \\
+\hline
+Name & Properties & Documentation \\ \hline \hline
+\texttt{components}
+ & 
+\textbf{T:} \texttt{Component}
+\newline
+\textbf{Cardinality:} [0..*]
+\newline
+\textbf{Containment}
+ & A list of components contained by this component\\ \hline
+\texttt{datastores}
+ & 
+\textbf{T:} \texttt{DataStore}
+\newline
+\textbf{Cardinality:} [0..*]
+\newline
+\textbf{Containment}
+ & \\ \hline
+\texttt{execution}
+ & 
+\textbf{T:} \texttt{Execution}
+\newline
+\textbf{Cardinality:} [0..1]
+\newline
+\textbf{Containment}
+ & \\ \hline
+\texttt{mainResponsible}
+ & 
+\textbf{T:} \texttt{Person}
+\newline
+\textbf{Cardinality:} [0..1]
+ & A person who is responsible for realising and/or designing this component\\ \hline
+\texttt{pins}
+ & 
+\textbf{T:} \texttt{Pin}
+\newline
+\textbf{Cardinality:} [0..*]
+\newline
+\textbf{Containment}
+ & A list of pins (input and output pins) which are placed on the border of this component.\\ \hline
+\texttt{specifiedInPackage}
+ & 
+\textbf{T:} \texttt{Package}
+\newline
+\textbf{Cardinality:} [0..1]
+\newline
+\textbf{Op:} \texttt{specifiesComponent}
+ & A component may get specified further in a packageConstraints:- C0: no loops allowed (implemented in Component)\\ \hline
+\caption{References of the Component EClass}
+\end{tabularx}
+\label{e4smComponentref}
+\end{table}
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{|c| p{4 cm} | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{Operations}} \\
+\hline
+Name & Properties & Documentation \\ \hline \hline
+\texttt{computeMainResponsible}
+ & 
+\textbf{T:} \texttt{Person}
+\newline
+\textbf{Cardinality:} [0..1]
+%\newline
+%\textbf{Returns:}
+%Person[0..1]
+ & \\ \hline
+\caption{Operations of the Component EClass}
+\end{tabularx}
+\label{e4smComponentop}
+\end{table}
+\subsection[ComponentFiringStrategy]{ComponentFiringStrategy}
+\label{e4smComponentFiringStrategy}
+
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{| c | c | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{Literals}} \\
+\hline
+Name & Value & Documentation \\ \hline \hline
+\texttt{AND} & 0 &
+ \\ \hline
+\texttt{OR} & 1 &
+ \\ \hline
+\caption{Literals of the ComponentFiringStrategy EEnum}
+\end{tabularx}
+\label{e4smComponentFiringStrategylit}
+\end{table}
+\subsection[ConfusionMatrix]{ConfusionMatrix}
+\label{e4smConfusionMatrix}
+
+\paragraph{EClass properties:} \hspace{0pt} \\ \indent
+\textbf{Abstract}
+\\
+\textbf{Supertype: }\texttt{NamedElement}
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{|c| p{4 cm} | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{Operations}} \\
+\hline
+Name & Properties & Documentation \\ \hline \hline
+\texttt{computeAccuracy}
+ & 
+\textbf{T:} \texttt{}
+\newline
+\textbf{Cardinality:} [0..1]
+%\newline
+%\textbf{Returns:}
+%[0..1]
+ & \\ \hline
+\texttt{computeF1Score}
+ & 
+\textbf{T:} \texttt{}
+\newline
+\textbf{Cardinality:} [0..1]
+%\newline
+%\textbf{Returns:}
+%[0..1]
+ & \\ \hline
+\texttt{computePrecision}
+ & 
+\textbf{T:} \texttt{}
+\newline
+\textbf{Cardinality:} [0..1]
+%\newline
+%\textbf{Returns:}
+%[0..1]
+ & \\ \hline
+\texttt{computeRecall}
+ & 
+\textbf{T:} \texttt{}
+\newline
+\textbf{Cardinality:} [0..1]
+%\newline
+%\textbf{Returns:}
+%[0..1]
+ & \\ \hline
+\texttt{computeSpecificity}
+ & 
+\textbf{T:} \texttt{}
+\newline
+\textbf{Cardinality:} [0..1]
+%\newline
+%\textbf{Returns:}
+%[0..1]
+ & \\ \hline
+\texttt{getHighestValue}
+ & 
+\textbf{T:} \texttt{}
+\newline
+\textbf{Cardinality:} [0..1]
+%\newline
+%\textbf{Returns:}
+%[0..1]
+ & \\ \hline
+\caption{Operations of the ConfusionMatrix EClass}
+\end{tabularx}
+\label{e4smConfusionMatrixop}
+\end{table}
+\subsection[ConfusionMatrixEntry]{ConfusionMatrixEntry}
+\label{e4smConfusionMatrixEntry}
+
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{|c| p{4 cm} | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{Attributes}} \\
+\hline
+Name & Properties & Documentation \\ \hline \hline
+\texttt{value}
+ & 
+\textbf{T:} \texttt{Integer}
+\newline
+\textbf{Cardinality:} [0..1]
+\newline
+\textbf{Default:} \texttt{0}
+ & \\ \hline
+\caption{Attributes of the ConfusionMatrixEntry EClass}
+\end{tabularx}
+\label{e4smConfusionMatrixEntryattr}
+\end{table}
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{|c| p{4 cm} | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{References}} \\
+\hline
+Name & Properties & Documentation \\ \hline \hline
+\texttt{predicted}
+ & 
+\textbf{T:} \texttt{ClassificationClass}
+\newline
+\textbf{Cardinality:} [1..1]
+ & \\ \hline
+\texttt{truth}
+ & 
+\textbf{T:} \texttt{ClassificationClass}
+\newline
+\textbf{Cardinality:} [1..1]
+ & \\ \hline
+\caption{References of the ConfusionMatrixEntry EClass}
+\end{tabularx}
+\label{e4smConfusionMatrixEntryref}
+\end{table}
+\subsection[Connector]{Connector}
+\label{e4smConnector}
+
+A connector connects one source to one target component.Constraints:- C1: A connector shall not connect two pins of the same component directly (loop/short circuit)
+\textbf{Supertypes: }\texttt{DocumentableElement, NamedElement, ParameterizableElement}
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{|c| p{4 cm} | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{References}} \\
+\hline
+Name & Properties & Documentation \\ \hline \hline
+\texttt{source}
+ & 
+\textbf{T:} \texttt{DataNode}
+\newline
+\textbf{Cardinality:} [1..1]
+ & \\ \hline
+\texttt{target}
+ & 
+\textbf{T:} \texttt{DataNode}
+\newline
+\textbf{Cardinality:} [1..1]
+ & \\ \hline
+\caption{References of the Connector EClass}
+\end{tabularx}
+\label{e4smConnectorref}
+\end{table}
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{|c| p{4 cm} | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{Operations}} \\
+\hline
+Name & Properties & Documentation \\ \hline \hline
+\texttt{computeFlow}
+ & 
+\textbf{T:} \texttt{}
+\newline
+\textbf{Cardinality:} [0..1]
+%\newline
+%\textbf{Returns:}
+%[0..1]
+ & \\ \hline
+\texttt{computeName}
+ & 
+\textbf{T:} \texttt{EString}
+\newline
+\textbf{Cardinality:} [0..1]
+%\newline
+%\textbf{Returns:}
+%EString[0..1]
+ & \\ \hline
+\caption{Operations of the Connector EClass}
+\end{tabularx}
+\label{e4smConnectorop}
+\end{table}
+\subsection[ConversionByConvention]{ConversionByConvention}
+\label{e4smConversionByConvention}
+
+\textbf{Supertype: }\texttt{UnitConversion}
+\subsection[ConversionByPrefix]{ConversionByPrefix}
+\label{e4smConversionByPrefix}
+
+\textbf{Supertype: }\texttt{UnitConversion}
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{|c| p{4 cm} | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{Attributes}} \\
+\hline
+Name & Properties & Documentation \\ \hline \hline
+\texttt{conversionFactor}
+ & 
+\textbf{T:} \texttt{EFloat}
+\newline
+\textbf{Cardinality:} [0..1]
+ & \\ \hline
+\caption{Attributes of the ConversionByPrefix EClass}
+\end{tabularx}
+\label{e4smConversionByPrefixattr}
+\end{table}
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{|c| p{4 cm} | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{References}} \\
+\hline
+Name & Properties & Documentation \\ \hline \hline
+\texttt{prefix}
+ & 
+\textbf{T:} \texttt{UnitPrefix}
+\newline
+\textbf{Cardinality:} [1..1]
+ & \\ \hline
+\caption{References of the ConversionByPrefix EClass}
+\end{tabularx}
+\label{e4smConversionByPrefixref}
+\end{table}
+\subsection[DataNode]{DataNode}
+\label{e4smDataNode}
+
+Is a node which provides or receives data
+\paragraph{EClass properties:} \hspace{0pt} \\ \indent
+\textbf{Abstract}
+\\
+\textbf{Supertypes: }\texttt{ConnectableNode, DocumentableElement, ParameterizableElement, TypedElement}
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{|c| p{4 cm} | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{Operations}} \\
+\hline
+Name & Properties & Documentation \\ \hline \hline
+\texttt{computeName}
+ & 
+\textbf{T:} \texttt{EString}
+\newline
+\textbf{Cardinality:} [0..1]
+%\newline
+%\textbf{Returns:}
+%EString[0..1]
+ & \\ \hline
+\texttt{getIncomingConnectors}
+ & 
+\textbf{T:} \texttt{Connector}
+\newline
+\textbf{Cardinality:} [0..*]
+%\newline
+%\textbf{Returns:}
+%Connector[0..*]
+ & \\ \hline
+\texttt{getOutgoingConnectors}
+ & 
+\textbf{T:} \texttt{Connector}
+\newline
+\textbf{Cardinality:} [0..*]
+%\newline
+%\textbf{Returns:}
+%Connector[0..*]
+ & \\ \hline
+\caption{Operations of the DataNode EClass}
+\end{tabularx}
+\label{e4smDataNodeop}
+\end{table}
+\subsection[DataSize]{DataSize}
+\label{e4smDataSize}
+
+\paragraph{EClass properties:} \hspace{0pt} \\ \indent
+\textbf{Abstract}
+\\
+\textbf{Supertype: }\texttt{NamedElement}
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{|c| p{4 cm} | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{Operations}} \\
+\hline
+Name & Properties & Documentation \\ \hline \hline
+\texttt{getSize}
+ & 
+\textbf{T:} \texttt{}
+\newline
+\textbf{Cardinality:} [0..1]
+%\newline
+%\textbf{Returns:}
+%[0..1]
+ & \\ \hline
+\caption{Operations of the DataSize EClass}
+\end{tabularx}
+\label{e4smDataSizeop}
+\end{table}
+\subsection[DataStore]{DataStore}
+\label{e4smDataStore}
+
+It is a node which always keep a copy of the data it sends. Once initialised, it will always contain data.When newer data gets provided, the older gets deleted.
+\textbf{Supertype: }\texttt{DataNode}
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{|c| p{4 cm} | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{Operations}} \\
+\hline
+Name & Properties & Documentation \\ \hline \hline
+\texttt{computeName}
+ & 
+\textbf{T:} \texttt{EString}
+\newline
+\textbf{Cardinality:} [0..1]
+%\newline
+%\textbf{Returns:}
+%EString[0..1]
+ & \\ \hline
+\caption{Operations of the DataStore EClass}
+\end{tabularx}
+\label{e4smDataStoreop}
+\end{table}
+\subsection[DerivedUnit]{DerivedUnit}
+\label{e4smDerivedUnit}
+
+\textbf{Supertype: }\texttt{MeasurementUnit}
+\subsection[DynamicRange]{DynamicRange}
+\label{e4smDynamicRange}
+
+The value of the input can change between the given minimum and maximum (or infinity, if empty)
+\textbf{Supertype: }\texttt{DataSize}
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{|c| p{4 cm} | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{Attributes}} \\
+\hline
+Name & Properties & Documentation \\ \hline \hline
+\texttt{max}
+ & 
+\textbf{T:} \texttt{}
+\newline
+\textbf{Cardinality:} [0..1]
+\newline
+\textbf{Default:} \texttt{0}
+ & \\ \hline
+\texttt{min}
+ & 
+\textbf{T:} \texttt{}
+\newline
+\textbf{Cardinality:} [0..1]
+\newline
+\textbf{Default:} \texttt{0}
+ & \\ \hline
+\texttt{sizeFactor}
+ & 
+\textbf{T:} \texttt{}
+\newline
+\textbf{Cardinality:} [0..1]
+ & \\ \hline
+\caption{Attributes of the DynamicRange EClass}
+\end{tabularx}
+\label{e4smDynamicRangeattr}
+\end{table}
+\subsection[Environment]{Environment}
+\label{e4smEnvironment}
+
+\textbf{Supertype: }\texttt{NamedElement}
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{|c| p{4 cm} | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{References}} \\
+\hline
+Name & Properties & Documentation \\ \hline \hline
+\texttt{classificationClasses}
+ & 
+\textbf{T:} \texttt{ClassificationClassDistribution}
+\newline
+\textbf{Cardinality:} [0..*]
+\newline
+\textbf{Containment}
+ & \\ \hline
+\caption{References of the Environment EClass}
+\end{tabularx}
+\label{e4smEnvironmentref}
+\end{table}
+\subsection[ExternalDependency]{ExternalDependency}
+\label{e4smExternalDependency}
+
+An external dependency is a function which is offered by a third party and can't be controlled.
+\textbf{Supertype: }\texttt{SoftwareComponent}
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{|c| p{4 cm} | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{Operations}} \\
+\hline
+Name & Properties & Documentation \\ \hline \hline
+\texttt{computeMainResponsible}
+ & 
+\textbf{T:} \texttt{Person}
+\newline
+\textbf{Cardinality:} [0..1]
+%\newline
+%\textbf{Returns:}
+%Person[0..1]
+ & \\ \hline
+\caption{Operations of the ExternalDependency EClass}
+\end{tabularx}
+\label{e4smExternalDependencyop}
+\end{table}
+\subsection[Function]{Function}
+\label{e4smFunction}
+
+A function is a in-house programmed software which is considered to be safe (apart from a low output uncertainty due to possible bugs)
+\textbf{Supertype: }\texttt{SoftwareComponent}
+\subsection[Heuristic]{Heuristic}
+\label{e4smHeuristic}
+
+A heuristic is a software component which may provide a wrong/non-optimal result for certain inputs
+\textbf{Supertype: }\texttt{SoftwareComponent}
+\subsection[Human]{Human}
+\label{e4smHuman}
+
+A human actor
+\textbf{Supertype: }\texttt{Actor}
+\subsection[Import]{Import}
+\label{e4smImport}
+
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{|c| p{4 cm} | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{References}} \\
+\hline
+Name & Properties & Documentation \\ \hline \hline
+\texttt{referencedModel}
+ & 
+\textbf{T:} \texttt{Model}
+\newline
+\textbf{Cardinality:} [1..1]
+ & \\ \hline
+\caption{References of the Import EClass}
+\end{tabularx}
+\label{e4smImportref}
+\end{table}
+\subsection[InputPin]{InputPin}
+\label{e4smInputPin}
+
+An interface which delivers data inside a component
+\textbf{Supertype: }\texttt{Pin}
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{|c| p{4 cm} | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{Attributes}} \\
+\hline
+Name & Properties & Documentation \\ \hline \hline
+\texttt{collect}
+ & 
+\textbf{T:} \texttt{}
+\newline
+\textbf{Cardinality:} [0..1]
+\newline
+\textbf{Default:} \texttt{1}
+ & \\ \hline
+\texttt{optional}
+ & 
+\textbf{T:} \texttt{}
+\newline
+\textbf{Cardinality:} [0..1]
+\newline
+\textbf{Default:} \texttt{false}
+ & \\ \hline
+\texttt{queueType}
+ & 
+\textbf{T:} \texttt{QueueType}
+\newline
+\textbf{Cardinality:} [0..1]
+ & When multiple data reaches this pin, the Queue type decides how they will be processed\\ \hline
+\caption{Attributes of the InputPin EClass}
+\end{tabularx}
+\label{e4smInputPinattr}
+\end{table}
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{|c| p{4 cm} | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{Operations}} \\
+\hline
+Name & Properties & Documentation \\ \hline \hline
+\texttt{computeName}
+ & 
+\textbf{T:} \texttt{EString}
+\newline
+\textbf{Cardinality:} [0..1]
+%\newline
+%\textbf{Returns:}
+%EString[0..1]
+ & \\ \hline
+\caption{Operations of the InputPin EClass}
+\end{tabularx}
+\label{e4smInputPinop}
+\end{table}
+\subsection[LogicalConnector]{LogicalConnector}
+\label{e4smLogicalConnector}
+
+A logical connector connects 2 software components or 1 software and one physical component
+\textbf{Supertype: }\texttt{Connector}
+\subsection[MachineLearningComponent]{MachineLearningComponent}
+\label{e4smMachineLearningComponent}
+
+A software component which returns results based on a machine learning method estimate (e.g. classification...)
+\textbf{Supertype: }\texttt{SoftwareComponent}
+\subsection[MeasurementUnit]{MeasurementUnit}
+\label{e4smMeasurementUnit}
+
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{|c| p{4 cm} | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{References}} \\
+\hline
+Name & Properties & Documentation \\ \hline \hline
+\texttt{unitConversion}
+ & 
+\textbf{T:} \texttt{UnitConversion}
+\newline
+\textbf{Cardinality:} [0..1]
+\newline
+\textbf{Containment}
+ & \\ \hline
+\caption{References of the MeasurementUnit EClass}
+\end{tabularx}
+\label{e4smMeasurementUnitref}
+\end{table}
+\subsection[Model]{Model}
+\label{e4smModel}
+
+The root element of the E4SM Model
+\textbf{Supertypes: }\texttt{DocumentableElement, NamedElement, ParameterizableElement}
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{|c| p{4 cm} | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{Attributes}} \\
+\hline
+Name & Properties & Documentation \\ \hline \hline
+\texttt{personsPicturesPath}
+ & 
+\textbf{T:} \texttt{EString}
+\newline
+\textbf{Cardinality:} [0..1]
+ & A workspace path pointing to a folder containing person's pictures. It must start and and with a /. Example: /My Model/img/\\ \hline
+\caption{Attributes of the Model EClass}
+\end{tabularx}
+\label{e4smModelattr}
+\end{table}
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{|c| p{4 cm} | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{References}} \\
+\hline
+Name & Properties & Documentation \\ \hline \hline
+\texttt{actors}
+ & 
+\textbf{T:} \texttt{Actor}
+\newline
+\textbf{Cardinality:} [0..*]
+\newline
+\textbf{Containment}
+ & A list of actors contained by this model\\ \hline
+\texttt{classificationClasses}
+ & 
+\textbf{T:} \texttt{ClassificationClass}
+\newline
+\textbf{Cardinality:} [0..*]
+\newline
+\textbf{Containment}
+ & \\ \hline
+\texttt{environments}
+ & 
+\textbf{T:} \texttt{Environment}
+\newline
+\textbf{Cardinality:} [0..*]
+\newline
+\textbf{Containment}
+ & \\ \hline
+\texttt{imports}
+ & 
+\textbf{T:} \texttt{Import}
+\newline
+\textbf{Cardinality:} [0..*]
+\newline
+\textbf{Containment}
+ & \\ \hline
+\texttt{packages}
+ & 
+\textbf{T:} \texttt{Package}
+\newline
+\textbf{Cardinality:} [0..*]
+\newline
+\textbf{Containment}
+ & A list of packages contained by this model\\ \hline
+\texttt{types}
+ & 
+\textbf{T:} \texttt{TypeSpecification}
+\newline
+\textbf{Cardinality:} [0..*]
+\newline
+\textbf{Containment}
+ & \\ \hline
+\texttt{variants}
+ & 
+\textbf{T:} \texttt{Variant}
+\newline
+\textbf{Cardinality:} [0..*]
+\newline
+\textbf{Containment}
+ & \\ \hline
+\caption{References of the Model EClass}
+\end{tabularx}
+\label{e4smModelref}
+\end{table}
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{|c| p{4 cm} | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{Operations}} \\
+\hline
+Name & Properties & Documentation \\ \hline \hline
+\texttt{isPersonPicturePathValid}
+ & 
+\textbf{T:} \texttt{EBoolean}
+\newline
+\textbf{Cardinality:} [0..1]
+%\newline
+%\textbf{Returns:}
+%EBoolean[0..1]
+\newline
+\textbf{Parameters:}
+\begin{itemize}
+\item EDiagnosticChain[0..1] \texttt{diagnostics}
+\item EMap[0..1] \texttt{context}
+\end{itemize}
+ & \\ \hline
+\caption{Operations of the Model EClass}
+\end{tabularx}
+\label{e4smModelop}
+\end{table}
+\subsection[MulticlassClassificationComponent]{MulticlassClassificationComponent}
+\label{e4smMulticlassClassificationComponent}
+
+\textbf{Supertype: }\texttt{ClassificationComponent}
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{|c| p{4 cm} | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{References}} \\
+\hline
+Name & Properties & Documentation \\ \hline \hline
+\texttt{confusionMatrixes}
+ & 
+\textbf{T:} \texttt{MulticlassConfusionMatrix}
+\newline
+\textbf{Cardinality:} [0..*]
+\newline
+\textbf{Containment}
+ & \\ \hline
+\caption{References of the MulticlassClassificationComponent EClass}
+\end{tabularx}
+\label{e4smMulticlassClassificationComponentref}
+\end{table}
+\subsection[MulticlassConfusionMatrix]{MulticlassConfusionMatrix}
+\label{e4smMulticlassConfusionMatrix}
+
+\textbf{Supertype: }\texttt{ConfusionMatrix}
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{|c| p{4 cm} | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{References}} \\
+\hline
+Name & Properties & Documentation \\ \hline \hline
+\texttt{entries}
+ & 
+\textbf{T:} \texttt{ConfusionMatrixEntry}
+\newline
+\textbf{Cardinality:} [0..*]
+\newline
+\textbf{Containment}
+ & \\ \hline
+\caption{References of the MulticlassConfusionMatrix EClass}
+\end{tabularx}
+\label{e4smMulticlassConfusionMatrixref}
+\end{table}
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{|c| p{4 cm} | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{Operations}} \\
+\hline
+Name & Properties & Documentation \\ \hline \hline
+\texttt{computeBalancedAccuracy}
+ & 
+\textbf{T:} \texttt{}
+\newline
+\textbf{Cardinality:} [0..1]
+%\newline
+%\textbf{Returns:}
+%[0..1]
+ & \\ \hline
+\texttt{computeClassAccuracy}
+ & 
+\textbf{T:} \texttt{}
+\newline
+\textbf{Cardinality:} [0..1]
+%\newline
+%\textbf{Returns:}
+%[0..1]
+\newline
+\textbf{Parameters:}
+\begin{itemize}
+\item ClassificationClass[0..1] \texttt{class}
+\end{itemize}
+ & \\ \hline
+\texttt{computeClassF1Score}
+ & 
+\textbf{T:} \texttt{}
+\newline
+\textbf{Cardinality:} [0..1]
+%\newline
+%\textbf{Returns:}
+%[0..1]
+\newline
+\textbf{Parameters:}
+\begin{itemize}
+\item ClassificationClass[0..1] \texttt{class}
+\end{itemize}
+ & \\ \hline
+\texttt{computeClassPrecision}
+ & 
+\textbf{T:} \texttt{}
+\newline
+\textbf{Cardinality:} [0..1]
+%\newline
+%\textbf{Returns:}
+%[0..1]
+\newline
+\textbf{Parameters:}
+\begin{itemize}
+\item ClassificationClass[0..1] \texttt{class}
+\end{itemize}
+ & \\ \hline
+\texttt{computeClassRecall}
+ & 
+\textbf{T:} \texttt{}
+\newline
+\textbf{Cardinality:} [0..1]
+%\newline
+%\textbf{Returns:}
+%[0..1]
+\newline
+\textbf{Parameters:}
+\begin{itemize}
+\item ClassificationClass[0..1] \texttt{class}
+\end{itemize}
+ & \\ \hline
+\texttt{computeClassSpecificity}
+ & 
+\textbf{T:} \texttt{}
+\newline
+\textbf{Cardinality:} [0..1]
+%\newline
+%\textbf{Returns:}
+%[0..1]
+\newline
+\textbf{Parameters:}
+\begin{itemize}
+\item ClassificationClass[0..1] \texttt{class}
+\end{itemize}
+ & \\ \hline
+\texttt{getClasses}
+ & 
+\textbf{T:} \texttt{ClassificationClass}
+\newline
+\textbf{Cardinality:} [0..*]
+%\newline
+%\textbf{Returns:}
+%ClassificationClass[0..*]
+ & \\ \hline
+\texttt{getFN}
+ & 
+\textbf{T:} \texttt{}
+\newline
+\textbf{Cardinality:} [0..1]
+%\newline
+%\textbf{Returns:}
+%[0..1]
+\newline
+\textbf{Parameters:}
+\begin{itemize}
+\item ClassificationClass[0..1] \texttt{class}
+\end{itemize}
+ & \\ \hline
+\texttt{getFP}
+ & 
+\textbf{T:} \texttt{}
+\newline
+\textbf{Cardinality:} [0..1]
+%\newline
+%\textbf{Returns:}
+%[0..1]
+\newline
+\textbf{Parameters:}
+\begin{itemize}
+\item ClassificationClass[0..1] \texttt{class}
+\end{itemize}
+ & \\ \hline
+\texttt{getTN}
+ & 
+\textbf{T:} \texttt{}
+\newline
+\textbf{Cardinality:} [0..1]
+%\newline
+%\textbf{Returns:}
+%[0..1]
+\newline
+\textbf{Parameters:}
+\begin{itemize}
+\item ClassificationClass[0..1] \texttt{class}
+\end{itemize}
+ & \\ \hline
+\texttt{getTP}
+ & 
+\textbf{T:} \texttt{}
+\newline
+\textbf{Cardinality:} [0..1]
+%\newline
+%\textbf{Returns:}
+%[0..1]
+\newline
+\textbf{Parameters:}
+\begin{itemize}
+\item ClassificationClass[0..1] \texttt{class}
+\end{itemize}
+ & \\ \hline
+\caption{Operations of the MulticlassConfusionMatrix EClass}
+\end{tabularx}
+\label{e4smMulticlassConfusionMatrixop}
+\end{table}
+\subsection[OutputPin]{OutputPin}
+\label{e4smOutputPin}
+
+An interface which sends data outside of a component
+\textbf{Supertypes: }\texttt{AssignableElement, Pin}
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{|c| p{4 cm} | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{Attributes}} \\
+\hline
+Name & Properties & Documentation \\ \hline \hline
+\texttt{amplify}
+ & 
+\textbf{T:} \texttt{}
+\newline
+\textbf{Cardinality:} [0..1]
+\newline
+\textbf{Default:} \texttt{1}
+ & \\ \hline
+\texttt{outputUncertainty}
+ & 
+\textbf{T:} \texttt{EDouble}
+\newline
+\textbf{Cardinality:} [0..1]
+\newline
+\textbf{Default:} \texttt{0.0}
+ & \\ \hline
+\caption{Attributes of the OutputPin EClass}
+\end{tabularx}
+\label{e4smOutputPinattr}
+\end{table}
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{|c| p{4 cm} | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{References}} \\
+\hline
+Name & Properties & Documentation \\ \hline \hline
+\texttt{tokenSpecification}
+ & 
+\textbf{T:} \texttt{TokenSpecification}
+\newline
+\textbf{Cardinality:} [0..1]
+\newline
+\textbf{Containment}
+ & \\ \hline
+\caption{References of the OutputPin EClass}
+\end{tabularx}
+\label{e4smOutputPinref}
+\end{table}
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{|c| p{4 cm} | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{Operations}} \\
+\hline
+Name & Properties & Documentation \\ \hline \hline
+\texttt{computeName}
+ & 
+\textbf{T:} \texttt{EString}
+\newline
+\textbf{Cardinality:} [0..1]
+%\newline
+%\textbf{Returns:}
+%EString[0..1]
+ & \\ \hline
+\caption{Operations of the OutputPin EClass}
+\end{tabularx}
+\label{e4smOutputPinop}
+\end{table}
+\subsection[Package]{Package}
+\label{e4smPackage}
+
+A package contains a set of Components and their connections.Constraints:- C1: all owned packages must have "specifiesComponent" set to a component owned by this package.
+\textbf{Supertypes: }\texttt{DocumentableElement, NamedElement, ParameterizableElement}
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{|c| p{4 cm} | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{Attributes}} \\
+\hline
+Name & Properties & Documentation \\ \hline \hline
+\texttt{processingUnits}
+ & 
+\textbf{T:} \texttt{}
+\newline
+\textbf{Cardinality:} [0..1]
+\newline
+\textbf{Default:} \texttt{-1}
+ & When set to a value > 0, all components of this package share a thread pool with n threads. Components can only execute when they hold a token from the thread pool.\\ \hline
+\caption{Attributes of the Package EClass}
+\end{tabularx}
+\label{e4smPackageattr}
+\end{table}
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{|c| p{4 cm} | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{References}} \\
+\hline
+Name & Properties & Documentation \\ \hline \hline
+\texttt{components}
+ & 
+\textbf{T:} \texttt{Component}
+\newline
+\textbf{Cardinality:} [0..*]
+\newline
+\textbf{Containment}
+ & A list of components contained in this package\\ \hline
+\texttt{connectors}
+ & 
+\textbf{T:} \texttt{Connector}
+\newline
+\textbf{Cardinality:} [0..*]
+\newline
+\textbf{Containment}
+ & A list of connectors contained in this package\\ \hline
+\texttt{datastores}
+ & 
+\textbf{T:} \texttt{DataStore}
+\newline
+\textbf{Cardinality:} [0..*]
+\newline
+\textbf{Containment}
+ & \\ \hline
+\texttt{mainResponsible}
+ & 
+\textbf{T:} \texttt{Person}
+\newline
+\textbf{Cardinality:} [0..1]
+ & The main responsible for the realisation of this package\\ \hline
+\texttt{packages}
+ & 
+\textbf{T:} \texttt{Package}
+\newline
+\textbf{Cardinality:} [0..*]
+\newline
+\textbf{Containment}
+ & A package may contains subpackages, which specify one of the components owned by this package\\ \hline
+\texttt{sectors}
+ & 
+\textbf{T:} \texttt{Sector}
+\newline
+\textbf{Cardinality:} [0..*]
+\newline
+\textbf{Containment}
+ & A list of sectors contained in this package\\ \hline
+\texttt{specifiesComponent}
+ & 
+\textbf{T:} \texttt{Component}
+\newline
+\textbf{Cardinality:} [0..1]
+\newline
+\textbf{Op:} \texttt{specifiedInPackage}
+ & This package is the detailed representation of another component (optional)\\ \hline
+\caption{References of the Package EClass}
+\end{tabularx}
+\label{e4smPackageref}
+\end{table}
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{|c| p{4 cm} | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{Operations}} \\
+\hline
+Name & Properties & Documentation \\ \hline \hline
+\texttt{getAllComponents}
+ & 
+\textbf{T:} \texttt{Component}
+\newline
+\textbf{Cardinality:} [0..*]
+%\newline
+%\textbf{Returns:}
+%Component[0..*]
+ & Returns all components directly contained by this package, including those inside sectors.\\ \hline
+\texttt{getMaxFlow}
+ & 
+\textbf{T:} \texttt{}
+\newline
+\textbf{Cardinality:} [0..1]
+%\newline
+%\textbf{Returns:}
+%[0..1]
+ & \\ \hline
+\caption{Operations of the Package EClass}
+\end{tabularx}
+\label{e4smPackageop}
+\end{table}
+\subsection[Person]{Person}
+\label{e4smPerson}
+
+A person, which may be responsible for the realisation of a certain number of components
+\textbf{Supertype: }\texttt{Human}
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{|c| p{4 cm} | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{Attributes}} \\
+\hline
+Name & Properties & Documentation \\ \hline \hline
+\texttt{department}
+ & 
+\textbf{T:} \texttt{EString}
+\newline
+\textbf{Cardinality:} [0..1]
+ & The name of the department\\ \hline
+\texttt{pictureFileName}
+ & 
+\textbf{T:} \texttt{EString}
+\newline
+\textbf{Cardinality:} [0..1]
+ & The file name, including the extension of this person's picture. The folder where it is located must be specified in the model element\\ \hline
+\texttt{surname}
+ & 
+\textbf{T:} \texttt{EString}
+\newline
+\textbf{Cardinality:} [1..1]
+ & The surname of the person\\ \hline
+\caption{Attributes of the Person EClass}
+\end{tabularx}
+\label{e4smPersonattr}
+\end{table}
+\subsection[PhysicalComponent]{PhysicalComponent}
+\label{e4smPhysicalComponent}
+
+A physical component is a generic tangible component which will be realised/is already available as hardware
+\textbf{Supertype: }\texttt{Component}
+\subsection[PhysicalConnector]{PhysicalConnector}
+\label{e4smPhysicalConnector}
+
+A phyisical connector is a connector which links 2 physical components.Constraints:- C1: A Physical Connector shall only connect Physical Components.- C2: An output pin shall only be connected to an input pin.- C3: An input pin shall only be connected to an output pin.
+\textbf{Supertype: }\texttt{Connector}
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{|c| p{4 cm} | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{Attributes}} \\
+\hline
+Name & Properties & Documentation \\ \hline \hline
+\texttt{maxSpeed}
+ & 
+\textbf{T:} \texttt{Connectionspeed}
+\newline
+\textbf{Cardinality:} [0..1]
+ & \\ \hline
+\texttt{minSpeed}
+ & 
+\textbf{T:} \texttt{Connectionspeed}
+\newline
+\textbf{Cardinality:} [0..1]
+ & \\ \hline
+\caption{Attributes of the PhysicalConnector EClass}
+\end{tabularx}
+\label{e4smPhysicalConnectorattr}
+\end{table}
+\subsection[Pin]{Pin}
+\label{e4smPin}
+
+An interface to and from a component
+\paragraph{EClass properties:} \hspace{0pt} \\ \indent
+\textbf{Abstract}
+\\
+\textbf{Supertype: }\texttt{DataNode}
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{|c| p{4 cm} | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{Attributes}} \\
+\hline
+Name & Properties & Documentation \\ \hline \hline
+\texttt{\color{blue}{gatewayPin}}
+ & 
+\textbf{T:} \texttt{EBoolean}
+\newline
+\textbf{Cardinality:} [0..1]
+\newline
+\textbf{Non-changeable}
+\newline
+\textbf{Volatile}
+\newline
+\textbf{Transient}
+\newline
+\textbf{Derived}
+\newline
+\textsc{\color{red}{MISSING DEFINITION!}}
+ & \\ \hline
+\texttt{raceSemantic}
+ & 
+\textbf{T:} \texttt{RaceSemantic}
+\newline
+\textbf{Cardinality:} [0..1]
+\newline
+\textbf{Not unique}
+\newline
+\textbf{Default:} \texttt{MERGE\_AND\_DUPLICATE}
+ & When multiple connectors are connected to a pin, the race semantic specifies how the data gets sent forward.\\ \hline
+\texttt{stream}
+ & 
+\textbf{T:} \texttt{EBoolean}
+\newline
+\textbf{Cardinality:} [0..1]
+ & \\ \hline
+\caption{Attributes of the Pin EClass}
+\end{tabularx}
+\label{e4smPinattr}
+\end{table}
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{|c| p{4 cm} | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{Operations}} \\
+\hline
+Name & Properties & Documentation \\ \hline \hline
+\texttt{computeName}
+ & 
+\textbf{T:} \texttt{EString}
+\newline
+\textbf{Cardinality:} [0..1]
+%\newline
+%\textbf{Returns:}
+%EString[0..1]
+ & \\ \hline
+\caption{Operations of the Pin EClass}
+\end{tabularx}
+\label{e4smPinop}
+\end{table}
+\subsection[QueueType]{QueueType}
+\label{e4smQueueType}
+
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{| c | c | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{Literals}} \\
+\hline
+Name & Value & Documentation \\ \hline \hline
+\texttt{FIFO} & 0 &
+First in, first out \\ \hline
+\texttt{LIFO} & 1 &
+Last in, Last out (stack) \\ \hline
+\texttt{RANDOM} & 2 &
+An element of the queue is picked randomly \\ \hline
+\texttt{LATEST\_ONLY} & 3 &
+There is no queue, only the latest received element remain stored. Once consumed, the pin does not have any other data available until it receives a new one. \\ \hline
+\texttt{STORE} & 4 &
+The data remain stored in the pin. If new data arrives, it replace the currently stored data. \\ \hline
+\caption{Literals of the QueueType EEnum}
+\end{tabularx}
+\label{e4smQueueTypelit}
+\end{table}
+\subsection[RaceSemantic]{RaceSemantic}
+\label{e4smRaceSemantic}
+
+When multiple connectors are connected to a pin, the race semantic specifies how the data gets sent forward.
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{| c | c | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{Literals}} \\
+\hline
+Name & Value & Documentation \\ \hline \hline
+\texttt{FCFS} & 0 &
+FCFS - First come, first served.In this mode, the output is consumed by one of the following components. \\ \hline
+\texttt{DUPLICATE} & 1 &
+In this mode, the data is duplicated and made available to each and every following components. This value is only valid for pins with multiple outgoing connectors. \\ \hline
+\texttt{MERGE} & 2 &
+In this mode, a value is required from each incoming connector, before the execution can continue with one single token. This value is only valid on pins with multiple incoming connectors. \\ \hline
+\texttt{MERGE\_AND\_DUPLICATE} & 3 &
+In this mode, a value is required from each incoming connector, before the execution can continue with one single token, which will be duplicated on all outgoing edges. This value is only valid on pins with multiple incoming and outgoing connectors. \\ \hline
+\caption{Literals of the RaceSemantic EEnum}
+\end{tabularx}
+\label{e4smRaceSemanticlit}
+\end{table}
+\subsection[Robot]{Robot}
+\label{e4smRobot}
+
+A robot actor
+\textbf{Supertype: }\texttt{Actor}
+\subsection[Sector]{Sector}
+\label{e4smSector}
+
+A collection of physical components that either logically or phisically belongs together
+\textbf{Supertypes: }\texttt{DocumentableElement, NamedElement}
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{|c| p{4 cm} | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{References}} \\
+\hline
+Name & Properties & Documentation \\ \hline \hline
+\texttt{components}
+ & 
+\textbf{T:} \texttt{Component}
+\newline
+\textbf{Cardinality:} [0..*]
+\newline
+\textbf{Containment}
+ & A list of references to components which are contained in this sector. Only Physical Components should be allowed.\\ \hline
+\texttt{datastores}
+ & 
+\textbf{T:} \texttt{DataStore}
+\newline
+\textbf{Cardinality:} [0..*]
+\newline
+\textbf{Containment}
+ & \\ \hline
+\texttt{sectors}
+ & 
+\textbf{T:} \texttt{Sector}
+\newline
+\textbf{Cardinality:} [0..*]
+\newline
+\textbf{Containment}
+ & A list of sectors contained by this sector\\ \hline
+\caption{References of the Sector EClass}
+\end{tabularx}
+\label{e4smSectorref}
+\end{table}
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{|c| p{4 cm} | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{Operations}} \\
+\hline
+Name & Properties & Documentation \\ \hline \hline
+\texttt{getAllComponents}
+ & 
+\textbf{T:} \texttt{Component}
+\newline
+\textbf{Cardinality:} [0..*]
+%\newline
+%\textbf{Returns:}
+%Component[0..*]
+ & Returns all components directly contained by this package, including those inside sectors.\\ \hline
+\caption{Operations of the Sector EClass}
+\end{tabularx}
+\label{e4smSectorop}
+\end{table}
+\subsection[Sensor]{Sensor}
+\label{e4smSensor}
+
+A physical component which transforms a physical signal into a digital oneConstraints:- C1: A sensor shall not have input pins
+\textbf{Supertype: }\texttt{PhysicalComponent}
+\subsection[Set]{Set}
+\label{e4smSet}
+
+The possible inputs are limited to a finite set of values
+\textbf{Supertype: }\texttt{DataSize}
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{|c| p{4 cm} | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{References}} \\
+\hline
+Name & Properties & Documentation \\ \hline \hline
+\texttt{values}
+ & 
+\textbf{T:} \texttt{SetValue}
+\newline
+\textbf{Cardinality:} [0..*]
+\newline
+\textbf{Containment}
+ & \\ \hline
+\caption{References of the Set EClass}
+\end{tabularx}
+\label{e4smSetref}
+\end{table}
+\subsection[SetValue]{SetValue}
+\label{e4smSetValue}
+
+\textbf{Supertype: }\texttt{NamedElement}
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{|c| p{4 cm} | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{Attributes}} \\
+\hline
+Name & Properties & Documentation \\ \hline \hline
+\texttt{probability}
+ & 
+\textbf{T:} \texttt{}
+\newline
+\textbf{Cardinality:} [0..1]
+ & \\ \hline
+\texttt{size}
+ & 
+\textbf{T:} \texttt{}
+\newline
+\textbf{Cardinality:} [0..1]
+ & \\ \hline
+\caption{Attributes of the SetValue EClass}
+\end{tabularx}
+\label{e4smSetValueattr}
+\end{table}
+\subsection[SimpleUnit]{SimpleUnit}
+\label{e4smSimpleUnit}
+
+\textbf{Supertype: }\texttt{MeasurementUnit}
+\subsection[SizeComputation]{SizeComputation}
+\label{e4smSizeComputation}
+
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{| c | c | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{Literals}} \\
+\hline
+Name & Value & Documentation \\ \hline \hline
+\texttt{SUM} & 0 &
+ \\ \hline
+\texttt{MULTIPLY} & 1 &
+ \\ \hline
+\caption{Literals of the SizeComputation EEnum}
+\end{tabularx}
+\label{e4smSizeComputationlit}
+\end{table}
+\subsection[SoftwareComponent]{SoftwareComponent}
+\label{e4smSoftwareComponent}
+
+A software component is a generic component which will be realised/is already available digitally
+\textbf{Supertype: }\texttt{Component}
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{|c| p{4 cm} | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{Attributes}} \\
+\hline
+Name & Properties & Documentation \\ \hline \hline
+\texttt{numberOfServers}
+ & 
+\textbf{T:} \texttt{EInt}
+\newline
+\textbf{Cardinality:} [0..1]
+\newline
+\textbf{Default:} \texttt{1}
+ & Number of computational units. If one, the execution is syncronous. If > 1, the execution will be parallel.\\ \hline
+\texttt{synchronous}
+ & 
+\textbf{T:} \texttt{EBoolean}
+\newline
+\textbf{Cardinality:} [0..1]
+\newline
+\textbf{Default:} \texttt{true}
+ & If synchronous, the execution is blocked on the current component until it provides a result. If the component is asynchronous, the execution continues immediatly and the results are provided in other ways (e.g. written out somewhere, with an event system, with promise systems, by polling...)\\ \hline
+\caption{Attributes of the SoftwareComponent EClass}
+\end{tabularx}
+\label{e4smSoftwareComponentattr}
+\end{table}
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{|c| p{4 cm} | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{Operations}} \\
+\hline
+Name & Properties & Documentation \\ \hline \hline
+\texttt{isParallel}
+ & 
+\textbf{T:} \texttt{EBoolean}
+\newline
+\textbf{Cardinality:} [0..1]
+%\newline
+%\textbf{Returns:}
+%EBoolean[0..1]
+ & \\ \hline
+\caption{Operations of the SoftwareComponent EClass}
+\end{tabularx}
+\label{e4smSoftwareComponentop}
+\end{table}
+\subsection[StaticSize]{StaticSize}
+\label{e4smStaticSize}
+
+The input received by this input pin is static and always has the same value (is practically a parameter)
+\textbf{Supertype: }\texttt{DataSize}
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{|c| p{4 cm} | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{Attributes}} \\
+\hline
+Name & Properties & Documentation \\ \hline \hline
+\texttt{size}
+ & 
+\textbf{T:} \texttt{}
+\newline
+\textbf{Cardinality:} [0..1]
+ & \\ \hline
+\caption{Attributes of the StaticSize EClass}
+\end{tabularx}
+\label{e4smStaticSizeattr}
+\end{table}
+\subsection[TokenSpecification]{TokenSpecification}
+\label{e4smTokenSpecification}
+
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{|c| p{4 cm} | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{Attributes}} \\
+\hline
+Name & Properties & Documentation \\ \hline \hline
+\texttt{collectSize}
+ & 
+\textbf{T:} \texttt{SizeComputation}
+\newline
+\textbf{Cardinality:} [0..1]
+\newline
+\textbf{Default:} \texttt{SUM}
+ & \\ \hline
+\caption{Attributes of the TokenSpecification EClass}
+\end{tabularx}
+\label{e4smTokenSpecificationattr}
+\end{table}
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{|c| p{4 cm} | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{References}} \\
+\hline
+Name & Properties & Documentation \\ \hline \hline
+\texttt{inputSize}
+ & 
+\textbf{T:} \texttt{DataSize}
+\newline
+\textbf{Cardinality:} [0..*]
+\newline
+\textbf{Containment}
+ & \\ \hline
+\texttt{type}
+ & 
+\textbf{T:} \texttt{TypeSpecification}
+\newline
+\textbf{Cardinality:} [0..1]
+ & \\ \hline
+\caption{References of the TokenSpecification EClass}
+\end{tabularx}
+\label{e4smTokenSpecificationref}
+\end{table}
+\subsection[UnitConversion]{UnitConversion}
+\label{e4smUnitConversion}
+
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{|c| p{4 cm} | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{References}} \\
+\hline
+Name & Properties & Documentation \\ \hline \hline
+\texttt{referenceUnit}
+ & 
+\textbf{T:} \texttt{MeasurementUnit}
+\newline
+\textbf{Cardinality:} [1..1]
+ & \\ \hline
+\caption{References of the UnitConversion EClass}
+\end{tabularx}
+\label{e4smUnitConversionref}
+\end{table}
+\subsection[UnitPrefix]{UnitPrefix}
+\label{e4smUnitPrefix}
+
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\textwidth}{|c| p{4 cm} | X |}
+\hline
+\multicolumn{3}{|c|}{\textbf{Attributes}} \\
+\hline
+Name & Properties & Documentation \\ \hline \hline
+\texttt{conversionFactor}
+ & 
+\textbf{T:} \texttt{EInt}
+\newline
+\textbf{Cardinality:} [0..1]
+ & \\ \hline
+\texttt{symbol}
+ & 
+\textbf{T:} \texttt{EString}
+\newline
+\textbf{Cardinality:} [0..1]
+ & \\ \hline
+\caption{Attributes of the UnitPrefix EClass}
+\end{tabularx}
+\label{e4smUnitPrefixattr}
+\end{table}
+\end{document}

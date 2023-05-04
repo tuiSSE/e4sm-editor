@@ -16,8 +16,10 @@ import e4sm.de.metamodel.e4sm.Connector;
 import e4sm.de.metamodel.e4sm.ConversionByConvention;
 import e4sm.de.metamodel.e4sm.ConversionByPrefix;
 import e4sm.de.metamodel.e4sm.DataNode;
+import e4sm.de.metamodel.e4sm.DataSize;
 import e4sm.de.metamodel.e4sm.DataStore;
 import e4sm.de.metamodel.e4sm.DerivedUnit;
+import e4sm.de.metamodel.e4sm.DynamicRange;
 import e4sm.de.metamodel.e4sm.Environment;
 import e4sm.de.metamodel.e4sm.ExternalDependency;
 import e4sm.de.metamodel.e4sm.Function;
@@ -39,8 +41,12 @@ import e4sm.de.metamodel.e4sm.Pin;
 import e4sm.de.metamodel.e4sm.Robot;
 import e4sm.de.metamodel.e4sm.Sector;
 import e4sm.de.metamodel.e4sm.Sensor;
+import e4sm.de.metamodel.e4sm.Set;
+import e4sm.de.metamodel.e4sm.SetValue;
 import e4sm.de.metamodel.e4sm.SimpleUnit;
 import e4sm.de.metamodel.e4sm.SoftwareComponent;
+import e4sm.de.metamodel.e4sm.StaticSize;
+import e4sm.de.metamodel.e4sm.TokenSpecification;
 import e4sm.de.metamodel.e4sm.UnitConversion;
 import e4sm.de.metamodel.e4sm.UnitPrefix;
 import e4sm.de.metamodel.e4sm.analysis.ParameterizableElement;
@@ -323,6 +329,36 @@ public class e4smAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseConfusionMatrix(ConfusionMatrix object) {
 			return createConfusionMatrixAdapter();
+		}
+
+		@Override
+		public Adapter caseTokenSpecification(TokenSpecification object) {
+			return createTokenSpecificationAdapter();
+		}
+
+		@Override
+		public Adapter caseDataSize(DataSize object) {
+			return createDataSizeAdapter();
+		}
+
+		@Override
+		public Adapter caseStaticSize(StaticSize object) {
+			return createStaticSizeAdapter();
+		}
+
+		@Override
+		public Adapter caseSet(Set object) {
+			return createSetAdapter();
+		}
+
+		@Override
+		public Adapter caseSetValue(SetValue object) {
+			return createSetValueAdapter();
+		}
+
+		@Override
+		public Adapter caseDynamicRange(DynamicRange object) {
+			return createDynamicRangeAdapter();
 		}
 
 		@Override
@@ -988,6 +1024,90 @@ public class e4smAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createConfusionMatrixAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.TokenSpecification <em>Token Specification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.TokenSpecification
+	 * @generated
+	 */
+	public Adapter createTokenSpecificationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.DataSize <em>Data Size</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.DataSize
+	 * @generated
+	 */
+	public Adapter createDataSizeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.StaticSize <em>Static Size</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.StaticSize
+	 * @generated
+	 */
+	public Adapter createStaticSizeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.Set <em>Set</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.Set
+	 * @generated
+	 */
+	public Adapter createSetAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.SetValue <em>Set Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.SetValue
+	 * @generated
+	 */
+	public Adapter createSetValueAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.DynamicRange <em>Dynamic Range</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.DynamicRange
+	 * @generated
+	 */
+	public Adapter createDynamicRangeAdapter() {
 		return null;
 	}
 

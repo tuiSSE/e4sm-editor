@@ -4,11 +4,6 @@
 //Version: 2023-01-25
 const fs = require('fs').promises;
 const path = require('path');
-const
-  {
-    argv,
-    exit
-  } = require('process');
 
 try {
   require.resolve('xml2js');
@@ -265,24 +260,24 @@ function simplifyNet(net) {
     // Find the arc leading to the immediateTransition, check that it is only one
     const leftArcs = getArcsToElement(net, iT.id);
 	if(leftArcs.length !== 1)
-		return;
+		{return;}
 	
     const leftInscription = getInscriptionText(leftArcs[0]);
     let lPlace = null;
 
-	  const lArc = leftArcs[0]['$'];
+    const lArc = leftArcs[0]['$'];
 
-	  // Get the place which is supplying this immediateTransition
-	  lPlace = getPlaceByID(net, lArc.fromNode);
-	  // Check if the incoming place has only one outgoing arc
-	  const outgoingArcs = getArcsFromElement(net, lPlace['$'].id);
-	  if (outgoingArcs.length !== 1) {
-		return;
-	  }
+    // Get the place which is supplying this immediateTransition
+    lPlace = getPlaceByID(net, lArc.fromNode);
+    // Check if the incoming place has only one outgoing arc
+    const outgoingArcs = getArcsFromElement(net, lPlace['$'].id);
+    if (outgoingArcs.length !== 1) {
+      return;
+    }
 
     // Find the arc leaving from the immediateTransition, check that it is only one
     const rightArcs = getArcsFromElement(net, iT.id);
-	if(rightArcs.length!==1) return;
+	if(rightArcs.length!==1) {return;}
     const rightInscription = getInscriptionText(rightArcs[0]);
     if (leftInscription !== rightInscription) {
       return;
@@ -318,6 +313,7 @@ function simplifyNet(net) {
  * @param {string} placeID
  * @returns {string} the label of the element with the given ID
  */
+// eslint-disable-next-line no-unused-vars
 function getLabelByPlaceID(net, placeID) {
   return getLabel(getPlaceByID(net, placeID));
 }
@@ -417,6 +413,7 @@ function getElByID(net, ID, type) {
   return net[type].find(el => el['$'].id === ID);
 }
 
+// eslint-disable-next-line no-unused-vars
 function removeArcByID(net, ID) {
   removeElementByID(net, ID, 'arc');
 }
@@ -576,7 +573,7 @@ function moveGraphicInCircle(el, origin, radius, angle) {
     el.graphics[0]['$']['y'] = Math.round(origin.y + radius * Math.sin(angle));
   }
   else {
-    fatalError(`Element with ID "${t.id}" does not have a graphic`);
+    fatalError(`Element with ID "${el.id}" does not have a graphic`);
   }
 }
 

@@ -211,9 +211,9 @@ public class ExecutionSwitch<T> extends Switch<T> {
 			Variable variable = (Variable) theEObject;
 			T result = caseVariable(variable);
 			if (result == null)
-				result = caseConst(variable);
-			if (result == null)
 				result = caseAssignableElement(variable);
+			if (result == null)
+				result = caseReferenceableItem(variable);
 			if (result == null)
 				result = caseExecutionElement(variable);
 			if (result == null)
@@ -227,6 +227,8 @@ public class ExecutionSwitch<T> extends Switch<T> {
 		case ExecutionPackage.CONST: {
 			Const const_ = (Const) theEObject;
 			T result = caseConst(const_);
+			if (result == null)
+				result = caseReferenceableItem(const_);
 			if (result == null)
 				result = caseExecutionElement(const_);
 			if (result == null)
@@ -281,6 +283,67 @@ public class ExecutionSwitch<T> extends Switch<T> {
 		case ExecutionPackage.ASSIGNABLE_ELEMENT: {
 			AssignableElement assignableElement = (AssignableElement) theEObject;
 			T result = caseAssignableElement(assignableElement);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ExecutionPackage.REFERENCEABLE_ITEM: {
+			ReferenceableItem referenceableItem = (ReferenceableItem) theEObject;
+			T result = caseReferenceableItem(referenceableItem);
+			if (result == null)
+				result = caseExecutionElement(referenceableItem);
+			if (result == null)
+				result = caseNamedElement(referenceableItem);
+			if (result == null)
+				result = caseElement(referenceableItem);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ExecutionPackage.INPUT_PIN_REFERENCE: {
+			InputPinReference inputPinReference = (InputPinReference) theEObject;
+			T result = caseInputPinReference(inputPinReference);
+			if (result == null)
+				result = caseExpression(inputPinReference);
+			if (result == null)
+				result = caseExecutionElement(inputPinReference);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ExecutionPackage.INPUT_PIN_ATTRIBUTE_REFERENCE: {
+			InputPinAttributeReference inputPinAttributeReference = (InputPinAttributeReference) theEObject;
+			T result = caseInputPinAttributeReference(inputPinAttributeReference);
+			if (result == null)
+				result = caseInputPinReference(inputPinAttributeReference);
+			if (result == null)
+				result = caseExpression(inputPinAttributeReference);
+			if (result == null)
+				result = caseExecutionElement(inputPinAttributeReference);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ExecutionPackage.PARAMETER_REFERENCE: {
+			ParameterReference parameterReference = (ParameterReference) theEObject;
+			T result = caseParameterReference(parameterReference);
+			if (result == null)
+				result = caseExpression(parameterReference);
+			if (result == null)
+				result = caseExecutionElement(parameterReference);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ExecutionPackage.EXPONENTIATION: {
+			Exponentiation exponentiation = (Exponentiation) theEObject;
+			T result = caseExponentiation(exponentiation);
+			if (result == null)
+				result = caseBinaryExpression(exponentiation);
+			if (result == null)
+				result = caseExpression(exponentiation);
+			if (result == null)
+				result = caseExecutionElement(exponentiation);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -617,6 +680,81 @@ public class ExecutionSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseAssignableElement(AssignableElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Referenceable Item</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Referenceable Item</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseReferenceableItem(ReferenceableItem object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Input Pin Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Input Pin Reference</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseInputPinReference(InputPinReference object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Input Pin Attribute Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Input Pin Attribute Reference</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseInputPinAttributeReference(InputPinAttributeReference object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Parameter Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Parameter Reference</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseParameterReference(ParameterReference object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Exponentiation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Exponentiation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExponentiation(Exponentiation object) {
 		return null;
 	}
 

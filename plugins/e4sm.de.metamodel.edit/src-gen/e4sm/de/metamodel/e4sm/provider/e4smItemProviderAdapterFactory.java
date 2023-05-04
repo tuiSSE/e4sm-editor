@@ -947,6 +947,121 @@ public class e4smItemProviderAdapterFactory extends e4smAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.TokenSpecification} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TokenSpecificationItemProvider tokenSpecificationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.TokenSpecification}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTokenSpecificationAdapter() {
+		if (tokenSpecificationItemProvider == null) {
+			tokenSpecificationItemProvider = new TokenSpecificationItemProvider(this);
+		}
+
+		return tokenSpecificationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.StaticSize} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StaticSizeItemProvider staticSizeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.StaticSize}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStaticSizeAdapter() {
+		if (staticSizeItemProvider == null) {
+			staticSizeItemProvider = new StaticSizeItemProvider(this);
+		}
+
+		return staticSizeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.Set} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SetItemProvider setItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.Set}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSetAdapter() {
+		if (setItemProvider == null) {
+			setItemProvider = new SetItemProvider(this);
+		}
+
+		return setItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.SetValue} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SetValueItemProvider setValueItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.SetValue}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSetValueAdapter() {
+		if (setValueItemProvider == null) {
+			setValueItemProvider = new SetValueItemProvider(this);
+		}
+
+		return setValueItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.DynamicRange} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DynamicRangeItemProvider dynamicRangeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.DynamicRange}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDynamicRangeAdapter() {
+		if (dynamicRangeItemProvider == null) {
+			dynamicRangeItemProvider = new DynamicRangeItemProvider(this);
+		}
+
+		return dynamicRangeItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1127,6 +1242,16 @@ public class e4smItemProviderAdapterFactory extends e4smAdapterFactory
 			binaryClassificationComponentItemProvider.dispose();
 		if (multiclassClassificationComponentItemProvider != null)
 			multiclassClassificationComponentItemProvider.dispose();
+		if (tokenSpecificationItemProvider != null)
+			tokenSpecificationItemProvider.dispose();
+		if (staticSizeItemProvider != null)
+			staticSizeItemProvider.dispose();
+		if (setItemProvider != null)
+			setItemProvider.dispose();
+		if (setValueItemProvider != null)
+			setValueItemProvider.dispose();
+		if (dynamicRangeItemProvider != null)
+			dynamicRangeItemProvider.dispose();
 	}
 
 }

@@ -11,5 +11,5 @@ Require-Bundle: e4sm.de.metamodel.xtext,
  org.eclipse.xtext.testing,
  org.eclipse.xtext.xbase.testing,
  org.eclipse.xtext.xbase.lib;bundle-version="2.14.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-19
+Bundle-RequiredExecutionEnvironment: JavaSE-18
 Export-Package: e4sm.de.metamodel.xtext.tests;x-internal=true

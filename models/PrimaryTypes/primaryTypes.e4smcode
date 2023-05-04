@@ -1,0 +1,17 @@
+	/**
+	 * This model specifies the primary types available
+	 */
+model PrimaryTypes{
+	type Int{},
+	type Bool{},
+	type Real{},
+	type String{},
+	type DateTime{
+		int day,
+		int month,
+		int year,
+		int hour,
+		int min,
+		int seconds
+	}
+}

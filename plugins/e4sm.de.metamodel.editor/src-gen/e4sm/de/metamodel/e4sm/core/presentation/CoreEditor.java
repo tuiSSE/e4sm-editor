@@ -164,6 +164,7 @@ import e4sm.de.metamodel.e4sm.guava.provider.GuavaItemProviderAdapterFactory;
 import e4sm.de.metamodel.e4sm.presentation.e4smEditorPlugin;
 
 import e4sm.de.metamodel.e4sm.provider.e4smItemProviderAdapterFactory;
+import e4sm.de.metamodel.e4sm.security.provider.SecurityItemProviderAdapterFactory;
 import org.eclipse.emf.ecore.provider.EcoreItemProviderAdapterFactory;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
@@ -696,11 +697,12 @@ public class CoreEditor extends MultiPageEditorPart
 
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new e4smItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new ResultsItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new AnalysisItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new CoreItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ExecutionItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new AnalysisItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new ResultsItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new GuavaItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new SecurityItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new EcoreItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 

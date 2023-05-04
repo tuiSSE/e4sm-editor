@@ -8,6 +8,10 @@ import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.ComponentFiringStrategy;
 import e4sm.de.metamodel.e4sm.Model;
 import e4sm.de.metamodel.e4sm.e4smPackage;
+import e4sm.de.metamodel.e4sm.execution.ExecutionElement;
+import e4sm.de.metamodel.e4sm.execution.Expression;
+import e4sm.de.metamodel.e4sm.execution.InputPinReference;
+import e4sm.de.metamodel.e4sm.execution.Variable;
 import java.util.Map;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
@@ -25,8 +29,8 @@ import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Functions.Function0;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.runner.RunWith;
 
@@ -73,6 +77,9 @@ public class E4smParsingTest {
       _builder.newLine();
       _builder.append("\t\t\t\t");
       _builder.append("const testSum = 3 + 3;");
+      _builder.newLine();
+      _builder.append("\t\t\t\t");
+      _builder.append("var inputAccess = $pinName;");
       _builder.newLine();
       _builder.append("\t\t\t\t");
       _builder.append("const testMultiplication = 6 * 7;");
@@ -208,6 +215,27 @@ public class E4smParsingTest {
       final Model result = this.parseHelper.parse(E4smParsingTest.toBeParsed);
       Assertions.assertEquals(result.getPackages().get(0).getComponents().get(6).getName(), "H");
       Assertions.assertEquals(result.getPackages().get(0).getComponents().get(6).getFiringStrategy(), ComponentFiringStrategy.OR);
+      final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
+      boolean _isEmpty = errors.isEmpty();
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("Unexpected errors: ");
+      String _join = IterableExtensions.join(errors, ", ");
+      _builder.append(_join);
+      Assertions.assertTrue(_isEmpty, _builder.toString());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+
+  @Test
+  public void parseInputPinReference() {
+    try {
+      final Model result = this.parseHelper.parse(E4smParsingTest.toBeParsed);
+      ExecutionElement _get = result.getPackages().get(0).getComponents().get(0).getExecution().getElements().get(2);
+      Assertions.assertEquals(((Variable) _get).getName(), "inputAccess");
+      ExecutionElement _get_1 = result.getPackages().get(0).getComponents().get(0).getExecution().getElements().get(2);
+      Expression _tangibleChild = ((Variable) _get_1).getExpression().getTangibleChild();
+      Assertions.assertEquals(((InputPinReference) _tangibleChild).getInputPin().getName(), "pinName");
       final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
       boolean _isEmpty = errors.isEmpty();
       StringConcatenation _builder = new StringConcatenation();

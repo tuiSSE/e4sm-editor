@@ -364,6 +364,51 @@ public interface e4smFactory extends EFactory {
 	MulticlassClassificationComponent createMulticlassClassificationComponent();
 
 	/**
+	 * Returns a new object of class '<em>Token Specification</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Token Specification</em>'.
+	 * @generated
+	 */
+	TokenSpecification createTokenSpecification();
+
+	/**
+	 * Returns a new object of class '<em>Static Size</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Static Size</em>'.
+	 * @generated
+	 */
+	StaticSize createStaticSize();
+
+	/**
+	 * Returns a new object of class '<em>Set</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Set</em>'.
+	 * @generated
+	 */
+	Set createSet();
+
+	/**
+	 * Returns a new object of class '<em>Set Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Set Value</em>'.
+	 * @generated
+	 */
+	SetValue createSetValue();
+
+	/**
+	 * Returns a new object of class '<em>Dynamic Range</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Dynamic Range</em>'.
+	 * @generated
+	 */
+	DynamicRange createDynamicRange();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

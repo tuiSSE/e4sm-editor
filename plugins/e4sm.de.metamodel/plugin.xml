@@ -56,6 +56,14 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated e4sm -->
       <package
+            uri="http://de.tu-ilmenau/e4sm/security/1.0.0"
+            class="e4sm.de.metamodel.e4sm.security.SecurityPackage"
+            genModel="model/e4sm.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated e4sm -->
+      <package
             uri="http://de.tu-ilmenau/e4sm/execution/1.0.0"
             class="e4sm.de.metamodel.e4sm.execution.ExecutionPackage"
             genModel="model/e4sm.genmodel"/>

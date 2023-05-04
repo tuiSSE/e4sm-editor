@@ -139,6 +139,8 @@ public abstract class ValueSpecificationImpl extends TypedElementImpl implements
 				return CorePackage.VALUE_SPECIFICATION___GET_TANGIBLE_CHILD;
 			case ExecutionPackage.EXPRESSION___GET_ACTUAL_PARENT:
 				return CorePackage.VALUE_SPECIFICATION___GET_ACTUAL_PARENT;
+			case ExecutionPackage.EXPRESSION___TO_STRING:
+				return CorePackage.VALUE_SPECIFICATION___TO_STRING;
 			default:
 				return -1;
 			}

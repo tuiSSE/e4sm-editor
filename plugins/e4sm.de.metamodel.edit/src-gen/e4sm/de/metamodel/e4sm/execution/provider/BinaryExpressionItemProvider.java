@@ -185,6 +185,18 @@ public class BinaryExpressionItemProvider extends ExpressionItemProvider {
 				ExecutionFactory.eINSTANCE.createVariableRef()));
 
 		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.BINARY_EXPRESSION__LEFT,
+				ExecutionFactory.eINSTANCE.createInputPinReference()));
+
+		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.BINARY_EXPRESSION__LEFT,
+				ExecutionFactory.eINSTANCE.createInputPinAttributeReference()));
+
+		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.BINARY_EXPRESSION__LEFT,
+				ExecutionFactory.eINSTANCE.createParameterReference()));
+
+		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.BINARY_EXPRESSION__LEFT,
+				ExecutionFactory.eINSTANCE.createExponentiation()));
+
+		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.BINARY_EXPRESSION__LEFT,
 				CoreFactory.eINSTANCE.createLiteralNull()));
 
 		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.BINARY_EXPRESSION__LEFT,
@@ -225,6 +237,18 @@ public class BinaryExpressionItemProvider extends ExpressionItemProvider {
 
 		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.BINARY_EXPRESSION__RIGHT,
 				ExecutionFactory.eINSTANCE.createVariableRef()));
+
+		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.BINARY_EXPRESSION__RIGHT,
+				ExecutionFactory.eINSTANCE.createInputPinReference()));
+
+		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.BINARY_EXPRESSION__RIGHT,
+				ExecutionFactory.eINSTANCE.createInputPinAttributeReference()));
+
+		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.BINARY_EXPRESSION__RIGHT,
+				ExecutionFactory.eINSTANCE.createParameterReference()));
+
+		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.BINARY_EXPRESSION__RIGHT,
+				ExecutionFactory.eINSTANCE.createExponentiation()));
 
 		newChildDescriptors.add(createChildParameter(ExecutionPackage.Literals.BINARY_EXPRESSION__RIGHT,
 				CoreFactory.eINSTANCE.createLiteralNull()));
