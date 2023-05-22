@@ -734,7 +734,7 @@
                   <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformToComponent(views)"/>
                 </initialOperation>
               </menuItemDescription>
-              <menuItemDescription xsi:type="tool_1:OperationAction" name="change_to_software_component_action" label="To Software Component" precondition="aql:container.oclIsKindOf(e4sm::SoftwareComponent) and not container.oclIsTypeOf(e4sm::SoftwareComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/SoftwareComponent.gif">
+              <menuItemDescription xsi:type="tool_1:OperationAction" name="change_to_software_component_action" label="To Software Component" precondition="aql:container.oclIsKindOf(e4sm::SoftwareComponent) and not container.oclIsTypeOf(e4sm::SoftwareComponent) and not container.oclIsTypeOf(e4sm::BinaryClassificationComponent) and not container.oclIsTypeOf(e4sm::MulticlassClassificationComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/SoftwareComponent.gif">
                 <view name="views"/>
                 <initialOperation>
                   <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformToSoftwareComponent(views)"/>
@@ -744,6 +744,12 @@
                 <view name="views"/>
                 <initialOperation>
                   <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformToPhysicalComponent()"/>
+                </initialOperation>
+              </menuItemDescription>
+              <menuItemDescription xsi:type="tool_1:OperationAction" name="change_to_machine_learning_component_action" label="To Machine Learning Component" precondition="aql:container.oclIsKindOf(e4sm::MachineLearningComponent) and not container.oclIsTypeOf(e4sm::MachineLearningComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/MachineLearningComponent.gif">
+                <view name="views"/>
+                <initialOperation>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformToMachineLearningComponent(views)"/>
                 </initialOperation>
               </menuItemDescription>
             </itemDescriptions>
@@ -794,6 +800,18 @@
                 <view name="views"/>
                 <initialOperation>
                   <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformDownToExternalDependency()"/>
+                </initialOperation>
+              </menuItemDescription>
+              <menuItemDescription xsi:type="tool_1:OperationAction" name="change_to_binary_classification_component_action" label="To Binary Classification Component" precondition="aql:container.oclIsTypeOf(e4sm::MachineLearningComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/BinaryClassificationComponent.gif">
+                <view name="views"/>
+                <initialOperation>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformDownToBinaryClassificationComponent()"/>
+                </initialOperation>
+              </menuItemDescription>
+              <menuItemDescription xsi:type="tool_1:OperationAction" name="change_to_multiclass_classification_component_action" label="To Multiclass Classification Component" precondition="aql:container.oclIsTypeOf(e4sm::MachineLearningComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/MulticlassClassificationComponent.gif">
+                <view name="views"/>
+                <initialOperation>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformDownToMulticlassClassificationComponent()"/>
                 </initialOperation>
               </menuItemDescription>
             </itemDescriptions>

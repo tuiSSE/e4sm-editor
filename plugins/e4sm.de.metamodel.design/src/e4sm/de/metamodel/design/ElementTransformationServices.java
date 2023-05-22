@@ -20,6 +20,8 @@ import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.ui.IEditorPart;
 
 import e4sm.de.metamodel.e4sm.Actuator;
+import e4sm.de.metamodel.e4sm.BinaryClassificationComponent;
+import e4sm.de.metamodel.e4sm.MulticlassClassificationComponent;
 import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.ExternalDependency;
 import e4sm.de.metamodel.e4sm.Function;
@@ -195,6 +197,41 @@ public class ElementTransformationServices {
 		System.out.println("Element transformed to software component");
 	}
 
+	/*
+	 * Transforms the given specific machine learning component to a MachineLearningComponent
+	 */
+	public void transformToMachineLearningComponent(MachineLearningComponent c,  List<DSemanticDecorator> containingViews) {
+		final MachineLearningComponent newComponent = e4smFactory.eINSTANCE.createMachineLearningComponent();
+		NamedElement oldComponentContainer = (NamedElement) c.eContainer();
+		if (oldComponentContainer instanceof Component) {
+			// This component is contained by another component
+			((Component) oldComponentContainer).getComponents().add(newComponent);
+		} else if (oldComponentContainer instanceof Package) {
+			// This component is contained by a package
+			((Package) oldComponentContainer).getComponents().add(newComponent);
+		}
+
+		// Copy all attributes
+		newComponent.setName(c.getName());
+		newComponent.getPins().addAll(c.getPins());
+		newComponent.setSpecifiedInPackage(c.getSpecifiedInPackage());
+		newComponent.setMainResponsible(c.getMainResponsible());
+		newComponent.getComponents().addAll(c.getComponents());
+
+		// Give to the new component the same size/position as the old one.
+		if (containingViews != null && containingViews.size() > 0) {
+			DNodeContainer existingNode = (DNodeContainer) containingViews.get(0);
+			restorePositionAndSize(existingNode);
+			
+			//TODO, see "transformToComponent"
+		}
+
+		// Delete the old component
+		EcoreUtil.remove(c);
+		System.out.println("Binary Classification Component transformed to Machine Learning Component");
+	}
+
+	
 	/*
 	 * Transforms the given Sensor/Actuator to a PhysicalComponent
 	 */
@@ -461,4 +498,63 @@ public class ElementTransformationServices {
 		EcoreUtil.remove(c);
 		System.out.println("SoftwareComponent transformed to ExternalDependency");
 	}
+
+
+
+/*
+ * Transforms the given MachineLearningComponent to a Binary Classification Component
+ */
+public void transformDownToBinaryClassificationComponent(MachineLearningComponent c) {
+	final BinaryClassificationComponent newComponent = e4smFactory.eINSTANCE.createBinaryClassificationComponent();
+	NamedElement oldComponentContainer = (NamedElement) c.eContainer();
+	if (oldComponentContainer instanceof Component) {
+		// This component is contained by another component
+		((Component) oldComponentContainer).getComponents().add(newComponent);
+	} else if (oldComponentContainer instanceof Package) {
+		// This component is contained by a package
+		((Package) oldComponentContainer).getComponents().add(newComponent);
+	}
+
+	// Copy all attributes
+	newComponent.setName(c.getName());
+	newComponent.getPins().addAll(c.getPins());
+	newComponent.setSpecifiedInPackage(c.getSpecifiedInPackage());
+	newComponent.setMainResponsible(c.getMainResponsible());
+	newComponent.getComponents().addAll(c.getComponents());
+
+	// TODO: give to the new component the same size/position as the old one.
+
+	// Delete the old component
+	EcoreUtil.remove(c);
+	System.out.println("MachineLearningComponent transformed to BinaryClassificationComponent");
+	}
+
+/*
+ * Transforms the given MachineLearningComponent to a Multiclass Classification Component
+ */
+public void transformDownToMulticlassClassificationComponent(MachineLearningComponent c) {
+	final MulticlassClassificationComponent newComponent = e4smFactory.eINSTANCE.createMulticlassClassificationComponent();
+	NamedElement oldComponentContainer = (NamedElement) c.eContainer();
+	if (oldComponentContainer instanceof Component) {
+		// This component is contained by another component
+		((Component) oldComponentContainer).getComponents().add(newComponent);
+	} else if (oldComponentContainer instanceof Package) {
+		// This component is contained by a package
+		((Package) oldComponentContainer).getComponents().add(newComponent);
+	}
+
+	// Copy all attributes
+	newComponent.setName(c.getName());
+	newComponent.getPins().addAll(c.getPins());
+	newComponent.setSpecifiedInPackage(c.getSpecifiedInPackage());
+	newComponent.setMainResponsible(c.getMainResponsible());
+	newComponent.getComponents().addAll(c.getComponents());
+
+	// TODO: give to the new component the same size/position as the old one.
+
+	// Delete the old component
+	EcoreUtil.remove(c);
+	System.out.println("MachineLearningComponent transformed to MulticlassClassificationComponent");
+	}
+
 }
