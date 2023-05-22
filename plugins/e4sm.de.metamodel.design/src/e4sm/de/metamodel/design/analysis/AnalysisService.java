@@ -70,6 +70,10 @@ public class AnalysisService {
 	// private void addResult(AnalysisResult ar) {
 	//	results.add(ar);
 	// }
+	
+	public String sanitizePath(String p) {
+		return p.replaceAll(" ", "_");
+	}
 
 	public int toSCPN(Package p, String outputPath) {
 		Utils.debug("Converting package to SCPN");
@@ -105,6 +109,7 @@ public class AnalysisService {
 			Utils.debug("Output path not provided, setting the default path /SCPN/<modelName>.xml");
 			// Using the default output SCPN/model_name.xml"
 			outputPath = projectPath + "SCPN/" + p.getName() + ".xml";
+			outputPath = sanitizePath(outputPath);
 			Utils.debug("\noutputPath set to: " + outputPath);
 		}
 
@@ -141,7 +146,10 @@ public class AnalysisService {
 		// setup the execution environment details ->
 		// configuration properties, logger, monitor object etc.
 		ExecutionContextImpl context = new ExecutionContextImpl();
+		// set what one package should be transformed
 		context.setConfigProperty("packageName", p.getName());
+		// set if the transition should generate log files
+		context.setConfigProperty("logComponents", true);
 
 		// run the transformation assigned to the executor with the given
 		// input and output and execution context -> ChangeTheWorld(in, out)

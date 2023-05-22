@@ -1,18 +1,32 @@
 model binaryModel{
+	type Image{int x, int y, int color_depth},
+	type ActuatorImpulse{boolean enable}
 	package p1 {
 	processingUnits : -1
-		sensor "Sensor 1" {
-			out s1_out
-		},
-		binaryClassificationComponent "Binary Classification" {
-			in b1_in,
-			out b2_out
-			confusionMatrixes { confusion matrix cm1 {TP : 200, FN : 2, FP: 5, TN: 8}}
-		},
-		actuator Actuator {
-			in a1_in
-		}
-		connector c1 "Sensor 1.s1_out" -> "Binary Classification.b1_in",
-		connector c2 "Binary Classification.b2_out" -> "Actuator.a1_in"
-	}
+	physicalConnector con_bzhW "Controlled Area.Camera.c_out" -> "Controlled Area.Processing Unit.pu_in" ,
+	physicalConnector con_x5E7 "Controlled Area.Processing Unit.pu_out" -> "Controlled Area.Alarm.a_in" ,
+	logicalConnector con_m6mU "Controlled Area.Processing Unit.pu_in" -> "Controlled Area.Processing Unit.Intruder Detection.id_in" ,
+	logicalConnector con_so5P "Controlled Area.Processing Unit.Intruder Detection.id_out" -> "Controlled Area.Processing Unit.pu_out"
+	sector "Controlled Area" { components {
+	physicalComponent "Processing Unit" {
+		out pu_out ,
+		in Image pu_in 
+		components { 
+			binaryClassificationComponent "Intruder Detection" {
+				takes Norm(($id_in.x * $id_in.y)^2 * 430, 50)
+				in Image id_in,
+				out ActuatorImpulse id_out
+				confusionMatrixes { confusion matrix cm1 
+					{TP : 800, FN : 8, FP: 20, TN: 16}
+				}
+			}
+	}},
+	actuator Alarm {
+		takes Exp(15.0)
+		in ActuatorImpulse a_in
+	},
+	sensor Camera {
+		takes Det(33)
+		out Image c_out
+	}}}}
 }

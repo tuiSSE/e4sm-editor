@@ -1,0 +1,141 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Classification - Documentation</title>
+  <meta name="description" content="The Interface documentation of the Classification model">
+  <meta name="author" content="ABCD Project - SSE Department">
+
+  <meta property="og:title" content="A Basic HTML5 Template">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="A simple HTML5 Template for new projects.">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+</head>
+
+<body>
+  <h1 id="platform:/resource/ClassificationTest/cl.abcdcode#/">Model 	<span class="item-name">Classification</span></h1>
+  	<h2 id="platform:/resource/ClassificationTest/cl.abcdcode#//@packages.0">Package 	<span class="item-name">p</span></h2>
+  	
+  	
+  	
+  		<h4 id="platform:/resource/ClassificationTest/cl.abcdcode#//@packages.0/@components.0" class="componentName Sensor"><span class="camel-exp">Sensor</span> 	<span class="item-name">Source</span></h4>
+  		
+  		
+  		
+  		
+  		
+  		<h5 id="platform:/resource/ClassificationTest/cl.abcdcode#//@packages.0/@components.0_out">Outputs</h5>
+  		<ul class="output-pin-list">
+  			
+  			<li id="platform:/resource/ClassificationTest/cl.abcdcode#//@packages.0/@components.0/@pins.0" class="output-pin">	<span class="item-name">out_FIcr</span>
+  			</li>
+  		</ul>
+  		
+  		
+  		
+  		<hr>
+  		<h4 id="platform:/resource/ClassificationTest/cl.abcdcode#//@packages.0/@components.1" class="componentName Actuator"><span class="camel-exp">Actuator</span> 	<span class="item-name">Destination</span></h4>
+  		
+  		
+  		
+  			<p id="platform:/resource/ClassificationTest/cl.abcdcode#//@packages.0/@components.1_dep">Receives data from: 
+  					<a href="#platform:/resource/ClassificationTest/cl.abcdcode#//@packages.0/@components.2">Pi</a>
+  			</p>
+  		
+  		<h5 id="platform:/resource/ClassificationTest/cl.abcdcode#//@packages.0/@components.1_in">Inputs</h5>
+  			<ul class="input-pin-list">
+  				<li id="platform:/resource/ClassificationTest/cl.abcdcode#//@packages.0/@components.1/@pins.0" class="input-pin">	<span class="item-name">in_4jxS</span>
+  				</li>
+  			</ul>
+  		
+  		
+  		
+  		
+  		<hr>
+  		<h4 id="platform:/resource/ClassificationTest/cl.abcdcode#//@packages.0/@components.2" class="componentName PhysicalComponent"><span class="camel-exp">PhysicalComponent</span> 	<span class="item-name">Pi</span></h4>
+  		
+  		
+  		
+  			<p id="platform:/resource/ClassificationTest/cl.abcdcode#//@packages.0/@components.2_dep">Receives data from: 
+  					<a href="#platform:/resource/ClassificationTest/cl.abcdcode#//@packages.0/@components.0">Source</a>
+  			</p>
+  		
+  		<h5 id="platform:/resource/ClassificationTest/cl.abcdcode#//@packages.0/@components.2_in">Inputs</h5>
+  			<ul class="input-pin-list">
+  				<li id="platform:/resource/ClassificationTest/cl.abcdcode#//@packages.0/@components.2/@pins.1" class="input-pin">	<span class="item-name">in_YmDf</span>
+  				</li>
+  			</ul>
+  		
+  		<h5 id="platform:/resource/ClassificationTest/cl.abcdcode#//@packages.0/@components.2_out">Outputs</h5>
+  		<ul class="output-pin-list">
+  			
+  			<li id="platform:/resource/ClassificationTest/cl.abcdcode#//@packages.0/@components.2/@pins.0" class="output-pin">	<span class="item-name">out_ypq2</span>
+  			</li>
+  		</ul>
+  		
+  		<details open="open">
+  		<summary>Contains the Components</summary>	
+  		<div class="indent">
+  				<h4 id="platform:/resource/ClassificationTest/cl.abcdcode#//@packages.0/@components.2/@components.0" class="componentName BinaryClassificationComponent"><span class="camel-exp">BinaryClassificationComponent</span> 	<span class="item-name">binaryTest</span></h4>
+  				
+  				
+  				
+  					<p id="platform:/resource/ClassificationTest/cl.abcdcode#//@packages.0/@components.2/@components.0_dep">Receives data from: 
+  							<a href="#platform:/resource/ClassificationTest/cl.abcdcode#//@packages.0/@components.2">Pi</a>
+  					</p>
+  				
+  				<h5 id="platform:/resource/ClassificationTest/cl.abcdcode#//@packages.0/@components.2/@components.0_in">Inputs</h5>
+  					<ul class="input-pin-list">
+  						<li id="platform:/resource/ClassificationTest/cl.abcdcode#//@packages.0/@components.2/@components.0/@pins.1" class="input-pin">	<span class="item-name">in_actg</span>
+  						</li>
+  					</ul>
+  				
+  				<h5 id="platform:/resource/ClassificationTest/cl.abcdcode#//@packages.0/@components.2/@components.0_out">Outputs</h5>
+  				<ul class="output-pin-list">
+  					
+  					<li id="platform:/resource/ClassificationTest/cl.abcdcode#//@packages.0/@components.2/@components.0/@pins.0" class="output-pin">	<span class="item-name">out_AGJj</span>
+  					</li>
+  				</ul>
+  				
+  				
+  				
+  				<hr>
+  				<h4 id="platform:/resource/ClassificationTest/cl.abcdcode#//@packages.0/@components.2/@components.1" class="componentName MulticlassClassificationComponent"><span class="camel-exp">MulticlassClassificationComponent</span> 	<span class="item-name">multiclassTest</span></h4>
+  				
+  				
+  				
+  					<p id="platform:/resource/ClassificationTest/cl.abcdcode#//@packages.0/@components.2/@components.1_dep">Receives data from: 
+  							<a href="#platform:/resource/ClassificationTest/cl.abcdcode#//@packages.0/@components.2">Pi</a>
+  					</p>
+  				
+  				<h5 id="platform:/resource/ClassificationTest/cl.abcdcode#//@packages.0/@components.2/@components.1_in">Inputs</h5>
+  					<ul class="input-pin-list">
+  						<li id="platform:/resource/ClassificationTest/cl.abcdcode#//@packages.0/@components.2/@components.1/@pins.1" class="input-pin">	<span class="item-name">in_bctg</span>
+  						</li>
+  					</ul>
+  				
+  				<h5 id="platform:/resource/ClassificationTest/cl.abcdcode#//@packages.0/@components.2/@components.1_out">Outputs</h5>
+  				<ul class="output-pin-list">
+  					
+  					<li id="platform:/resource/ClassificationTest/cl.abcdcode#//@packages.0/@components.2/@components.1/@pins.0" class="output-pin">	<span class="item-name">out_CGJj</span>
+  					</li>
+  				</ul>
+  				
+  				
+  				
+  				<hr>
+  			</div>
+  		</details>
+  		
+  		
+  		<hr>
+  	
+  <script src="js/scripts.js"></script>
+</body>
+</html>
+

@@ -88,8 +88,8 @@ function generateE4SM(input) {
  * @param {ExecutionFunction} ef 
  * @returns {String}
  */
-function executionFunctionToString(ef){
-    if(ef.variance > 0){
+function executionFunctionToString(ef) {
+    if (ef.variance > 0) {
         return `Norm(${ef.meanValue} , ${ef.variance})`
     }
     return `Det(${ef.meanValue})`;
@@ -105,12 +105,20 @@ function generateComponents(components) {
     let result = "// Components\n";
     for (let i = 0; i < components.length; i++) {
         const c = components[i];
-        result += `component "${c.name}${ID_SEPARATOR}${c.id}" {
+        if (c.outputPins?.length > 0) {
+            result += `softwareComponent "${c.name}${ID_SEPARATOR}${c.id}" {
             takes ${executionFunctionToString(c.executionFunction)}
-            ${generateInputPins(c.inputPins)}
+            ${generateInputPins(c.inputPins)},
             ${generateOutputPins(c.outputPins)}
             ${generateParameters(c.parameters)}
         }`;
+        } else {
+            result += `actuator "${c.name}${ID_SEPARATOR}${c.id}" {
+            takes ${executionFunctionToString(c.executionFunction)}
+            ${generateInputPins(c.inputPins)}
+            ${generateParameters(c.parameters)}
+    }`;
+        }
         if ((i + 1) < components.length)
             result += ",\n";
     }
@@ -124,15 +132,12 @@ function generateComponents(components) {
  */
 function generateSensors(sensors) {
     let result = "// Sensors\n";
-    for (let i = 0; i < sensors.length; i++) {
-        const s = sensors[i];
+    for (const s of sensors) {
         result += `sensor "${s.name}${ID_SEPARATOR}${s.id}" {
             takes ${executionFunctionToString(s.executionFunction)}
             ${generateOutputPins(s.outputPins)} // TODO: results.value need to end up in the model
             ${generateParameters(s.parameters)}
-        },`; // always print the comma, as it is followed by other components...
-        //if ((i + 1) < sensors.length)
-        //    result += ",\n";
+            }, `; // always print the comma, as it is followed by other components...
     }
     return result;
 }
@@ -149,7 +154,7 @@ function generateParameters(parameters) {
     result += "parameters {";
     for (let i = 0; i < parameters.length; i++) {
         const p = parameters[i];
-        result += `par "${p.name}" := ${p.value}`;
+        result += `par "${p.name}" := ${p.value} `;
         if ((i + 1) < parameters.length)
             result += ",\n";
     }
@@ -164,11 +169,9 @@ function generateParameters(parameters) {
  */
 function generateInputPins(iPins) {
     let result = "// Input Pins\n";
-    for (let i = 0; i < iPins.length; i++) {
-        const p = iPins[i];
+    for (const [i, p] of iPins.entries()) {
         result += `in "${p.id}"`;
-        //if ((i + 1) < pins.length)
-        result += ",\n";
+        if ((i + 1) < iPins.length) { result += ",\n"; }
     }
     return result;
 }
@@ -204,11 +207,11 @@ function generateConnectors(connectors) {
     let result = "// Connectors\n";
     for (let i = 0; i < connectors.length; i++) {
         const c = connectors[i];
-        result += `connector "${c.source}_to_${c.target}" "${c.source}"->"${c.target}"`;
+        result += `connector "${c.source}_to_${c.target}" "${c.source}" -> "${c.target}"`;
         if (c.transferTime) {
             result += ` {
                     takes Det(${c.transferTime})
-                }`
+            } `
         }
         if ((i + 1) < connectors.length)
             result += ",\n";

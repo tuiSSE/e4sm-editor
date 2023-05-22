@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<net gridActive="true" id="p1" netclass="SCPN" sharpEdges="false" xsi:schemaLocation="http://timenet.tu-ilmenau.de/schema/SCPN etc/schemas/SCPN.xsd" xmlns="http://timenet.tu-ilmenau.de/schema/SCPN" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <place id="Sensor_1_out1_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="1200" y="800"/>
+    <label id="Sensor_1_out1_id" type="text" text="Sensor_1_out1">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="Actuator_in_1_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="1146" y="1000"/>
+    <label id="Actuator_in_1_id" type="text" text="Actuator_in_1">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="Binary_Classification_in_1_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="1000" y="1146"/>
+    <label id="Binary_Classification_in_1_id" type="text" text="Binary_Classification_in_1">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="Binary_Classification_out1_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="800" y="1200"/>
+    <label id="Binary_Classification_out1_id" type="text" text="Binary_Classification_out1">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="Binary_Classification_in_data_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="600" y="1146"/>
+    <label id="Binary_Classification_in_data_id" type="text" text="Binary_Classification_in_data">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="Binary_Classification_data_gen_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="454" y="1000"/>
+    <label id="Binary_Classification_data_gen_id" type="text" text="Binary_Classification_data_gen">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="Binary_Classification_ct_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="400" y="800"/>
+    <label id="Binary_Classification_ct_id" type="text" text="Binary_Classification_ct">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="Binary_Classification_cf_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="454" y="600"/>
+    <label id="Binary_Classification_cf_id" type="text" text="Binary_Classification_cf">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="Binary_Classification_tp_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="600" y="454"/>
+    <label id="Binary_Classification_tp_id" type="text" text="Binary_Classification_tp">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="Binary_Classification_fn_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="800" y="400"/>
+    <label id="Binary_Classification_fn_id" type="text" text="Binary_Classification_fn">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="Binary_Classification_tn_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="1000" y="454"/>
+    <label id="Binary_Classification_tn_id" type="text" text="Binary_Classification_tn">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="Binary_Classification_fp_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="1146" y="600"/>
+    <label id="Binary_Classification_fp_id" type="text" text="Binary_Classification_fp">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <timedTransition id="Sensor_1_ready_timed_trans_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="true" timeFunction="EXP(1.0)">
+    <graphics orientation="0" x="1400" y="800"/>
+    <label id="Sensor_1_ready_id" type="text" text="Sensor_1_ready">
+      <graphics x="30" y="30"/>
+    </label>
+  </timedTransition>
+  <timedTransition id="Actuator_execution_timed_trans_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" timeFunction="EXP(1.0)">
+    <graphics orientation="0" x="985" y="1371"/>
+    <label id="Actuator_execution_id" type="text" text="Actuator_execution">
+      <graphics x="30" y="30"/>
+    </label>
+  </timedTransition>
+  <timedTransition id="Binary_Classification_execution_timed_trans_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" timeFunction="EXP(1.0)">
+    <graphics orientation="0" x="315" y="1153"/>
+    <label id="Binary_Classification_execution_id" type="text" text="Binary_Classification_execution">
+      <graphics x="30" y="30"/>
+    </label>
+  </timedTransition>
+  <timedTransition id="c1_timed_trans_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" timeFunction="EXP(1.0)">
+    <graphics orientation="0" x="315" y="447"/>
+    <label id="c1_id" type="text" text="c1">
+      <graphics x="30" y="30"/>
+    </label>
+  </timedTransition>
+  <timedTransition id="c2_timed_trans_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" timeFunction="EXP(1.0)">
+    <graphics orientation="0" x="985" y="229"/>
+    <label id="c2_id" type="text" text="c2">
+      <graphics x="30" y="30"/>
+    </label>
+  </timedTransition>
+  <immediateTransition id="Binary_Classification_not_OOD_imm_tran_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" priority="1" weight="1">
+    <graphics orientation="0" x="1000" y="800"/>
+    <label id="Binary_Classification_not_OOD_id" type="text" text="Binary_Classification_not_OOD">
+      <graphics x="30" y="30"/>
+    </label>
+  </immediateTransition>
+  <immediateTransition id="Binary_Classification_OOD_imm_tran_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" priority="1" weight="0">
+    <graphics orientation="0" x="941" y="941"/>
+    <label id="Binary_Classification_OOD_id" type="text" text="Binary_Classification_OOD">
+      <graphics x="30" y="30"/>
+    </label>
+  </immediateTransition>
+  <immediateTransition id="Binary_Classification_ClassTruth_imm_tran_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" priority="1" weight="0.9395348837209302">
+    <graphics orientation="0" x="800" y="1000"/>
+    <label id="Binary_Classification_ClassTruth_id" type="text" text="Binary_Classification_ClassTruth">
+      <graphics x="30" y="30"/>
+    </label>
+  </immediateTransition>
+  <immediateTransition id="Binary_Classification_ClassOther_imm_tran_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" priority="1" weight="0.06046511627906981">
+    <graphics orientation="0" x="659" y="941"/>
+    <label id="Binary_Classification_ClassOther_id" type="text" text="Binary_Classification_ClassOther">
+      <graphics x="30" y="30"/>
+    </label>
+  </immediateTransition>
+  <immediateTransition id="Binary_Classification_ct_tp_imm_tran_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" priority="1" weight="0.9900990099009901">
+    <graphics orientation="0" x="600" y="800"/>
+    <label id="Binary_Classification_ct_tp_id" type="text" text="Binary_Classification_ct_tp">
+      <graphics x="30" y="30"/>
+    </label>
+  </immediateTransition>
+  <immediateTransition id="Binary_Classification_ct_fn_imm_tran_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" priority="1" weight="0.00990099009900991">
+    <graphics orientation="0" x="659" y="659"/>
+    <label id="Binary_Classification_ct_fn_id" type="text" text="Binary_Classification_ct_fn">
+      <graphics x="30" y="30"/>
+    </label>
+  </immediateTransition>
+  <immediateTransition id="Binary_Classification__cf_tn_imm_tran_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" priority="1" weight="0.6153846153846154">
+    <graphics orientation="0" x="800" y="600"/>
+    <label id="Binary_Classification__cf_tn_id" type="text" text="Binary_Classification__cf_tn">
+      <graphics x="30" y="30"/>
+    </label>
+  </immediateTransition>
+  <immediateTransition id="Binary_Classification_cf_fp_imm_tran_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" priority="1" weight="0.3846153846153846">
+    <graphics orientation="0" x="941" y="659"/>
+    <label id="Binary_Classification_cf_fp_id" type="text" text="Binary_Classification_cf_fp">
+      <graphics x="30" y="30"/>
+    </label>
+  </immediateTransition>
+  <arc fromNode="Sensor_1_ready_timed_trans_id" id="Sensor_1_out1_place_id_from_Sensor_1_arc_id" toNode="Sensor_1_out1_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="new({})">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Actuator_in_1_place_id" id="Actuator_main_to_timed_arc_id" toNode="Actuator_execution_timed_trans_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Binary_Classification_in_1_place_id" id="Binary_Classification_main_to_timed_arc_id" toNode="Binary_Classification_execution_timed_trans_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Binary_Classification_execution_timed_trans_id" id="Binary_Classification_out1_place_id_from_Binary_Classification_arc_id" toNode="Binary_Classification_out1_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="new({})">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Binary_Classification_execution_timed_trans_id" id="Binary_Classificationexecution_to_in_data_arc_id" toNode="Binary_Classification_in_data_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="copy x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Binary_Classification_in_data_place_id" id="Binary_Classificationin_data_to_not_odd_arc_id" toNode="Binary_Classification_not_OOD_imm_tran_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Binary_Classification_in_data_place_id" id="Binary_Classificationin_data_to_odd_arc_id" toNode="Binary_Classification_OOD_imm_tran_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Binary_Classification_not_OOD_imm_tran_id" id="Binary_Classificationnot_ood_to_dataGen_arc_id" toNode="Binary_Classification_data_gen_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Binary_Classification_OOD_imm_tran_id" id="Binary_Classificationood_to_cf_arc_id" toNode="Binary_Classification_cf_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x(ood=true)">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Binary_Classification_data_gen_place_id" id="Binary_Classificationdata_gen_to_class_truth_arc_id" toNode="Binary_Classification_ClassTruth_imm_tran_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Binary_Classification_data_gen_place_id" id="Binary_Classificationdata_gen_to_class_other_arc_id" toNode="Binary_Classification_ClassOther_imm_tran_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Binary_Classification_ClassTruth_imm_tran_id" id="Binary_Classificationclass_truth_to_ct_arc_id" toNode="Binary_Classification_ct_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x(tL=1)">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Binary_Classification_ClassOther_imm_tran_id" id="Binary_Classificationclass_other_to_cf_arc_id" toNode="Binary_Classification_cf_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x(tL=2)">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Binary_Classification_ct_place_id" id="Binary_Classificationct_to_ct_tp_arc_id" toNode="Binary_Classification_ct_tp_imm_tran_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Binary_Classification_ct_place_id" id="Binary_Classificationct_to_ct_fn_arc_id" toNode="Binary_Classification_ct_fn_imm_tran_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Binary_Classification_cf_place_id" id="Binary_Classificationcf_to_cf_tn_arc_id" toNode="Binary_Classification__cf_tn_imm_tran_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Binary_Classification_cf_place_id" id="Binary_Classificationcd_to_cf_fp_arc_id" toNode="Binary_Classification_cf_fp_imm_tran_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Binary_Classification_ct_tp_imm_tran_id" id="Binary_Classificationct_tp_2_tp_arc_id" toNode="Binary_Classification_tp_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Binary_Classification_ct_fn_imm_tran_id" id="Binary_Classificationct_fn_2_fn_arc_id" toNode="Binary_Classification_fn_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Binary_Classification__cf_tn_imm_tran_id" id="Binary_Classificationcf_tn_2_tn_arc_id" toNode="Binary_Classification_tn_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Binary_Classification_cf_fp_imm_tran_id" id="Binary_Classificationcf_fp_2_fp_arc_id" toNode="Binary_Classification_fp_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Sensor_1_out1_place_id" id="c1_1_arc_id" toNode="c1_timed_trans_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="c1_timed_trans_id" id="c1_2_arc_id" toNode="Binary_Classification_in_1_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Binary_Classification_out1_place_id" id="c2_1_arc_id" toNode="c2_timed_trans_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="c2_timed_trans_id" id="c2_2_arc_id" toNode="Actuator_in_1_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <measure id="Actuator_a_meas" type="text" eval="Cumulative" expression="#Actuator_in_1" name="ActuatorReady" result="" watch="true">
+    <graphics x="0" y="0"/>
+  </measure>
+  <measure id="Binary_Classification_accuracy_measure_id" type="text" eval="Instantaneous" expression="(#Binary_Classification_tp+ #Binary_Classification_tn) / (0.00000001 + #Binary_Classification_tp + #Binary_Classification_tn + #Binary_Classification_fp + #Binary_Classification_fn)" name="Binary_Classification_accuracy" result="" watch="false">
+    <graphics x="30" y="30"/>
+  </measure>
+  <measure id="Binary_Classification_specificity_measure_id" type="text" eval="Instantaneous" expression="#Binary_Classification_tn / (0.00000001 + #Binary_Classification_tn + #Binary_Classification_fp)" name="Binary_Classification_specificity" result="" watch="false">
+    <graphics x="30" y="30"/>
+  </measure>
+  <measure id="Binary_Classification_recall_measure_id" type="text" eval="Instantaneous" expression="#Binary_Classification_tp / (0.00000001 + #Binary_Classification_tp + #Binary_Classification_fn)" name="Binary_Classification_recall" result="" watch="false">
+    <graphics x="30" y="30"/>
+  </measure>
+  <measure id="Binary_Classification_precision_measure_id" type="text" eval="Instantaneous" expression="#Binary_Classification_tp / (0.00000001 + #Binary_Classification_tp + #Binary_Classification_fp)" name="Binary_Classification_precision" result="" watch="false">
+    <graphics x="30" y="30"/>
+  </measure>
+  <measure id="Binary_Classification_f1Score_measure_id" type="text" eval="Instantaneous" expression="#Binary_Classification_tp / (0.00000001 + #Binary_Classification_tp +(#Binary_Classification_fn + #Binary_Classification_fp)/2.0)" name="Binary_Classification_f1Score" result="" watch="false">
+    <graphics x="30" y="30"/>
+  </measure>
+  <comment id="data_comment_id" type="text" commentText="n: name (string)&lt;br>s:size (int)&lt;br>l:length (int)&lt;br>gT:generationTime (DateTime)&lt;br>d:isDefault (bool)&lt;br>tL:trueLabel (int)&lt;br>gL:guessedLabel (int);ood:Out of distribution (bool)">
+    <graphics x="110" y="1650"/>
+  </comment>
+  <recordTokentype id="data_id" type="text" name="Data">
+    <graphics x="130" y="1600"/>
+    <attribute dataType="string" name="n"/>
+    <attribute dataType="int" name="s"/>
+    <attribute dataType="int" name="l"/>
+    <attribute dataType="DateTime" name="gT"/>
+    <attribute dataType="bool" name="d"/>
+    <attribute dataType="bool" name="ood"/>
+    <attribute dataType="int" name="tL"/>
+    <attribute dataType="int" name="gL"/>
+  </recordTokentype>
+</net>

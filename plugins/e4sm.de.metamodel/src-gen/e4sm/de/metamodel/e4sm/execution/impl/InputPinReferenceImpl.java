@@ -199,7 +199,8 @@ public class InputPinReferenceImpl extends ExpressionImpl implements InputPinRef
 	 */
 	@Override
 	public String toString() {
-		return inputPin.getName();
+		return "x.ps"; // TODO implement
+		// return inputPin.getName();
 	}
 
 } //InputPinReferenceImpl

@@ -2,19 +2,19 @@ model Exec{
 	//import "platform:/plugin/e4sm.de.metamodel.primarytypes/PrimaryTypes.e4sm#PrimaryTypes";
 	import "PrimaryTypes";
 	type Frame{
-		int pixelSize,
-		double dataSize
-	}
+	int pixelSize,
+	double dataSize
+}
 // TODO: 
 // Reference to input => done
 // attribute access "x.s" => done
 // parameters (e.g. convert_mode) 
 	package Execution2{
 	processingUnits : -1
-	function Canny {
-		takes Det(-1.5366062230611508 +  7.133349248009131e-06 * $canny_in.pixelSize + 0.37520054070705516 * 3)
-		in Frame canny_in,
-		out Frame canny_out
+	function "Canny__40" {
+	    takes Norm(-4.266610796018323 + 1.3137976680172652e-05 * $IN_0 + 0.6760845642177957 * @aperture , 2.0159689200944957)
+		in Frame IN_0,
+		out Frame OUT_0
 		//runs {
 		//	var size = 1280 * 1024; //in_sc.s; => At the beginning just simple data types
 		//	const canny_aperture = 3; // a fixed parameter
@@ -22,14 +22,15 @@ model Exec{
 		//	canny_out = -1.5366062230611508 + 7.133349248009131e-06 * size + 0.37520054070705516 * canny_aperture;
 	    // time(canny_out) = -1.5366062230611508 + 7.133349248009131e-06 * in_sc.s + 0.37520054070705516 * $canny_aperture)
 	//}
-	numberOfServers 2
+	numberOfServers 1
+	parameters {
+			par aperture := 3 {doc : "Aperture description"}
+	}
 	} ,
-	function Convert {
-		takes Det(-0.6242959829999677 + 1.0779985844740488e-06 * 333 + 0.02518848418089325 * 
-			888 + -2.2917778785824794e-13 * (333 * 333) 
-			+ 1.3364467951928866e-06 * 333 * 888 + 0.05037695303642168 * 888 * 888)
-		in Frame conv_in,
-		out Frame conv_out
+	function "Convert__41" {
+		takes Norm(-0.23820918448344885 + 5.167030556933668e-07 * $IN_0 + 0.00029333309214724335 * @mode + 2.3309370926483108e-14 * $IN_0^2 + 2.071078968080256e-06 * $IN_0 * @mode + 0.0005866663780098715 * @mode^2 , 0.9523814716318486)
+		in Frame IN_0,
+		out Frame OUT_0
 	/* runs {
 	 * 	var size = 10243443; //conv_in.s;
 	 * 	const convert_mode = 1;
@@ -39,12 +40,16 @@ model Exec{
 	 * 	
 	 * 	// conv_out = -0.6242959829999677 + 1.0779985844740488e-06 * x.s + 0.02518848418089325 * $convert_mode + -2.2917778785824794e-13 * (x.s*x.s) + 1.3364467951928866e-06 * x.s * $convert_mode + 0.05037695303642168 * $convert_mode*$convert_mode
 	 }*/
+	 numberOfServers 1
+	 	parameters {
+			par mode := 0  {doc : "mode description"}
+	}
 	}
 	,
-	function "Gaussian Blur" {
-		takes Det(0.594603811402548 + 1.0087098902561617e-06)
-		out Frame gb_out ,
-		in Frame gb_in
+	function "GaussianBlur__42" {
+		takes Norm(0.48201845283226064 + 2.3100401987878667e-06 * $IN_0 + -0.03724088642599941 * @kernelX + -0.0690229848327895 * @kernelY + -1.8887669206435476e-13 * $IN_0^2 + 3.444872952702177e-08 * $IN_0 * @kernelX + 5.5155397128347624e-08 * $IN_0 * @kernelY + 0.001281522936401859 * @kernelX^2 + 0.0006730724240369734 * @kernelX * @kernelY + 0.0013625606843273327 * @kernelY^2 , 1.0934230848447095)
+        out Frame OUT_0 ,
+		in Frame IN_0
 	/*runs {
 	 * 	var size = 1310720; //gb_in.s;
 	 * 	const gb_kernel_x = 3;
@@ -60,18 +65,24 @@ model Exec{
 	 * 	+ 0.0004887238450612112 * gb_kernel_y*gb_kernel_y;
 	 * 	//gb_out = 0.594603811402548 + 1.0087098902561617e-06 * x.s + -0.031630472768405006 * $gb_kernel_x + -0.02226631575611655 * $gb_kernel_y + -1.0977330155981235e-13 * x.s*x.s + 3.560159778712442e-08 * x.s * $gb_kernel_x + 3.7661802810008614e-08 * x.s * $gb_kernel_y + 0.0010841815337399008 * $gb_kernel_x*$gb_kernel_x + 0.0003137983468730788 * $gb_kernel_x * $gb_kernel_y + 0.0004887238450612112 * $gb_kernel_y*$gb_kernel_y)
 	 }*/
+	 numberOfServers 1
+        // Parameters
+		parameters {
+			par "kernelX" := 3 {doc : "KernelX description"},
+			par "kernelY" := 3 {doc : "KernelY description"}
+		}
 	}
 	,
-	sensor "Video" {
+	sensor "VideoFile__39" {
 		takes Det(33.333333333)
 		out Frame out_nUEL
 	} ,
-	actuator "Output" {
-		in Frame in_WLPz
+	actuator "Output__43" {
+		in Frame IN_0
 	}
-	connector con_2sMS "Video.out_nUEL" -> "Canny.canny_in" ,
-	logicalConnector con_8ngK "Convert.conv_out" -> "Gaussian Blur.gb_in" 
-	,
-	connector con_ScJa "Gaussian Blur.gb_out" -> "Output.in_WLPz" ,
-	logicalConnector con_Qrov "Canny.canny_out" -> "Convert.conv_in" }
+	connector con_2sMS "VideoFile__39.out_nUEL" -> "Canny__40.IN_0" { takes Det(1.0)},
+	logicalConnector con_8ngK "Convert__41.OUT_0" -> "GaussianBlur__42.IN_0" { takes Det(1.0)},
+	connector con_ScJa "GaussianBlur__42.OUT_0" -> "Output__43.IN_0" { takes Det(1.0)},
+	logicalConnector con_Qrov "Canny__40.OUT_0" -> "Convert__41.IN_0" { takes Det(1.0)} 
+	}
 }

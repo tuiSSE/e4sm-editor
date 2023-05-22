@@ -14,8 +14,6 @@ transformation transformToSCPN(in e:e4sm, out s:scpn);
 configuration property packageName : String;
 configuration property logComponents : Boolean;
 
-// TODO: transform the components_parameters
-
 
 main() {
 	log("\nTransforming E4SM Model to Stochastic Colored Petri Net");
@@ -68,6 +66,10 @@ mapping Package::packageToSCPN() : SCPNNet{
 			dataType:="int";
 		};
 	attribute += object AttributeType{
+			name := "ps"; //pixelSize
+			dataType:="int";
+		};
+	attribute += object AttributeType{
 			name := "l"; //length - if multiple elements are available
 			dataType:="int";
 		};
@@ -106,7 +108,7 @@ mapping Package::packageToSCPN() : SCPNNet{
 		type:= Type::text;
 		id := "data_comment_id";
 		// TODO: only generate classification stuff if the model has one classification component
-		commentText:="n: name (string)<br>s:size (int)<br>l:length (int)<br>gT:generationTime (DateTime)<br>d:isDefault (bool)<br>tL:trueLabel (int)<br>gL:guessedLabel (int);ood:Out of distribution (bool)";
+		commentText:="n: name (string)<br>s:size (int)<br>ps:pixelSize (int)<br>l:length (int)<br>gT:generationTime (DateTime)<br>d:isDefault (bool)<br>tL:trueLabel (int)<br>gL:guessedLabel (int);ood:Out of distribution (bool)";
 		graphics := object GraphicsType {
 			x := 110;
 	 		y := 1650
@@ -335,6 +337,13 @@ mapping Connector::connectorToSCPN(): arcs:List(ArcType), tt:TimedTransitionType
 		tt := new TimedTransitionType(self.computeName());
 	}
 	
+	if(logComponents){
+		tt.logfileName := name + ".csv";
+		// TODO: generalize
+		tt.logfileDescription := "current_time,size,pixelSize";
+		tt.logfileExpression := "NOW,TAB,x.s,TAB,x.ps";
+	};
+	
 	// If it has a time function, apply that to the timed transition
 	if(self.timeFunction) {
 		tt.timeFunction := timeExpressionToString(self.timeFunction);
@@ -522,6 +531,12 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 					pl->add(componentMainPlace);
 					
 					singleComponentReadyTransition := new ImmediateTransitionType(self.name + "_ready");
+					if(logComponents){
+						singleComponentReadyTransition.logfileName := self.name + "_ready.csv";
+						// TODO: generalize
+						singleComponentReadyTransition.logfileDescription := "current_time,size,pixelSize";
+						singleComponentReadyTransition.logfileExpression := "NOW,TAB,x.s,TAB,x.ps";
+					};
 					iTr->add(singleComponentReadyTransition);
 
 				    // The component only has one ready immediate transition which is connected to all input pins
@@ -572,6 +587,12 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 				// Timed transition for the component execution
 				timedTran := new TimedTransitionType(self.name + "_execution");
 				timedTran.timeFunction := timeExpressionToString(self.timeFunction);
+				if(logComponents){
+					timedTran.logfileName := self.name + "_execution.csv";
+					// TODO: generalize
+					timedTran.logfileDescription := "current_time,size,pixelSize";
+					timedTran.logfileExpression := "NOW,TAB,x.s,TAB,x.ps";
+				};
 				tt->add(timedTran);
 				
 				// Arc between the main Place and the timed transition
@@ -596,8 +617,8 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 			timedTran.serverType := ServerTypeType::InfiniteServer;
 			timedTran.watch := true;
 		}
-		else if(servers > 1) {
-			// The value is <> 1, add the semaphore place with 2 arcs
+		else if(servers > 0) {
+			// The value is <> -1, add the semaphore place with 2 arcs
 			// and change the execution transition server type
 			
 			timedTran.serverType := ServerTypeType::InfiniteServer;
@@ -623,7 +644,7 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 			// Create the Arcs
 			var semBack := new ArcType(self.name+"_semBack");
 			semBack.inscription.text := "new(0)";
-			semBack.fromNode := timedTran.id;
+			semBack.fromNode := immTranExecuted.id;
 			semBack.toNode := sem.id;
 			arcs->add(semBack);
 			
@@ -1058,6 +1079,12 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 					pl->add(componentMainPlace);
 					
 					singleComponentReadyTransition := new ImmediateTransitionType(self.name + "_ready");
+					if(logComponents){
+						singleComponentReadyTransition.logfileName := self.name + "_ready.csv";
+						// TODO: generalize
+						singleComponentReadyTransition.logfileDescription := "current_time,size,pixelSize";
+						singleComponentReadyTransition.logfileExpression := "NOW,TAB,x.s,TAB,x.ps";
+					};
 					iTr->add(singleComponentReadyTransition);
 
 				    // The component only has one ready immediate transition which is connected to all input pins
@@ -1107,6 +1134,12 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 			// Timed transition for the component execution
 			timedTran := new TimedTransitionType(self.name + "_execution");
 			timedTran.timeFunction := timeExpressionToString(self.timeFunction);
+			if(logComponents){
+				timedTran.logfileName := self.name + "_execution.csv";
+				// TODO: generalize
+				timedTran.logfileDescription := "current_time,size,pixelSize";
+				timedTran.logfileExpression := "NOW,TAB,x.s,TAB,x.ps";
+			};
 			tt->add(timedTran);
 			
 			// Arc between the main Place and the timed transition
@@ -1130,8 +1163,8 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 			timedTran.serverType := ServerTypeType::InfiniteServer;
 			timedTran.watch := true;
 		}
-		else if(servers > 1) {
-			// The value is <> 1, add the semaphore place with 2 arcs
+		else if(servers > 0) {
+			// The value is <> -1, add the semaphore place with 2 arcs
 			// and change the execution transition server type
 			
 			timedTran.serverType := ServerTypeType::InfiniteServer;
@@ -1157,7 +1190,7 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 			// Create the Arcs
 			var semBack := new ArcType(self.name+"_semBack");
 			semBack.inscription.text := "new(0)";
-			semBack.fromNode := timedTran.id;
+			semBack.fromNode := immTranExecuted.id;
 			semBack.toNode := sem.id;
 			arcs->add(semBack);
 			
@@ -1273,8 +1306,8 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 					
 					arcFromTransition.toNode := outputPinPlace.id;
 					
-					// TODO: maybe the following line only applies to sensors
-					arcFromTransition.inscription.text := "new({})"; //TODO: improve specification
+					// TODO: sensors should initialize their tokens
+					//arcFromTransition.inscription.text := "x";
 					
 					// Add multiplicity, if needed
 					if(op.amplify > 1) {
@@ -1657,6 +1690,12 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 					pl->add(componentMainPlace);
 					
 					singleComponentReadyTransition := new ImmediateTransitionType(self.name + "_ready");
+					if(logComponents){
+						singleComponentReadyTransition.logfileName := self.name + "_ready.csv";
+						// TODO: generalize
+						singleComponentReadyTransition.logfileDescription := "current_time,size,pixelSize";
+						singleComponentReadyTransition.logfileExpression := "NOW,TAB,x.s,TAB,x.ps";
+					};
 					iTr->add(singleComponentReadyTransition);
 
 				    // The component only has one ready immediate transition which is connected to all input pins
@@ -1708,6 +1747,12 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 			// Timed transition for the component execution
 			timedTran := new TimedTransitionType(self.name + "_execution");
 			timedTran.timeFunction := timeExpressionToString(self.timeFunction);
+			if(logComponents){
+				timedTran.logfileName := self.name + "_execution.csv";
+				// TODO: generalize
+				timedTran.logfileDescription := "current_time,size,pixelSize";
+				timedTran.logfileExpression := "NOW,TAB,x.s,TAB,x.ps";
+			};
 			tt->add(timedTran);
 			
 			// Arc between the main Place and the timed transition
@@ -1727,8 +1772,8 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 			timedTran.serverType := ServerTypeType::InfiniteServer;
 			timedTran.watch := true;
 		}
-		else if(servers > 1) {
-			// The value is <> 1, add the semaphore place with 2 arcs
+		else if(servers > 0) {
+			// The value is <> -1, add the semaphore place with 2 arcs
 			// and change the execution transition server type
 			
 			timedTran.serverType := ServerTypeType::InfiniteServer;
@@ -1754,7 +1799,7 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 			// Create the Arcs
 			var semBack := new ArcType(self.name+"_semBack");
 			semBack.inscription.text := "new(0)";
-			semBack.fromNode := timedTran.id;
+			semBack.fromNode := timedTran.id; // TODO, from _post_execution
 			semBack.toNode := sem.id;
 			arcs->add(semBack);
 			

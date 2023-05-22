@@ -1,0 +1,87 @@
+*{
+	font-family: helvetica, arial, sans-serif;
+    color: #444444;
+}
+body{
+  padding: 6pt;
+  background-color:rgb(241, 243, 243);
+}
+
+ul {
+  list-style-type: none;
+}
+
+.documentation{
+	background-color:rgb(250, 250, 250);
+	padding: 7px;
+}
+
+.input-pin::before {
+  content: 'input ';
+}
+
+.output-pin::before {
+  content: 'output ';
+}
+
+.item-name{
+  font-style: italic;
+  color: black;
+}
+
+.componentName {
+	height:40px;
+	line-height: 40px;
+    padding-left: 10px;
+}
+
+.PhysicalComponent{
+	background-color:#fdce89;
+}
+.Sensor{
+	background-color:#ffb499;
+}
+.Actuator{
+	background-color:#ff8033;
+}
+
+.MachineLearningComponent{
+	background-color:#d9c4d7;
+}
+
+.Function{
+	background-color:#ccf2a6;
+}
+
+.Heuristic{
+	background-color:#f68b8b;
+}
+
+.ExternalDependency{
+	background-color:#72496e;
+	color:#ffffff;
+}
+
+.SoftwareComponent{
+	background-color:#fce94f;
+}
+
+.toc{
+	display:block;
+	float:right;
+	background:white;
+	border: 1px solid gray;
+	padding: 4px;
+    max-height: 30vh;
+    overflow-y: auto;
+	overflow-x: hidden;
+}
+
+.tt {
+  font-family: "Lucida Console", "Menlo", "Monaco", "Courier", monospace;
+}
+
+.indent{
+	margin:0;
+	margin-left:30px;
+}
