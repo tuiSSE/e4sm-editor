@@ -703,6 +703,7 @@ OutputPin returns OutputPin:
 	('amplifies' amplify=EInt)?
 	('outputUncertainty' outputUncertainty=EDouble)?
 	('raceSemantic' raceSemantic=RaceSemantic)?
+	('generates' tokenSpecification=TokenSpecification)?
 	// ('outgoingConnectors' '(' outgoingConnectors+=[Connector|EString] ( "," outgoingConnectors+=[Connector|EString])* ')' )?
 	// ('incomingConnectors' '(' incomingConnectors+=[Connector|EString] ( "," incomingConnectors+=[Connector|EString])* ')' )?
 	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
@@ -724,6 +725,21 @@ EInt returns ecore::EInt:
 
 terminal POSSIBLY_NEGATIVE_INT returns ecore::EInt:
 	'-'? INT;
+	
+TokenSpecification returns TokenSpecification:
+	{TokenSpecification}
+	inputSize += Set 
+;
+
+Set returns Set:
+	{Set}
+	'set' '{'values+=SetValue (values+=SetValue)* '}'
+;
+
+SetValue returns SetValue:
+	{SetValue}
+	'value' PROPERTY_ASSIGN value=EString ('prob' PROPERTY_ASSIGN probability=EDouble & ('size' PROPERTY_ASSIGN size=EDouble)?)';'
+;
 
 PhysicalConnector returns PhysicalConnector:
 	'physicalConnector'

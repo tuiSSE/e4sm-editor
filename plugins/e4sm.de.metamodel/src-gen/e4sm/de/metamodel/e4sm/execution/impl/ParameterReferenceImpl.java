@@ -2,6 +2,7 @@
  */
 package e4sm.de.metamodel.e4sm.execution.impl;
 
+import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.analysis.Parameter;
 import e4sm.de.metamodel.e4sm.core.NamedElement;
 import e4sm.de.metamodel.e4sm.execution.ExecutionPackage;
@@ -106,8 +107,7 @@ public class ParameterReferenceImpl extends ExpressionImpl implements ParameterR
 	 */
 	@Override
 	public String toString() {
-		Parameter p = this.getParameter();
-		return "$" + ((NamedElement)p.eContainer()).getName() + "_" + p.getName();
+		return "$" + ((NamedElement) this.getParameter().eContainer()).getName()+"_" + this.getParameter().getName();
 	}
 
 	/**

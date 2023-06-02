@@ -40,7 +40,7 @@ public class ExponentiationImpl extends BinaryExpressionImpl implements Exponent
 	 */
 	@Override
 	public String toString() {
-		if(this.right == null) {
+		if (this.right == null) {
 			return this.left.toString();
 		}
 		if (this.right instanceof LiteralInteger) {
@@ -81,7 +81,7 @@ public class ExponentiationImpl extends BinaryExpressionImpl implements Exponent
 	 */
 	@Override
 	public boolean isRealOperation() {
-		if(this.right != null) {
+		if (this.right != null) {
 			return true;
 		}
 		return false;

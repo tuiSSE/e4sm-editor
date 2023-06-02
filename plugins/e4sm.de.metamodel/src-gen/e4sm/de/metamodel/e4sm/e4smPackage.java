@@ -4631,13 +4631,22 @@ public interface e4smPackage extends EPackage {
 	int SET_VALUE__SIZE = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_VALUE__VALUE = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Set Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SET_VALUE_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int SET_VALUE_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Set Value</em>' class.
@@ -6245,6 +6254,17 @@ public interface e4smPackage extends EPackage {
 	EAttribute getSetValue_Size();
 
 	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.SetValue#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see e4sm.de.metamodel.e4sm.SetValue#getValue()
+	 * @see #getSetValue()
+	 * @generated
+	 */
+	EAttribute getSetValue_Value();
+
+	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.DynamicRange <em>Dynamic Range</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7752,6 +7772,14 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SET_VALUE__SIZE = eINSTANCE.getSetValue_Size();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SET_VALUE__VALUE = eINSTANCE.getSetValue_Value();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.DynamicRangeImpl <em>Dynamic Range</em>}' class.

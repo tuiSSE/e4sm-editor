@@ -1,3 +1,4 @@
+const scalingFactor = 1000;
 /** 
  * @typedef {Object} InputData
  * @property {string} name
@@ -61,7 +62,7 @@
 /** 
  * @typedef {Object} ExecutionFunction
  * @property {string|number} meanValue - The formula computing the execution time of the given component.
- * @property {number} variance
+ * @property {number} stdDev
  * @property {number} maxError
  */
 
@@ -89,10 +90,21 @@ function generateE4SM(input) {
  * @returns {String}
  */
 function executionFunctionToString(ef) {
-    if (ef.variance > 0) {
-        return `Norm(${ef.meanValue} , ${ef.variance})`
+    if (ef.stdDev > 0) {
+        return `Norm((${ef.meanValue}) * ${scalingFactor}, (${ef.stdDev})* ${scalingFactor})`;
     }
-    return `Det(${ef.meanValue})`;
+    return `Det((${ef.meanValue}) * ${scalingFactor})`;
+}
+
+/**
+ * 
+ * @param {string} outputFunction 
+ * @returns {string}
+ */
+function generateOutputFunction(outputFunction){
+    return `\nruns {
+        OUT_0 = ${outputFunction};
+    }`;
 }
 
 
@@ -111,6 +123,7 @@ function generateComponents(components) {
             ${generateInputPins(c.inputPins)},
             ${generateOutputPins(c.outputPins)}
             ${generateParameters(c.parameters)}
+            ${generateOutputFunction(c.outputSize)}
         }`;
         } else {
             result += `actuator "${c.name}${ID_SEPARATOR}${c.id}" {
@@ -135,7 +148,7 @@ function generateSensors(sensors) {
     for (const s of sensors) {
         result += `sensor "${s.name}${ID_SEPARATOR}${s.id}" {
             takes ${executionFunctionToString(s.executionFunction)}
-            ${generateOutputPins(s.outputPins)} // TODO: results.value need to end up in the model
+            ${generateOutputPins(s.outputPins)}
             ${generateParameters(s.parameters)}
             }, `; // always print the comma, as it is followed by other components...
     }
@@ -185,13 +198,18 @@ function generateOutputPins(oPins) {
     let result = "// Output Pins\n";
     for (let i = 0; i < oPins.length; i++) {
         const p = oPins[i];
+        result += `out "${p.id}"`;
         if (p.results) {
             if (!probabilitiesSumToOne(p.results)) {
                 console.error(`The given probabilities for the output pin ${p.id} do not sum up to one`);
                 process.exit(1);
             }
+            result += ' {\ngenerates set {';
+            for (const element of p.results) {
+                result += `value: "${element.value}" prob: ${element.probability.toFixed(3)}  size:${element.outputSize.toFixed(3)};`;
+            }
+            result += '}\n}\n';
         }
-        result += `out "${p.id}"`;
         if ((i + 1) < oPins.length)
             result += ",\n";
     }

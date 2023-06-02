@@ -33,7 +33,9 @@ import e4sm.de.metamodel.e4sm.PhysicalConnector;
 import e4sm.de.metamodel.e4sm.Robot;
 import e4sm.de.metamodel.e4sm.Sector;
 import e4sm.de.metamodel.e4sm.Sensor;
+import e4sm.de.metamodel.e4sm.SetValue;
 import e4sm.de.metamodel.e4sm.SoftwareComponent;
+import e4sm.de.metamodel.e4sm.TokenSpecification;
 import e4sm.de.metamodel.e4sm.analysis.AnalysisPackage;
 import e4sm.de.metamodel.e4sm.analysis.ParameterDefinition;
 import e4sm.de.metamodel.e4sm.core.BooleanAttribute;
@@ -269,8 +271,17 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case e4smPackage.SENSOR:
 				sequence_Sensor(context, (Sensor) semanticObject); 
 				return; 
+			case e4smPackage.SET:
+				sequence_Set(context, (e4sm.de.metamodel.e4sm.Set) semanticObject); 
+				return; 
+			case e4smPackage.SET_VALUE:
+				sequence_SetValue(context, (SetValue) semanticObject); 
+				return; 
 			case e4smPackage.SOFTWARE_COMPONENT:
 				sequence_SoftwareComponent_Impl(context, (SoftwareComponent) semanticObject); 
+				return; 
+			case e4smPackage.TOKEN_SPECIFICATION:
+				sequence_TokenSpecification(context, (TokenSpecification) semanticObject); 
 				return; 
 			}
 		else if (epackage == EcorePackage.eINSTANCE)
@@ -1719,6 +1730,7 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         amplify=EInt? 
 	 *         outputUncertainty=EDouble? 
 	 *         raceSemantic=RaceSemantic? 
+	 *         tokenSpecification=TokenSpecification? 
 	 *         (parameters+=Parameter parameters+=Parameter*)?
 	 *     )
 	 * </pre>
@@ -1948,6 +1960,34 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     SetValue returns SetValue
+	 *
+	 * Constraint:
+	 *     (value=EString (probability=EDouble | size=EDouble)*)
+	 * </pre>
+	 */
+	protected void sequence_SetValue(ISerializationContext context, SetValue semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Set returns Set
+	 *
+	 * Constraint:
+	 *     (values+=SetValue values+=SetValue*)
+	 * </pre>
+	 */
+	protected void sequence_Set(ISerializationContext context, e4sm.de.metamodel.e4sm.Set semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     Component returns SoftwareComponent
 	 *     SoftwareComponent_Impl returns SoftwareComponent
 	 *
@@ -1985,6 +2025,20 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * </pre>
 	 */
 	protected void sequence_StringAttribute(ISerializationContext context, StringAttribute semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     TokenSpecification returns TokenSpecification
+	 *
+	 * Constraint:
+	 *     inputSize+=Set
+	 * </pre>
+	 */
+	protected void sequence_TokenSpecification(ISerializationContext context, TokenSpecification semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

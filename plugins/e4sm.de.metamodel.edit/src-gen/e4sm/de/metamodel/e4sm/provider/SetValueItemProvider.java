@@ -51,6 +51,7 @@ public class SetValueItemProvider extends NamedElementItemProvider {
 
 			addProbabilityPropertyDescriptor(object);
 			addSizePropertyDescriptor(object);
+			addValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -85,6 +86,22 @@ public class SetValueItemProvider extends NamedElementItemProvider {
 								"_UI_SetValue_type"),
 						e4smPackage.Literals.SET_VALUE__SIZE, true, false, false,
 						ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Value feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addValuePropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_SetValue_value_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_SetValue_value_feature",
+								"_UI_SetValue_type"),
+						e4smPackage.Literals.SET_VALUE__VALUE, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -135,6 +152,7 @@ public class SetValueItemProvider extends NamedElementItemProvider {
 		switch (notification.getFeatureID(SetValue.class)) {
 		case e4smPackage.SET_VALUE__PROBABILITY:
 		case e4smPackage.SET_VALUE__SIZE:
+		case e4smPackage.SET_VALUE__VALUE:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}

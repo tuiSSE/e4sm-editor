@@ -1985,6 +1985,16 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getSetValue_Value() {
+		return (EAttribute) setValueEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getDynamicRange() {
 		return dynamicRangeEClass;
 	}
@@ -2467,6 +2477,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		setValueEClass = createEClass(SET_VALUE);
 		createEAttribute(setValueEClass, SET_VALUE__PROBABILITY);
 		createEAttribute(setValueEClass, SET_VALUE__SIZE);
+		createEAttribute(setValueEClass, SET_VALUE__VALUE);
 
 		dynamicRangeEClass = createEClass(DYNAMIC_RANGE);
 		createEAttribute(dynamicRangeEClass, DYNAMIC_RANGE__MIN);
@@ -3035,6 +3046,8 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 				SetValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSetValue_Size(), theEcorePackage.getEDouble(), "size", null, 0, 1, SetValue.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSetValue_Value(), theEcorePackage.getEString(), "value", null, 0, 1, SetValue.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dynamicRangeEClass, DynamicRange.class, "DynamicRange", !IS_ABSTRACT, !IS_INTERFACE,

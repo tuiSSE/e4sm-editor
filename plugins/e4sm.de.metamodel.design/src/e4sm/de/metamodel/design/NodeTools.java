@@ -89,7 +89,7 @@ final public class NodeTools {
 		
 		try {
 			var rt = Runtime.getRuntime();
-			var name = pName + ".xml"; //#name_of_package.xml
+			var name = pName.replaceAll(" ", "_") + ".xml"; //#name_of_package.xml
 			var npmCommand = "tn-fix-xml \""+ name + "\" -a -o"; //tn-fix-xml #name_of_package.xml -a -o
 			
 			System.out.println("npmCommand: " + npmCommand);

@@ -485,7 +485,13 @@ public class E4smParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getOutputPinAccess().getGroup_5_3(), "rule__OutputPin__Group_5_3__0");
 			builder.put(grammarAccess.getOutputPinAccess().getGroup_5_4(), "rule__OutputPin__Group_5_4__0");
 			builder.put(grammarAccess.getOutputPinAccess().getGroup_5_5(), "rule__OutputPin__Group_5_5__0");
-			builder.put(grammarAccess.getOutputPinAccess().getGroup_5_5_3(), "rule__OutputPin__Group_5_5_3__0");
+			builder.put(grammarAccess.getOutputPinAccess().getGroup_5_6(), "rule__OutputPin__Group_5_6__0");
+			builder.put(grammarAccess.getOutputPinAccess().getGroup_5_6_3(), "rule__OutputPin__Group_5_6_3__0");
+			builder.put(grammarAccess.getTokenSpecificationAccess().getGroup(), "rule__TokenSpecification__Group__0");
+			builder.put(grammarAccess.getSetAccess().getGroup(), "rule__Set__Group__0");
+			builder.put(grammarAccess.getSetValueAccess().getGroup(), "rule__SetValue__Group__0");
+			builder.put(grammarAccess.getSetValueAccess().getGroup_4_0(), "rule__SetValue__Group_4_0__0");
+			builder.put(grammarAccess.getSetValueAccess().getGroup_4_1(), "rule__SetValue__Group_4_1__0");
 			builder.put(grammarAccess.getPhysicalConnectorAccess().getGroup(), "rule__PhysicalConnector__Group__0");
 			builder.put(grammarAccess.getPhysicalConnectorAccess().getGroup_5(), "rule__PhysicalConnector__Group_5__0");
 			builder.put(grammarAccess.getPhysicalConnectorAccess().getGroup_5_1(), "rule__PhysicalConnector__Group_5_1__0");
@@ -990,8 +996,15 @@ public class E4smParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getOutputPinAccess().getAmplifyAssignment_5_2_1(), "rule__OutputPin__AmplifyAssignment_5_2_1");
 			builder.put(grammarAccess.getOutputPinAccess().getOutputUncertaintyAssignment_5_3_1(), "rule__OutputPin__OutputUncertaintyAssignment_5_3_1");
 			builder.put(grammarAccess.getOutputPinAccess().getRaceSemanticAssignment_5_4_1(), "rule__OutputPin__RaceSemanticAssignment_5_4_1");
-			builder.put(grammarAccess.getOutputPinAccess().getParametersAssignment_5_5_2(), "rule__OutputPin__ParametersAssignment_5_5_2");
-			builder.put(grammarAccess.getOutputPinAccess().getParametersAssignment_5_5_3_1(), "rule__OutputPin__ParametersAssignment_5_5_3_1");
+			builder.put(grammarAccess.getOutputPinAccess().getTokenSpecificationAssignment_5_5_1(), "rule__OutputPin__TokenSpecificationAssignment_5_5_1");
+			builder.put(grammarAccess.getOutputPinAccess().getParametersAssignment_5_6_2(), "rule__OutputPin__ParametersAssignment_5_6_2");
+			builder.put(grammarAccess.getOutputPinAccess().getParametersAssignment_5_6_3_1(), "rule__OutputPin__ParametersAssignment_5_6_3_1");
+			builder.put(grammarAccess.getTokenSpecificationAccess().getInputSizeAssignment_1(), "rule__TokenSpecification__InputSizeAssignment_1");
+			builder.put(grammarAccess.getSetAccess().getValuesAssignment_3(), "rule__Set__ValuesAssignment_3");
+			builder.put(grammarAccess.getSetAccess().getValuesAssignment_4(), "rule__Set__ValuesAssignment_4");
+			builder.put(grammarAccess.getSetValueAccess().getValueAssignment_3(), "rule__SetValue__ValueAssignment_3");
+			builder.put(grammarAccess.getSetValueAccess().getProbabilityAssignment_4_0_2(), "rule__SetValue__ProbabilityAssignment_4_0_2");
+			builder.put(grammarAccess.getSetValueAccess().getSizeAssignment_4_1_2(), "rule__SetValue__SizeAssignment_4_1_2");
 			builder.put(grammarAccess.getPhysicalConnectorAccess().getNameAssignment_1(), "rule__PhysicalConnector__NameAssignment_1");
 			builder.put(grammarAccess.getPhysicalConnectorAccess().getSourceAssignment_2(), "rule__PhysicalConnector__SourceAssignment_2");
 			builder.put(grammarAccess.getPhysicalConnectorAccess().getTargetAssignment_4(), "rule__PhysicalConnector__TargetAssignment_4");
@@ -1071,6 +1084,7 @@ public class E4smParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getClassAttributeAccess().getTypeAssignment_1(), "rule__ClassAttribute__TypeAssignment_1");
 			builder.put(grammarAccess.getClassAttributeAccess().getArrayAssignment_2_0(), "rule__ClassAttribute__ArrayAssignment_2_0");
 			builder.put(grammarAccess.getClassAttributeAccess().getNameAssignment_3(), "rule__ClassAttribute__NameAssignment_3");
+			builder.put(grammarAccess.getSetValueAccess().getUnorderedGroup_4(), "rule__SetValue__UnorderedGroup_4");
 		}
 	}
 	

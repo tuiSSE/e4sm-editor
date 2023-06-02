@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.SetValueImpl#getProbability <em>Probability</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.SetValueImpl#getSize <em>Size</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.SetValueImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
@@ -68,6 +69,26 @@ public class SetValueImpl extends NamedElementImpl implements SetValue {
 	 * @ordered
 	 */
 	protected double size = SIZE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String VALUE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected String value = VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -141,12 +162,37 @@ public class SetValueImpl extends NamedElementImpl implements SetValue {
 	 * @generated
 	 */
 	@Override
+	public String getValue() {
+		return value;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setValue(String newValue) {
+		String oldValue = value;
+		value = newValue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.SET_VALUE__VALUE, oldValue, value));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case e4smPackage.SET_VALUE__PROBABILITY:
 			return getProbability();
 		case e4smPackage.SET_VALUE__SIZE:
 			return getSize();
+		case e4smPackage.SET_VALUE__VALUE:
+			return getValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -164,6 +210,9 @@ public class SetValueImpl extends NamedElementImpl implements SetValue {
 			return;
 		case e4smPackage.SET_VALUE__SIZE:
 			setSize((Double) newValue);
+			return;
+		case e4smPackage.SET_VALUE__VALUE:
+			setValue((String) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -183,6 +232,9 @@ public class SetValueImpl extends NamedElementImpl implements SetValue {
 		case e4smPackage.SET_VALUE__SIZE:
 			setSize(SIZE_EDEFAULT);
 			return;
+		case e4smPackage.SET_VALUE__VALUE:
+			setValue(VALUE_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -199,6 +251,8 @@ public class SetValueImpl extends NamedElementImpl implements SetValue {
 			return probability != PROBABILITY_EDEFAULT;
 		case e4smPackage.SET_VALUE__SIZE:
 			return size != SIZE_EDEFAULT;
+		case e4smPackage.SET_VALUE__VALUE:
+			return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -218,6 +272,8 @@ public class SetValueImpl extends NamedElementImpl implements SetValue {
 		result.append(probability);
 		result.append(", size: ");
 		result.append(size);
+		result.append(", value: ");
+		result.append(value);
 		result.append(')');
 		return result.toString();
 	}

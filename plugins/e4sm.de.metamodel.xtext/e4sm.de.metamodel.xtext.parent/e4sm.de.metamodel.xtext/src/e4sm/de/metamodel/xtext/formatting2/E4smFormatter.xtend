@@ -12,6 +12,7 @@ import e4sm.de.metamodel.e4sm.Pin
 import e4sm.de.metamodel.e4sm.core.TypeSpecification
 import e4sm.de.metamodel.xtext.services.E4smGrammarAccess
 import javax.inject.Inject
+import java.util.Arrays
 import org.eclipse.xtext.formatting2.AbstractFormatter2
 import org.eclipse.xtext.formatting2.IFormattableDocument
 

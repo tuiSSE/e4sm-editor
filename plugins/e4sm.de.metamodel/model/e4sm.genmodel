@@ -255,6 +255,7 @@
     <genClasses ecoreClass="e4sm.ecore#//SetValue">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//SetValue/probability"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//SetValue/size"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//SetValue/value"/>
     </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//DynamicRange">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//DynamicRange/min"/>
