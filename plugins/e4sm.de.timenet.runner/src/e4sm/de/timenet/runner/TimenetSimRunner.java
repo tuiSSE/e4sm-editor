@@ -144,9 +144,15 @@ public class TimenetSimRunner {
 		System.out.println("Local HostAddress:  " + addr.getHostAddress());
 		// Gets the host name for this IP address.
 		System.out.println("Local host name: " + addr.getHostName());
-		var serverHost = addr.getHostAddress();
-		var startTime = "0";
-		var endTime = "10000";
+		String serverHost = addr.getHostAddress();
+		String startTime = "0";
+		int simDuration = p.getSimulationDuration();
+		String endTime =  "10000"; // Default value
+		if(simDuration > 0) {
+			// simDuration is in ms, convert it to microseconds
+			endTime = Integer.toString(simDuration * 1000);
+		}
+
 		SimulationParameters params = new SimulationParameters();
 		params.setMode(SimulationParameters.TSIMULATION); // ssimulation | tsimulation | tokengame
 		params.setServerIP(serverHost); 			//Server IP
