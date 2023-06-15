@@ -131,6 +131,7 @@ Package returns Package:
 	name=EString
 	'{'
 	('doc' PROPERTY_ASSIGN documentation=EString)?
+	('simulationDuration' PROPERTY_ASSIGN simulationDuration=EInt)?
 	('mainResponsible' PROPERTY_ASSIGN mainResponsible=[Person|EString])?
 	('specifiesComponent' PROPERTY_ASSIGN specifiesComponent=[Component|EString])?
 	('processingUnits' PROPERTY_ASSIGN processingUnits=EInt)?

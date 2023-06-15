@@ -87,6 +87,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//Package/specifiesComponent"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//Package/datastores"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//Package/processingUnits"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//Package/simulationDuration"/>
       <genOperations ecoreOperation="e4sm.ecore#//Package/getAllComponents" body="&#x9;&#x9;// Get all components which are contained directly in this package&#xD;&#xA;&#x9;&#x9;EList&lt;Component> res = ECollections.newBasicEList(this.getComponents());&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;// Look into sectors&#xD;&#xA;&#x9;&#x9;this.getSectors().forEach(s -> {&#xD;&#xA;&#x9;&#x9;&#x9;res.addAll(s.getAllComponents());&#xD;&#xA;&#x9;&#x9;});&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;return res;"/>
       <genOperations ecoreOperation="e4sm.ecore#//Package/getMaxFlow"/>
     </genClasses>

@@ -55,6 +55,7 @@ public class PackageItemProvider extends NamedElementItemProvider {
 			addPackagesPropertyDescriptor(object);
 			addSpecifiesComponentPropertyDescriptor(object);
 			addProcessingUnitsPropertyDescriptor(object);
+			addSimulationDurationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -133,6 +134,22 @@ public class PackageItemProvider extends NamedElementItemProvider {
 						getString("_UI_PropertyDescriptor_description", "_UI_Package_processingUnits_feature",
 								"_UI_Package_type"),
 						e4smPackage.Literals.PACKAGE__PROCESSING_UNITS, true, false, false,
+						ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Simulation Duration feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSimulationDurationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Package_simulationDuration_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Package_simulationDuration_feature",
+								"_UI_Package_type"),
+						e4smPackage.Literals.PACKAGE__SIMULATION_DURATION, true, false, false,
 						ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
 	}
 
@@ -219,6 +236,7 @@ public class PackageItemProvider extends NamedElementItemProvider {
 		switch (notification.getFeatureID(e4sm.de.metamodel.e4sm.Package.class)) {
 		case e4smPackage.PACKAGE__DOCUMENTATION:
 		case e4smPackage.PACKAGE__PROCESSING_UNITS:
+		case e4smPackage.PACKAGE__SIMULATION_DURATION:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		case e4smPackage.PACKAGE__PARAMETERS:

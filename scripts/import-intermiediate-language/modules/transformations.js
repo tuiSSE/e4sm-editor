@@ -3,6 +3,7 @@ const scalingFactor = 1000;
  * @typedef {Object} InputData
  * @property {string} name
  * @property {number} timestamp
+ * @property {number} duration
  * @property {Component[]} components
  * @property {Source[]} sources
  * @property {Connector[]} connections
@@ -77,6 +78,7 @@ function generateE4SM(input) {
     return `// Generated from '${input.name}', : '${new Date(input.timestamp * 1000).toLocaleString()}'
     model "${input.name}_model"{
         package "${input.name}" {
+            ${input.duration? 'simulationDuration :' + input.duration : ''}
             ${generateSensors(input.sources)}
             ${generateComponents(input.components)}
             ${generateConnectors(input.connections)}

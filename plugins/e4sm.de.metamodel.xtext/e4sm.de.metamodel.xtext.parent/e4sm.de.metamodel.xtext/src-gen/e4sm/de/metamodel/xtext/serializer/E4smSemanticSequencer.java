@@ -1749,6 +1749,7 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     (
 	 *         name=EString 
 	 *         documentation=EString? 
+	 *         simulationDuration=EInt? 
 	 *         mainResponsible=[Person|EString]? 
 	 *         specifiesComponent=[Component|EString]? 
 	 *         processingUnits=EInt? 

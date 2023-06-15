@@ -30,6 +30,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link e4sm.de.metamodel.e4sm.Package#getSpecifiesComponent <em>Specifies Component</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Package#getDatastores <em>Datastores</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Package#getProcessingUnits <em>Processing Units</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.Package#getSimulationDuration <em>Simulation Duration</em>}</li>
  * </ul>
  *
  * @see e4sm.de.metamodel.e4sm.e4smPackage#getPackage()
@@ -187,6 +188,28 @@ public interface Package extends NamedElement, ParameterizableElement, Documenta
 	 * @generated
 	 */
 	void setProcessingUnits(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Simulation Duration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Simulation Duration</em>' attribute.
+	 * @see #setSimulationDuration(int)
+	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getPackage_SimulationDuration()
+	 * @model
+	 * @generated
+	 */
+	int getSimulationDuration();
+
+	/**
+	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.Package#getSimulationDuration <em>Simulation Duration</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Simulation Duration</em>' attribute.
+	 * @see #getSimulationDuration()
+	 * @generated
+	 */
+	void setSimulationDuration(int value);
 
 	/**
 	 * <!-- begin-user-doc -->

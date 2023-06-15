@@ -955,6 +955,16 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getPackage_SimulationDuration() {
+		return (EAttribute) packageEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getPackage__GetAllComponents() {
 		return packageEClass.getEOperations().get(0);
 	}
@@ -2316,6 +2326,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		createEReference(packageEClass, PACKAGE__SPECIFIES_COMPONENT);
 		createEReference(packageEClass, PACKAGE__DATASTORES);
 		createEAttribute(packageEClass, PACKAGE__PROCESSING_UNITS);
+		createEAttribute(packageEClass, PACKAGE__SIMULATION_DURATION);
 		createEOperation(packageEClass, PACKAGE___GET_ALL_COMPONENTS);
 		createEOperation(packageEClass, PACKAGE___GET_MAX_FLOW);
 
@@ -2699,6 +2710,9 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 				e4sm.de.metamodel.e4sm.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPackage_ProcessingUnits(), theEcorePackage.getEInt(), "processingUnits", "-1", 0, 1,
+				e4sm.de.metamodel.e4sm.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+				!IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPackage_SimulationDuration(), theEcorePackage.getEInt(), "simulationDuration", null, 0, 1,
 				e4sm.de.metamodel.e4sm.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
 				!IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

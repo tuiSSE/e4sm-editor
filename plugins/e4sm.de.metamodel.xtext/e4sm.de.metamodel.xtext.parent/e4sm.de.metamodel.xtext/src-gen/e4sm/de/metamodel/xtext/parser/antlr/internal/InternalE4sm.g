@@ -2185,9 +2185,9 @@ rulePackage returns [EObject current=null]
 			)
 		)?
 		(
-			otherlv_6='mainResponsible'
+			otherlv_6='simulationDuration'
 			{
-				newLeafNode(otherlv_6, grammarAccess.getPackageAccess().getMainResponsibleKeyword_4_0());
+				newLeafNode(otherlv_6, grammarAccess.getPackageAccess().getSimulationDurationKeyword_4_0());
 			}
 			this_PROPERTY_ASSIGN_7=RULE_PROPERTY_ASSIGN
 			{
@@ -2196,24 +2196,27 @@ rulePackage returns [EObject current=null]
 			(
 				(
 					{
+						newCompositeNode(grammarAccess.getPackageAccess().getSimulationDurationEIntParserRuleCall_4_2_0());
+					}
+					lv_simulationDuration_8_0=ruleEInt
+					{
 						if ($current==null) {
-							$current = createModelElement(grammarAccess.getPackageRule());
+							$current = createModelElementForParent(grammarAccess.getPackageRule());
 						}
-					}
-					{
-						newCompositeNode(grammarAccess.getPackageAccess().getMainResponsiblePersonCrossReference_4_2_0());
-					}
-					ruleEString
-					{
+						set(
+							$current,
+							"simulationDuration",
+							lv_simulationDuration_8_0,
+							"e4sm.de.metamodel.xtext.E4sm.EInt");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 		)?
 		(
-			otherlv_9='specifiesComponent'
+			otherlv_9='mainResponsible'
 			{
-				newLeafNode(otherlv_9, grammarAccess.getPackageAccess().getSpecifiesComponentKeyword_5_0());
+				newLeafNode(otherlv_9, grammarAccess.getPackageAccess().getMainResponsibleKeyword_5_0());
 			}
 			this_PROPERTY_ASSIGN_10=RULE_PROPERTY_ASSIGN
 			{
@@ -2227,7 +2230,7 @@ rulePackage returns [EObject current=null]
 						}
 					}
 					{
-						newCompositeNode(grammarAccess.getPackageAccess().getSpecifiesComponentComponentCrossReference_5_2_0());
+						newCompositeNode(grammarAccess.getPackageAccess().getMainResponsiblePersonCrossReference_5_2_0());
 					}
 					ruleEString
 					{
@@ -2237,9 +2240,9 @@ rulePackage returns [EObject current=null]
 			)
 		)?
 		(
-			otherlv_12='processingUnits'
+			otherlv_12='specifiesComponent'
 			{
-				newLeafNode(otherlv_12, grammarAccess.getPackageAccess().getProcessingUnitsKeyword_6_0());
+				newLeafNode(otherlv_12, grammarAccess.getPackageAccess().getSpecifiesComponentKeyword_6_0());
 			}
 			this_PROPERTY_ASSIGN_13=RULE_PROPERTY_ASSIGN
 			{
@@ -2248,9 +2251,35 @@ rulePackage returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getPackageAccess().getProcessingUnitsEIntParserRuleCall_6_2_0());
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getPackageRule());
+						}
 					}
-					lv_processingUnits_14_0=ruleEInt
+					{
+						newCompositeNode(grammarAccess.getPackageAccess().getSpecifiesComponentComponentCrossReference_6_2_0());
+					}
+					ruleEString
+					{
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			otherlv_15='processingUnits'
+			{
+				newLeafNode(otherlv_15, grammarAccess.getPackageAccess().getProcessingUnitsKeyword_7_0());
+			}
+			this_PROPERTY_ASSIGN_16=RULE_PROPERTY_ASSIGN
+			{
+				newLeafNode(this_PROPERTY_ASSIGN_16, grammarAccess.getPackageAccess().getPROPERTY_ASSIGNTerminalRuleCall_7_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getPackageAccess().getProcessingUnitsEIntParserRuleCall_7_2_0());
+					}
+					lv_processingUnits_17_0=ruleEInt
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getPackageRule());
@@ -2258,7 +2287,7 @@ rulePackage returns [EObject current=null]
 						set(
 							$current,
 							"processingUnits",
-							lv_processingUnits_14_0,
+							lv_processingUnits_17_0,
 							"e4sm.de.metamodel.xtext.E4sm.EInt");
 						afterParserOrEnumRuleCall();
 					}
@@ -2269,9 +2298,9 @@ rulePackage returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getPackageAccess().getParametersParameterParserRuleCall_7_0_0());
+						newCompositeNode(grammarAccess.getPackageAccess().getParametersParameterParserRuleCall_8_0_0());
 					}
-					lv_parameters_15_0=ruleParameter
+					lv_parameters_18_0=ruleParameter
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getPackageRule());
@@ -2279,54 +2308,8 @@ rulePackage returns [EObject current=null]
 						add(
 							$current,
 							"parameters",
-							lv_parameters_15_0,
+							lv_parameters_18_0,
 							"e4sm.de.metamodel.xtext.E4sm.Parameter");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			(
-				otherlv_16=','
-				{
-					newLeafNode(otherlv_16, grammarAccess.getPackageAccess().getCommaKeyword_7_1_0());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getPackageAccess().getParametersParameterParserRuleCall_7_1_1_0());
-						}
-						lv_parameters_17_0=ruleParameter
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getPackageRule());
-							}
-							add(
-								$current,
-								"parameters",
-								lv_parameters_17_0,
-								"e4sm.de.metamodel.xtext.E4sm.Parameter");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)*
-		)?
-		(
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getPackageAccess().getComponentsComponentParserRuleCall_8_0_0());
-					}
-					lv_components_18_0=ruleComponent
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getPackageRule());
-						}
-						add(
-							$current,
-							"components",
-							lv_components_18_0,
-							"e4sm.de.metamodel.xtext.E4sm.Component");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -2339,18 +2322,18 @@ rulePackage returns [EObject current=null]
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getPackageAccess().getComponentsComponentParserRuleCall_8_1_1_0());
+							newCompositeNode(grammarAccess.getPackageAccess().getParametersParameterParserRuleCall_8_1_1_0());
 						}
-						lv_components_20_0=ruleComponent
+						lv_parameters_20_0=ruleParameter
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getPackageRule());
 							}
 							add(
 								$current,
-								"components",
-								lv_components_20_0,
-								"e4sm.de.metamodel.xtext.E4sm.Component");
+								"parameters",
+								lv_parameters_20_0,
+								"e4sm.de.metamodel.xtext.E4sm.Parameter");
 							afterParserOrEnumRuleCall();
 						}
 					)
@@ -2361,18 +2344,18 @@ rulePackage returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getPackageAccess().getConnectorsConnectorParserRuleCall_9_0_0());
+						newCompositeNode(grammarAccess.getPackageAccess().getComponentsComponentParserRuleCall_9_0_0());
 					}
-					lv_connectors_21_0=ruleConnector
+					lv_components_21_0=ruleComponent
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getPackageRule());
 						}
 						add(
 							$current,
-							"connectors",
-							lv_connectors_21_0,
-							"e4sm.de.metamodel.xtext.E4sm.Connector");
+							"components",
+							lv_components_21_0,
+							"e4sm.de.metamodel.xtext.E4sm.Component");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -2385,18 +2368,18 @@ rulePackage returns [EObject current=null]
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getPackageAccess().getConnectorsConnectorParserRuleCall_9_1_1_0());
+							newCompositeNode(grammarAccess.getPackageAccess().getComponentsComponentParserRuleCall_9_1_1_0());
 						}
-						lv_connectors_23_0=ruleConnector
+						lv_components_23_0=ruleComponent
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getPackageRule());
 							}
 							add(
 								$current,
-								"connectors",
-								lv_connectors_23_0,
-								"e4sm.de.metamodel.xtext.E4sm.Connector");
+								"components",
+								lv_components_23_0,
+								"e4sm.de.metamodel.xtext.E4sm.Component");
 							afterParserOrEnumRuleCall();
 						}
 					)
@@ -2407,18 +2390,18 @@ rulePackage returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getPackageAccess().getDatastoresDataStoreParserRuleCall_10_0_0());
+						newCompositeNode(grammarAccess.getPackageAccess().getConnectorsConnectorParserRuleCall_10_0_0());
 					}
-					lv_datastores_24_0=ruleDataStore
+					lv_connectors_24_0=ruleConnector
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getPackageRule());
 						}
 						add(
 							$current,
-							"datastores",
-							lv_datastores_24_0,
-							"e4sm.de.metamodel.xtext.E4sm.DataStore");
+							"connectors",
+							lv_connectors_24_0,
+							"e4sm.de.metamodel.xtext.E4sm.Connector");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -2431,18 +2414,18 @@ rulePackage returns [EObject current=null]
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getPackageAccess().getDatastoresDataStoreParserRuleCall_10_1_1_0());
+							newCompositeNode(grammarAccess.getPackageAccess().getConnectorsConnectorParserRuleCall_10_1_1_0());
 						}
-						lv_datastores_26_0=ruleDataStore
+						lv_connectors_26_0=ruleConnector
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getPackageRule());
 							}
 							add(
 								$current,
-								"datastores",
-								lv_datastores_26_0,
-								"e4sm.de.metamodel.xtext.E4sm.DataStore");
+								"connectors",
+								lv_connectors_26_0,
+								"e4sm.de.metamodel.xtext.E4sm.Connector");
 							afterParserOrEnumRuleCall();
 						}
 					)
@@ -2453,18 +2436,18 @@ rulePackage returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getPackageAccess().getSectorsSectorParserRuleCall_11_0_0());
+						newCompositeNode(grammarAccess.getPackageAccess().getDatastoresDataStoreParserRuleCall_11_0_0());
 					}
-					lv_sectors_27_0=ruleSector
+					lv_datastores_27_0=ruleDataStore
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getPackageRule());
 						}
 						add(
 							$current,
-							"sectors",
-							lv_sectors_27_0,
-							"e4sm.de.metamodel.xtext.E4sm.Sector");
+							"datastores",
+							lv_datastores_27_0,
+							"e4sm.de.metamodel.xtext.E4sm.DataStore");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -2477,9 +2460,55 @@ rulePackage returns [EObject current=null]
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getPackageAccess().getSectorsSectorParserRuleCall_11_1_1_0());
+							newCompositeNode(grammarAccess.getPackageAccess().getDatastoresDataStoreParserRuleCall_11_1_1_0());
 						}
-						lv_sectors_29_0=ruleSector
+						lv_datastores_29_0=ruleDataStore
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getPackageRule());
+							}
+							add(
+								$current,
+								"datastores",
+								lv_datastores_29_0,
+								"e4sm.de.metamodel.xtext.E4sm.DataStore");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+		)?
+		(
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getPackageAccess().getSectorsSectorParserRuleCall_12_0_0());
+					}
+					lv_sectors_30_0=ruleSector
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getPackageRule());
+						}
+						add(
+							$current,
+							"sectors",
+							lv_sectors_30_0,
+							"e4sm.de.metamodel.xtext.E4sm.Sector");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_31=','
+				{
+					newLeafNode(otherlv_31, grammarAccess.getPackageAccess().getCommaKeyword_12_1_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getPackageAccess().getSectorsSectorParserRuleCall_12_1_1_0());
+						}
+						lv_sectors_32_0=ruleSector
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getPackageRule());
@@ -2487,7 +2516,7 @@ rulePackage returns [EObject current=null]
 							add(
 								$current,
 								"sectors",
-								lv_sectors_29_0,
+								lv_sectors_32_0,
 								"e4sm.de.metamodel.xtext.E4sm.Sector");
 							afterParserOrEnumRuleCall();
 						}
@@ -2496,20 +2525,20 @@ rulePackage returns [EObject current=null]
 			)*
 		)?
 		(
-			otherlv_30='subPackages'
+			otherlv_33='subPackages'
 			{
-				newLeafNode(otherlv_30, grammarAccess.getPackageAccess().getSubPackagesKeyword_12_0());
+				newLeafNode(otherlv_33, grammarAccess.getPackageAccess().getSubPackagesKeyword_13_0());
 			}
-			otherlv_31='{'
+			otherlv_34='{'
 			{
-				newLeafNode(otherlv_31, grammarAccess.getPackageAccess().getLeftCurlyBracketKeyword_12_1());
+				newLeafNode(otherlv_34, grammarAccess.getPackageAccess().getLeftCurlyBracketKeyword_13_1());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getPackageAccess().getPackagesPackageParserRuleCall_12_2_0());
+						newCompositeNode(grammarAccess.getPackageAccess().getPackagesPackageParserRuleCall_13_2_0());
 					}
-					lv_packages_32_0=rulePackage
+					lv_packages_35_0=rulePackage
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getPackageRule());
@@ -2517,23 +2546,23 @@ rulePackage returns [EObject current=null]
 						add(
 							$current,
 							"packages",
-							lv_packages_32_0,
+							lv_packages_35_0,
 							"e4sm.de.metamodel.xtext.E4sm.Package");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 			(
-				otherlv_33=','
+				otherlv_36=','
 				{
-					newLeafNode(otherlv_33, grammarAccess.getPackageAccess().getCommaKeyword_12_3_0());
+					newLeafNode(otherlv_36, grammarAccess.getPackageAccess().getCommaKeyword_13_3_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getPackageAccess().getPackagesPackageParserRuleCall_12_3_1_0());
+							newCompositeNode(grammarAccess.getPackageAccess().getPackagesPackageParserRuleCall_13_3_1_0());
 						}
-						lv_packages_34_0=rulePackage
+						lv_packages_37_0=rulePackage
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getPackageRule());
@@ -2541,21 +2570,21 @@ rulePackage returns [EObject current=null]
 							add(
 								$current,
 								"packages",
-								lv_packages_34_0,
+								lv_packages_37_0,
 								"e4sm.de.metamodel.xtext.E4sm.Package");
 							afterParserOrEnumRuleCall();
 						}
 					)
 				)
 			)*
-			otherlv_35='}'
+			otherlv_38='}'
 			{
-				newLeafNode(otherlv_35, grammarAccess.getPackageAccess().getRightCurlyBracketKeyword_12_4());
+				newLeafNode(otherlv_38, grammarAccess.getPackageAccess().getRightCurlyBracketKeyword_13_4());
 			}
 		)?
-		otherlv_36='}'
+		otherlv_39='}'
 		{
-			newLeafNode(otherlv_36, grammarAccess.getPackageAccess().getRightCurlyBracketKeyword_13());
+			newLeafNode(otherlv_39, grammarAccess.getPackageAccess().getRightCurlyBracketKeyword_14());
 		}
 	)
 ;

@@ -1646,13 +1646,22 @@ public interface e4smPackage extends EPackage {
 	int PACKAGE__PROCESSING_UNITS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 9;
 
 	/**
+	 * The feature id for the '<em><b>Simulation Duration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__SIMULATION_DURATION = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 10;
+
+	/**
 	 * The number of structural features of the '<em>Package</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 10;
+	int PACKAGE_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 11;
 
 	/**
 	 * The operation id for the '<em>Get All Components</em>' operation.
@@ -5182,6 +5191,17 @@ public interface e4smPackage extends EPackage {
 	EAttribute getPackage_ProcessingUnits();
 
 	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.Package#getSimulationDuration <em>Simulation Duration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Simulation Duration</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Package#getSimulationDuration()
+	 * @see #getPackage()
+	 * @generated
+	 */
+	EAttribute getPackage_SimulationDuration();
+
+	/**
 	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.Package#getAllComponents() <em>Get All Components</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6871,6 +6891,14 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PACKAGE__PROCESSING_UNITS = eINSTANCE.getPackage_ProcessingUnits();
+
+		/**
+		 * The meta object literal for the '<em><b>Simulation Duration</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PACKAGE__SIMULATION_DURATION = eINSTANCE.getPackage_SimulationDuration();
 
 		/**
 		 * The meta object literal for the '<em><b>Get All Components</b></em>' operation.

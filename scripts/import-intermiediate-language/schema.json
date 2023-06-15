@@ -12,6 +12,10 @@
     "timestamp": {
       "type": "number"
     },
+    "duration": {
+      "description": "The simulation duration in ms",
+      "type": "number"
+    },
     "components": {
       "description":"An array of components",
       "type": "array",
@@ -30,8 +34,8 @@
             "pattern": "^([a-z]|[A-Z]|_)[a-zA-Z0-9_ ]*$"
           },
           "outputSize": {
-            "description": "A formula computing the size of the output",
-            "type": "string"
+            "description": "A formula computing the size of the output or a numerical value",
+            "type": ["string", "number"]
           },
           "inputPins": {
             "description":"An array of input pin objects",
@@ -77,9 +81,9 @@
             "additionalProperties": false,
             "properties": {
               "meanValue": {
-                "type": "string"
+                "type": ["string", "number"]
               },
-              "variance": {
+              "stdDev": {
                 "type": "number"
               },
               "maxError": {
@@ -173,8 +177,8 @@
       		"pattern": "^([a-z]|[A-Z]|_)[a-zA-Z0-9_]*$"
           },
           "outputSize": {
-            "description": "A formula computing the size of the output",
-            "type": "string"
+            "description": "A formula computing the size of the output or a numerical value",
+            "type": ["string", "number"]
           },
           "outputPins": {
             "description":"An array of output pin objects",

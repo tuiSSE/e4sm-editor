@@ -47,6 +47,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getSpecifiesComponent <em>Specifies Component</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getDatastores <em>Datastores</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getProcessingUnits <em>Processing Units</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getSimulationDuration <em>Simulation Duration</em>}</li>
  * </ul>
  *
  * @generated
@@ -170,6 +171,26 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	 * @ordered
 	 */
 	protected int processingUnits = PROCESSING_UNITS_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getSimulationDuration() <em>Simulation Duration</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSimulationDuration()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int SIMULATION_DURATION_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getSimulationDuration() <em>Simulation Duration</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSimulationDuration()
+	 * @generated
+	 * @ordered
+	 */
+	protected int simulationDuration = SIMULATION_DURATION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -427,6 +448,30 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int getSimulationDuration() {
+		return simulationDuration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setSimulationDuration(int newSimulationDuration) {
+		int oldSimulationDuration = simulationDuration;
+		simulationDuration = newSimulationDuration;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.PACKAGE__SIMULATION_DURATION,
+					oldSimulationDuration, simulationDuration));
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -528,6 +573,8 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 			return getDatastores();
 		case e4smPackage.PACKAGE__PROCESSING_UNITS:
 			return getProcessingUnits();
+		case e4smPackage.PACKAGE__SIMULATION_DURATION:
+			return getSimulationDuration();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -576,6 +623,9 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 		case e4smPackage.PACKAGE__PROCESSING_UNITS:
 			setProcessingUnits((Integer) newValue);
 			return;
+		case e4smPackage.PACKAGE__SIMULATION_DURATION:
+			setSimulationDuration((Integer) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -617,6 +667,9 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 		case e4smPackage.PACKAGE__PROCESSING_UNITS:
 			setProcessingUnits(PROCESSING_UNITS_EDEFAULT);
 			return;
+		case e4smPackage.PACKAGE__SIMULATION_DURATION:
+			setSimulationDuration(SIMULATION_DURATION_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -649,6 +702,8 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 			return datastores != null && !datastores.isEmpty();
 		case e4smPackage.PACKAGE__PROCESSING_UNITS:
 			return processingUnits != PROCESSING_UNITS_EDEFAULT;
+		case e4smPackage.PACKAGE__SIMULATION_DURATION:
+			return simulationDuration != SIMULATION_DURATION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -733,6 +788,8 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 		result.append(documentation);
 		result.append(", processingUnits: ");
 		result.append(processingUnits);
+		result.append(", simulationDuration: ");
+		result.append(simulationDuration);
 		result.append(')');
 		return result.toString();
 	}
