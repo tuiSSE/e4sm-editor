@@ -726,27 +726,27 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:GroupMenu" name="change_elements_type_group" label="Change Type" precondition="aql:self.oclIsKindOf(e4sm::Component)" locationURI="menu:editMenu">
+          <ownedTools xsi:type="tool_1:GroupMenu" documentation="Includes all of the possible generalisation or specialisation options for the many different component types." name="change_elements_type_group" label="Change Type" precondition="aql:self.oclIsKindOf(e4sm::Component)" locationURI="menu:editMenu">
             <itemDescriptions xsi:type="tool_1:PopupMenu" name="change_specific_component_to_component" label="↑ Make more Generic">
-              <menuItemDescription xsi:type="tool_1:OperationAction" name="change_to_component_action" label="To Component" precondition="aql:container.oclIsTypeOf(e4sm::SoftwareComponent) or container.oclIsTypeOf(e4sm::PhysicalComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/Component.gif">
+              <menuItemDescription xsi:type="tool_1:OperationAction" documentation="Provides the option for software and physical components to be transformed into a generic component." name="change_to_component_action" label="To Component" precondition="aql:container.oclIsTypeOf(e4sm::SoftwareComponent) or container.oclIsTypeOf(e4sm::PhysicalComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/Component.gif">
                 <view name="views"/>
                 <initialOperation>
                   <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformToComponent(views)"/>
                 </initialOperation>
               </menuItemDescription>
-              <menuItemDescription xsi:type="tool_1:OperationAction" name="change_to_software_component_action" label="To Software Component" precondition="aql:container.oclIsKindOf(e4sm::SoftwareComponent) and not container.oclIsTypeOf(e4sm::SoftwareComponent) and not container.oclIsTypeOf(e4sm::BinaryClassificationComponent) and not container.oclIsTypeOf(e4sm::MulticlassClassificationComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/SoftwareComponent.gif">
+              <menuItemDescription xsi:type="tool_1:OperationAction" documentation="Provides the option to transform any component, which directly inherits from the software component, into a software component." name="change_to_software_component_action" label="To Software Component" precondition="aql:container.oclIsKindOf(e4sm::SoftwareComponent) and not container.oclIsTypeOf(e4sm::SoftwareComponent) and not container.oclIsTypeOf(e4sm::BinaryClassificationComponent) and not container.oclIsTypeOf(e4sm::MulticlassClassificationComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/SoftwareComponent.gif">
                 <view name="views"/>
                 <initialOperation>
                   <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformToSoftwareComponent(views)"/>
                 </initialOperation>
               </menuItemDescription>
-              <menuItemDescription xsi:type="tool_1:OperationAction" name="change_to_physical_component_action" label="To Physical Component" precondition="aql:container.oclIsKindOf(e4sm::PhysicalComponent) and not container.oclIsTypeOf(e4sm::PhysicalComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/PhysicalComponent.gif">
+              <menuItemDescription xsi:type="tool_1:OperationAction" documentation="Provides the option to transform any component, which directly inherits from the physical component, into a physical component." name="change_to_physical_component_action" label="To Physical Component" precondition="aql:container.oclIsKindOf(e4sm::PhysicalComponent) and not container.oclIsTypeOf(e4sm::PhysicalComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/PhysicalComponent.gif">
                 <view name="views"/>
                 <initialOperation>
                   <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformToPhysicalComponent()"/>
                 </initialOperation>
               </menuItemDescription>
-              <menuItemDescription xsi:type="tool_1:OperationAction" name="change_to_machine_learning_component_action" label="To Machine Learning Component" precondition="aql:container.oclIsKindOf(e4sm::MachineLearningComponent) and not container.oclIsTypeOf(e4sm::MachineLearningComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/MachineLearningComponent.gif">
+              <menuItemDescription xsi:type="tool_1:OperationAction" documentation="Provides the option for any component which inherits from the machine learning component &#xD;&#xA;to be transformed into a machine learning component." name="change_to_machine_learning_component_action" label="To Machine Learning Component" precondition="aql:container.oclIsKindOf(e4sm::MachineLearningComponent) and not container.oclIsTypeOf(e4sm::MachineLearningComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/MachineLearningComponent.gif">
                 <view name="views"/>
                 <initialOperation>
                   <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformToMachineLearningComponent(views)"/>
@@ -754,61 +754,61 @@
               </menuItemDescription>
             </itemDescriptions>
             <itemDescriptions xsi:type="tool_1:PopupMenu" name="change_component_to_software_component" label="↓ Make more Specific">
-              <menuItemDescription xsi:type="tool_1:OperationAction" name="change_to_software_component_action" label="To Software Component" precondition="aql:container.oclIsTypeOf(e4sm::Component)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/SoftwareComponent.gif">
+              <menuItemDescription xsi:type="tool_1:OperationAction" documentation="Provides the option to transform a generic component into a software component." name="change_to_software_component_action" label="To Software Component" precondition="aql:container.oclIsTypeOf(e4sm::Component)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/SoftwareComponent.gif">
                 <view name="views"/>
                 <initialOperation>
                   <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformDownToSoftwareComponent()"/>
                 </initialOperation>
               </menuItemDescription>
-              <menuItemDescription xsi:type="tool_1:OperationAction" name="change_to_physical_component_action" label="To Physical Component" precondition="aql:container.oclIsTypeOf(e4sm::Component)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/PhysicalComponent.gif">
+              <menuItemDescription xsi:type="tool_1:OperationAction" documentation="Provides the option to transform a generic component into a physical component." name="change_to_physical_component_action" label="To Physical Component" precondition="aql:container.oclIsTypeOf(e4sm::Component)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/PhysicalComponent.gif">
                 <view name="views"/>
                 <initialOperation>
                   <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformDownToPhysicalComponent()"/>
                 </initialOperation>
               </menuItemDescription>
-              <menuItemDescription xsi:type="tool_1:OperationAction" name="change_to_sensor_action" label="To Sensor" precondition="aql:container.oclIsTypeOf(e4sm::PhysicalComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/Sensor.gif">
+              <menuItemDescription xsi:type="tool_1:OperationAction" documentation="Provides the option to transform a physical component into a sensor component." name="change_to_sensor_action" label="To Sensor" precondition="aql:container.oclIsTypeOf(e4sm::PhysicalComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/Sensor.gif">
                 <view name="views"/>
                 <initialOperation>
                   <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformDownToSensor()"/>
                 </initialOperation>
               </menuItemDescription>
-              <menuItemDescription xsi:type="tool_1:OperationAction" name="change_to_actuator_action" label="To Actuator" precondition="aql:container.oclIsTypeOf(e4sm::PhysicalComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/Actuator.gif">
+              <menuItemDescription xsi:type="tool_1:OperationAction" documentation="Provides the option to transform a physical component into a actuator component." name="change_to_actuator_action" label="To Actuator" precondition="aql:container.oclIsTypeOf(e4sm::PhysicalComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/Actuator.gif">
                 <view name="views"/>
                 <initialOperation>
                   <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:transformDownToActuator"/>
                 </initialOperation>
               </menuItemDescription>
-              <menuItemDescription xsi:type="tool_1:OperationAction" name="change_to_machine_learning_component_action" label="To Machine Learning Component" precondition="aql:container.oclIsTypeOf(e4sm::SoftwareComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/MachineLearningComponent.gif">
+              <menuItemDescription xsi:type="tool_1:OperationAction" documentation="Provides the option to transform a software component into a machine learning component." name="change_to_machine_learning_component_action" label="To Machine Learning Component" precondition="aql:container.oclIsTypeOf(e4sm::SoftwareComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/MachineLearningComponent.gif">
                 <view name="views"/>
                 <initialOperation>
                   <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformDownToMachineLearningComponent()"/>
                 </initialOperation>
               </menuItemDescription>
-              <menuItemDescription xsi:type="tool_1:OperationAction" name="change_to_heuristic_action" label="To Heuristic" precondition="aql:container.oclIsTypeOf(e4sm::SoftwareComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/Heuristic.gif">
+              <menuItemDescription xsi:type="tool_1:OperationAction" documentation="Provides the option to transform a software component into a heuristic component." name="change_to_heuristic_action" label="To Heuristic" precondition="aql:container.oclIsTypeOf(e4sm::SoftwareComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/Heuristic.gif">
                 <view name="views"/>
                 <initialOperation>
                   <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformDownToHeuristic()"/>
                 </initialOperation>
               </menuItemDescription>
-              <menuItemDescription xsi:type="tool_1:OperationAction" name="change_to_function_action" label="To Function" precondition="aql:container.oclIsTypeOf(e4sm::SoftwareComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/Function.gif">
+              <menuItemDescription xsi:type="tool_1:OperationAction" documentation="Provides the option to transform a software component into a function component." name="change_to_function_action" label="To Function" precondition="aql:container.oclIsTypeOf(e4sm::SoftwareComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/Function.gif">
                 <view name="views"/>
                 <initialOperation>
                   <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformDownToFunction()"/>
                 </initialOperation>
               </menuItemDescription>
-              <menuItemDescription xsi:type="tool_1:OperationAction" name="change_to_external_dependency_action" label="To External Dependency" precondition="aql:container.oclIsTypeOf(e4sm::SoftwareComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/ExternalDependency.gif">
+              <menuItemDescription xsi:type="tool_1:OperationAction" documentation="Provides the option to transform a software component into a external dependency component." name="change_to_external_dependency_action" label="To External Dependency" precondition="aql:container.oclIsTypeOf(e4sm::SoftwareComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/ExternalDependency.gif">
                 <view name="views"/>
                 <initialOperation>
                   <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformDownToExternalDependency()"/>
                 </initialOperation>
               </menuItemDescription>
-              <menuItemDescription xsi:type="tool_1:OperationAction" name="change_to_binary_classification_component_action" label="To Binary Classification Component" precondition="aql:container.oclIsTypeOf(e4sm::MachineLearningComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/BinaryClassificationComponent.gif">
+              <menuItemDescription xsi:type="tool_1:OperationAction" documentation="Provides the option to transform a machine learning component into a binary classification component." name="change_to_binary_classification_component_action" label="To Binary Classification Component" precondition="aql:container.oclIsTypeOf(e4sm::MachineLearningComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/BinaryClassificationComponent.gif">
                 <view name="views"/>
                 <initialOperation>
                   <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformDownToBinaryClassificationComponent()"/>
                 </initialOperation>
               </menuItemDescription>
-              <menuItemDescription xsi:type="tool_1:OperationAction" name="change_to_multiclass_classification_component_action" label="To Multiclass Classification Component" precondition="aql:container.oclIsTypeOf(e4sm::MachineLearningComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/MulticlassClassificationComponent.gif">
+              <menuItemDescription xsi:type="tool_1:OperationAction" documentation="Provides the option to transform a machine learning component into a mutliclass classification component." name="change_to_multiclass_classification_component_action" label="To Multiclass Classification Component" precondition="aql:container.oclIsTypeOf(e4sm::MachineLearningComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/MulticlassClassificationComponent.gif">
                 <view name="views"/>
                 <initialOperation>
                   <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformDownToMulticlassClassificationComponent()"/>
@@ -816,8 +816,8 @@
               </menuItemDescription>
             </itemDescriptions>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:GroupMenu" name="start_simulation_group" label="Simulations" locationURI="menu:root">
-            <itemDescriptions xsi:type="tool_1:PopupMenu" name="popup_compute_dependency_tree" label="Transformations">
+          <ownedTools xsi:type="tool_1:GroupMenu" documentation="Contains the transformation,analysis and simulation options." name="start_simulation_group" label="Simulations" locationURI="menu:root">
+            <itemDescriptions xsi:type="tool_1:PopupMenu" documentation="Provides the transformation options for the graphical editor." name="popup_compute_dependency_tree" label="Transformations">
               <menuItemDescription xsi:type="tool_1:OperationAction" name="compute_package_dependency_graph" label="Package Dependency Graph" icon="/e4sm.de.metamodel.design/icons/specified.gif">
                 <view name="views"/>
                 <initialOperation>
@@ -932,7 +932,7 @@
                 </initialOperation>
               </menuItemDescription>
             </itemDescriptions>
-            <itemDescriptions xsi:type="tool_1:PopupMenu" name="popup_start_analysis" label="Start Analysis">
+            <itemDescriptions xsi:type="tool_1:PopupMenu" documentation="Provides the analysis options for the graphical editor." name="popup_start_analysis" label="Start Analysis">
               <menuItemDescription xsi:type="tool_1:OperationAction" name="analysis_time_analysis_start" label="▶ Time Analysis" icon="/e4sm.de.metamodel.design/icons/specified.gif">
                 <view name="views"/>
                 <initialOperation>
@@ -952,41 +952,43 @@
                 </initialOperation>
               </menuItemDescription>
             </itemDescriptions>
-            <itemDescriptions xsi:type="tool_1:PopupMenu" name="popup_timenet_simulation" label="Simulation">
-              <menuItemDescription xsi:type="tool_1:OperationAction" name="timenet_simulation_start" label="Timenet Simulation" icon="/e4sm.de.metamodel.design/icons/specified.gif">
-                <view name="views"/>
-                <initialOperation>
-                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-                    <subModelOperations xsi:type="tool_1:Let" variableName="simResult" valueExpression="aql:diagram.target.oclAsType(e4sm::Package).runner()">
-                      <subModelOperations xsi:type="tool_1:Switch">
-                        <cases conditionExpression="aql:simResult=0">
-                          <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="simRunner - Success">
-                            <buttons labelExpression="Got it" default="true" closeDialogOnClick="true">
-                              <initialOperation/>
-                            </buttons>
-                            <page name="Default Page" labelExpression="Timenet Simulation was successfully started in the background!" semanticCandidateExpression="var:self"/>
-                          </subModelOperations>
-                        </cases>
-                        <cases conditionExpression="aql:simResult=1">
-                          <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="simRunner - Error Case 1">
-                            <buttons labelExpression="Got it" default="true" closeDialogOnClick="true">
-                              <initialOperation/>
-                            </buttons>
-                            <page name="Default Page" labelExpression="Package name is empty, process canceled" semanticCandidateExpression="var:self"/>
-                          </subModelOperations>
-                        </cases>
-                        <default>
-                          <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="simRunner">
-                            <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
-                              <initialOperation/>
-                            </buttons>
-                            <page name="Default Page" labelExpression="Unexpected Error!" semanticCandidateExpression="var:self"/>
-                          </subModelOperations>
-                        </default>
+            <itemDescriptions xsi:type="tool_1:PopupMenu" documentation="Provides the simulation option(s) for the graphical editor." name="popup_simulation" label="Start Simulation">
+              <menuItemDescription xsi:type="tool_1:GroupMenu" name="timenetGroup" label="Timenet Options">
+                <itemDescriptions xsi:type="tool_1:OperationAction" documentation="Starts the simulation via the TimenetSimRunner class." name="timenet_simulation_start" label="Timenet" icon="/e4sm.de.metamodel.design/icons/specified.gif">
+                  <view name="views"/>
+                  <initialOperation>
+                    <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                      <subModelOperations xsi:type="tool_1:Let" variableName="simResult" valueExpression="aql:diagram.target.oclAsType(e4sm::Package).runner()">
+                        <subModelOperations xsi:type="tool_1:Switch">
+                          <cases conditionExpression="aql:simResult=0">
+                            <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="simRunner - Success">
+                              <buttons labelExpression="Got it" default="true" closeDialogOnClick="true">
+                                <initialOperation/>
+                              </buttons>
+                              <page name="Default Page" labelExpression="Timenet Simulation was successfully started in the background!" semanticCandidateExpression="var:self"/>
+                            </subModelOperations>
+                          </cases>
+                          <cases conditionExpression="aql:simResult=1">
+                            <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="simRunner - Error Case 1">
+                              <buttons labelExpression="Got it" default="true" closeDialogOnClick="true">
+                                <initialOperation/>
+                              </buttons>
+                              <page name="Default Page" labelExpression="Package name is empty, process canceled" semanticCandidateExpression="var:self"/>
+                            </subModelOperations>
+                          </cases>
+                          <default>
+                            <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="simRunner">
+                              <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                                <initialOperation/>
+                              </buttons>
+                              <page name="Default Page" labelExpression="Unexpected Error!" semanticCandidateExpression="var:self"/>
+                            </subModelOperations>
+                          </default>
+                        </subModelOperations>
                       </subModelOperations>
-                    </subModelOperations>
-                  </firstModelOperations>
-                </initialOperation>
+                    </firstModelOperations>
+                  </initialOperation>
+                </itemDescriptions>
               </menuItemDescription>
             </itemDescriptions>
           </ownedTools>

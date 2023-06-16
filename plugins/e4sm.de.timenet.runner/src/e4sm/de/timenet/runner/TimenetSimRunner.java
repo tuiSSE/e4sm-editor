@@ -1,5 +1,6 @@
 package e4sm.de.timenet.runner;
 
+
 import java.io.File;
 import java.io.IOException;
 import java.net.InetAddress;
@@ -20,7 +21,10 @@ import gpsc.simulation.ServerThread;
 //import server.Server;
 
 
-
+/* 
+ * This class provides the necessary method for running a Timenet Simulation via 
+ * the sirius based graphical editor for the models
+*/ 
 public class TimenetSimRunner {
 	public static int simRunner(Package p) {
 		System.out.println("DEBUG: Preparing simulation process");
@@ -63,13 +67,14 @@ public class TimenetSimRunner {
 		}
 		var path = absoluteInputPath + "/" + p.getName() + "_optimized.xml";
 		System.out.println("DEBUG: Path is " + path);
-		var outPath = absoluteInputPath + "/Codegen";
-		String outputDir = projectPath + "SCPN/";
+		//var outPath = absoluteInputPath + "/Codegen";
+		//String outputDir = projectPath + "SCPN/";
 		var inputFile = p.getName() + "_optimized.xml";
-		String netname = p.getName();
-		boolean verbose = true;
-		boolean cluster = false;
+		//String netname = p.getName();
+		//boolean verbose = true;
+		//boolean cluster = false;
 		
+		// this part used to be a manual start for the code generation, now automatically done by the server structure
 		/*System.out.println("DEBUG: Creating CodeGen");
 		CodeGen cg = null;
 		try  {
@@ -85,6 +90,7 @@ public class TimenetSimRunner {
 		System.out.println("DEBUG: Run complete!");*/
 		
 		//setup and start the server which will await a client and then start the codegen, make and simulation process
+		
 		var serverPort = 4445;   					//designated port
 		File modelDirectory = new File(absoluteInputPath); 	//path to the model as a file
 		
@@ -123,12 +129,16 @@ public class TimenetSimRunner {
 	      
 		
 		//already given ServerThread structure from the TimeNet project
+
 		ServerThread serverThread = null;
+		
 		try {
 			serverThread = new ServerThread(serverPort, modelDirectory, System.out, System.err);
+			
 		} catch (IOException e2) {
 			e2.printStackTrace();
 		}
+		
 		serverThread.start();
 		
 		

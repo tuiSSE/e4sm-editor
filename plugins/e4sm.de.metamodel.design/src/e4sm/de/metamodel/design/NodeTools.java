@@ -13,11 +13,11 @@ import org.eclipse.emf.common.util.URI;
 
 final public class NodeTools {
 	private NodeTools() {
-		// Does not make sense to construct a static class
+		
 	}
 	/**
-	 * Check if the npm command is available
-	 * @return true if it is, false otherwise
+	 * Checks if the npm command is available
+	 * @return true if available, false otherwise
 	 */
 	public static boolean checkNpm() {
 		try{
@@ -49,8 +49,8 @@ final public class NodeTools {
 	}
 	
 	/**
-	 * Check if the tn-fix-xml command is available
-	 * @return true if it is, false otherwise
+	 * Checks if the tn-fix-xml command is available
+	 * @return true if available, false otherwise
 	 */
 	public static boolean checkTnFix() {
 		try{
@@ -82,8 +82,8 @@ final public class NodeTools {
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * uses the tn-fix-xml to optimize an already existing scpn
+	 * @return optimized scpn files
 	 */
 	public static boolean optimizePN(String path, String pName) {
 		

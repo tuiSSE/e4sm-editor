@@ -25,8 +25,6 @@ import e4sm.de.metamodel.e4sm.analysis.AnalysisDefinition;
 import e4sm.de.metamodel.e4sm.analysis.Parameter;
 import e4sm.de.metamodel.e4sm.Package;
 import e4sm.de.metamodel.e4sm.Sensor;
-import e4sm.de.timenet.runner.TimenetSimRunner;
-
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.common.util.BasicDiagnostic;

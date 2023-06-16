@@ -6,7 +6,7 @@
       provider-name="E4SM">
 
    <description url="http://www.example.com/description">
-      [Enter Feature Description here.]
+      This feature includes the two e4sm acceleo plug-ins, with which it&apos;s possible to create a documentation html based on an e4sm model.
    </description>
 
    <copyright url="http://www.example.com/copyright">
@@ -16,6 +16,28 @@
    <license url="http://www.example.com/license">
       [Enter License Description here.]
    </license>
+
+   <requires>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="org.eclipse.emf.ecore"/>
+      <import plugin="org.eclipse.emf.ecore.xmi"/>
+      <import plugin="org.eclipse.ocl"/>
+      <import plugin="org.eclipse.ocl.ecore"/>
+      <import plugin="org.eclipse.acceleo.model"/>
+      <import plugin="org.eclipse.acceleo.engine"/>
+      <import plugin="e4sm.de.metamodel"/>
+      <import plugin="e4sm.de.metamodel.xtext"/>
+      <import plugin="org.eclipse.xtext"/>
+      <import plugin="org.eclipse.xtext.xbase"/>
+      <import plugin="org.eclipse.acceleo.common" version="3.3.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.acceleo.model" version="3.3.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.acceleo.profiler" version="3.3.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.acceleo.engine" version="3.3.0" match="greaterOrEqual"/>
+      <import plugin="org.apache.log4j"/>
+      <import plugin="com.google.guava"/>
+   </requires>
 
    <plugin
          id="e4sm.de.metamodel.acceleo.documentation.ui"
