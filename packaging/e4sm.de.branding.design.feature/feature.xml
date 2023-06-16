@@ -6,7 +6,8 @@
       provider-name="E4SM">
 
    <description url="http://www.example.com/description">
-      [Enter Feature Description here.]
+      This feature includes everything related to the design of the product.
+It contains the custom intro/help page when the product is launched the first time, the plug-in which makes it so the product launches with the correct perspective, and the branding plug-in which includes things such as the icons and the splash art for the start-up screen.
    </description>
 
    <copyright url="http://www.example.com/copyright">
@@ -16,6 +17,13 @@
    <license url="http://www.example.com/license">
       [Enter License Description here.]
    </license>
+
+   <requires>
+      <import plugin="org.eclipse.ui.intro.universal"/>
+      <import plugin="org.eclipse.ui.intro" version="3.4.200" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.ui.intro" version="3.6.600" match="greaterOrEqual"/>
+   </requires>
 
    <plugin
          id="e4sm.de.metamodel.branding"

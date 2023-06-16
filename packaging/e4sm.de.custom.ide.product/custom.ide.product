@@ -39,7 +39,6 @@ plugins\e4sm.de.metamodel.branding_1.0.0\plugin_customization.ini
    <vm>
    </vm>
 
-
    <plugins>
       <plugin id="org.eclipse.e4.core.services"/>
    </plugins>
@@ -81,7 +80,6 @@ plugins\e4sm.de.metamodel.branding_1.0.0\plugin_customization.ini
       <feature id="org.eclipse.emf" installMode="root"/>
       <feature id="org.eclipse.emf.databinding" installMode="root"/>
       <feature id="org.eclipse.jdt" installMode="root"/>
-      <feature id="extra.plugins.feature" installMode="root"/>
       <feature id="org.eclipse.emf.mapping.ecore" installMode="root"/>
       <feature id="org.eclipse.emf.codegen" installMode="root"/>
       <feature id="org.eclipse.emf.mapping.ui" installMode="root"/>
@@ -118,6 +116,7 @@ plugins\e4sm.de.metamodel.branding_1.0.0\plugin_customization.ini
       <feature id="org.eclipse.equinox.p2.extras.feature.source" installMode="root"/>
       <feature id="org.eclipse.e4.rcp.source" installMode="root"/>
       <feature id="e4sm.de.custom.metadesign.feature" installMode="root"/>
+      <feature id="e4sm.de.extra.plugins.feature" installMode="root"/>
    </features>
 
    <configurations>
