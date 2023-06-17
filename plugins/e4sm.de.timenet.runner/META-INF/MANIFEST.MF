@@ -12,6 +12,6 @@ Bundle-ClassPath: lib/gpal.jar,
  lib/antlr.jar,
  lib/RemoteSystem.jar,
  lib/gpsc.jar
-Bundle-RequiredExecutionEnvironment: JavaSE-19
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: e4sm.de.timenet.runner;uses:="e4sm.de.metamodel.e4sm"
 Import-Package: org.eclipse.core.runtime
