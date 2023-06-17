@@ -6,10 +6,6 @@ package e4sm.de.metamodel.design;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.URL;
-
-import org.eclipse.core.runtime.FileLocator;
-import org.eclipse.emf.common.util.URI;
 
 final public class NodeTools {
 	private NodeTools() {
