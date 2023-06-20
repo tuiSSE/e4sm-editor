@@ -5,32 +5,34 @@ package e4sm.de.metamodel.e4sm.execution.impl;
 import e4sm.de.metamodel.e4sm.analysis.Parameter;
 import e4sm.de.metamodel.e4sm.execution.ExecutionPackage;
 import e4sm.de.metamodel.e4sm.execution.ParameterReference;
+import e4sm.de.metamodel.e4sm.utils.Utils;
 
 import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Parameter Reference</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object
+ * '<em><b>Parameter Reference</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link e4sm.de.metamodel.e4sm.execution.impl.ParameterReferenceImpl#getParameter <em>Parameter</em>}</li>
+ * <li>{@link e4sm.de.metamodel.e4sm.execution.impl.ParameterReferenceImpl#getParameter
+ * <em>Parameter</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ParameterReferenceImpl extends ExpressionImpl implements ParameterReference {
 	/**
-	 * The cached value of the '{@link #getParameter() <em>Parameter</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getParameter() <em>Parameter</em>}'
+	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getParameter()
 	 * @generated
 	 * @ordered
@@ -38,8 +40,8 @@ public class ParameterReferenceImpl extends ExpressionImpl implements ParameterR
 	protected Parameter parameter;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected ParameterReferenceImpl() {
@@ -47,8 +49,8 @@ public class ParameterReferenceImpl extends ExpressionImpl implements ParameterR
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -57,8 +59,8 @@ public class ParameterReferenceImpl extends ExpressionImpl implements ParameterR
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -76,8 +78,8 @@ public class ParameterReferenceImpl extends ExpressionImpl implements ParameterR
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Parameter basicGetParameter() {
@@ -85,8 +87,8 @@ public class ParameterReferenceImpl extends ExpressionImpl implements ParameterR
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -99,18 +101,23 @@ public class ParameterReferenceImpl extends ExpressionImpl implements ParameterR
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
 	 */
 	@Override
 	public String toString() {
-		return "$" + this.getParameter().getName();
+		var c = Utils.getContainingComponent((EObject) this);
+		String res = "$" + this.getParameter().getName();
+		if (c != null) {
+			res = "$" + c.getName() + "_" + this.getParameter().getName();
+		}
+		return res;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -125,8 +132,8 @@ public class ParameterReferenceImpl extends ExpressionImpl implements ParameterR
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -140,8 +147,8 @@ public class ParameterReferenceImpl extends ExpressionImpl implements ParameterR
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -155,8 +162,8 @@ public class ParameterReferenceImpl extends ExpressionImpl implements ParameterR
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -169,8 +176,8 @@ public class ParameterReferenceImpl extends ExpressionImpl implements ParameterR
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -182,4 +189,4 @@ public class ParameterReferenceImpl extends ExpressionImpl implements ParameterR
 		return super.eInvoke(operationID, arguments);
 	}
 
-} //ParameterReferenceImpl
+} // ParameterReferenceImpl

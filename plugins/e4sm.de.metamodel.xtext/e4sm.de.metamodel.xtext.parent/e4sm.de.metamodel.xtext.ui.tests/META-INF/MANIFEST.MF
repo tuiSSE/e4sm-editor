@@ -15,5 +15,5 @@ Require-Bundle: e4sm.de.metamodel.xtext.ui,
  org.eclipse.xtext.ui.testing,
  org.eclipse.ui.workbench;resolution:=optional,
  org.eclipse.xtext.xbase.ui.testing
-Bundle-RequiredExecutionEnvironment: JavaSE-18
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: e4sm.de.metamodel.xtext.ui.tests;x-internal=true
