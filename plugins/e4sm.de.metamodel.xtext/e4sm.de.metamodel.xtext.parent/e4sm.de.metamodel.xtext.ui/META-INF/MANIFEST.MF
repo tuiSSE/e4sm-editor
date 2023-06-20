@@ -5,16 +5,20 @@ Bundle-SymbolicName: e4sm.de.metamodel.xtext.ui;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-ActivationPolicy: lazy
-Export-Package: e4sm.de.metamodel.xtext.ui.contentassist,
- e4sm.de.metamodel.xtext.ui.internal,
- e4sm.de.metamodel.xtext.ui.quickfix
+Export-Package: e4sm.de.metamodel.xtext.ui,
+ e4sm.de.metamodel.xtext.ui.contentassist,
+ e4sm.de.metamodel.xtext.ui.internal;x-internal:=true,
+ e4sm.de.metamodel.xtext.ui.labeling,
+ e4sm.de.metamodel.xtext.ui.outline,
+ e4sm.de.metamodel.xtext.ui.quickfix,
+ e4sm.de.metamodel.xtext.validation
 Require-Bundle: org.eclipse.compare,
  e4sm.de.metamodel.xtext,
  e4sm.de.metamodel.xtext.ide,
  org.eclipse.xtext.builder,
  org.eclipse.xtext.ui,
  org.eclipse.xtext.ui.codetemplates.ui,
- org.eclipse.xtext.ui.shared, 
+ org.eclipse.xtext.ui.shared,
  org.eclipse.ui.editors;bundle-version="3.14.300",
  org.eclipse.ui.ide;bundle-version="3.18.500",
  org.eclipse.ui
