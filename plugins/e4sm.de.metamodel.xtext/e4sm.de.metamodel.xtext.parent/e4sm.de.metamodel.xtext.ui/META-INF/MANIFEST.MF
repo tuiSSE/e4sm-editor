@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: e4sm.de.metamodel.xtext.ui
 Bundle-SymbolicName: e4sm.de.metamodel.xtext.ui;singleton:=true
-Bundle-Version: 0.0.1.qualifier
+Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-ActivationPolicy: lazy
 Export-Package: e4sm.de.metamodel.xtext.ui.contentassist,
@@ -16,7 +16,8 @@ Require-Bundle: org.eclipse.compare,
  org.eclipse.xtext.ui.codetemplates.ui,
  org.eclipse.xtext.ui.shared, 
  org.eclipse.ui.editors;bundle-version="3.14.300",
- org.eclipse.ui.ide;bundle-version="3.18.500"
+ org.eclipse.ui.ide;bundle-version="3.18.500",
+ org.eclipse.ui
 Import-Package: org.apache.log4j
 Bundle-Activator: e4sm.de.metamodel.xtext.ui.internal.XtextActivator
 Automatic-Module-Name: e4sm.de.metamodel.xtext.ui

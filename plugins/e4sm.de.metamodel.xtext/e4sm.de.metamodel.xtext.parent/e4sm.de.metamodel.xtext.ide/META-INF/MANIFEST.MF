@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: e4sm.de.metamodel.xtext.ide
 Bundle-SymbolicName: e4sm.de.metamodel.xtext.ide;singleton:=true
-Bundle-Version: 0.0.1.qualifier
+Bundle-Version: 1.0.0.qualifier
 Bundle-ActivationPolicy: lazy
 Export-Package: e4sm.de.metamodel.xtext.ide.contentassist.antlr,
  e4sm.de.metamodel.xtext.ide.contentassist.antlr.internal
