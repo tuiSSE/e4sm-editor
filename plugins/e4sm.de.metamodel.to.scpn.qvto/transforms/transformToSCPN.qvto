@@ -487,6 +487,12 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 		var timedTran : TimedTransitionType := null;
 		
 		var immTranExecuted : ImmediateTransitionType := new ImmediateTransitionType(self.name + "_post_execution");
+		if(logComponents and self.isSensor()){
+			immTranExecuted.logfileName := self.name + "_postExecution.csv";
+			// TODO: generalize
+			immTranExecuted.logfileDescription := "current_time,size,pixelSize";
+			immTranExecuted.logfileExpression := "NOW,TAB,x.s,TAB,x.ps";
+		};
 		var placeExecuted : PlaceType := new PlaceType(self.name + "_executed");
 		var arcExecuted : ArcType := new ArcType(self.name + "_executed_to_post");
 		arcExecuted.fromNode := placeExecuted.id;
@@ -523,11 +529,23 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 				singleComponentReadyTransition.watch := true;
 				iTr->add(singleComponentReadyTransition);
 				
+				
+				// Create the _created place
+				var createdPlace : PlaceType := new PlaceType(self.name + "_created");
+				pl += createdPlace;
+										
+				// Create the arc between the timed Transition and the _created place
+				var arcFromTTtoCreated : ArcType := new ArcType (self.name + "_exec");
+				arcFromTTtoCreated.fromNode := singleComponentReadyTransition.id;
+				arcFromTTtoCreated.toNode := createdPlace.id;
+				arcFromTTtoCreated.inscription.text := "new({})";
+				assertArcIsConnected(arcFromTTtoCreated);
+				arcs += arcFromTTtoCreated;
+				
 				// For each output pin
 				self.pins[OutputPin]->forEach(op){
 					// if a token specification is present...
 					if(op.tokenSpecification->notEmpty()){
-						
 						
 						var set : e4sm::Set := op.tokenSpecification.inputSize[e4sm::Set]->first();
 						var index := 0;
@@ -536,16 +554,6 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 							
 							// For each set value
 							setValues->forEach(val) {
-								// Create the _created place
-								var createdPlace : PlaceType := new PlaceType(self.name + "_" + op.name + "_created" + index.toString());
-								pl += createdPlace;
-								
-								// Create the arc between the timed Transition and the _created place
-								var arcFromTTtoCreated : ArcType := new ArcType (self.name + "_exec" + index.toString());
-								arcFromTTtoCreated.fromNode := singleComponentReadyTransition.id;
-								arcFromTTtoCreated.toNode := createdPlace.id;
-								arcFromTTtoCreated.inscription.text := "new({})";
-								arcs += arcFromTTtoCreated;
 								
 								// Create the immediate transition for the probability
 								index := index + 1;
@@ -557,6 +565,7 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 								var arcCreatedImm : ArcType := new ArcType (self.name + "_" + op.name + "_" + index.toString()+"_created");
 								arcCreatedImm.fromNode := createdPlace.id;
 								arcCreatedImm.toNode := initImmTr.id;
+								assertArcIsConnected(arcCreatedImm);
 								arcs += arcCreatedImm;
 								
 								// Create the arc for setting the values
@@ -564,6 +573,7 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 								arcTokenResult.fromNode := initImmTr.id;
 								arcTokenResult.toNode := placeExecuted.id;
 								arcTokenResult.inscription.text := "x(ps=" +val.value.toString()+ ";s=" + val.size.toString() +")";
+								assertArcIsConnected(arcTokenResult);
 								arcs += arcTokenResult;
 								
 							};
@@ -575,7 +585,8 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 						var arcFromTTtoExecuted : ArcType := new ArcType (self.name + "_exec");
 						arcFromTTtoExecuted.fromNode := singleComponentReadyTransition.id;
 						arcFromTTtoExecuted.toNode := placeExecuted.id;
-						arcFromTTtoExecuted.inscription.text := "new({})"; // TODO: improve specification 
+						arcFromTTtoExecuted.inscription.text := "new({})"; // TODO: improve specification
+						assertArcIsConnected(arcFromTTtoExecuted);
 						arcs += arcFromTTtoExecuted;
 					};
 				};
@@ -850,7 +861,7 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 					
 					// TODO: maybe the following line only applies to sensors
 					if(not op.outputExpression.oclIsUndefined()){
-						arcFromTransition.inscription.text := "x(ps=" + op.outputExpression.toString() + ")";
+						arcFromTransition.inscription.text := "x(s=" + op.outputExpression.toString() + ")";
 					} else {
 						arcFromTransition.inscription.text := "x"; //TODO: improve specification
 					};
