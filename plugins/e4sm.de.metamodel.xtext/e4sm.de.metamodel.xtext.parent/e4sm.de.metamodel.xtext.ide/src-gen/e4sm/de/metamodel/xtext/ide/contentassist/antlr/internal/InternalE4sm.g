@@ -44343,6 +44343,7 @@ rule__OutputPin__Group__5
 	}
 :
 	rule__OutputPin__Group__5__Impl
+	rule__OutputPin__Group__6
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -44357,6 +44358,32 @@ rule__OutputPin__Group__5__Impl
 	{ before(grammarAccess.getOutputPinAccess().getGroup_5()); }
 	(rule__OutputPin__Group_5__0)?
 	{ after(grammarAccess.getOutputPinAccess().getGroup_5()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__OutputPin__Group__6
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__OutputPin__Group__6__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__OutputPin__Group__6__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getOutputPinAccess().getGroup_6()); }
+	(rule__OutputPin__Group_6__0)?
+	{ after(grammarAccess.getOutputPinAccess().getGroup_6()); }
 )
 ;
 finally {
@@ -45059,6 +45086,60 @@ rule__OutputPin__Group_5_6_3__1__Impl
 	{ before(grammarAccess.getOutputPinAccess().getParametersAssignment_5_6_3_1()); }
 	(rule__OutputPin__ParametersAssignment_5_6_3_1)
 	{ after(grammarAccess.getOutputPinAccess().getParametersAssignment_5_6_3_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__OutputPin__Group_6__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__OutputPin__Group_6__0__Impl
+	rule__OutputPin__Group_6__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__OutputPin__Group_6__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getOutputPinAccess().getEqualsSignKeyword_6_0()); }
+	'='
+	{ after(grammarAccess.getOutputPinAccess().getEqualsSignKeyword_6_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__OutputPin__Group_6__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__OutputPin__Group_6__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__OutputPin__Group_6__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getOutputPinAccess().getOutputExpressionAssignment_6_1()); }
+	(rule__OutputPin__OutputExpressionAssignment_6_1)
+	{ after(grammarAccess.getOutputPinAccess().getOutputExpressionAssignment_6_1()); }
 )
 ;
 finally {
@@ -58535,6 +58616,21 @@ rule__OutputPin__ParametersAssignment_5_6_3_1
 		{ before(grammarAccess.getOutputPinAccess().getParametersParameterParserRuleCall_5_6_3_1_0()); }
 		ruleParameter
 		{ after(grammarAccess.getOutputPinAccess().getParametersParameterParserRuleCall_5_6_3_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__OutputPin__OutputExpressionAssignment_6_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getOutputPinAccess().getOutputExpressionExpressionParserRuleCall_6_1_0()); }
+		ruleExpression
+		{ after(grammarAccess.getOutputPinAccess().getOutputExpressionExpressionParserRuleCall_6_1_0()); }
 	)
 ;
 finally {

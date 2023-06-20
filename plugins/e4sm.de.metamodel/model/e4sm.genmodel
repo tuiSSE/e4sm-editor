@@ -134,6 +134,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//OutputPin/amplify"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//OutputPin/outputUncertainty"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//OutputPin/tokenSpecification"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//OutputPin/outputExpression"/>
       <genOperations ecoreOperation="e4sm.ecore#//OutputPin/computeName" body="&#x9;&#x9;if(this.getName() != null &amp;&amp; !this.getName().isBlank()) {&#xD;&#xA;&#x9;&#x9;&#x9;return this.getName();&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;var container = ((Component)this.eContainer());&#xD;&#xA;&#x9;&#x9;return  container.getName()+&quot;_out_&quot;+container.getPins().indexOf(this);"/>
     </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//Person">

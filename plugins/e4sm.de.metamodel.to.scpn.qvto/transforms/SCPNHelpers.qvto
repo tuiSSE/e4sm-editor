@@ -69,4 +69,9 @@ transformation SCPNHelpers() {
 		//Not needed, but it removes the warning
 		return scpn::QueueType::Random;
 	}
+	
+	helper assertArcIsConnected(a : ArcType) {
+		assert fatal (not a.fromNode.oclIsUndefined()) with log('Arc ' + a.id + ' does not have fromNode');
+		assert fatal (not a.toNode.oclIsUndefined()) with log('Arc ' + a.id + ' does not have toNode');
+	}
 }

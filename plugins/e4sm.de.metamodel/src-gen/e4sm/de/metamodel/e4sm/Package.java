@@ -193,6 +193,9 @@ public interface Package extends NamedElement, ParameterizableElement, Documenta
 	 * Returns the value of the '<em><b>Simulation Duration</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * How long this package should be simulated, in simulation units (e.g. Milliseconds)
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Simulation Duration</em>' attribute.
 	 * @see #setSimulationDuration(int)
 	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getPackage_SimulationDuration()

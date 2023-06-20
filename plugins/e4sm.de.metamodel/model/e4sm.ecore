@@ -320,6 +320,8 @@
         defaultValueLiteral="0.0"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="tokenSpecification" eType="#//TokenSpecification"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputExpression" eType="ecore:EClass execution.ecore#//Expression"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Person" eSuperTypes="#//Human">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

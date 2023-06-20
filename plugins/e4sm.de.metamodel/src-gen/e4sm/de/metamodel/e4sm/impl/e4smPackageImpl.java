@@ -1325,6 +1325,16 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getOutputPin_OutputExpression() {
+		return (EReference) outputPinEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getOutputPin__ComputeName() {
 		return outputPinEClass.getEOperations().get(0);
 	}
@@ -2373,6 +2383,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		createEAttribute(outputPinEClass, OUTPUT_PIN__AMPLIFY);
 		createEAttribute(outputPinEClass, OUTPUT_PIN__OUTPUT_UNCERTAINTY);
 		createEReference(outputPinEClass, OUTPUT_PIN__TOKEN_SPECIFICATION);
+		createEReference(outputPinEClass, OUTPUT_PIN__OUTPUT_EXPRESSION);
 		createEOperation(outputPinEClass, OUTPUT_PIN___COMPUTE_NAME);
 
 		personEClass = createEClass(PERSON);
@@ -2814,6 +2825,9 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 				OutputPin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
 		initEReference(getOutputPin_TokenSpecification(), this.getTokenSpecification(), null, "tokenSpecification",
+				null, 0, 1, OutputPin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOutputPin_OutputExpression(), theExecutionPackage.getExpression(), null, "outputExpression",
 				null, 0, 1, OutputPin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

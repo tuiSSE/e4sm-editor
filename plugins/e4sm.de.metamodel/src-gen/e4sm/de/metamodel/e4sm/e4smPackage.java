@@ -2713,13 +2713,22 @@ public interface e4smPackage extends EPackage {
 	int OUTPUT_PIN__TOKEN_SPECIFICATION = PIN_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Output Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_PIN__OUTPUT_EXPRESSION = PIN_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Output Pin</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OUTPUT_PIN_FEATURE_COUNT = PIN_FEATURE_COUNT + 3;
+	int OUTPUT_PIN_FEATURE_COUNT = PIN_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Get Outgoing Connectors</em>' operation.
@@ -5582,6 +5591,17 @@ public interface e4smPackage extends EPackage {
 	EReference getOutputPin_TokenSpecification();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link e4sm.de.metamodel.e4sm.OutputPin#getOutputExpression <em>Output Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Output Expression</em>'.
+	 * @see e4sm.de.metamodel.e4sm.OutputPin#getOutputExpression()
+	 * @see #getOutputPin()
+	 * @generated
+	 */
+	EReference getOutputPin_OutputExpression();
+
+	/**
 	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.OutputPin#computeName() <em>Compute Name</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7208,6 +7228,14 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EReference OUTPUT_PIN__TOKEN_SPECIFICATION = eINSTANCE.getOutputPin_TokenSpecification();
+
+		/**
+		 * The meta object literal for the '<em><b>Output Expression</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OUTPUT_PIN__OUTPUT_EXPRESSION = eINSTANCE.getOutputPin_OutputExpression();
 
 		/**
 		 * The meta object literal for the '<em><b>Compute Name</b></em>' operation.

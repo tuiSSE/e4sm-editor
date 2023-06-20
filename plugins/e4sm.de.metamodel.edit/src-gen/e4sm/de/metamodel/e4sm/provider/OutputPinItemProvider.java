@@ -16,8 +16,10 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import e4sm.de.metamodel.e4sm.Pin;
+import e4sm.de.metamodel.e4sm.core.CoreFactory;
 import e4sm.de.metamodel.e4sm.e4smFactory;
 import e4sm.de.metamodel.e4sm.e4smPackage;
+import e4sm.de.metamodel.e4sm.execution.ExecutionFactory;
 
 /**
  * This is the item provider adapter for a {@link e4sm.de.metamodel.e4sm.OutputPin} object.
@@ -98,6 +100,7 @@ public class OutputPinItemProvider extends PinItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(e4smPackage.Literals.OUTPUT_PIN__TOKEN_SPECIFICATION);
+			childrenFeatures.add(e4smPackage.Literals.OUTPUT_PIN__OUTPUT_EXPRESSION);
 		}
 		return childrenFeatures;
 	}
@@ -165,6 +168,7 @@ public class OutputPinItemProvider extends PinItemProvider {
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		case e4smPackage.OUTPUT_PIN__TOKEN_SPECIFICATION:
+		case e4smPackage.OUTPUT_PIN__OUTPUT_EXPRESSION:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -184,6 +188,60 @@ public class OutputPinItemProvider extends PinItemProvider {
 
 		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.OUTPUT_PIN__TOKEN_SPECIFICATION,
 				e4smFactory.eINSTANCE.createTokenSpecification()));
+
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.OUTPUT_PIN__OUTPUT_EXPRESSION,
+				CoreFactory.eINSTANCE.createLiteralNull()));
+
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.OUTPUT_PIN__OUTPUT_EXPRESSION,
+				CoreFactory.eINSTANCE.createLiteralString()));
+
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.OUTPUT_PIN__OUTPUT_EXPRESSION,
+				CoreFactory.eINSTANCE.createLiteralInteger()));
+
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.OUTPUT_PIN__OUTPUT_EXPRESSION,
+				CoreFactory.eINSTANCE.createLiteralBoolean()));
+
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.OUTPUT_PIN__OUTPUT_EXPRESSION,
+				CoreFactory.eINSTANCE.createLiteralFloat()));
+
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.OUTPUT_PIN__OUTPUT_EXPRESSION,
+				CoreFactory.eINSTANCE.createLiteralDouble()));
+
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.OUTPUT_PIN__OUTPUT_EXPRESSION,
+				CoreFactory.eINSTANCE.createLiteralLong()));
+
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.OUTPUT_PIN__OUTPUT_EXPRESSION,
+				CoreFactory.eINSTANCE.createLiteralShort()));
+
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.OUTPUT_PIN__OUTPUT_EXPRESSION,
+				CoreFactory.eINSTANCE.createLiteralByte()));
+
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.OUTPUT_PIN__OUTPUT_EXPRESSION,
+				CoreFactory.eINSTANCE.createLiteralCharacter()));
+
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.OUTPUT_PIN__OUTPUT_EXPRESSION,
+				CoreFactory.eINSTANCE.createLiteralDate()));
+
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.OUTPUT_PIN__OUTPUT_EXPRESSION,
+				ExecutionFactory.eINSTANCE.createAddition()));
+
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.OUTPUT_PIN__OUTPUT_EXPRESSION,
+				ExecutionFactory.eINSTANCE.createMultiplication()));
+
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.OUTPUT_PIN__OUTPUT_EXPRESSION,
+				ExecutionFactory.eINSTANCE.createVariableRef()));
+
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.OUTPUT_PIN__OUTPUT_EXPRESSION,
+				ExecutionFactory.eINSTANCE.createInputPinReference()));
+
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.OUTPUT_PIN__OUTPUT_EXPRESSION,
+				ExecutionFactory.eINSTANCE.createInputPinAttributeReference()));
+
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.OUTPUT_PIN__OUTPUT_EXPRESSION,
+				ExecutionFactory.eINSTANCE.createParameterReference()));
+
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.OUTPUT_PIN__OUTPUT_EXPRESSION,
+				ExecutionFactory.eINSTANCE.createExponentiation()));
 	}
 
 }

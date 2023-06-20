@@ -22,17 +22,15 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link e4sm.de.metamodel.e4sm.execution.impl.ParameterReferenceImpl#getParameter
- * <em>Parameter</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.execution.impl.ParameterReferenceImpl#getParameter <em>Parameter</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ParameterReferenceImpl extends ExpressionImpl implements ParameterReference {
 	/**
-	 * The cached value of the '{@link #getParameter() <em>Parameter</em>}'
-	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getParameter() <em>Parameter</em>}' reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getParameter()
 	 * @generated
 	 * @ordered
@@ -41,7 +39,6 @@ public class ParameterReferenceImpl extends ExpressionImpl implements ParameterR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected ParameterReferenceImpl() {
@@ -50,7 +47,6 @@ public class ParameterReferenceImpl extends ExpressionImpl implements ParameterR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -60,7 +56,6 @@ public class ParameterReferenceImpl extends ExpressionImpl implements ParameterR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -79,7 +74,6 @@ public class ParameterReferenceImpl extends ExpressionImpl implements ParameterR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Parameter basicGetParameter() {
@@ -88,7 +82,6 @@ public class ParameterReferenceImpl extends ExpressionImpl implements ParameterR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -117,7 +110,6 @@ public class ParameterReferenceImpl extends ExpressionImpl implements ParameterR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -133,7 +125,6 @@ public class ParameterReferenceImpl extends ExpressionImpl implements ParameterR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -148,7 +139,6 @@ public class ParameterReferenceImpl extends ExpressionImpl implements ParameterR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -163,7 +153,6 @@ public class ParameterReferenceImpl extends ExpressionImpl implements ParameterR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -177,7 +166,6 @@ public class ParameterReferenceImpl extends ExpressionImpl implements ParameterR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

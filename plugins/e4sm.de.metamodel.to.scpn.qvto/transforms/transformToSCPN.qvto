@@ -365,6 +365,8 @@ mapping Connector::connectorToSCPN(): arcs:List(ArcType), tt:TimedTransitionType
 	arc2.fromNode := tt.id;
 	arc2.toNode := targetPlace.id;
 	
+	assertArcIsConnected(arc1);
+	assertArcIsConnected(arc2);
 	arcs->add(arc1);
 	arcs->add(arc2);
 
@@ -521,11 +523,62 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 				singleComponentReadyTransition.watch := true;
 				iTr->add(singleComponentReadyTransition);
 				
-				var arcFromTTtoExecuted : ArcType := new ArcType (self.name + "_exec");
-				arcFromTTtoExecuted.fromNode := singleComponentReadyTransition.id;
-				arcFromTTtoExecuted.toNode := placeExecuted.id;
-				arcFromTTtoExecuted.inscription.text := "new({})"; // TODO: improve specification 
-				arcs += arcFromTTtoExecuted;
+				// For each output pin
+				self.pins[OutputPin]->forEach(op){
+					// if a token specification is present...
+					if(op.tokenSpecification->notEmpty()){
+						
+						
+						var set : e4sm::Set := op.tokenSpecification.inputSize[e4sm::Set]->first();
+						var index := 0;
+						if(not set.oclIsUndefined()){
+							var setValues : OrderedSet(e4sm::SetValue) := set.values;
+							
+							// For each set value
+							setValues->forEach(val) {
+								// Create the _created place
+								var createdPlace : PlaceType := new PlaceType(self.name + "_" + op.name + "_created" + index.toString());
+								pl += createdPlace;
+								
+								// Create the arc between the timed Transition and the _created place
+								var arcFromTTtoCreated : ArcType := new ArcType (self.name + "_exec" + index.toString());
+								arcFromTTtoCreated.fromNode := singleComponentReadyTransition.id;
+								arcFromTTtoCreated.toNode := createdPlace.id;
+								arcFromTTtoCreated.inscription.text := "new({})";
+								arcs += arcFromTTtoCreated;
+								
+								// Create the immediate transition for the probability
+								index := index + 1;
+								var initImmTr : ImmediateTransitionType := new ImmediateTransitionType(self.name + "_" + op.name + "_" + index.toString());
+								initImmTr.weight := val.probability.toString();
+								iTr += initImmTr;
+								
+								// create the arc from _created to the immediate transition
+								var arcCreatedImm : ArcType := new ArcType (self.name + "_" + op.name + "_" + index.toString()+"_created");
+								arcCreatedImm.fromNode := createdPlace.id;
+								arcCreatedImm.toNode := initImmTr.id;
+								arcs += arcCreatedImm;
+								
+								// Create the arc for setting the values
+								var arcTokenResult : ArcType := new ArcType (self.name + "_" + op.name + "_" + index.toString());
+								arcTokenResult.fromNode := initImmTr.id;
+								arcTokenResult.toNode := placeExecuted.id;
+								arcTokenResult.inscription.text := "x(ps=" +val.value.toString()+ ";s=" + val.size.toString() +")";
+								arcs += arcTokenResult;
+								
+							};
+						
+						}else{
+							assert fatal (false) with log("Other token specifications are currently not supported");
+						}
+					}else{
+						var arcFromTTtoExecuted : ArcType := new ArcType (self.name + "_exec");
+						arcFromTTtoExecuted.fromNode := singleComponentReadyTransition.id;
+						arcFromTTtoExecuted.toNode := placeExecuted.id;
+						arcFromTTtoExecuted.inscription.text := "new({})"; // TODO: improve specification 
+						arcs += arcFromTTtoExecuted;
+					};
+				};
 			}else if(self.firingStrategy = ComponentFiringStrategy::AND){
 					componentMainPlace := new PlaceType(self.name + "_main");
 					pl->add(componentMainPlace);
@@ -551,6 +604,7 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 					/*if(self.oclIsTypeOf(e4sm::Sensor) or self.hasNoInputs() or inputPins->size() > 1 or inputPins->select(ip | ip.collect>1)->size()>0) {
 						readyToMain.inscription.text := "new({})";
 					};*/
+					assertArcIsConnected(readyToMain);
 					arcs->add(readyToMain);
 				}
 				else if (self.firingStrategy = ComponentFiringStrategy::OR) {
@@ -566,15 +620,16 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 						multipleComponentReadyTransitions->including(componentReadyTransition);
 						
 						// Create the Arc
-						var readyToMain := new ArcType(self.name+"_ready" + i.toString() + "_to_main");
-						readyToMain.fromNode := componentReadyTransition.id;
-						readyToMain.toNode := componentMainPlace.id;
+						var readyToMainArc := new ArcType(self.name+"_ready" + i.toString() + "_to_main");
+						readyToMainArc.fromNode := componentReadyTransition.id;
+						readyToMainArc.toNode := componentMainPlace.id;
 						
 						// If this pin has a collect value set (>1)
 						if(ip.collect > 1) {
-							readyToMain.inscription.text := "new({})";
+							readyToMainArc.inscription.text := "new({})";
 						};
-						arcs->add(readyToMain);
+						assertArcIsConnected(readyToMainArc);
+						arcs->add(readyToMainArc);
 						
 						i := i + 1;
 					}
@@ -599,6 +654,7 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 				var mainToTimed := new ArcType(self.name + "_main_to_timed");
 				mainToTimed.fromNode := componentMainPlace.id;
 				mainToTimed.toNode := timedTran.id;
+				assertArcIsConnected(mainToTimed);
 				arcs->add(mainToTimed);
 				
 				// Arc between the execution tt and the executed Place
@@ -642,17 +698,19 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 			pl->add(sem);
 			
 			// Create the Arcs
-			var semBack := new ArcType(self.name+"_semBack");
-			semBack.inscription.text := "new(0)";
-			semBack.fromNode := immTranExecuted.id;
-			semBack.toNode := sem.id;
-			arcs->add(semBack);
+			var semBackArc := new ArcType(self.name+"_semBack");
+			semBackArc.inscription.text := "new(0)";
+			semBackArc.fromNode := immTranExecuted.id;
+			semBackArc.toNode := sem.id;
+			assertArcIsConnected(semBackArc);
+			arcs->add(semBackArc);
 			
-			var semReady := new ArcType(self.name+"_semReady");
-			semReady.inscription.text := "limit";
-			semReady.fromNode := sem.id;
-			semReady.toNode := singleComponentReadyTransition.id;
-			arcs->add(semReady);
+			var semReadyArc := new ArcType(self.name+"_semReady");
+			semReadyArc.inscription.text := "limit";
+			semReadyArc.fromNode := sem.id;
+			semReadyArc.toNode := singleComponentReadyTransition.id;
+			assertArcIsConnected(semReadyArc);
+			arcs->add(semReadyArc);
 			
 			var semMeasure := new MeasureType(self.name + "_in_use");
 			semMeasure.expression := servers.toString() + " - #" + safeString(self.name) + "_sem";
@@ -730,7 +788,7 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
  						// tokens are transferred when the global guard is satisfied
 						// singleComponentReadyTransition.globalGuard := "#"+inputPinPlace.label.text + ">=" + ip.collect.toString();
 					}endif;
-					
+					assertArcIsConnected(arcToTransition);
 					arcs->add(arcToTransition);
 				}; //else this component is redefined and not generated completely
 			} else if (ip.requiresMerge()) {
@@ -743,6 +801,7 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 			    	var arcToTransition = new ArcType(transformationResult.pl->first().id + "_to_" + self.name);
 					arcToTransition.fromNode := transformationResult.pl->first().id;
 					arcToTransition.toNode := singleComponentReadyTransition.id;
+					assertArcIsConnected(arcToTransition);
 					arcs->add(arcToTransition);			    
 			    }endif;
 
@@ -790,13 +849,17 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 					arcFromTransition.toNode := outputPinPlace.id;
 					
 					// TODO: maybe the following line only applies to sensors
-					arcFromTransition.inscription.text := "new({})"; //TODO: improve specification
+					if(not op.outputExpression.oclIsUndefined()){
+						arcFromTransition.inscription.text := "x(ps=" + op.outputExpression.toString() + ")";
+					} else {
+						arcFromTransition.inscription.text := "x"; //TODO: improve specification
+					};
 					
 					// Add multiplicity, if needed
 					if(op.amplify > 1) {
 						arcFromTransition.inscription.text := op.amplify.toString()  + "'" + arcFromTransition.inscription.text;
 					}endif;
-					
+					assertArcIsConnected(arcFromTransition);
 					arcs->add(arcFromTransition);
 				}; // else this component is redefined and not generated completely
 			} else if (op.requiresMerge()) {
@@ -820,7 +883,7 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 						arcFromTransition.fromNode := immTranExecuted.id;							
 					}*/
 					arcFromTransition.toNode := outputPin.pl->first().id;
-					arcFromTransition.inscription.text :=  "new({})"; //TODO: improve specification
+					arcFromTransition.inscription.text :=  "copy x"; //TODO: improve specification
 					
 					// Add multiplicity, if needed
 					if(op.oclIsTypeOf(OutputPin) and op.amplify > 1) {
@@ -1034,6 +1097,12 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 		var timedTran : TimedTransitionType := null;
 		
 		var immTranExecuted : ImmediateTransitionType := new ImmediateTransitionType(self.name + "_post_execution");
+			if(logComponents){
+				immTranExecuted.logfileName := self.name + "_post_execution.csv";
+				// TODO: generalize
+				immTranExecuted.logfileDescription := "current_time,size,pixelSize";
+				immTranExecuted.logfileExpression := "NOW,TAB,x.s,TAB,x.ps";
+			};
 		var placeExecuted : PlaceType := new PlaceType(self.name + "_executed");
 		var arcExecuted : ArcType := new ArcType(self.name + "_executed_to_post");
 		arcExecuted.fromNode := placeExecuted.id;
@@ -1337,7 +1406,7 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 						arcFromTransition.fromNode := immTranExecuted.id;							
 					}*/
 					arcFromTransition.toNode := outputPin.pl->first().id;
-					arcFromTransition.inscription.text :=  "new({})"; //TODO: improve specification
+					arcFromTransition.inscription.text :=  "copy x"; //TODO: improve specification
 					
 					// Add multiplicity, if needed
 					if(op.oclIsTypeOf(OutputPin) and op.amplify > 1) {

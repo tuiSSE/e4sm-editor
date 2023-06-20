@@ -488,6 +488,7 @@ public class E4smParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getOutputPinAccess().getGroup_5_5(), "rule__OutputPin__Group_5_5__0");
 			builder.put(grammarAccess.getOutputPinAccess().getGroup_5_6(), "rule__OutputPin__Group_5_6__0");
 			builder.put(grammarAccess.getOutputPinAccess().getGroup_5_6_3(), "rule__OutputPin__Group_5_6_3__0");
+			builder.put(grammarAccess.getOutputPinAccess().getGroup_6(), "rule__OutputPin__Group_6__0");
 			builder.put(grammarAccess.getTokenSpecificationAccess().getGroup(), "rule__TokenSpecification__Group__0");
 			builder.put(grammarAccess.getSetAccess().getGroup(), "rule__Set__Group__0");
 			builder.put(grammarAccess.getSetValueAccess().getGroup(), "rule__SetValue__Group__0");
@@ -1001,6 +1002,7 @@ public class E4smParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getOutputPinAccess().getTokenSpecificationAssignment_5_5_1(), "rule__OutputPin__TokenSpecificationAssignment_5_5_1");
 			builder.put(grammarAccess.getOutputPinAccess().getParametersAssignment_5_6_2(), "rule__OutputPin__ParametersAssignment_5_6_2");
 			builder.put(grammarAccess.getOutputPinAccess().getParametersAssignment_5_6_3_1(), "rule__OutputPin__ParametersAssignment_5_6_3_1");
+			builder.put(grammarAccess.getOutputPinAccess().getOutputExpressionAssignment_6_1(), "rule__OutputPin__OutputExpressionAssignment_6_1");
 			builder.put(grammarAccess.getTokenSpecificationAccess().getInputSizeAssignment_1(), "rule__TokenSpecification__InputSizeAssignment_1");
 			builder.put(grammarAccess.getSetAccess().getValuesAssignment_3(), "rule__Set__ValuesAssignment_3");
 			builder.put(grammarAccess.getSetAccess().getValuesAssignment_4(), "rule__Set__ValuesAssignment_4");

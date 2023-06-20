@@ -102,6 +102,7 @@ function executionFunctionToString(ef) {
  * 
  * @param {string} outputFunction 
  * @returns {string}
+ * @deprecated
  */
 function generateOutputFunction(outputFunction){
     return `\nruns {
@@ -123,9 +124,8 @@ function generateComponents(components) {
             result += `softwareComponent "${c.name}${ID_SEPARATOR}${c.id}" {
             takes ${executionFunctionToString(c.executionFunction)}
             ${generateInputPins(c.inputPins)},
-            ${generateOutputPins(c.outputPins)}
+            ${generateOutputPins(c.outputPins, c.outputSize)}
             ${generateParameters(c.parameters)}
-            ${generateOutputFunction(c.outputSize)}
         }`;
         } else {
             result += `actuator "${c.name}${ID_SEPARATOR}${c.id}" {
@@ -194,9 +194,10 @@ function generateInputPins(iPins) {
 /**
  * 
  * @param {OutputPin[]} oPins 
+ * @param {string=} oSize
  * @returns {string}
  */
-function generateOutputPins(oPins) {
+function generateOutputPins(oPins, oSize=null) {
     let result = "// Output Pins\n";
     for (let i = 0; i < oPins.length; i++) {
         const p = oPins[i];
@@ -211,6 +212,9 @@ function generateOutputPins(oPins) {
                 result += `value: "${element.value}" prob: ${element.probability.toFixed(3)}  size:${element.outputSize.toFixed(3)};`;
             }
             result += '}\n}\n';
+        }
+        if(oSize){
+            result += ` = ${oSize}`
         }
         if ((i + 1) < oPins.length)
             result += ",\n";

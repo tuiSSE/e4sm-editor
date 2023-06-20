@@ -1,21 +1,21 @@
-// Generated from 'StreamVizzard ILM', : '15/6/2023, 13:18:24'
+// Generated from 'StreamVizzard ILM', : '20/6/2023, 11:38:58'
     model "StreamVizzard ILM_model"{
         package "StreamVizzard ILM" {
-            simulationDuration :1800000
+            simulationDuration :300000
             // Sensors
 sensor "UDS__37" {
             takes Det((400) * 1000)
             // Output Pins
 out "OUT_0" {
-generates set {value: "10" prob: 1.000  size:0.000;}
+generates set {value: "0" prob: 1.000  size:0.000;}
 }
 
             
             }, sensor "UDS__41" {
-            takes Det((400) * 1000)
+            takes Det((200) * 1000)
             // Output Pins
 out "OUT_0" {
-generates set {value: "786432" prob: 0.800  size:0.000;value: "8294400" prob: 0.200  size:0.000;}
+generates set {value: "700000" prob: 0.500  size:0.000;value: "4000000" prob: 0.500  size:0.000;}
 }
 
             
@@ -26,37 +26,25 @@ softwareComponent "LstmPrediction__4" {
             // Input Pins
 in "IN_0",
             // Output Pins
-out "OUT_0"
+out "OUT_0" = 2615.0817321301874 + 96.22648573259397 * @predictSteps
             // Parameters
-parameters {par "predictSteps" := 100 }
-            
-runs {
-        OUT_0 = 2615.0817321301874 + 96.22648573259397 * @predictSteps;
-    }
+parameters {par "predictSteps" := 50 }
         },
 softwareComponent "ExtractROI__7" {
-            takes Norm((0.006032285017117706 + -6.781201941274816e-10 * $IN_0) * 1000, (0.001193392420076137)* 1000)
+            takes Norm((0.006032285017117705 + -6.781201941274815e-10 * $IN_0) * 1000, (0.001193392420076137)* 1000)
             // Input Pins
 in "IN_0",
             // Output Pins
-out "OUT_0"
+out "OUT_0" = 482.8276400077157 + 0.9999999483629665 * $IN_0
             
-            
-runs {
-        OUT_0 = 482.82764000841416 + 0.999999948362966 * $IN_0;
-    }
         },
 softwareComponent "CnnPrediction__9" {
-            takes Norm((27.87400063464002 + 0.0 * $IN_0) * 1000, (0.16892351054531932)* 1000)
+            takes Norm((27.87400063464002 + 0.0001 * $IN_0) * 1000, (0.16892351054531932)* 1000)
             // Input Pins
 in "IN_0",
             // Output Pins
-out "OUT_0"
+out "OUT_0" = 24.0 + 0.0001 * $IN_0
             
-            
-runs {
-        OUT_0 = 24.0 + 0.0 * $IN_0;
-    }
         },
 actuator "UDF__11" {
             takes Det((1) * 1000)
@@ -66,42 +54,30 @@ in "IN_1"
             
     },
 softwareComponent "ValidateLstmPrediction__38" {
-            takes Norm((0.003857915144008882 + 0.0 * $IN_1) * 1000, (0.00031450644996873603)* 1000)
+            takes Norm((0.0017123603773583813 + 0.0 * $IN_1) * 1000, (0.00005044317465720801)* 1000)
             // Input Pins
 in "IN_1",
             // Output Pins
-out "OUT_0"
+out "OUT_0" = 392.0 + 0.0 * $IN_1
             
-            
-runs {
-        OUT_0 = 392.0 + 0.0 * $IN_1;
-    }
         },
 softwareComponent "ValidateCnnPrediction__39" {
-            takes Norm((0.022484829773460946 + 0.0 * $IN_0) * 1000, (0.002163275045068999)* 1000)
+            takes Norm((0.014221086357947995 + 0.0 * $IN_0) * 1000, (0.00038070837729095044)* 1000)
             // Input Pins
 in "IN_0",
             // Output Pins
-out "OUT_0"
+out "OUT_0" = 12656.0 + 0.0 * $IN_0
             
-            
-runs {
-        OUT_0 = 12656.0 + 0.0 * $IN_0;
-    }
         },
 softwareComponent "GaussianBlur__42" {
-            takes Norm((0.5160363741335732 + 1.0974188405286246e-06 * $IN_0 + -0.020039619652383035 * @kernelX + -0.020532862397336527 * @kernelY + -1.4780537904712787e-13 * $IN_0^2 + 2.886807545754663e-08 * $IN_0 * @kernelX + 3.630592320501034e-08 * $IN_0 * @kernelY + 0.0008146014811915362 * @kernelX^2 + 0.0003985809698852619 * @kernelX * @kernelY + 0.0004057081227297683 * @kernelY^2) * 1000, (0.5194844432883724)* 1000)
+            takes Norm((1.1017621554670445 + 7.916466944501189e-07 * $IN_0 + -0.03116845294501236 * @kernelX + 0.002035822670046898 * @kernelY + -2.0334428585400133e-14 * $IN_0^2 + 1.1613192300186578e-08 * $IN_0 * @kernelX + 1.3440398426053636e-08 * $IN_0 * @kernelY + 0.0005753162245208584 * @kernelX^2 + 0.0008825892302221771 * @kernelX * @kernelY + -0.00017317477445640152 * @kernelY^2) * 1000, (0.5836206953538171)* 1000)
             // Input Pins
 in "IN_0",
             // Output Pins
-out "OUT_0"
+out "OUT_0" = 370.5852496176958 + 3.0000000348754723 * $IN_0
             // Parameters
 parameters {par "kernelX" := 3 ,
 par "kernelY" := 3 }
-            
-runs {
-        OUT_0 = 370.8293675435707 + 2.999999938075433 * $IN_0;
-    }
         }
             // Connectors
 connector "LstmPrediction__4.OUT_0_to_ValidateLstmPrediction__38.IN_1" "LstmPrediction__4.OUT_0" -> "ValidateLstmPrediction__38.IN_1" {
