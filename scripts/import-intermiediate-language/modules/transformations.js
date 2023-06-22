@@ -234,7 +234,7 @@ function generateConnectors(connectors) {
         result += `connector "${c.source}_to_${c.target}" "${c.source}" -> "${c.target}"`;
         if (c.transferTime) {
             result += ` {
-                    takes Det(${c.transferTime})
+                    takes Det((${c.transferTime})*${scalingFactor})
             } `
         }
         if ((i + 1) < connectors.length)

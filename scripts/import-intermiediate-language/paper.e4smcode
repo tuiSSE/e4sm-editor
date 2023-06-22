@@ -81,28 +81,28 @@ par "kernelY" := 3 }
         }
             // Connectors
 connector "LstmPrediction__4.OUT_0_to_ValidateLstmPrediction__38.IN_1" "LstmPrediction__4.OUT_0" -> "ValidateLstmPrediction__38.IN_1" {
-                    takes Det(1)
+                    takes Det((1)*1000)
             } ,
 connector "ExtractROI__7.OUT_0_to_GaussianBlur__42.IN_0" "ExtractROI__7.OUT_0" -> "GaussianBlur__42.IN_0" {
-                    takes Det(1)
+                    takes Det((1)*1000)
             } ,
 connector "CnnPrediction__9.OUT_0_to_ValidateCnnPrediction__39.IN_0" "CnnPrediction__9.OUT_0" -> "ValidateCnnPrediction__39.IN_0" {
-                    takes Det(1)
+                    takes Det((1)*1000)
             } ,
 connector "UDS__37.OUT_0_to_LstmPrediction__4.IN_0" "UDS__37.OUT_0" -> "LstmPrediction__4.IN_0" {
-                    takes Det(1)
+                    takes Det((1)*1000)
             } ,
 connector "ValidateLstmPrediction__38.OUT_0_to_UDF__11.IN_0" "ValidateLstmPrediction__38.OUT_0" -> "UDF__11.IN_0" {
-                    takes Det(1)
+                    takes Det((1)*1000)
             } ,
 connector "ValidateCnnPrediction__39.OUT_0_to_UDF__11.IN_1" "ValidateCnnPrediction__39.OUT_0" -> "UDF__11.IN_1" {
-                    takes Det(1)
+                    takes Det((1)*1000)
             } ,
 connector "UDS__41.OUT_0_to_ExtractROI__7.IN_0" "UDS__41.OUT_0" -> "ExtractROI__7.IN_0" {
-                    takes Det(1)
+                    takes Det((1)*1000)
             } ,
 connector "GaussianBlur__42.OUT_0_to_CnnPrediction__9.IN_0" "GaussianBlur__42.OUT_0" -> "CnnPrediction__9.IN_0" {
-                    takes Det(1)
+                    takes Det((1)*1000)
             } 
         }
     }
