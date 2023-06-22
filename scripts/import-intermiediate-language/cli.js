@@ -1,3 +1,7 @@
+#!/usr/bin/env node
+
+"use strict";
+
 import assert from 'node:assert/strict';
 import { Validator } from 'jsonschema';
 import { readFile, writeFile } from 'fs/promises';
@@ -6,7 +10,7 @@ import commandLineUsage from 'command-line-usage'
 import generateE4SM from './modules/transformations.js';
 
 const optionDefinitions = [
-    { name: 'source', alias: 's', type: String, description: "The path of the input file, in the intermediate language format" },
+    { name: 'source', alias: 's', type: String, description: "The path of the input file, in the intermediate language model JSON format" },
     { name: 'target', alias: 't', type: String, description: "The optional path of the output e4sm file. If not provided, it will be generated to ./out.e4smcode" }
 ]
 const options = commandLineArgs(optionDefinitions)
@@ -29,7 +33,7 @@ async function run() {
         process.exit(1);
     }
     console.log("Input file is valid");
-    
+
     console.dir(input); // TODO remove
 
     let res = generateE4SM(input);
@@ -84,10 +88,10 @@ async function loadJSONFile(path) {
 }
 
 /**
- * 
- * @param {string} content 
- * @param {string} path 
- * @returns 
+ *
+ * @param {string} content
+ * @param {string} path
+ * @returns
  */
 async function writeStringToFile(content, path) {
     console.debug("Writing file to " + path);

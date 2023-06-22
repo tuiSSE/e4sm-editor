@@ -1,14 +1,21 @@
 {
-  "name": "@tuiilm/import-intermiediate-language",
-  "version": "1.0.0",
-  "description": "Translate an intermediate language file to an E4SM model",
+  "name": "@tuiilm/intermediate-language-model-to-e4sm",
+  "version": "1.0.2",
+  "description": "Translate an intermediate language model JSON file to an E4SM model",
   "main": "cli.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "files": [
-    "cli.js"
+    "cli.js",
+    "modules/transformations.js"
+  ],
+  "bin": {
+    "ILMtoE4SM": "./cli.js"
+  },
+  "keywords": [
+    "E4SM", "ILM"
   ],
   "author": "Francesco Bedini <francesco.bedini@tu-ilmenau.de> (https://sse.tu-ilmenau.de)",
   "license": "ISC",
