@@ -8,6 +8,10 @@ import { readFile, writeFile } from 'fs/promises';
 import commandLineArgs from 'command-line-args';
 import commandLineUsage from 'command-line-usage'
 import generateE4SM from './modules/transformations.js';
+import * as path from 'path';
+import * as url from 'url';
+
+const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
 const optionDefinitions = [
     { name: 'source', alias: 's', type: String, description: "The path of the input file, in the intermediate language model JSON format" },
@@ -15,7 +19,7 @@ const optionDefinitions = [
 ]
 const options = commandLineArgs(optionDefinitions)
 
-const schemaPath = "./schema.json";
+const schemaPath = path.join(__dirname, "./schema.json");
 const v = new Validator();
 
 async function run() {
