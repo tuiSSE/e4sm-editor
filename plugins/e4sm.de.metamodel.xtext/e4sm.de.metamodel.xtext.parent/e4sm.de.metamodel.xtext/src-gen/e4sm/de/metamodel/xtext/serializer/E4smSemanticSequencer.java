@@ -1731,7 +1731,8 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         outputUncertainty=EDouble? 
 	 *         raceSemantic=RaceSemantic? 
 	 *         tokenSpecification=TokenSpecification? 
-	 *         (parameters+=Parameter parameters+=Parameter*)?
+	 *         (parameters+=Parameter parameters+=Parameter*)? 
+	 *         outputExpression=Expression?
 	 *     )
 	 * </pre>
 	 */

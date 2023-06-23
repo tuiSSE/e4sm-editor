@@ -708,7 +708,7 @@ OutputPin returns OutputPin:
 	// ('outgoingConnectors' '(' outgoingConnectors+=[Connector|EString] ( "," outgoingConnectors+=[Connector|EString])* ')' )?
 	// ('incomingConnectors' '(' incomingConnectors+=[Connector|EString] ( "," incomingConnectors+=[Connector|EString])* ')' )?
 	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
-	'}')?;
+	'}')? ('=' outputExpression=Expression)?;
 
 enum QueueType returns QueueType:
 	FIFO='FIFO' | LIFO='LIFO' | RANDOM='RANDOM' | LATEST_ONLY='LATEST_ONLY' | STORE='STORE';

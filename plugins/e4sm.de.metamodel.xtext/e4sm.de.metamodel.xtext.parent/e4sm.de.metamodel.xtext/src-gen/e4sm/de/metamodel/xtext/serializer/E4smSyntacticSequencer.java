@@ -188,6 +188,7 @@ public class E4smSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     ('{' '}')?
 	 *
 	 * This ambiguous syntax occurs at:
+	 *     name=EString (ambiguity) '=' outputExpression=Expression
 	 *     name=EString (ambiguity) (rule end)
 	 
 	 * </pre>

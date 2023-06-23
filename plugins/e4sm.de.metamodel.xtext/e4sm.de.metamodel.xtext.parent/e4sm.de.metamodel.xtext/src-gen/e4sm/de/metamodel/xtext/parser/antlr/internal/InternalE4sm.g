@@ -13510,6 +13510,31 @@ ruleOutputPin returns [EObject current=null]
 				newLeafNode(otherlv_23, grammarAccess.getOutputPinAccess().getRightCurlyBracketKeyword_5_7());
 			}
 		)?
+		(
+			otherlv_24='='
+			{
+				newLeafNode(otherlv_24, grammarAccess.getOutputPinAccess().getEqualsSignKeyword_6_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getOutputPinAccess().getOutputExpressionExpressionParserRuleCall_6_1_0());
+					}
+					lv_outputExpression_25_0=ruleExpression
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getOutputPinRule());
+						}
+						set(
+							$current,
+							"outputExpression",
+							lv_outputExpression_25_0,
+							"e4sm.de.metamodel.xtext.E4sm.Expression");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
 	)
 ;
 

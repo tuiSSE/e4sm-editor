@@ -10082,6 +10082,10 @@ public class E4smGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		private final RuleCall cParametersParameterParserRuleCall_5_6_3_1_0 = (RuleCall)cParametersAssignment_5_6_3_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_5_6_4 = (Keyword)cGroup_5_6.eContents().get(4);
 		private final Keyword cRightCurlyBracketKeyword_5_7 = (Keyword)cGroup_5.eContents().get(7);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Keyword cEqualsSignKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Assignment cOutputExpressionAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
+		private final RuleCall cOutputExpressionExpressionParserRuleCall_6_1_0 = (RuleCall)cOutputExpressionAssignment_6_1.eContents().get(0);
 		
 		//OutputPin returns OutputPin:
 		//    {OutputPin}
@@ -10097,7 +10101,7 @@ public class E4smGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//    // ('outgoingConnectors' '(' outgoingConnectors+=[Connector|EString] ( "," outgoingConnectors+=[Connector|EString])* ')' )?
 		//    // ('incomingConnectors' '(' incomingConnectors+=[Connector|EString] ( "," incomingConnectors+=[Connector|EString])* ')' )?
 		//    ('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
-		//    '}')?;
+		//    '}')? ('=' outputExpression=Expression)?;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{OutputPin}
@@ -10113,7 +10117,7 @@ public class E4smGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//// ('outgoingConnectors' '(' outgoingConnectors+=[Connector|EString] ( "," outgoingConnectors+=[Connector|EString])* ')' )?
 		//// ('incomingConnectors' '(' incomingConnectors+=[Connector|EString] ( "," incomingConnectors+=[Connector|EString])* ')' )?
 		//('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
-		//'}')?
+		//'}')? ('=' outputExpression=Expression)?
 		public Group getGroup() { return cGroup; }
 		
 		//{OutputPin}
@@ -10256,6 +10260,18 @@ public class E4smGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_5_7() { return cRightCurlyBracketKeyword_5_7; }
+		
+		//('=' outputExpression=Expression)?
+		public Group getGroup_6() { return cGroup_6; }
+		
+		//'='
+		public Keyword getEqualsSignKeyword_6_0() { return cEqualsSignKeyword_6_0; }
+		
+		//outputExpression=Expression
+		public Assignment getOutputExpressionAssignment_6_1() { return cOutputExpressionAssignment_6_1; }
+		
+		//Expression
+		public RuleCall getOutputExpressionExpressionParserRuleCall_6_1_0() { return cOutputExpressionExpressionParserRuleCall_6_1_0; }
 	}
 	public class EDoubleElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "e4sm.de.metamodel.xtext.E4sm.EDouble");
@@ -14230,7 +14246,7 @@ public class E4smGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	//    // ('outgoingConnectors' '(' outgoingConnectors+=[Connector|EString] ( "," outgoingConnectors+=[Connector|EString])* ')' )?
 	//    // ('incomingConnectors' '(' incomingConnectors+=[Connector|EString] ( "," incomingConnectors+=[Connector|EString])* ')' )?
 	//    ('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
-	//    '}')?;
+	//    '}')? ('=' outputExpression=Expression)?;
 	public OutputPinElements getOutputPinAccess() {
 		return pOutputPin;
 	}
