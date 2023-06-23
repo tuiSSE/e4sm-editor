@@ -6,4 +6,4 @@ Bundle-Version: 1.0.0.qualifier
 Require-Bundle: org.eclipse.ui
 Bundle-Vendor: E4SM
 Automatic-Module-Name: e4sm.de.custom.perspective.extension
-Bundle-RequiredExecutionEnvironment: JavaSE-19
+Bundle-RequiredExecutionEnvironment: JavaSE-17

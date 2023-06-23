@@ -345,7 +345,7 @@ mapping Connector::connectorToSCPN(): arcs:List(ArcType), tt:TimedTransitionType
 	};
 	
 	// If it has a time function, apply that to the timed transition
-	if(self.timeFunction) {
+	if(not self.timeFunction.oclIsUndefined()) {
 		tt.timeFunction := timeExpressionToString(self.timeFunction);
 	};
 

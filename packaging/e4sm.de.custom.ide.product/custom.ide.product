@@ -91,7 +91,6 @@ plugins\e4sm.de.metamodel.branding_1.0.0\plugin_customization.ini
       <feature id="org.eclipse.emf.codegen.ecore.ui" installMode="root"/>
       <feature id="org.eclipse.emf.ecore.editor" installMode="root"/>
       <feature id="org.eclipse.emf.mapping.ecore.editor" installMode="root"/>
-      <feature id="org.eclipse.sirius.specifier" installMode="root"/>
       <feature id="org.eclipse.acceleo" installMode="root"/>
       <feature id="org.eclipse.pde" installMode="root"/>
       <feature id="org.eclipse.e4.core.tools.feature" installMode="root"/>
@@ -130,8 +129,6 @@ plugins\e4sm.de.metamodel.branding_1.0.0\plugin_customization.ini
    </configurations>
 
    <preferencesInfo>
-      <sourcefile path="C:\Users\erba4908\Documents\test\test.epf"/>
-      <targetfile overwrite="false" path="/e4sm.de.metamodel.design/plugin_customization.ini"/>
    </preferencesInfo>
 
    <cssInfo>

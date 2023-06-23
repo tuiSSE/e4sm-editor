@@ -1,6 +1,8 @@
 bin
 target
+javaCompiler\.\.\.args
 
 plugins/e4sm.de.metamodel.to.scpn.qvto/docs/~$Transformation Definition.pptx
 
 scripts/timenet-xml-fix/node_modules/
+org.eclipse.buildship.core.prefs
