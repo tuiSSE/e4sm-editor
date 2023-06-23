@@ -220,6 +220,10 @@
         eType="#//Environment" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="classificationClasses"
         upperBound="-1" eType="#//ClassificationClass" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="securityThreatsDefinition"
+        eType="ecore:EClass security.ecore#//KnownSecurityThreats" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="securityThreatsImport"
+        upperBound="-1" eType="#//SecurityThreatsImport" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Actor" eSuperTypes="core.ecore#//NamedElement core.ecore#//DocumentableElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -575,5 +579,9 @@
   <eClassifiers xsi:type="ecore:EEnum" name="SizeComputation">
     <eLiterals name="SUM"/>
     <eLiterals name="MULTIPLY" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SecurityThreatsImport">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="securityThreat" lowerBound="1"
+        eType="ecore:EClass security.ecore#//KnownSecurityThreats"/>
   </eClassifiers>
 </ecore:EPackage>

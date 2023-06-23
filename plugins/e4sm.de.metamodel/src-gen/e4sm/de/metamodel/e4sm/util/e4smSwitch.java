@@ -40,6 +40,7 @@ import e4sm.de.metamodel.e4sm.PhysicalConnector;
 import e4sm.de.metamodel.e4sm.Pin;
 import e4sm.de.metamodel.e4sm.Robot;
 import e4sm.de.metamodel.e4sm.Sector;
+import e4sm.de.metamodel.e4sm.SecurityThreatsImport;
 import e4sm.de.metamodel.e4sm.Sensor;
 import e4sm.de.metamodel.e4sm.Set;
 import e4sm.de.metamodel.e4sm.SetValue;
@@ -858,6 +859,13 @@ public class e4smSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case e4smPackage.SECURITY_THREATS_IMPORT: {
+			SecurityThreatsImport securityThreatsImport = (SecurityThreatsImport) theEObject;
+			T result = caseSecurityThreatsImport(securityThreatsImport);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		default:
 			return defaultCase(theEObject);
 		}
@@ -1520,6 +1528,21 @@ public class e4smSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseDynamicRange(DynamicRange object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Security Threats Import</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Security Threats Import</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSecurityThreatsImport(SecurityThreatsImport object) {
 		return null;
 	}
 

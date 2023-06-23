@@ -1062,6 +1062,29 @@ public class e4smItemProviderAdapterFactory extends e4smAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.SecurityThreatsImport} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SecurityThreatsImportItemProvider securityThreatsImportItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.SecurityThreatsImport}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSecurityThreatsImportAdapter() {
+		if (securityThreatsImportItemProvider == null) {
+			securityThreatsImportItemProvider = new SecurityThreatsImportItemProvider(this);
+		}
+
+		return securityThreatsImportItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1252,6 +1275,8 @@ public class e4smItemProviderAdapterFactory extends e4smAdapterFactory
 			setValueItemProvider.dispose();
 		if (dynamicRangeItemProvider != null)
 			dynamicRangeItemProvider.dispose();
+		if (securityThreatsImportItemProvider != null)
+			securityThreatsImportItemProvider.dispose();
 	}
 
 }

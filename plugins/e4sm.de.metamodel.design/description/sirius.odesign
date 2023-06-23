@@ -163,6 +163,7 @@
     <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='diag2_drop_sector_on_sector'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='diag2_drop_physical_component_on_sector']" name="e4sm_diagram_2" label="Data Transfer Diagram (DTD)" titleExpression="aql:'[DTD] ' + self.oclAsType(e4sm::Package).name" initialisation="true" domainClass="e4sm::Package" enablePopupBars="true">
       <metamodel href="http://de.tu-ilmenau/e4sm/1.0.0#/"/>
       <metamodel href="http://de.tu-ilmenau/e4sm/execution/1.0.0#/"/>
+      <metamodel href="http://de.tu-ilmenau/e4sm/security/1.0.0#/"/>
       <filters xsi:type="filter:CompositeFilterDescription" name="dtd_composite_filters" label="Hide Contained Components">
         <filters xsi:type="filter:MappingFilter" mappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag2_ExternalDependency'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag2_Function'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_HeuristicComponent'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_MachineLearningComponent'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_PhisicalComponent'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Sensor'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_SoftwareComponent'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Actuator']" semanticConditionExpression="aql:self.oclAsType(e4sm::Component).eContainer().oclIsTypeOf(e4sm::Sector) or self.oclAsType(e4sm::Component).eContainer().oclIsTypeOf(e4sm::Package)"/>
       </filters>
@@ -1210,6 +1211,57 @@
             </featureCustomizations>
           </vsmElementCustomizations>
         </customization>
+      </additionalLayers>
+      <additionalLayers name="security_layer" label="Security">
+        <nodeMappings name="cve_node" label="CVE" semanticCandidatesExpression="aql:self.eContainer(e4sm::Model).securityThreatsDefinition.cves" domainClass="security::CVE">
+          <style xsi:type="style:EllipseNodeDescription" borderSizeComputationExpression="aql:self.cvss * 100" labelSize="11" showIcon="false" labelExpression="feature:cveId" sizeComputationExpression="5" labelPosition="node" resizeKind="NORTH_SOUTH" horizontalDiameterComputationExpression="aql:self.cveId.size()" verticalDiameterComputationExpression="4">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="affects_arrow" label="Affects" deletionDescription="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@additionalLayers[name='security_layer']/@toolSections.0/@ownedTools[name='deleteAffects']" sourceMapping="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@additionalLayers[name='security_layer']/@nodeMappings[name='cve_node']" targetMapping="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_HeuristicComponent'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Actuator'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_ClassificationComponent'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag2_ExternalDependency'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag2_Function'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_MachineLearningComponent'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_PhisicalComponent'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_SoftwareComponent']" targetFinderExpression="aql:self.affectsComponents">
+          <style lineStyle="dash" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <toolSections name="Security Tools" label="Security Tools">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="create_cve_tool" label="Create CVE" nodeMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@additionalLayers[name='security_layer']/@nodeMappings[name='cve_node']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.eContainer(e4sm::Model).securityThreatsDefinition">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="security::CVE" referenceName="cves" variableName="newCVE">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="cveId" valueExpression="CVE-2023-12345"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="create_affect_arc" label="Link CVE to Component" edgeMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@additionalLayers[name='security_layer']/@edgeMappings[name='affects_arrow']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:source">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="affectsComponents" valueExpression="aql:self.affectsComponents->including(target)"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="deleteAffects" label="delete_affects">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="affectsComponents" valueExpression="aql:self.affectsComponents->excluding(elementView.target)"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
       </additionalLayers>
       <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
     </ownedRepresentations>

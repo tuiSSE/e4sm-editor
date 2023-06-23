@@ -2,6 +2,8 @@
  */
 package e4sm.de.metamodel.e4sm.security;
 
+import e4sm.de.metamodel.e4sm.Component;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -17,6 +19,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link e4sm.de.metamodel.e4sm.security.CVE#getCveId <em>Cve Id</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.security.CVE#getState <em>State</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.security.CVE#getDescription <em>Description</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.security.CVE#getVectorString <em>Vector String</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.security.CVE#getAffectsComponents <em>Affects Components</em>}</li>
  * </ul>
  *
  * @see e4sm.de.metamodel.e4sm.security.SecurityPackage#getCVE()
@@ -117,5 +121,39 @@ public interface CVE extends EObject {
 	 * @generated
 	 */
 	void setDescription(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Vector String</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Vector String</em>' attribute.
+	 * @see #setVectorString(String)
+	 * @see e4sm.de.metamodel.e4sm.security.SecurityPackage#getCVE_VectorString()
+	 * @model
+	 * @generated
+	 */
+	String getVectorString();
+
+	/**
+	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.security.CVE#getVectorString <em>Vector String</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Vector String</em>' attribute.
+	 * @see #getVectorString()
+	 * @generated
+	 */
+	void setVectorString(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Affects Components</b></em>' reference list.
+	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.Component}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Affects Components</em>' reference list.
+	 * @see e4sm.de.metamodel.e4sm.security.SecurityPackage#getCVE_AffectsComponents()
+	 * @model
+	 * @generated
+	 */
+	EList<Component> getAffectsComponents();
 
 } // CVE

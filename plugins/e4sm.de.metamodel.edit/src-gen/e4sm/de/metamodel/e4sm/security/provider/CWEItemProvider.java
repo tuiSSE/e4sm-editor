@@ -56,6 +56,9 @@ public class CWEItemProvider extends ItemProviderAdapter implements IEditingDoma
 			super.getPropertyDescriptors(object);
 
 			addCwssPropertyDescriptor(object);
+			addCveIdPropertyDescriptor(object);
+			addVectorStringPropertyDescriptor(object);
+			addAffectsComponentsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -73,6 +76,51 @@ public class CWEItemProvider extends ItemProviderAdapter implements IEditingDoma
 						getString("_UI_PropertyDescriptor_description", "_UI_CWE_cwss_feature", "_UI_CWE_type"),
 						SecurityPackage.Literals.CWE__CWSS, true, false, false, ItemPropertyDescriptor.REAL_VALUE_IMAGE,
 						null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Cve Id feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCveIdPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_CWE_cveId_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_CWE_cveId_feature", "_UI_CWE_type"),
+						SecurityPackage.Literals.CWE__CVE_ID, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Vector String feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addVectorStringPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_CWE_vectorString_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_CWE_vectorString_feature", "_UI_CWE_type"),
+						SecurityPackage.Literals.CWE__VECTOR_STRING, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Affects Components feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAffectsComponentsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_CWE_affectsComponents_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_CWE_affectsComponents_feature",
+								"_UI_CWE_type"),
+						SecurityPackage.Literals.CWE__AFFECTS_COMPONENTS, true, false, true, null, null, null));
 	}
 
 	/**
@@ -121,6 +169,8 @@ public class CWEItemProvider extends ItemProviderAdapter implements IEditingDoma
 
 		switch (notification.getFeatureID(CWE.class)) {
 		case SecurityPackage.CWE__CWSS:
+		case SecurityPackage.CWE__CVE_ID:
+		case SecurityPackage.CWE__VECTOR_STRING:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}

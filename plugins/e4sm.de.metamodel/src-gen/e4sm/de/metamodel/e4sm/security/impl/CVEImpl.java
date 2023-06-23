@@ -2,16 +2,20 @@
  */
 package e4sm.de.metamodel.e4sm.security.impl;
 
+import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.security.CVE;
 import e4sm.de.metamodel.e4sm.security.SecurityPackage;
 
 import e4sm.de.metamodel.e4sm.security.State;
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,6 +29,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link e4sm.de.metamodel.e4sm.security.impl.CVEImpl#getCveId <em>Cve Id</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.security.impl.CVEImpl#getState <em>State</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.security.impl.CVEImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.security.impl.CVEImpl#getVectorString <em>Vector String</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.security.impl.CVEImpl#getAffectsComponents <em>Affects Components</em>}</li>
  * </ul>
  *
  * @generated
@@ -109,6 +115,36 @@ public class CVEImpl extends MinimalEObjectImpl.Container implements CVE {
 	 * @ordered
 	 */
 	protected String description = DESCRIPTION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getVectorString() <em>Vector String</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVectorString()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String VECTOR_STRING_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getVectorString() <em>Vector String</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVectorString()
+	 * @generated
+	 * @ordered
+	 */
+	protected String vectorString = VECTOR_STRING_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getAffectsComponents() <em>Affects Components</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAffectsComponents()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Component> affectsComponents;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -228,6 +264,44 @@ public class CVEImpl extends MinimalEObjectImpl.Container implements CVE {
 	 * @generated
 	 */
 	@Override
+	public String getVectorString() {
+		return vectorString;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setVectorString(String newVectorString) {
+		String oldVectorString = vectorString;
+		vectorString = newVectorString;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SecurityPackage.CVE__VECTOR_STRING, oldVectorString,
+					vectorString));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<Component> getAffectsComponents() {
+		if (affectsComponents == null) {
+			affectsComponents = new EObjectResolvingEList<Component>(Component.class, this,
+					SecurityPackage.CVE__AFFECTS_COMPONENTS);
+		}
+		return affectsComponents;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case SecurityPackage.CVE__CVSS:
@@ -238,6 +312,10 @@ public class CVEImpl extends MinimalEObjectImpl.Container implements CVE {
 			return getState();
 		case SecurityPackage.CVE__DESCRIPTION:
 			return getDescription();
+		case SecurityPackage.CVE__VECTOR_STRING:
+			return getVectorString();
+		case SecurityPackage.CVE__AFFECTS_COMPONENTS:
+			return getAffectsComponents();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -247,6 +325,7 @@ public class CVEImpl extends MinimalEObjectImpl.Container implements CVE {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -261,6 +340,13 @@ public class CVEImpl extends MinimalEObjectImpl.Container implements CVE {
 			return;
 		case SecurityPackage.CVE__DESCRIPTION:
 			setDescription((String) newValue);
+			return;
+		case SecurityPackage.CVE__VECTOR_STRING:
+			setVectorString((String) newValue);
+			return;
+		case SecurityPackage.CVE__AFFECTS_COMPONENTS:
+			getAffectsComponents().clear();
+			getAffectsComponents().addAll((Collection<? extends Component>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -286,6 +372,12 @@ public class CVEImpl extends MinimalEObjectImpl.Container implements CVE {
 		case SecurityPackage.CVE__DESCRIPTION:
 			setDescription(DESCRIPTION_EDEFAULT);
 			return;
+		case SecurityPackage.CVE__VECTOR_STRING:
+			setVectorString(VECTOR_STRING_EDEFAULT);
+			return;
+		case SecurityPackage.CVE__AFFECTS_COMPONENTS:
+			getAffectsComponents().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -306,6 +398,10 @@ public class CVEImpl extends MinimalEObjectImpl.Container implements CVE {
 			return state != STATE_EDEFAULT;
 		case SecurityPackage.CVE__DESCRIPTION:
 			return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+		case SecurityPackage.CVE__VECTOR_STRING:
+			return VECTOR_STRING_EDEFAULT == null ? vectorString != null : !VECTOR_STRING_EDEFAULT.equals(vectorString);
+		case SecurityPackage.CVE__AFFECTS_COMPONENTS:
+			return affectsComponents != null && !affectsComponents.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -329,6 +425,8 @@ public class CVEImpl extends MinimalEObjectImpl.Container implements CVE {
 		result.append(state);
 		result.append(", description: ");
 		result.append(description);
+		result.append(", vectorString: ");
+		result.append(vectorString);
 		result.append(')');
 		return result.toString();
 	}

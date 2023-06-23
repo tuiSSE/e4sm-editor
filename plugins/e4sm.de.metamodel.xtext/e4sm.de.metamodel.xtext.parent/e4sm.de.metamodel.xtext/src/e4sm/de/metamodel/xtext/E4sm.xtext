@@ -6,6 +6,7 @@ import "http://de.tu-ilmenau/e4sm/core/1.0.0" as core
 import "http://de.tu-ilmenau/e4sm/1.0.0"
 import "http://de.tu-ilmenau/e4sm/analysis/1.0.0" as analysis
 import "http://de.tu-ilmenau/e4sm/execution/1.0.0" as execution
+import "http://de.tu-ilmenau/e4sm/security/1.0.0" as security
 
 Model returns Model:
 	'model'
@@ -13,6 +14,8 @@ Model returns Model:
 	'{'
 	('doc' PROPERTY_ASSIGN documentation=EString)?
 	(imports+=Import ("," imports+=Import)*)?
+	(securityThreatsImport+=SecurityThreatsImport ("," securityThreatsImport+=SecurityThreatsImport)*)?
+	(securityThreatsDefinition=KnownSecurityThreats)?
 	('picturesPath' PROPERTY_ASSIGN personsPicturesPath=EString)?
 	(types+=TypeSpecification ("," types+=TypeSpecification)*)?
 	(parameters+=Parameter ("," parameters+=Parameter)*)?
@@ -62,6 +65,27 @@ MulticlassConfusionMatrix returns MulticlassConfusionMatrix:
 ConfusionMatrixEntry returns ConfusionMatrixEntry:
 	{ConfusionMatrixEntry}
 	truth=[ClassificationClass|EString] predicted=[ClassificationClass|EString] PROPERTY_ASSIGN value=EInt;
+
+SecurityThreatsImport returns SecurityThreatsImport:
+	{SecurityThreatsImport}
+	'import' 'security' securityThreat=[security::KnownSecurityThreats]';'
+;
+
+KnownSecurityThreats returns security::KnownSecurityThreats:
+	{security::KnownSecurityThreats}
+	'knownSecurityThreats'
+	'{'
+		(cves+=CVE (cves+=CVE)*)?
+		// TODO CWE
+	'}'
+;
+
+CVE returns security::CVE: 
+	{security::CVE}
+	'cve' cveId=EString ('cvss' PROPERTY_ASSIGN cvss=EDouble)? (vectorString=EString)? ('affects''{'affectsComponents+=[Component|EString](','affectsComponents+=[Component|EString])*'}')?';'
+;
+
+
 
 Import returns Import:
 	{Import}

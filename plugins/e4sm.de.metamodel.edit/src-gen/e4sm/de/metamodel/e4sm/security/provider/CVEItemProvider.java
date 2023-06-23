@@ -59,6 +59,8 @@ public class CVEItemProvider extends ItemProviderAdapter implements IEditingDoma
 			addCveIdPropertyDescriptor(object);
 			addStatePropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
+			addVectorStringPropertyDescriptor(object);
+			addAffectsComponentsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -124,6 +126,36 @@ public class CVEItemProvider extends ItemProviderAdapter implements IEditingDoma
 	}
 
 	/**
+	 * This adds a property descriptor for the Vector String feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addVectorStringPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_CVE_vectorString_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_CVE_vectorString_feature", "_UI_CVE_type"),
+						SecurityPackage.Literals.CVE__VECTOR_STRING, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Affects Components feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAffectsComponentsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_CVE_affectsComponents_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_CVE_affectsComponents_feature",
+								"_UI_CVE_type"),
+						SecurityPackage.Literals.CVE__AFFECTS_COMPONENTS, true, false, true, null, null, null));
+	}
+
+	/**
 	 * This returns CVE.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -175,6 +207,7 @@ public class CVEItemProvider extends ItemProviderAdapter implements IEditingDoma
 		case SecurityPackage.CVE__CVE_ID:
 		case SecurityPackage.CVE__STATE:
 		case SecurityPackage.CVE__DESCRIPTION:
+		case SecurityPackage.CVE__VECTOR_STRING:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}

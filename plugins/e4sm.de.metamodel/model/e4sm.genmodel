@@ -100,6 +100,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//Model/imports"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//Model/environments"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//Model/classificationClasses"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//Model/securityThreatsDefinition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//Model/securityThreatsImport"/>
       <genOperations ecoreOperation="e4sm.ecore#//Model/isPersonPicturePathValid">
         <genParameters ecoreParameter="e4sm.ecore#//Model/isPersonPicturePathValid/diagnostics"/>
         <genParameters ecoreParameter="e4sm.ecore#//Model/isPersonPicturePathValid/context"/>
@@ -263,6 +265,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//DynamicRange/min"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//DynamicRange/max"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//DynamicRange/sizeFactor"/>
+    </genClasses>
+    <genClasses ecoreClass="e4sm.ecore#//SecurityThreatsImport">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//SecurityThreatsImport/securityThreat"/>
     </genClasses>
   </genPackages>
   <genPackages prefix="Results" basePackage="e4sm.de.metamodel.e4sm.analysis" disposableProviderFactory="true"
@@ -633,6 +638,9 @@
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="security.ecore#//AttackVector">
       <genEnumLiterals ecoreEnumLiteral="security.ecore#//AttackVector/NETWORK"/>
+      <genEnumLiterals ecoreEnumLiteral="security.ecore#//AttackVector/ADJACENT_NETWORK"/>
+      <genEnumLiterals ecoreEnumLiteral="security.ecore#//AttackVector/LOCAL"/>
+      <genEnumLiterals ecoreEnumLiteral="security.ecore#//AttackVector/PHYSICAL"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="security.ecore#//AttackComplexity">
       <genEnumLiterals ecoreEnumLiteral="security.ecore#//AttackComplexity/LOW"/>
@@ -657,6 +665,7 @@
       <genEnumLiterals ecoreEnumLiteral="security.ecore#//State/REJECTED"/>
     </genEnums>
     <genDataTypes ecoreDataType="security.ecore#//CVE_ID"/>
+    <genDataTypes ecoreDataType="security.ecore#//CWE_ID"/>
     <genClasses ecoreClass="security.ecore#//AssetDefinition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference security.ecore#//AssetDefinition/securityGoals"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference security.ecore#//AssetDefinition/component"/>
@@ -673,9 +682,14 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute security.ecore#//CVE/cveId"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute security.ecore#//CVE/state"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute security.ecore#//CVE/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute security.ecore#//CVE/vectorString"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference security.ecore#//CVE/affectsComponents"/>
     </genClasses>
     <genClasses ecoreClass="security.ecore#//CWE">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute security.ecore#//CWE/cwss"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute security.ecore#//CWE/cveId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute security.ecore#//CWE/vectorString"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference security.ecore#//CWE/affectsComponents"/>
     </genClasses>
     <genClasses ecoreClass="security.ecore#//ThreatCondition">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference security.ecore#//ThreatCondition/securityGoals"/>

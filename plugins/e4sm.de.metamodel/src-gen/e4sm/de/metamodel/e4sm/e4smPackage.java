@@ -1790,13 +1790,31 @@ public interface e4smPackage extends EPackage {
 	int MODEL__CLASSIFICATION_CLASSES = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 9;
 
 	/**
+	 * The feature id for the '<em><b>Security Threats Definition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL__SECURITY_THREATS_DEFINITION = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 10;
+
+	/**
+	 * The feature id for the '<em><b>Security Threats Import</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL__SECURITY_THREATS_IMPORT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 11;
+
+	/**
 	 * The number of structural features of the '<em>Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 10;
+	int MODEL_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 12;
 
 	/**
 	 * The operation id for the '<em>Is Person Picture Path Valid</em>' operation.
@@ -4749,6 +4767,43 @@ public interface e4smPackage extends EPackage {
 	int DYNAMIC_RANGE_OPERATION_COUNT = DATA_SIZE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.SecurityThreatsImportImpl <em>Security Threats Import</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.SecurityThreatsImportImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getSecurityThreatsImport()
+	 * @generated
+	 */
+	int SECURITY_THREATS_IMPORT = 48;
+
+	/**
+	 * The feature id for the '<em><b>Security Threat</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_THREATS_IMPORT__SECURITY_THREAT = 0;
+
+	/**
+	 * The number of structural features of the '<em>Security Threats Import</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_THREATS_IMPORT_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Security Threats Import</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_THREATS_IMPORT_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.QueueType <em>Queue Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4756,7 +4811,7 @@ public interface e4smPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getQueueType()
 	 * @generated
 	 */
-	int QUEUE_TYPE = 48;
+	int QUEUE_TYPE = 49;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.RaceSemantic <em>Race Semantic</em>}' enum.
@@ -4766,7 +4821,7 @@ public interface e4smPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getRaceSemantic()
 	 * @generated
 	 */
-	int RACE_SEMANTIC = 49;
+	int RACE_SEMANTIC = 50;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.ComponentFiringStrategy <em>Component Firing Strategy</em>}' enum.
@@ -4776,7 +4831,7 @@ public interface e4smPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getComponentFiringStrategy()
 	 * @generated
 	 */
-	int COMPONENT_FIRING_STRATEGY = 50;
+	int COMPONENT_FIRING_STRATEGY = 51;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.SizeComputation <em>Size Computation</em>}' enum.
@@ -4786,7 +4841,7 @@ public interface e4smPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getSizeComputation()
 	 * @generated
 	 */
-	int SIZE_COMPUTATION = 51;
+	int SIZE_COMPUTATION = 52;
 
 	/**
 	 * The meta object id for the '<em>Connectionspeed</em>' data type.
@@ -4796,7 +4851,7 @@ public interface e4smPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getConnectionspeed()
 	 * @generated
 	 */
-	int CONNECTIONSPEED = 52;
+	int CONNECTIONSPEED = 53;
 
 	/**
 	 * The meta object id for the '<em>JSON</em>' data type.
@@ -4806,7 +4861,7 @@ public interface e4smPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getJSON()
 	 * @generated
 	 */
-	int JSON = 53;
+	int JSON = 54;
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.Component <em>Component</em>}'.
@@ -5327,6 +5382,28 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getModel_ClassificationClasses();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link e4sm.de.metamodel.e4sm.Model#getSecurityThreatsDefinition <em>Security Threats Definition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Security Threats Definition</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Model#getSecurityThreatsDefinition()
+	 * @see #getModel()
+	 * @generated
+	 */
+	EReference getModel_SecurityThreatsDefinition();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link e4sm.de.metamodel.e4sm.Model#getSecurityThreatsImport <em>Security Threats Import</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Security Threats Import</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Model#getSecurityThreatsImport()
+	 * @see #getModel()
+	 * @generated
+	 */
+	EReference getModel_SecurityThreatsImport();
 
 	/**
 	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.Model#isPersonPicturePathValid(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Is Person Picture Path Valid</em>}' operation.
@@ -6348,6 +6425,27 @@ public interface e4smPackage extends EPackage {
 	EAttribute getDynamicRange_SizeFactor();
 
 	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.SecurityThreatsImport <em>Security Threats Import</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Security Threats Import</em>'.
+	 * @see e4sm.de.metamodel.e4sm.SecurityThreatsImport
+	 * @generated
+	 */
+	EClass getSecurityThreatsImport();
+
+	/**
+	 * Returns the meta object for the reference '{@link e4sm.de.metamodel.e4sm.SecurityThreatsImport#getSecurityThreat <em>Security Threat</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Security Threat</em>'.
+	 * @see e4sm.de.metamodel.e4sm.SecurityThreatsImport#getSecurityThreat()
+	 * @see #getSecurityThreatsImport()
+	 * @generated
+	 */
+	EReference getSecurityThreatsImport_SecurityThreat();
+
+	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.ConfusionMatrixEntry <em>Confusion Matrix Entry</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7009,6 +7107,22 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EReference MODEL__CLASSIFICATION_CLASSES = eINSTANCE.getModel_ClassificationClasses();
+
+		/**
+		 * The meta object literal for the '<em><b>Security Threats Definition</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODEL__SECURITY_THREATS_DEFINITION = eINSTANCE.getModel_SecurityThreatsDefinition();
+
+		/**
+		 * The meta object literal for the '<em><b>Security Threats Import</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODEL__SECURITY_THREATS_IMPORT = eINSTANCE.getModel_SecurityThreatsImport();
 
 		/**
 		 * The meta object literal for the '<em><b>Is Person Picture Path Valid</b></em>' operation.
@@ -7870,6 +7984,24 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute DYNAMIC_RANGE__SIZE_FACTOR = eINSTANCE.getDynamicRange_SizeFactor();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.SecurityThreatsImportImpl <em>Security Threats Import</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.SecurityThreatsImportImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getSecurityThreatsImport()
+		 * @generated
+		 */
+		EClass SECURITY_THREATS_IMPORT = eINSTANCE.getSecurityThreatsImport();
+
+		/**
+		 * The meta object literal for the '<em><b>Security Threat</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SECURITY_THREATS_IMPORT__SECURITY_THREAT = eINSTANCE.getSecurityThreatsImport_SecurityThreat();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.ConfusionMatrixEntryImpl <em>Confusion Matrix Entry</em>}' class.

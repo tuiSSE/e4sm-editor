@@ -44,6 +44,7 @@ import e4sm.de.metamodel.e4sm.QueueType;
 import e4sm.de.metamodel.e4sm.RaceSemantic;
 import e4sm.de.metamodel.e4sm.Robot;
 import e4sm.de.metamodel.e4sm.Sector;
+import e4sm.de.metamodel.e4sm.SecurityThreatsImport;
 import e4sm.de.metamodel.e4sm.Sensor;
 import e4sm.de.metamodel.e4sm.Set;
 import e4sm.de.metamodel.e4sm.SetValue;
@@ -243,6 +244,8 @@ public class e4smValidator extends EObjectValidator {
 			return validateSetValue((SetValue) value, diagnostics, context);
 		case e4smPackage.DYNAMIC_RANGE:
 			return validateDynamicRange((DynamicRange) value, diagnostics, context);
+		case e4smPackage.SECURITY_THREATS_IMPORT:
+			return validateSecurityThreatsImport((SecurityThreatsImport) value, diagnostics, context);
 		case e4smPackage.QUEUE_TYPE:
 			return validateQueueType((QueueType) value, diagnostics, context);
 		case e4smPackage.RACE_SEMANTIC:
@@ -1447,6 +1450,16 @@ public class e4smValidator extends EObjectValidator {
 	public boolean validateDynamicRange(DynamicRange dynamicRange, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(dynamicRange, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateSecurityThreatsImport(SecurityThreatsImport securityThreatsImport,
+			DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(securityThreatsImport, diagnostics, context);
 	}
 
 	/**

@@ -41,10 +41,18 @@
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="state" eType="#//State"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="vectorString" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="affectsComponents" upperBound="-1"
+        eType="ecore:EClass e4sm.ecore#//Component"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CWE">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="cwss" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"
         defaultValueLiteral="0.0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cveId" lowerBound="1" eType="#//CWE_ID"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="vectorString" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="affectsComponents" upperBound="-1"
+        eType="ecore:EClass e4sm.ecore#//Component"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ThreatCondition">
     <eStructuralFeatures xsi:type="ecore:EReference" name="securityGoals" eType="#//SecurityGoal"/>
@@ -65,6 +73,9 @@
   <eClassifiers xsi:type="ecore:EDataType" name="CVE_ID" instanceClassName="java.lang.String"/>
   <eClassifiers xsi:type="ecore:EEnum" name="AttackVector">
     <eLiterals name="NETWORK"/>
+    <eLiterals name="ADJACENT_NETWORK" value="1"/>
+    <eLiterals name="LOCAL" value="2"/>
+    <eLiterals name="PHYSICAL" value="3"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="AttackComplexity">
     <eLiterals name="LOW"/>
@@ -88,4 +99,5 @@
     <eLiterals name="PUBLISHED"/>
     <eLiterals name="REJECTED" value="1"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="CWE_ID" instanceClassName="java.lang.String"/>
 </ecore:EPackage>

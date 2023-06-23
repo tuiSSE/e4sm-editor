@@ -32,6 +32,7 @@ import e4sm.de.metamodel.e4sm.PhysicalComponent;
 import e4sm.de.metamodel.e4sm.PhysicalConnector;
 import e4sm.de.metamodel.e4sm.Robot;
 import e4sm.de.metamodel.e4sm.Sector;
+import e4sm.de.metamodel.e4sm.SecurityThreatsImport;
 import e4sm.de.metamodel.e4sm.Sensor;
 import e4sm.de.metamodel.e4sm.SetValue;
 import e4sm.de.metamodel.e4sm.SoftwareComponent;
@@ -76,6 +77,9 @@ import e4sm.de.metamodel.e4sm.execution.ParameterReference;
 import e4sm.de.metamodel.e4sm.execution.TimeFunction;
 import e4sm.de.metamodel.e4sm.execution.Variable;
 import e4sm.de.metamodel.e4sm.execution.VariableRef;
+import e4sm.de.metamodel.e4sm.security.CVE;
+import e4sm.de.metamodel.e4sm.security.KnownSecurityThreats;
+import e4sm.de.metamodel.e4sm.security.SecurityPackage;
 import e4sm.de.metamodel.xtext.services.E4smGrammarAccess;
 import java.util.Map;
 import java.util.Set;
@@ -268,6 +272,9 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case e4smPackage.SECTOR:
 				sequence_Sector(context, (Sector) semanticObject); 
 				return; 
+			case e4smPackage.SECURITY_THREATS_IMPORT:
+				sequence_SecurityThreatsImport(context, (SecurityThreatsImport) semanticObject); 
+				return; 
 			case e4smPackage.SENSOR:
 				sequence_Sensor(context, (Sensor) semanticObject); 
 				return; 
@@ -378,6 +385,15 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case ExecutionPackage.VARIABLE_REF:
 				sequence_VariableRef(context, (VariableRef) semanticObject); 
+				return; 
+			}
+		else if (epackage == SecurityPackage.eINSTANCE)
+			switch (semanticObject.eClass().getClassifierID()) {
+			case SecurityPackage.CVE:
+				sequence_CVE(context, (CVE) semanticObject); 
+				return; 
+			case SecurityPackage.KNOWN_SECURITY_THREATS:
+				sequence_KnownSecurityThreats(context, (KnownSecurityThreats) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -552,6 +568,20 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * </pre>
 	 */
 	protected void sequence_BooleanAttribute(ISerializationContext context, BooleanAttribute semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     CVE returns CVE
+	 *
+	 * Constraint:
+	 *     (cveId=EString cvss=EDouble? vectorString=EString? (affectsComponents+=[Component|EString] affectsComponents+=[Component|EString]*)?)
+	 * </pre>
+	 */
+	protected void sequence_CVE(ISerializationContext context, CVE semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1356,6 +1386,20 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     KnownSecurityThreats returns KnownSecurityThreats
+	 *
+	 * Constraint:
+	 *     (cves+=CVE cves+=CVE*)?
+	 * </pre>
+	 */
+	protected void sequence_KnownSecurityThreats(ISerializationContext context, KnownSecurityThreats semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     ValueSpecification returns LiteralBoolean
 	 *     LiteralBoolean returns LiteralBoolean
 	 *     Primary returns LiteralBoolean
@@ -1636,6 +1680,8 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         name=EString 
 	 *         documentation=EString? 
 	 *         (imports+=Import imports+=Import*)? 
+	 *         (securityThreatsImport+=SecurityThreatsImport securityThreatsImport+=SecurityThreatsImport*)? 
+	 *         securityThreatsDefinition=KnownSecurityThreats? 
 	 *         personsPicturesPath=EString? 
 	 *         (types+=TypeSpecification types+=TypeSpecification*)? 
 	 *         (parameters+=Parameter parameters+=Parameter*)? 
@@ -1929,6 +1975,26 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_Sector(ISerializationContext context, Sector semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     SecurityThreatsImport returns SecurityThreatsImport
+	 *
+	 * Constraint:
+	 *     securityThreat=[KnownSecurityThreats|ID]
+	 * </pre>
+	 */
+	protected void sequence_SecurityThreatsImport(ISerializationContext context, SecurityThreatsImport semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, e4smPackage.Literals.SECURITY_THREATS_IMPORT__SECURITY_THREAT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, e4smPackage.Literals.SECURITY_THREATS_IMPORT__SECURITY_THREAT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSecurityThreatsImportAccess().getSecurityThreatKnownSecurityThreatsIDTerminalRuleCall_3_0_1(), semanticObject.eGet(e4smPackage.Literals.SECURITY_THREATS_IMPORT__SECURITY_THREAT, false));
+		feeder.finish();
 	}
 	
 	

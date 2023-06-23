@@ -196,6 +196,13 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
 	private EDataType cvE_IDEDataType = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType cwE_IDEDataType = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -446,6 +453,26 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
 	 * @generated
 	 */
 	@Override
+	public EAttribute getCVE_VectorString() {
+		return (EAttribute) cveEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getCVE_AffectsComponents() {
+		return (EReference) cveEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getCWE() {
 		return cweEClass;
 	}
@@ -458,6 +485,36 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
 	@Override
 	public EAttribute getCWE_Cwss() {
 		return (EAttribute) cweEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCWE_CveId() {
+		return (EAttribute) cweEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCWE_VectorString() {
+		return (EAttribute) cweEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getCWE_AffectsComponents() {
+		return (EReference) cweEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -646,6 +703,16 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
 	 * @generated
 	 */
 	@Override
+	public EDataType getCWE_ID() {
+		return cwE_IDEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public SecurityFactory getSecurityFactory() {
 		return (SecurityFactory) getEFactoryInstance();
 	}
@@ -689,9 +756,14 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
 		createEAttribute(cveEClass, CVE__CVE_ID);
 		createEAttribute(cveEClass, CVE__STATE);
 		createEAttribute(cveEClass, CVE__DESCRIPTION);
+		createEAttribute(cveEClass, CVE__VECTOR_STRING);
+		createEReference(cveEClass, CVE__AFFECTS_COMPONENTS);
 
 		cweEClass = createEClass(CWE);
 		createEAttribute(cweEClass, CWE__CWSS);
+		createEAttribute(cweEClass, CWE__CVE_ID);
+		createEAttribute(cweEClass, CWE__VECTOR_STRING);
+		createEReference(cweEClass, CWE__AFFECTS_COMPONENTS);
 
 		threatConditionEClass = createEClass(THREAT_CONDITION);
 		createEReference(threatConditionEClass, THREAT_CONDITION__SECURITY_GOALS);
@@ -717,6 +789,7 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
 
 		// Create data types
 		cvE_IDEDataType = createEDataType(CVE_ID);
+		cwE_IDEDataType = createEDataType(CWE_ID);
 	}
 
 	/**
@@ -794,12 +867,26 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
 		initEAttribute(getCVE_Description(), theEcorePackage.getEString(), "description", null, 0, 1,
 				e4sm.de.metamodel.e4sm.security.CVE.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
 				!IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCVE_VectorString(), theEcorePackage.getEString(), "vectorString", null, 0, 1,
+				e4sm.de.metamodel.e4sm.security.CVE.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+				!IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCVE_AffectsComponents(), thee4smPackage.getComponent(), null, "affectsComponents", null, 0,
+				-1, e4sm.de.metamodel.e4sm.security.CVE.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(cweEClass, e4sm.de.metamodel.e4sm.security.CWE.class, "CWE", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCWE_Cwss(), theEcorePackage.getEDouble(), "cwss", "0.0", 0, 1,
 				e4sm.de.metamodel.e4sm.security.CWE.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
 				!IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCWE_CveId(), this.getCWE_ID(), "cveId", null, 1, 1, e4sm.de.metamodel.e4sm.security.CWE.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCWE_VectorString(), theEcorePackage.getEString(), "vectorString", null, 0, 1,
+				e4sm.de.metamodel.e4sm.security.CWE.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+				!IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCWE_AffectsComponents(), thee4smPackage.getComponent(), null, "affectsComponents", null, 0,
+				-1, e4sm.de.metamodel.e4sm.security.CWE.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(threatConditionEClass, ThreatCondition.class, "ThreatCondition", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -845,6 +932,9 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
 
 		initEEnum(attackVectorEEnum, AttackVector.class, "AttackVector");
 		addEEnumLiteral(attackVectorEEnum, AttackVector.NETWORK);
+		addEEnumLiteral(attackVectorEEnum, AttackVector.ADJACENT_NETWORK);
+		addEEnumLiteral(attackVectorEEnum, AttackVector.LOCAL);
+		addEEnumLiteral(attackVectorEEnum, AttackVector.PHYSICAL);
 
 		initEEnum(attackComplexityEEnum, AttackComplexity.class, "AttackComplexity");
 		addEEnumLiteral(attackComplexityEEnum, AttackComplexity.LOW);
@@ -870,6 +960,7 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
 
 		// Initialize data types
 		initEDataType(cvE_IDEDataType, String.class, "CVE_ID", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(cwE_IDEDataType, String.class, "CWE_ID", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

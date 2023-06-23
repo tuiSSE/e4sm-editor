@@ -336,13 +336,31 @@ public interface SecurityPackage extends EPackage {
 	int CVE__DESCRIPTION = 3;
 
 	/**
+	 * The feature id for the '<em><b>Vector String</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CVE__VECTOR_STRING = 4;
+
+	/**
+	 * The feature id for the '<em><b>Affects Components</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CVE__AFFECTS_COMPONENTS = 5;
+
+	/**
 	 * The number of structural features of the '<em>CVE</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CVE_FEATURE_COUNT = 4;
+	int CVE_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>CVE</em>' class.
@@ -373,13 +391,40 @@ public interface SecurityPackage extends EPackage {
 	int CWE__CWSS = 0;
 
 	/**
+	 * The feature id for the '<em><b>Cve Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CWE__CVE_ID = 1;
+
+	/**
+	 * The feature id for the '<em><b>Vector String</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CWE__VECTOR_STRING = 2;
+
+	/**
+	 * The feature id for the '<em><b>Affects Components</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CWE__AFFECTS_COMPONENTS = 3;
+
+	/**
 	 * The number of structural features of the '<em>CWE</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CWE_FEATURE_COUNT = 1;
+	int CWE_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>CWE</em>' class.
@@ -619,6 +664,16 @@ public interface SecurityPackage extends EPackage {
 	int CVE_ID = 18;
 
 	/**
+	 * The meta object id for the '<em>CWE ID</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.lang.String
+	 * @see e4sm.de.metamodel.e4sm.security.impl.SecurityPackageImpl#getCWE_ID()
+	 * @generated
+	 */
+	int CWE_ID = 19;
+
+	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.security.AssetDefinition <em>Asset Definition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -767,6 +822,28 @@ public interface SecurityPackage extends EPackage {
 	EAttribute getCVE_Description();
 
 	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.security.CVE#getVectorString <em>Vector String</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Vector String</em>'.
+	 * @see e4sm.de.metamodel.e4sm.security.CVE#getVectorString()
+	 * @see #getCVE()
+	 * @generated
+	 */
+	EAttribute getCVE_VectorString();
+
+	/**
+	 * Returns the meta object for the reference list '{@link e4sm.de.metamodel.e4sm.security.CVE#getAffectsComponents <em>Affects Components</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Affects Components</em>'.
+	 * @see e4sm.de.metamodel.e4sm.security.CVE#getAffectsComponents()
+	 * @see #getCVE()
+	 * @generated
+	 */
+	EReference getCVE_AffectsComponents();
+
+	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.security.CWE <em>CWE</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -786,6 +863,39 @@ public interface SecurityPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getCWE_Cwss();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.security.CWE#getCveId <em>Cve Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Cve Id</em>'.
+	 * @see e4sm.de.metamodel.e4sm.security.CWE#getCveId()
+	 * @see #getCWE()
+	 * @generated
+	 */
+	EAttribute getCWE_CveId();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.security.CWE#getVectorString <em>Vector String</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Vector String</em>'.
+	 * @see e4sm.de.metamodel.e4sm.security.CWE#getVectorString()
+	 * @see #getCWE()
+	 * @generated
+	 */
+	EAttribute getCWE_VectorString();
+
+	/**
+	 * Returns the meta object for the reference list '{@link e4sm.de.metamodel.e4sm.security.CWE#getAffectsComponents <em>Affects Components</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Affects Components</em>'.
+	 * @see e4sm.de.metamodel.e4sm.security.CWE#getAffectsComponents()
+	 * @see #getCWE()
+	 * @generated
+	 */
+	EReference getCWE_AffectsComponents();
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.security.ThreatCondition <em>Threat Condition</em>}'.
@@ -975,6 +1085,17 @@ public interface SecurityPackage extends EPackage {
 	EDataType getCVE_ID();
 
 	/**
+	 * Returns the meta object for data type '{@link java.lang.String <em>CWE ID</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>CWE ID</em>'.
+	 * @see java.lang.String
+	 * @model instanceClass="java.lang.String"
+	 * @generated
+	 */
+	EDataType getCWE_ID();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1122,6 +1243,22 @@ public interface SecurityPackage extends EPackage {
 		EAttribute CVE__DESCRIPTION = eINSTANCE.getCVE_Description();
 
 		/**
+		 * The meta object literal for the '<em><b>Vector String</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CVE__VECTOR_STRING = eINSTANCE.getCVE_VectorString();
+
+		/**
+		 * The meta object literal for the '<em><b>Affects Components</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CVE__AFFECTS_COMPONENTS = eINSTANCE.getCVE_AffectsComponents();
+
+		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.security.impl.CWEImpl <em>CWE</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1138,6 +1275,30 @@ public interface SecurityPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CWE__CWSS = eINSTANCE.getCWE_Cwss();
+
+		/**
+		 * The meta object literal for the '<em><b>Cve Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CWE__CVE_ID = eINSTANCE.getCWE_CveId();
+
+		/**
+		 * The meta object literal for the '<em><b>Vector String</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CWE__VECTOR_STRING = eINSTANCE.getCWE_VectorString();
+
+		/**
+		 * The meta object literal for the '<em><b>Affects Components</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CWE__AFFECTS_COMPONENTS = eINSTANCE.getCWE_AffectsComponents();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.security.impl.ThreatConditionImpl <em>Threat Condition</em>}' class.
@@ -1306,6 +1467,16 @@ public interface SecurityPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType CVE_ID = eINSTANCE.getCVE_ID();
+
+		/**
+		 * The meta object literal for the '<em>CWE ID</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.lang.String
+		 * @see e4sm.de.metamodel.e4sm.security.impl.SecurityPackageImpl#getCWE_ID()
+		 * @generated
+		 */
+		EDataType CWE_ID = eINSTANCE.getCWE_ID();
 
 	}
 

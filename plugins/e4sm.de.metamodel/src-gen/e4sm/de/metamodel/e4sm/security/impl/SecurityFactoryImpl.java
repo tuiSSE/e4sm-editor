@@ -106,6 +106,8 @@ public class SecurityFactoryImpl extends EFactoryImpl implements SecurityFactory
 			return createStateFromString(eDataType, initialValue);
 		case SecurityPackage.CVE_ID:
 			return createCVE_IDFromString(eDataType, initialValue);
+		case SecurityPackage.CWE_ID:
+			return createCWE_IDFromString(eDataType, initialValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -136,6 +138,8 @@ public class SecurityFactoryImpl extends EFactoryImpl implements SecurityFactory
 			return convertStateToString(eDataType, instanceValue);
 		case SecurityPackage.CVE_ID:
 			return convertCVE_IDToString(eDataType, instanceValue);
+		case SecurityPackage.CWE_ID:
+			return convertCWE_IDToString(eDataType, instanceValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -430,6 +434,24 @@ public class SecurityFactoryImpl extends EFactoryImpl implements SecurityFactory
 	 */
 	public String convertCVE_IDToString(EDataType eDataType, Object instanceValue) {
 		return (String) instanceValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String createCWE_IDFromString(EDataType eDataType, String initialValue) {
+		return (String) super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertCWE_IDToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
 	}
 
 	/**

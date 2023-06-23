@@ -409,6 +409,15 @@ public interface e4smFactory extends EFactory {
 	DynamicRange createDynamicRange();
 
 	/**
+	 * Returns a new object of class '<em>Security Threats Import</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Security Threats Import</em>'.
+	 * @generated
+	 */
+	SecurityThreatsImport createSecurityThreatsImport();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -26,7 +26,34 @@ public enum AttackVector implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	NETWORK(0, "NETWORK", "NETWORK");
+	NETWORK(0, "NETWORK", "NETWORK"),
+	/**
+	* The '<em><b>ADJACENT NETWORK</b></em>' literal object.
+	* <!-- begin-user-doc -->
+	* <!-- end-user-doc -->
+	* @see #ADJACENT_NETWORK_VALUE
+	* @generated
+	* @ordered
+	*/
+	ADJACENT_NETWORK(1, "ADJACENT_NETWORK", "ADJACENT_NETWORK"),
+	/**
+	* The '<em><b>LOCAL</b></em>' literal object.
+	* <!-- begin-user-doc -->
+	* <!-- end-user-doc -->
+	* @see #LOCAL_VALUE
+	* @generated
+	* @ordered
+	*/
+	LOCAL(2, "LOCAL", "LOCAL"),
+	/**
+	* The '<em><b>PHYSICAL</b></em>' literal object.
+	* <!-- begin-user-doc -->
+	* <!-- end-user-doc -->
+	* @see #PHYSICAL_VALUE
+	* @generated
+	* @ordered
+	*/
+	PHYSICAL(3, "PHYSICAL", "PHYSICAL");
 
 	/**
 	 * The '<em><b>NETWORK</b></em>' literal value.
@@ -40,12 +67,46 @@ public enum AttackVector implements Enumerator {
 	public static final int NETWORK_VALUE = 0;
 
 	/**
+	 * The '<em><b>ADJACENT NETWORK</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ADJACENT_NETWORK
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ADJACENT_NETWORK_VALUE = 1;
+
+	/**
+	 * The '<em><b>LOCAL</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #LOCAL
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int LOCAL_VALUE = 2;
+
+	/**
+	 * The '<em><b>PHYSICAL</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #PHYSICAL
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int PHYSICAL_VALUE = 3;
+
+	/**
 	 * An array of all the '<em><b>Attack Vector</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final AttackVector[] VALUES_ARRAY = new AttackVector[] { NETWORK, };
+	private static final AttackVector[] VALUES_ARRAY = new AttackVector[] { NETWORK, ADJACENT_NETWORK, LOCAL,
+			PHYSICAL, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Attack Vector</b></em>' enumerators.
@@ -103,6 +164,12 @@ public enum AttackVector implements Enumerator {
 		switch (value) {
 		case NETWORK_VALUE:
 			return NETWORK;
+		case ADJACENT_NETWORK_VALUE:
+			return ADJACENT_NETWORK;
+		case LOCAL_VALUE:
+			return LOCAL;
+		case PHYSICAL_VALUE:
+			return PHYSICAL;
 		}
 		return null;
 	}

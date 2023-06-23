@@ -43,6 +43,7 @@ import e4sm.de.metamodel.e4sm.QueueType;
 import e4sm.de.metamodel.e4sm.RaceSemantic;
 import e4sm.de.metamodel.e4sm.Robot;
 import e4sm.de.metamodel.e4sm.Sector;
+import e4sm.de.metamodel.e4sm.SecurityThreatsImport;
 import e4sm.de.metamodel.e4sm.Sensor;
 import e4sm.de.metamodel.e4sm.Set;
 import e4sm.de.metamodel.e4sm.SetValue;
@@ -395,6 +396,13 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	private EClass dynamicRangeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass securityThreatsImportEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1067,6 +1075,26 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	@Override
 	public EReference getModel_ClassificationClasses() {
 		return (EReference) modelEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getModel_SecurityThreatsDefinition() {
+		return (EReference) modelEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getModel_SecurityThreatsImport() {
+		return (EReference) modelEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -2055,6 +2083,26 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getSecurityThreatsImport() {
+		return securityThreatsImportEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getSecurityThreatsImport_SecurityThreat() {
+		return (EReference) securityThreatsImportEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getConfusionMatrixEntry() {
 		return confusionMatrixEntryEClass;
 	}
@@ -2349,6 +2397,8 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		createEReference(modelEClass, MODEL__IMPORTS);
 		createEReference(modelEClass, MODEL__ENVIRONMENTS);
 		createEReference(modelEClass, MODEL__CLASSIFICATION_CLASSES);
+		createEReference(modelEClass, MODEL__SECURITY_THREATS_DEFINITION);
+		createEReference(modelEClass, MODEL__SECURITY_THREATS_IMPORT);
 		createEOperation(modelEClass, MODEL___IS_PERSON_PICTURE_PATH_VALID__DIAGNOSTICCHAIN_MAP);
 
 		actorEClass = createEClass(ACTOR);
@@ -2506,6 +2556,9 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		createEAttribute(dynamicRangeEClass, DYNAMIC_RANGE__MAX);
 		createEAttribute(dynamicRangeEClass, DYNAMIC_RANGE__SIZE_FACTOR);
 
+		securityThreatsImportEClass = createEClass(SECURITY_THREATS_IMPORT);
+		createEReference(securityThreatsImportEClass, SECURITY_THREATS_IMPORT__SECURITY_THREAT);
+
 		// Create enums
 		queueTypeEEnum = createEEnum(QUEUE_TYPE);
 		raceSemanticEEnum = createEEnum(RACE_SEMANTIC);
@@ -2548,6 +2601,8 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		ExecutionPackage theExecutionPackage = (ExecutionPackage) EPackage.Registry.INSTANCE
 				.getEPackage(ExecutionPackage.eNS_URI);
 		EcorePackage theEcorePackage = (EcorePackage) EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
+		SecurityPackage theSecurityPackage = (SecurityPackage) EPackage.Registry.INSTANCE
+				.getEPackage(SecurityPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -2756,6 +2811,12 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getModel_ClassificationClasses(), this.getClassificationClass(), null, "classificationClasses",
+				null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModel_SecurityThreatsDefinition(), theSecurityPackage.getKnownSecurityThreats(), null,
+				"securityThreatsDefinition", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModel_SecurityThreatsImport(), this.getSecurityThreatsImport(), null, "securityThreatsImport",
 				null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -3087,6 +3148,12 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		initEAttribute(getDynamicRange_SizeFactor(), theEcorePackage.getEDouble(), "sizeFactor", null, 0, 1,
 				DynamicRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
+
+		initEClass(securityThreatsImportEClass, SecurityThreatsImport.class, "SecurityThreatsImport", !IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSecurityThreatsImport_SecurityThreat(), theSecurityPackage.getKnownSecurityThreats(), null,
+				"securityThreat", null, 1, 1, SecurityThreatsImport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(queueTypeEEnum, QueueType.class, "QueueType");

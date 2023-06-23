@@ -7,6 +7,7 @@ import e4sm.de.metamodel.e4sm.ClassificationClass;
 import e4sm.de.metamodel.e4sm.Environment;
 import e4sm.de.metamodel.e4sm.Import;
 import e4sm.de.metamodel.e4sm.Model;
+import e4sm.de.metamodel.e4sm.SecurityThreatsImport;
 import e4sm.de.metamodel.e4sm.analysis.AnalysisPackage;
 import e4sm.de.metamodel.e4sm.analysis.Parameter;
 import e4sm.de.metamodel.e4sm.analysis.ParameterizableElement;
@@ -15,6 +16,7 @@ import e4sm.de.metamodel.e4sm.core.DocumentableElement;
 import e4sm.de.metamodel.e4sm.core.TypeSpecification;
 import e4sm.de.metamodel.e4sm.core.Variant;
 import e4sm.de.metamodel.e4sm.e4smPackage;
+import e4sm.de.metamodel.e4sm.security.KnownSecurityThreats;
 import e4sm.de.metamodel.e4sm.core.impl.NamedElementImpl;
 import e4sm.de.metamodel.e4sm.util.e4smValidator;
 import java.lang.reflect.InvocationTargetException;
@@ -57,6 +59,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ModelImpl#getImports <em>Imports</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ModelImpl#getEnvironments <em>Environments</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ModelImpl#getClassificationClasses <em>Classification Classes</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.ModelImpl#getSecurityThreatsDefinition <em>Security Threats Definition</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.ModelImpl#getSecurityThreatsImport <em>Security Threats Import</em>}</li>
  * </ul>
  *
  * @generated
@@ -175,6 +179,26 @@ public class ModelImpl extends NamedElementImpl implements Model {
 	 * @ordered
 	 */
 	protected EList<ClassificationClass> classificationClasses;
+
+	/**
+	 * The cached value of the '{@link #getSecurityThreatsDefinition() <em>Security Threats Definition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSecurityThreatsDefinition()
+	 * @generated
+	 * @ordered
+	 */
+	protected KnownSecurityThreats securityThreatsDefinition;
+
+	/**
+	 * The cached value of the '{@link #getSecurityThreatsImport() <em>Security Threats Import</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSecurityThreatsImport()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<SecurityThreatsImport> securityThreatsImport;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -344,6 +368,74 @@ public class ModelImpl extends NamedElementImpl implements Model {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public KnownSecurityThreats getSecurityThreatsDefinition() {
+		return securityThreatsDefinition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSecurityThreatsDefinition(KnownSecurityThreats newSecurityThreatsDefinition,
+			NotificationChain msgs) {
+		KnownSecurityThreats oldSecurityThreatsDefinition = securityThreatsDefinition;
+		securityThreatsDefinition = newSecurityThreatsDefinition;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					e4smPackage.MODEL__SECURITY_THREATS_DEFINITION, oldSecurityThreatsDefinition,
+					newSecurityThreatsDefinition);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setSecurityThreatsDefinition(KnownSecurityThreats newSecurityThreatsDefinition) {
+		if (newSecurityThreatsDefinition != securityThreatsDefinition) {
+			NotificationChain msgs = null;
+			if (securityThreatsDefinition != null)
+				msgs = ((InternalEObject) securityThreatsDefinition).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - e4smPackage.MODEL__SECURITY_THREATS_DEFINITION, null, msgs);
+			if (newSecurityThreatsDefinition != null)
+				msgs = ((InternalEObject) newSecurityThreatsDefinition).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - e4smPackage.MODEL__SECURITY_THREATS_DEFINITION, null, msgs);
+			msgs = basicSetSecurityThreatsDefinition(newSecurityThreatsDefinition, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.MODEL__SECURITY_THREATS_DEFINITION,
+					newSecurityThreatsDefinition, newSecurityThreatsDefinition));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<SecurityThreatsImport> getSecurityThreatsImport() {
+		if (securityThreatsImport == null) {
+			securityThreatsImport = new EObjectContainmentEList<SecurityThreatsImport>(SecurityThreatsImport.class,
+					this, e4smPackage.MODEL__SECURITY_THREATS_IMPORT);
+		}
+		return securityThreatsImport;
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated NOT
@@ -404,6 +496,10 @@ public class ModelImpl extends NamedElementImpl implements Model {
 			return ((InternalEList<?>) getEnvironments()).basicRemove(otherEnd, msgs);
 		case e4smPackage.MODEL__CLASSIFICATION_CLASSES:
 			return ((InternalEList<?>) getClassificationClasses()).basicRemove(otherEnd, msgs);
+		case e4smPackage.MODEL__SECURITY_THREATS_DEFINITION:
+			return basicSetSecurityThreatsDefinition(null, msgs);
+		case e4smPackage.MODEL__SECURITY_THREATS_IMPORT:
+			return ((InternalEList<?>) getSecurityThreatsImport()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -435,6 +531,10 @@ public class ModelImpl extends NamedElementImpl implements Model {
 			return getEnvironments();
 		case e4smPackage.MODEL__CLASSIFICATION_CLASSES:
 			return getClassificationClasses();
+		case e4smPackage.MODEL__SECURITY_THREATS_DEFINITION:
+			return getSecurityThreatsDefinition();
+		case e4smPackage.MODEL__SECURITY_THREATS_IMPORT:
+			return getSecurityThreatsImport();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -485,6 +585,13 @@ public class ModelImpl extends NamedElementImpl implements Model {
 			getClassificationClasses().clear();
 			getClassificationClasses().addAll((Collection<? extends ClassificationClass>) newValue);
 			return;
+		case e4smPackage.MODEL__SECURITY_THREATS_DEFINITION:
+			setSecurityThreatsDefinition((KnownSecurityThreats) newValue);
+			return;
+		case e4smPackage.MODEL__SECURITY_THREATS_IMPORT:
+			getSecurityThreatsImport().clear();
+			getSecurityThreatsImport().addAll((Collection<? extends SecurityThreatsImport>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -526,6 +633,12 @@ public class ModelImpl extends NamedElementImpl implements Model {
 		case e4smPackage.MODEL__CLASSIFICATION_CLASSES:
 			getClassificationClasses().clear();
 			return;
+		case e4smPackage.MODEL__SECURITY_THREATS_DEFINITION:
+			setSecurityThreatsDefinition((KnownSecurityThreats) null);
+			return;
+		case e4smPackage.MODEL__SECURITY_THREATS_IMPORT:
+			getSecurityThreatsImport().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -559,6 +672,10 @@ public class ModelImpl extends NamedElementImpl implements Model {
 			return environments != null && !environments.isEmpty();
 		case e4smPackage.MODEL__CLASSIFICATION_CLASSES:
 			return classificationClasses != null && !classificationClasses.isEmpty();
+		case e4smPackage.MODEL__SECURITY_THREATS_DEFINITION:
+			return securityThreatsDefinition != null;
+		case e4smPackage.MODEL__SECURITY_THREATS_IMPORT:
+			return securityThreatsImport != null && !securityThreatsImport.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

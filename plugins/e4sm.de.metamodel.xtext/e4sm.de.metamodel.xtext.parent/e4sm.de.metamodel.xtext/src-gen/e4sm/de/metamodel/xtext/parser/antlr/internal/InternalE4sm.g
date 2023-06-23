@@ -180,20 +180,85 @@ ruleModel returns [EObject current=null]
 			)*
 		)?
 		(
-			otherlv_9='picturesPath'
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getModelAccess().getSecurityThreatsImportSecurityThreatsImportParserRuleCall_5_0_0());
+					}
+					lv_securityThreatsImport_9_0=ruleSecurityThreatsImport
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getModelRule());
+						}
+						add(
+							$current,
+							"securityThreatsImport",
+							lv_securityThreatsImport_9_0,
+							"e4sm.de.metamodel.xtext.E4sm.SecurityThreatsImport");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_10=','
+				{
+					newLeafNode(otherlv_10, grammarAccess.getModelAccess().getCommaKeyword_5_1_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getModelAccess().getSecurityThreatsImportSecurityThreatsImportParserRuleCall_5_1_1_0());
+						}
+						lv_securityThreatsImport_11_0=ruleSecurityThreatsImport
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getModelRule());
+							}
+							add(
+								$current,
+								"securityThreatsImport",
+								lv_securityThreatsImport_11_0,
+								"e4sm.de.metamodel.xtext.E4sm.SecurityThreatsImport");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+		)?
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getModelAccess().getSecurityThreatsDefinitionKnownSecurityThreatsParserRuleCall_6_0());
+				}
+				lv_securityThreatsDefinition_12_0=ruleKnownSecurityThreats
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getModelRule());
+					}
+					set(
+						$current,
+						"securityThreatsDefinition",
+						lv_securityThreatsDefinition_12_0,
+						"e4sm.de.metamodel.xtext.E4sm.KnownSecurityThreats");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
+		(
+			otherlv_13='picturesPath'
 			{
-				newLeafNode(otherlv_9, grammarAccess.getModelAccess().getPicturesPathKeyword_5_0());
+				newLeafNode(otherlv_13, grammarAccess.getModelAccess().getPicturesPathKeyword_7_0());
 			}
-			this_PROPERTY_ASSIGN_10=RULE_PROPERTY_ASSIGN
+			this_PROPERTY_ASSIGN_14=RULE_PROPERTY_ASSIGN
 			{
-				newLeafNode(this_PROPERTY_ASSIGN_10, grammarAccess.getModelAccess().getPROPERTY_ASSIGNTerminalRuleCall_5_1());
+				newLeafNode(this_PROPERTY_ASSIGN_14, grammarAccess.getModelAccess().getPROPERTY_ASSIGNTerminalRuleCall_7_1());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getModelAccess().getPersonsPicturesPathEStringParserRuleCall_5_2_0());
+						newCompositeNode(grammarAccess.getModelAccess().getPersonsPicturesPathEStringParserRuleCall_7_2_0());
 					}
-					lv_personsPicturesPath_11_0=ruleEString
+					lv_personsPicturesPath_15_0=ruleEString
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getModelRule());
@@ -201,7 +266,7 @@ ruleModel returns [EObject current=null]
 						set(
 							$current,
 							"personsPicturesPath",
-							lv_personsPicturesPath_11_0,
+							lv_personsPicturesPath_15_0,
 							"e4sm.de.metamodel.xtext.E4sm.EString");
 						afterParserOrEnumRuleCall();
 					}
@@ -212,9 +277,9 @@ ruleModel returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getModelAccess().getTypesTypeSpecificationParserRuleCall_6_0_0());
+						newCompositeNode(grammarAccess.getModelAccess().getTypesTypeSpecificationParserRuleCall_8_0_0());
 					}
-					lv_types_12_0=ruleTypeSpecification
+					lv_types_16_0=ruleTypeSpecification
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getModelRule());
@@ -222,23 +287,23 @@ ruleModel returns [EObject current=null]
 						add(
 							$current,
 							"types",
-							lv_types_12_0,
+							lv_types_16_0,
 							"e4sm.de.metamodel.xtext.E4sm.TypeSpecification");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 			(
-				otherlv_13=','
+				otherlv_17=','
 				{
-					newLeafNode(otherlv_13, grammarAccess.getModelAccess().getCommaKeyword_6_1_0());
+					newLeafNode(otherlv_17, grammarAccess.getModelAccess().getCommaKeyword_8_1_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getModelAccess().getTypesTypeSpecificationParserRuleCall_6_1_1_0());
+							newCompositeNode(grammarAccess.getModelAccess().getTypesTypeSpecificationParserRuleCall_8_1_1_0());
 						}
-						lv_types_14_0=ruleTypeSpecification
+						lv_types_18_0=ruleTypeSpecification
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getModelRule());
@@ -246,7 +311,7 @@ ruleModel returns [EObject current=null]
 							add(
 								$current,
 								"types",
-								lv_types_14_0,
+								lv_types_18_0,
 								"e4sm.de.metamodel.xtext.E4sm.TypeSpecification");
 							afterParserOrEnumRuleCall();
 						}
@@ -258,9 +323,9 @@ ruleModel returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getModelAccess().getParametersParameterParserRuleCall_7_0_0());
+						newCompositeNode(grammarAccess.getModelAccess().getParametersParameterParserRuleCall_9_0_0());
 					}
-					lv_parameters_15_0=ruleParameter
+					lv_parameters_19_0=ruleParameter
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getModelRule());
@@ -268,23 +333,23 @@ ruleModel returns [EObject current=null]
 						add(
 							$current,
 							"parameters",
-							lv_parameters_15_0,
+							lv_parameters_19_0,
 							"e4sm.de.metamodel.xtext.E4sm.Parameter");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 			(
-				otherlv_16=','
+				otherlv_20=','
 				{
-					newLeafNode(otherlv_16, grammarAccess.getModelAccess().getCommaKeyword_7_1_0());
+					newLeafNode(otherlv_20, grammarAccess.getModelAccess().getCommaKeyword_9_1_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getModelAccess().getParametersParameterParserRuleCall_7_1_1_0());
+							newCompositeNode(grammarAccess.getModelAccess().getParametersParameterParserRuleCall_9_1_1_0());
 						}
-						lv_parameters_17_0=ruleParameter
+						lv_parameters_21_0=ruleParameter
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getModelRule());
@@ -292,7 +357,7 @@ ruleModel returns [EObject current=null]
 							add(
 								$current,
 								"parameters",
-								lv_parameters_17_0,
+								lv_parameters_21_0,
 								"e4sm.de.metamodel.xtext.E4sm.Parameter");
 							afterParserOrEnumRuleCall();
 						}
@@ -304,9 +369,9 @@ ruleModel returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getModelAccess().getPackagesPackageParserRuleCall_8_0_0());
+						newCompositeNode(grammarAccess.getModelAccess().getPackagesPackageParserRuleCall_10_0_0());
 					}
-					lv_packages_18_0=rulePackage
+					lv_packages_22_0=rulePackage
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getModelRule());
@@ -314,23 +379,23 @@ ruleModel returns [EObject current=null]
 						add(
 							$current,
 							"packages",
-							lv_packages_18_0,
+							lv_packages_22_0,
 							"e4sm.de.metamodel.xtext.E4sm.Package");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 			(
-				otherlv_19=','
+				otherlv_23=','
 				{
-					newLeafNode(otherlv_19, grammarAccess.getModelAccess().getCommaKeyword_8_1_0());
+					newLeafNode(otherlv_23, grammarAccess.getModelAccess().getCommaKeyword_10_1_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getModelAccess().getPackagesPackageParserRuleCall_8_1_1_0());
+							newCompositeNode(grammarAccess.getModelAccess().getPackagesPackageParserRuleCall_10_1_1_0());
 						}
-						lv_packages_20_0=rulePackage
+						lv_packages_24_0=rulePackage
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getModelRule());
@@ -338,7 +403,7 @@ ruleModel returns [EObject current=null]
 							add(
 								$current,
 								"packages",
-								lv_packages_20_0,
+								lv_packages_24_0,
 								"e4sm.de.metamodel.xtext.E4sm.Package");
 							afterParserOrEnumRuleCall();
 						}
@@ -350,9 +415,9 @@ ruleModel returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getModelAccess().getActorsActorParserRuleCall_9_0_0());
+						newCompositeNode(grammarAccess.getModelAccess().getActorsActorParserRuleCall_11_0_0());
 					}
-					lv_actors_21_0=ruleActor
+					lv_actors_25_0=ruleActor
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getModelRule());
@@ -360,23 +425,23 @@ ruleModel returns [EObject current=null]
 						add(
 							$current,
 							"actors",
-							lv_actors_21_0,
+							lv_actors_25_0,
 							"e4sm.de.metamodel.xtext.E4sm.Actor");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 			(
-				otherlv_22=','
+				otherlv_26=','
 				{
-					newLeafNode(otherlv_22, grammarAccess.getModelAccess().getCommaKeyword_9_1_0());
+					newLeafNode(otherlv_26, grammarAccess.getModelAccess().getCommaKeyword_11_1_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getModelAccess().getActorsActorParserRuleCall_9_1_1_0());
+							newCompositeNode(grammarAccess.getModelAccess().getActorsActorParserRuleCall_11_1_1_0());
 						}
-						lv_actors_23_0=ruleActor
+						lv_actors_27_0=ruleActor
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getModelRule());
@@ -384,7 +449,7 @@ ruleModel returns [EObject current=null]
 							add(
 								$current,
 								"actors",
-								lv_actors_23_0,
+								lv_actors_27_0,
 								"e4sm.de.metamodel.xtext.E4sm.Actor");
 							afterParserOrEnumRuleCall();
 						}
@@ -396,9 +461,9 @@ ruleModel returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getModelAccess().getVariantsVariantParserRuleCall_10_0_0());
+						newCompositeNode(grammarAccess.getModelAccess().getVariantsVariantParserRuleCall_12_0_0());
 					}
-					lv_variants_24_0=ruleVariant
+					lv_variants_28_0=ruleVariant
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getModelRule());
@@ -406,23 +471,23 @@ ruleModel returns [EObject current=null]
 						add(
 							$current,
 							"variants",
-							lv_variants_24_0,
+							lv_variants_28_0,
 							"e4sm.de.metamodel.xtext.E4sm.Variant");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 			(
-				otherlv_25=','
+				otherlv_29=','
 				{
-					newLeafNode(otherlv_25, grammarAccess.getModelAccess().getCommaKeyword_10_1_0());
+					newLeafNode(otherlv_29, grammarAccess.getModelAccess().getCommaKeyword_12_1_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getModelAccess().getVariantsVariantParserRuleCall_10_1_1_0());
+							newCompositeNode(grammarAccess.getModelAccess().getVariantsVariantParserRuleCall_12_1_1_0());
 						}
-						lv_variants_26_0=ruleVariant
+						lv_variants_30_0=ruleVariant
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getModelRule());
@@ -430,7 +495,7 @@ ruleModel returns [EObject current=null]
 							add(
 								$current,
 								"variants",
-								lv_variants_26_0,
+								lv_variants_30_0,
 								"e4sm.de.metamodel.xtext.E4sm.Variant");
 							afterParserOrEnumRuleCall();
 						}
@@ -442,9 +507,9 @@ ruleModel returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getModelAccess().getClassificationClassesClassificationClassParserRuleCall_11_0_0());
+						newCompositeNode(grammarAccess.getModelAccess().getClassificationClassesClassificationClassParserRuleCall_13_0_0());
 					}
-					lv_classificationClasses_27_0=ruleClassificationClass
+					lv_classificationClasses_31_0=ruleClassificationClass
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getModelRule());
@@ -452,23 +517,23 @@ ruleModel returns [EObject current=null]
 						add(
 							$current,
 							"classificationClasses",
-							lv_classificationClasses_27_0,
+							lv_classificationClasses_31_0,
 							"e4sm.de.metamodel.xtext.E4sm.ClassificationClass");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 			(
-				otherlv_28=','
+				otherlv_32=','
 				{
-					newLeafNode(otherlv_28, grammarAccess.getModelAccess().getCommaKeyword_11_1_0());
+					newLeafNode(otherlv_32, grammarAccess.getModelAccess().getCommaKeyword_13_1_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getModelAccess().getClassificationClassesClassificationClassParserRuleCall_11_1_1_0());
+							newCompositeNode(grammarAccess.getModelAccess().getClassificationClassesClassificationClassParserRuleCall_13_1_1_0());
 						}
-						lv_classificationClasses_29_0=ruleClassificationClass
+						lv_classificationClasses_33_0=ruleClassificationClass
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getModelRule());
@@ -476,7 +541,7 @@ ruleModel returns [EObject current=null]
 							add(
 								$current,
 								"classificationClasses",
-								lv_classificationClasses_29_0,
+								lv_classificationClasses_33_0,
 								"e4sm.de.metamodel.xtext.E4sm.ClassificationClass");
 							afterParserOrEnumRuleCall();
 						}
@@ -488,9 +553,9 @@ ruleModel returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getModelAccess().getEnvironmentsEnvironmentParserRuleCall_12_0_0());
+						newCompositeNode(grammarAccess.getModelAccess().getEnvironmentsEnvironmentParserRuleCall_14_0_0());
 					}
-					lv_environments_30_0=ruleEnvironment
+					lv_environments_34_0=ruleEnvironment
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getModelRule());
@@ -498,23 +563,23 @@ ruleModel returns [EObject current=null]
 						add(
 							$current,
 							"environments",
-							lv_environments_30_0,
+							lv_environments_34_0,
 							"e4sm.de.metamodel.xtext.E4sm.Environment");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 			(
-				otherlv_31=','
+				otherlv_35=','
 				{
-					newLeafNode(otherlv_31, grammarAccess.getModelAccess().getCommaKeyword_12_1_0());
+					newLeafNode(otherlv_35, grammarAccess.getModelAccess().getCommaKeyword_14_1_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getModelAccess().getEnvironmentsEnvironmentParserRuleCall_12_1_1_0());
+							newCompositeNode(grammarAccess.getModelAccess().getEnvironmentsEnvironmentParserRuleCall_14_1_1_0());
 						}
-						lv_environments_32_0=ruleEnvironment
+						lv_environments_36_0=ruleEnvironment
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getModelRule());
@@ -522,7 +587,7 @@ ruleModel returns [EObject current=null]
 							add(
 								$current,
 								"environments",
-								lv_environments_32_0,
+								lv_environments_36_0,
 								"e4sm.de.metamodel.xtext.E4sm.Environment");
 							afterParserOrEnumRuleCall();
 						}
@@ -530,9 +595,9 @@ ruleModel returns [EObject current=null]
 				)
 			)*
 		)?
-		otherlv_33='}'
+		otherlv_37='}'
 		{
-			newLeafNode(otherlv_33, grammarAccess.getModelAccess().getRightCurlyBracketKeyword_13());
+			newLeafNode(otherlv_37, grammarAccess.getModelAccess().getRightCurlyBracketKeyword_15());
 		}
 	)
 ;
@@ -1165,6 +1230,288 @@ ruleConfusionMatrixEntry returns [EObject current=null]
 				}
 			)
 		)
+	)
+;
+
+// Entry rule entryRuleSecurityThreatsImport
+entryRuleSecurityThreatsImport returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getSecurityThreatsImportRule()); }
+	iv_ruleSecurityThreatsImport=ruleSecurityThreatsImport
+	{ $current=$iv_ruleSecurityThreatsImport.current; }
+	EOF;
+
+// Rule SecurityThreatsImport
+ruleSecurityThreatsImport returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getSecurityThreatsImportAccess().getSecurityThreatsImportAction_0(),
+					$current);
+			}
+		)
+		otherlv_1='import'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getSecurityThreatsImportAccess().getImportKeyword_1());
+		}
+		otherlv_2='security'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getSecurityThreatsImportAccess().getSecurityKeyword_2());
+		}
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getSecurityThreatsImportRule());
+					}
+				}
+				otherlv_3=RULE_ID
+				{
+					newLeafNode(otherlv_3, grammarAccess.getSecurityThreatsImportAccess().getSecurityThreatKnownSecurityThreatsCrossReference_3_0());
+				}
+			)
+		)
+		otherlv_4=';'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getSecurityThreatsImportAccess().getSemicolonKeyword_4());
+		}
+	)
+;
+
+// Entry rule entryRuleKnownSecurityThreats
+entryRuleKnownSecurityThreats returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getKnownSecurityThreatsRule()); }
+	iv_ruleKnownSecurityThreats=ruleKnownSecurityThreats
+	{ $current=$iv_ruleKnownSecurityThreats.current; }
+	EOF;
+
+// Rule KnownSecurityThreats
+ruleKnownSecurityThreats returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getKnownSecurityThreatsAccess().getKnownSecurityThreatsAction_0(),
+					$current);
+			}
+		)
+		otherlv_1='knownSecurityThreats'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getKnownSecurityThreatsAccess().getKnownSecurityThreatsKeyword_1());
+		}
+		otherlv_2='{'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getKnownSecurityThreatsAccess().getLeftCurlyBracketKeyword_2());
+		}
+		(
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getKnownSecurityThreatsAccess().getCvesCVEParserRuleCall_3_0_0());
+					}
+					lv_cves_3_0=ruleCVE
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getKnownSecurityThreatsRule());
+						}
+						add(
+							$current,
+							"cves",
+							lv_cves_3_0,
+							"e4sm.de.metamodel.xtext.E4sm.CVE");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getKnownSecurityThreatsAccess().getCvesCVEParserRuleCall_3_1_0());
+					}
+					lv_cves_4_0=ruleCVE
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getKnownSecurityThreatsRule());
+						}
+						add(
+							$current,
+							"cves",
+							lv_cves_4_0,
+							"e4sm.de.metamodel.xtext.E4sm.CVE");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)*
+		)?
+		otherlv_5='}'
+		{
+			newLeafNode(otherlv_5, grammarAccess.getKnownSecurityThreatsAccess().getRightCurlyBracketKeyword_4());
+		}
+	)
+;
+
+// Entry rule entryRuleCVE
+entryRuleCVE returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getCVERule()); }
+	iv_ruleCVE=ruleCVE
+	{ $current=$iv_ruleCVE.current; }
+	EOF;
+
+// Rule CVE
+ruleCVE returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getCVEAccess().getCVEAction_0(),
+					$current);
+			}
+		)
+		otherlv_1='cve'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getCVEAccess().getCveKeyword_1());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getCVEAccess().getCveIdEStringParserRuleCall_2_0());
+				}
+				lv_cveId_2_0=ruleEString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getCVERule());
+					}
+					set(
+						$current,
+						"cveId",
+						lv_cveId_2_0,
+						"e4sm.de.metamodel.xtext.E4sm.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			otherlv_3='cvss'
+			{
+				newLeafNode(otherlv_3, grammarAccess.getCVEAccess().getCvssKeyword_3_0());
+			}
+			this_PROPERTY_ASSIGN_4=RULE_PROPERTY_ASSIGN
+			{
+				newLeafNode(this_PROPERTY_ASSIGN_4, grammarAccess.getCVEAccess().getPROPERTY_ASSIGNTerminalRuleCall_3_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getCVEAccess().getCvssEDoubleParserRuleCall_3_2_0());
+					}
+					lv_cvss_5_0=ruleEDouble
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getCVERule());
+						}
+						set(
+							$current,
+							"cvss",
+							lv_cvss_5_0,
+							"e4sm.de.metamodel.xtext.E4sm.EDouble");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getCVEAccess().getVectorStringEStringParserRuleCall_4_0());
+				}
+				lv_vectorString_6_0=ruleEString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getCVERule());
+					}
+					set(
+						$current,
+						"vectorString",
+						lv_vectorString_6_0,
+						"e4sm.de.metamodel.xtext.E4sm.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
+		(
+			otherlv_7='affects'
+			{
+				newLeafNode(otherlv_7, grammarAccess.getCVEAccess().getAffectsKeyword_5_0());
+			}
+			otherlv_8='{'
+			{
+				newLeafNode(otherlv_8, grammarAccess.getCVEAccess().getLeftCurlyBracketKeyword_5_1());
+			}
+			(
+				(
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getCVERule());
+						}
+					}
+					{
+						newCompositeNode(grammarAccess.getCVEAccess().getAffectsComponentsComponentCrossReference_5_2_0());
+					}
+					ruleEString
+					{
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_10=','
+				{
+					newLeafNode(otherlv_10, grammarAccess.getCVEAccess().getCommaKeyword_5_3_0());
+				}
+				(
+					(
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getCVERule());
+							}
+						}
+						{
+							newCompositeNode(grammarAccess.getCVEAccess().getAffectsComponentsComponentCrossReference_5_3_1_0());
+						}
+						ruleEString
+						{
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+			otherlv_12='}'
+			{
+				newLeafNode(otherlv_12, grammarAccess.getCVEAccess().getRightCurlyBracketKeyword_5_4());
+			}
+		)?
+		otherlv_13=';'
+		{
+			newLeafNode(otherlv_13, grammarAccess.getCVEAccess().getSemicolonKeyword_6());
+		}
 	)
 ;
 

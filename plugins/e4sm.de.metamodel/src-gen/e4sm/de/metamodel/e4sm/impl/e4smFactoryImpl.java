@@ -38,6 +38,7 @@ import e4sm.de.metamodel.e4sm.QueueType;
 import e4sm.de.metamodel.e4sm.RaceSemantic;
 import e4sm.de.metamodel.e4sm.Robot;
 import e4sm.de.metamodel.e4sm.Sector;
+import e4sm.de.metamodel.e4sm.SecurityThreatsImport;
 import e4sm.de.metamodel.e4sm.Sensor;
 import e4sm.de.metamodel.e4sm.Set;
 import e4sm.de.metamodel.e4sm.SetValue;
@@ -188,6 +189,8 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 			return createSetValue();
 		case e4smPackage.DYNAMIC_RANGE:
 			return createDynamicRange();
+		case e4smPackage.SECURITY_THREATS_IMPORT:
+			return createSecurityThreatsImport();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -714,6 +717,17 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 	public DynamicRange createDynamicRange() {
 		DynamicRangeImpl dynamicRange = new DynamicRangeImpl();
 		return dynamicRange;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public SecurityThreatsImport createSecurityThreatsImport() {
+		SecurityThreatsImportImpl securityThreatsImport = new SecurityThreatsImportImpl();
+		return securityThreatsImport;
 	}
 
 	/**

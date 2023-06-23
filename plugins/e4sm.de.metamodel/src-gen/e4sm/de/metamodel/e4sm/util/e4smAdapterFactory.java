@@ -40,6 +40,7 @@ import e4sm.de.metamodel.e4sm.PhysicalConnector;
 import e4sm.de.metamodel.e4sm.Pin;
 import e4sm.de.metamodel.e4sm.Robot;
 import e4sm.de.metamodel.e4sm.Sector;
+import e4sm.de.metamodel.e4sm.SecurityThreatsImport;
 import e4sm.de.metamodel.e4sm.Sensor;
 import e4sm.de.metamodel.e4sm.Set;
 import e4sm.de.metamodel.e4sm.SetValue;
@@ -359,6 +360,11 @@ public class e4smAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseDynamicRange(DynamicRange object) {
 			return createDynamicRangeAdapter();
+		}
+
+		@Override
+		public Adapter caseSecurityThreatsImport(SecurityThreatsImport object) {
+			return createSecurityThreatsImportAdapter();
 		}
 
 		@Override
@@ -1108,6 +1114,20 @@ public class e4smAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDynamicRangeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.SecurityThreatsImport <em>Security Threats Import</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.SecurityThreatsImport
+	 * @generated
+	 */
+	public Adapter createSecurityThreatsImportAdapter() {
 		return null;
 	}
 
