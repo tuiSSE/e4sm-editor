@@ -510,13 +510,22 @@ public interface SecurityPackage extends EPackage {
 	int SECURITY_SPECIFICATION__THREAT_CONDITIONS = 1;
 
 	/**
+	 * The feature id for the '<em><b>Attack Surfaces</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_SPECIFICATION__ATTACK_SURFACES = 2;
+
+	/**
 	 * The number of structural features of the '<em>Specification</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SECURITY_SPECIFICATION_FEATURE_COUNT = 2;
+	int SECURITY_SPECIFICATION_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Specification</em>' class.
@@ -574,6 +583,43 @@ public interface SecurityPackage extends EPackage {
 	int KNOWN_SECURITY_THREATS_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.security.impl.AttackSurfaceImpl <em>Attack Surface</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.security.impl.AttackSurfaceImpl
+	 * @see e4sm.de.metamodel.e4sm.security.impl.SecurityPackageImpl#getAttackSurface()
+	 * @generated
+	 */
+	int ATTACK_SURFACE = 10;
+
+	/**
+	 * The feature id for the '<em><b>Component</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTACK_SURFACE__COMPONENT = 0;
+
+	/**
+	 * The number of structural features of the '<em>Attack Surface</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTACK_SURFACE_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Attack Surface</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTACK_SURFACE_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.security.SeverityLevel <em>Severity Level</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -581,7 +627,7 @@ public interface SecurityPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.security.impl.SecurityPackageImpl#getSeverityLevel()
 	 * @generated
 	 */
-	int SEVERITY_LEVEL = 10;
+	int SEVERITY_LEVEL = 11;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.security.ImpactLevel <em>Impact Level</em>}' enum.
@@ -591,7 +637,7 @@ public interface SecurityPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.security.impl.SecurityPackageImpl#getImpactLevel()
 	 * @generated
 	 */
-	int IMPACT_LEVEL = 11;
+	int IMPACT_LEVEL = 12;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.security.AttackVector <em>Attack Vector</em>}' enum.
@@ -601,7 +647,7 @@ public interface SecurityPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.security.impl.SecurityPackageImpl#getAttackVector()
 	 * @generated
 	 */
-	int ATTACK_VECTOR = 12;
+	int ATTACK_VECTOR = 13;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.security.AttackComplexity <em>Attack Complexity</em>}' enum.
@@ -611,7 +657,7 @@ public interface SecurityPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.security.impl.SecurityPackageImpl#getAttackComplexity()
 	 * @generated
 	 */
-	int ATTACK_COMPLEXITY = 13;
+	int ATTACK_COMPLEXITY = 14;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.security.UserInteraction <em>User Interaction</em>}' enum.
@@ -621,7 +667,7 @@ public interface SecurityPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.security.impl.SecurityPackageImpl#getUserInteraction()
 	 * @generated
 	 */
-	int USER_INTERACTION = 14;
+	int USER_INTERACTION = 15;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.security.PrivilegesRequired <em>Privileges Required</em>}' enum.
@@ -631,7 +677,7 @@ public interface SecurityPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.security.impl.SecurityPackageImpl#getPrivilegesRequired()
 	 * @generated
 	 */
-	int PRIVILEGES_REQUIRED = 15;
+	int PRIVILEGES_REQUIRED = 16;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.security.ConfidentialityImpact <em>Confidentiality Impact</em>}' enum.
@@ -641,7 +687,7 @@ public interface SecurityPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.security.impl.SecurityPackageImpl#getConfidentialityImpact()
 	 * @generated
 	 */
-	int CONFIDENTIALITY_IMPACT = 16;
+	int CONFIDENTIALITY_IMPACT = 17;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.security.State <em>State</em>}' enum.
@@ -651,7 +697,7 @@ public interface SecurityPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.security.impl.SecurityPackageImpl#getState()
 	 * @generated
 	 */
-	int STATE = 17;
+	int STATE = 18;
 
 	/**
 	 * The meta object id for the '<em>CVE ID</em>' data type.
@@ -661,7 +707,7 @@ public interface SecurityPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.security.impl.SecurityPackageImpl#getCVE_ID()
 	 * @generated
 	 */
-	int CVE_ID = 18;
+	int CVE_ID = 19;
 
 	/**
 	 * The meta object id for the '<em>CWE ID</em>' data type.
@@ -671,7 +717,7 @@ public interface SecurityPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.security.impl.SecurityPackageImpl#getCWE_ID()
 	 * @generated
 	 */
-	int CWE_ID = 19;
+	int CWE_ID = 20;
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.security.AssetDefinition <em>Asset Definition</em>}'.
@@ -962,6 +1008,17 @@ public interface SecurityPackage extends EPackage {
 	EReference getSecuritySpecification_ThreatConditions();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link e4sm.de.metamodel.e4sm.security.SecuritySpecification#getAttackSurfaces <em>Attack Surfaces</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Attack Surfaces</em>'.
+	 * @see e4sm.de.metamodel.e4sm.security.SecuritySpecification#getAttackSurfaces()
+	 * @see #getSecuritySpecification()
+	 * @generated
+	 */
+	EReference getSecuritySpecification_AttackSurfaces();
+
+	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.security.KnownSecurityThreats <em>Known Security Threats</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -992,6 +1049,27 @@ public interface SecurityPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getKnownSecurityThreats_Cwes();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.security.AttackSurface <em>Attack Surface</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Attack Surface</em>'.
+	 * @see e4sm.de.metamodel.e4sm.security.AttackSurface
+	 * @generated
+	 */
+	EClass getAttackSurface();
+
+	/**
+	 * Returns the meta object for the reference '{@link e4sm.de.metamodel.e4sm.security.AttackSurface#getComponent <em>Component</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Component</em>'.
+	 * @see e4sm.de.metamodel.e4sm.security.AttackSurface#getComponent()
+	 * @see #getAttackSurface()
+	 * @generated
+	 */
+	EReference getAttackSurface_Component();
 
 	/**
 	 * Returns the meta object for enum '{@link e4sm.de.metamodel.e4sm.security.SeverityLevel <em>Severity Level</em>}'.
@@ -1353,6 +1431,14 @@ public interface SecurityPackage extends EPackage {
 		EReference SECURITY_SPECIFICATION__THREAT_CONDITIONS = eINSTANCE.getSecuritySpecification_ThreatConditions();
 
 		/**
+		 * The meta object literal for the '<em><b>Attack Surfaces</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SECURITY_SPECIFICATION__ATTACK_SURFACES = eINSTANCE.getSecuritySpecification_AttackSurfaces();
+
+		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.security.impl.KnownSecurityThreatsImpl <em>Known Security Threats</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1377,6 +1463,24 @@ public interface SecurityPackage extends EPackage {
 		 * @generated
 		 */
 		EReference KNOWN_SECURITY_THREATS__CWES = eINSTANCE.getKnownSecurityThreats_Cwes();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.security.impl.AttackSurfaceImpl <em>Attack Surface</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.security.impl.AttackSurfaceImpl
+		 * @see e4sm.de.metamodel.e4sm.security.impl.SecurityPackageImpl#getAttackSurface()
+		 * @generated
+		 */
+		EClass ATTACK_SURFACE = eINSTANCE.getAttackSurface();
+
+		/**
+		 * The meta object literal for the '<em><b>Component</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ATTACK_SURFACE__COMPONENT = eINSTANCE.getAttackSurface_Component();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.security.SeverityLevel <em>Severity Level</em>}' enum.

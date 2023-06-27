@@ -280,6 +280,29 @@ public class SecurityItemProviderAdapterFactory extends SecurityAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.security.AttackSurface} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AttackSurfaceItemProvider attackSurfaceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.security.AttackSurface}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAttackSurfaceAdapter() {
+		if (attackSurfaceItemProvider == null) {
+			attackSurfaceItemProvider = new AttackSurfaceItemProvider(this);
+		}
+
+		return attackSurfaceItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -402,6 +425,8 @@ public class SecurityItemProviderAdapterFactory extends SecurityAdapterFactory
 			securitySpecificationItemProvider.dispose();
 		if (knownSecurityThreatsItemProvider != null)
 			knownSecurityThreatsItemProvider.dispose();
+		if (attackSurfaceItemProvider != null)
+			attackSurfaceItemProvider.dispose();
 	}
 
 }

@@ -117,6 +117,11 @@ public class SecurityAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseAttackSurface(AttackSurface object) {
+			return createAttackSurfaceAdapter();
+		}
+
+		@Override
 		public Adapter defaultCase(EObject object) {
 			return createEObjectAdapter();
 		}
@@ -272,6 +277,20 @@ public class SecurityAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createKnownSecurityThreatsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.security.AttackSurface <em>Attack Surface</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.security.AttackSurface
+	 * @generated
+	 */
+	public Adapter createAttackSurfaceAdapter() {
 		return null;
 	}
 

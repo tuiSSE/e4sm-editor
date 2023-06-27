@@ -16,6 +16,7 @@ Model returns Model:
 	(imports+=Import ("," imports+=Import)*)?
 	(securityThreatsImport+=SecurityThreatsImport ("," securityThreatsImport+=SecurityThreatsImport)*)?
 	(securityThreatsDefinition=KnownSecurityThreats)?
+	(securitySpecification=SecuritySpecification)?
 	('picturesPath' PROPERTY_ASSIGN personsPicturesPath=EString)?
 	(types+=TypeSpecification ("," types+=TypeSpecification)*)?
 	(parameters+=Parameter ("," parameters+=Parameter)*)?
@@ -66,6 +67,8 @@ ConfusionMatrixEntry returns ConfusionMatrixEntry:
 	{ConfusionMatrixEntry}
 	truth=[ClassificationClass|EString] predicted=[ClassificationClass|EString] PROPERTY_ASSIGN value=EInt;
 
+
+// ~~~~~~~~    SECURITY   ~~~~~~~~ //
 SecurityThreatsImport returns SecurityThreatsImport:
 	{SecurityThreatsImport}
 	'import' 'security' securityThreat=[security::KnownSecurityThreats]';'
@@ -82,8 +85,29 @@ KnownSecurityThreats returns security::KnownSecurityThreats:
 
 CVE returns security::CVE: 
 	{security::CVE}
-	'cve' cveId=EString ('cvss' PROPERTY_ASSIGN cvss=EDouble)? (vectorString=EString)? ('affects''{'affectsComponents+=[Component|EString](','affectsComponents+=[Component|EString])*'}')?';'
+	'cve' cveId=EString ('cvss' PROPERTY_ASSIGN cvss=EDouble)? (vectorString=EString)? ('descr' PROPERTY_ASSIGN description=EString)? ('affects''{'affectsComponents+=[Component|EString](','affectsComponents+=[Component|EString])*'}')?';'
 ;
+
+SecuritySpecification returns security::SecuritySpecification: 
+	{security::SecuritySpecification}
+	'securitySpec' '{'
+	 	(assetDefinitions+=AssetDefinition (assetDefinitions+=AssetDefinition)*)?
+	 	(attackSurfaces+=AttackSurface (attackSurfaces+=AttackSurface)*)?
+	'}'
+;
+
+AssetDefinition returns security::AssetDefinition:
+	{security::AssetDefinition}
+	'asset' component=[Component|EString] ';'
+;
+
+AttackSurface returns security::AttackSurface:
+	{security::AttackSurface}
+	'attack' 'surface' component=[Component|EString] ';'
+;
+
+
+// ^^^^^^^^^^  SECURITY   ^^^^^^^^^^ //
 
 
 

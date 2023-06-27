@@ -76,6 +76,8 @@ public class SecurityFactoryImpl extends EFactoryImpl implements SecurityFactory
 			return createSecuritySpecification();
 		case SecurityPackage.KNOWN_SECURITY_THREATS:
 			return createKnownSecurityThreats();
+		case SecurityPackage.ATTACK_SURFACE:
+			return createAttackSurface();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -233,6 +235,17 @@ public class SecurityFactoryImpl extends EFactoryImpl implements SecurityFactory
 	public KnownSecurityThreats createKnownSecurityThreats() {
 		KnownSecurityThreatsImpl knownSecurityThreats = new KnownSecurityThreatsImpl();
 		return knownSecurityThreats;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public AttackSurface createAttackSurface() {
+		AttackSurfaceImpl attackSurface = new AttackSurfaceImpl();
+		return attackSurface;
 	}
 
 	/**

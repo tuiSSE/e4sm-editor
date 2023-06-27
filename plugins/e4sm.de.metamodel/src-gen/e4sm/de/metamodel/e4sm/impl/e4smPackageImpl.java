@@ -1103,6 +1103,16 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getModel_SecuritySpecification() {
+		return (EReference) modelEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getModel__IsPersonPicturePathValid__DiagnosticChain_Map() {
 		return modelEClass.getEOperations().get(0);
 	}
@@ -2399,6 +2409,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		createEReference(modelEClass, MODEL__CLASSIFICATION_CLASSES);
 		createEReference(modelEClass, MODEL__SECURITY_THREATS_DEFINITION);
 		createEReference(modelEClass, MODEL__SECURITY_THREATS_IMPORT);
+		createEReference(modelEClass, MODEL__SECURITY_SPECIFICATION);
 		createEOperation(modelEClass, MODEL___IS_PERSON_PICTURE_PATH_VALID__DIAGNOSTICCHAIN_MAP);
 
 		actorEClass = createEClass(ACTOR);
@@ -2819,6 +2830,9 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		initEReference(getModel_SecurityThreatsImport(), this.getSecurityThreatsImport(), null, "securityThreatsImport",
 				null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModel_SecuritySpecification(), theSecurityPackage.getSecuritySpecification(), null,
+				"securitySpecification", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getModel__IsPersonPicturePathValid__DiagnosticChain_Map(),
 				ecorePackage.getEBoolean(), "isPersonPicturePathValid", 0, 1, IS_UNIQUE, IS_ORDERED);

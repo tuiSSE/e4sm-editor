@@ -8,6 +8,7 @@ import e4sm.de.metamodel.e4sm.core.NamedElement;
 import e4sm.de.metamodel.e4sm.core.TypeSpecification;
 import e4sm.de.metamodel.e4sm.core.Variant;
 import e4sm.de.metamodel.e4sm.security.KnownSecurityThreats;
+import e4sm.de.metamodel.e4sm.security.SecuritySpecification;
 import java.util.Map;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
@@ -35,6 +36,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link e4sm.de.metamodel.e4sm.Model#getClassificationClasses <em>Classification Classes</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Model#getSecurityThreatsDefinition <em>Security Threats Definition</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Model#getSecurityThreatsImport <em>Security Threats Import</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.Model#getSecuritySpecification <em>Security Specification</em>}</li>
  * </ul>
  *
  * @see e4sm.de.metamodel.e4sm.e4smPackage#getModel()
@@ -190,6 +192,28 @@ public interface Model extends NamedElement, ParameterizableElement, Documentabl
 	 * @generated
 	 */
 	EList<SecurityThreatsImport> getSecurityThreatsImport();
+
+	/**
+	 * Returns the value of the '<em><b>Security Specification</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Security Specification</em>' containment reference.
+	 * @see #setSecuritySpecification(SecuritySpecification)
+	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getModel_SecuritySpecification()
+	 * @model containment="true"
+	 * @generated
+	 */
+	SecuritySpecification getSecuritySpecification();
+
+	/**
+	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.Model#getSecuritySpecification <em>Security Specification</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Security Specification</em>' containment reference.
+	 * @see #getSecuritySpecification()
+	 * @generated
+	 */
+	void setSecuritySpecification(SecuritySpecification value);
 
 	/**
 	 * <!-- begin-user-doc -->

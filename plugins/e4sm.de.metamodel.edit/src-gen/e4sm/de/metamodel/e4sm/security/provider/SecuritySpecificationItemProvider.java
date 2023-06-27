@@ -74,6 +74,7 @@ public class SecuritySpecificationItemProvider extends ItemProviderAdapter imple
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(SecurityPackage.Literals.SECURITY_SPECIFICATION__ASSET_DEFINITIONS);
 			childrenFeatures.add(SecurityPackage.Literals.SECURITY_SPECIFICATION__THREAT_CONDITIONS);
+			childrenFeatures.add(SecurityPackage.Literals.SECURITY_SPECIFICATION__ATTACK_SURFACES);
 		}
 		return childrenFeatures;
 	}
@@ -137,6 +138,7 @@ public class SecuritySpecificationItemProvider extends ItemProviderAdapter imple
 		switch (notification.getFeatureID(SecuritySpecification.class)) {
 		case SecurityPackage.SECURITY_SPECIFICATION__ASSET_DEFINITIONS:
 		case SecurityPackage.SECURITY_SPECIFICATION__THREAT_CONDITIONS:
+		case SecurityPackage.SECURITY_SPECIFICATION__ATTACK_SURFACES:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -159,6 +161,9 @@ public class SecuritySpecificationItemProvider extends ItemProviderAdapter imple
 
 		newChildDescriptors.add(createChildParameter(SecurityPackage.Literals.SECURITY_SPECIFICATION__THREAT_CONDITIONS,
 				SecurityFactory.eINSTANCE.createThreatCondition()));
+
+		newChildDescriptors.add(createChildParameter(SecurityPackage.Literals.SECURITY_SPECIFICATION__ATTACK_SURFACES,
+				SecurityFactory.eINSTANCE.createAttackSurface()));
 	}
 
 	/**

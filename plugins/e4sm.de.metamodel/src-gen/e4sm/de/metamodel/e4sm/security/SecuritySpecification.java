@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link e4sm.de.metamodel.e4sm.security.SecuritySpecification#getAssetDefinitions <em>Asset Definitions</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.security.SecuritySpecification#getThreatConditions <em>Threat Conditions</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.security.SecuritySpecification#getAttackSurfaces <em>Attack Surfaces</em>}</li>
  * </ul>
  *
  * @see e4sm.de.metamodel.e4sm.security.SecurityPackage#getSecuritySpecification()
@@ -47,5 +48,17 @@ public interface SecuritySpecification extends EObject {
 	 * @generated
 	 */
 	EList<ThreatCondition> getThreatConditions();
+
+	/**
+	 * Returns the value of the '<em><b>Attack Surfaces</b></em>' containment reference list.
+	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.security.AttackSurface}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Attack Surfaces</em>' containment reference list.
+	 * @see e4sm.de.metamodel.e4sm.security.SecurityPackage#getSecuritySpecification_AttackSurfaces()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<AttackSurface> getAttackSurfaces();
 
 } // SecuritySpecification

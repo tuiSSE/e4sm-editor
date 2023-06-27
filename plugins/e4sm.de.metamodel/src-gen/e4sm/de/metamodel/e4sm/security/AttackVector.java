@@ -28,31 +28,31 @@ public enum AttackVector implements Enumerator {
 	 */
 	NETWORK(0, "NETWORK", "NETWORK"),
 	/**
-	* The '<em><b>ADJACENT NETWORK</b></em>' literal object.
-	* <!-- begin-user-doc -->
+	 * The '<em><b>ADJACENT NETWORK</b></em>' literal object.
+	 * <!-- begin-user-doc -->
 	* <!-- end-user-doc -->
-	* @see #ADJACENT_NETWORK_VALUE
-	* @generated
-	* @ordered
-	*/
+	 * @see #ADJACENT_NETWORK_VALUE
+	 * @generated
+	 * @ordered
+	 */
 	ADJACENT_NETWORK(1, "ADJACENT_NETWORK", "ADJACENT_NETWORK"),
 	/**
-	* The '<em><b>LOCAL</b></em>' literal object.
-	* <!-- begin-user-doc -->
+	 * The '<em><b>LOCAL</b></em>' literal object.
+	 * <!-- begin-user-doc -->
 	* <!-- end-user-doc -->
-	* @see #LOCAL_VALUE
-	* @generated
-	* @ordered
-	*/
+	 * @see #LOCAL_VALUE
+	 * @generated
+	 * @ordered
+	 */
 	LOCAL(2, "LOCAL", "LOCAL"),
 	/**
-	* The '<em><b>PHYSICAL</b></em>' literal object.
-	* <!-- begin-user-doc -->
+	 * The '<em><b>PHYSICAL</b></em>' literal object.
+	 * <!-- begin-user-doc -->
 	* <!-- end-user-doc -->
-	* @see #PHYSICAL_VALUE
-	* @generated
-	* @ordered
-	*/
+	 * @see #PHYSICAL_VALUE
+	 * @generated
+	 * @ordered
+	 */
 	PHYSICAL(3, "PHYSICAL", "PHYSICAL");
 
 	/**

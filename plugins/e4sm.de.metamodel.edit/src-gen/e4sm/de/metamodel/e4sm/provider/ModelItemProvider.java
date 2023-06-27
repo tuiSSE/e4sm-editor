@@ -112,6 +112,7 @@ public class ModelItemProvider extends NamedElementItemProvider {
 			childrenFeatures.add(e4smPackage.Literals.MODEL__CLASSIFICATION_CLASSES);
 			childrenFeatures.add(e4smPackage.Literals.MODEL__SECURITY_THREATS_DEFINITION);
 			childrenFeatures.add(e4smPackage.Literals.MODEL__SECURITY_THREATS_IMPORT);
+			childrenFeatures.add(e4smPackage.Literals.MODEL__SECURITY_SPECIFICATION);
 		}
 		return childrenFeatures;
 	}
@@ -189,6 +190,7 @@ public class ModelItemProvider extends NamedElementItemProvider {
 		case e4smPackage.MODEL__CLASSIFICATION_CLASSES:
 		case e4smPackage.MODEL__SECURITY_THREATS_DEFINITION:
 		case e4smPackage.MODEL__SECURITY_THREATS_IMPORT:
+		case e4smPackage.MODEL__SECURITY_SPECIFICATION:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -244,6 +246,9 @@ public class ModelItemProvider extends NamedElementItemProvider {
 
 		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.MODEL__SECURITY_THREATS_IMPORT,
 				e4smFactory.eINSTANCE.createSecurityThreatsImport()));
+
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.MODEL__SECURITY_SPECIFICATION,
+				SecurityFactory.eINSTANCE.createSecuritySpecification()));
 	}
 
 	/**

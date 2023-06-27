@@ -103,6 +103,15 @@ public interface SecurityFactory extends EFactory {
 	KnownSecurityThreats createKnownSecurityThreats();
 
 	/**
+	 * Returns a new object of class '<em>Attack Surface</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Attack Surface</em>'.
+	 * @generated
+	 */
+	AttackSurface createAttackSurface();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -63,6 +63,8 @@
         eType="#//AssetDefinition" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="threatConditions" upperBound="-1"
         eType="#//ThreatCondition" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attackSurfaces" upperBound="-1"
+        eType="#//AttackSurface" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="KnownSecurityThreats">
     <eStructuralFeatures xsi:type="ecore:EReference" name="cves" upperBound="-1" eType="#//CVE"
@@ -100,4 +102,8 @@
     <eLiterals name="REJECTED" value="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="CWE_ID" instanceClassName="java.lang.String"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AttackSurface">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="component" lowerBound="1"
+        eType="ecore:EClass e4sm.ecore#//Component"/>
+  </eClassifiers>
 </ecore:EPackage>

@@ -1808,13 +1808,22 @@ public interface e4smPackage extends EPackage {
 	int MODEL__SECURITY_THREATS_IMPORT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 11;
 
 	/**
+	 * The feature id for the '<em><b>Security Specification</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL__SECURITY_SPECIFICATION = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 12;
+
+	/**
 	 * The number of structural features of the '<em>Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 12;
+	int MODEL_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 13;
 
 	/**
 	 * The operation id for the '<em>Is Person Picture Path Valid</em>' operation.
@@ -5406,6 +5415,17 @@ public interface e4smPackage extends EPackage {
 	EReference getModel_SecurityThreatsImport();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link e4sm.de.metamodel.e4sm.Model#getSecuritySpecification <em>Security Specification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Security Specification</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Model#getSecuritySpecification()
+	 * @see #getModel()
+	 * @generated
+	 */
+	EReference getModel_SecuritySpecification();
+
+	/**
 	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.Model#isPersonPicturePathValid(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Is Person Picture Path Valid</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7123,6 +7143,14 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EReference MODEL__SECURITY_THREATS_IMPORT = eINSTANCE.getModel_SecurityThreatsImport();
+
+		/**
+		 * The meta object literal for the '<em><b>Security Specification</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODEL__SECURITY_SPECIFICATION = eINSTANCE.getModel_SecuritySpecification();
 
 		/**
 		 * The meta object literal for the '<em><b>Is Person Picture Path Valid</b></em>' operation.

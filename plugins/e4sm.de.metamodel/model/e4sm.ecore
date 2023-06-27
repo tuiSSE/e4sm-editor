@@ -224,6 +224,8 @@
         eType="ecore:EClass security.ecore#//KnownSecurityThreats" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="securityThreatsImport"
         upperBound="-1" eType="#//SecurityThreatsImport" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="securitySpecification"
+        eType="ecore:EClass security.ecore#//SecuritySpecification" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Actor" eSuperTypes="core.ecore#//NamedElement core.ecore#//DocumentableElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

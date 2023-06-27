@@ -28,6 +28,7 @@ import e4sm.de.metamodel.e4sm.impl.e4smPackageImpl;
 
 import e4sm.de.metamodel.e4sm.security.AssetDefinition;
 import e4sm.de.metamodel.e4sm.security.AttackComplexity;
+import e4sm.de.metamodel.e4sm.security.AttackSurface;
 import e4sm.de.metamodel.e4sm.security.AttackVector;
 import e4sm.de.metamodel.e4sm.security.Availability;
 import e4sm.de.metamodel.e4sm.security.Confidentiality;
@@ -131,6 +132,13 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
 	 * @generated
 	 */
 	private EClass knownSecurityThreatsEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass attackSurfaceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -583,6 +591,16 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
 	 * @generated
 	 */
 	@Override
+	public EReference getSecuritySpecification_AttackSurfaces() {
+		return (EReference) securitySpecificationEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getKnownSecurityThreats() {
 		return knownSecurityThreatsEClass;
 	}
@@ -605,6 +623,26 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
 	@Override
 	public EReference getKnownSecurityThreats_Cwes() {
 		return (EReference) knownSecurityThreatsEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getAttackSurface() {
+		return attackSurfaceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getAttackSurface_Component() {
+		return (EReference) attackSurfaceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -772,10 +810,14 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
 		securitySpecificationEClass = createEClass(SECURITY_SPECIFICATION);
 		createEReference(securitySpecificationEClass, SECURITY_SPECIFICATION__ASSET_DEFINITIONS);
 		createEReference(securitySpecificationEClass, SECURITY_SPECIFICATION__THREAT_CONDITIONS);
+		createEReference(securitySpecificationEClass, SECURITY_SPECIFICATION__ATTACK_SURFACES);
 
 		knownSecurityThreatsEClass = createEClass(KNOWN_SECURITY_THREATS);
 		createEReference(knownSecurityThreatsEClass, KNOWN_SECURITY_THREATS__CVES);
 		createEReference(knownSecurityThreatsEClass, KNOWN_SECURITY_THREATS__CWES);
+
+		attackSurfaceEClass = createEClass(ATTACK_SURFACE);
+		createEReference(attackSurfaceEClass, ATTACK_SURFACE__COMPONENT);
 
 		// Create enums
 		severityLevelEEnum = createEEnum(SEVERITY_LEVEL);
@@ -905,6 +947,9 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
 		initEReference(getSecuritySpecification_ThreatConditions(), this.getThreatCondition(), null, "threatConditions",
 				null, 0, -1, SecuritySpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSecuritySpecification_AttackSurfaces(), this.getAttackSurface(), null, "attackSurfaces", null,
+				0, -1, SecuritySpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(knownSecurityThreatsEClass, KnownSecurityThreats.class, "KnownSecurityThreats", !IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -914,6 +959,12 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
 		initEReference(getKnownSecurityThreats_Cwes(), this.getCWE(), null, "cwes", null, 0, -1,
 				KnownSecurityThreats.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(attackSurfaceEClass, AttackSurface.class, "AttackSurface", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAttackSurface_Component(), thee4smPackage.getComponent(), null, "component", null, 1, 1,
+				AttackSurface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(severityLevelEEnum, SeverityLevel.class, "SeverityLevel");

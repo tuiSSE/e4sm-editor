@@ -77,9 +77,12 @@ import e4sm.de.metamodel.e4sm.execution.ParameterReference;
 import e4sm.de.metamodel.e4sm.execution.TimeFunction;
 import e4sm.de.metamodel.e4sm.execution.Variable;
 import e4sm.de.metamodel.e4sm.execution.VariableRef;
+import e4sm.de.metamodel.e4sm.security.AssetDefinition;
+import e4sm.de.metamodel.e4sm.security.AttackSurface;
 import e4sm.de.metamodel.e4sm.security.CVE;
 import e4sm.de.metamodel.e4sm.security.KnownSecurityThreats;
 import e4sm.de.metamodel.e4sm.security.SecurityPackage;
+import e4sm.de.metamodel.e4sm.security.SecuritySpecification;
 import e4sm.de.metamodel.xtext.services.E4smGrammarAccess;
 import java.util.Map;
 import java.util.Set;
@@ -389,11 +392,20 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			}
 		else if (epackage == SecurityPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case SecurityPackage.ASSET_DEFINITION:
+				sequence_AssetDefinition(context, (AssetDefinition) semanticObject); 
+				return; 
+			case SecurityPackage.ATTACK_SURFACE:
+				sequence_AttackSurface(context, (AttackSurface) semanticObject); 
+				return; 
 			case SecurityPackage.CVE:
 				sequence_CVE(context, (CVE) semanticObject); 
 				return; 
 			case SecurityPackage.KNOWN_SECURITY_THREATS:
 				sequence_KnownSecurityThreats(context, (KnownSecurityThreats) semanticObject); 
+				return; 
+			case SecurityPackage.SECURITY_SPECIFICATION:
+				sequence_SecuritySpecification(context, (SecuritySpecification) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -463,6 +475,26 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     AssetDefinition returns AssetDefinition
+	 *
+	 * Constraint:
+	 *     component=[Component|EString]
+	 * </pre>
+	 */
+	protected void sequence_AssetDefinition(ISerializationContext context, AssetDefinition semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SecurityPackage.Literals.ASSET_DEFINITION__COMPONENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SecurityPackage.Literals.ASSET_DEFINITION__COMPONENT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getAssetDefinitionAccess().getComponentComponentEStringParserRuleCall_2_0_1(), semanticObject.eGet(SecurityPackage.Literals.ASSET_DEFINITION__COMPONENT, false));
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     AssignableElementReference returns AssignableElementReference
 	 *
 	 * Constraint:
@@ -500,6 +532,26 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getAssignmentAccess().getTargetAssignableElementReferenceParserRuleCall_0_0(), semanticObject.getTarget());
 		feeder.accept(grammarAccess.getAssignmentAccess().getExpressionExpressionParserRuleCall_2_0(), semanticObject.getExpression());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     AttackSurface returns AttackSurface
+	 *
+	 * Constraint:
+	 *     component=[Component|EString]
+	 * </pre>
+	 */
+	protected void sequence_AttackSurface(ISerializationContext context, AttackSurface semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SecurityPackage.Literals.ATTACK_SURFACE__COMPONENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SecurityPackage.Literals.ATTACK_SURFACE__COMPONENT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getAttackSurfaceAccess().getComponentComponentEStringParserRuleCall_3_0_1(), semanticObject.eGet(SecurityPackage.Literals.ATTACK_SURFACE__COMPONENT, false));
 		feeder.finish();
 	}
 	
@@ -578,7 +630,13 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     CVE returns CVE
 	 *
 	 * Constraint:
-	 *     (cveId=EString cvss=EDouble? vectorString=EString? (affectsComponents+=[Component|EString] affectsComponents+=[Component|EString]*)?)
+	 *     (
+	 *         cveId=EString 
+	 *         cvss=EDouble? 
+	 *         vectorString=EString? 
+	 *         description=EString? 
+	 *         (affectsComponents+=[Component|EString] affectsComponents+=[Component|EString]*)?
+	 *     )
 	 * </pre>
 	 */
 	protected void sequence_CVE(ISerializationContext context, CVE semanticObject) {
@@ -1682,6 +1740,7 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         (imports+=Import imports+=Import*)? 
 	 *         (securityThreatsImport+=SecurityThreatsImport securityThreatsImport+=SecurityThreatsImport*)? 
 	 *         securityThreatsDefinition=KnownSecurityThreats? 
+	 *         securitySpecification=SecuritySpecification? 
 	 *         personsPicturesPath=EString? 
 	 *         (types+=TypeSpecification types+=TypeSpecification*)? 
 	 *         (parameters+=Parameter parameters+=Parameter*)? 
@@ -1974,6 +2033,20 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * </pre>
 	 */
 	protected void sequence_Sector(ISerializationContext context, Sector semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     SecuritySpecification returns SecuritySpecification
+	 *
+	 * Constraint:
+	 *     ((assetDefinitions+=AssetDefinition assetDefinitions+=AssetDefinition*)? (attackSurfaces+=AttackSurface attackSurfaces+=AttackSurface*)?)
+	 * </pre>
+	 */
+	protected void sequence_SecuritySpecification(ISerializationContext context, SecuritySpecification semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
