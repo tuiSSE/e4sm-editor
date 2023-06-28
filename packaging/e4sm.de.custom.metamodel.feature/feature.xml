@@ -28,7 +28,7 @@
       <import plugin="org.eclipse.e4.core.services" version="2.3.400" match="greaterOrEqual"/>
       <import plugin="org.eclipse.emf.ecore"/>
       <import plugin="org.eclipse.emf.edit"/>
-      <import plugin="com.google.guava" version="30.1.0" match="greaterOrEqual"/>
+      <import plugin="com.google.guava" version="30.1.0.v20221112-0806" match="perfect"/>
    </requires>
 
    <plugin
@@ -59,7 +59,7 @@
          id="com.google.guava"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="30.1.0.v20221112-0806"
          unpack="false"/>
 
 </feature>
