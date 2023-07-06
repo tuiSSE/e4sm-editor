@@ -27,7 +27,7 @@
         </property>
         <property
               name="aboutText"
-              value="Welcome to the E4SM Editor&apos;s About Page&#x0A;Here you can .....">
+              value="Welcome to the E4SM Editor.&#x0A;This project has received funding from the Carl Zeiss Foundation as part of the project E4SM under the grant agreement no. P2017-01-005.&#x0A;&#x0A;This tool is based upon the Eclipse editor.&#x0A;	&#x0A;Technical realization by: SSE Department of the Technische Universität Ilmenau, in Germany.">
         </property>
      </product>
   </extension>

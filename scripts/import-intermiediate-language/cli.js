@@ -28,6 +28,8 @@ async function run() {
         printHelp();
         process.exit(1);
     }
+
+    console.log(`Converting file ${options.source}`);
     const input = await loadJSONFile(options.source);
     const schema = await loadSchema();
 
@@ -36,16 +38,16 @@ async function run() {
         console.error("The given file does not follow the required schema, please fix the errors listed above and retry.");
         process.exit(1);
     }
-    console.log("Input file is valid");
+    console.log("Input file format is valid");
 
-    console.dir(input); // TODO remove
+    // console.dir(input); // TODO remove
 
     let res = generateE4SM(input);
 
-    console.log(res); // TODO out to file
+    // console.log(res); // TODO out to file
     writeStringToFile(res, options.target ?? "out.e4smcode");
 
-    //runTests();
+    // Run tests with runTests();
 }
 
 function printHelp() {
@@ -98,7 +100,7 @@ async function loadJSONFile(path) {
  * @returns
  */
 async function writeStringToFile(content, path) {
-    console.debug("Writing file to " + path);
+    console.debug(`Writing file to ${path} …`);
     try {
       await writeFile(path, content);
       return;

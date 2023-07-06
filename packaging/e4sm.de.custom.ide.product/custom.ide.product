@@ -6,8 +6,12 @@
    <aboutInfo>
       <image path="/e4sm.de.metamodel.branding/icons/logo_64.gif"/>
       <text>
-         Welcome to the E4SM Editor&apos;s About Page
-Here you can .....
+         Welcome to the E4SM Editor.
+This project has received funding from the Carl Zeiss Foundation as part of the project E4SM under the grant agreement no. P2017-01-005.
+
+This tool is based upon the Eclipse editor.
+	
+Technical realization by: SSE Department of the Technische Universität Ilmenau, in Germany.
       </text>
    </aboutInfo>
 
@@ -129,6 +133,7 @@ plugins\e4sm.de.metamodel.branding_1.0.0\plugin_customization.ini
    </configurations>
 
    <preferencesInfo>
+      <targetfile overwrite="false"/>
    </preferencesInfo>
 
    <cssInfo>

@@ -39,11 +39,13 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="cveId" lowerBound="1" eType="#//CVE_ID"
         iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="state" eType="#//State"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="vectorString" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="affectsComponents" upperBound="-1"
         eType="ecore:EClass e4sm.ecore#//Component"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="confidentialityImpact"
+        ordered="false" unique="false" eType="#//ConfidentialityImpact" changeable="false"
+        transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CWE">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="cwss" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"

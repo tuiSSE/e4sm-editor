@@ -57,10 +57,10 @@ public class CVEItemProvider extends ItemProviderAdapter implements IEditingDoma
 
 			addCvssPropertyDescriptor(object);
 			addCveIdPropertyDescriptor(object);
-			addStatePropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 			addVectorStringPropertyDescriptor(object);
 			addAffectsComponentsPropertyDescriptor(object);
+			addConfidentialityImpactPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -92,21 +92,6 @@ public class CVEItemProvider extends ItemProviderAdapter implements IEditingDoma
 						getResourceLocator(), getString("_UI_CVE_cveId_feature"),
 						getString("_UI_PropertyDescriptor_description", "_UI_CVE_cveId_feature", "_UI_CVE_type"),
 						SecurityPackage.Literals.CVE__CVE_ID, true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the State feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addStatePropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_CVE_state_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_CVE_state_feature", "_UI_CVE_type"),
-						SecurityPackage.Literals.CVE__STATE, true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -153,6 +138,22 @@ public class CVEItemProvider extends ItemProviderAdapter implements IEditingDoma
 						getString("_UI_PropertyDescriptor_description", "_UI_CVE_affectsComponents_feature",
 								"_UI_CVE_type"),
 						SecurityPackage.Literals.CVE__AFFECTS_COMPONENTS, true, false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Confidentiality Impact feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addConfidentialityImpactPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_CVE_confidentialityImpact_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_CVE_confidentialityImpact_feature",
+								"_UI_CVE_type"),
+						SecurityPackage.Literals.CVE__CONFIDENTIALITY_IMPACT, false, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -205,9 +206,9 @@ public class CVEItemProvider extends ItemProviderAdapter implements IEditingDoma
 		switch (notification.getFeatureID(CVE.class)) {
 		case SecurityPackage.CVE__CVSS:
 		case SecurityPackage.CVE__CVE_ID:
-		case SecurityPackage.CVE__STATE:
 		case SecurityPackage.CVE__DESCRIPTION:
 		case SecurityPackage.CVE__VECTOR_STRING:
+		case SecurityPackage.CVE__CONFIDENTIALITY_IMPACT:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}

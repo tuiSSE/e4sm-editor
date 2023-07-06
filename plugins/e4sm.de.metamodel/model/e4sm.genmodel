@@ -681,10 +681,10 @@
     <genClasses ecoreClass="security.ecore#//CVE">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute security.ecore#//CVE/cvss"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute security.ecore#//CVE/cveId"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute security.ecore#//CVE/state"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute security.ecore#//CVE/description"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute security.ecore#//CVE/vectorString"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference security.ecore#//CVE/affectsComponents"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute security.ecore#//CVE/confidentialityImpact"/>
     </genClasses>
     <genClasses ecoreClass="security.ecore#//CWE">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute security.ecore#//CWE/cwss"/>

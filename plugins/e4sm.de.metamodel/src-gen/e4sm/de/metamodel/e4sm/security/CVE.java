@@ -17,10 +17,10 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link e4sm.de.metamodel.e4sm.security.CVE#getCvss <em>Cvss</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.security.CVE#getCveId <em>Cve Id</em>}</li>
- *   <li>{@link e4sm.de.metamodel.e4sm.security.CVE#getState <em>State</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.security.CVE#getDescription <em>Description</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.security.CVE#getVectorString <em>Vector String</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.security.CVE#getAffectsComponents <em>Affects Components</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.security.CVE#getConfidentialityImpact <em>Confidentiality Impact</em>}</li>
  * </ul>
  *
  * @see e4sm.de.metamodel.e4sm.security.SecurityPackage#getCVE()
@@ -74,31 +74,6 @@ public interface CVE extends EObject {
 	 * @generated
 	 */
 	void setCveId(String value);
-
-	/**
-	 * Returns the value of the '<em><b>State</b></em>' attribute.
-	 * The literals are from the enumeration {@link e4sm.de.metamodel.e4sm.security.State}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>State</em>' attribute.
-	 * @see e4sm.de.metamodel.e4sm.security.State
-	 * @see #setState(State)
-	 * @see e4sm.de.metamodel.e4sm.security.SecurityPackage#getCVE_State()
-	 * @model
-	 * @generated
-	 */
-	State getState();
-
-	/**
-	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.security.CVE#getState <em>State</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>State</em>' attribute.
-	 * @see e4sm.de.metamodel.e4sm.security.State
-	 * @see #getState()
-	 * @generated
-	 */
-	void setState(State value);
 
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' attribute.
@@ -155,5 +130,18 @@ public interface CVE extends EObject {
 	 * @generated
 	 */
 	EList<Component> getAffectsComponents();
+
+	/**
+	 * Returns the value of the '<em><b>Confidentiality Impact</b></em>' attribute.
+	 * The literals are from the enumeration {@link e4sm.de.metamodel.e4sm.security.ConfidentialityImpact}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Confidentiality Impact</em>' attribute.
+	 * @see e4sm.de.metamodel.e4sm.security.ConfidentialityImpact
+	 * @see e4sm.de.metamodel.e4sm.security.SecurityPackage#getCVE_ConfidentialityImpact()
+	 * @model unique="false" transient="true" changeable="false" derived="true" ordered="false"
+	 * @generated
+	 */
+	ConfidentialityImpact getConfidentialityImpact();
 
 } // CVE

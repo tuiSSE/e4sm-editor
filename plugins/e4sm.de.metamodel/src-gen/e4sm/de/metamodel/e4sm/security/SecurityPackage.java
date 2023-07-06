@@ -318,22 +318,13 @@ public interface SecurityPackage extends EPackage {
 	int CVE__CVE_ID = 1;
 
 	/**
-	 * The feature id for the '<em><b>State</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CVE__STATE = 2;
-
-	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CVE__DESCRIPTION = 3;
+	int CVE__DESCRIPTION = 2;
 
 	/**
 	 * The feature id for the '<em><b>Vector String</b></em>' attribute.
@@ -342,7 +333,7 @@ public interface SecurityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CVE__VECTOR_STRING = 4;
+	int CVE__VECTOR_STRING = 3;
 
 	/**
 	 * The feature id for the '<em><b>Affects Components</b></em>' reference list.
@@ -351,7 +342,16 @@ public interface SecurityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CVE__AFFECTS_COMPONENTS = 5;
+	int CVE__AFFECTS_COMPONENTS = 4;
+
+	/**
+	 * The feature id for the '<em><b>Confidentiality Impact</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CVE__CONFIDENTIALITY_IMPACT = 5;
 
 	/**
 	 * The number of structural features of the '<em>CVE</em>' class.
@@ -846,17 +846,6 @@ public interface SecurityPackage extends EPackage {
 	EAttribute getCVE_CveId();
 
 	/**
-	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.security.CVE#getState <em>State</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>State</em>'.
-	 * @see e4sm.de.metamodel.e4sm.security.CVE#getState()
-	 * @see #getCVE()
-	 * @generated
-	 */
-	EAttribute getCVE_State();
-
-	/**
 	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.security.CVE#getDescription <em>Description</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -888,6 +877,17 @@ public interface SecurityPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getCVE_AffectsComponents();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.security.CVE#getConfidentialityImpact <em>Confidentiality Impact</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Confidentiality Impact</em>'.
+	 * @see e4sm.de.metamodel.e4sm.security.CVE#getConfidentialityImpact()
+	 * @see #getCVE()
+	 * @generated
+	 */
+	EAttribute getCVE_ConfidentialityImpact();
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.security.CWE <em>CWE</em>}'.
@@ -1305,14 +1305,6 @@ public interface SecurityPackage extends EPackage {
 		EAttribute CVE__CVE_ID = eINSTANCE.getCVE_CveId();
 
 		/**
-		 * The meta object literal for the '<em><b>State</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CVE__STATE = eINSTANCE.getCVE_State();
-
-		/**
 		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1335,6 +1327,14 @@ public interface SecurityPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CVE__AFFECTS_COMPONENTS = eINSTANCE.getCVE_AffectsComponents();
+
+		/**
+		 * The meta object literal for the '<em><b>Confidentiality Impact</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CVE__CONFIDENTIALITY_IMPACT = eINSTANCE.getCVE_ConfidentialityImpact();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.security.impl.CWEImpl <em>CWE</em>}' class.

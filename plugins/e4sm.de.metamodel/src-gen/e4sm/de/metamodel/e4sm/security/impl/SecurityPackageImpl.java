@@ -441,7 +441,7 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getCVE_State() {
+	public EAttribute getCVE_Description() {
 		return (EAttribute) cveEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -451,7 +451,7 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getCVE_Description() {
+	public EAttribute getCVE_VectorString() {
 		return (EAttribute) cveEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -461,8 +461,8 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getCVE_VectorString() {
-		return (EAttribute) cveEClass.getEStructuralFeatures().get(4);
+	public EReference getCVE_AffectsComponents() {
+		return (EReference) cveEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -471,8 +471,8 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getCVE_AffectsComponents() {
-		return (EReference) cveEClass.getEStructuralFeatures().get(5);
+	public EAttribute getCVE_ConfidentialityImpact() {
+		return (EAttribute) cveEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -792,10 +792,10 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
 		cveEClass = createEClass(CVE);
 		createEAttribute(cveEClass, CVE__CVSS);
 		createEAttribute(cveEClass, CVE__CVE_ID);
-		createEAttribute(cveEClass, CVE__STATE);
 		createEAttribute(cveEClass, CVE__DESCRIPTION);
 		createEAttribute(cveEClass, CVE__VECTOR_STRING);
 		createEReference(cveEClass, CVE__AFFECTS_COMPONENTS);
+		createEAttribute(cveEClass, CVE__CONFIDENTIALITY_IMPACT);
 
 		cweEClass = createEClass(CWE);
 		createEAttribute(cweEClass, CWE__CWSS);
@@ -904,8 +904,6 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
 				!IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCVE_CveId(), this.getCVE_ID(), "cveId", null, 1, 1, e4sm.de.metamodel.e4sm.security.CVE.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCVE_State(), this.getState(), "state", null, 0, 1, e4sm.de.metamodel.e4sm.security.CVE.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCVE_Description(), theEcorePackage.getEString(), "description", null, 0, 1,
 				e4sm.de.metamodel.e4sm.security.CVE.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
 				!IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -915,6 +913,9 @@ public class SecurityPackageImpl extends EPackageImpl implements SecurityPackage
 		initEReference(getCVE_AffectsComponents(), thee4smPackage.getComponent(), null, "affectsComponents", null, 0,
 				-1, e4sm.de.metamodel.e4sm.security.CVE.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
 				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCVE_ConfidentialityImpact(), this.getConfidentialityImpact(), "confidentialityImpact", null,
+				0, 1, e4sm.de.metamodel.e4sm.security.CVE.class, IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE,
+				!IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
 
 		initEClass(cweEClass, e4sm.de.metamodel.e4sm.security.CWE.class, "CWE", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
