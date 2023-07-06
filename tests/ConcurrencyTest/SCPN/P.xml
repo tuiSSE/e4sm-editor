@@ -1,0 +1,1312 @@
+<?xml version="1.0" encoding="ASCII"?>
+<scpn:SCPNNet xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:scpn="http://timenet.tu-ilmenau.de/schema/SCPN" gridActive="true" id="P" netclass="SCPN" sharpEdges="false">
+  <place id="P_thread_pool_place_id" type="node" capacity="0" initialMarking="0,0,0,0" queue="Random" tokentype="int" watch="false">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="P_thread_pool_id" type="text" text="P_thread_pool">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="C1_executed_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="C1_executed_id" type="text" text="C1_executed">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="C1_main_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="C1_main_id" type="text" text="C1_main">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="C1_sem_place_id" type="node" capacity="0" initialMarking="0, 0, 0, 0, 0" queue="Random" tokentype="int" watch="false">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="C1_sem_id" type="text" text="C1_sem">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="C1_in_1_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="C1_in_1_id" type="text" text="C1_in_1">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="C1_out1_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="C1_out1_id" type="text" text="C1_out1">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="C1_out2_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="C1_out2_id" type="text" text="C1_out2">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="S_executed_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="S_executed_id" type="text" text="S_executed">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="S_out1_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="S_out1_id" type="text" text="S_out1">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="A_executed_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="A_executed_id" type="text" text="A_executed">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="A_main_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="A_main_id" type="text" text="A_main">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="A_in_1_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="A_in_1_id" type="text" text="A_in_1">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="A_in_1_1_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="A_in_1_1_id" type="text" text="A_in_1_1">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="A_in_2_1_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="A_in_2_1_id" type="text" text="A_in_2_1">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="P_In_executed_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="P_In_executed_id" type="text" text="P_In_executed">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="P_In_out1_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="P_In_out1_id" type="text" text="P_In_out1">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="P_Out_executed_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="P_Out_executed_id" type="text" text="P_Out_executed">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="P_Out_main_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="P_Out_main_id" type="text" text="P_Out_main">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="P_Out_in_1_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="P_Out_in_1_id" type="text" text="P_Out_in_1">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="P_executed_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="P_executed_id" type="text" text="P_executed">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="P_main_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="P_main_id" type="text" text="P_main">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="P_in_1_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="P_in_1_id" type="text" text="P_in_1">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="P_in_2_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="P_in_2_id" type="text" text="P_in_2">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="P_out1_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="P_out1_id" type="text" text="P_out1">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="P_out2_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="P_out2_id" type="text" text="P_out2">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="S1_executed_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="S1_executed_id" type="text" text="S1_executed">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="S1_out1_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="S1_out1_id" type="text" text="S1_out1">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="S2_executed_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="S2_executed_id" type="text" text="S2_executed">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="S2_out1_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="S2_out1_id" type="text" text="S2_out1">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="Act1_executed_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="Act1_executed_id" type="text" text="Act1_executed">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="Act1_main_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="Act1_main_id" type="text" text="Act1_main">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="Act1_in_1_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="Act1_in_1_id" type="text" text="Act1_in_1">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="Act2_executed_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="Act2_executed_id" type="text" text="Act2_executed">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="Act2_main_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="Act2_main_id" type="text" text="Act2_main">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="Act2_in_1_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="Act2_in_1_id" type="text" text="Act2_in_1">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="S3_executed_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="S3_executed_id" type="text" text="S3_executed">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="S3_out1_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="S3_out1_id" type="text" text="S3_out1">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="A3_executed_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="A3_executed_id" type="text" text="A3_executed">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="A3_main_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="A3_main_id" type="text" text="A3_main">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="A3_in_1_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="A3_in_1_id" type="text" text="A3_in_1">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="Binary_executed_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="Binary_executed_id" type="text" text="Binary_executed">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="Binary_main_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="Binary_main_id" type="text" text="Binary_main">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="Binary_in_1_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="Binary_in_1_id" type="text" text="Binary_in_1">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="Binary_out1_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="Binary_out1_id" type="text" text="Binary_out1">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="Binary_in_data_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="Binary_in_data_id" type="text" text="Binary_in_data">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="Binary_data_gen_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="Binary_data_gen_id" type="text" text="Binary_data_gen">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="Binary_ct_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="Binary_ct_id" type="text" text="Binary_ct">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="Binary_cf_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="Binary_cf_id" type="text" text="Binary_cf">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="Binary_tp_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="Binary_tp_id" type="text" text="Binary_tp">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="Binary_fn_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="Binary_fn_id" type="text" text="Binary_fn">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="Binary_tn_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="Binary_tn_id" type="text" text="Binary_tn">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <place id="Binary_fp_place_id" type="node" capacity="0" initialMarking="" queue="Random" tokentype="Data" watch="false">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="Binary_fp_id" type="text" text="Binary_fp">
+      <graphics x="30" y="30"/>
+    </label>
+  </place>
+  <timedTransition id="S_ready_timed_trans_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="true" timeFunction="EXP(1.0)">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="S_ready_id" type="text" text="S_ready">
+      <graphics x="30" y="30"/>
+    </label>
+  </timedTransition>
+  <timedTransition id="P_In_ready_timed_trans_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="true" timeFunction="EXP(1.0)">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="P_In_ready_id" type="text" text="P_In_ready">
+      <graphics x="30" y="30"/>
+    </label>
+  </timedTransition>
+  <timedTransition id="S1_ready_timed_trans_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="true" timeFunction="EXP(1.0)">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="S1_ready_id" type="text" text="S1_ready">
+      <graphics x="30" y="30"/>
+    </label>
+  </timedTransition>
+  <timedTransition id="S2_ready_timed_trans_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="true" timeFunction="EXP(1.0)">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="S2_ready_id" type="text" text="S2_ready">
+      <graphics x="30" y="30"/>
+    </label>
+  </timedTransition>
+  <timedTransition id="S3_ready_timed_trans_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="true" timeFunction="EXP(1.0)">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="S3_ready_id" type="text" text="S3_ready">
+      <graphics x="30" y="30"/>
+    </label>
+  </timedTransition>
+  <timedTransition id="C1_execution_timed_trans_id" type="node" serverType="InfiniteServer" specType="Automatic" takeFirst="false" watch="false" timeFunction="EXP(1.0)">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="C1_execution_id" type="text" text="C1_execution">
+      <graphics x="30" y="30"/>
+    </label>
+  </timedTransition>
+  <timedTransition id="A_execution_timed_trans_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" timeFunction="EXP(1.0)">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="A_execution_id" type="text" text="A_execution">
+      <graphics x="30" y="30"/>
+    </label>
+  </timedTransition>
+  <timedTransition id="P_Out_execution_timed_trans_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" timeFunction="EXP(1.0)">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="P_Out_execution_id" type="text" text="P_Out_execution">
+      <graphics x="30" y="30"/>
+    </label>
+  </timedTransition>
+  <timedTransition id="P_execution_timed_trans_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" timeFunction="EXP(1.0)">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="P_execution_id" type="text" text="P_execution">
+      <graphics x="30" y="30"/>
+    </label>
+  </timedTransition>
+  <timedTransition id="Act1_execution_timed_trans_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" timeFunction="EXP(1.0)">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="Act1_execution_id" type="text" text="Act1_execution">
+      <graphics x="30" y="30"/>
+    </label>
+  </timedTransition>
+  <timedTransition id="Act2_execution_timed_trans_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" timeFunction="EXP(1.0)">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="Act2_execution_id" type="text" text="Act2_execution">
+      <graphics x="30" y="30"/>
+    </label>
+  </timedTransition>
+  <timedTransition id="A3_execution_timed_trans_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" timeFunction="EXP(1.0)">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="A3_execution_id" type="text" text="A3_execution">
+      <graphics x="30" y="30"/>
+    </label>
+  </timedTransition>
+  <timedTransition id="Binary_execution_timed_trans_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" timeFunction="EXP(1.0)">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="Binary_execution_id" type="text" text="Binary_execution">
+      <graphics x="30" y="30"/>
+    </label>
+  </timedTransition>
+  <timedTransition id="con_sLc2_timed_trans_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" timeFunction="EXP(1.0)">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="con_sLc2_id" type="text" text="con_sLc2">
+      <graphics x="30" y="30"/>
+    </label>
+  </timedTransition>
+  <timedTransition id="con_Vxs5_timed_trans_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" timeFunction="EXP(1.0)">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="con_Vxs5_id" type="text" text="con_Vxs5">
+      <graphics x="30" y="30"/>
+    </label>
+  </timedTransition>
+  <timedTransition id="con_KSdj_timed_trans_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" timeFunction="EXP(1.0)">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="con_KSdj_id" type="text" text="con_KSdj">
+      <graphics x="30" y="30"/>
+    </label>
+  </timedTransition>
+  <timedTransition id="con_bxwf_timed_trans_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" timeFunction="EXP(1.0)">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="con_bxwf_id" type="text" text="con_bxwf">
+      <graphics x="30" y="30"/>
+    </label>
+  </timedTransition>
+  <timedTransition id="con_Q2pv_timed_trans_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" timeFunction="EXP(1.0)">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="con_Q2pv_id" type="text" text="con_Q2pv">
+      <graphics x="30" y="30"/>
+    </label>
+  </timedTransition>
+  <timedTransition id="con_0ogb_timed_trans_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" timeFunction="EXP(1.0)">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="con_0ogb_id" type="text" text="con_0ogb">
+      <graphics x="30" y="30"/>
+    </label>
+  </timedTransition>
+  <timedTransition id="con_9K4e_timed_trans_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" timeFunction="EXP(1.0)">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="con_9K4e_id" type="text" text="con_9K4e">
+      <graphics x="30" y="30"/>
+    </label>
+  </timedTransition>
+  <timedTransition id="con_xgVM_timed_trans_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" timeFunction="EXP(1.0)">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="con_xgVM_id" type="text" text="con_xgVM">
+      <graphics x="30" y="30"/>
+    </label>
+  </timedTransition>
+  <timedTransition id="con_WnTU_timed_trans_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" timeFunction="EXP(1.0)">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="con_WnTU_id" type="text" text="con_WnTU">
+      <graphics x="30" y="30"/>
+    </label>
+  </timedTransition>
+  <timedTransition id="con_uOSv_timed_trans_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" timeFunction="EXP(1.0)">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="con_uOSv_id" type="text" text="con_uOSv">
+      <graphics x="30" y="30"/>
+    </label>
+  </timedTransition>
+  <immediateTransition id="C1_post_execution_imm_tran_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" priority="1" weight="1.0">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="C1_post_execution_id" type="text" text="C1_post_execution">
+      <graphics x="30" y="30"/>
+    </label>
+  </immediateTransition>
+  <immediateTransition id="C1_ready_imm_tran_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" priority="1" weight="1.0">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="C1_ready_id" type="text" text="C1_ready">
+      <graphics x="30" y="30"/>
+    </label>
+  </immediateTransition>
+  <immediateTransition id="S_post_execution_imm_tran_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" priority="1" weight="1.0">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="S_post_execution_id" type="text" text="S_post_execution">
+      <graphics x="30" y="30"/>
+    </label>
+  </immediateTransition>
+  <immediateTransition id="A_post_execution_imm_tran_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" priority="1" weight="1.0">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="A_post_execution_id" type="text" text="A_post_execution">
+      <graphics x="30" y="30"/>
+    </label>
+  </immediateTransition>
+  <immediateTransition id="A_ready_imm_tran_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" priority="1" weight="1.0">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="A_ready_id" type="text" text="A_ready">
+      <graphics x="30" y="30"/>
+    </label>
+  </immediateTransition>
+  <immediateTransition id="A_in_1_merge_imm_tran_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" priority="1" weight="1.0">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="A_in_1_merge_id" type="text" text="A_in_1_merge">
+      <graphics x="30" y="30"/>
+    </label>
+  </immediateTransition>
+  <immediateTransition id="P_In_post_execution_imm_tran_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" priority="1" weight="1.0">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="P_In_post_execution_id" type="text" text="P_In_post_execution">
+      <graphics x="30" y="30"/>
+    </label>
+  </immediateTransition>
+  <immediateTransition id="P_Out_post_execution_imm_tran_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" priority="1" weight="1.0">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="P_Out_post_execution_id" type="text" text="P_Out_post_execution">
+      <graphics x="30" y="30"/>
+    </label>
+  </immediateTransition>
+  <immediateTransition id="P_Out_ready_imm_tran_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" priority="1" weight="1.0">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="P_Out_ready_id" type="text" text="P_Out_ready">
+      <graphics x="30" y="30"/>
+    </label>
+  </immediateTransition>
+  <immediateTransition id="P_post_execution_imm_tran_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" priority="1" weight="1.0">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="P_post_execution_id" type="text" text="P_post_execution">
+      <graphics x="30" y="30"/>
+    </label>
+  </immediateTransition>
+  <immediateTransition id="P_ready_imm_tran_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" priority="1" weight="1.0">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="P_ready_id" type="text" text="P_ready">
+      <graphics x="30" y="30"/>
+    </label>
+  </immediateTransition>
+  <immediateTransition id="S1_post_execution_imm_tran_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" priority="1" weight="1.0">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="S1_post_execution_id" type="text" text="S1_post_execution">
+      <graphics x="30" y="30"/>
+    </label>
+  </immediateTransition>
+  <immediateTransition id="S2_post_execution_imm_tran_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" priority="1" weight="1.0">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="S2_post_execution_id" type="text" text="S2_post_execution">
+      <graphics x="30" y="30"/>
+    </label>
+  </immediateTransition>
+  <immediateTransition id="Act1_post_execution_imm_tran_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" priority="1" weight="1.0">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="Act1_post_execution_id" type="text" text="Act1_post_execution">
+      <graphics x="30" y="30"/>
+    </label>
+  </immediateTransition>
+  <immediateTransition id="Act1_ready_imm_tran_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" priority="1" weight="1.0">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="Act1_ready_id" type="text" text="Act1_ready">
+      <graphics x="30" y="30"/>
+    </label>
+  </immediateTransition>
+  <immediateTransition id="Act2_post_execution_imm_tran_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" priority="1" weight="1.0">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="Act2_post_execution_id" type="text" text="Act2_post_execution">
+      <graphics x="30" y="30"/>
+    </label>
+  </immediateTransition>
+  <immediateTransition id="Act2_ready_imm_tran_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" priority="1" weight="1.0">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="Act2_ready_id" type="text" text="Act2_ready">
+      <graphics x="30" y="30"/>
+    </label>
+  </immediateTransition>
+  <immediateTransition id="S3_post_execution_imm_tran_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" priority="1" weight="1.0">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="S3_post_execution_id" type="text" text="S3_post_execution">
+      <graphics x="30" y="30"/>
+    </label>
+  </immediateTransition>
+  <immediateTransition id="A3_post_execution_imm_tran_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" priority="1" weight="1.0">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="A3_post_execution_id" type="text" text="A3_post_execution">
+      <graphics x="30" y="30"/>
+    </label>
+  </immediateTransition>
+  <immediateTransition id="A3_ready_imm_tran_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" priority="1" weight="1.0">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="A3_ready_id" type="text" text="A3_ready">
+      <graphics x="30" y="30"/>
+    </label>
+  </immediateTransition>
+  <immediateTransition id="Binary_post_execution_imm_tran_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" priority="1" weight="1.0">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="Binary_post_execution_id" type="text" text="Binary_post_execution">
+      <graphics x="30" y="30"/>
+    </label>
+  </immediateTransition>
+  <immediateTransition id="Binary_ready_imm_tran_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" priority="1" weight="1.0">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="Binary_ready_id" type="text" text="Binary_ready">
+      <graphics x="30" y="30"/>
+    </label>
+  </immediateTransition>
+  <immediateTransition id="Binary_not_OOD_imm_tran_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" priority="1" weight="1">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="Binary_not_OOD_id" type="text" text="Binary_not_OOD">
+      <graphics x="30" y="30"/>
+    </label>
+  </immediateTransition>
+  <immediateTransition id="Binary_OOD_imm_tran_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" priority="1" weight="0">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="Binary_OOD_id" type="text" text="Binary_OOD">
+      <graphics x="30" y="30"/>
+    </label>
+  </immediateTransition>
+  <immediateTransition id="Binary_ClassTruth_imm_tran_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" priority="1" weight="0.9688249400479616">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="Binary_ClassTruth_id" type="text" text="Binary_ClassTruth">
+      <graphics x="30" y="30"/>
+    </label>
+  </immediateTransition>
+  <immediateTransition id="Binary_ClassOther_imm_tran_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" priority="1" weight="0.031175059952038398">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="Binary_ClassOther_id" type="text" text="Binary_ClassOther">
+      <graphics x="30" y="30"/>
+    </label>
+  </immediateTransition>
+  <immediateTransition id="Binary_ct_tp_imm_tran_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" priority="1" weight="0.9900990099009901">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="Binary_ct_tp_id" type="text" text="Binary_ct_tp">
+      <graphics x="30" y="30"/>
+    </label>
+  </immediateTransition>
+  <immediateTransition id="Binary_ct_fn_imm_tran_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" priority="1" weight="0.00990099009900991">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="Binary_ct_fn_id" type="text" text="Binary_ct_fn">
+      <graphics x="30" y="30"/>
+    </label>
+  </immediateTransition>
+  <immediateTransition id="Binary__cf_tn_imm_tran_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" priority="1" weight="0.6153846153846154">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="Binary__cf_tn_id" type="text" text="Binary__cf_tn">
+      <graphics x="30" y="30"/>
+    </label>
+  </immediateTransition>
+  <immediateTransition id="Binary_cf_fp_imm_tran_id" type="node" serverType="ExclusiveServer" specType="Automatic" takeFirst="false" watch="false" priority="1" weight="0.3846153846153846">
+    <graphics orientation="0" x="30" y="30"/>
+    <label id="Binary_cf_fp_id" type="text" text="Binary_cf_fp">
+      <graphics x="30" y="30"/>
+    </label>
+  </immediateTransition>
+  <arc fromNode="C1_executed_place_id" id="C1_executed_to_post_arc_id" toNode="C1_post_execution_imm_tran_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="C1_ready_imm_tran_id" id="C1_ready_to_main_arc_id" toNode="C1_main_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="C1_main_place_id" id="C1_main_to_timed_arc_id" toNode="C1_execution_timed_trans_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="C1_execution_timed_trans_id" id="C1_exec_arc_id" toNode="C1_executed_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="C1_execution_timed_trans_id" id="C1_semBack_arc_id" toNode="C1_sem_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="new(0)">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="C1_sem_place_id" id="C1_semReady_arc_id" toNode="C1_ready_imm_tran_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="limit">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="C1_post_execution_imm_tran_id" id="C1_post_to_pool_arc_id" toNode="P_thread_pool_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="new(0)">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="P_thread_pool_place_id" id="C1_pool_to_execution_arc_id" toNode="C1_execution_timed_trans_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="pool">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="C1_in_1_place_id" id="C1_in_1_place_id_to_C1_arc_id" toNode="C1_ready_imm_tran_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="C1_post_execution_imm_tran_id" id="C1_out1_place_id_from_C1_arc_id" toNode="C1_out1_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="new({})">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="C1_post_execution_imm_tran_id" id="C1_out2_place_id_from_C1_arc_id" toNode="C1_out2_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="new({})">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="S_executed_place_id" id="S_executed_to_post_arc_id" toNode="S_post_execution_imm_tran_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="S_ready_timed_trans_id" id="S_exec_arc_id" toNode="S_executed_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="new({})">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="S_post_execution_imm_tran_id" id="S_post_to_pool_arc_id" toNode="P_thread_pool_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="new(0)">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="P_thread_pool_place_id" id="S_pool_to_execution_arc_id" toNode="S_ready_timed_trans_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="pool">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="S_post_execution_imm_tran_id" id="S_out1_place_id_from_S_arc_id" toNode="S_out1_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="new({})">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="A_executed_place_id" id="A_executed_to_post_arc_id" toNode="A_post_execution_imm_tran_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="A_ready_imm_tran_id" id="A_ready_to_main_arc_id" toNode="A_main_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="A_main_place_id" id="A_main_to_timed_arc_id" toNode="A_execution_timed_trans_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="A_execution_timed_trans_id" id="A_exec_arc_id" toNode="A_executed_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="A_post_execution_imm_tran_id" id="A_post_to_pool_arc_id" toNode="P_thread_pool_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="new(0)">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="P_thread_pool_place_id" id="A_pool_to_execution_arc_id" toNode="A_execution_timed_trans_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="pool">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="A_in_1_merge_imm_tran_id" id="A_in_1_arc_id" toNode="A_in_1_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="new({})">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="A_in_1_1_place_id" id="A_in_1_1_arc_id" toNode="A_in_1_merge_imm_tran_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="A_in_2_1_place_id" id="A_in_2_1_arc_id" toNode="A_in_1_merge_imm_tran_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="y">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="A_in_1_place_id" id="A_in_1_place_id_to_A_arc_id" toNode="A_ready_imm_tran_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="P_In_executed_place_id" id="P_In_executed_to_post_arc_id" toNode="P_In_post_execution_imm_tran_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="P_In_ready_timed_trans_id" id="P_In_exec_arc_id" toNode="P_In_executed_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="new({})">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="P_In_post_execution_imm_tran_id" id="P_In_post_to_pool_arc_id" toNode="P_thread_pool_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="new(0)">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="P_thread_pool_place_id" id="P_In_pool_to_execution_arc_id" toNode="P_In_ready_timed_trans_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="pool">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="P_In_post_execution_imm_tran_id" id="P_In_out1_place_id_from_P_In_arc_id" toNode="P_In_out1_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="new({})">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="P_Out_executed_place_id" id="P_Out_executed_to_post_arc_id" toNode="P_Out_post_execution_imm_tran_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="P_Out_ready_imm_tran_id" id="P_Out_ready_to_main_arc_id" toNode="P_Out_main_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="P_Out_main_place_id" id="P_Out_main_to_timed_arc_id" toNode="P_Out_execution_timed_trans_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="P_Out_execution_timed_trans_id" id="P_Out_exec_arc_id" toNode="P_Out_executed_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="P_Out_post_execution_imm_tran_id" id="P_Out_post_to_pool_arc_id" toNode="P_thread_pool_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="new(0)">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="P_thread_pool_place_id" id="P_Out_pool_to_execution_arc_id" toNode="P_Out_execution_timed_trans_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="pool">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="P_Out_in_1_place_id" id="P_Out_in_1_place_id_to_P_Out_arc_id" toNode="P_Out_ready_imm_tran_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="P_executed_place_id" id="P_executed_to_post_arc_id" toNode="P_post_execution_imm_tran_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="P_ready_imm_tran_id" id="P_ready_to_main_arc_id" toNode="P_main_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="P_main_place_id" id="P_main_to_timed_arc_id" toNode="P_execution_timed_trans_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="P_execution_timed_trans_id" id="P_exec_arc_id" toNode="P_executed_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="P_post_execution_imm_tran_id" id="P_post_to_pool_arc_id" toNode="P_thread_pool_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="new(0)">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="P_thread_pool_place_id" id="P_pool_to_execution_arc_id" toNode="P_execution_timed_trans_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="pool">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="P_in_1_place_id" id="P_in_1_place_id_to_P_arc_id" toNode="P_ready_imm_tran_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="P_in_2_place_id" id="P_in_2_place_id_to_P_arc_id" toNode="P_ready_imm_tran_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="y">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="P_post_execution_imm_tran_id" id="P_out1_place_id_from_P_arc_id" toNode="P_out1_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="new({})">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="P_post_execution_imm_tran_id" id="P_out2_place_id_from_P_arc_id" toNode="P_out2_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="new({})">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="S1_executed_place_id" id="S1_executed_to_post_arc_id" toNode="S1_post_execution_imm_tran_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="S1_ready_timed_trans_id" id="S1_exec_arc_id" toNode="S1_executed_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="new({})">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="S1_post_execution_imm_tran_id" id="S1_post_to_pool_arc_id" toNode="P_thread_pool_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="new(0)">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="P_thread_pool_place_id" id="S1_pool_to_execution_arc_id" toNode="S1_ready_timed_trans_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="pool">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="S1_post_execution_imm_tran_id" id="S1_out1_place_id_from_S1_arc_id" toNode="S1_out1_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="new({})">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="S2_executed_place_id" id="S2_executed_to_post_arc_id" toNode="S2_post_execution_imm_tran_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="S2_ready_timed_trans_id" id="S2_exec_arc_id" toNode="S2_executed_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="new({})">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="S2_post_execution_imm_tran_id" id="S2_post_to_pool_arc_id" toNode="P_thread_pool_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="new(0)">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="P_thread_pool_place_id" id="S2_pool_to_execution_arc_id" toNode="S2_ready_timed_trans_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="pool">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="S2_post_execution_imm_tran_id" id="S2_out1_place_id_from_S2_arc_id" toNode="S2_out1_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="new({})">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Act1_executed_place_id" id="Act1_executed_to_post_arc_id" toNode="Act1_post_execution_imm_tran_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Act1_ready_imm_tran_id" id="Act1_ready_to_main_arc_id" toNode="Act1_main_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Act1_main_place_id" id="Act1_main_to_timed_arc_id" toNode="Act1_execution_timed_trans_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Act1_execution_timed_trans_id" id="Act1_exec_arc_id" toNode="Act1_executed_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Act1_post_execution_imm_tran_id" id="Act1_post_to_pool_arc_id" toNode="P_thread_pool_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="new(0)">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="P_thread_pool_place_id" id="Act1_pool_to_execution_arc_id" toNode="Act1_execution_timed_trans_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="pool">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Act1_in_1_place_id" id="Act1_in_1_place_id_to_Act1_arc_id" toNode="Act1_ready_imm_tran_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Act2_executed_place_id" id="Act2_executed_to_post_arc_id" toNode="Act2_post_execution_imm_tran_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Act2_ready_imm_tran_id" id="Act2_ready_to_main_arc_id" toNode="Act2_main_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Act2_main_place_id" id="Act2_main_to_timed_arc_id" toNode="Act2_execution_timed_trans_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Act2_execution_timed_trans_id" id="Act2_exec_arc_id" toNode="Act2_executed_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Act2_post_execution_imm_tran_id" id="Act2_post_to_pool_arc_id" toNode="P_thread_pool_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="new(0)">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="P_thread_pool_place_id" id="Act2_pool_to_execution_arc_id" toNode="Act2_execution_timed_trans_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="pool">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Act2_in_1_place_id" id="Act2_in_1_place_id_to_Act2_arc_id" toNode="Act2_ready_imm_tran_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="S3_executed_place_id" id="S3_executed_to_post_arc_id" toNode="S3_post_execution_imm_tran_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="S3_ready_timed_trans_id" id="S3_exec_arc_id" toNode="S3_executed_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="new({})">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="S3_post_execution_imm_tran_id" id="S3_post_to_pool_arc_id" toNode="P_thread_pool_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="new(0)">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="P_thread_pool_place_id" id="S3_pool_to_execution_arc_id" toNode="S3_ready_timed_trans_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="pool">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="S3_post_execution_imm_tran_id" id="S3_out1_place_id_from_S3_arc_id" toNode="S3_out1_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="new({})">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="A3_executed_place_id" id="A3_executed_to_post_arc_id" toNode="A3_post_execution_imm_tran_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="A3_ready_imm_tran_id" id="A3_ready_to_main_arc_id" toNode="A3_main_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="A3_main_place_id" id="A3_main_to_timed_arc_id" toNode="A3_execution_timed_trans_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="A3_execution_timed_trans_id" id="A3_exec_arc_id" toNode="A3_executed_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="A3_post_execution_imm_tran_id" id="A3_post_to_pool_arc_id" toNode="P_thread_pool_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="new(0)">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="P_thread_pool_place_id" id="A3_pool_to_execution_arc_id" toNode="A3_execution_timed_trans_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="pool">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="A3_in_1_place_id" id="A3_in_1_place_id_to_A3_arc_id" toNode="A3_ready_imm_tran_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Binary_executed_place_id" id="Binary_executed_to_post_arc_id" toNode="Binary_post_execution_imm_tran_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Binary_ready_imm_tran_id" id="Binary_ready_to_main_arc_id" toNode="Binary_main_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Binary_main_place_id" id="Binary_main_to_timed_arc_id" toNode="Binary_execution_timed_trans_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Binary_execution_timed_trans_id" id="Binary_exec_arc_id" toNode="Binary_executed_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Binary_in_1_place_id" id="Binary_in_1_place_id_to_Binary_arc_id" toNode="Binary_ready_imm_tran_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Binary_post_execution_imm_tran_id" id="Binary_out1_place_id_from_Binary_arc_id" toNode="Binary_out1_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="new({})">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Binary_execution_timed_trans_id" id="Binaryexecution_to_in_data_arc_id" toNode="Binary_in_data_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="copy x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Binary_in_data_place_id" id="Binaryin_data_to_not_odd_arc_id" toNode="Binary_not_OOD_imm_tran_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Binary_in_data_place_id" id="Binaryin_data_to_odd_arc_id" toNode="Binary_OOD_imm_tran_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Binary_not_OOD_imm_tran_id" id="Binarynot_ood_to_dataGen_arc_id" toNode="Binary_data_gen_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Binary_OOD_imm_tran_id" id="Binaryood_to_cf_arc_id" toNode="Binary_cf_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x(ood=true)">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Binary_data_gen_place_id" id="Binarydata_gen_to_class_truth_arc_id" toNode="Binary_ClassTruth_imm_tran_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Binary_data_gen_place_id" id="Binarydata_gen_to_class_other_arc_id" toNode="Binary_ClassOther_imm_tran_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Binary_ClassTruth_imm_tran_id" id="Binaryclass_truth_to_ct_arc_id" toNode="Binary_ct_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x(tL=1)">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Binary_ClassOther_imm_tran_id" id="Binaryclass_other_to_cf_arc_id" toNode="Binary_cf_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x(tL=2)">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Binary_ct_place_id" id="Binaryct_to_ct_tp_arc_id" toNode="Binary_ct_tp_imm_tran_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Binary_ct_place_id" id="Binaryct_to_ct_fn_arc_id" toNode="Binary_ct_fn_imm_tran_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Binary_cf_place_id" id="Binarycf_to_cf_tn_arc_id" toNode="Binary__cf_tn_imm_tran_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Binary_cf_place_id" id="Binarycd_to_cf_fp_arc_id" toNode="Binary_cf_fp_imm_tran_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Binary_ct_tp_imm_tran_id" id="Binaryct_tp_2_tp_arc_id" toNode="Binary_tp_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Binary_ct_fn_imm_tran_id" id="Binaryct_fn_2_fn_arc_id" toNode="Binary_fn_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Binary__cf_tn_imm_tran_id" id="Binarycf_tn_2_tn_arc_id" toNode="Binary_tn_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Binary_cf_fp_imm_tran_id" id="Binarycf_fp_2_fp_arc_id" toNode="Binary_fp_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="S_out1_place_id" id="con_sLc2_1_arc_id" toNode="con_sLc2_timed_trans_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="con_sLc2_timed_trans_id" id="con_sLc2_2_arc_id" toNode="C1_in_1_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="C1_out1_place_id" id="con_Vxs5_1_arc_id" toNode="con_Vxs5_timed_trans_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="con_Vxs5_timed_trans_id" id="con_Vxs5_2_arc_id" toNode="A_in_1_1_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="C1_out2_place_id" id="con_KSdj_1_arc_id" toNode="con_KSdj_timed_trans_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="con_KSdj_timed_trans_id" id="con_KSdj_2_arc_id" toNode="A_in_2_1_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="P_In_out1_place_id" id="con_bxwf_1_arc_id" toNode="con_bxwf_timed_trans_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="con_bxwf_timed_trans_id" id="con_bxwf_2_arc_id" toNode="P_Out_in_1_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="S2_out1_place_id" id="con_Q2pv_1_arc_id" toNode="con_Q2pv_timed_trans_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="con_Q2pv_timed_trans_id" id="con_Q2pv_2_arc_id" toNode="P_in_2_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="S1_out1_place_id" id="con_0ogb_1_arc_id" toNode="con_0ogb_timed_trans_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="con_0ogb_timed_trans_id" id="con_0ogb_2_arc_id" toNode="P_in_1_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="P_out1_place_id" id="con_9K4e_1_arc_id" toNode="con_9K4e_timed_trans_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="con_9K4e_timed_trans_id" id="con_9K4e_2_arc_id" toNode="Act1_in_1_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="P_out2_place_id" id="con_xgVM_1_arc_id" toNode="con_xgVM_timed_trans_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="con_xgVM_timed_trans_id" id="con_xgVM_2_arc_id" toNode="Act2_in_1_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="S3_out1_place_id" id="con_WnTU_1_arc_id" toNode="con_WnTU_timed_trans_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="con_WnTU_timed_trans_id" id="con_WnTU_2_arc_id" toNode="Binary_in_1_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="Binary_out1_place_id" id="con_uOSv_1_arc_id" toNode="con_uOSv_timed_trans_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="con_uOSv_timed_trans_id" id="con_uOSv_2_arc_id" toNode="A3_in_1_place_id" type="connector">
+    <inscription id="anonymous_inscription_id" type="inscriptionText" text="x">
+      <graphics x="30" y="30"/>
+    </inscription>
+  </arc>
+  <measure id="C1_in_use_measure_id" type="text" eval="TimeAverage" expression="5 - #C1_sem" name="C1_in_use" result="" watch="true">
+    <graphics x="30" y="30"/>
+  </measure>
+  <measure id="A_a_meas" type="text" eval="Cumulative" expression="#A_executed" name="AReady" result="" watch="true">
+    <graphics x="0" y="0"/>
+  </measure>
+  <measure id="Act1_a_meas" type="text" eval="Cumulative" expression="#Act1_executed" name="Act1Ready" result="" watch="true">
+    <graphics x="0" y="0"/>
+  </measure>
+  <measure id="Act2_a_meas" type="text" eval="Cumulative" expression="#Act2_executed" name="Act2Ready" result="" watch="true">
+    <graphics x="0" y="0"/>
+  </measure>
+  <measure id="A3_a_meas" type="text" eval="Cumulative" expression="#A3_executed" name="A3Ready" result="" watch="true">
+    <graphics x="0" y="0"/>
+  </measure>
+  <measure id="Binary_accuracy_measure_id" type="text" eval="Instantaneous" expression="(#Binary_tp+ #Binary_tn) / (0.00000001 + #Binary_tp + #Binary_tn + #Binary_fp + #Binary_fn)" name="Binary_accuracy" result="" watch="false">
+    <graphics x="30" y="30"/>
+  </measure>
+  <measure id="Binary_specificity_measure_id" type="text" eval="Instantaneous" expression="#Binary_tn / (0.00000001 + #Binary_tn + #Binary_fp)" name="Binary_specificity" result="" watch="false">
+    <graphics x="30" y="30"/>
+  </measure>
+  <measure id="Binary_recall_measure_id" type="text" eval="Instantaneous" expression="#Binary_tp / (0.00000001 + #Binary_tp + #Binary_fn)" name="Binary_recall" result="" watch="false">
+    <graphics x="30" y="30"/>
+  </measure>
+  <measure id="Binary_precision_measure_id" type="text" eval="Instantaneous" expression="#Binary_tp / (0.00000001 + #Binary_tp + #Binary_fp)" name="Binary_precision" result="" watch="false">
+    <graphics x="30" y="30"/>
+  </measure>
+  <measure id="Binary_f1Score_measure_id" type="text" eval="Instantaneous" expression="#Binary_tp / (0.00000001 + #Binary_tp +(#Binary_fn + #Binary_fp)/2.0)" name="Binary_f1Score" result="" watch="false">
+    <graphics x="30" y="30"/>
+  </measure>
+  <comment id="data_comment_id" type="text" commentText="n: name (string)&lt;br>s:size (int)&lt;br>l:length (int)&lt;br>gT:generationTime (DateTime)&lt;br>d:isDefault (bool)&lt;br>tL:trueLabel (int)&lt;br>gL:guessedLabel (int);ood:Out of distribution (bool)">
+    <graphics x="110" y="1650"/>
+  </comment>
+  <recordTokentype id="data_id" type="text" name="Data">
+    <graphics x="130" y="1600"/>
+    <attribute dataType="string" name="n"/>
+    <attribute dataType="int" name="s"/>
+    <attribute dataType="int" name="l"/>
+    <attribute dataType="DateTime" name="gT"/>
+    <attribute dataType="bool" name="d"/>
+    <attribute dataType="bool" name="ood"/>
+    <attribute dataType="int" name="tL"/>
+    <attribute dataType="int" name="gL"/>
+  </recordTokentype>
+</scpn:SCPNNet>

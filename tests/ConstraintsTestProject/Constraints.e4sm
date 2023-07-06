@@ -74,11 +74,11 @@
   </packages>
   <packages xmi:id="_Bnj7cH9hEeyp_5B0a6JkUQ" name="Pin TestCases">
     <components xsi:type="e4sm:PhysicalComponent" xmi:id="_Fb36kH9hEeyp_5B0a6JkUQ" name="New Physical Component">
-      <pins xsi:type="e4sm:OutputPin" xmi:id="_Fb36kX9hEeyp_5B0a6JkUQ" outgoingConnectors="_HXEb8H9hEeyp_5B0a6JkUQ"/>
+      <pins xsi:type="e4sm:OutputPin" xmi:id="_Fb36kX9hEeyp_5B0a6JkUQ"/>
       <pins xsi:type="e4sm:InputPin" xmi:id="_Fb36kn9hEeyp_5B0a6JkUQ" name="Violates C1"/>
     </components>
     <components xsi:type="e4sm:Actuator" xmi:id="_GlRLkH9hEeyp_5B0a6JkUQ" name="New Actuator">
-      <pins xsi:type="e4sm:InputPin" xmi:id="_GlRLkX9hEeyp_5B0a6JkUQ" incomingConnectors="_HXEb8H9hEeyp_5B0a6JkUQ"/>
+      <pins xsi:type="e4sm:InputPin" xmi:id="_GlRLkX9hEeyp_5B0a6JkUQ" />
     </components>
     <components xsi:type="e4sm:Sensor" xmi:id="_JxFAQH9hEeyp_5B0a6JkUQ" name="New Sensor">
       <pins xsi:type="e4sm:OutputPin" xmi:id="_JxFAQX9hEeyp_5B0a6JkUQ" name="Violates C1"/>

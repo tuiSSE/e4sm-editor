@@ -1,0 +1,10 @@
+library transformTypes;
+import SCPNConstructors;
+import SCPNHelpers;
+
+modeltype e4sm "strict" uses e4sm("http://de.tu-ilmenau/e4sm/1.0.0");
+modeltype core "strict" uses core("http://de.tu-ilmenau/e4sm/core/1.0.0");
+modeltype scpn "strict" uses scpn("http://timenet.tu-ilmenau.de/schema/SCPN");
+
+// property typesCount : Integer = 0;
+

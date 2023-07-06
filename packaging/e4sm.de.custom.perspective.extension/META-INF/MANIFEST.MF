@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Extension
+Bundle-SymbolicName: e4sm.de.custom.perspective.extension;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: org.eclipse.ui
+Bundle-Vendor: E4SM
+Automatic-Module-Name: e4sm.de.custom.perspective.extension
+Bundle-RequiredExecutionEnvironment: JavaSE-17

@@ -192,12 +192,4 @@ public interface Component extends NamedElement, ParameterizableElement, Delayab
 	 */
 	Person computeMainResponsible();
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void newOperation2();
-
 } // Component

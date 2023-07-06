@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="e4sm.de.custom.metadesign.feature"
+      label="Feature"
+      version="1.0.0.qualifier"
+      provider-name="E4SM">
+
+   <description url="http://www.example.com/description">
+      This feature provides the necessary plug-ins to work with the sirius editor and start the transformations/timenet-sim.
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      [Enter Copyright Description here.]
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      [Enter License Description here.]
+   </license>
+
+   <requires>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="org.eclipse.sirius" version="7.2.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.common.acceleo.aql" version="7.2.0" match="greaterOrEqual"/>
+      <import plugin="e4sm.de.metamodel"/>
+      <import plugin="e4sm.de.metamodel.edit"/>
+      <import plugin="e4sm.de.metamodel.editor"/>
+      <import plugin="org.eclipse.emf" version="2.8.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.diagram" version="7.2.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.gmf.runtime.diagram.ui" version="1.9.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.diagram.ui" version="7.2.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.common.ui" version="7.2.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.m2m.qvt.oml" version="3.10.4" match="greaterOrEqual"/>
+      <import plugin="timenet.tuilmenau.de.scpn.metamodel" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="org.antlr.runtime" version="4.7.2" match="greaterOrEqual"/>
+      <import plugin="e4sm.de.metamodel.xtext" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="e4sm.de.metamodel.xtext.ui" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="e4sm.de.metamodel.acceleo.documentation" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.acceleo.engine" version="3.7.11" match="greaterOrEqual"/>
+      <import plugin="e4sm.de.timenet.runner" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="com.google.guava" version="30.1.0.v20221112-0806" match="perfect"/>
+      <import plugin="e4sm.de.metamodel" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.common.interpreter" version="7.2.0.202306070701" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.ui.properties" version="7.2.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.properties.core" version="7.2.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.eef.core"/>
+   </requires>
+
+   <plugin
+         id="e4sm.de.timenet.runner"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.sirius.common.acceleo.aql"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="e4sm.de.metamodel.design"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

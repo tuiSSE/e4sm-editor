@@ -67,7 +67,6 @@ import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.ISetSelectionTarget;
-
 import e4sm.de.metamodel.e4sm.e4smFactory;
 import e4sm.de.metamodel.e4sm.e4smPackage;
 import e4sm.de.metamodel.e4sm.provider.e4smEditPlugin;

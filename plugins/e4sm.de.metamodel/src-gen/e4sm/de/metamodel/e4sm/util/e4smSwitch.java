@@ -4,13 +4,23 @@ package e4sm.de.metamodel.e4sm.util;
 
 import e4sm.de.metamodel.e4sm.Actor;
 import e4sm.de.metamodel.e4sm.Actuator;
+import e4sm.de.metamodel.e4sm.BinaryClassificationComponent;
+import e4sm.de.metamodel.e4sm.BinaryConfusionMatrix;
+import e4sm.de.metamodel.e4sm.ClassificationClass;
+import e4sm.de.metamodel.e4sm.ClassificationClassDistribution;
+import e4sm.de.metamodel.e4sm.ClassificationComponent;
 import e4sm.de.metamodel.e4sm.Component;
+import e4sm.de.metamodel.e4sm.ConfusionMatrix;
+import e4sm.de.metamodel.e4sm.ConfusionMatrixEntry;
 import e4sm.de.metamodel.e4sm.Connector;
 import e4sm.de.metamodel.e4sm.ConversionByConvention;
 import e4sm.de.metamodel.e4sm.ConversionByPrefix;
 import e4sm.de.metamodel.e4sm.DataNode;
+import e4sm.de.metamodel.e4sm.DataSize;
 import e4sm.de.metamodel.e4sm.DataStore;
 import e4sm.de.metamodel.e4sm.DerivedUnit;
+import e4sm.de.metamodel.e4sm.DynamicRange;
+import e4sm.de.metamodel.e4sm.Environment;
 import e4sm.de.metamodel.e4sm.ExternalDependency;
 import e4sm.de.metamodel.e4sm.Function;
 import e4sm.de.metamodel.e4sm.Heuristic;
@@ -21,6 +31,8 @@ import e4sm.de.metamodel.e4sm.LogicalConnector;
 import e4sm.de.metamodel.e4sm.MachineLearningComponent;
 import e4sm.de.metamodel.e4sm.MeasurementUnit;
 import e4sm.de.metamodel.e4sm.Model;
+import e4sm.de.metamodel.e4sm.MulticlassClassificationComponent;
+import e4sm.de.metamodel.e4sm.MulticlassConfusionMatrix;
 import e4sm.de.metamodel.e4sm.OutputPin;
 import e4sm.de.metamodel.e4sm.Person;
 import e4sm.de.metamodel.e4sm.PhysicalComponent;
@@ -28,9 +40,14 @@ import e4sm.de.metamodel.e4sm.PhysicalConnector;
 import e4sm.de.metamodel.e4sm.Pin;
 import e4sm.de.metamodel.e4sm.Robot;
 import e4sm.de.metamodel.e4sm.Sector;
+import e4sm.de.metamodel.e4sm.SecurityThreatsImport;
 import e4sm.de.metamodel.e4sm.Sensor;
+import e4sm.de.metamodel.e4sm.Set;
+import e4sm.de.metamodel.e4sm.SetValue;
 import e4sm.de.metamodel.e4sm.SimpleUnit;
 import e4sm.de.metamodel.e4sm.SoftwareComponent;
+import e4sm.de.metamodel.e4sm.StaticSize;
+import e4sm.de.metamodel.e4sm.TokenSpecification;
 import e4sm.de.metamodel.e4sm.UnitConversion;
 import e4sm.de.metamodel.e4sm.UnitPrefix;
 import e4sm.de.metamodel.e4sm.analysis.ParameterizableElement;
@@ -154,6 +171,8 @@ public class e4smSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseDocumentableElement(connector);
 			if (result == null)
+				result = caseDelayableElement(connector);
+			if (result == null)
 				result = caseElement(connector);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -170,6 +189,8 @@ public class e4smSwitch<T> extends Switch<T> {
 				result = caseNamedElement(physicalConnector);
 			if (result == null)
 				result = caseDocumentableElement(physicalConnector);
+			if (result == null)
+				result = caseDelayableElement(physicalConnector);
 			if (result == null)
 				result = caseElement(physicalConnector);
 			if (result == null)
@@ -225,6 +246,8 @@ public class e4smSwitch<T> extends Switch<T> {
 				result = caseNamedElement(logicalConnector);
 			if (result == null)
 				result = caseDocumentableElement(logicalConnector);
+			if (result == null)
+				result = caseDelayableElement(logicalConnector);
 			if (result == null)
 				result = caseElement(logicalConnector);
 			if (result == null)
@@ -618,6 +641,227 @@ public class e4smSwitch<T> extends Switch<T> {
 				result = caseExecutionElement(dataNode);
 			if (result == null)
 				result = caseElement(dataNode);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case e4smPackage.CLASSIFICATION_COMPONENT: {
+			ClassificationComponent classificationComponent = (ClassificationComponent) theEObject;
+			T result = caseClassificationComponent(classificationComponent);
+			if (result == null)
+				result = caseMachineLearningComponent(classificationComponent);
+			if (result == null)
+				result = caseSoftwareComponent(classificationComponent);
+			if (result == null)
+				result = caseComponent(classificationComponent);
+			if (result == null)
+				result = caseNamedElement(classificationComponent);
+			if (result == null)
+				result = caseParameterizableElement(classificationComponent);
+			if (result == null)
+				result = caseDelayableElement(classificationComponent);
+			if (result == null)
+				result = caseDocumentableElement(classificationComponent);
+			if (result == null)
+				result = caseElement(classificationComponent);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case e4smPackage.ENVIRONMENT: {
+			Environment environment = (Environment) theEObject;
+			T result = caseEnvironment(environment);
+			if (result == null)
+				result = caseNamedElement(environment);
+			if (result == null)
+				result = caseElement(environment);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case e4smPackage.CLASSIFICATION_CLASS: {
+			ClassificationClass classificationClass = (ClassificationClass) theEObject;
+			T result = caseClassificationClass(classificationClass);
+			if (result == null)
+				result = caseNamedElement(classificationClass);
+			if (result == null)
+				result = caseElement(classificationClass);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case e4smPackage.CLASSIFICATION_CLASS_DISTRIBUTION: {
+			ClassificationClassDistribution classificationClassDistribution = (ClassificationClassDistribution) theEObject;
+			T result = caseClassificationClassDistribution(classificationClassDistribution);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case e4smPackage.MULTICLASS_CONFUSION_MATRIX: {
+			MulticlassConfusionMatrix multiclassConfusionMatrix = (MulticlassConfusionMatrix) theEObject;
+			T result = caseMulticlassConfusionMatrix(multiclassConfusionMatrix);
+			if (result == null)
+				result = caseConfusionMatrix(multiclassConfusionMatrix);
+			if (result == null)
+				result = caseNamedElement(multiclassConfusionMatrix);
+			if (result == null)
+				result = caseElement(multiclassConfusionMatrix);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case e4smPackage.CONFUSION_MATRIX_ENTRY: {
+			ConfusionMatrixEntry confusionMatrixEntry = (ConfusionMatrixEntry) theEObject;
+			T result = caseConfusionMatrixEntry(confusionMatrixEntry);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case e4smPackage.BINARY_CONFUSION_MATRIX: {
+			BinaryConfusionMatrix binaryConfusionMatrix = (BinaryConfusionMatrix) theEObject;
+			T result = caseBinaryConfusionMatrix(binaryConfusionMatrix);
+			if (result == null)
+				result = caseConfusionMatrix(binaryConfusionMatrix);
+			if (result == null)
+				result = caseNamedElement(binaryConfusionMatrix);
+			if (result == null)
+				result = caseElement(binaryConfusionMatrix);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case e4smPackage.BINARY_CLASSIFICATION_COMPONENT: {
+			BinaryClassificationComponent binaryClassificationComponent = (BinaryClassificationComponent) theEObject;
+			T result = caseBinaryClassificationComponent(binaryClassificationComponent);
+			if (result == null)
+				result = caseClassificationComponent(binaryClassificationComponent);
+			if (result == null)
+				result = caseMachineLearningComponent(binaryClassificationComponent);
+			if (result == null)
+				result = caseSoftwareComponent(binaryClassificationComponent);
+			if (result == null)
+				result = caseComponent(binaryClassificationComponent);
+			if (result == null)
+				result = caseNamedElement(binaryClassificationComponent);
+			if (result == null)
+				result = caseParameterizableElement(binaryClassificationComponent);
+			if (result == null)
+				result = caseDelayableElement(binaryClassificationComponent);
+			if (result == null)
+				result = caseDocumentableElement(binaryClassificationComponent);
+			if (result == null)
+				result = caseElement(binaryClassificationComponent);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case e4smPackage.MULTICLASS_CLASSIFICATION_COMPONENT: {
+			MulticlassClassificationComponent multiclassClassificationComponent = (MulticlassClassificationComponent) theEObject;
+			T result = caseMulticlassClassificationComponent(multiclassClassificationComponent);
+			if (result == null)
+				result = caseClassificationComponent(multiclassClassificationComponent);
+			if (result == null)
+				result = caseMachineLearningComponent(multiclassClassificationComponent);
+			if (result == null)
+				result = caseSoftwareComponent(multiclassClassificationComponent);
+			if (result == null)
+				result = caseComponent(multiclassClassificationComponent);
+			if (result == null)
+				result = caseNamedElement(multiclassClassificationComponent);
+			if (result == null)
+				result = caseParameterizableElement(multiclassClassificationComponent);
+			if (result == null)
+				result = caseDelayableElement(multiclassClassificationComponent);
+			if (result == null)
+				result = caseDocumentableElement(multiclassClassificationComponent);
+			if (result == null)
+				result = caseElement(multiclassClassificationComponent);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case e4smPackage.CONFUSION_MATRIX: {
+			ConfusionMatrix confusionMatrix = (ConfusionMatrix) theEObject;
+			T result = caseConfusionMatrix(confusionMatrix);
+			if (result == null)
+				result = caseNamedElement(confusionMatrix);
+			if (result == null)
+				result = caseElement(confusionMatrix);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case e4smPackage.TOKEN_SPECIFICATION: {
+			TokenSpecification tokenSpecification = (TokenSpecification) theEObject;
+			T result = caseTokenSpecification(tokenSpecification);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case e4smPackage.DATA_SIZE: {
+			DataSize dataSize = (DataSize) theEObject;
+			T result = caseDataSize(dataSize);
+			if (result == null)
+				result = caseNamedElement(dataSize);
+			if (result == null)
+				result = caseElement(dataSize);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case e4smPackage.STATIC_SIZE: {
+			StaticSize staticSize = (StaticSize) theEObject;
+			T result = caseStaticSize(staticSize);
+			if (result == null)
+				result = caseDataSize(staticSize);
+			if (result == null)
+				result = caseNamedElement(staticSize);
+			if (result == null)
+				result = caseElement(staticSize);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case e4smPackage.SET: {
+			Set set = (Set) theEObject;
+			T result = caseSet(set);
+			if (result == null)
+				result = caseDataSize(set);
+			if (result == null)
+				result = caseNamedElement(set);
+			if (result == null)
+				result = caseElement(set);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case e4smPackage.SET_VALUE: {
+			SetValue setValue = (SetValue) theEObject;
+			T result = caseSetValue(setValue);
+			if (result == null)
+				result = caseNamedElement(setValue);
+			if (result == null)
+				result = caseElement(setValue);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case e4smPackage.DYNAMIC_RANGE: {
+			DynamicRange dynamicRange = (DynamicRange) theEObject;
+			T result = caseDynamicRange(dynamicRange);
+			if (result == null)
+				result = caseDataSize(dynamicRange);
+			if (result == null)
+				result = caseNamedElement(dynamicRange);
+			if (result == null)
+				result = caseElement(dynamicRange);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case e4smPackage.SECURITY_THREATS_IMPORT: {
+			SecurityThreatsImport securityThreatsImport = (SecurityThreatsImport) theEObject;
+			T result = caseSecurityThreatsImport(securityThreatsImport);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -1104,6 +1348,261 @@ public class e4smSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseDataNode(DataNode object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Classification Component</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Classification Component</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseClassificationComponent(ClassificationComponent object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Environment</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Environment</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEnvironment(Environment object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Classification Class</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Classification Class</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseClassificationClass(ClassificationClass object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Classification Class Distribution</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Classification Class Distribution</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseClassificationClassDistribution(ClassificationClassDistribution object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Multiclass Confusion Matrix</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Multiclass Confusion Matrix</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMulticlassConfusionMatrix(MulticlassConfusionMatrix object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Confusion Matrix</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Confusion Matrix</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseConfusionMatrix(ConfusionMatrix object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Token Specification</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Token Specification</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTokenSpecification(TokenSpecification object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Data Size</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Data Size</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDataSize(DataSize object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Static Size</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Static Size</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseStaticSize(StaticSize object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Set</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Set</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSet(Set object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Set Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Set Value</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSetValue(SetValue object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Dynamic Range</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Dynamic Range</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDynamicRange(DynamicRange object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Security Threats Import</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Security Threats Import</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSecurityThreatsImport(SecurityThreatsImport object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Confusion Matrix Entry</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Confusion Matrix Entry</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseConfusionMatrixEntry(ConfusionMatrixEntry object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Binary Confusion Matrix</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Binary Confusion Matrix</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBinaryConfusionMatrix(BinaryConfusionMatrix object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Binary Classification Component</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Binary Classification Component</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBinaryClassificationComponent(BinaryClassificationComponent object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Multiclass Classification Component</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Multiclass Classification Component</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMulticlassClassificationComponent(MulticlassClassificationComponent object) {
 		return null;
 	}
 

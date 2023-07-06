@@ -27,7 +27,7 @@ public interface LiteralDouble extends LiteralSpecification {
 	 * @return the value of the '<em>Value</em>' attribute.
 	 * @see #setValue(double)
 	 * @see e4sm.de.metamodel.e4sm.core.CorePackage#getLiteralDouble_Value()
-	 * @model default="0.0" dataType="e4sm.de.metamodel.e4sm.core.Double"
+	 * @model default="0.0"
 	 * @generated
 	 */
 	double getValue();

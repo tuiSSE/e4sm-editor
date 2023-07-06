@@ -6,9 +6,7 @@ import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.Connector;
 import e4sm.de.metamodel.e4sm.DataStore;
 import e4sm.de.metamodel.e4sm.Person;
-import e4sm.de.metamodel.e4sm.PhysicalComponent;
 import e4sm.de.metamodel.e4sm.Sector;
-import e4sm.de.metamodel.e4sm.SoftwareComponent;
 import e4sm.de.metamodel.e4sm.analysis.AnalysisPackage;
 import e4sm.de.metamodel.e4sm.analysis.Parameter;
 import e4sm.de.metamodel.e4sm.analysis.ParameterizableElement;
@@ -42,14 +40,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getDocumentation <em>Documentation</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getComponents <em>Components</em>}</li>
- *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getSoftwareComponents <em>Software Components</em>}</li>
- *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getPhysicalComponents <em>Physical Components</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getConnectors <em>Connectors</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getSectors <em>Sectors</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getMainResponsible <em>Main Responsible</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getPackages <em>Packages</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getSpecifiesComponent <em>Specifies Component</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getDatastores <em>Datastores</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getProcessingUnits <em>Processing Units</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.PackageImpl#getSimulationDuration <em>Simulation Duration</em>}</li>
  * </ul>
  *
  * @generated
@@ -155,6 +153,46 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	protected EList<DataStore> datastores;
 
 	/**
+	 * The default value of the '{@link #getProcessingUnits() <em>Processing Units</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProcessingUnits()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int PROCESSING_UNITS_EDEFAULT = -1;
+
+	/**
+	 * The cached value of the '{@link #getProcessingUnits() <em>Processing Units</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProcessingUnits()
+	 * @generated
+	 * @ordered
+	 */
+	protected int processingUnits = PROCESSING_UNITS_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getSimulationDuration() <em>Simulation Duration</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSimulationDuration()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int SIMULATION_DURATION_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getSimulationDuration() <em>Simulation Duration</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSimulationDuration()
+	 * @generated
+	 * @ordered
+	 */
+	protected int simulationDuration = SIMULATION_DURATION_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -218,30 +256,6 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 			components = new EObjectContainmentEList<Component>(Component.class, this, e4smPackage.PACKAGE__COMPONENTS);
 		}
 		return components;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> Returns all software components directly contained by
-	 * this package (subsets components) <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	@Override
-	public EList<SoftwareComponent> getSoftwareComponents() {
-		return ECollections.toEList(this.getComponents().stream().filter(c -> c instanceof SoftwareComponent)
-				.map(e -> (SoftwareComponent) e).toList());
-	}
-
-	/**
-	 * <!-- begin-user-doc --> Returns all physical components directly contained by
-	 * this package (subsets components) <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	@Override
-	public EList<PhysicalComponent> getPhysicalComponents() {
-		return ECollections.toEList(this.getComponents().stream().filter(c -> c instanceof PhysicalComponent)
-				.map(e -> (PhysicalComponent) e).toList());
 	}
 
 	/**
@@ -410,6 +424,54 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int getProcessingUnits() {
+		return processingUnits;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setProcessingUnits(int newProcessingUnits) {
+		int oldProcessingUnits = processingUnits;
+		processingUnits = newProcessingUnits;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.PACKAGE__PROCESSING_UNITS,
+					oldProcessingUnits, processingUnits));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int getSimulationDuration() {
+		return simulationDuration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setSimulationDuration(int newSimulationDuration) {
+		int oldSimulationDuration = simulationDuration;
+		simulationDuration = newSimulationDuration;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.PACKAGE__SIMULATION_DURATION,
+					oldSimulationDuration, simulationDuration));
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -493,10 +555,6 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 			return getDocumentation();
 		case e4smPackage.PACKAGE__COMPONENTS:
 			return getComponents();
-		case e4smPackage.PACKAGE__SOFTWARE_COMPONENTS:
-			return getSoftwareComponents();
-		case e4smPackage.PACKAGE__PHYSICAL_COMPONENTS:
-			return getPhysicalComponents();
 		case e4smPackage.PACKAGE__CONNECTORS:
 			return getConnectors();
 		case e4smPackage.PACKAGE__SECTORS:
@@ -513,6 +571,10 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 			return basicGetSpecifiesComponent();
 		case e4smPackage.PACKAGE__DATASTORES:
 			return getDatastores();
+		case e4smPackage.PACKAGE__PROCESSING_UNITS:
+			return getProcessingUnits();
+		case e4smPackage.PACKAGE__SIMULATION_DURATION:
+			return getSimulationDuration();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -536,10 +598,6 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 			getComponents().clear();
 			getComponents().addAll((Collection<? extends Component>) newValue);
 			return;
-		case e4smPackage.PACKAGE__SOFTWARE_COMPONENTS:
-			getSoftwareComponents().clear();
-			getSoftwareComponents().addAll((Collection<? extends SoftwareComponent>) newValue);
-			return;
 		case e4smPackage.PACKAGE__CONNECTORS:
 			getConnectors().clear();
 			getConnectors().addAll((Collection<? extends Connector>) newValue);
@@ -562,6 +620,12 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 			getDatastores().clear();
 			getDatastores().addAll((Collection<? extends DataStore>) newValue);
 			return;
+		case e4smPackage.PACKAGE__PROCESSING_UNITS:
+			setProcessingUnits((Integer) newValue);
+			return;
+		case e4smPackage.PACKAGE__SIMULATION_DURATION:
+			setSimulationDuration((Integer) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -582,9 +646,6 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 		case e4smPackage.PACKAGE__COMPONENTS:
 			getComponents().clear();
 			return;
-		case e4smPackage.PACKAGE__SOFTWARE_COMPONENTS:
-			getSoftwareComponents().clear();
-			return;
 		case e4smPackage.PACKAGE__CONNECTORS:
 			getConnectors().clear();
 			return;
@@ -602,6 +663,12 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 			return;
 		case e4smPackage.PACKAGE__DATASTORES:
 			getDatastores().clear();
+			return;
+		case e4smPackage.PACKAGE__PROCESSING_UNITS:
+			setProcessingUnits(PROCESSING_UNITS_EDEFAULT);
+			return;
+		case e4smPackage.PACKAGE__SIMULATION_DURATION:
+			setSimulationDuration(SIMULATION_DURATION_EDEFAULT);
 			return;
 		}
 		super.eUnset(featureID);
@@ -621,10 +688,6 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 					: !DOCUMENTATION_EDEFAULT.equals(documentation);
 		case e4smPackage.PACKAGE__COMPONENTS:
 			return components != null && !components.isEmpty();
-		case e4smPackage.PACKAGE__SOFTWARE_COMPONENTS:
-			return !getSoftwareComponents().isEmpty();
-		case e4smPackage.PACKAGE__PHYSICAL_COMPONENTS:
-			return !getPhysicalComponents().isEmpty();
 		case e4smPackage.PACKAGE__CONNECTORS:
 			return connectors != null && !connectors.isEmpty();
 		case e4smPackage.PACKAGE__SECTORS:
@@ -637,6 +700,10 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 			return specifiesComponent != null;
 		case e4smPackage.PACKAGE__DATASTORES:
 			return datastores != null && !datastores.isEmpty();
+		case e4smPackage.PACKAGE__PROCESSING_UNITS:
+			return processingUnits != PROCESSING_UNITS_EDEFAULT;
+		case e4smPackage.PACKAGE__SIMULATION_DURATION:
+			return simulationDuration != SIMULATION_DURATION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -719,6 +786,10 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (documentation: ");
 		result.append(documentation);
+		result.append(", processingUnits: ");
+		result.append(processingUnits);
+		result.append(", simulationDuration: ");
+		result.append(simulationDuration);
 		result.append(')');
 		return result.toString();
 	}

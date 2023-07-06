@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<e4sm:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:e4sm="http://de.tu-ilmenau/e4sm/1.0.0" xmi:id="_YKNjwMJ7Ee2ujKgqgw-nYg" name="My">
+  <packages xmi:id="_YKNjwcJ7Ee2ujKgqgw-nYg" name="My package">
+    <parameters xmi:id="_xW4AgMJ7Ee2ujKgqgw-nYg">
+      <parameterDefinition href="My.analysis#//@parameterDefinitions.0"/>
+    </parameters>
+    <components xmi:id="_83v7UMJ-Ee2hGvYzNxiBvQ">
+      <parameters xmi:id="_9YOLIMJ-Ee2hGvYzNxiBvQ" doesNotApplyOnVariants="_kM2c8MKAEe2hGvYzNxiBvQ">
+        <parameterDefinition href="My.analysis#//@parameterDefinitions.0"/>
+      </parameters>
+    </components>
+  </packages>
+  <variants xmi:id="_kM2c8MKAEe2hGvYzNxiBvQ" name="gxtrdc"/>
+  <types xmi:id="_ikdfoMJ8Ee2ujKgqgw-nYg" name="int"/>
+</e4sm:Model>

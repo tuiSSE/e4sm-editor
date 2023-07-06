@@ -44,6 +44,16 @@
     <components xsi:type="e4sm:PhysicalComponent" xmi:id="_h-nkQLfdEeupgN33SxbatQ" name="Physical Connection">
       <pins xsi:type="e4sm:InputPin" xmi:id="_jhN_cLfdEeupgN33SxbatQ"/>
     </components>
+    <components xsi:type="e4sm:BinaryClassificationComponent" xmi:id="_dEkl0JgGEe29a6WapWS4yw" name="Binary Classification Component">
+      <pins xsi:type="e4sm:OutputPin" xmi:id="_dEkl0ZgGEe29a6WapWS4yw" name="out_pNJJ"/>
+      <pins xsi:type="e4sm:InputPin" xmi:id="_dElz8JgGEe29a6WapWS4yw" name="in_kbfj"/>
+      <confusionMatrixes xmi:id="_W4A_cKLnEe2zU5OVuTkk1A" tp="2000" tn="100" fp="50" fn="150"/>
+    </components>
+    <components xsi:type="e4sm:MulticlassClassificationComponent" xmi:id="_hM5tIJgGEe29a6WapWS4yw" name="Multiclass Classification Component">
+      <pins xsi:type="e4sm:OutputPin" xmi:id="_hM6UMJgGEe29a6WapWS4yw" name="out_0XkV"/>
+      <pins xsi:type="e4sm:InputPin" xmi:id="_hM6UMZgGEe29a6WapWS4yw" name="in_w6XC"/>
+      <confusionMatrixes xmi:id="_d_G98KLnEe2zU5OVuTkk1A"/>
+    </components>
     <connectors xsi:type="e4sm:LogicalConnector" xmi:id="_5LnEwLfcEeupgN33SxbatQ" source="_3-DFcLfcEeupgN33SxbatQ" target="_1iXtMLfcEeupgN33SxbatQ"/>
     <connectors xsi:type="e4sm:LogicalConnector" xmi:id="_5w3t8LfcEeupgN33SxbatQ" source="_4VzeILfcEeupgN33SxbatQ" target="_2Q5AELfcEeupgN33SxbatQ"/>
     <connectors xsi:type="e4sm:LogicalConnector" xmi:id="_SBKpELfdEeupgN33SxbatQ" source="__craMLfcEeupgN33SxbatQ" target="_PAaN0LfdEeupgN33SxbatQ"/>

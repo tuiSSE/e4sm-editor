@@ -26,7 +26,6 @@ import org.eclipse.emf.ecore.EReference;
  * <!-- end-user-doc -->
  * @see e4sm.de.metamodel.e4sm.e4smFactory
  * @model kind="package"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore"
  * @generated
  */
 public interface e4smPackage extends EPackage {
@@ -190,22 +189,13 @@ public interface e4smPackage extends EPackage {
 	int COMPONENT___COMPUTE_MAIN_RESPONSIBLE = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>New Operation2</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPONENT___NEW_OPERATION2 = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 1;
-
-	/**
 	 * The number of operations of the '<em>Component</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_OPERATION_COUNT = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 2;
+	int COMPONENT_OPERATION_COUNT = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.SoftwareComponentImpl <em>Software Component</em>}' class.
@@ -351,15 +341,6 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOFTWARE_COMPONENT___COMPUTE_MAIN_RESPONSIBLE = COMPONENT___COMPUTE_MAIN_RESPONSIBLE;
-
-	/**
-	 * The operation id for the '<em>New Operation2</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOFTWARE_COMPONENT___NEW_OPERATION2 = COMPONENT___NEW_OPERATION2;
 
 	/**
 	 * The operation id for the '<em>Is Parallel</em>' operation.
@@ -523,15 +504,6 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int MACHINE_LEARNING_COMPONENT___COMPUTE_MAIN_RESPONSIBLE = SOFTWARE_COMPONENT___COMPUTE_MAIN_RESPONSIBLE;
-
-	/**
-	 * The operation id for the '<em>New Operation2</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MACHINE_LEARNING_COMPONENT___NEW_OPERATION2 = SOFTWARE_COMPONENT___NEW_OPERATION2;
 
 	/**
 	 * The operation id for the '<em>Is Parallel</em>' operation.
@@ -729,13 +701,22 @@ public interface e4smPackage extends EPackage {
 	int CONNECTOR__DOCUMENTATION = AnalysisPackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Time Function</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__TIME_FUNCTION = AnalysisPackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__SOURCE = AnalysisPackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 2;
+	int CONNECTOR__SOURCE = AnalysisPackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' reference.
@@ -744,7 +725,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__TARGET = AnalysisPackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 3;
+	int CONNECTOR__TARGET = AnalysisPackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Connector</em>' class.
@@ -753,7 +734,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR_FEATURE_COUNT = AnalysisPackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 4;
+	int CONNECTOR_FEATURE_COUNT = AnalysisPackage.PARAMETERIZABLE_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Compute Name</em>' operation.
@@ -808,6 +789,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int PHYSICAL_CONNECTOR__DOCUMENTATION = CONNECTOR__DOCUMENTATION;
+
+	/**
+	 * The feature id for the '<em><b>Time Function</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PHYSICAL_CONNECTOR__TIME_FUNCTION = CONNECTOR__TIME_FUNCTION;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -999,15 +989,6 @@ public interface e4smPackage extends EPackage {
 	int PHYSICAL_COMPONENT___COMPUTE_MAIN_RESPONSIBLE = COMPONENT___COMPUTE_MAIN_RESPONSIBLE;
 
 	/**
-	 * The operation id for the '<em>New Operation2</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PHYSICAL_COMPONENT___NEW_OPERATION2 = COMPONENT___NEW_OPERATION2;
-
-	/**
 	 * The number of operations of the '<em>Physical Component</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1042,6 +1023,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int LOGICAL_CONNECTOR__DOCUMENTATION = CONNECTOR__DOCUMENTATION;
+
+	/**
+	 * The feature id for the '<em><b>Time Function</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOGICAL_CONNECTOR__TIME_FUNCTION = CONNECTOR__TIME_FUNCTION;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -1233,15 +1223,6 @@ public interface e4smPackage extends EPackage {
 	int HEURISTIC___COMPUTE_MAIN_RESPONSIBLE = SOFTWARE_COMPONENT___COMPUTE_MAIN_RESPONSIBLE;
 
 	/**
-	 * The operation id for the '<em>New Operation2</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HEURISTIC___NEW_OPERATION2 = SOFTWARE_COMPONENT___NEW_OPERATION2;
-
-	/**
 	 * The operation id for the '<em>Is Parallel</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1395,15 +1376,6 @@ public interface e4smPackage extends EPackage {
 	int FUNCTION___COMPUTE_MAIN_RESPONSIBLE = SOFTWARE_COMPONENT___COMPUTE_MAIN_RESPONSIBLE;
 
 	/**
-	 * The operation id for the '<em>New Operation2</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FUNCTION___NEW_OPERATION2 = SOFTWARE_COMPONENT___NEW_OPERATION2;
-
-	/**
 	 * The operation id for the '<em>Is Parallel</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1548,15 +1520,6 @@ public interface e4smPackage extends EPackage {
 	int EXTERNAL_DEPENDENCY_FEATURE_COUNT = SOFTWARE_COMPONENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>New Operation2</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTERNAL_DEPENDENCY___NEW_OPERATION2 = SOFTWARE_COMPONENT___NEW_OPERATION2;
-
-	/**
 	 * The operation id for the '<em>Is Parallel</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1620,31 +1583,13 @@ public interface e4smPackage extends EPackage {
 	int PACKAGE__COMPONENTS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Software Components</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PACKAGE__SOFTWARE_COMPONENTS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Physical Components</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PACKAGE__PHYSICAL_COMPONENTS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 4;
-
-	/**
 	 * The feature id for the '<em><b>Connectors</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__CONNECTORS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 5;
+	int PACKAGE__CONNECTORS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Sectors</b></em>' containment reference list.
@@ -1653,7 +1598,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__SECTORS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 6;
+	int PACKAGE__SECTORS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Main Responsible</b></em>' reference.
@@ -1662,7 +1607,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__MAIN_RESPONSIBLE = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 7;
+	int PACKAGE__MAIN_RESPONSIBLE = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Packages</b></em>' containment reference list.
@@ -1671,7 +1616,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__PACKAGES = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 8;
+	int PACKAGE__PACKAGES = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Specifies Component</b></em>' reference.
@@ -1680,7 +1625,7 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__SPECIFIES_COMPONENT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 9;
+	int PACKAGE__SPECIFIES_COMPONENT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Datastores</b></em>' containment reference list.
@@ -1689,7 +1634,25 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__DATASTORES = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 10;
+	int PACKAGE__DATASTORES = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 8;
+
+	/**
+	 * The feature id for the '<em><b>Processing Units</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__PROCESSING_UNITS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 9;
+
+	/**
+	 * The feature id for the '<em><b>Simulation Duration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__SIMULATION_DURATION = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 10;
 
 	/**
 	 * The number of structural features of the '<em>Package</em>' class.
@@ -1809,13 +1772,58 @@ public interface e4smPackage extends EPackage {
 	int MODEL__IMPORTS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
+	 * The feature id for the '<em><b>Environments</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL__ENVIRONMENTS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 8;
+
+	/**
+	 * The feature id for the '<em><b>Classification Classes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL__CLASSIFICATION_CLASSES = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 9;
+
+	/**
+	 * The feature id for the '<em><b>Security Threats Definition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL__SECURITY_THREATS_DEFINITION = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 10;
+
+	/**
+	 * The feature id for the '<em><b>Security Threats Import</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL__SECURITY_THREATS_IMPORT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 11;
+
+	/**
+	 * The feature id for the '<em><b>Security Specification</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL__SECURITY_SPECIFICATION = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 12;
+
+	/**
 	 * The number of structural features of the '<em>Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 8;
+	int MODEL_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 13;
 
 	/**
 	 * The operation id for the '<em>Is Person Picture Path Valid</em>' operation.
@@ -2133,15 +2141,6 @@ public interface e4smPackage extends EPackage {
 	int SENSOR___COMPUTE_MAIN_RESPONSIBLE = PHYSICAL_COMPONENT___COMPUTE_MAIN_RESPONSIBLE;
 
 	/**
-	 * The operation id for the '<em>New Operation2</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SENSOR___NEW_OPERATION2 = PHYSICAL_COMPONENT___NEW_OPERATION2;
-
-	/**
 	 * The number of operations of the '<em>Sensor</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2266,15 +2265,6 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTUATOR___COMPUTE_MAIN_RESPONSIBLE = PHYSICAL_COMPONENT___COMPUTE_MAIN_RESPONSIBLE;
-
-	/**
-	 * The operation id for the '<em>New Operation2</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTUATOR___NEW_OPERATION2 = PHYSICAL_COMPONENT___NEW_OPERATION2;
 
 	/**
 	 * The number of operations of the '<em>Actuator</em>' class.
@@ -2741,13 +2731,31 @@ public interface e4smPackage extends EPackage {
 	int OUTPUT_PIN__OUTPUT_UNCERTAINTY = PIN_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Token Specification</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_PIN__TOKEN_SPECIFICATION = PIN_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Output Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_PIN__OUTPUT_EXPRESSION = PIN_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Output Pin</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OUTPUT_PIN_FEATURE_COUNT = PIN_FEATURE_COUNT + 2;
+	int OUTPUT_PIN_FEATURE_COUNT = PIN_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Get Outgoing Connectors</em>' operation.
@@ -3263,6 +3271,1548 @@ public interface e4smPackage extends EPackage {
 	int DATA_STORE_OPERATION_COUNT = DATA_NODE_OPERATION_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.ClassificationComponentImpl <em>Classification Component</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.ClassificationComponentImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getClassificationComponent()
+	 * @generated
+	 */
+	int CLASSIFICATION_COMPONENT = 32;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSIFICATION_COMPONENT__NAME = MACHINE_LEARNING_COMPONENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSIFICATION_COMPONENT__PARAMETERS = MACHINE_LEARNING_COMPONENT__PARAMETERS;
+
+	/**
+	 * The feature id for the '<em><b>Time Function</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSIFICATION_COMPONENT__TIME_FUNCTION = MACHINE_LEARNING_COMPONENT__TIME_FUNCTION;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSIFICATION_COMPONENT__DOCUMENTATION = MACHINE_LEARNING_COMPONENT__DOCUMENTATION;
+
+	/**
+	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSIFICATION_COMPONENT__COMPONENTS = MACHINE_LEARNING_COMPONENT__COMPONENTS;
+
+	/**
+	 * The feature id for the '<em><b>Pins</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSIFICATION_COMPONENT__PINS = MACHINE_LEARNING_COMPONENT__PINS;
+
+	/**
+	 * The feature id for the '<em><b>Main Responsible</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSIFICATION_COMPONENT__MAIN_RESPONSIBLE = MACHINE_LEARNING_COMPONENT__MAIN_RESPONSIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Specified In Package</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSIFICATION_COMPONENT__SPECIFIED_IN_PACKAGE = MACHINE_LEARNING_COMPONENT__SPECIFIED_IN_PACKAGE;
+
+	/**
+	 * The feature id for the '<em><b>Execution</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSIFICATION_COMPONENT__EXECUTION = MACHINE_LEARNING_COMPONENT__EXECUTION;
+
+	/**
+	 * The feature id for the '<em><b>Firing Strategy</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSIFICATION_COMPONENT__FIRING_STRATEGY = MACHINE_LEARNING_COMPONENT__FIRING_STRATEGY;
+
+	/**
+	 * The feature id for the '<em><b>Datastores</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSIFICATION_COMPONENT__DATASTORES = MACHINE_LEARNING_COMPONENT__DATASTORES;
+
+	/**
+	 * The feature id for the '<em><b>Synchronous</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSIFICATION_COMPONENT__SYNCHRONOUS = MACHINE_LEARNING_COMPONENT__SYNCHRONOUS;
+
+	/**
+	 * The feature id for the '<em><b>Number Of Servers</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSIFICATION_COMPONENT__NUMBER_OF_SERVERS = MACHINE_LEARNING_COMPONENT__NUMBER_OF_SERVERS;
+
+	/**
+	 * The feature id for the '<em><b>Environment</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSIFICATION_COMPONENT__ENVIRONMENT = MACHINE_LEARNING_COMPONENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Classification Component</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSIFICATION_COMPONENT_FEATURE_COUNT = MACHINE_LEARNING_COMPONENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Compute Main Responsible</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSIFICATION_COMPONENT___COMPUTE_MAIN_RESPONSIBLE = MACHINE_LEARNING_COMPONENT___COMPUTE_MAIN_RESPONSIBLE;
+
+	/**
+	 * The operation id for the '<em>Is Parallel</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSIFICATION_COMPONENT___IS_PARALLEL = MACHINE_LEARNING_COMPONENT___IS_PARALLEL;
+
+	/**
+	 * The number of operations of the '<em>Classification Component</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSIFICATION_COMPONENT_OPERATION_COUNT = MACHINE_LEARNING_COMPONENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.EnvironmentImpl <em>Environment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.EnvironmentImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getEnvironment()
+	 * @generated
+	 */
+	int ENVIRONMENT = 33;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENVIRONMENT__NAME = CorePackage.NAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Classification Classes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENVIRONMENT__CLASSIFICATION_CLASSES = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Environment</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENVIRONMENT_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Environment</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENVIRONMENT_OPERATION_COUNT = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.ClassificationClassImpl <em>Classification Class</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.ClassificationClassImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getClassificationClass()
+	 * @generated
+	 */
+	int CLASSIFICATION_CLASS = 34;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSIFICATION_CLASS__NAME = CorePackage.NAMED_ELEMENT__NAME;
+
+	/**
+	 * The number of structural features of the '<em>Classification Class</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSIFICATION_CLASS_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Classification Class</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSIFICATION_CLASS_OPERATION_COUNT = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.ClassificationClassDistributionImpl <em>Classification Class Distribution</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.ClassificationClassDistributionImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getClassificationClassDistribution()
+	 * @generated
+	 */
+	int CLASSIFICATION_CLASS_DISTRIBUTION = 35;
+
+	/**
+	 * The feature id for the '<em><b>Classification Class</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSIFICATION_CLASS_DISTRIBUTION__CLASSIFICATION_CLASS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Probability</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSIFICATION_CLASS_DISTRIBUTION__PROBABILITY = 1;
+
+	/**
+	 * The number of structural features of the '<em>Classification Class Distribution</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSIFICATION_CLASS_DISTRIBUTION_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Classification Class Distribution</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSIFICATION_CLASS_DISTRIBUTION_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.MulticlassConfusionMatrixImpl <em>Multiclass Confusion Matrix</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.MulticlassConfusionMatrixImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getMulticlassConfusionMatrix()
+	 * @generated
+	 */
+	int MULTICLASS_CONFUSION_MATRIX = 36;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.ConfusionMatrixImpl <em>Confusion Matrix</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.ConfusionMatrixImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getConfusionMatrix()
+	 * @generated
+	 */
+	int CONFUSION_MATRIX = 41;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFUSION_MATRIX__NAME = CorePackage.NAMED_ELEMENT__NAME;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.BinaryConfusionMatrixImpl <em>Binary Confusion Matrix</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.BinaryConfusionMatrixImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getBinaryConfusionMatrix()
+	 * @generated
+	 */
+	int BINARY_CONFUSION_MATRIX = 38;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.BinaryClassificationComponentImpl <em>Binary Classification Component</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.BinaryClassificationComponentImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getBinaryClassificationComponent()
+	 * @generated
+	 */
+	int BINARY_CLASSIFICATION_COMPONENT = 39;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.MulticlassClassificationComponentImpl <em>Multiclass Classification Component</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.MulticlassClassificationComponentImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getMulticlassClassificationComponent()
+	 * @generated
+	 */
+	int MULTICLASS_CLASSIFICATION_COMPONENT = 40;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.ConfusionMatrixEntryImpl <em>Confusion Matrix Entry</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.ConfusionMatrixEntryImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getConfusionMatrixEntry()
+	 * @generated
+	 */
+	int CONFUSION_MATRIX_ENTRY = 37;
+
+	/**
+	 * The number of structural features of the '<em>Confusion Matrix</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFUSION_MATRIX_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Compute Accuracy</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFUSION_MATRIX___COMPUTE_ACCURACY = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Compute Recall</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFUSION_MATRIX___COMPUTE_RECALL = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Compute Precision</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFUSION_MATRIX___COMPUTE_PRECISION = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Compute F1 Score</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFUSION_MATRIX___COMPUTE_F1_SCORE = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Get Highest Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFUSION_MATRIX___GET_HIGHEST_VALUE = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>Compute Specificity</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFUSION_MATRIX___COMPUTE_SPECIFICITY = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 5;
+
+	/**
+	 * The number of operations of the '<em>Confusion Matrix</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFUSION_MATRIX_OPERATION_COUNT = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTICLASS_CONFUSION_MATRIX__NAME = CONFUSION_MATRIX__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Entries</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTICLASS_CONFUSION_MATRIX__ENTRIES = CONFUSION_MATRIX_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Multiclass Confusion Matrix</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTICLASS_CONFUSION_MATRIX_FEATURE_COUNT = CONFUSION_MATRIX_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Compute Accuracy</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTICLASS_CONFUSION_MATRIX___COMPUTE_ACCURACY = CONFUSION_MATRIX___COMPUTE_ACCURACY;
+
+	/**
+	 * The operation id for the '<em>Compute Recall</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTICLASS_CONFUSION_MATRIX___COMPUTE_RECALL = CONFUSION_MATRIX___COMPUTE_RECALL;
+
+	/**
+	 * The operation id for the '<em>Compute Precision</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTICLASS_CONFUSION_MATRIX___COMPUTE_PRECISION = CONFUSION_MATRIX___COMPUTE_PRECISION;
+
+	/**
+	 * The operation id for the '<em>Compute F1 Score</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTICLASS_CONFUSION_MATRIX___COMPUTE_F1_SCORE = CONFUSION_MATRIX___COMPUTE_F1_SCORE;
+
+	/**
+	 * The operation id for the '<em>Get Highest Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTICLASS_CONFUSION_MATRIX___GET_HIGHEST_VALUE = CONFUSION_MATRIX___GET_HIGHEST_VALUE;
+
+	/**
+	 * The operation id for the '<em>Compute Specificity</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTICLASS_CONFUSION_MATRIX___COMPUTE_SPECIFICITY = CONFUSION_MATRIX___COMPUTE_SPECIFICITY;
+
+	/**
+	 * The operation id for the '<em>Get Classes</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTICLASS_CONFUSION_MATRIX___GET_CLASSES = CONFUSION_MATRIX_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get TP</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTICLASS_CONFUSION_MATRIX___GET_TP__CLASSIFICATIONCLASS = CONFUSION_MATRIX_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get FP</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTICLASS_CONFUSION_MATRIX___GET_FP__CLASSIFICATIONCLASS = CONFUSION_MATRIX_OPERATION_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Get TN</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTICLASS_CONFUSION_MATRIX___GET_TN__CLASSIFICATIONCLASS = CONFUSION_MATRIX_OPERATION_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Get FN</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTICLASS_CONFUSION_MATRIX___GET_FN__CLASSIFICATIONCLASS = CONFUSION_MATRIX_OPERATION_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>Compute Balanced Accuracy</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTICLASS_CONFUSION_MATRIX___COMPUTE_BALANCED_ACCURACY = CONFUSION_MATRIX_OPERATION_COUNT + 5;
+
+	/**
+	 * The operation id for the '<em>Compute Class Accuracy</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTICLASS_CONFUSION_MATRIX___COMPUTE_CLASS_ACCURACY__CLASSIFICATIONCLASS = CONFUSION_MATRIX_OPERATION_COUNT
+			+ 6;
+
+	/**
+	 * The operation id for the '<em>Compute Class Recall</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTICLASS_CONFUSION_MATRIX___COMPUTE_CLASS_RECALL__CLASSIFICATIONCLASS = CONFUSION_MATRIX_OPERATION_COUNT + 7;
+
+	/**
+	 * The operation id for the '<em>Compute Class Precision</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTICLASS_CONFUSION_MATRIX___COMPUTE_CLASS_PRECISION__CLASSIFICATIONCLASS = CONFUSION_MATRIX_OPERATION_COUNT
+			+ 8;
+
+	/**
+	 * The operation id for the '<em>Compute Class F1 Score</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTICLASS_CONFUSION_MATRIX___COMPUTE_CLASS_F1_SCORE__CLASSIFICATIONCLASS = CONFUSION_MATRIX_OPERATION_COUNT
+			+ 9;
+
+	/**
+	 * The operation id for the '<em>Compute Class Specificity</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTICLASS_CONFUSION_MATRIX___COMPUTE_CLASS_SPECIFICITY__CLASSIFICATIONCLASS = CONFUSION_MATRIX_OPERATION_COUNT
+			+ 10;
+
+	/**
+	 * The number of operations of the '<em>Multiclass Confusion Matrix</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTICLASS_CONFUSION_MATRIX_OPERATION_COUNT = CONFUSION_MATRIX_OPERATION_COUNT + 11;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFUSION_MATRIX_ENTRY__VALUE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Predicted</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFUSION_MATRIX_ENTRY__PREDICTED = 1;
+
+	/**
+	 * The feature id for the '<em><b>Truth</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFUSION_MATRIX_ENTRY__TRUTH = 2;
+
+	/**
+	 * The number of structural features of the '<em>Confusion Matrix Entry</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFUSION_MATRIX_ENTRY_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Confusion Matrix Entry</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFUSION_MATRIX_ENTRY_OPERATION_COUNT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_CONFUSION_MATRIX__NAME = CONFUSION_MATRIX__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Tp</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_CONFUSION_MATRIX__TP = CONFUSION_MATRIX_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Tn</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_CONFUSION_MATRIX__TN = CONFUSION_MATRIX_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Fp</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_CONFUSION_MATRIX__FP = CONFUSION_MATRIX_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Fn</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_CONFUSION_MATRIX__FN = CONFUSION_MATRIX_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Positive Class</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_CONFUSION_MATRIX__POSITIVE_CLASS = CONFUSION_MATRIX_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Negative Class</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_CONFUSION_MATRIX__NEGATIVE_CLASS = CONFUSION_MATRIX_FEATURE_COUNT + 5;
+
+	/**
+	 * The number of structural features of the '<em>Binary Confusion Matrix</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_CONFUSION_MATRIX_FEATURE_COUNT = CONFUSION_MATRIX_FEATURE_COUNT + 6;
+
+	/**
+	 * The operation id for the '<em>Compute Accuracy</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_CONFUSION_MATRIX___COMPUTE_ACCURACY = CONFUSION_MATRIX___COMPUTE_ACCURACY;
+
+	/**
+	 * The operation id for the '<em>Compute Recall</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_CONFUSION_MATRIX___COMPUTE_RECALL = CONFUSION_MATRIX___COMPUTE_RECALL;
+
+	/**
+	 * The operation id for the '<em>Compute Precision</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_CONFUSION_MATRIX___COMPUTE_PRECISION = CONFUSION_MATRIX___COMPUTE_PRECISION;
+
+	/**
+	 * The operation id for the '<em>Compute F1 Score</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_CONFUSION_MATRIX___COMPUTE_F1_SCORE = CONFUSION_MATRIX___COMPUTE_F1_SCORE;
+
+	/**
+	 * The operation id for the '<em>Get Highest Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_CONFUSION_MATRIX___GET_HIGHEST_VALUE = CONFUSION_MATRIX___GET_HIGHEST_VALUE;
+
+	/**
+	 * The operation id for the '<em>Compute Specificity</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_CONFUSION_MATRIX___COMPUTE_SPECIFICITY = CONFUSION_MATRIX___COMPUTE_SPECIFICITY;
+
+	/**
+	 * The number of operations of the '<em>Binary Confusion Matrix</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_CONFUSION_MATRIX_OPERATION_COUNT = CONFUSION_MATRIX_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_CLASSIFICATION_COMPONENT__NAME = CLASSIFICATION_COMPONENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_CLASSIFICATION_COMPONENT__PARAMETERS = CLASSIFICATION_COMPONENT__PARAMETERS;
+
+	/**
+	 * The feature id for the '<em><b>Time Function</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_CLASSIFICATION_COMPONENT__TIME_FUNCTION = CLASSIFICATION_COMPONENT__TIME_FUNCTION;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_CLASSIFICATION_COMPONENT__DOCUMENTATION = CLASSIFICATION_COMPONENT__DOCUMENTATION;
+
+	/**
+	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_CLASSIFICATION_COMPONENT__COMPONENTS = CLASSIFICATION_COMPONENT__COMPONENTS;
+
+	/**
+	 * The feature id for the '<em><b>Pins</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_CLASSIFICATION_COMPONENT__PINS = CLASSIFICATION_COMPONENT__PINS;
+
+	/**
+	 * The feature id for the '<em><b>Main Responsible</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_CLASSIFICATION_COMPONENT__MAIN_RESPONSIBLE = CLASSIFICATION_COMPONENT__MAIN_RESPONSIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Specified In Package</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_CLASSIFICATION_COMPONENT__SPECIFIED_IN_PACKAGE = CLASSIFICATION_COMPONENT__SPECIFIED_IN_PACKAGE;
+
+	/**
+	 * The feature id for the '<em><b>Execution</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_CLASSIFICATION_COMPONENT__EXECUTION = CLASSIFICATION_COMPONENT__EXECUTION;
+
+	/**
+	 * The feature id for the '<em><b>Firing Strategy</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_CLASSIFICATION_COMPONENT__FIRING_STRATEGY = CLASSIFICATION_COMPONENT__FIRING_STRATEGY;
+
+	/**
+	 * The feature id for the '<em><b>Datastores</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_CLASSIFICATION_COMPONENT__DATASTORES = CLASSIFICATION_COMPONENT__DATASTORES;
+
+	/**
+	 * The feature id for the '<em><b>Synchronous</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_CLASSIFICATION_COMPONENT__SYNCHRONOUS = CLASSIFICATION_COMPONENT__SYNCHRONOUS;
+
+	/**
+	 * The feature id for the '<em><b>Number Of Servers</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_CLASSIFICATION_COMPONENT__NUMBER_OF_SERVERS = CLASSIFICATION_COMPONENT__NUMBER_OF_SERVERS;
+
+	/**
+	 * The feature id for the '<em><b>Environment</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_CLASSIFICATION_COMPONENT__ENVIRONMENT = CLASSIFICATION_COMPONENT__ENVIRONMENT;
+
+	/**
+	 * The feature id for the '<em><b>Confusion Matrixes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_CLASSIFICATION_COMPONENT__CONFUSION_MATRIXES = CLASSIFICATION_COMPONENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Binary Classification Component</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_CLASSIFICATION_COMPONENT_FEATURE_COUNT = CLASSIFICATION_COMPONENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Compute Main Responsible</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_CLASSIFICATION_COMPONENT___COMPUTE_MAIN_RESPONSIBLE = CLASSIFICATION_COMPONENT___COMPUTE_MAIN_RESPONSIBLE;
+
+	/**
+	 * The operation id for the '<em>Is Parallel</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_CLASSIFICATION_COMPONENT___IS_PARALLEL = CLASSIFICATION_COMPONENT___IS_PARALLEL;
+
+	/**
+	 * The number of operations of the '<em>Binary Classification Component</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_CLASSIFICATION_COMPONENT_OPERATION_COUNT = CLASSIFICATION_COMPONENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTICLASS_CLASSIFICATION_COMPONENT__NAME = CLASSIFICATION_COMPONENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTICLASS_CLASSIFICATION_COMPONENT__PARAMETERS = CLASSIFICATION_COMPONENT__PARAMETERS;
+
+	/**
+	 * The feature id for the '<em><b>Time Function</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTICLASS_CLASSIFICATION_COMPONENT__TIME_FUNCTION = CLASSIFICATION_COMPONENT__TIME_FUNCTION;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTICLASS_CLASSIFICATION_COMPONENT__DOCUMENTATION = CLASSIFICATION_COMPONENT__DOCUMENTATION;
+
+	/**
+	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTICLASS_CLASSIFICATION_COMPONENT__COMPONENTS = CLASSIFICATION_COMPONENT__COMPONENTS;
+
+	/**
+	 * The feature id for the '<em><b>Pins</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTICLASS_CLASSIFICATION_COMPONENT__PINS = CLASSIFICATION_COMPONENT__PINS;
+
+	/**
+	 * The feature id for the '<em><b>Main Responsible</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTICLASS_CLASSIFICATION_COMPONENT__MAIN_RESPONSIBLE = CLASSIFICATION_COMPONENT__MAIN_RESPONSIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Specified In Package</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTICLASS_CLASSIFICATION_COMPONENT__SPECIFIED_IN_PACKAGE = CLASSIFICATION_COMPONENT__SPECIFIED_IN_PACKAGE;
+
+	/**
+	 * The feature id for the '<em><b>Execution</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTICLASS_CLASSIFICATION_COMPONENT__EXECUTION = CLASSIFICATION_COMPONENT__EXECUTION;
+
+	/**
+	 * The feature id for the '<em><b>Firing Strategy</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTICLASS_CLASSIFICATION_COMPONENT__FIRING_STRATEGY = CLASSIFICATION_COMPONENT__FIRING_STRATEGY;
+
+	/**
+	 * The feature id for the '<em><b>Datastores</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTICLASS_CLASSIFICATION_COMPONENT__DATASTORES = CLASSIFICATION_COMPONENT__DATASTORES;
+
+	/**
+	 * The feature id for the '<em><b>Synchronous</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTICLASS_CLASSIFICATION_COMPONENT__SYNCHRONOUS = CLASSIFICATION_COMPONENT__SYNCHRONOUS;
+
+	/**
+	 * The feature id for the '<em><b>Number Of Servers</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTICLASS_CLASSIFICATION_COMPONENT__NUMBER_OF_SERVERS = CLASSIFICATION_COMPONENT__NUMBER_OF_SERVERS;
+
+	/**
+	 * The feature id for the '<em><b>Environment</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTICLASS_CLASSIFICATION_COMPONENT__ENVIRONMENT = CLASSIFICATION_COMPONENT__ENVIRONMENT;
+
+	/**
+	 * The feature id for the '<em><b>Confusion Matrixes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTICLASS_CLASSIFICATION_COMPONENT__CONFUSION_MATRIXES = CLASSIFICATION_COMPONENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Multiclass Classification Component</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTICLASS_CLASSIFICATION_COMPONENT_FEATURE_COUNT = CLASSIFICATION_COMPONENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Compute Main Responsible</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTICLASS_CLASSIFICATION_COMPONENT___COMPUTE_MAIN_RESPONSIBLE = CLASSIFICATION_COMPONENT___COMPUTE_MAIN_RESPONSIBLE;
+
+	/**
+	 * The operation id for the '<em>Is Parallel</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTICLASS_CLASSIFICATION_COMPONENT___IS_PARALLEL = CLASSIFICATION_COMPONENT___IS_PARALLEL;
+
+	/**
+	 * The number of operations of the '<em>Multiclass Classification Component</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTICLASS_CLASSIFICATION_COMPONENT_OPERATION_COUNT = CLASSIFICATION_COMPONENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.TokenSpecificationImpl <em>Token Specification</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.TokenSpecificationImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getTokenSpecification()
+	 * @generated
+	 */
+	int TOKEN_SPECIFICATION = 42;
+
+	/**
+	 * The feature id for the '<em><b>Input Size</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOKEN_SPECIFICATION__INPUT_SIZE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Collect Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOKEN_SPECIFICATION__COLLECT_SIZE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOKEN_SPECIFICATION__TYPE = 2;
+
+	/**
+	 * The number of structural features of the '<em>Token Specification</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOKEN_SPECIFICATION_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Token Specification</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOKEN_SPECIFICATION_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.DataSizeImpl <em>Data Size</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.DataSizeImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getDataSize()
+	 * @generated
+	 */
+	int DATA_SIZE = 43;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SIZE__NAME = CorePackage.NAMED_ELEMENT__NAME;
+
+	/**
+	 * The number of structural features of the '<em>Data Size</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SIZE_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SIZE___GET_SIZE = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Data Size</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SIZE_OPERATION_COUNT = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.StaticSizeImpl <em>Static Size</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.StaticSizeImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getStaticSize()
+	 * @generated
+	 */
+	int STATIC_SIZE = 44;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATIC_SIZE__NAME = DATA_SIZE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATIC_SIZE__SIZE = DATA_SIZE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Static Size</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATIC_SIZE_FEATURE_COUNT = DATA_SIZE_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATIC_SIZE___GET_SIZE = DATA_SIZE___GET_SIZE;
+
+	/**
+	 * The number of operations of the '<em>Static Size</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATIC_SIZE_OPERATION_COUNT = DATA_SIZE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.SetImpl <em>Set</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.SetImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getSet()
+	 * @generated
+	 */
+	int SET = 45;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET__NAME = DATA_SIZE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Values</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET__VALUES = DATA_SIZE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Set</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_FEATURE_COUNT = DATA_SIZE_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET___GET_SIZE = DATA_SIZE___GET_SIZE;
+
+	/**
+	 * The number of operations of the '<em>Set</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_OPERATION_COUNT = DATA_SIZE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.SetValueImpl <em>Set Value</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.SetValueImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getSetValue()
+	 * @generated
+	 */
+	int SET_VALUE = 46;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_VALUE__NAME = CorePackage.NAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Probability</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_VALUE__PROBABILITY = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_VALUE__SIZE = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_VALUE__VALUE = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Set Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_VALUE_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of operations of the '<em>Set Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_VALUE_OPERATION_COUNT = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.DynamicRangeImpl <em>Dynamic Range</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.DynamicRangeImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getDynamicRange()
+	 * @generated
+	 */
+	int DYNAMIC_RANGE = 47;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DYNAMIC_RANGE__NAME = DATA_SIZE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Min</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DYNAMIC_RANGE__MIN = DATA_SIZE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Max</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DYNAMIC_RANGE__MAX = DATA_SIZE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Size Factor</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DYNAMIC_RANGE__SIZE_FACTOR = DATA_SIZE_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Dynamic Range</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DYNAMIC_RANGE_FEATURE_COUNT = DATA_SIZE_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Get Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DYNAMIC_RANGE___GET_SIZE = DATA_SIZE___GET_SIZE;
+
+	/**
+	 * The number of operations of the '<em>Dynamic Range</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DYNAMIC_RANGE_OPERATION_COUNT = DATA_SIZE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.SecurityThreatsImportImpl <em>Security Threats Import</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.impl.SecurityThreatsImportImpl
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getSecurityThreatsImport()
+	 * @generated
+	 */
+	int SECURITY_THREATS_IMPORT = 48;
+
+	/**
+	 * The feature id for the '<em><b>Security Threat</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_THREATS_IMPORT__SECURITY_THREAT = 0;
+
+	/**
+	 * The number of structural features of the '<em>Security Threats Import</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_THREATS_IMPORT_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Security Threats Import</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_THREATS_IMPORT_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.QueueType <em>Queue Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3270,7 +4820,7 @@ public interface e4smPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getQueueType()
 	 * @generated
 	 */
-	int QUEUE_TYPE = 32;
+	int QUEUE_TYPE = 49;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.RaceSemantic <em>Race Semantic</em>}' enum.
@@ -3280,7 +4830,7 @@ public interface e4smPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getRaceSemantic()
 	 * @generated
 	 */
-	int RACE_SEMANTIC = 33;
+	int RACE_SEMANTIC = 50;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.ComponentFiringStrategy <em>Component Firing Strategy</em>}' enum.
@@ -3290,7 +4840,17 @@ public interface e4smPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getComponentFiringStrategy()
 	 * @generated
 	 */
-	int COMPONENT_FIRING_STRATEGY = 34;
+	int COMPONENT_FIRING_STRATEGY = 51;
+
+	/**
+	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.SizeComputation <em>Size Computation</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see e4sm.de.metamodel.e4sm.SizeComputation
+	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getSizeComputation()
+	 * @generated
+	 */
+	int SIZE_COMPUTATION = 52;
 
 	/**
 	 * The meta object id for the '<em>Connectionspeed</em>' data type.
@@ -3300,7 +4860,7 @@ public interface e4smPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getConnectionspeed()
 	 * @generated
 	 */
-	int CONNECTIONSPEED = 35;
+	int CONNECTIONSPEED = 53;
 
 	/**
 	 * The meta object id for the '<em>JSON</em>' data type.
@@ -3310,7 +4870,7 @@ public interface e4smPackage extends EPackage {
 	 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getJSON()
 	 * @generated
 	 */
-	int JSON = 36;
+	int JSON = 54;
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.Component <em>Component</em>}'.
@@ -3408,16 +4968,6 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getComponent__ComputeMainResponsible();
-
-	/**
-	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.Component#newOperation2() <em>New Operation2</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>New Operation2</em>' operation.
-	 * @see e4sm.de.metamodel.e4sm.Component#newOperation2()
-	 * @generated
-	 */
-	EOperation getComponent__NewOperation2();
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.MachineLearningComponent <em>Machine Learning Component</em>}'.
@@ -3637,28 +5187,6 @@ public interface e4smPackage extends EPackage {
 	EReference getPackage_Components();
 
 	/**
-	 * Returns the meta object for the reference list '{@link e4sm.de.metamodel.e4sm.Package#getSoftwareComponents <em>Software Components</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Software Components</em>'.
-	 * @see e4sm.de.metamodel.e4sm.Package#getSoftwareComponents()
-	 * @see #getPackage()
-	 * @generated
-	 */
-	EReference getPackage_SoftwareComponents();
-
-	/**
-	 * Returns the meta object for the reference list '{@link e4sm.de.metamodel.e4sm.Package#getPhysicalComponents <em>Physical Components</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Physical Components</em>'.
-	 * @see e4sm.de.metamodel.e4sm.Package#getPhysicalComponents()
-	 * @see #getPackage()
-	 * @generated
-	 */
-	EReference getPackage_PhysicalComponents();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link e4sm.de.metamodel.e4sm.Package#getConnectors <em>Connectors</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3723,6 +5251,28 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getPackage_Datastores();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.Package#getProcessingUnits <em>Processing Units</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Processing Units</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Package#getProcessingUnits()
+	 * @see #getPackage()
+	 * @generated
+	 */
+	EAttribute getPackage_ProcessingUnits();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.Package#getSimulationDuration <em>Simulation Duration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Simulation Duration</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Package#getSimulationDuration()
+	 * @see #getPackage()
+	 * @generated
+	 */
+	EAttribute getPackage_SimulationDuration();
 
 	/**
 	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.Package#getAllComponents() <em>Get All Components</em>}' operation.
@@ -3819,6 +5369,61 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getModel_Imports();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link e4sm.de.metamodel.e4sm.Model#getEnvironments <em>Environments</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Environments</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Model#getEnvironments()
+	 * @see #getModel()
+	 * @generated
+	 */
+	EReference getModel_Environments();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link e4sm.de.metamodel.e4sm.Model#getClassificationClasses <em>Classification Classes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Classification Classes</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Model#getClassificationClasses()
+	 * @see #getModel()
+	 * @generated
+	 */
+	EReference getModel_ClassificationClasses();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link e4sm.de.metamodel.e4sm.Model#getSecurityThreatsDefinition <em>Security Threats Definition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Security Threats Definition</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Model#getSecurityThreatsDefinition()
+	 * @see #getModel()
+	 * @generated
+	 */
+	EReference getModel_SecurityThreatsDefinition();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link e4sm.de.metamodel.e4sm.Model#getSecurityThreatsImport <em>Security Threats Import</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Security Threats Import</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Model#getSecurityThreatsImport()
+	 * @see #getModel()
+	 * @generated
+	 */
+	EReference getModel_SecurityThreatsImport();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link e4sm.de.metamodel.e4sm.Model#getSecuritySpecification <em>Security Specification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Security Specification</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Model#getSecuritySpecification()
+	 * @see #getModel()
+	 * @generated
+	 */
+	EReference getModel_SecuritySpecification();
 
 	/**
 	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.Model#isPersonPicturePathValid(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Is Person Picture Path Valid</em>}' operation.
@@ -4070,6 +5675,28 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getOutputPin_OutputUncertainty();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link e4sm.de.metamodel.e4sm.OutputPin#getTokenSpecification <em>Token Specification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Token Specification</em>'.
+	 * @see e4sm.de.metamodel.e4sm.OutputPin#getTokenSpecification()
+	 * @see #getOutputPin()
+	 * @generated
+	 */
+	EReference getOutputPin_TokenSpecification();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link e4sm.de.metamodel.e4sm.OutputPin#getOutputExpression <em>Output Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Output Expression</em>'.
+	 * @see e4sm.de.metamodel.e4sm.OutputPin#getOutputExpression()
+	 * @see #getOutputPin()
+	 * @generated
+	 */
+	EReference getOutputPin_OutputExpression();
 
 	/**
 	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.OutputPin#computeName() <em>Compute Name</em>}' operation.
@@ -4342,6 +5969,664 @@ public interface e4smPackage extends EPackage {
 	EOperation getDataNode__GetIncomingConnectors();
 
 	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.ClassificationComponent <em>Classification Component</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Classification Component</em>'.
+	 * @see e4sm.de.metamodel.e4sm.ClassificationComponent
+	 * @generated
+	 */
+	EClass getClassificationComponent();
+
+	/**
+	 * Returns the meta object for the reference '{@link e4sm.de.metamodel.e4sm.ClassificationComponent#getEnvironment <em>Environment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Environment</em>'.
+	 * @see e4sm.de.metamodel.e4sm.ClassificationComponent#getEnvironment()
+	 * @see #getClassificationComponent()
+	 * @generated
+	 */
+	EReference getClassificationComponent_Environment();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.Environment <em>Environment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Environment</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Environment
+	 * @generated
+	 */
+	EClass getEnvironment();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link e4sm.de.metamodel.e4sm.Environment#getClassificationClasses <em>Classification Classes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Classification Classes</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Environment#getClassificationClasses()
+	 * @see #getEnvironment()
+	 * @generated
+	 */
+	EReference getEnvironment_ClassificationClasses();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.ClassificationClass <em>Classification Class</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Classification Class</em>'.
+	 * @see e4sm.de.metamodel.e4sm.ClassificationClass
+	 * @generated
+	 */
+	EClass getClassificationClass();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.ClassificationClassDistribution <em>Classification Class Distribution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Classification Class Distribution</em>'.
+	 * @see e4sm.de.metamodel.e4sm.ClassificationClassDistribution
+	 * @generated
+	 */
+	EClass getClassificationClassDistribution();
+
+	/**
+	 * Returns the meta object for the reference '{@link e4sm.de.metamodel.e4sm.ClassificationClassDistribution#getClassificationClass <em>Classification Class</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Classification Class</em>'.
+	 * @see e4sm.de.metamodel.e4sm.ClassificationClassDistribution#getClassificationClass()
+	 * @see #getClassificationClassDistribution()
+	 * @generated
+	 */
+	EReference getClassificationClassDistribution_ClassificationClass();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.ClassificationClassDistribution#getProbability <em>Probability</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Probability</em>'.
+	 * @see e4sm.de.metamodel.e4sm.ClassificationClassDistribution#getProbability()
+	 * @see #getClassificationClassDistribution()
+	 * @generated
+	 */
+	EAttribute getClassificationClassDistribution_Probability();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.MulticlassConfusionMatrix <em>Multiclass Confusion Matrix</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Multiclass Confusion Matrix</em>'.
+	 * @see e4sm.de.metamodel.e4sm.MulticlassConfusionMatrix
+	 * @generated
+	 */
+	EClass getMulticlassConfusionMatrix();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link e4sm.de.metamodel.e4sm.MulticlassConfusionMatrix#getEntries <em>Entries</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Entries</em>'.
+	 * @see e4sm.de.metamodel.e4sm.MulticlassConfusionMatrix#getEntries()
+	 * @see #getMulticlassConfusionMatrix()
+	 * @generated
+	 */
+	EReference getMulticlassConfusionMatrix_Entries();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.MulticlassConfusionMatrix#getClasses() <em>Get Classes</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Classes</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.MulticlassConfusionMatrix#getClasses()
+	 * @generated
+	 */
+	EOperation getMulticlassConfusionMatrix__GetClasses();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.MulticlassConfusionMatrix#getTP(e4sm.de.metamodel.e4sm.ClassificationClass) <em>Get TP</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get TP</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.MulticlassConfusionMatrix#getTP(e4sm.de.metamodel.e4sm.ClassificationClass)
+	 * @generated
+	 */
+	EOperation getMulticlassConfusionMatrix__GetTP__ClassificationClass();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.MulticlassConfusionMatrix#getFP(e4sm.de.metamodel.e4sm.ClassificationClass) <em>Get FP</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get FP</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.MulticlassConfusionMatrix#getFP(e4sm.de.metamodel.e4sm.ClassificationClass)
+	 * @generated
+	 */
+	EOperation getMulticlassConfusionMatrix__GetFP__ClassificationClass();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.MulticlassConfusionMatrix#getTN(e4sm.de.metamodel.e4sm.ClassificationClass) <em>Get TN</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get TN</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.MulticlassConfusionMatrix#getTN(e4sm.de.metamodel.e4sm.ClassificationClass)
+	 * @generated
+	 */
+	EOperation getMulticlassConfusionMatrix__GetTN__ClassificationClass();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.MulticlassConfusionMatrix#getFN(e4sm.de.metamodel.e4sm.ClassificationClass) <em>Get FN</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get FN</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.MulticlassConfusionMatrix#getFN(e4sm.de.metamodel.e4sm.ClassificationClass)
+	 * @generated
+	 */
+	EOperation getMulticlassConfusionMatrix__GetFN__ClassificationClass();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.MulticlassConfusionMatrix#computeBalancedAccuracy() <em>Compute Balanced Accuracy</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Compute Balanced Accuracy</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.MulticlassConfusionMatrix#computeBalancedAccuracy()
+	 * @generated
+	 */
+	EOperation getMulticlassConfusionMatrix__ComputeBalancedAccuracy();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.MulticlassConfusionMatrix#computeClassAccuracy(e4sm.de.metamodel.e4sm.ClassificationClass) <em>Compute Class Accuracy</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Compute Class Accuracy</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.MulticlassConfusionMatrix#computeClassAccuracy(e4sm.de.metamodel.e4sm.ClassificationClass)
+	 * @generated
+	 */
+	EOperation getMulticlassConfusionMatrix__ComputeClassAccuracy__ClassificationClass();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.MulticlassConfusionMatrix#computeClassRecall(e4sm.de.metamodel.e4sm.ClassificationClass) <em>Compute Class Recall</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Compute Class Recall</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.MulticlassConfusionMatrix#computeClassRecall(e4sm.de.metamodel.e4sm.ClassificationClass)
+	 * @generated
+	 */
+	EOperation getMulticlassConfusionMatrix__ComputeClassRecall__ClassificationClass();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.MulticlassConfusionMatrix#computeClassPrecision(e4sm.de.metamodel.e4sm.ClassificationClass) <em>Compute Class Precision</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Compute Class Precision</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.MulticlassConfusionMatrix#computeClassPrecision(e4sm.de.metamodel.e4sm.ClassificationClass)
+	 * @generated
+	 */
+	EOperation getMulticlassConfusionMatrix__ComputeClassPrecision__ClassificationClass();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.MulticlassConfusionMatrix#computeClassF1Score(e4sm.de.metamodel.e4sm.ClassificationClass) <em>Compute Class F1 Score</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Compute Class F1 Score</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.MulticlassConfusionMatrix#computeClassF1Score(e4sm.de.metamodel.e4sm.ClassificationClass)
+	 * @generated
+	 */
+	EOperation getMulticlassConfusionMatrix__ComputeClassF1Score__ClassificationClass();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.MulticlassConfusionMatrix#computeClassSpecificity(e4sm.de.metamodel.e4sm.ClassificationClass) <em>Compute Class Specificity</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Compute Class Specificity</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.MulticlassConfusionMatrix#computeClassSpecificity(e4sm.de.metamodel.e4sm.ClassificationClass)
+	 * @generated
+	 */
+	EOperation getMulticlassConfusionMatrix__ComputeClassSpecificity__ClassificationClass();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.ConfusionMatrix <em>Confusion Matrix</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Confusion Matrix</em>'.
+	 * @see e4sm.de.metamodel.e4sm.ConfusionMatrix
+	 * @generated
+	 */
+	EClass getConfusionMatrix();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.ConfusionMatrix#computeAccuracy() <em>Compute Accuracy</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Compute Accuracy</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.ConfusionMatrix#computeAccuracy()
+	 * @generated
+	 */
+	EOperation getConfusionMatrix__ComputeAccuracy();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.ConfusionMatrix#computeRecall() <em>Compute Recall</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Compute Recall</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.ConfusionMatrix#computeRecall()
+	 * @generated
+	 */
+	EOperation getConfusionMatrix__ComputeRecall();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.ConfusionMatrix#computePrecision() <em>Compute Precision</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Compute Precision</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.ConfusionMatrix#computePrecision()
+	 * @generated
+	 */
+	EOperation getConfusionMatrix__ComputePrecision();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.ConfusionMatrix#computeF1Score() <em>Compute F1 Score</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Compute F1 Score</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.ConfusionMatrix#computeF1Score()
+	 * @generated
+	 */
+	EOperation getConfusionMatrix__ComputeF1Score();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.ConfusionMatrix#getHighestValue() <em>Get Highest Value</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Highest Value</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.ConfusionMatrix#getHighestValue()
+	 * @generated
+	 */
+	EOperation getConfusionMatrix__GetHighestValue();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.ConfusionMatrix#computeSpecificity() <em>Compute Specificity</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Compute Specificity</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.ConfusionMatrix#computeSpecificity()
+	 * @generated
+	 */
+	EOperation getConfusionMatrix__ComputeSpecificity();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.TokenSpecification <em>Token Specification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Token Specification</em>'.
+	 * @see e4sm.de.metamodel.e4sm.TokenSpecification
+	 * @generated
+	 */
+	EClass getTokenSpecification();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link e4sm.de.metamodel.e4sm.TokenSpecification#getInputSize <em>Input Size</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Input Size</em>'.
+	 * @see e4sm.de.metamodel.e4sm.TokenSpecification#getInputSize()
+	 * @see #getTokenSpecification()
+	 * @generated
+	 */
+	EReference getTokenSpecification_InputSize();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.TokenSpecification#getCollectSize <em>Collect Size</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Collect Size</em>'.
+	 * @see e4sm.de.metamodel.e4sm.TokenSpecification#getCollectSize()
+	 * @see #getTokenSpecification()
+	 * @generated
+	 */
+	EAttribute getTokenSpecification_CollectSize();
+
+	/**
+	 * Returns the meta object for the reference '{@link e4sm.de.metamodel.e4sm.TokenSpecification#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Type</em>'.
+	 * @see e4sm.de.metamodel.e4sm.TokenSpecification#getType()
+	 * @see #getTokenSpecification()
+	 * @generated
+	 */
+	EReference getTokenSpecification_Type();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.DataSize <em>Data Size</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Data Size</em>'.
+	 * @see e4sm.de.metamodel.e4sm.DataSize
+	 * @generated
+	 */
+	EClass getDataSize();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.DataSize#getSize() <em>Get Size</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Size</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.DataSize#getSize()
+	 * @generated
+	 */
+	EOperation getDataSize__GetSize();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.StaticSize <em>Static Size</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Static Size</em>'.
+	 * @see e4sm.de.metamodel.e4sm.StaticSize
+	 * @generated
+	 */
+	EClass getStaticSize();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.StaticSize#getSize <em>Size</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Size</em>'.
+	 * @see e4sm.de.metamodel.e4sm.StaticSize#getSize()
+	 * @see #getStaticSize()
+	 * @generated
+	 */
+	EAttribute getStaticSize_Size();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.Set <em>Set</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Set</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Set
+	 * @generated
+	 */
+	EClass getSet();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link e4sm.de.metamodel.e4sm.Set#getValues <em>Values</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Values</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Set#getValues()
+	 * @see #getSet()
+	 * @generated
+	 */
+	EReference getSet_Values();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.SetValue <em>Set Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Set Value</em>'.
+	 * @see e4sm.de.metamodel.e4sm.SetValue
+	 * @generated
+	 */
+	EClass getSetValue();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.SetValue#getProbability <em>Probability</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Probability</em>'.
+	 * @see e4sm.de.metamodel.e4sm.SetValue#getProbability()
+	 * @see #getSetValue()
+	 * @generated
+	 */
+	EAttribute getSetValue_Probability();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.SetValue#getSize <em>Size</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Size</em>'.
+	 * @see e4sm.de.metamodel.e4sm.SetValue#getSize()
+	 * @see #getSetValue()
+	 * @generated
+	 */
+	EAttribute getSetValue_Size();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.SetValue#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see e4sm.de.metamodel.e4sm.SetValue#getValue()
+	 * @see #getSetValue()
+	 * @generated
+	 */
+	EAttribute getSetValue_Value();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.DynamicRange <em>Dynamic Range</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Dynamic Range</em>'.
+	 * @see e4sm.de.metamodel.e4sm.DynamicRange
+	 * @generated
+	 */
+	EClass getDynamicRange();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.DynamicRange#getMin <em>Min</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Min</em>'.
+	 * @see e4sm.de.metamodel.e4sm.DynamicRange#getMin()
+	 * @see #getDynamicRange()
+	 * @generated
+	 */
+	EAttribute getDynamicRange_Min();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.DynamicRange#getMax <em>Max</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Max</em>'.
+	 * @see e4sm.de.metamodel.e4sm.DynamicRange#getMax()
+	 * @see #getDynamicRange()
+	 * @generated
+	 */
+	EAttribute getDynamicRange_Max();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.DynamicRange#getSizeFactor <em>Size Factor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Size Factor</em>'.
+	 * @see e4sm.de.metamodel.e4sm.DynamicRange#getSizeFactor()
+	 * @see #getDynamicRange()
+	 * @generated
+	 */
+	EAttribute getDynamicRange_SizeFactor();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.SecurityThreatsImport <em>Security Threats Import</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Security Threats Import</em>'.
+	 * @see e4sm.de.metamodel.e4sm.SecurityThreatsImport
+	 * @generated
+	 */
+	EClass getSecurityThreatsImport();
+
+	/**
+	 * Returns the meta object for the reference '{@link e4sm.de.metamodel.e4sm.SecurityThreatsImport#getSecurityThreat <em>Security Threat</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Security Threat</em>'.
+	 * @see e4sm.de.metamodel.e4sm.SecurityThreatsImport#getSecurityThreat()
+	 * @see #getSecurityThreatsImport()
+	 * @generated
+	 */
+	EReference getSecurityThreatsImport_SecurityThreat();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.ConfusionMatrixEntry <em>Confusion Matrix Entry</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Confusion Matrix Entry</em>'.
+	 * @see e4sm.de.metamodel.e4sm.ConfusionMatrixEntry
+	 * @generated
+	 */
+	EClass getConfusionMatrixEntry();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.ConfusionMatrixEntry#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see e4sm.de.metamodel.e4sm.ConfusionMatrixEntry#getValue()
+	 * @see #getConfusionMatrixEntry()
+	 * @generated
+	 */
+	EAttribute getConfusionMatrixEntry_Value();
+
+	/**
+	 * Returns the meta object for the reference '{@link e4sm.de.metamodel.e4sm.ConfusionMatrixEntry#getPredicted <em>Predicted</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Predicted</em>'.
+	 * @see e4sm.de.metamodel.e4sm.ConfusionMatrixEntry#getPredicted()
+	 * @see #getConfusionMatrixEntry()
+	 * @generated
+	 */
+	EReference getConfusionMatrixEntry_Predicted();
+
+	/**
+	 * Returns the meta object for the reference '{@link e4sm.de.metamodel.e4sm.ConfusionMatrixEntry#getTruth <em>Truth</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Truth</em>'.
+	 * @see e4sm.de.metamodel.e4sm.ConfusionMatrixEntry#getTruth()
+	 * @see #getConfusionMatrixEntry()
+	 * @generated
+	 */
+	EReference getConfusionMatrixEntry_Truth();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.BinaryConfusionMatrix <em>Binary Confusion Matrix</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Binary Confusion Matrix</em>'.
+	 * @see e4sm.de.metamodel.e4sm.BinaryConfusionMatrix
+	 * @generated
+	 */
+	EClass getBinaryConfusionMatrix();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.BinaryConfusionMatrix#getTp <em>Tp</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Tp</em>'.
+	 * @see e4sm.de.metamodel.e4sm.BinaryConfusionMatrix#getTp()
+	 * @see #getBinaryConfusionMatrix()
+	 * @generated
+	 */
+	EAttribute getBinaryConfusionMatrix_Tp();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.BinaryConfusionMatrix#getTn <em>Tn</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Tn</em>'.
+	 * @see e4sm.de.metamodel.e4sm.BinaryConfusionMatrix#getTn()
+	 * @see #getBinaryConfusionMatrix()
+	 * @generated
+	 */
+	EAttribute getBinaryConfusionMatrix_Tn();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.BinaryConfusionMatrix#getFp <em>Fp</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Fp</em>'.
+	 * @see e4sm.de.metamodel.e4sm.BinaryConfusionMatrix#getFp()
+	 * @see #getBinaryConfusionMatrix()
+	 * @generated
+	 */
+	EAttribute getBinaryConfusionMatrix_Fp();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.BinaryConfusionMatrix#getFn <em>Fn</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Fn</em>'.
+	 * @see e4sm.de.metamodel.e4sm.BinaryConfusionMatrix#getFn()
+	 * @see #getBinaryConfusionMatrix()
+	 * @generated
+	 */
+	EAttribute getBinaryConfusionMatrix_Fn();
+
+	/**
+	 * Returns the meta object for the reference '{@link e4sm.de.metamodel.e4sm.BinaryConfusionMatrix#getPositiveClass <em>Positive Class</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Positive Class</em>'.
+	 * @see e4sm.de.metamodel.e4sm.BinaryConfusionMatrix#getPositiveClass()
+	 * @see #getBinaryConfusionMatrix()
+	 * @generated
+	 */
+	EReference getBinaryConfusionMatrix_PositiveClass();
+
+	/**
+	 * Returns the meta object for the reference '{@link e4sm.de.metamodel.e4sm.BinaryConfusionMatrix#getNegativeClass <em>Negative Class</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Negative Class</em>'.
+	 * @see e4sm.de.metamodel.e4sm.BinaryConfusionMatrix#getNegativeClass()
+	 * @see #getBinaryConfusionMatrix()
+	 * @generated
+	 */
+	EReference getBinaryConfusionMatrix_NegativeClass();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.BinaryClassificationComponent <em>Binary Classification Component</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Binary Classification Component</em>'.
+	 * @see e4sm.de.metamodel.e4sm.BinaryClassificationComponent
+	 * @generated
+	 */
+	EClass getBinaryClassificationComponent();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link e4sm.de.metamodel.e4sm.BinaryClassificationComponent#getConfusionMatrixes <em>Confusion Matrixes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Confusion Matrixes</em>'.
+	 * @see e4sm.de.metamodel.e4sm.BinaryClassificationComponent#getConfusionMatrixes()
+	 * @see #getBinaryClassificationComponent()
+	 * @generated
+	 */
+	EReference getBinaryClassificationComponent_ConfusionMatrixes();
+
+	/**
+	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.MulticlassClassificationComponent <em>Multiclass Classification Component</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Multiclass Classification Component</em>'.
+	 * @see e4sm.de.metamodel.e4sm.MulticlassClassificationComponent
+	 * @generated
+	 */
+	EClass getMulticlassClassificationComponent();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link e4sm.de.metamodel.e4sm.MulticlassClassificationComponent#getConfusionMatrixes <em>Confusion Matrixes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Confusion Matrixes</em>'.
+	 * @see e4sm.de.metamodel.e4sm.MulticlassClassificationComponent#getConfusionMatrixes()
+	 * @see #getMulticlassClassificationComponent()
+	 * @generated
+	 */
+	EReference getMulticlassClassificationComponent_ConfusionMatrixes();
+
+	/**
 	 * Returns the meta object for enum '{@link e4sm.de.metamodel.e4sm.QueueType <em>Queue Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4370,6 +6655,16 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getComponentFiringStrategy();
+
+	/**
+	 * Returns the meta object for enum '{@link e4sm.de.metamodel.e4sm.SizeComputation <em>Size Computation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Size Computation</em>'.
+	 * @see e4sm.de.metamodel.e4sm.SizeComputation
+	 * @generated
+	 */
+	EEnum getSizeComputation();
 
 	/**
 	 * Returns the meta object for data type '{@link java.lang.Object <em>Connectionspeed</em>}'.
@@ -4489,14 +6784,6 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation COMPONENT___COMPUTE_MAIN_RESPONSIBLE = eINSTANCE.getComponent__ComputeMainResponsible();
-
-		/**
-		 * The meta object literal for the '<em><b>New Operation2</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation COMPONENT___NEW_OPERATION2 = eINSTANCE.getComponent__NewOperation2();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.MachineLearningComponentImpl <em>Machine Learning Component</em>}' class.
@@ -4688,22 +6975,6 @@ public interface e4smPackage extends EPackage {
 		EReference PACKAGE__COMPONENTS = eINSTANCE.getPackage_Components();
 
 		/**
-		 * The meta object literal for the '<em><b>Software Components</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PACKAGE__SOFTWARE_COMPONENTS = eINSTANCE.getPackage_SoftwareComponents();
-
-		/**
-		 * The meta object literal for the '<em><b>Physical Components</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PACKAGE__PHYSICAL_COMPONENTS = eINSTANCE.getPackage_PhysicalComponents();
-
-		/**
 		 * The meta object literal for the '<em><b>Connectors</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4750,6 +7021,22 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PACKAGE__DATASTORES = eINSTANCE.getPackage_Datastores();
+
+		/**
+		 * The meta object literal for the '<em><b>Processing Units</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PACKAGE__PROCESSING_UNITS = eINSTANCE.getPackage_ProcessingUnits();
+
+		/**
+		 * The meta object literal for the '<em><b>Simulation Duration</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PACKAGE__SIMULATION_DURATION = eINSTANCE.getPackage_SimulationDuration();
 
 		/**
 		 * The meta object literal for the '<em><b>Get All Components</b></em>' operation.
@@ -4824,6 +7111,46 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EReference MODEL__IMPORTS = eINSTANCE.getModel_Imports();
+
+		/**
+		 * The meta object literal for the '<em><b>Environments</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODEL__ENVIRONMENTS = eINSTANCE.getModel_Environments();
+
+		/**
+		 * The meta object literal for the '<em><b>Classification Classes</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODEL__CLASSIFICATION_CLASSES = eINSTANCE.getModel_ClassificationClasses();
+
+		/**
+		 * The meta object literal for the '<em><b>Security Threats Definition</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODEL__SECURITY_THREATS_DEFINITION = eINSTANCE.getModel_SecurityThreatsDefinition();
+
+		/**
+		 * The meta object literal for the '<em><b>Security Threats Import</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODEL__SECURITY_THREATS_IMPORT = eINSTANCE.getModel_SecurityThreatsImport();
+
+		/**
+		 * The meta object literal for the '<em><b>Security Specification</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODEL__SECURITY_SPECIFICATION = eINSTANCE.getModel_SecuritySpecification();
 
 		/**
 		 * The meta object literal for the '<em><b>Is Person Picture Path Valid</b></em>' operation.
@@ -5035,6 +7362,22 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute OUTPUT_PIN__OUTPUT_UNCERTAINTY = eINSTANCE.getOutputPin_OutputUncertainty();
+
+		/**
+		 * The meta object literal for the '<em><b>Token Specification</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OUTPUT_PIN__TOKEN_SPECIFICATION = eINSTANCE.getOutputPin_TokenSpecification();
+
+		/**
+		 * The meta object literal for the '<em><b>Output Expression</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OUTPUT_PIN__OUTPUT_EXPRESSION = eINSTANCE.getOutputPin_OutputExpression();
 
 		/**
 		 * The meta object literal for the '<em><b>Compute Name</b></em>' operation.
@@ -5267,6 +7610,558 @@ public interface e4smPackage extends EPackage {
 		EOperation DATA_NODE___GET_INCOMING_CONNECTORS = eINSTANCE.getDataNode__GetIncomingConnectors();
 
 		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.ClassificationComponentImpl <em>Classification Component</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.ClassificationComponentImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getClassificationComponent()
+		 * @generated
+		 */
+		EClass CLASSIFICATION_COMPONENT = eINSTANCE.getClassificationComponent();
+
+		/**
+		 * The meta object literal for the '<em><b>Environment</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CLASSIFICATION_COMPONENT__ENVIRONMENT = eINSTANCE.getClassificationComponent_Environment();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.EnvironmentImpl <em>Environment</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.EnvironmentImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getEnvironment()
+		 * @generated
+		 */
+		EClass ENVIRONMENT = eINSTANCE.getEnvironment();
+
+		/**
+		 * The meta object literal for the '<em><b>Classification Classes</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ENVIRONMENT__CLASSIFICATION_CLASSES = eINSTANCE.getEnvironment_ClassificationClasses();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.ClassificationClassImpl <em>Classification Class</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.ClassificationClassImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getClassificationClass()
+		 * @generated
+		 */
+		EClass CLASSIFICATION_CLASS = eINSTANCE.getClassificationClass();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.ClassificationClassDistributionImpl <em>Classification Class Distribution</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.ClassificationClassDistributionImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getClassificationClassDistribution()
+		 * @generated
+		 */
+		EClass CLASSIFICATION_CLASS_DISTRIBUTION = eINSTANCE.getClassificationClassDistribution();
+
+		/**
+		 * The meta object literal for the '<em><b>Classification Class</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CLASSIFICATION_CLASS_DISTRIBUTION__CLASSIFICATION_CLASS = eINSTANCE
+				.getClassificationClassDistribution_ClassificationClass();
+
+		/**
+		 * The meta object literal for the '<em><b>Probability</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CLASSIFICATION_CLASS_DISTRIBUTION__PROBABILITY = eINSTANCE
+				.getClassificationClassDistribution_Probability();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.MulticlassConfusionMatrixImpl <em>Multiclass Confusion Matrix</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.MulticlassConfusionMatrixImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getMulticlassConfusionMatrix()
+		 * @generated
+		 */
+		EClass MULTICLASS_CONFUSION_MATRIX = eINSTANCE.getMulticlassConfusionMatrix();
+
+		/**
+		 * The meta object literal for the '<em><b>Entries</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MULTICLASS_CONFUSION_MATRIX__ENTRIES = eINSTANCE.getMulticlassConfusionMatrix_Entries();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Classes</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation MULTICLASS_CONFUSION_MATRIX___GET_CLASSES = eINSTANCE.getMulticlassConfusionMatrix__GetClasses();
+
+		/**
+		 * The meta object literal for the '<em><b>Get TP</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation MULTICLASS_CONFUSION_MATRIX___GET_TP__CLASSIFICATIONCLASS = eINSTANCE
+				.getMulticlassConfusionMatrix__GetTP__ClassificationClass();
+
+		/**
+		 * The meta object literal for the '<em><b>Get FP</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation MULTICLASS_CONFUSION_MATRIX___GET_FP__CLASSIFICATIONCLASS = eINSTANCE
+				.getMulticlassConfusionMatrix__GetFP__ClassificationClass();
+
+		/**
+		 * The meta object literal for the '<em><b>Get TN</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation MULTICLASS_CONFUSION_MATRIX___GET_TN__CLASSIFICATIONCLASS = eINSTANCE
+				.getMulticlassConfusionMatrix__GetTN__ClassificationClass();
+
+		/**
+		 * The meta object literal for the '<em><b>Get FN</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation MULTICLASS_CONFUSION_MATRIX___GET_FN__CLASSIFICATIONCLASS = eINSTANCE
+				.getMulticlassConfusionMatrix__GetFN__ClassificationClass();
+
+		/**
+		 * The meta object literal for the '<em><b>Compute Balanced Accuracy</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation MULTICLASS_CONFUSION_MATRIX___COMPUTE_BALANCED_ACCURACY = eINSTANCE
+				.getMulticlassConfusionMatrix__ComputeBalancedAccuracy();
+
+		/**
+		 * The meta object literal for the '<em><b>Compute Class Accuracy</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation MULTICLASS_CONFUSION_MATRIX___COMPUTE_CLASS_ACCURACY__CLASSIFICATIONCLASS = eINSTANCE
+				.getMulticlassConfusionMatrix__ComputeClassAccuracy__ClassificationClass();
+
+		/**
+		 * The meta object literal for the '<em><b>Compute Class Recall</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation MULTICLASS_CONFUSION_MATRIX___COMPUTE_CLASS_RECALL__CLASSIFICATIONCLASS = eINSTANCE
+				.getMulticlassConfusionMatrix__ComputeClassRecall__ClassificationClass();
+
+		/**
+		 * The meta object literal for the '<em><b>Compute Class Precision</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation MULTICLASS_CONFUSION_MATRIX___COMPUTE_CLASS_PRECISION__CLASSIFICATIONCLASS = eINSTANCE
+				.getMulticlassConfusionMatrix__ComputeClassPrecision__ClassificationClass();
+
+		/**
+		 * The meta object literal for the '<em><b>Compute Class F1 Score</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation MULTICLASS_CONFUSION_MATRIX___COMPUTE_CLASS_F1_SCORE__CLASSIFICATIONCLASS = eINSTANCE
+				.getMulticlassConfusionMatrix__ComputeClassF1Score__ClassificationClass();
+
+		/**
+		 * The meta object literal for the '<em><b>Compute Class Specificity</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation MULTICLASS_CONFUSION_MATRIX___COMPUTE_CLASS_SPECIFICITY__CLASSIFICATIONCLASS = eINSTANCE
+				.getMulticlassConfusionMatrix__ComputeClassSpecificity__ClassificationClass();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.ConfusionMatrixImpl <em>Confusion Matrix</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.ConfusionMatrixImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getConfusionMatrix()
+		 * @generated
+		 */
+		EClass CONFUSION_MATRIX = eINSTANCE.getConfusionMatrix();
+
+		/**
+		 * The meta object literal for the '<em><b>Compute Accuracy</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CONFUSION_MATRIX___COMPUTE_ACCURACY = eINSTANCE.getConfusionMatrix__ComputeAccuracy();
+
+		/**
+		 * The meta object literal for the '<em><b>Compute Recall</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CONFUSION_MATRIX___COMPUTE_RECALL = eINSTANCE.getConfusionMatrix__ComputeRecall();
+
+		/**
+		 * The meta object literal for the '<em><b>Compute Precision</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CONFUSION_MATRIX___COMPUTE_PRECISION = eINSTANCE.getConfusionMatrix__ComputePrecision();
+
+		/**
+		 * The meta object literal for the '<em><b>Compute F1 Score</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CONFUSION_MATRIX___COMPUTE_F1_SCORE = eINSTANCE.getConfusionMatrix__ComputeF1Score();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Highest Value</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CONFUSION_MATRIX___GET_HIGHEST_VALUE = eINSTANCE.getConfusionMatrix__GetHighestValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Compute Specificity</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CONFUSION_MATRIX___COMPUTE_SPECIFICITY = eINSTANCE.getConfusionMatrix__ComputeSpecificity();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.TokenSpecificationImpl <em>Token Specification</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.TokenSpecificationImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getTokenSpecification()
+		 * @generated
+		 */
+		EClass TOKEN_SPECIFICATION = eINSTANCE.getTokenSpecification();
+
+		/**
+		 * The meta object literal for the '<em><b>Input Size</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TOKEN_SPECIFICATION__INPUT_SIZE = eINSTANCE.getTokenSpecification_InputSize();
+
+		/**
+		 * The meta object literal for the '<em><b>Collect Size</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TOKEN_SPECIFICATION__COLLECT_SIZE = eINSTANCE.getTokenSpecification_CollectSize();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TOKEN_SPECIFICATION__TYPE = eINSTANCE.getTokenSpecification_Type();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.DataSizeImpl <em>Data Size</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.DataSizeImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getDataSize()
+		 * @generated
+		 */
+		EClass DATA_SIZE = eINSTANCE.getDataSize();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Size</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DATA_SIZE___GET_SIZE = eINSTANCE.getDataSize__GetSize();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.StaticSizeImpl <em>Static Size</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.StaticSizeImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getStaticSize()
+		 * @generated
+		 */
+		EClass STATIC_SIZE = eINSTANCE.getStaticSize();
+
+		/**
+		 * The meta object literal for the '<em><b>Size</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STATIC_SIZE__SIZE = eINSTANCE.getStaticSize_Size();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.SetImpl <em>Set</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.SetImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getSet()
+		 * @generated
+		 */
+		EClass SET = eINSTANCE.getSet();
+
+		/**
+		 * The meta object literal for the '<em><b>Values</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SET__VALUES = eINSTANCE.getSet_Values();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.SetValueImpl <em>Set Value</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.SetValueImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getSetValue()
+		 * @generated
+		 */
+		EClass SET_VALUE = eINSTANCE.getSetValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Probability</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SET_VALUE__PROBABILITY = eINSTANCE.getSetValue_Probability();
+
+		/**
+		 * The meta object literal for the '<em><b>Size</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SET_VALUE__SIZE = eINSTANCE.getSetValue_Size();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SET_VALUE__VALUE = eINSTANCE.getSetValue_Value();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.DynamicRangeImpl <em>Dynamic Range</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.DynamicRangeImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getDynamicRange()
+		 * @generated
+		 */
+		EClass DYNAMIC_RANGE = eINSTANCE.getDynamicRange();
+
+		/**
+		 * The meta object literal for the '<em><b>Min</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DYNAMIC_RANGE__MIN = eINSTANCE.getDynamicRange_Min();
+
+		/**
+		 * The meta object literal for the '<em><b>Max</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DYNAMIC_RANGE__MAX = eINSTANCE.getDynamicRange_Max();
+
+		/**
+		 * The meta object literal for the '<em><b>Size Factor</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DYNAMIC_RANGE__SIZE_FACTOR = eINSTANCE.getDynamicRange_SizeFactor();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.SecurityThreatsImportImpl <em>Security Threats Import</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.SecurityThreatsImportImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getSecurityThreatsImport()
+		 * @generated
+		 */
+		EClass SECURITY_THREATS_IMPORT = eINSTANCE.getSecurityThreatsImport();
+
+		/**
+		 * The meta object literal for the '<em><b>Security Threat</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SECURITY_THREATS_IMPORT__SECURITY_THREAT = eINSTANCE.getSecurityThreatsImport_SecurityThreat();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.ConfusionMatrixEntryImpl <em>Confusion Matrix Entry</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.ConfusionMatrixEntryImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getConfusionMatrixEntry()
+		 * @generated
+		 */
+		EClass CONFUSION_MATRIX_ENTRY = eINSTANCE.getConfusionMatrixEntry();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONFUSION_MATRIX_ENTRY__VALUE = eINSTANCE.getConfusionMatrixEntry_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Predicted</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONFUSION_MATRIX_ENTRY__PREDICTED = eINSTANCE.getConfusionMatrixEntry_Predicted();
+
+		/**
+		 * The meta object literal for the '<em><b>Truth</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONFUSION_MATRIX_ENTRY__TRUTH = eINSTANCE.getConfusionMatrixEntry_Truth();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.BinaryConfusionMatrixImpl <em>Binary Confusion Matrix</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.BinaryConfusionMatrixImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getBinaryConfusionMatrix()
+		 * @generated
+		 */
+		EClass BINARY_CONFUSION_MATRIX = eINSTANCE.getBinaryConfusionMatrix();
+
+		/**
+		 * The meta object literal for the '<em><b>Tp</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BINARY_CONFUSION_MATRIX__TP = eINSTANCE.getBinaryConfusionMatrix_Tp();
+
+		/**
+		 * The meta object literal for the '<em><b>Tn</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BINARY_CONFUSION_MATRIX__TN = eINSTANCE.getBinaryConfusionMatrix_Tn();
+
+		/**
+		 * The meta object literal for the '<em><b>Fp</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BINARY_CONFUSION_MATRIX__FP = eINSTANCE.getBinaryConfusionMatrix_Fp();
+
+		/**
+		 * The meta object literal for the '<em><b>Fn</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BINARY_CONFUSION_MATRIX__FN = eINSTANCE.getBinaryConfusionMatrix_Fn();
+
+		/**
+		 * The meta object literal for the '<em><b>Positive Class</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BINARY_CONFUSION_MATRIX__POSITIVE_CLASS = eINSTANCE.getBinaryConfusionMatrix_PositiveClass();
+
+		/**
+		 * The meta object literal for the '<em><b>Negative Class</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BINARY_CONFUSION_MATRIX__NEGATIVE_CLASS = eINSTANCE.getBinaryConfusionMatrix_NegativeClass();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.BinaryClassificationComponentImpl <em>Binary Classification Component</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.BinaryClassificationComponentImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getBinaryClassificationComponent()
+		 * @generated
+		 */
+		EClass BINARY_CLASSIFICATION_COMPONENT = eINSTANCE.getBinaryClassificationComponent();
+
+		/**
+		 * The meta object literal for the '<em><b>Confusion Matrixes</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BINARY_CLASSIFICATION_COMPONENT__CONFUSION_MATRIXES = eINSTANCE
+				.getBinaryClassificationComponent_ConfusionMatrixes();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.MulticlassClassificationComponentImpl <em>Multiclass Classification Component</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.impl.MulticlassClassificationComponentImpl
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getMulticlassClassificationComponent()
+		 * @generated
+		 */
+		EClass MULTICLASS_CLASSIFICATION_COMPONENT = eINSTANCE.getMulticlassClassificationComponent();
+
+		/**
+		 * The meta object literal for the '<em><b>Confusion Matrixes</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MULTICLASS_CLASSIFICATION_COMPONENT__CONFUSION_MATRIXES = eINSTANCE
+				.getMulticlassClassificationComponent_ConfusionMatrixes();
+
+		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.QueueType <em>Queue Type</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5295,6 +8190,16 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum COMPONENT_FIRING_STRATEGY = eINSTANCE.getComponentFiringStrategy();
+
+		/**
+		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.SizeComputation <em>Size Computation</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see e4sm.de.metamodel.e4sm.SizeComputation
+		 * @see e4sm.de.metamodel.e4sm.impl.e4smPackageImpl#getSizeComputation()
+		 * @generated
+		 */
+		EEnum SIZE_COMPUTATION = eINSTANCE.getSizeComputation();
 
 		/**
 		 * The meta object literal for the '<em>Connectionspeed</em>' data type.

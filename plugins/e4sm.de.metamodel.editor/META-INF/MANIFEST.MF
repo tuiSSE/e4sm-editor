@@ -11,6 +11,7 @@ Bundle-Localization: plugin
 Export-Package: e4sm.de.metamodel.e4sm.analysis.presentation,
  e4sm.de.metamodel.e4sm.analysis.results.presentation,
  e4sm.de.metamodel.e4sm.presentation,
+ e4sm.de.metamodel.e4sm.security.presentation,
  e4sm.de.metamodel.e4sm.core.presentation,
  e4sm.de.metamodel.e4sm.execution.presentation,
  e4sm.de.metamodel.e4sm.common
@@ -21,6 +22,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.edit.ui;visibility:=reexport,
  org.eclipse.ui.ide;visibility:=reexport,
  org.eclipse.emf.ecore.edit;visibility:=reexport,
- org.eclipse.emf.edapt.history
+ org.eclipse.emf.edapt.history,
+ org.eclipse.e4.core.services;bundle-version="2.3.400"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-17

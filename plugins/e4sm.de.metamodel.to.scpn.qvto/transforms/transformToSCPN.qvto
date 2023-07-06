@@ -5,12 +5,15 @@ import transformTypes;
 
 modeltype e4sm "strict" uses e4sm("http://de.tu-ilmenau/e4sm/1.0.0");
 modeltype execution "strict" uses execution("http://de.tu-ilmenau/e4sm/execution/1.0.0");
+modeltype analysis "strict" uses analysis("http://de.tu-ilmenau/e4sm/analysis/1.0.0");
 modeltype core "strict" uses core("http://de.tu-ilmenau/e4sm/core/1.0.0");
 modeltype scpn "strict" uses scpn("http://timenet.tu-ilmenau.de/schema/SCPN");
 
 
 transformation transformToSCPN(in e:e4sm, out s:scpn);
 configuration property packageName : String;
+configuration property logComponents : Boolean;
+
 
 main() {
 	log("\nTransforming E4SM Model to Stochastic Colored Petri Net");
@@ -47,6 +50,7 @@ mapping Package::packageToSCPN() : SCPNNet{
 	log("\nTransforming package " +  self.name);
 	// Transform types
 	//recordTokentype := e.rootObjects()[Model].types->map convert();
+	parameter+= self.parameters->map parameterToSCPN(self.name);
 	recordTokentype := object RecordTokentype{
 	id := "data_id";
 	name := "Data";
@@ -59,6 +63,10 @@ mapping Package::packageToSCPN() : SCPNNet{
 		};
 	attribute += object AttributeType{
 			name := "s"; //size
+			dataType:="int";
+		};
+	attribute += object AttributeType{
+			name := "ps"; //pixelSize
 			dataType:="int";
 		};
 	attribute += object AttributeType{
@@ -100,7 +108,7 @@ mapping Package::packageToSCPN() : SCPNNet{
 		type:= Type::text;
 		id := "data_comment_id";
 		// TODO: only generate classification stuff if the model has one classification component
-		commentText:="n: name (string)<br>s:size (int)<br>l:length (int)<br>gT:generationTime (DateTime)<br>d:isDefault (bool)<br>tL:trueLabel (int)<br>gL:guessedLabel (int);ood:Out of distribution (bool)";
+		commentText:="n: name (string)<br>s:size (int)<br>ps:pixelSize (int)<br>l:length (int)<br>gT:generationTime (DateTime)<br>d:isDefault (bool)<br>tL:trueLabel (int)<br>gL:guessedLabel (int);ood:Out of distribution (bool)";
 		graphics := object GraphicsType {
 			x := 110;
 	 		y := 1650
@@ -115,13 +123,41 @@ mapping Package::packageToSCPN() : SCPNNet{
 	netclass := "SCPN";
 	sharpEdges := false;
 	
+	var hasThreadPool : Boolean := false;
+	
+	if(self.processingUnits > 0) { // if thread pool
+		hasThreadPool := true;
+	   var threadPoolPlace : PlaceType := new PlaceType (self.name + "_thread_pool");
+	   threadPoolPlace.tokentype := "int";
+	   
+	   // Add the tokens - TODO move this to an helper function (it is used in different points)
+		var i : Integer := 0;
+		while (i < self.processingUnits) {
+		    threadPoolPlace.initialMarking := threadPoolPlace.initialMarking + "0";
+			i := i + 1;
+			// Add a comma if it's not the last one
+			if(i < self.processingUnits){
+				threadPoolPlace.initialMarking := threadPoolPlace.initialMarking + ", ";
+			}
+		};
+		
+	   place += threadPoolPlace;
+	   
+	   //add the measure 
+	   var pool_measure : scpn::MeasureType := new MeasureType(self.name + "_thread_pool_in_use");
+			pool_measure.expression := self.processingUnits.toString() + " - #" + safeString(self.name) + "_thread_pool";
+			pool_measure.eval := scpn::MeasureEvalType::Instantaneous;
+			measure += pool_measure;
+	   
+	} endif;
+	
 	// Children
 	if(self.components->isEmpty()){
 		log("\n=== Warning: no components to transform ===");
 	}
 	else {
 		log("\n=== Transforming all Components ===");
-		var res = self.components->map transformComponent();
+		var res = self.components->map transformComponent(hasThreadPool, self);
 		place += res.pl;
 		immediateTransition += res.iTr[ImmediateTransitionType];
 		timedTransition += res.iTr[TimedTransitionType];
@@ -129,6 +165,27 @@ mapping Package::packageToSCPN() : SCPNNet{
 		timedTransition += res.tt;
 		substitutionTransition += res.st;
 		measure += res.meas;
+		parameter += res.pars;
+		
+		log("\n=== Transforming all Classification components ===");
+		var bin = self.components[BinaryClassificationComponent]->map transformBinaryClassificationComponent(hasThreadPool, self);
+		place += bin.pl;	
+		immediateTransition += bin.iTr[ImmediateTransitionType];
+		timedTransition += bin.iTr[TimedTransitionType];
+		arc += bin.arcs;
+		timedTransition += bin.tt;
+		substitutionTransition += bin.st;
+		measure += bin.meas;
+		
+		log("\n=== Transforming all Classification components ===");
+		var multi = self.components[MulticlassClassificationComponent]->map transformMulticlassClassificationComponent(hasThreadPool, self);
+		place += multi.pl;	
+		immediateTransition += multi.iTr[ImmediateTransitionType];
+		timedTransition += multi.iTr[TimedTransitionType];
+		arc += multi.arcs;
+		timedTransition += multi.tt;
+		substitutionTransition += multi.st;
+		measure += multi.meas;
 	};
 	
 	// Datastores
@@ -148,7 +205,7 @@ mapping Package::packageToSCPN() : SCPNNet{
 	}
 	else {
 		log("\n=== Transforming all Sectors ===");
-		var sec := self.sectors->map transformSector();
+		var sec := self.sectors->map transformSector(hasThreadPool, self);
 		substitutionTransition += sec.st;
 		place += sec.pl;
 		immediateTransition += sec.iTr[ImmediateTransitionType];
@@ -172,16 +229,18 @@ mapping Package::packageToSCPN() : SCPNNet{
 
 mapping Package::transformSpecificationPackage() : st: List(SubstitutionTransitionType), pl: List(PlaceType),
 	iTr : List(TransitionType), arcs : List (ArcType), tt : List(TimedTransitionType),
-	meas : List(MeasureType)	
+	meas : List(MeasureType), pars:List(ParameterType)	
 	{
 	log("\nTransforming specification package " +  self.name);
+	var hasThreadPool : Boolean := self.processingUnits > 0;
+	
 	//Children
 	if(self.components->isEmpty()){
 		log("\n=== Warning: no components to transform ===");
 	}
 	else {
 		log("\n=== Transforming all Components ===");
-		var res = self.components->map transformComponent();
+		var res = self.components->map transformComponent(hasThreadPool, self);
 		pl += res.pl;
 		iTr += res.iTr[ImmediateTransitionType];
 		tt += res.iTr[TimedTransitionType];
@@ -189,6 +248,27 @@ mapping Package::transformSpecificationPackage() : st: List(SubstitutionTransiti
 		tt += res.tt;
 		st += res.st;
 		meas += res.meas;
+		pars += res.pars;
+		
+		log("\n=== Transforming all Classification components ===");
+		var bin = self.components[BinaryClassificationComponent]->map transformBinaryClassificationComponent(hasThreadPool, self);
+		pl += bin.pl;	
+		iTr += bin.iTr[ImmediateTransitionType];
+		tt += bin.iTr[TimedTransitionType];
+		arcs += bin.arcs;
+		tt += bin.tt;
+		st += bin.st;
+		meas += bin.meas;
+		
+		log("\n=== Transforming all Classification components ===");
+		var multi = self.components[MulticlassClassificationComponent]->map transformMulticlassClassificationComponent(hasThreadPool, self);
+		pl += multi.pl;	
+		iTr += multi.iTr[ImmediateTransitionType];
+		tt += multi.iTr[TimedTransitionType];
+		arcs += multi.arcs;
+		tt += multi.tt;
+		st += multi.st;
+		meas += multi.meas;
 	};
 	
 	if(self.sectors->isEmpty()){
@@ -196,7 +276,7 @@ mapping Package::transformSpecificationPackage() : st: List(SubstitutionTransiti
 	}
 	else {
 		log("\n=== Transforming all Sectors ===");
-		var sec := self.sectors->map transformSector();
+		var sec := self.sectors->map transformSector(hasThreadPool, self);
 		st += sec.st;
 		pl += sec.pl;
 		iTr += sec.iTr[ImmediateTransitionType];
@@ -217,6 +297,35 @@ mapping Package::transformSpecificationPackage() : st: List(SubstitutionTransiti
 	};
 }
 
+mapping analysis::Parameter::parameterToSCPN(namespace : String): scpn::ParameterType{
+    result.name := self.name;
+    if(namespace->size() > 0){
+    	result.name := namespace + "_" + result.name;
+    };
+    result.dataType := "string";
+    if(self.initialValue.oclIsTypeOf(LiteralInteger)){
+    	 result.dataType := "int";
+    	 result.defaultValue := self.initialValue.oclAsType(LiteralInteger).value.toString();
+    }else if(self.initialValue.oclIsTypeOf(LiteralDouble)){
+    	 result.dataType := "real";
+    	 result.defaultValue := self.initialValue.oclAsType(LiteralDouble).value.toString();
+    }else if(self.initialValue.oclIsTypeOf(LiteralFloat)){
+    	 result.dataType := "real";
+    	 result.defaultValue := self.initialValue.oclAsType(LiteralFloat).value.toString();
+    }else if(self.initialValue.oclIsTypeOf(LiteralBoolean)){
+    	 result.dataType := "bool";
+    	 result.defaultValue := self.initialValue.oclAsType(LiteralBoolean).value.toString();
+    }else if(self.initialValue.oclIsTypeOf(LiteralString)){
+    	result.dataType := "string";
+    	 result.defaultValue := "&quot;" + self.initialValue.oclAsType(LiteralString).value.toString() + "&quot;";
+    };
+    if(self.documentation->size() > 0){
+        result.description := self.documentation;
+    };
+    result.defaultValue := self.initialValue.toString();
+    
+}
+
 mapping Connector::connectorToSCPN(): arcs:List(ArcType), tt:TimedTransitionType {
 	init{
 	    var name := self.computeName();
@@ -227,6 +336,18 @@ mapping Connector::connectorToSCPN(): arcs:List(ArcType), tt:TimedTransitionType
 	    
 		tt := new TimedTransitionType(self.computeName());
 	}
+	
+	if(logComponents){
+		tt.logfileName := name + ".csv";
+		// TODO: generalize
+		tt.logfileDescription := "current_time,size,pixelSize";
+		tt.logfileExpression := "NOW,TAB,x.s,TAB,x.ps";
+	};
+	
+	// If it has a time function, apply that to the timed transition
+	if(not self.timeFunction.oclIsUndefined()) {
+		tt.timeFunction := timeExpressionToString(self.timeFunction);
+	};
 
 	var arc1 := new ArcType(self.computeName() + "_1");
 	var arc2 := new ArcType(self.computeName() + "_2");
@@ -244,36 +365,16 @@ mapping Connector::connectorToSCPN(): arcs:List(ArcType), tt:TimedTransitionType
 	arc2.fromNode := tt.id;
 	arc2.toNode := targetPlace.id;
 	
+	assertArcIsConnected(arc1);
+	assertArcIsConnected(arc2);
 	arcs->add(arc1);
 	arcs->add(arc2);
 
 	log("Transformed connector " +  name);
 }
 
-/**
-  Converts an E4SM Queue to a Petri net place queue
-*/
-helper e4sm::QueueType::convertQueueType() : scpn::QueueType {
-	switch {
-	case  (self = e4sm::QueueType::RANDOM){
-			return scpn::QueueType::Random;
-		}
-		case  (self = e4sm::QueueType::FIFO){
-			return scpn::QueueType::FIFO;
-		}
-		case  (self = e4sm::QueueType::LIFO){
-			return scpn::QueueType::LIFO;
-		}
-		else{
-			log("Unsupported queue type " + self.toString());
-			return scpn::QueueType::Random;
-		}
-	};
-	//Not needed, but it removes the warning
-	return scpn::QueueType::Random;
-}
-
-mapping Sector::transformSector() : st: List(SubstitutionTransitionType), pl: List(PlaceType), iTr : List(TransitionType), arcs : List (ArcType), tt : List(TimedTransitionType), meas : List(MeasureType){
+mapping Sector::transformSector(hasThreadPool : Boolean, poolPackage : e4sm::Package) : st: List(SubstitutionTransitionType), 
+	pl: List(PlaceType), iTr : List(TransitionType), arcs : List (ArcType), tt : List(TimedTransitionType), meas : List(MeasureType), pars : List(ParameterType){
 	var idName := safeString(self.name);
 	log("\nTransforming sector " +  self.name);
 	/*  TODO: nice to have, transform a sector inside a substitution transition
@@ -316,7 +417,7 @@ mapping Sector::transformSector() : st: List(SubstitutionTransitionType), pl: Li
     
     if(self.sectors->size()>0){
     	log("Transforming subsectors...");
-    	var res := self.sectors->map transformSector();
+    	var res := self.sectors->map transformSector(hasThreadPool, poolPackage);
 	    pl += res.pl;
 	    iTr += res.iTr;
 	    arcs += res.arcs;
@@ -334,22 +435,25 @@ mapping Sector::transformSector() : st: List(SubstitutionTransitionType), pl: Li
 		arcs += ds.arcs;
 	};
     
-    var res = self.components-> map transformComponent();    
+    var res = self.components-> map transformComponent(hasThreadPool, poolPackage);    
     pl += res.pl;
     iTr += res.iTr;
     arcs += res.arcs;
     tt += res.tt; 
     st += res.st;
     meas += res.meas;
+    pars += res.pars;
     
 
     log("\tTransformed sector " +  self.name);
 }
 
-mapping Component::transformComponent() : pl: List(PlaceType), iTr : List(TransitionType), arcs : List (ArcType),
-tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : List(MeasureType) {		
+mapping Component::transformComponent(hasThreadPool : Boolean, poolPackage : e4sm::Package) : pl: List(PlaceType), iTr : List(TransitionType), arcs : List (ArcType),
+tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : List(MeasureType), pars : List(ParameterType) when {not self.oclIsKindOf(e4sm::BinaryClassificationComponent)} {		
 	init{
 		log("\nTransforming component " +  self.name);
+		
+		pars += self.parameters->map parameterToSCPN(self.name);
 		
 		var inputPins : OrderedSet(InputPin) := self.pins[e4sm::InputPin];
 		var outputPins : OrderedSet(e4sm::OutputPin) := self.pins[e4sm::OutputPin];
@@ -359,13 +463,14 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 		//Transform all subcomponents contained by this component
 		if(not self.components->isEmpty()) {
 			log("Transforming all subcomponents");
-			var res := self.components->map transformComponent();
+			var res := self.components->map transformComponent(hasThreadPool, poolPackage);
 			pl += res.pl;
 			iTr += res.iTr;
 			arcs += res.arcs;
 			tt += res.tt;
 			st += res.st;
 			meas += res.meas;
+			pars += res.pars;
 		};
 		
 		// Datastores
@@ -381,6 +486,23 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 		var multipleComponentReadyTransitions : OrderedSet(TransitionType);
 		var timedTran : TimedTransitionType := null;
 		
+		var immTranExecuted : ImmediateTransitionType := new ImmediateTransitionType(self.name + "_post_execution");
+		if(logComponents and self.isSensor()){
+			immTranExecuted.logfileName := self.name + "_postExecution.csv";
+			// TODO: generalize
+			immTranExecuted.logfileDescription := "current_time,size,pixelSize";
+			immTranExecuted.logfileExpression := "NOW,TAB,x.s,TAB,x.ps";
+		};
+		var placeExecuted : PlaceType := new PlaceType(self.name + "_executed");
+		var arcExecuted : ArcType := new ArcType(self.name + "_executed_to_post");
+		arcExecuted.fromNode := placeExecuted.id;
+		arcExecuted.toNode := immTranExecuted.id;
+		
+		iTr += immTranExecuted;
+		pl += placeExecuted;
+		arcs += arcExecuted;
+		
+
 		//Generate the full component only if it is not redefined
 		// - The component must not have subcomponents
 		// - The component must not be specified by a package
@@ -394,7 +516,7 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 			    // Transitions have watch:true, the mainPlace is not generated anymore for sensors.
 				// meas += self.oclAsType(Sensor).map sensorToMeasure();
 			} else if(self.oclIsKindOf(Actuator)){
-				meas += self.oclAsType(Actuator)->map actuatorToMeasure();
+				//meas += self.oclAsType(Actuator)->map actuatorToMeasure();
 			};
 			
 			var componentMainPlace : PlaceType := null;
@@ -406,11 +528,1254 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 				singleComponentReadyTransition.oclAsType(TimedTransitionType).timeFunction := timeExpressionToString(self.timeFunction);
 				singleComponentReadyTransition.watch := true;
 				iTr->add(singleComponentReadyTransition);
+				
+				
+				// Create the _created place
+				var createdPlace : PlaceType := new PlaceType(self.name + "_created");
+				pl += createdPlace;
+										
+				// Create the arc between the timed Transition and the _created place
+				var arcFromTTtoCreated : ArcType := new ArcType (self.name + "_exec");
+				arcFromTTtoCreated.fromNode := singleComponentReadyTransition.id;
+				arcFromTTtoCreated.toNode := createdPlace.id;
+				arcFromTTtoCreated.inscription.text := "new({})";
+				assertArcIsConnected(arcFromTTtoCreated);
+				arcs += arcFromTTtoCreated;
+				
+				// For each output pin
+				self.pins[OutputPin]->forEach(op){
+					// if a token specification is present...
+					if(op.tokenSpecification->notEmpty()){
+						
+						var set : e4sm::Set := op.tokenSpecification.inputSize[e4sm::Set]->first();
+						var index := 0;
+						if(not set.oclIsUndefined()){
+							var setValues : OrderedSet(e4sm::SetValue) := set.values;
+							
+							// For each set value
+							setValues->forEach(val) {
+								
+								// Create the immediate transition for the probability
+								index := index + 1;
+								var initImmTr : ImmediateTransitionType := new ImmediateTransitionType(self.name + "_" + op.name + "_" + index.toString());
+								initImmTr.weight := val.probability.toString();
+								iTr += initImmTr;
+								
+								// create the arc from _created to the immediate transition
+								var arcCreatedImm : ArcType := new ArcType (self.name + "_" + op.name + "_" + index.toString()+"_created");
+								arcCreatedImm.fromNode := createdPlace.id;
+								arcCreatedImm.toNode := initImmTr.id;
+								assertArcIsConnected(arcCreatedImm);
+								arcs += arcCreatedImm;
+								
+								// Create the arc for setting the values
+								var arcTokenResult : ArcType := new ArcType (self.name + "_" + op.name + "_" + index.toString());
+								arcTokenResult.fromNode := initImmTr.id;
+								arcTokenResult.toNode := placeExecuted.id;
+								arcTokenResult.inscription.text := "x(ps=" +val.value.toString()+ ";s=" + val.size.toString() +")";
+								assertArcIsConnected(arcTokenResult);
+								arcs += arcTokenResult;
+								
+							};
+						
+						}else{
+							assert fatal (false) with log("Other token specifications are currently not supported");
+						}
+					}else{
+						var arcFromTTtoExecuted : ArcType := new ArcType (self.name + "_exec");
+						arcFromTTtoExecuted.fromNode := singleComponentReadyTransition.id;
+						arcFromTTtoExecuted.toNode := placeExecuted.id;
+						arcFromTTtoExecuted.inscription.text := "new({})"; // TODO: improve specification
+						assertArcIsConnected(arcFromTTtoExecuted);
+						arcs += arcFromTTtoExecuted;
+					};
+				};
 			}else if(self.firingStrategy = ComponentFiringStrategy::AND){
 					componentMainPlace := new PlaceType(self.name + "_main");
 					pl->add(componentMainPlace);
 					
 					singleComponentReadyTransition := new ImmediateTransitionType(self.name + "_ready");
+					if(logComponents){
+						singleComponentReadyTransition.logfileName := self.name + "_ready.csv";
+						// TODO: generalize
+						singleComponentReadyTransition.logfileDescription := "current_time,size,pixelSize";
+						singleComponentReadyTransition.logfileExpression := "NOW,TAB,x.s,TAB,x.ps";
+					};
+					iTr->add(singleComponentReadyTransition);
+
+				    // The component only has one ready immediate transition which is connected to all input pins
+					var readyToMain := new ArcType(self.name+"_ready_to_main");
+					readyToMain.fromNode := singleComponentReadyTransition.id;
+					readyToMain.toNode := componentMainPlace.id;
+					
+					// if the component is a Sensor, 
+					// or if it has multiple input pins
+					// or if at least an input pin has a "collect" value > 1 set
+					
+					/*if(self.oclIsTypeOf(e4sm::Sensor) or self.hasNoInputs() or inputPins->size() > 1 or inputPins->select(ip | ip.collect>1)->size()>0) {
+						readyToMain.inscription.text := "new({})";
+					};*/
+					assertArcIsConnected(readyToMain);
+					arcs->add(readyToMain);
+				}
+				else if (self.firingStrategy = ComponentFiringStrategy::OR) {
+					// Every input pin gets an immediate "ready" transition
+					componentMainPlace := new PlaceType(self.name + "_main");
+					pl->add(componentMainPlace);
+					
+					var i:Integer := 1;
+					self.pins[InputPin]->forEach(ip) {
+						// Create the immediate transition
+						var componentReadyTransition := new ImmediateTransitionType(self.name + "_ready_" + i.toString());
+						iTr->add(componentReadyTransition);
+						multipleComponentReadyTransitions->including(componentReadyTransition);
+						
+						// Create the Arc
+						var readyToMainArc := new ArcType(self.name+"_ready" + i.toString() + "_to_main");
+						readyToMainArc.fromNode := componentReadyTransition.id;
+						readyToMainArc.toNode := componentMainPlace.id;
+						
+						// If this pin has a collect value set (>1)
+						if(ip.collect > 1) {
+							readyToMainArc.inscription.text := "new({})";
+						};
+						assertArcIsConnected(readyToMainArc);
+						arcs->add(readyToMainArc);
+						
+						i := i + 1;
+					}
+				} else {
+					assert fatal (false)
+					with log("Unsupported firing strategy for component " + self.toString());
+				};
+			
+			if(not self.isSensor()) {
+				// Timed transition for the component execution
+				timedTran := new TimedTransitionType(self.name + "_execution");
+				timedTran.timeFunction := timeExpressionToString(self.timeFunction);
+				if(logComponents){
+					timedTran.logfileName := self.name + "_execution.csv";
+					// TODO: generalize
+					timedTran.logfileDescription := "current_time,size,pixelSize";
+					timedTran.logfileExpression := "NOW,TAB,x.s,TAB,x.ps";
+				};
+				tt->add(timedTran);
+				
+				// Arc between the main Place and the timed transition
+				var mainToTimed := new ArcType(self.name + "_main_to_timed");
+				mainToTimed.fromNode := componentMainPlace.id;
+				mainToTimed.toNode := timedTran.id;
+				assertArcIsConnected(mainToTimed);
+				arcs->add(mainToTimed);
+				
+				// Arc between the execution tt and the executed Place
+				var arcFromTTtoExecuted : ArcType := new ArcType (self.name + "_exec");
+				arcFromTTtoExecuted.fromNode := timedTran.id;
+				arcFromTTtoExecuted.toNode := placeExecuted.id;
+				arcs += arcFromTTtoExecuted;
+			};
+		};
+		
+		
+		// Check if the component can be executed in parallel
+		if(self.oclIsKindOf(SoftwareComponent) and self.firingStrategy = ComponentFiringStrategy::AND){
+		var servers : Integer = self.oclAsType(SoftwareComponent).numberOfServers;
+		if(servers = -1){
+			timedTran.serverType := ServerTypeType::InfiniteServer;
+			timedTran.watch := true;
+		}
+		else if(servers > 0) {
+			// The value is <> -1, add the semaphore place with 2 arcs
+			// and change the execution transition server type
+			
+			timedTran.serverType := ServerTypeType::InfiniteServer;
+			
+			// Create the place
+			var sem : PlaceType := new PlaceType(self.name + "_sem");
+			sem.tokentype := "int";
+			sem.queue := scpn::QueueType::Random;
+			
+			// Add the tokens
+			var i : Integer := 0;
+			while (i < servers) {
+			    sem.initialMarking := sem.initialMarking + "0";
+				i := i + 1;
+				// Add a comma if it's not the last one
+				if(i < servers){
+					sem.initialMarking := sem.initialMarking + ", ";
+				}
+			};
+			
+			pl->add(sem);
+			
+			// Create the Arcs
+			var semBackArc := new ArcType(self.name+"_semBack");
+			semBackArc.inscription.text := "new(0)";
+			semBackArc.fromNode := immTranExecuted.id;
+			semBackArc.toNode := sem.id;
+			assertArcIsConnected(semBackArc);
+			arcs->add(semBackArc);
+			
+			var semReadyArc := new ArcType(self.name+"_semReady");
+			semReadyArc.inscription.text := "limit";
+			semReadyArc.fromNode := sem.id;
+			semReadyArc.toNode := singleComponentReadyTransition.id;
+			assertArcIsConnected(semReadyArc);
+			arcs->add(semReadyArc);
+			
+			var semMeasure := new MeasureType(self.name + "_in_use");
+			semMeasure.expression := servers.toString() + " - #" + safeString(self.name) + "_sem";
+			meas->add(semMeasure);
+		}
+		
+		};
+		
+		if(hasThreadPool){
+		   // arc from post_execution to pool
+	   		var arcPostToPool : ArcType := new ArcType(self.name + "_post_to_pool");
+			arcPostToPool.fromNode := immTranExecuted.id;
+			arcPostToPool.toNode := safeString(poolPackage.name) +  "_thread_pool_place_id";
+			arcPostToPool.inscription.text := "new(0)"; // Generates an integer token
+			arcs += arcPostToPool;
+			
+		   // arc from pool to ready
+			if(not singleComponentReadyTransition.oclIsUndefined()) {
+		   		var arcPoolToExecution : ArcType := new ArcType(self.name + "_pool_to_ready");
+				arcPoolToExecution.fromNode := safeString(self.container()[Package]->asOrderedSet()->first().name) +  "_thread_pool_place_id";
+				arcPoolToExecution.toNode := singleComponentReadyTransition.id;
+				arcPoolToExecution.inscription.text := "pool";
+				arcs += arcPoolToExecution;
+			}else if(multipleComponentReadyTransitions->size() > 0){
+				multipleComponentReadyTransitions->forEach(t){
+					var arcPoolToExecution : ArcType := new ArcType(self.name + "_pool_to_ready");
+					arcPoolToExecution.fromNode := safeString(self.container()[Package]->asOrderedSet()->first().name) +  "_thread_pool_place_id";
+					arcPoolToExecution.toNode := t.id;
+					arcPoolToExecution.inscription.text := "pool";
+					arcs += arcPoolToExecution;
+				};
+			}else{
+				assert fatal (false) with log ("Ready transition not found for component " + self.toString());
+			};
+		};
+		
+		
+		
+		// Transform the input pins
+		var i:Integer := 1;
+		inputPins->forEach(ip) {
+			if (ip.requiresSimpleTransformation()) {
+				//OUT FCFS
+				//Create the place
+			    var inputPinPlace := ip.map simpleTransformOutputPin(self.name, i);
+			    pl += inputPinPlace;
+				
+				//Create an arc to connect the place to the simple component 
+					
+				if(isSimpleComponent) {
+					var arcToTransition = new ArcType(inputPinPlace.id + "_to_" + self.name);
+					arcToTransition.fromNode := inputPinPlace.id;
+					
+					if(self.firingStrategy = ComponentFiringStrategy::AND) {
+						arcToTransition.toNode := singleComponentReadyTransition.id;
+						if(inputPins->size() > 1) {
+							// use different token names
+							log("Changing variable inscription to " + i.toString());
+							arcToTransition.inscription.text := mergeArcNames->at(i);
+						}
+					} else if(self.firingStrategy = ComponentFiringStrategy::OR){
+						// every arc leads to a different transition, different token names are not needed
+						arcToTransition.toNode := safeString(self.name) + "_ready_" + i.toString() + immediateTransSuffix;
+					} else{
+						assert fatal (false)
+						with log("Unsupported firing strategy for component " + self.toString());
+					};
+					
+					// Add multiplicity, if needed
+					if(ip.collect > 1) {
+						// Add a multiplicity in the arc.
+						 arcToTransition.inscription.text := ip.collect.toString()  + "'" + arcToTransition.inscription.text
+						 
+ 						// An alternative method would be to add a global guard: #placeName >= collectValue, but in that case then all collected
+ 						// tokens are transferred when the global guard is satisfied
+						// singleComponentReadyTransition.globalGuard := "#"+inputPinPlace.label.text + ">=" + ip.collect.toString();
+					}endif;
+					assertArcIsConnected(arcToTransition);
+					arcs->add(arcToTransition);
+				}; //else this component is redefined and not generated completely
+			} else if (ip.requiresMerge()) {
+				// Merge
+				var transformationResult := ip.map transformPinMerge(self.name, i);
+			    pl += transformationResult.pl;
+			    iTr += transformationResult.it;
+			    arcs += transformationResult.arcs;
+			    if(isSimpleComponent) {
+			    	var arcToTransition = new ArcType(transformationResult.pl->first().id + "_to_" + self.name);
+					arcToTransition.fromNode := transformationResult.pl->first().id;
+					arcToTransition.toNode := singleComponentReadyTransition.id;
+					assertArcIsConnected(arcToTransition);
+					arcs->add(arcToTransition);			    
+			    }endif;
+
+			} else if(ip.requiresDuplicate())
+			{
+				var transformationResult := ip.map transformPinDuplicate(self.name, i);
+			    pl += transformationResult.pl;
+			    iTr += transformationResult.it;
+			    arcs += transformationResult.arcs;
+			} else if(ip.requiresMergeAndDuplicate())
+			{
+				var transformationResult := ip.map transformPinMergeAndDuplicate(self.name, i);
+			    pl += transformationResult.pl;
+			    iTr += transformationResult.it;
+			    arcs += transformationResult.arcs;
+			}endif;
+			
+			//If the pin is optional, also add the extra transitions
+			if (ip.optional) {
+			
+			};
+			
+			i := i + 1;
+		};
+		
+		// Transform all output pins
+		i := 1;
+		outputPins->forEach(op) {
+			if (op.requiresSimpleTransformation()) {
+				//OUT FCFS
+				//Create the place
+			    var outputPinPlace := op.map simpleTransformOutputPin(self.name, i);
+			    pl += outputPinPlace;
+				
+				//Create an arc to connect the the component to the place
+				if(isSimpleComponent) {
+					var arcFromTransition = new ArcType(outputPinPlace.id + "_from_" + self.name);
+					arcFromTransition.fromNode := immTranExecuted.id;
+					/*if(self.isSensor()){
+						arcFromTransition.fromNode := singleComponentReadyTransition.id;
+					}else{
+						arcFromTransition.fromNode := immTranExecuted.id;
+					};*/
+					
+					arcFromTransition.toNode := outputPinPlace.id;
+					
+					// TODO: maybe the following line only applies to sensors
+					if(not op.outputExpression.oclIsUndefined()){
+						arcFromTransition.inscription.text := "x(s=" + op.outputExpression.toString() + ")";
+					} else {
+						arcFromTransition.inscription.text := "x"; //TODO: improve specification
+					};
+					
+					// Add multiplicity, if needed
+					if(op.amplify > 1) {
+						arcFromTransition.inscription.text := op.amplify.toString()  + "'" + arcFromTransition.inscription.text;
+					}endif;
+					assertArcIsConnected(arcFromTransition);
+					arcs->add(arcFromTransition);
+				}; // else this component is redefined and not generated completely
+			} else if (op.requiresMerge()) {
+				//OUT Merge
+				var outputPin := op.map transformPinMerge(self.name, i);
+			    pl += outputPin.pl;
+			    iTr += outputPin.it;
+			    arcs += outputPin.arcs;
+			} else if(op.requiresDuplicate())	{
+				var outputPin := op.map transformPinDuplicate(self.name, i);
+			    pl += outputPin.pl;
+			    iTr += outputPin.it;
+			    arcs += outputPin.arcs;
+			    
+			    if(isSimpleComponent) {
+			        var arcFromTransition = new ArcType(outputPin.pl->first().id + "_from_" + self.name);
+			        arcFromTransition.fromNode := immTranExecuted.id;
+					/*if(self.isSensor()){
+						arcFromTransition.fromNode := singleComponentReadyTransition.id;
+					}else{
+						arcFromTransition.fromNode := immTranExecuted.id;							
+					}*/
+					arcFromTransition.toNode := outputPin.pl->first().id;
+					arcFromTransition.inscription.text :=  "copy x"; //TODO: improve specification
+					
+					// Add multiplicity, if needed
+					if(op.oclIsTypeOf(OutputPin) and op.amplify > 1) {
+						arcFromTransition.inscription.text := op.amplify.toString()  + "'" + arcFromTransition.inscription.text
+					}endif;
+					
+					arcs->add(arcFromTransition);
+			    };
+			} else if(op.requiresMergeAndDuplicate())
+			{
+				var outputPin := op.map transformPinMergeAndDuplicate(self.name, i);
+			    pl += outputPin.pl;
+			    iTr += outputPin.it;
+			    arcs += outputPin.arcs;
+			} endif;
+			i := i + 1;
+		};
+		
+		// Transform the execution, if any was defined
+		if (self.execution != null) { // TODO
+			self.execution.elements->forEach(el){
+				if(el.oclIsTypeOf(Flow)) {
+				   var f : Flow = el.oclAsType(Flow);
+				   
+				   // Create the timed transition
+				   var flowTT : TimedTransitionType := new TimedTransitionType(f.source.oclAsType(NamedElement).name+ "_to_" + f.target.oclAsType(NamedElement).name+"_flow");				   
+				   flowTT.timeFunction := timeExpressionToString(f.timeFunction);
+				   tt += flowTT;
+				   
+				   // Create an arc to connect the source element to the transition
+				   var sourceArc : ArcType := new ArcType(f.source.oclAsType(NamedElement).name + "_flow_source");
+				   sourceArc.fromNode := safeString(self.name + f.source.oclAsType(Pin).getDirectionShort() + inputPins->indexOf(f.source).toString() + placeSuffix);
+				   sourceArc.toNode := flowTT.id;
+				   arcs += sourceArc;
+				   
+				   // Create an arc to connect the target element to the transition
+				   var targetArc : ArcType := new ArcType(f.target.oclAsType(NamedElement).name + "_flow_target");
+				   targetArc.fromNode := flowTT.id;
+				   targetArc.toNode := safeString(self.name + f.target.oclAsType(Pin).getDirectionShort() + outputPins->indexOf(f.target).toString() + placeSuffix);			   
+				   
+				   arcs += targetArc;
+				}else{
+				   log ("Unsupported execution element type");
+				};
+			};
+		};
+		
+		//Generate the specifying package, if any.
+		if(not (self.specifiedInPackage = null)){
+			var res := self.specifiedInPackage.map transformSpecificationPackage();
+			pl += res.pl;
+			iTr += res.iTr;
+			tt += res.tt;
+			arcs += res.arcs;
+			st += res.st;
+			meas += res.meas;
+		}endif;
+	 }
+	 log("Transformed component '" +  self.name + "' to " + pl->size().toString()+ " place(s), "
+	  + iTr[ImmediateTransitionType]->size().toString() + " immediate transition(s) and " 
+	  + iTr[TimedTransitionType]->size().toString() + " timed transition(s) and "
+	  + meas->size().toString() + " measure");
+}
+
+mapping DataStore::transformDataStore() : arcs : List(ArcType), iTr : List(ImmediateTransitionType), pl : List(PlaceType){
+	init {
+		assert fatal (self.name->size()>0) with log ("Datastore must have a name");
+		// Create the 3 Places
+		var inputPlace : PlaceType := new PlaceType(self.name + "_ds_in");
+		//inputPlace.queue:= scpn::QueueType::FIFO; queue is FIFO by default
+		pl += inputPlace;
+		
+		var outputPlace : PlaceType := new PlaceType(self.name + "_ds_out");
+		pl += outputPlace;
+		
+		var mainPlace : PlaceType := new PlaceType(self.name + "_ds_main");
+		mainPlace.capacity := "1";
+		pl += mainPlace;
+		
+		// Create the 3 immediate transitions
+		var initTransition : ImmediateTransitionType := new ImmediateTransitionType(self.name + "_ds_init");
+		initTransition.globalGuard := "#" + mainPlace.label.text+"==0";
+		iTr += initTransition;
+		
+		var updateTransition : ImmediateTransitionType := new ImmediateTransitionType(self.name + "_ds_update");
+		updateTransition.priority := 2;
+		iTr += updateTransition;
+		
+		var readTransition : ImmediateTransitionType := new ImmediateTransitionType(self.name + "_ds_read");
+		readTransition.globalGuard := "#" + outputPlace.label.text+"==0";
+		iTr += readTransition;
+		
+		// Create the 9 arcs
+		// 4 arcs of the Main "rhombus":
+		var inToInit : ArcType := new ArcType(self.name + "_inToInit");
+		inToInit.fromNode := inputPlace.id;
+		inToInit.toNode := initTransition.id;
+		arcs += inToInit;
+		
+		var initToMain : ArcType := new ArcType(self.name + "_initToMain");
+		initToMain.fromNode := initTransition.id;
+		initToMain.toNode := mainPlace.id;
+		arcs += initToMain;
+		
+		var inToUpdate : ArcType := new ArcType(self.name + "_inToUpdate");
+		inToUpdate.fromNode := inputPlace.id;
+		inToUpdate.toNode := updateTransition.id;
+		arcs += inToUpdate;
+		
+		var updateToMain : ArcType := new ArcType(self.name + "_updateToMain");
+		updateToMain.fromNode := updateTransition.id;
+		updateToMain.toNode := mainPlace.id;
+		arcs += updateToMain;
+		
+		// 3 Read arcs
+		var mainToRead : ArcType := new ArcType(self.name + "_mainToRead");
+		mainToRead.fromNode := mainPlace.id;
+		mainToRead.toNode := readTransition.id;
+		arcs += mainToRead;
+		
+		var readToMain : ArcType := new ArcType(self.name + "_readToMain");
+		readToMain.fromNode :=readTransition.id;
+		readToMain.toNode := mainPlace.id;
+		arcs += readToMain;
+		
+		var readToOut : ArcType := new ArcType(self.name + "_readToOut");
+		readToOut.fromNode := readTransition.id;
+		readToOut.toNode := outputPlace.id;
+		readToOut.inscription.text := "copy " + readToOut.inscription.text;
+		arcs += readToOut;
+		
+		// 2 arc to remove the tokens
+		var removeFromMain : ArcType := new ArcType(self.name + "_removeFromMain");
+		removeFromMain.fromNode := mainPlace.id;
+		removeFromMain.toNode := updateTransition.id;
+		removeFromMain.inscription.text := "delete";
+		arcs += removeFromMain;
+		
+		var removeFromOut : ArcType := new ArcType(self.name + "_removeFromOut");
+		removeFromOut.fromNode := outputPlace.id;
+		removeFromOut.toNode := updateTransition.id;
+		removeFromOut.inscription.text := "remove";
+		arcs += removeFromOut;
+	}
+	 log("Transformed datastore '" +  self.name + "' to " + pl->size().toString()+ " place(s), "
+	  + iTr->size().toString() + " immediate transition(s) and " 
+	  + arcs->size().toString() + " arc(s)");
+}
+
+
+mapping Sensor::sensorToMeasure() : scpn::MeasureType {
+	result.id := safeString(self.name+"_s_meas");
+	result.eval := MeasureEvalType::Cumulative;
+	result.expression := "#" + safeString(self.name) + "_executed";
+	result.name := safeString(self.name) + "Ready";
+	result.type := Type::text;
+	result.watch := true;
+	result._result := "";
+	result.graphics := object GraphicsType{x:=0; y:=0};
+	log("Transformed sensor '" +  self.name + "' to measure");
+}
+
+/**
+@deprecated _post_execution watch is set to true
+*/
+mapping Actuator::actuatorToMeasure() : scpn::MeasureType {
+	result.id := safeString(self.name+"_a_meas");
+	result.eval := MeasureEvalType::Cumulative;
+	result.expression := "#" + safeString(self.name) + "_executed";
+	result.name := safeString(self.name) + "Ready";
+	result.type := Type::text;
+	result.watch := true;
+	result._result := "";
+	result.graphics := object GraphicsType{x:=0; y:=0};
+	log("Transformed actuator '" +  self.name + "' to measure");
+}
+
+mapping BinaryClassificationComponent::transformBinaryClassificationComponent(hasThreadPool : Boolean, poolPackage : e4sm::Package) : pl: List(PlaceType), iTr : List(TransitionType), arcs : List (ArcType),
+tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : List(MeasureType) when {self.oclIsKindOf(e4sm::BinaryClassificationComponent)}{
+	init{
+		log("\nTransforming binary classification component " +  self.name);
+		
+		var inputPins : OrderedSet(InputPin) := self.pins[e4sm::InputPin];
+		var outputPins : OrderedSet(e4sm::OutputPin) := self.pins[e4sm::OutputPin];
+		//pl := List{};
+		//iTr := List{};
+	
+		// Transform all subcomponents contained by this component, probably it will not contain any.
+//		if(not self.components->isEmpty()) {
+//			log("Transforming all subcomponents");
+//			var res := self.components->map transformComponent();
+//			pl += res.pl;
+//			iTr += res.iTr;
+//			arcs += res.arcs;
+//			tt += res.tt;
+//			st += res.st;
+//			meas += res.meas;
+//		};
+		
+		// Transform all datastores contained by this component, probably it will not contain any.
+//		if(self.datastores->size()>0){
+//			log("Transforming all Data Stores...");
+//			var ds := self.datastores->map transformDataStore();
+//			pl += ds.pl;
+//			iTr += ds.iTr;
+//			arcs += ds.arcs;
+//		};
+		
+		var singleComponentReadyTransition : TransitionType := null;
+		var multipleComponentReadyTransitions : OrderedSet(TransitionType);
+		var timedTran : TimedTransitionType := null;
+		
+		var immTranExecuted : ImmediateTransitionType := new ImmediateTransitionType(self.name + "_post_execution");
+			if(logComponents){
+				immTranExecuted.logfileName := self.name + "_post_execution.csv";
+				// TODO: generalize
+				immTranExecuted.logfileDescription := "current_time,size,pixelSize";
+				immTranExecuted.logfileExpression := "NOW,TAB,x.s,TAB,x.ps";
+			};
+		var placeExecuted : PlaceType := new PlaceType(self.name + "_executed");
+		var arcExecuted : ArcType := new ArcType(self.name + "_executed_to_post");
+		arcExecuted.fromNode := placeExecuted.id;
+		arcExecuted.toNode := immTranExecuted.id;
+		
+		if(self.oclIsKindOf(Actuator)){
+			immTranExecuted.watch := true;
+		};
+		
+		iTr += immTranExecuted;
+		pl += placeExecuted;
+		arcs += arcExecuted;
+		
+		//Generate the full component only if it is not redefined
+		// - The component must not have subcomponents
+		// - The component must not be specified by a package
+		// - The component must not have an internal specification "runs { ... }"
+		var isSimpleComponent : Boolean := false;
+		if(self.components->isEmpty() and self.specifiedInPackage = null and self.execution = null) {
+			isSimpleComponent := true;
+			
+			// Create measures for Sensors and Actuators, for simple components only
+			//if(self.oclIsKindOf(Sensor)) {
+			    // Transitions have watch:true, the mainPlace is not generated anymore for sensors.
+				// meas += self.oclAsType(Sensor).map sensorToMeasure();
+			//} else if(self.oclIsKindOf(Actuator)){
+			//	meas += self.oclAsType(Actuator)->map actuatorToMeasure();
+			//};
+			
+			var componentMainPlace : PlaceType := null;
+			
+
+			//if(self.isSensor()) {
+//			    log("Component is a sensor or has no inputs.");
+//				singleComponentReadyTransition := new TimedTransitionType(self.name + "_ready");
+//				singleComponentReadyTransition.oclAsType(TimedTransitionType).timeFunction := timeExpressionToString(self.timeFunction);
+//				singleComponentReadyTransition.watch := true;
+//				iTr->add(singleComponentReadyTransition);
+			//}else
+				
+			if(self.firingStrategy = ComponentFiringStrategy::AND){
+					componentMainPlace := new PlaceType(self.name + "_main");
+					pl->add(componentMainPlace);
+					
+					singleComponentReadyTransition := new ImmediateTransitionType(self.name + "_ready");
+					if(logComponents){
+						singleComponentReadyTransition.logfileName := self.name + "_ready.csv";
+						// TODO: generalize
+						singleComponentReadyTransition.logfileDescription := "current_time,size,pixelSize";
+						singleComponentReadyTransition.logfileExpression := "NOW,TAB,x.s,TAB,x.ps";
+					};
+					iTr->add(singleComponentReadyTransition);
+
+				    // The component only has one ready immediate transition which is connected to all input pins
+					var readyToMain := new ArcType(self.name+"_ready_to_main");
+					readyToMain.fromNode := singleComponentReadyTransition.id;
+					readyToMain.toNode := componentMainPlace.id;
+					
+					// if the component is a Sensor, 
+					// or if it has multiple input pins
+					// or if at least an input pin has a "collect" value > 1 set
+					
+					/*if(self.oclIsTypeOf(e4sm::Sensor) or self.hasNoInputs() or inputPins->size() > 1 or inputPins->select(ip | ip.collect>1)->size()>0) {
+						readyToMain.inscription.text := "new({})";
+					};*/
+					arcs->add(readyToMain);
+				}
+				else if (self.firingStrategy = ComponentFiringStrategy::OR) {
+					// Every input pin gets an immediate "ready" transition
+					componentMainPlace := new PlaceType(self.name + "_main");
+					pl->add(componentMainPlace);
+					
+					var i:Integer := 1;
+					self.pins[InputPin]->forEach(ip) {
+						// Create the immediate transition
+						var componentReadyTransition := new ImmediateTransitionType(self.name + "_ready_" + i.toString());
+						iTr->add(componentReadyTransition);
+						multipleComponentReadyTransitions->including(componentReadyTransition);
+						
+						// Create the Arc
+						var readyToMain := new ArcType(self.name+"_ready" + i.toString() + "_to_main");
+						readyToMain.fromNode := componentReadyTransition.id;
+						readyToMain.toNode := componentMainPlace.id;
+						
+						// If this pin has a collect value set (>1)
+						if(ip.collect > 1) {
+							readyToMain.inscription.text := "new({})";
+						};
+						arcs->add(readyToMain);
+						
+						i := i + 1;
+					}
+				} else {
+					assert fatal (false)
+					with log("Unsupported firing strategy for component " + self.toString());
+				};
+			
+			// Timed transition for the component execution
+			timedTran := new TimedTransitionType(self.name + "_execution");
+			timedTran.timeFunction := timeExpressionToString(self.timeFunction);
+			if(logComponents){
+				timedTran.logfileName := self.name + "_execution.csv";
+				// TODO: generalize
+				timedTran.logfileDescription := "current_time,size,pixelSize";
+				timedTran.logfileExpression := "NOW,TAB,x.s,TAB,x.ps";
+			};
+			tt->add(timedTran);
+			
+			// Arc between the main Place and the timed transition
+			var mainToTimed := new ArcType(self.name + "_main_to_timed");
+			mainToTimed.fromNode := componentMainPlace.id;
+			mainToTimed.toNode := timedTran.id;
+			arcs->add(mainToTimed);
+			
+			// Arc between the execution tt and the executed Place
+			var arcFromTTtoExecuted : ArcType := new ArcType (self.name + "_exec");
+			arcFromTTtoExecuted.fromNode := timedTran.id;
+			arcFromTTtoExecuted.toNode := placeExecuted.id;
+			arcs += arcFromTTtoExecuted;
+		};
+		
+		
+		// Check if the component can be executed in parallel
+		if(self.oclIsKindOf(SoftwareComponent) and self.firingStrategy = ComponentFiringStrategy::AND){
+		var servers : Integer = self.oclAsType(SoftwareComponent).numberOfServers;
+		if(servers = -1){
+			timedTran.serverType := ServerTypeType::InfiniteServer;
+			timedTran.watch := true;
+		}
+		else if(servers > 0) {
+			// The value is <> -1, add the semaphore place with 2 arcs
+			// and change the execution transition server type
+			
+			timedTran.serverType := ServerTypeType::InfiniteServer;
+			
+			// Create the place
+			var sem : PlaceType := new PlaceType(self.name + "_sem");
+			sem.tokentype := "int";
+			sem.queue := scpn::QueueType::Random;
+			
+			// Add the tokens
+			var i : Integer := 0;
+			while (i < servers) {
+			    sem.initialMarking := sem.initialMarking + "0";
+				i := i + 1;
+				// Add a comma if it's not the last one
+				if(i < servers){
+					sem.initialMarking := sem.initialMarking + ", ";
+				}
+			};
+			
+			pl->add(sem);
+			
+			// Create the Arcs
+			var semBack := new ArcType(self.name+"_semBack");
+			semBack.inscription.text := "new(0)";
+			semBack.fromNode := immTranExecuted.id;
+			semBack.toNode := sem.id;
+			arcs->add(semBack);
+			
+			var semReady := new ArcType(self.name+"_semReady");
+			semReady.inscription.text := "limit";
+			semReady.fromNode := sem.id;
+			semReady.toNode := singleComponentReadyTransition.id;
+			arcs->add(semReady);
+			
+			var semMeasure := new MeasureType(self.name + "_in_use");
+			semMeasure.expression := servers.toString() + " - #" + safeString(self.name) + "_sem";
+			meas->add(semMeasure);
+		}
+		
+		};
+		
+		
+		// Transform the input pins
+		var i:Integer := 1;
+		inputPins->forEach(ip) {
+			if (ip.requiresSimpleTransformation()) {
+				//OUT FCFS
+				//Create the place
+			    var inputPinPlace := ip.map simpleTransformOutputPin(self.name, i);
+			    pl += inputPinPlace;
+				
+				//Create an arc to connect the place to the simple component 
+					
+				if(isSimpleComponent) {
+					var arcToTransition = new ArcType(inputPinPlace.id + "_to_" + self.name);
+					arcToTransition.fromNode := inputPinPlace.id;
+					
+					if(self.firingStrategy = ComponentFiringStrategy::AND) {
+						arcToTransition.toNode := singleComponentReadyTransition.id;
+						if(inputPins->size() > 1) {
+							// use different token names
+							log("Changing variable inscription to " + i.toString());
+							arcToTransition.inscription.text := mergeArcNames->at(i);
+						}
+					} else if(self.firingStrategy = ComponentFiringStrategy::OR){
+						// every arc leads to a different transition, different token names are not needed
+						arcToTransition.toNode := safeString(self.name) + "_ready_" + i.toString() + immediateTransSuffix;
+					} else{
+						assert fatal (false)
+						with log("Unsupported firing strategy for component " + self.toString());
+					};
+					
+					// Add multiplicity, if needed
+					if(ip.collect > 1) {
+						// Add a multiplicity in the arc.
+						 arcToTransition.inscription.text := ip.collect.toString()  + "'" + arcToTransition.inscription.text
+						 
+ 						// An alternative method would be to add a global guard: #placeName >= collectValue, but in that case then all collected
+ 						// tokens are transferred when the global guard is satisfied
+						// singleComponentReadyTransition.globalGuard := "#"+inputPinPlace.label.text + ">=" + ip.collect.toString();
+					}endif;
+					
+					arcs->add(arcToTransition);
+				}; //else this component is redefined and not generated completely
+			} else if (ip.requiresMerge()) {
+				// Merge
+				var transformationResult := ip.map transformPinMerge(self.name, i);
+			    pl += transformationResult.pl;
+			    iTr += transformationResult.it;
+			    arcs += transformationResult.arcs;
+			    if(isSimpleComponent) {
+			    	var arcToTransition = new ArcType(transformationResult.pl->first().id + "_to_" + self.name);
+					arcToTransition.fromNode := transformationResult.pl->first().id;
+					arcToTransition.toNode := singleComponentReadyTransition.id;
+					arcs->add(arcToTransition);			    
+			    }endif;
+
+			} else if(ip.requiresDuplicate())
+			{
+				var transformationResult := ip.map transformPinDuplicate(self.name, i);
+			    pl += transformationResult.pl;
+			    iTr += transformationResult.it;
+			    arcs += transformationResult.arcs;
+			} else if(ip.requiresMergeAndDuplicate())
+			{
+				var transformationResult := ip.map transformPinMergeAndDuplicate(self.name, i);
+			    pl += transformationResult.pl;
+			    iTr += transformationResult.it;
+			    arcs += transformationResult.arcs;
+			}endif;
+			
+			//If the pin is optional, also add the extra transitions
+			if (ip.optional) {
+			
+			};
+			
+			i := i + 1;
+		};
+		
+		// Transform all output pins
+		i := 1;
+		outputPins->forEach(op) {
+			if (op.requiresSimpleTransformation()) {
+				//OUT FCFS
+				//Create the place
+			    var outputPinPlace := op.map simpleTransformOutputPin(self.name, i);
+			    pl += outputPinPlace;
+				
+				//Create an arc to connect the the component to the place
+				if(isSimpleComponent) {
+					var arcFromTransition = new ArcType(outputPinPlace.id + "_from_" + self.name);
+					arcFromTransition.fromNode := immTranExecuted.id;
+					/*if(self.isSensor()){
+						arcFromTransition.fromNode := singleComponentReadyTransition.id;
+					}else{
+						arcFromTransition.fromNode := immTranExecuted.id;
+					};*/
+					
+					arcFromTransition.toNode := outputPinPlace.id;
+					
+					// TODO: sensors should initialize their tokens
+					//arcFromTransition.inscription.text := "x";
+					
+					// Add multiplicity, if needed
+					if(op.amplify > 1) {
+						arcFromTransition.inscription.text := op.amplify.toString()  + "'" + arcFromTransition.inscription.text
+					}endif;
+					
+					arcs->add(arcFromTransition);
+				}; // else this component is redefined and not generated completely
+			} else if (op.requiresMerge()) {
+				//OUT Merge
+				var outputPin := op.map transformPinMerge(self.name, i);
+			    pl += outputPin.pl;
+			    iTr += outputPin.it;
+			    arcs += outputPin.arcs;
+			} else if(op.requiresDuplicate())	{
+				var outputPin := op.map transformPinDuplicate(self.name, i);
+			    pl += outputPin.pl;
+			    iTr += outputPin.it;
+			    arcs += outputPin.arcs;
+			    
+			    if(isSimpleComponent) {
+			    var arcFromTransition = new ArcType(outputPin.pl->first().id + "_from_" + self.name);
+			        arcFromTransition.fromNode := immTranExecuted.id;
+					/*if(self.isSensor()){
+						arcFromTransition.fromNode := singleComponentReadyTransition.id;
+					}else{
+						arcFromTransition.fromNode := immTranExecuted.id;							
+					}*/
+					arcFromTransition.toNode := outputPin.pl->first().id;
+					arcFromTransition.inscription.text :=  "copy x"; //TODO: improve specification
+					
+					// Add multiplicity, if needed
+					if(op.oclIsTypeOf(OutputPin) and op.amplify > 1) {
+						arcFromTransition.inscription.text := op.amplify.toString()  + "'" + arcFromTransition.inscription.text
+					}endif;
+					
+					arcs->add(arcFromTransition);
+			    };
+			} else if(op.requiresMergeAndDuplicate())
+			{
+				var outputPin := op.map transformPinMergeAndDuplicate(self.name, i);
+			    pl += outputPin.pl;
+			    iTr += outputPin.it;
+			    arcs += outputPin.arcs;
+			} endif;
+			i := i + 1;
+		};
+
+		assert fatal (not self.confusionMatrixes->isEmpty()) with log(self.name + " does not have a confusion matrix.");
+	
+		// Generate all immediate transitions
+		
+		var cm : BinaryConfusionMatrix := self.confusionMatrixes->first();
+
+		var notOOD : ImmediateTransitionType := new ImmediateTransitionType(self.name+"_not_OOD");
+		notOOD.weight := "1";
+		iTr += notOOD;
+		
+		var OOD : ImmediateTransitionType := new ImmediateTransitionType(self.name+"_OOD");
+		OOD.weight := "0";
+		iTr += OOD;
+		
+		var allPositives : Double := (1.0 * cm.tp + cm.fn) / (cm.tp + cm.fn + cm.tn + cm.fp);
+		
+		var classTruth : ImmediateTransitionType := new ImmediateTransitionType(self.name+"_ClassTruth");
+		classTruth.weight := allPositives.toString();
+		iTr += classTruth;
+		
+		var classOther : ImmediateTransitionType := new ImmediateTransitionType(self.name+"_ClassOther");
+		classOther.weight := (1.0 - allPositives).toString();
+		iTr += classOther;
+		
+		var ct_tp : ImmediateTransitionType := new ImmediateTransitionType(self.name+"_ct_tp");
+		ct_tp.weight := cm.computeRecall().toString();
+		iTr += ct_tp;
+		
+		var ct_fn : ImmediateTransitionType := new ImmediateTransitionType(self.name+"_ct_fn");
+		ct_fn.weight := (1.0 - cm.computeRecall()).toString();
+		iTr += ct_fn;
+	
+		var cf_tn : ImmediateTransitionType := new ImmediateTransitionType(self.name+"_ cf_tn");
+		cf_tn.weight := cm.computeSpecificity().toString();
+		iTr += cf_tn;
+		
+		var cf_fp : ImmediateTransitionType := new ImmediateTransitionType(self.name+"_cf_fp");
+		cf_fp.weight := (1.0 - cm.computeSpecificity()).toString();
+		iTr += cf_fp;
+		
+		
+		// Generate all places
+		
+		var inData : PlaceType := new PlaceType(self.name + "_in_data");
+		pl += inData;
+		
+		var dataGen : PlaceType := new PlaceType(self.name + "_data_gen");
+		pl += dataGen;
+		
+		var ct : PlaceType := new PlaceType(self.name + "_ct");
+		pl += ct;
+	
+		var cf : PlaceType := new PlaceType(self.name + "_cf");
+		pl += cf;
+		
+		//var tp : PlaceType := new PlaceType(self.name + "_tp");
+		//pl += tp;
+		
+		//var fn : PlaceType := new PlaceType(self.name + "_fn");
+		//pl += fn;
+		
+		//var tn : PlaceType := new PlaceType(self.name + "_tn");
+		//pl += tn;
+		
+		//var fp : PlaceType := new PlaceType(self.name + "_fp");
+		//pl += fp;
+		
+		// Generate all arcs
+		var execution_to_in_data : ArcType := new ArcType(self.name + "execution_to_in_data");
+		execution_to_in_data.fromNode := timedTran.id;
+		execution_to_in_data.inscription.text := "copy x";
+		execution_to_in_data.toNode := inData.id;
+		arcs+=execution_to_in_data;
+		
+		var in_data_to_not_odd : ArcType := new ArcType(self.name + "in_data_to_not_odd");
+		in_data_to_not_odd.fromNode := inData.id;
+		in_data_to_not_odd.toNode := notOOD.id;
+		arcs+=in_data_to_not_odd;
+		
+		var in_data_to_odd : ArcType := new ArcType(self.name + "in_data_to_odd");
+		in_data_to_odd.fromNode := inData.id;
+		in_data_to_odd.toNode := OOD.id;
+		arcs+=in_data_to_odd;
+		
+		var not_ood_to_data_gen : ArcType := new ArcType(self.name + "not_ood_to_dataGen");
+		not_ood_to_data_gen.fromNode := notOOD.id;
+		not_ood_to_data_gen.toNode := dataGen.id;
+		arcs+=not_ood_to_data_gen;
+		
+		var ood_to_cf : ArcType := new ArcType(self.name + "ood_to_cf");
+		ood_to_cf.fromNode := OOD.id;
+		ood_to_cf.inscription.text := "x(ood=true)";
+		ood_to_cf.toNode := cf.id;
+		arcs+=ood_to_cf;
+		
+		var data_gen_to_class_truth : ArcType := new ArcType(self.name + "data_gen_to_class_truth");
+		data_gen_to_class_truth.fromNode := dataGen.id;
+		data_gen_to_class_truth.toNode := classTruth.id;
+		arcs+=data_gen_to_class_truth;
+		
+		var data_gen_to_class_other : ArcType := new ArcType(self.name + "data_gen_to_class_other");
+		data_gen_to_class_other.fromNode := dataGen.id;
+		data_gen_to_class_other.toNode := classOther.id;
+		arcs+=data_gen_to_class_other;
+		
+		var class_truth_to_ct : ArcType := new ArcType(self.name + "class_truth_to_ct");
+		class_truth_to_ct.fromNode := classTruth.id;
+		class_truth_to_ct.inscription.text := "x(tL=1)";
+		class_truth_to_ct.toNode := ct.id;
+		arcs+=class_truth_to_ct;
+		
+		var class_other_to_cf : ArcType := new ArcType(self.name + "class_other_to_cf");
+		class_other_to_cf.fromNode := classOther.id;
+		class_other_to_cf.inscription.text := "x(tL=2)";
+		class_other_to_cf.toNode := cf.id;
+		arcs+=class_other_to_cf;
+		
+		
+		var ct_to_ct_tp : ArcType := new ArcType(self.name + "ct_to_ct_tp");
+		ct_to_ct_tp.fromNode := ct.id;
+		ct_to_ct_tp.toNode := ct_tp.id;
+		arcs+=ct_to_ct_tp;
+		
+		var ct_to_ct_fn : ArcType := new ArcType(self.name + "ct_to_ct_fn");
+		ct_to_ct_fn.fromNode := ct.id;
+		ct_to_ct_fn.toNode := ct_fn.id;
+		arcs+=ct_to_ct_fn;
+		
+		var cf_to_cf_tn : ArcType := new ArcType(self.name + "cf_to_cf_tn");
+		cf_to_cf_tn.fromNode := cf.id;
+		cf_to_cf_tn.toNode := cf_tn.id;
+		arcs+=cf_to_cf_tn;
+		
+		var cd_to_cf_fp : ArcType := new ArcType(self.name + "cd_to_cf_fp");
+		cd_to_cf_fp.fromNode := cf.id;
+		cd_to_cf_fp.toNode := cf_fp.id;
+		arcs+=cd_to_cf_fp;
+		
+		
+		//var ct_tp_2_tp : ArcType := new ArcType(self.name + "ct_tp_2_tp");
+		//ct_tp_2_tp.fromNode := ct_tp.id;
+		//ct_tp_2_tp.toNode := tp.id;
+		//arcs+=ct_tp_2_tp;
+		
+		//var ct_fn_2_fn : ArcType := new ArcType(self.name + "ct_fn_2_fn");
+		//ct_fn_2_fn.fromNode := ct_fn.id;
+		//ct_fn_2_fn.toNode := fn.id;
+		//arcs+=ct_fn_2_fn;
+		
+		//var cf_tn_2_tn : ArcType := new ArcType(self.name + "cf_tn_2_tn");
+		//cf_tn_2_tn.fromNode := cf_tn.id;
+		//cf_tn_2_tn.toNode := tn.id;
+		//arcs+=cf_tn_2_tn;
+		
+		//var cf_fp_2_fp : ArcType := new ArcType(self.name + "cf_fp_2_fp");
+		//cf_fp_2_fp.fromNode := cf_fp.id;
+		//cf_fp_2_fp.toNode := fp.id;
+		//arcs+=cf_fp_2_fp;
+		
+		// Generate all the measures
+		
+		var tp : MeasureType := new MeasureType(self.name + "_tp");
+		tp.expression := getMeasureReference(ct_tp);
+		tp.eval := MeasureEvalType::Cumulative;
+		tp.watch := false;
+		meas += tp;
+		
+		var tn : MeasureType := new MeasureType(self.name + "_tn");
+		tn.expression := getMeasureReference(cf_tn);
+		tn.eval := MeasureEvalType::Cumulative;
+		tn.watch := false;
+		meas += tn;
+		
+		var fp : MeasureType := new MeasureType(self.name + "_fp");
+		fp.expression := getMeasureReference(cf_fp);
+		fp.eval := MeasureEvalType::Cumulative;
+		fp.watch := false;
+		meas += fp;
+		
+		var fn : MeasureType := new MeasureType(self.name + "_fn");
+		fn.expression := getMeasureReference(ct_fn);
+		fn.eval := MeasureEvalType::Cumulative;
+		fn.watch := false;
+		meas += fn;
+		
+		
+		// var accuracy : MeasureType := new MeasureType(self.name + "_accuracy");
+		// accuracy.expression := "(#"+tp.label.text + "+ #" + tn.label.text +") / (0.00000001 + #" +  tp.label.text +" + #" +  tn.label.text +" + #" +  fp.label.text +" + #" +  fn.label.text +")" ;
+		// accuracy.eval := scpn::MeasureEvalType::Instantaneous;
+		// accuracy.watch := false;
+		// meas += accuracy;
+		
+		// var specificity : MeasureType := new MeasureType(self.name + "_specificity");
+		// specificity.expression := "#" + tn.label.text + " / (0.00000001 + #" +  tn.label.text +" + #" +  fp.label.text +")" ;
+		// specificity.eval := scpn::MeasureEvalType::Instantaneous;
+		// specificity.watch := false;
+		// meas += specificity;
+		
+		// var recall : MeasureType := new MeasureType(self.name + "_recall");
+		// recall.expression := "#" + tp.label.text + " / (0.00000001 + #" +  tp.label.text +" + #" +  fn.label.text +")" ;
+		// recall.eval := scpn::MeasureEvalType::Instantaneous;
+		// recall.watch := false;
+		// meas += recall;
+		
+		// var precision : MeasureType := new MeasureType(self.name + "_precision");
+		// precision.expression := "#" + tp.label.text + " / (0.00000001 + #" +  tp.label.text +" + #" +  fp.label.text +")" ;
+		// precision.eval := scpn::MeasureEvalType::Instantaneous;
+		// precision.watch := false;
+		// meas += precision;
+		
+		// var f1Score : MeasureType := new MeasureType(self.name + "_f1Score");
+		// f1Score.expression := "#" + tp.label.text + " / (0.00000001 + #" +  tp.label.text +" +(#"+fn.label.text+" + #" +  fp.label.text +")/2.0)" ;
+		// f1Score.eval := scpn::MeasureEvalType::Instantaneous;
+		// f1Score.watch := false;
+		// meas += f1Score;
+		
+		
+		// Transform the execution, if any was defined
+		// Classification components shouldn't have an execution specified
+//		if (self.execution != null) {
+//			self.execution.elements->forEach(el){
+//				if(el.oclIsTypeOf(Flow)) {
+//				   var f : Flow = el.oclAsType(Flow);
+//				   
+//				   // Create the timed transition
+//				   var flowTT : TimedTransitionType := new TimedTransitionType(f.source.oclAsType(NamedElement).name+ "_to_" + f.target.oclAsType(NamedElement).name+"_flow");				   
+//				   flowTT.timeFunction := timeExpressionToString(f.timeFunction);
+//				   tt += flowTT;
+//				   
+//				   // Create an arc to connect the source element to the transition
+//				   var sourceArc : ArcType := new ArcType(f.source.oclAsType(NamedElement).name + "_flow_source");
+//				   sourceArc.fromNode := safeString(self.name + f.source.oclAsType(Pin).getDirectionShort() + inputPins->indexOf(f.source).toString() + placeSuffix);
+//				   sourceArc.toNode := flowTT.id;
+//				   arcs += sourceArc;
+//				   
+//				   // Create an arc to connect the target element to the transition
+//				   var targetArc : ArcType := new ArcType(f.target.oclAsType(NamedElement).name + "_flow_target");
+//				   targetArc.fromNode := flowTT.id;
+//				   targetArc.toNode := safeString(self.name + f.target.oclAsType(Pin).getDirectionShort() + outputPins->indexOf(f.target).toString() + placeSuffix);			   
+//				   
+//				   arcs += targetArc;
+//				}else{
+//				   log ("Unsupported execution element type");
+//				};
+//			};
+//		};
+		
+		// Classification components shouldn't be specified by a package
+		//Generate the specifying package, if any.
+		//if(not (self.specifiedInPackage = null)){
+		//	var res := self.specifiedInPackage.map transformSpecificationPackage();
+		//	pl += res.pl;
+		//	iTr += res.iTr;
+		//	tt += res.tt;
+		//	arcs += res.arcs;
+		//	st += res.st;
+		//	meas += res.meas;
+		//}endif;
+	 }
+	 log("Transformed binary classification component'" +  self.name + "' to " + pl->size().toString()+ " place(s), "
+	  + iTr[ImmediateTransitionType]->size().toString() + " immediate transition(s) and " 
+	  + iTr[TimedTransitionType]->size().toString() + " timed transition(s) and "
+	  + meas->size().toString() + " measure");
+}
+
+
+
+mapping MulticlassClassificationComponent::transformMulticlassClassificationComponent(hasThreadPool : Boolean, poolPackage : e4sm::Package) : pl: List(PlaceType), iTr : List(TransitionType), arcs : List (ArcType),
+tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : List(MeasureType) when {self.oclIsKindOf(e4sm::MulticlassClassificationComponent)}{
+	init{
+		log("\nTransforming multiclass classification component " +  self.name);
+		
+		var inputPins : OrderedSet(InputPin) := self.pins[e4sm::InputPin];
+		var outputPins : OrderedSet(e4sm::OutputPin) := self.pins[e4sm::OutputPin];
+		//pl := List{};
+		//iTr := List{};
+	
+		// Transform all subcomponents contained by this component, probably it will not contain any.
+//		if(not self.components->isEmpty()) {
+//			log("Transforming all subcomponents");
+//			var res := self.components->map transformComponent();
+//			pl += res.pl;
+//			iTr += res.iTr;
+//			arcs += res.arcs;
+//			tt += res.tt;
+//			st += res.st;
+//			meas += res.meas;
+//		};
+		
+		// Transform all datastores contained by this component, probably it will not contain any.
+//		if(self.datastores->size()>0){
+//			log("Transforming all Data Stores...");
+//			var ds := self.datastores->map transformDataStore();
+//			pl += ds.pl;
+//			iTr += ds.iTr;
+//			arcs += ds.arcs;
+//		};
+		
+		var singleComponentReadyTransition : TransitionType := null;
+		var multipleComponentReadyTransitions : OrderedSet(TransitionType);
+		var timedTran : TimedTransitionType := null;
+		
+		//Generate the full component only if it is not redefined
+		// - The component must not have subcomponents
+		// - The component must not be specified by a package
+		// - The component must not have an internal specification "runs { ... }"
+		var isSimpleComponent : Boolean := false;
+		if(self.components->isEmpty() and self.specifiedInPackage = null and self.execution = null) {
+			isSimpleComponent := true;
+			
+			// Create measures for Sensors and Actuators, for simple components only
+			//if(self.oclIsKindOf(Sensor)) {
+			    // Transitions have watch:true, the mainPlace is not generated anymore for sensors.
+				// meas += self.oclAsType(Sensor).map sensorToMeasure();
+			//} else if(self.oclIsKindOf(Actuator)){
+			//	meas += self.oclAsType(Actuator)->map actuatorToMeasure();
+			//};
+			
+			var componentMainPlace : PlaceType := null;
+			
+
+			//if(self.isSensor()) {
+//			    log("Component is a sensor or has no inputs.");
+//				singleComponentReadyTransition := new TimedTransitionType(self.name + "_ready");
+//				singleComponentReadyTransition.oclAsType(TimedTransitionType).timeFunction := timeExpressionToString(self.timeFunction);
+//				singleComponentReadyTransition.watch := true;
+//				iTr->add(singleComponentReadyTransition);
+			//}else
+				
+			if(self.firingStrategy = ComponentFiringStrategy::AND){
+					componentMainPlace := new PlaceType(self.name + "_main");
+					pl->add(componentMainPlace);
+					
+					singleComponentReadyTransition := new ImmediateTransitionType(self.name + "_ready");
+					if(logComponents){
+						singleComponentReadyTransition.logfileName := self.name + "_ready.csv";
+						// TODO: generalize
+						singleComponentReadyTransition.logfileDescription := "current_time,size,pixelSize";
+						singleComponentReadyTransition.logfileExpression := "NOW,TAB,x.s,TAB,x.ps";
+					};
 					iTr->add(singleComponentReadyTransition);
 
 				    // The component only has one ready immediate transition which is connected to all input pins
@@ -456,10 +1821,18 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 					with log("Unsupported firing strategy for component " + self.toString());
 				};
 			
-			if(not self.isSensor()) {
+			//if(not self.isSensor()) {
+				
+
 			// Timed transition for the component execution
 			timedTran := new TimedTransitionType(self.name + "_execution");
 			timedTran.timeFunction := timeExpressionToString(self.timeFunction);
+			if(logComponents){
+				timedTran.logfileName := self.name + "_execution.csv";
+				// TODO: generalize
+				timedTran.logfileDescription := "current_time,size,pixelSize";
+				timedTran.logfileExpression := "NOW,TAB,x.s,TAB,x.ps";
+			};
 			tt->add(timedTran);
 			
 			// Arc between the main Place and the timed transition
@@ -467,7 +1840,8 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 			mainToTimed.fromNode := componentMainPlace.id;
 			mainToTimed.toNode := timedTran.id;
 			arcs->add(mainToTimed);
-			}
+			
+			//}
 		};
 		
 		
@@ -478,14 +1852,16 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 			timedTran.serverType := ServerTypeType::InfiniteServer;
 			timedTran.watch := true;
 		}
-		else if(servers > 1) {
-			// The value is <> 1, add the semaphore place with 2 arcs
+		else if(servers > 0) {
+			// The value is <> -1, add the semaphore place with 2 arcs
 			// and change the execution transition server type
 			
 			timedTran.serverType := ServerTypeType::InfiniteServer;
 			
 			// Create the place
 			var sem : PlaceType := new PlaceType(self.name + "_sem");
+			sem.tokentype := "int";
+			sem.queue := scpn::QueueType::Random;
 			
 			// Add the tokens
 			var i : Integer := 0;
@@ -502,8 +1878,8 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 			
 			// Create the Arcs
 			var semBack := new ArcType(self.name+"_semBack");
-			semBack.inscription.text := "new({})";
-			semBack.fromNode := timedTran.id;
+			semBack.inscription.text := "new(0)";
+			semBack.fromNode := timedTran.id; // TODO, from _post_execution
 			semBack.toNode := sem.id;
 			arcs->add(semBack);
 			
@@ -665,159 +2041,245 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 			} endif;
 			i := i + 1;
 		};
+
+		assert fatal (not self.confusionMatrixes->isEmpty()) with log(self.name + " does not have a confusion matrix.");
+	
+		// Generate all immediate transitions
+		
+		var cm : MulticlassConfusionMatrix := self.confusionMatrixes->first();
+		
+		cm.getClasses()->forEach(cl) {
+			cm.computeClassAccuracy(cl);
+		};
+
+		var notOOD : ImmediateTransitionType := new ImmediateTransitionType(self.name+"_not_OOD");
+		notOOD.weight := "1";
+		iTr += notOOD;
+		
+		var OOD : ImmediateTransitionType := new ImmediateTransitionType(self.name+"_OOD");
+		OOD.weight := "0";
+		iTr += OOD;
+		
+		//var allPositives : Double := (1.0 * cm.tp + cm.fn) / (cm.tp + cm.fn + cm.tn + cm.fp);
+		
+		var classTruth : ImmediateTransitionType := new ImmediateTransitionType(self.name+"_ClassTruth");
+		//classTruth.weight := allPositives.toString();
+		iTr += classTruth;
+		
+		var classOther : ImmediateTransitionType := new ImmediateTransitionType(self.name+"_ClassOther");
+		//classOther.weight := (1.0 - allPositives).toString();
+		iTr += classOther;
+		
+		var ct_tp : ImmediateTransitionType := new ImmediateTransitionType(self.name+"_ct_tp");
+		ct_tp.weight := cm.computeRecall().toString();
+		iTr += ct_tp;
+		
+		var ct_fn : ImmediateTransitionType := new ImmediateTransitionType(self.name+"_ct_fn");
+		ct_fn.weight := (1.0 - cm.computeRecall()).toString();
+		iTr += ct_fn;
+	
+		var cf_tn : ImmediateTransitionType := new ImmediateTransitionType(self.name+"_ cf_tn");
+		cf_tn.weight := cm.computeSpecificity().toString();
+		iTr += cf_tn;
+		
+		var cf_fp : ImmediateTransitionType := new ImmediateTransitionType(self.name+"_cf_fp");
+		cf_fp.weight := (1.0 - cm.computeSpecificity()).toString();
+		iTr += cf_fp;
+		
+		
+		// Generate all places
+		
+		var inData : PlaceType := new PlaceType(self.name + "_in_data");
+		pl += inData;
+		
+		var dataGen : PlaceType := new PlaceType(self.name + "_data_gen");
+		pl += dataGen;
+		
+		var ct : PlaceType := new PlaceType(self.name + "_ct");
+		pl += ct;
+	
+		var cf : PlaceType := new PlaceType(self.name + "_cf");
+		pl += cf;
+		
+		var tp : PlaceType := new PlaceType(self.name + "_tp");
+		pl += tp;
+		
+		var fn : PlaceType := new PlaceType(self.name + "_fn");
+		pl += fn;
+		
+		var tn : PlaceType := new PlaceType(self.name + "_tn");
+		pl += tn;
+		
+		var fp : PlaceType := new PlaceType(self.name + "_fp");
+		pl += fp;
+		
+		// Generate all arcs
+		var execution_to_in_data : ArcType := new ArcType(self.name + "execution_to_in_data");
+		execution_to_in_data.fromNode := timedTran.id;
+		execution_to_in_data.inscription.text := "copy x";
+		execution_to_in_data.toNode := inData.id;
+		arcs+=execution_to_in_data;
+		
+		var in_data_to_not_odd : ArcType := new ArcType(self.name + "in_data_to_not_odd");
+		in_data_to_not_odd.fromNode := inData.id;
+		in_data_to_not_odd.toNode := notOOD.id;
+		arcs+=in_data_to_not_odd;
+		
+		var in_data_to_odd : ArcType := new ArcType(self.name + "in_data_to_odd");
+		in_data_to_odd.fromNode := inData.id;
+		in_data_to_odd.toNode := OOD.id;
+		arcs+=in_data_to_odd;
+		
+		var not_ood_to_data_gen : ArcType := new ArcType(self.name + "not_ood_to_dataGen");
+		not_ood_to_data_gen.fromNode := notOOD.id;
+		not_ood_to_data_gen.toNode := dataGen.id;
+		arcs+=not_ood_to_data_gen;
+		
+		var ood_to_cf : ArcType := new ArcType(self.name + "ood_to_cf");
+		ood_to_cf.fromNode := OOD.id;
+		ood_to_cf.inscription.text := "x(ood=true)";
+		ood_to_cf.toNode := cf.id;
+		arcs+=ood_to_cf;
+		
+		var data_gen_to_class_truth : ArcType := new ArcType(self.name + "data_gen_to_class_truth");
+		data_gen_to_class_truth.fromNode := dataGen.id;
+		data_gen_to_class_truth.toNode := classTruth.id;
+		arcs+=data_gen_to_class_truth;
+		
+		var data_gen_to_class_other : ArcType := new ArcType(self.name + "data_gen_to_class_other");
+		data_gen_to_class_other.fromNode := dataGen.id;
+		data_gen_to_class_other.toNode := classOther.id;
+		arcs+=data_gen_to_class_other;
+		
+		var class_truth_to_ct : ArcType := new ArcType(self.name + "class_truth_to_ct");
+		class_truth_to_ct.fromNode := classTruth.id;
+		class_truth_to_ct.inscription.text := "x(tL=1)";
+		class_truth_to_ct.toNode := ct.id;
+		arcs+=class_truth_to_ct;
+		
+		var class_other_to_cf : ArcType := new ArcType(self.name + "class_other_to_cf");
+		class_other_to_cf.fromNode := classOther.id;
+		class_other_to_cf.inscription.text := "x(tL=2)";
+		class_other_to_cf.toNode := cf.id;
+		arcs+=class_other_to_cf;
+		
+		
+		var ct_to_ct_tp : ArcType := new ArcType(self.name + "ct_to_ct_tp");
+		ct_to_ct_tp.fromNode := ct.id;
+		ct_to_ct_tp.toNode := ct_tp.id;
+		arcs+=ct_to_ct_tp;
+		
+		var ct_to_ct_fn : ArcType := new ArcType(self.name + "ct_to_ct_fn");
+		ct_to_ct_fn.fromNode := ct.id;
+		ct_to_ct_fn.toNode := ct_fn.id;
+		arcs+=ct_to_ct_fn;
+		
+		var cf_to_cf_tn : ArcType := new ArcType(self.name + "cf_to_cf_tn");
+		cf_to_cf_tn.fromNode := cf.id;
+		cf_to_cf_tn.toNode := cf_tn.id;
+		arcs+=cf_to_cf_tn;
+		
+		var cd_to_cf_fp : ArcType := new ArcType(self.name + "cd_to_cf_fp");
+		cd_to_cf_fp.fromNode := cf.id;
+		cd_to_cf_fp.toNode := cf_fp.id;
+		arcs+=cd_to_cf_fp;
+		
+		
+		var ct_tp_2_tp : ArcType := new ArcType(self.name + "ct_tp_2_tp");
+		ct_tp_2_tp.fromNode := ct_tp.id;
+		ct_tp_2_tp.toNode := tp.id;
+		arcs+=ct_tp_2_tp;
+		
+		var ct_fn_2_fn : ArcType := new ArcType(self.name + "ct_fn_2_fn");
+		ct_fn_2_fn.fromNode := ct_fn.id;
+		ct_fn_2_fn.toNode := fn.id;
+		arcs+=ct_fn_2_fn;
+		
+		var cf_tn_2_tn : ArcType := new ArcType(self.name + "cf_tn_2_tn");
+		cf_tn_2_tn.fromNode := cf_tn.id;
+		cf_tn_2_tn.toNode := tn.id;
+		arcs+=cf_tn_2_tn;
+		
+		var cf_fp_2_fp : ArcType := new ArcType(self.name + "cf_fp_2_fp");
+		cf_fp_2_fp.fromNode := cf_fp.id;
+		cf_fp_2_fp.toNode := fp.id;
+		arcs+=cf_fp_2_fp;
+		
+		// Generate all the measures (TODO: do not compute them in TN!)
+		var accuracy : MeasureType := new MeasureType(self.name + "_accuracy");
+		accuracy.expression := "(#"+tp.label.text + "+ #" + tn.label.text +") / (0.00000001 + #" +  tp.label.text +" + #" +  tn.label.text +" + #" +  fp.label.text +" + #" +  fn.label.text +")" ;
+		accuracy.eval := scpn::MeasureEvalType::Instantaneous;
+		accuracy.watch := false;
+		meas += accuracy;
+		
+		var specificity : MeasureType := new MeasureType(self.name + "_specificity");
+		specificity.expression := "#" + tn.label.text + " / (0.00000001 + #" +  tn.label.text +" + #" +  fp.label.text +")" ;
+		specificity.eval := scpn::MeasureEvalType::Instantaneous;
+		specificity.watch := false;
+		meas += specificity;
+		
+		var recall : MeasureType := new MeasureType(self.name + "_recall");
+		recall.expression := "#" + tp.label.text + " / (0.00000001 + #" +  tp.label.text +" + #" +  fn.label.text +")" ;
+		recall.eval := scpn::MeasureEvalType::Instantaneous;
+		recall.watch := false;
+		meas += recall;
+		
+		var precision : MeasureType := new MeasureType(self.name + "_precision");
+		precision.expression := "#" + tp.label.text + " / (0.00000001 + #" +  tp.label.text +" + #" +  fp.label.text +")" ;
+		precision.eval := scpn::MeasureEvalType::Instantaneous;
+		precision.watch := false;
+		meas += precision;
+		
+		var f1Score : MeasureType := new MeasureType(self.name + "_f1Score");
+		f1Score.expression := "#" + tp.label.text + " / (0.00000001 + #" +  tp.label.text +" +(#"+fn.label.text+" + #" +  fp.label.text +")/2.0)" ;
+		f1Score.eval := scpn::MeasureEvalType::Instantaneous;
+		f1Score.watch := false;
+		meas += f1Score;
 		
 		// Transform the execution, if any was defined
-		if (self.execution != null) {
-			self.execution.elements->forEach(el){
-				if(el.oclIsTypeOf(Flow)) {
-				   var f : Flow = el.oclAsType(Flow);
-				   
-				   // Create the timed transition
-				   var flowTT : TimedTransitionType := new TimedTransitionType(f.source.oclAsType(NamedElement).name+ "_to_" + f.target.oclAsType(NamedElement).name+"_flow");				   
-				   flowTT.timeFunction := timeExpressionToString(f.timeFunction);
-				   tt += flowTT;
-				   
-				   // Create an arc to connect the source element to the transition
-				   var sourceArc : ArcType := new ArcType(f.source.oclAsType(NamedElement).name + "_flow_source");
-				   sourceArc.fromNode := safeString(self.name + f.source.oclAsType(Pin).getDirectionShort() + inputPins->indexOf(f.source).toString() + placeSuffix);
-				   sourceArc.toNode := flowTT.id;
-				   arcs += sourceArc;
-				   
-				   // Create an arc to connect the target element to the transition
-				   var targetArc : ArcType := new ArcType(f.target.oclAsType(NamedElement).name + "_flow_target");
-				   targetArc.fromNode := flowTT.id;
-				   targetArc.toNode := safeString(self.name + f.target.oclAsType(Pin).getDirectionShort() + outputPins->indexOf(f.target).toString() + placeSuffix);			   
-				   
-				   arcs += targetArc;
-				}else{
-				   log ("Unsupported execution element type");
-				};
-			};
-		};
+		// Classification components shouldn't have an execution specified
+//		if (self.execution != null) {
+//			self.execution.elements->forEach(el){
+//				if(el.oclIsTypeOf(Flow)) {
+//				   var f : Flow = el.oclAsType(Flow);
+//				   
+//				   // Create the timed transition
+//				   var flowTT : TimedTransitionType := new TimedTransitionType(f.source.oclAsType(NamedElement).name+ "_to_" + f.target.oclAsType(NamedElement).name+"_flow");				   
+//				   flowTT.timeFunction := timeExpressionToString(f.timeFunction);
+//				   tt += flowTT;
+//				   
+//				   // Create an arc to connect the source element to the transition
+//				   var sourceArc : ArcType := new ArcType(f.source.oclAsType(NamedElement).name + "_flow_source");
+//				   sourceArc.fromNode := safeString(self.name + f.source.oclAsType(Pin).getDirectionShort() + inputPins->indexOf(f.source).toString() + placeSuffix);
+//				   sourceArc.toNode := flowTT.id;
+//				   arcs += sourceArc;
+//				   
+//				   // Create an arc to connect the target element to the transition
+//				   var targetArc : ArcType := new ArcType(f.target.oclAsType(NamedElement).name + "_flow_target");
+//				   targetArc.fromNode := flowTT.id;
+//				   targetArc.toNode := safeString(self.name + f.target.oclAsType(Pin).getDirectionShort() + outputPins->indexOf(f.target).toString() + placeSuffix);			   
+//				   
+//				   arcs += targetArc;
+//				}else{
+//				   log ("Unsupported execution element type");
+//				};
+//			};
+//		};
 		
+		// Classification components shouldn't be specified by a package
 		//Generate the specifying package, if any.
-		if(not (self.specifiedInPackage = null)){
-			var res := self.specifiedInPackage.map transformSpecificationPackage();
-			pl += res.pl;
-			iTr += res.iTr;
-			tt += res.tt;
-			arcs += res.arcs;
-			st += res.st;
-			meas += res.meas;
-		}endif;
+		//if(not (self.specifiedInPackage = null)){
+		//	var res := self.specifiedInPackage.map transformSpecificationPackage();
+		//	pl += res.pl;
+		//	iTr += res.iTr;
+		//	tt += res.tt;
+		//	arcs += res.arcs;
+		//	st += res.st;
+		//	meas += res.meas;
+		//}endif;
 	 }
-	 log("Transformed component '" +  self.name + "' to " + pl->size().toString()+ " place(s), "
+	 log("Transformed multiclass classification component'" +  self.name + "' to " + pl->size().toString()+ " place(s), "
 	  + iTr[ImmediateTransitionType]->size().toString() + " immediate transition(s) and " 
 	  + iTr[TimedTransitionType]->size().toString() + " timed transition(s) and "
 	  + meas->size().toString() + " measure");
-}
-
-mapping DataStore::transformDataStore() : arcs : List(ArcType), iTr : List(ImmediateTransitionType), pl : List(PlaceType){
-	init {
-		assert fatal (self.name->size()>0) with log ("Datastore must have a name");
-		// Create the 3 Places
-		var inputPlace : PlaceType := new PlaceType(self.name + "_ds_in");
-		inputPlace.queue:= scpn::QueueType::FIFO;
-		pl += inputPlace;
-		
-		var outputPlace : PlaceType := new PlaceType(self.name + "_ds_out");
-		pl += outputPlace;
-		
-		var mainPlace : PlaceType := new PlaceType(self.name + "_ds_main");
-		mainPlace.capacity := "1";
-		pl += mainPlace;
-		
-		// Create the 3 immediate transitions
-		var initTransition : ImmediateTransitionType := new ImmediateTransitionType(self.name + "_ds_init");
-		initTransition.globalGuard := "#" + mainPlace.label.text+"==0";
-		iTr += initTransition;
-		
-		var updateTransition : ImmediateTransitionType := new ImmediateTransitionType(self.name + "_ds_update");
-		updateTransition.priority := 2;
-		iTr += updateTransition;
-		
-		var readTransition : ImmediateTransitionType := new ImmediateTransitionType(self.name + "_ds_read");
-		readTransition.globalGuard := "#" + outputPlace.label.text+"==0";
-		iTr += readTransition;
-		
-		// Create the 9 arcs
-		// 4 arcs of the Main "rhombus":
-		var inToInit : ArcType := new ArcType(self.name + "_inToInit");
-		inToInit.fromNode := inputPlace.id;
-		inToInit.toNode := initTransition.id;
-		arcs += inToInit;
-		
-		var initToMain : ArcType := new ArcType(self.name + "_initToMain");
-		initToMain.fromNode := initTransition.id;
-		initToMain.toNode := mainPlace.id;
-		arcs += initToMain;
-		
-		var inToUpdate : ArcType := new ArcType(self.name + "_inToUpdate");
-		inToUpdate.fromNode := inputPlace.id;
-		inToUpdate.toNode := updateTransition.id;
-		arcs += inToUpdate;
-		
-		var updateToMain : ArcType := new ArcType(self.name + "_updateToMain");
-		updateToMain.fromNode := updateTransition.id;
-		updateToMain.toNode := mainPlace.id;
-		arcs += updateToMain;
-		
-		// 3 Read arcs
-		var mainToRead : ArcType := new ArcType(self.name + "_mainToRead");
-		mainToRead.fromNode := mainPlace.id;
-		mainToRead.toNode := readTransition.id;
-		arcs += mainToRead;
-		
-		var readToMain : ArcType := new ArcType(self.name + "_readToMain");
-		readToMain.fromNode :=readTransition.id;
-		readToMain.toNode := mainPlace.id;
-		arcs += readToMain;
-		
-		var readToOut : ArcType := new ArcType(self.name + "_readToOut");
-		readToOut.fromNode := readTransition.id;
-		readToOut.toNode := outputPlace.id;
-		readToOut.inscription.text := "copy " + readToOut.inscription.text;
-		arcs += readToOut;
-		
-		// 2 arc to remove the tokens
-		var removeFromMain : ArcType := new ArcType(self.name + "_removeFromMain");
-		removeFromMain.fromNode := mainPlace.id;
-		removeFromMain.toNode := updateTransition.id;
-		removeFromMain.inscription.text := "delete";
-		arcs += removeFromMain;
-		
-		var removeFromOut : ArcType := new ArcType(self.name + "_removeFromOut");
-		removeFromOut.fromNode := outputPlace.id;
-		removeFromOut.toNode := updateTransition.id;
-		removeFromOut.inscription.text := "remove";
-		arcs += removeFromOut;
-	}
-	 log("Transformed datastore '" +  self.name + "' to " + pl->size().toString()+ " place(s), "
-	  + iTr->size().toString() + " immediate transition(s) and " 
-	  + arcs->size().toString() + " arc(s)");
-}
-
-
-mapping Sensor::sensorToMeasure() : scpn::MeasureType {
-	result.id := safeString(self.name+"_s_meas");
-	result.eval := MeasureEvalType::Cumulative;
-	result.expression := "#" + safeString(self.name) + "_main";
-	result.name := safeString(self.name) + "Ready";
-	result.type := Type::text;
-	result.watch := true;
-	result._result := "";
-	result.graphics := object GraphicsType{x:=0; y:=0};
-	log("Transformed sensor '" +  self.name + "' to measure");
-}
-
-mapping Actuator::actuatorToMeasure() : scpn::MeasureType {
-	result.id := safeString(self.name+"_a_meas");
-	result.eval := MeasureEvalType::Cumulative;
-	result.expression := "#" + safeString(self.name) + "_main";
-	result.name := safeString(self.name) + "Ready";
-	result.type := Type::text;
-	result.watch := true;
-	result._result := "";
-	result.graphics := object GraphicsType{x:=0; y:=0};
-	log("Transformed actuator '" +  self.name + "' to measure");
 }

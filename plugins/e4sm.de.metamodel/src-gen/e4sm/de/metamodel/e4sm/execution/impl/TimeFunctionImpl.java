@@ -3,15 +3,18 @@
 package e4sm.de.metamodel.e4sm.execution.impl;
 
 import e4sm.de.metamodel.e4sm.execution.ExecutionPackage;
+import e4sm.de.metamodel.e4sm.execution.Expression;
 import e4sm.de.metamodel.e4sm.execution.TimeFunction;
 import e4sm.de.metamodel.e4sm.execution.TimeFunctions;
 
 import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
@@ -52,44 +55,24 @@ public class TimeFunctionImpl extends MinimalEObjectImpl.Container implements Ti
 	protected TimeFunctions function = FUNCTION_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getPar1() <em>Par1</em>}' attribute.
+	 * The cached value of the '{@link #getPar1() <em>Par1</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getPar1()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double PAR1_EDEFAULT = 0.0;
+	protected Expression par1;
 
 	/**
-	 * The cached value of the '{@link #getPar1() <em>Par1</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPar1()
-	 * @generated
-	 * @ordered
-	 */
-	protected double par1 = PAR1_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getPar2() <em>Par2</em>}' attribute.
+	 * The cached value of the '{@link #getPar2() <em>Par2</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getPar2()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double PAR2_EDEFAULT = 0.0;
-
-	/**
-	 * The cached value of the '{@link #getPar2() <em>Par2</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPar2()
-	 * @generated
-	 * @ordered
-	 */
-	protected double par2 = PAR2_EDEFAULT;
+	protected Expression par2;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -140,7 +123,7 @@ public class TimeFunctionImpl extends MinimalEObjectImpl.Container implements Ti
 	 * @generated
 	 */
 	@Override
-	public double getPar1() {
+	public Expression getPar1() {
 		return par1;
 	}
 
@@ -149,12 +132,18 @@ public class TimeFunctionImpl extends MinimalEObjectImpl.Container implements Ti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public void setPar1(double newPar1) {
-		double oldPar1 = par1;
+	public NotificationChain basicSetPar1(Expression newPar1, NotificationChain msgs) {
+		Expression oldPar1 = par1;
 		par1 = newPar1;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExecutionPackage.TIME_FUNCTION__PAR1, oldPar1, par1));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					ExecutionPackage.TIME_FUNCTION__PAR1, oldPar1, newPar1);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -163,7 +152,30 @@ public class TimeFunctionImpl extends MinimalEObjectImpl.Container implements Ti
 	 * @generated
 	 */
 	@Override
-	public double getPar2() {
+	public void setPar1(Expression newPar1) {
+		if (newPar1 != par1) {
+			NotificationChain msgs = null;
+			if (par1 != null)
+				msgs = ((InternalEObject) par1).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - ExecutionPackage.TIME_FUNCTION__PAR1, null, msgs);
+			if (newPar1 != null)
+				msgs = ((InternalEObject) newPar1).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - ExecutionPackage.TIME_FUNCTION__PAR1, null, msgs);
+			msgs = basicSetPar1(newPar1, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ExecutionPackage.TIME_FUNCTION__PAR1, newPar1,
+					newPar1));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Expression getPar2() {
 		return par2;
 	}
 
@@ -172,12 +184,41 @@ public class TimeFunctionImpl extends MinimalEObjectImpl.Container implements Ti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public void setPar2(double newPar2) {
-		double oldPar2 = par2;
+	public NotificationChain basicSetPar2(Expression newPar2, NotificationChain msgs) {
+		Expression oldPar2 = par2;
 		par2 = newPar2;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExecutionPackage.TIME_FUNCTION__PAR2, oldPar2, par2));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					ExecutionPackage.TIME_FUNCTION__PAR2, oldPar2, newPar2);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setPar2(Expression newPar2) {
+		if (newPar2 != par2) {
+			NotificationChain msgs = null;
+			if (par2 != null)
+				msgs = ((InternalEObject) par2).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - ExecutionPackage.TIME_FUNCTION__PAR2, null, msgs);
+			if (newPar2 != null)
+				msgs = ((InternalEObject) newPar2).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - ExecutionPackage.TIME_FUNCTION__PAR2, null, msgs);
+			msgs = basicSetPar2(newPar2, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ExecutionPackage.TIME_FUNCTION__PAR2, newPar2,
+					newPar2));
 	}
 
 	/**
@@ -188,16 +229,33 @@ public class TimeFunctionImpl extends MinimalEObjectImpl.Container implements Ti
 	@Override
 	public String getString() {
 		if (function != null) {
-			var res = function.toString() + "(" + Double.toString(par1);
+			//TODO
+			var res = function.toString() + "(" + par1.toString();
 
-			if (par2 > 0) {
-				res += ", " + Double.toString(par2);
+			if (par2 != null) {
+				res += ", " + par2.toString();
 			}
 			;
 			res += ")";
 			return res;
 		}
 		return null;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case ExecutionPackage.TIME_FUNCTION__PAR1:
+			return basicSetPar1(null, msgs);
+		case ExecutionPackage.TIME_FUNCTION__PAR2:
+			return basicSetPar2(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -230,10 +288,10 @@ public class TimeFunctionImpl extends MinimalEObjectImpl.Container implements Ti
 			setFunction((TimeFunctions) newValue);
 			return;
 		case ExecutionPackage.TIME_FUNCTION__PAR1:
-			setPar1((Double) newValue);
+			setPar1((Expression) newValue);
 			return;
 		case ExecutionPackage.TIME_FUNCTION__PAR2:
-			setPar2((Double) newValue);
+			setPar2((Expression) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -251,10 +309,10 @@ public class TimeFunctionImpl extends MinimalEObjectImpl.Container implements Ti
 			setFunction(FUNCTION_EDEFAULT);
 			return;
 		case ExecutionPackage.TIME_FUNCTION__PAR1:
-			setPar1(PAR1_EDEFAULT);
+			setPar1((Expression) null);
 			return;
 		case ExecutionPackage.TIME_FUNCTION__PAR2:
-			setPar2(PAR2_EDEFAULT);
+			setPar2((Expression) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -271,9 +329,9 @@ public class TimeFunctionImpl extends MinimalEObjectImpl.Container implements Ti
 		case ExecutionPackage.TIME_FUNCTION__FUNCTION:
 			return function != FUNCTION_EDEFAULT;
 		case ExecutionPackage.TIME_FUNCTION__PAR1:
-			return par1 != PAR1_EDEFAULT;
+			return par1 != null;
 		case ExecutionPackage.TIME_FUNCTION__PAR2:
-			return par2 != PAR2_EDEFAULT;
+			return par2 != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -305,10 +363,6 @@ public class TimeFunctionImpl extends MinimalEObjectImpl.Container implements Ti
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (function: ");
 		result.append(function);
-		result.append(", par1: ");
-		result.append(par1);
-		result.append(", par2: ");
-		result.append(par2);
 		result.append(')');
 		return result.toString();
 	}

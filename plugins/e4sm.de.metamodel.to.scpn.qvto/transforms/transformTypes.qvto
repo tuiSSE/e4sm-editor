@@ -18,12 +18,12 @@ mapping core::TypeSpecification::convert() : scpn::RecordTokentype {
 	 	y := 1600
     };
 	typesCount := typesCount + 1;
-	var superType : TypeSpecification := self.superType;
+	var superTypeLocal : TypeSpecification := self.superType;
 	result.attribute := self.attributes-> convert();
-	while(not superType.oclIsUndefined()) {
-		log("\nHas a supertype: " + superType.name);
-		result.attribute += superType.attributes-> convert();
-		superType := superType.superType;
+	while(not superTypeLocal.oclIsUndefined()) {
+		log("\nHas a supertype: " + superTypeLocal.name);
+		result.attribute += superTypeLocal.attributes-> convert();
+		superTypeLocal := superTypeLocal.superType;
 	}
 }
 

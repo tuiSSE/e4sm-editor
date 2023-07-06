@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Custom
+Bundle-SymbolicName: e4sm.de.intro.custom;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.ui.intro;bundle-version="3.6.600"
+Bundle-Vendor: E4SM
+Automatic-Module-Name: e4sm.de.intro.custom
+Bundle-RequiredExecutionEnvironment: JavaSE-17

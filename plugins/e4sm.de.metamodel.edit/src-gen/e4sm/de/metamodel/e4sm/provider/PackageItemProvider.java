@@ -54,6 +54,8 @@ public class PackageItemProvider extends NamedElementItemProvider {
 			addMainResponsiblePropertyDescriptor(object);
 			addPackagesPropertyDescriptor(object);
 			addSpecifiesComponentPropertyDescriptor(object);
+			addProcessingUnitsPropertyDescriptor(object);
+			addSimulationDurationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -117,6 +119,38 @@ public class PackageItemProvider extends NamedElementItemProvider {
 						getString("_UI_PropertyDescriptor_description", "_UI_Package_specifiesComponent_feature",
 								"_UI_Package_type"),
 						e4smPackage.Literals.PACKAGE__SPECIFIES_COMPONENT, true, false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Processing Units feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addProcessingUnitsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Package_processingUnits_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Package_processingUnits_feature",
+								"_UI_Package_type"),
+						e4smPackage.Literals.PACKAGE__PROCESSING_UNITS, true, false, false,
+						ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Simulation Duration feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSimulationDurationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Package_simulationDuration_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Package_simulationDuration_feature",
+								"_UI_Package_type"),
+						e4smPackage.Literals.PACKAGE__SIMULATION_DURATION, true, false, false,
+						ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -201,6 +235,8 @@ public class PackageItemProvider extends NamedElementItemProvider {
 
 		switch (notification.getFeatureID(e4sm.de.metamodel.e4sm.Package.class)) {
 		case e4smPackage.PACKAGE__DOCUMENTATION:
+		case e4smPackage.PACKAGE__PROCESSING_UNITS:
+		case e4smPackage.PACKAGE__SIMULATION_DURATION:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		case e4smPackage.PACKAGE__PARAMETERS:
@@ -255,6 +291,12 @@ public class PackageItemProvider extends NamedElementItemProvider {
 
 		newChildDescriptors.add(
 				createChildParameter(e4smPackage.Literals.PACKAGE__COMPONENTS, e4smFactory.eINSTANCE.createActuator()));
+
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.PACKAGE__COMPONENTS,
+				e4smFactory.eINSTANCE.createBinaryClassificationComponent()));
+
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.PACKAGE__COMPONENTS,
+				e4smFactory.eINSTANCE.createMulticlassClassificationComponent()));
 
 		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.PACKAGE__CONNECTORS,
 				e4smFactory.eINSTANCE.createConnector()));

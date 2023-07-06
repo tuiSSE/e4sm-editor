@@ -23,14 +23,14 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link e4sm.de.metamodel.e4sm.Package#getComponents <em>Components</em>}</li>
- *   <li>{@link e4sm.de.metamodel.e4sm.Package#getSoftwareComponents <em>Software Components</em>}</li>
- *   <li>{@link e4sm.de.metamodel.e4sm.Package#getPhysicalComponents <em>Physical Components</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Package#getConnectors <em>Connectors</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Package#getSectors <em>Sectors</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Package#getMainResponsible <em>Main Responsible</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Package#getPackages <em>Packages</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Package#getSpecifiesComponent <em>Specifies Component</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Package#getDatastores <em>Datastores</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.Package#getProcessingUnits <em>Processing Units</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.Package#getSimulationDuration <em>Simulation Duration</em>}</li>
  * </ul>
  *
  * @see e4sm.de.metamodel.e4sm.e4smPackage#getPackage()
@@ -52,36 +52,6 @@ public interface Package extends NamedElement, ParameterizableElement, Documenta
 	 * @generated
 	 */
 	EList<Component> getComponents();
-
-	/**
-	 * Returns the value of the '<em><b>Software Components</b></em>' reference list.
-	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.SoftwareComponent}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * A subset of components only containing software components
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Software Components</em>' reference list.
-	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getPackage_SoftwareComponents()
-	 * @model transient="true" volatile="true" derived="true"
-	 * @generated
-	 */
-	EList<SoftwareComponent> getSoftwareComponents();
-
-	/**
-	 * Returns the value of the '<em><b>Physical Components</b></em>' reference list.
-	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.PhysicalComponent}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * A subset of components only containing physical components
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Physical Components</em>' reference list.
-	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getPackage_PhysicalComponents()
-	 * @model transient="true" changeable="false" volatile="true" derived="true"
-	 * @generated
-	 */
-	EList<PhysicalComponent> getPhysicalComponents();
 
 	/**
 	 * Returns the value of the '<em><b>Connectors</b></em>' containment reference list.
@@ -191,6 +161,58 @@ public interface Package extends NamedElement, ParameterizableElement, Documenta
 	 * @generated
 	 */
 	EList<DataStore> getDatastores();
+
+	/**
+	 * Returns the value of the '<em><b>Processing Units</b></em>' attribute.
+	 * The default value is <code>"-1"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * When set to a value > 0, all components of this package share a thread pool with n threads. Components can only execute when they hold a token from the thread pool.
+	 * 
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Processing Units</em>' attribute.
+	 * @see #setProcessingUnits(int)
+	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getPackage_ProcessingUnits()
+	 * @model default="-1"
+	 * @generated
+	 */
+	int getProcessingUnits();
+
+	/**
+	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.Package#getProcessingUnits <em>Processing Units</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Processing Units</em>' attribute.
+	 * @see #getProcessingUnits()
+	 * @generated
+	 */
+	void setProcessingUnits(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Simulation Duration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * How long this package should be simulated, in simulation units (e.g. Milliseconds)
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Simulation Duration</em>' attribute.
+	 * @see #setSimulationDuration(int)
+	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getPackage_SimulationDuration()
+	 * @model
+	 * @generated
+	 */
+	int getSimulationDuration();
+
+	/**
+	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.Package#getSimulationDuration <em>Simulation Duration</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Simulation Duration</em>' attribute.
+	 * @see #getSimulationDuration()
+	 * @generated
+	 */
+	void setSimulationDuration(int value);
 
 	/**
 	 * <!-- begin-user-doc -->

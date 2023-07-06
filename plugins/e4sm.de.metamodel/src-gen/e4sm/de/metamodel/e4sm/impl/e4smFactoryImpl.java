@@ -4,13 +4,20 @@ package e4sm.de.metamodel.e4sm.impl;
 
 import e4sm.de.metamodel.e4sm.Actor;
 import e4sm.de.metamodel.e4sm.Actuator;
+import e4sm.de.metamodel.e4sm.BinaryClassificationComponent;
+import e4sm.de.metamodel.e4sm.BinaryConfusionMatrix;
+import e4sm.de.metamodel.e4sm.ClassificationClass;
+import e4sm.de.metamodel.e4sm.ClassificationClassDistribution;
 import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.ComponentFiringStrategy;
+import e4sm.de.metamodel.e4sm.ConfusionMatrixEntry;
 import e4sm.de.metamodel.e4sm.Connector;
 import e4sm.de.metamodel.e4sm.ConversionByConvention;
 import e4sm.de.metamodel.e4sm.ConversionByPrefix;
 import e4sm.de.metamodel.e4sm.DataStore;
 import e4sm.de.metamodel.e4sm.DerivedUnit;
+import e4sm.de.metamodel.e4sm.DynamicRange;
+import e4sm.de.metamodel.e4sm.Environment;
 import e4sm.de.metamodel.e4sm.ExternalDependency;
 import e4sm.de.metamodel.e4sm.Function;
 import e4sm.de.metamodel.e4sm.Heuristic;
@@ -21,6 +28,8 @@ import e4sm.de.metamodel.e4sm.LogicalConnector;
 import e4sm.de.metamodel.e4sm.MachineLearningComponent;
 import e4sm.de.metamodel.e4sm.MeasurementUnit;
 import e4sm.de.metamodel.e4sm.Model;
+import e4sm.de.metamodel.e4sm.MulticlassClassificationComponent;
+import e4sm.de.metamodel.e4sm.MulticlassConfusionMatrix;
 import e4sm.de.metamodel.e4sm.OutputPin;
 import e4sm.de.metamodel.e4sm.Person;
 import e4sm.de.metamodel.e4sm.PhysicalComponent;
@@ -29,9 +38,15 @@ import e4sm.de.metamodel.e4sm.QueueType;
 import e4sm.de.metamodel.e4sm.RaceSemantic;
 import e4sm.de.metamodel.e4sm.Robot;
 import e4sm.de.metamodel.e4sm.Sector;
+import e4sm.de.metamodel.e4sm.SecurityThreatsImport;
 import e4sm.de.metamodel.e4sm.Sensor;
+import e4sm.de.metamodel.e4sm.Set;
+import e4sm.de.metamodel.e4sm.SetValue;
 import e4sm.de.metamodel.e4sm.SimpleUnit;
+import e4sm.de.metamodel.e4sm.SizeComputation;
 import e4sm.de.metamodel.e4sm.SoftwareComponent;
+import e4sm.de.metamodel.e4sm.StaticSize;
+import e4sm.de.metamodel.e4sm.TokenSpecification;
 import e4sm.de.metamodel.e4sm.UnitConversion;
 import e4sm.de.metamodel.e4sm.UnitPrefix;
 import e4sm.de.metamodel.e4sm.e4smFactory;
@@ -148,6 +163,34 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 			return createImport();
 		case e4smPackage.DATA_STORE:
 			return createDataStore();
+		case e4smPackage.ENVIRONMENT:
+			return createEnvironment();
+		case e4smPackage.CLASSIFICATION_CLASS:
+			return createClassificationClass();
+		case e4smPackage.CLASSIFICATION_CLASS_DISTRIBUTION:
+			return createClassificationClassDistribution();
+		case e4smPackage.MULTICLASS_CONFUSION_MATRIX:
+			return createMulticlassConfusionMatrix();
+		case e4smPackage.CONFUSION_MATRIX_ENTRY:
+			return createConfusionMatrixEntry();
+		case e4smPackage.BINARY_CONFUSION_MATRIX:
+			return createBinaryConfusionMatrix();
+		case e4smPackage.BINARY_CLASSIFICATION_COMPONENT:
+			return createBinaryClassificationComponent();
+		case e4smPackage.MULTICLASS_CLASSIFICATION_COMPONENT:
+			return createMulticlassClassificationComponent();
+		case e4smPackage.TOKEN_SPECIFICATION:
+			return createTokenSpecification();
+		case e4smPackage.STATIC_SIZE:
+			return createStaticSize();
+		case e4smPackage.SET:
+			return createSet();
+		case e4smPackage.SET_VALUE:
+			return createSetValue();
+		case e4smPackage.DYNAMIC_RANGE:
+			return createDynamicRange();
+		case e4smPackage.SECURITY_THREATS_IMPORT:
+			return createSecurityThreatsImport();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -167,6 +210,8 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 			return createRaceSemanticFromString(eDataType, initialValue);
 		case e4smPackage.COMPONENT_FIRING_STRATEGY:
 			return createComponentFiringStrategyFromString(eDataType, initialValue);
+		case e4smPackage.SIZE_COMPUTATION:
+			return createSizeComputationFromString(eDataType, initialValue);
 		case e4smPackage.CONNECTIONSPEED:
 			return createConnectionspeedFromString(eDataType, initialValue);
 		case e4smPackage.JSON:
@@ -190,6 +235,8 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 			return convertRaceSemanticToString(eDataType, instanceValue);
 		case e4smPackage.COMPONENT_FIRING_STRATEGY:
 			return convertComponentFiringStrategyToString(eDataType, instanceValue);
+		case e4smPackage.SIZE_COMPUTATION:
+			return convertSizeComputationToString(eDataType, instanceValue);
 		case e4smPackage.CONNECTIONSPEED:
 			return convertConnectionspeedToString(eDataType, instanceValue);
 		case e4smPackage.JSON:
@@ -534,6 +581,160 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public Environment createEnvironment() {
+		EnvironmentImpl environment = new EnvironmentImpl();
+		return environment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ClassificationClass createClassificationClass() {
+		ClassificationClassImpl classificationClass = new ClassificationClassImpl();
+		return classificationClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ClassificationClassDistribution createClassificationClassDistribution() {
+		ClassificationClassDistributionImpl classificationClassDistribution = new ClassificationClassDistributionImpl();
+		return classificationClassDistribution;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public MulticlassConfusionMatrix createMulticlassConfusionMatrix() {
+		MulticlassConfusionMatrixImpl multiclassConfusionMatrix = new MulticlassConfusionMatrixImpl();
+		return multiclassConfusionMatrix;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ConfusionMatrixEntry createConfusionMatrixEntry() {
+		ConfusionMatrixEntryImpl confusionMatrixEntry = new ConfusionMatrixEntryImpl();
+		return confusionMatrixEntry;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public BinaryConfusionMatrix createBinaryConfusionMatrix() {
+		BinaryConfusionMatrixImpl binaryConfusionMatrix = new BinaryConfusionMatrixImpl();
+		return binaryConfusionMatrix;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public BinaryClassificationComponent createBinaryClassificationComponent() {
+		BinaryClassificationComponentImpl binaryClassificationComponent = new BinaryClassificationComponentImpl();
+		return binaryClassificationComponent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public MulticlassClassificationComponent createMulticlassClassificationComponent() {
+		MulticlassClassificationComponentImpl multiclassClassificationComponent = new MulticlassClassificationComponentImpl();
+		return multiclassClassificationComponent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public TokenSpecification createTokenSpecification() {
+		TokenSpecificationImpl tokenSpecification = new TokenSpecificationImpl();
+		return tokenSpecification;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public StaticSize createStaticSize() {
+		StaticSizeImpl staticSize = new StaticSizeImpl();
+		return staticSize;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Set createSet() {
+		SetImpl set = new SetImpl();
+		return set;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public SetValue createSetValue() {
+		SetValueImpl setValue = new SetValueImpl();
+		return setValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public DynamicRange createDynamicRange() {
+		DynamicRangeImpl dynamicRange = new DynamicRangeImpl();
+		return dynamicRange;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public SecurityThreatsImport createSecurityThreatsImport() {
+		SecurityThreatsImportImpl securityThreatsImport = new SecurityThreatsImportImpl();
+		return securityThreatsImport;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public QueueType createQueueTypeFromString(EDataType eDataType, String initialValue) {
 		QueueType result = QueueType.get(initialValue);
 		if (result == null)
@@ -592,6 +793,28 @@ public class e4smFactoryImpl extends EFactoryImpl implements e4smFactory {
 	 * @generated
 	 */
 	public String convertComponentFiringStrategyToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SizeComputation createSizeComputationFromString(EDataType eDataType, String initialValue) {
+		SizeComputation result = SizeComputation.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException(
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertSizeComputationToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

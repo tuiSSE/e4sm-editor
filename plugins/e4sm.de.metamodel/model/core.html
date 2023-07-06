@@ -1,0 +1,743 @@
+<!-- This file was created using the HTML documentation generator. -->
+<!-- Creation date: Thu Jan 26 17:10:08 CET 2023-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+      	<title>Metamodel Documentation (platform:/resource/e4sm.de.metamodel/model/core.ecore)</title>
+    	<script type="text/javascript">
+//<![CDATA[				    	
+// TOC script based on code taken from http://www.quirksmode.org/dom/toc.html
+function makeTOC() {
+	
+	var toc = document.createElement('div')				
+	toc.id = "toc";
+	toc.innerHTML = "Table of Contents"				
+	document.body.appendChild(toc);
+				
+	var innertocDiv = createTOC()				
+	toc.appendChild(innertocDiv);
+}
+
+
+function createTOC() {
+	var y = document.createElement('div');
+	y.id = 'innertoc';
+	//var a = y.appendChild(document.createElement('span'));
+	//a.onclick = showhideTOC;
+	//a.id = 'contentheader';
+	//a.innerHTML = 'Show Table of Contents';
+	var z = y.appendChild(document.createElement('div'));
+	//z.onclick = showhideTOC;
+	var toBeTOCced = getElementsByTagNames('h1,h2,h3');
+	if (toBeTOCced.length < 2) return false;
+	var hCount = 0;
+	var hhCount = 0;
+	var hhhCount = 0;
+	for (var i=0;i<toBeTOCced.length;i++) {
+	var tmp = document.createElement('a');
+	tmp.className = 'page';
+	var text;
+	var textPre;
+	if (toBeTOCced[i].nodeName == 'h2'){
+		tmp.className += ' indent';
+		textPre = hCount + "."+ ++hhCount + ". "; 
+	}
+	else if (toBeTOCced[i].nodeName == 'h3'){
+		tmp.className += ' extraindent';
+		textPre = hCount + "."+ hhCount + "."+ ++hhhCount +". "; 
+	}
+	else {
+		textPre = ++hCount + ". "; 
+		hhCount = 0;
+		hhhCount = 0;
+	}
+	text = textPre + toBeTOCced[i].textContent;
+	toBeTOCced[i].innerHTML = textPre + toBeTOCced[i].innerHTML;
+	
+	tmp.innerHTML = text; 
+	z.appendChild(tmp);
+	var headerId = toBeTOCced[i].id || 'link' + i;
+	tmp.href = '#' + headerId;
+	toBeTOCced[i].id = headerId;
+	}
+	return y;
+}
+
+function getElementsByTagNames(list,obj) {
+	if (!obj) var obj = document;
+	var tagNames = list.split(',');
+	var resultArray = new Array();
+	for (var i=0;i<tagNames.length;i++) {
+		var tags = obj.getElementsByTagName(tagNames[i]);
+		for (var j=0;j<tags.length;j++) {
+			resultArray.push(tags[j]);
+		}
+	}
+	var testNode = resultArray[0];
+	if (!testNode) return [];
+	if (testNode.sourceIndex) {
+		resultArray.sort(function (a,b) {
+				return a.sourceIndex - b.sourceIndex;
+		});
+	}
+	else if (testNode.compareDocumentPosition) {
+		resultArray.sort(function (a,b) {
+				return 3 - (a.compareDocumentPosition(b) & 6);
+		});
+	}
+	return resultArray;
+}
+	    	
+//]]>				    	
+	    	</script>
+	    	<link rel="stylesheet" type="text/css" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" /> 
+	    	<style>
+#toc {
+	position: fixed;
+	  right: 0;
+	  top: 0;
+	  background-color:#eee;
+	  overflow: scroll;
+	  border: 1px dashed;
+}
+
+#toc #innertoc { 
+	display: none;
+	height: 500px;
+} /* Hide the full TOC by default */
+
+#toc:hover #innertoc{
+	display: block; /* Show it on hover */
+}
+	td {
+	border: 1px solid;
+	}
+	.page{
+	display:table-row;
+	}
+	.indent {
+	text-indent:12pt;
+	}
+	.extraindent {
+	text-indent:14pt;
+	}
+
+	    	</style>
+	    	<link rel="stylesheet" type="text/css" href="style.css" />
+	</head>
+	<body onload="makeTOC();">
+<h1 id="core"><a href="#core"><span class="packageName">core</span> package</a></h1>
+
+<div class="">EPackage properties:</div>
+<div class="keyValue"><span class="label">Namespace Prefix: </span><span class="teletype">core</span></div>
+<div class="keyValue"><span class="label">Namespace URI: </span><span class="teletype">http://de.tu-ilmenau/e4sm/core/1.0.0</span></div>
+<h2 id="coreAttributeSpecification"><a href="#coreAttributeSpecification"><a href="#coreAttributeSpecification">AttributeSpecification</a></a></h2>
+
+<div class="eclassProps">EClass properties:<div class="eclassPropList"><span class="label">Abstract</span></div></div><h4><b>Supertype:</b><a href="#coreNamedElement">NamedElement</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Attributes</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="coreAttributeSpecification.array" class="teletype">array</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"></span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="keyValue"><span class="label">Default: </span><span class="teletype">false</span></div>
+ </td> <td></td>
+		</tr></table>
+<a href="#core.AttributeSpecification.attr"></a>
+<h2 id="coreBooleanAttribute"><a href="#coreBooleanAttribute"><a href="#coreBooleanAttribute">BooleanAttribute</a></a></h2>
+
+<h4><b>Supertype:</b><a href="#coreAttributeSpecification">AttributeSpecification</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Attributes</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="coreBooleanAttribute.defaultValue" class="teletype">defaultValue</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"></span></div>
+<div class="label">Cardinality: [0..1]</div>
+ </td> <td></td>
+		</tr></table>
+<a href="#core.BooleanAttribute.attr"></a>
+<h2 id="coreClassAttribute"><a href="#coreClassAttribute"><a href="#coreClassAttribute">ClassAttribute</a></a></h2>
+
+<h4><b>Supertype:</b><a href="#coreAttributeSpecification">AttributeSpecification</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">References</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="coreClassAttribute.type" class="teletype">type</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#coreTypeSpecification">TypeSpecification</a></span></div>
+<div class="label">Cardinality: [1..1]</div>
+</td> 
+<td> </td>
+		</tr></table>
+<a href="#core.ClassAttribute.ref"></a>
+<h2 id="coreDocumentableElement"><a href="#coreDocumentableElement"><a href="#coreDocumentableElement">DocumentableElement</a></a></h2>
+
+<div class="eclassProps">EClass properties:<div class="eclassPropList"><span class="label">Interface</span>, <span class="label">Abstract</span></div></div><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Attributes</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="coreDocumentableElement.documentation" class="teletype">documentation</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"></span></div>
+<div class="label">Cardinality: [0..1]</div>
+ </td> <td></td>
+		</tr></table>
+<a href="#core.DocumentableElement.attr"></a>
+<h2 id="coreDoubleAttribute"><a href="#coreDoubleAttribute"><a href="#coreDoubleAttribute">DoubleAttribute</a></a></h2>
+
+<h4><b>Supertype:</b><a href="#coreAttributeSpecification">AttributeSpecification</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Attributes</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="coreDoubleAttribute.defaultValue" class="teletype">defaultValue</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"></span></div>
+<div class="label">Cardinality: [0..1]</div>
+ </td> <td></td>
+		</tr></table>
+<a href="#core.DoubleAttribute.attr"></a>
+<h2 id="coreElement"><a href="#coreElement"><a href="#coreElement">Element</a></a></h2>
+
+<p>A model element</p>
+<div class="eclassProps">EClass properties:<div class="eclassPropList"><span class="label">Abstract</span></div></div><h2 id="coreIntegerAttribute"><a href="#coreIntegerAttribute"><a href="#coreIntegerAttribute">IntegerAttribute</a></a></h2>
+
+<h4><b>Supertype:</b><a href="#coreAttributeSpecification">AttributeSpecification</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Attributes</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="coreIntegerAttribute.defaultValue" class="teletype">defaultValue</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"></span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="keyValue"><span class="label">Default: </span><span class="teletype">0</span></div>
+ </td> <td></td>
+		</tr></table>
+<a href="#core.IntegerAttribute.attr"></a>
+<h2 id="coreLiteralBoolean"><a href="#coreLiteralBoolean"><a href="#coreLiteralBoolean">LiteralBoolean</a></a></h2>
+
+<h4><b>Supertype:</b><a href="#coreLiteralSpecification">LiteralSpecification</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Attributes</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="coreLiteralBoolean.value" class="teletype">value</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#coreBoolean">Boolean</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+ </td> <td></td>
+		</tr></table>
+<a href="#core.LiteralBoolean.attr"></a>
+<table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Operations</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="coreLiteralBoolean.getValue" class="teletype">getValue</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#coreBoolean">Boolean</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="label">Returns:</div>
+<a href="#coreBoolean">Boolean</a>[0..1]
+ </td><td> </td>
+		</tr></table>
+<a href="#core.LiteralBoolean.op"></a>
+<h2 id="coreLiteralByte"><a href="#coreLiteralByte"><a href="#coreLiteralByte">LiteralByte</a></a></h2>
+
+<h4><b>Supertype:</b><a href="#coreLiteralSpecification">LiteralSpecification</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Attributes</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="coreLiteralByte.value" class="teletype">value</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#coreByte">Byte</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="keyValue"><span class="label">Default: </span><span class="teletype">0</span></div>
+ </td> <td></td>
+		</tr></table>
+<a href="#core.LiteralByte.attr"></a>
+<h2 id="coreLiteralCharacter"><a href="#coreLiteralCharacter"><a href="#coreLiteralCharacter">LiteralCharacter</a></a></h2>
+
+<h4><b>Supertype:</b><a href="#coreLiteralSpecification">LiteralSpecification</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Attributes</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="coreLiteralCharacter.value" class="teletype">value</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#coreCharacter">Character</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+ </td> <td></td>
+		</tr></table>
+<a href="#core.LiteralCharacter.attr"></a>
+<h2 id="coreLiteralDate"><a href="#coreLiteralDate"><a href="#coreLiteralDate">LiteralDate</a></a></h2>
+
+<h4><b>Supertype:</b><a href="#coreLiteralSpecification">LiteralSpecification</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Attributes</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="coreLiteralDate.value" class="teletype">value</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#coreDate">Date</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+ </td> <td></td>
+		</tr></table>
+<a href="#core.LiteralDate.attr"></a>
+<h2 id="coreLiteralDouble"><a href="#coreLiteralDouble"><a href="#coreLiteralDouble">LiteralDouble</a></a></h2>
+
+<h4><b>Supertype:</b><a href="#coreLiteralSpecification">LiteralSpecification</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Attributes</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="coreLiteralDouble.value" class="teletype">value</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#coreDouble">Double</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="keyValue"><span class="label">Default: </span><span class="teletype">0.0</span></div>
+ </td> <td></td>
+		</tr></table>
+<a href="#core.LiteralDouble.attr"></a>
+<h2 id="coreLiteralFloat"><a href="#coreLiteralFloat"><a href="#coreLiteralFloat">LiteralFloat</a></a></h2>
+
+<h4><b>Supertype:</b><a href="#coreLiteralSpecification">LiteralSpecification</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Attributes</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="coreLiteralFloat.value" class="teletype">value</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#coreFloat">Float</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+ </td> <td></td>
+		</tr></table>
+<a href="#core.LiteralFloat.attr"></a>
+<h2 id="coreLiteralInteger"><a href="#coreLiteralInteger"><a href="#coreLiteralInteger">LiteralInteger</a></a></h2>
+
+<h4><b>Supertype:</b><a href="#coreLiteralSpecification">LiteralSpecification</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Attributes</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="coreLiteralInteger.value" class="teletype">value</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#coreInteger">Integer</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+ </td> <td></td>
+		</tr></table>
+<a href="#core.LiteralInteger.attr"></a>
+<table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Operations</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="coreLiteralInteger.getTangibleChild" class="teletype">getTangibleChild</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#executionExpression">Expression</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="label">Returns:</div>
+<a href="#executionExpression">Expression</a>[0..1]
+ </td><td> </td>
+		</tr></table>
+<a href="#core.LiteralInteger.op"></a>
+<h2 id="coreLiteralLong"><a href="#coreLiteralLong"><a href="#coreLiteralLong">LiteralLong</a></a></h2>
+
+<h4><b>Supertype:</b><a href="#coreLiteralSpecification">LiteralSpecification</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Attributes</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="coreLiteralLong.value" class="teletype">value</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#coreLong">Long</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="keyValue"><span class="label">Default: </span><span class="teletype">0</span></div>
+ </td> <td></td>
+		</tr></table>
+<a href="#core.LiteralLong.attr"></a>
+<h2 id="coreLiteralNull"><a href="#coreLiteralNull"><a href="#coreLiteralNull">LiteralNull</a></a></h2>
+
+<h4><b>Supertype:</b><a href="#coreLiteralSpecification">LiteralSpecification</a></h4><h2 id="coreLiteralShort"><a href="#coreLiteralShort"><a href="#coreLiteralShort">LiteralShort</a></a></h2>
+
+<h4><b>Supertype:</b><a href="#coreLiteralSpecification">LiteralSpecification</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Attributes</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="coreLiteralShort.value" class="teletype">value</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#coreShort">Short</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="keyValue"><span class="label">Default: </span><span class="teletype">0</span></div>
+ </td> <td></td>
+		</tr></table>
+<a href="#core.LiteralShort.attr"></a>
+<h2 id="coreLiteralSpecification"><a href="#coreLiteralSpecification"><a href="#coreLiteralSpecification">LiteralSpecification</a></a></h2>
+
+<div class="eclassProps">EClass properties:<div class="eclassPropList"><span class="label">Abstract</span></div></div><h4><b>Supertype:</b><a href="#coreValueSpecification">ValueSpecification</a></h4><h2 id="coreLiteralString"><a href="#coreLiteralString"><a href="#coreLiteralString">LiteralString</a></a></h2>
+
+<h4><b>Supertype:</b><a href="#coreLiteralSpecification">LiteralSpecification</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Attributes</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="coreLiteralString.value" class="teletype">value</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#coreString">String</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+ </td> <td></td>
+		</tr></table>
+<a href="#core.LiteralString.attr"></a>
+<h2 id="coreNamedElement"><a href="#coreNamedElement"><a href="#coreNamedElement">NamedElement</a></a></h2>
+
+<p>An Element which has a name</p>
+<div class="eclassProps">EClass properties:<div class="eclassPropList"><span class="label">Abstract</span></div></div><h4><b>Supertype:</b><a href="#coreElement">Element</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Attributes</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="coreNamedElement.name" class="teletype">name</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype">EString</span></div>
+<div class="label">Cardinality: [0..1]</div>
+ </td> <td><p>The name of the element</p>
+</td>
+		</tr></table>
+<a href="#core.NamedElement.attr"></a>
+<h2 id="coreStringAttribute"><a href="#coreStringAttribute"><a href="#coreStringAttribute">StringAttribute</a></a></h2>
+
+<h4><b>Supertype:</b><a href="#coreAttributeSpecification">AttributeSpecification</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Attributes</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="coreStringAttribute.defaultValue" class="teletype">defaultValue</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"></span></div>
+<div class="label">Cardinality: [0..1]</div>
+ </td> <td></td>
+		</tr></table>
+<a href="#core.StringAttribute.attr"></a>
+<h2 id="coreTypeSpecification"><a href="#coreTypeSpecification"><a href="#coreTypeSpecification">TypeSpecification</a></a></h2>
+
+<h4><b>Supertype:</b><a href="#coreNamedElement">NamedElement</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Attributes</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="coreTypeSpecification.abstract" class="teletype">abstract</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"></span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="keyValue"><span class="label">Default: </span><span class="teletype">false</span></div>
+ </td> <td></td>
+		</tr></table>
+<a href="#core.TypeSpecification.attr"></a>
+<table>
+<tr>
+	<th colspan="3"><div class="tableHeader">References</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="coreTypeSpecification.attributes" class="teletype">attributes</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#coreAttributeSpecification">AttributeSpecification</a></span></div>
+<div class="label">Cardinality: [0..*]</div>
+<div class="label">Containment</div>
+</td> 
+<td> </td>
+		</tr><tr>	<td><div id="coreTypeSpecification.superType" class="teletype">superType</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#coreTypeSpecification">TypeSpecification</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+</td> 
+<td> </td>
+		</tr></table>
+<a href="#core.TypeSpecification.ref"></a>
+<h2 id="coreTypedElement"><a href="#coreTypedElement"><a href="#coreTypedElement">TypedElement</a></a></h2>
+
+<div class="eclassProps">EClass properties:<div class="eclassPropList"><span class="label">Abstract</span></div></div><h4><b>Supertype:</b><a href="#coreNamedElement">NamedElement</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">References</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="coreTypedElement.type" class="teletype">type</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#coreTypeSpecification">TypeSpecification</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+</td> 
+<td> </td>
+		</tr></table>
+<a href="#core.TypedElement.ref"></a>
+<h2 id="coreUnitOfMeasurement"><a href="#coreUnitOfMeasurement"><a href="#coreUnitOfMeasurement">UnitOfMeasurement</a></a></h2>
+
+<table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Literals</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Value</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>
+	<td>
+		<span class="teletype">cm</span>
+	</td>
+	<td>
+		9
+	</td>
+	<td>
+	</td>	
+</tr>
+<tr>
+	<td>
+		<span class="teletype">m</span>
+	</td>
+	<td>
+		1
+	</td>
+	<td>
+	</td>	
+</tr>
+<tr>
+	<td>
+		<span class="teletype">mm</span>
+	</td>
+	<td>
+		2
+	</td>
+	<td>
+	</td>	
+</tr>
+<tr>
+	<td>
+		<span class="teletype">percentage</span>
+	</td>
+	<td>
+		3
+	</td>
+	<td>
+	</td>	
+</tr>
+<tr>
+	<td>
+		<span class="teletype">s</span>
+	</td>
+	<td>
+		4
+	</td>
+	<td>
+	</td>	
+</tr>
+<tr>
+	<td>
+		<span class="teletype">ms</span>
+	</td>
+	<td>
+		5
+	</td>
+	<td>
+	</td>	
+</tr>
+<tr>
+	<td>
+		<span class="teletype">minutes</span>
+	</td>
+	<td>
+		6
+	</td>
+	<td>
+	</td>	
+</tr>
+<tr>
+	<td>
+		<span class="teletype">hours</span>
+	</td>
+	<td>
+		7
+	</td>
+	<td>
+	</td>	
+</tr>
+<tr>
+	<td>
+		<span class="teletype">mbps</span>
+	</td>
+	<td>
+		8
+	</td>
+	<td>
+	</td>	
+</tr>
+<tr>
+	<td>
+		<span class="teletype">none</span>
+	</td>
+	<td>
+		0
+	</td>
+	<td>
+	</td>	
+</tr>
+</table>
+<a href="#core.UnitOfMeasurement.lit"></a>
+<h2 id="coreValueSpecification"><a href="#coreValueSpecification"><a href="#coreValueSpecification">ValueSpecification</a></a></h2>
+
+<div class="eclassProps">EClass properties:<div class="eclassPropList"><span class="label">Abstract</span></div></div><h4><b>Supertypes:</b><a href="#executionExpression">Expression</a>, <a href="#coreTypedElement">TypedElement</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Operations</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="coreValueSpecification.booleanValue" class="teletype">booleanValue</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#coreBoolean">Boolean</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="label">Returns:</div>
+<a href="#coreBoolean">Boolean</a>[0..1]
+ </td><td> </td>
+		</tr><tr>	<td><div id="coreValueSpecification.getActualParent" class="teletype">getActualParent</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#executionExecutionElement">ExecutionElement</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="label">Returns:</div>
+<a href="#executionExecutionElement">ExecutionElement</a>[0..1]
+ </td><td> </td>
+		</tr><tr>	<td><div id="coreValueSpecification.getTangibleChild" class="teletype">getTangibleChild</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#executionExpression">Expression</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="label">Returns:</div>
+<a href="#executionExpression">Expression</a>[0..1]
+ </td><td> </td>
+		</tr><tr>	<td><div id="coreValueSpecification.integerValue" class="teletype">integerValue</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#coreInteger">Integer</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="label">Returns:</div>
+<a href="#coreInteger">Integer</a>[0..1]
+ </td><td> </td>
+		</tr><tr>	<td><div id="coreValueSpecification.isComputable" class="teletype">isComputable</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype">EBoolean</span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="label">Returns:</div>
+EBoolean[0..1]
+ </td><td> </td>
+		</tr><tr>	<td><div id="coreValueSpecification.toString" class="teletype">toString</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype">EString</span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="label">Returns:</div>
+EString[0..1]
+ </td><td> </td>
+		</tr></table>
+<a href="#core.ValueSpecification.op"></a>
+<h2 id="coreVariant"><a href="#coreVariant"><a href="#coreVariant">Variant</a></a></h2>
+
+<h4><b>Supertype:</b><a href="#coreNamedElement">NamedElement</a></h4></body>
+</html>

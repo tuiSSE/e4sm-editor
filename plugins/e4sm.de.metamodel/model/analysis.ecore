@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="analysis" nsURI="http://de.tu-ilmenau/e4sm/analysis/1.0.0" nsPrefix="analysis">
+  <eAnnotations source="http://www.eclipse.org/edapt">
+    <details key="historyURI" value="e4sm.history"/>
+  </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="Analysis" abstract="true">
     <eOperations name="exec"/>
     <eOperations name="init" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
@@ -15,13 +18,13 @@
       <eParameters name="res" eType="ecore:EClass analysis_results.ecore#//AnalysisExecution"/>
     </eOperations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AnalysisDefinition" eSuperTypes="core.ecore#//NamedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="AnalysisDefinition" eSuperTypes="core.ecore#//NamedElement core.ecore#//DocumentableElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameterDefinitions" upperBound="-1"
         eType="#//ParameterDefinition" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="analysis" lowerBound="1"
         eType="#//Analysis" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ParameterDefinition" eSuperTypes="core.ecore#//TypedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="ParameterDefinition" eSuperTypes="core.ecore#//TypedElement core.ecore#//DocumentableElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
         eType="#//Parameter" eOpposite="#//Parameter/parameterDefinition"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="unit" eType="ecore:EEnum core.ecore#//UnitOfMeasurement"
@@ -35,10 +38,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="defaultValue" eType="ecore:EClass core.ecore#//ValueSpecification"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="core.ecore#//Element">
+  <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="core.ecore#//TypedElement core.ecore#//DocumentableElement">
     <eOperations name="isValid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parameterDefinition" lowerBound="1"
-        eType="#//ParameterDefinition" eOpposite="#//ParameterDefinition/parameters"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameterDefinition" eType="#//ParameterDefinition"
+        eOpposite="#//ParameterDefinition/parameters"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="appliesOnlyOnVariants"
         upperBound="-1" eType="ecore:EClass core.ecore#//Variant"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="doesNotApplyOnVariants"

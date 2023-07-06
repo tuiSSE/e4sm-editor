@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="e4sm.de.custom.xtext.feature"
+      label="Feature"
+      version="1.0.0.qualifier"
+      provider-name="E4SM">
+
+   <description url="http://www.example.com/description">
+      This feature provides the xtext plug-ins. These make it possible to create an e4sm model in the form of a text file, which can then be edited via any text-editor.
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      [Enter Copyright Description here.]
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      [Enter License Description here.]
+   </license>
+
+   <requires>
+      <import plugin="e4sm.de.metamodel"/>
+      <import plugin="org.eclipse.xtext.ide"/>
+      <import plugin="org.eclipse.xtext.xbase.ide"/>
+      <import plugin="org.eclipse.xtext"/>
+      <import plugin="org.eclipse.xtext.xbase"/>
+      <import plugin="org.eclipse.equinox.common" version="3.5.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.xtext.xbase.lib" version="2.14.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.xtext.util"/>
+      <import plugin="org.eclipse.xtext.ui"/>
+      <import plugin="org.eclipse.xtext.ui.shared"/>
+      <import plugin="org.eclipse.xtext.ui.codetemplates.ui"/>
+      <import plugin="org.eclipse.ui.editors" version="3.5.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.ide" version="3.5.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.compare"/>
+      <import plugin="org.eclipse.xtext.builder"/>
+      <import plugin="org.antlr.runtime"/>
+   </requires>
+
+   <plugin
+         id="e4sm.de.metamodel.xtext.ide"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="e4sm.de.metamodel.xtext"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="e4sm.de.metamodel.xtext.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

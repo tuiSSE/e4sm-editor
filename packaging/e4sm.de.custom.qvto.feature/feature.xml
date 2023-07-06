@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="e4sm.de.custom.qvto.feature"
+      label="Feature"
+      version="1.0.0.qualifier"
+      provider-name="E4SM">
+
+   <description url="http://www.example.com/description">
+      This feature includes the necessary plug-in for transforming an e4sm model into an scpn via qvto.
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      [Enter Copyright Description here.]
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      [Enter License Description here.]
+   </license>
+
+   <requires>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="e4sm.de.metamodel" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="timenet.tuilmenau.de.scpn.metamodel" version="0.1.0" match="greaterOrEqual"/>
+   </requires>
+
+   <plugin
+         id="e4sm.de.metamodel.to.scpn.qvto"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+</feature>

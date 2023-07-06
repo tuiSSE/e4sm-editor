@@ -1,0 +1,17 @@
+model binaryModel{
+	package p1 {
+		sensor "Sensor 1" {
+			out s1_out
+		},
+		binaryClassificationComponent "Binary Classification" {
+			in b1_in,
+			out b2_out
+			confusionMatrixes { confusion matrix cm1 {TP : 200, FN : 2, FP: 5, TN: 8}}
+		},
+		actuator Actuator {
+			in a1_in
+		}
+		connector c1 "Sensor 1.s1_out" -> "Binary Classification.b1_in",
+		connector c2 "Binary Classification.b2_out" -> "Actuator.a1_in"
+	}
+}

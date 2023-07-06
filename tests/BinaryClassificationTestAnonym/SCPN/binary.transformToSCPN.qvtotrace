@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<trace:Trace xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:trace="http:///www.eclipse.org/m2m/qvt/operational/trace.ecore">
+  <traceRecords>
+    <mappingOperation name="packageToSCPN" package="transformToSCPN" module="transformToSCPN"/>
+    <context>
+      <context name="self" type="Package">
+        <value>
+          <modelElement href="../binary.abcdcode#//@packages.0"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="SCPNNet">
+        <value>
+          <modelElement href="binary.xml#/"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="simpleTransformOutputPin" package="transformPins" module="transformPins"/>
+    <context>
+      <context name="self" type="Pin">
+        <value>
+          <modelElement href="../binary.abcdcode#//@packages.0/@components.0/@pins.0"/>
+        </value>
+      </context>
+    </context>
+    <parameters>
+      <parameters name="parentName" type="String">
+        <value primitiveValue="Sensor 1" collectionType="String"/>
+      </parameters>
+      <parameters name="index" type="Integer">
+        <value primitiveValue="1" collectionType="Integer"/>
+      </parameters>
+    </parameters>
+    <result>
+      <result kind="OUT" name="result" type="PlaceType">
+        <value>
+          <modelElement href="binary.xml#//@place.0"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformComponent" package="transformToSCPN" module="transformToSCPN"/>
+    <context>
+      <context name="self" type="Component">
+        <value>
+          <modelElement href="../binary.abcdcode#//@packages.0/@components.0"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Tuple(st : List(SubstitutionTransitionType), pl : List(PlaceType), iTr : List(TransitionType), arcs : List(ArcType), tt : List(TimedTransitionType), meas : List(MeasureType))">
+        <value collectionType="Tuple">
+          <collection xsi:type="trace:ETuplePartValue" name="st">
+            <value collectionType="List"/>
+          </collection>
+          <collection xsi:type="trace:ETuplePartValue" name="pl">
+            <value collectionType="List">
+              <collection>
+                <modelElement href="binary.xml#//@place.0"/>
+              </collection>
+            </value>
+          </collection>
+          <collection xsi:type="trace:ETuplePartValue" name="iTr">
+            <value collectionType="List">
+              <collection>
+                <modelElement href="binary.xml#//@timedTransition.0"/>
+              </collection>
+            </value>
+          </collection>
+          <collection xsi:type="trace:ETuplePartValue" name="arcs">
+            <value collectionType="List">
+              <collection>
+                <modelElement href="binary.xml#//@arc.0"/>
+              </collection>
+            </value>
+          </collection>
+          <collection xsi:type="trace:ETuplePartValue" name="tt">
+            <value collectionType="List"/>
+          </collection>
+          <collection xsi:type="trace:ETuplePartValue" name="meas">
+            <value collectionType="List"/>
+          </collection>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="actuatorToMeasure" package="transformToSCPN" module="transformToSCPN"/>
+    <context>
+      <context name="self" type="Actuator">
+        <value>
+          <modelElement href="../binary.abcdcode#//@packages.0/@components.2"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="MeasureType">
+        <value>
+          <modelElement href="binary.xml#//@measure.0"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="simpleTransformOutputPin" package="transformPins" module="transformPins"/>
+    <context>
+      <context name="self" type="Pin">
+        <value>
+          <modelElement href="../binary.abcdcode#//@packages.0/@components.2/@pins.0"/>
+        </value>
+      </context>
+    </context>
+    <parameters>
+      <parameters name="parentName" type="String">
+        <value primitiveValue="Actuator" collectionType="String"/>
+      </parameters>
+      <parameters name="index" type="Integer">
+        <value primitiveValue="1" collectionType="Integer"/>
+      </parameters>
+    </parameters>
+    <result>
+      <result kind="OUT" name="result" type="PlaceType">
+        <value>
+          <modelElement href="binary.xml#//@place.2"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformComponent" package="transformToSCPN" module="transformToSCPN"/>
+    <context>
+      <context name="self" type="Component">
+        <value>
+          <modelElement href="../binary.abcdcode#//@packages.0/@components.2"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Tuple(st : List(SubstitutionTransitionType), pl : List(PlaceType), iTr : List(TransitionType), arcs : List(ArcType), tt : List(TimedTransitionType), meas : List(MeasureType))">
+        <value collectionType="Tuple">
+          <collection xsi:type="trace:ETuplePartValue" name="st">
+            <value collectionType="List"/>
+          </collection>
+          <collection xsi:type="trace:ETuplePartValue" name="pl">
+            <value collectionType="List">
+              <collection>
+                <modelElement href="binary.xml#//@place.1"/>
+              </collection>
+              <collection>
+                <modelElement href="binary.xml#//@place.2"/>
+              </collection>
+            </value>
+          </collection>
+          <collection xsi:type="trace:ETuplePartValue" name="iTr">
+            <value collectionType="List">
+              <collection>
+                <modelElement href="binary.xml#//@immediateTransition.0"/>
+              </collection>
+            </value>
+          </collection>
+          <collection xsi:type="trace:ETuplePartValue" name="arcs">
+            <value collectionType="List">
+              <collection>
+                <modelElement href="binary.xml#//@arc.1"/>
+              </collection>
+              <collection>
+                <modelElement href="binary.xml#//@arc.2"/>
+              </collection>
+              <collection>
+                <modelElement href="binary.xml#//@arc.3"/>
+              </collection>
+            </value>
+          </collection>
+          <collection xsi:type="trace:ETuplePartValue" name="tt">
+            <value collectionType="List">
+              <collection>
+                <modelElement href="binary.xml#//@timedTransition.1"/>
+              </collection>
+            </value>
+          </collection>
+          <collection xsi:type="trace:ETuplePartValue" name="meas">
+            <value collectionType="List">
+              <collection>
+                <modelElement href="binary.xml#//@measure.0"/>
+              </collection>
+            </value>
+          </collection>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="simpleTransformOutputPin" package="transformPins" module="transformPins"/>
+    <context>
+      <context name="self" type="Pin">
+        <value>
+          <modelElement href="../binary.abcdcode#//@packages.0/@components.1/@pins.0"/>
+        </value>
+      </context>
+    </context>
+    <parameters>
+      <parameters name="parentName" type="String">
+        <value primitiveValue="Binary Classification" collectionType="String"/>
+      </parameters>
+      <parameters name="index" type="Integer">
+        <value primitiveValue="1" collectionType="Integer"/>
+      </parameters>
+    </parameters>
+    <result>
+      <result kind="OUT" name="result" type="PlaceType">
+        <value>
+          <modelElement href="binary.xml#//@place.4"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="simpleTransformOutputPin" package="transformPins" module="transformPins"/>
+    <context>
+      <context name="self" type="Pin">
+        <value>
+          <modelElement href="../binary.abcdcode#//@packages.0/@components.1/@pins.1"/>
+        </value>
+      </context>
+    </context>
+    <parameters>
+      <parameters name="parentName" type="String">
+        <value primitiveValue="Binary Classification" collectionType="String"/>
+      </parameters>
+      <parameters name="index" type="Integer">
+        <value primitiveValue="1" collectionType="Integer"/>
+      </parameters>
+    </parameters>
+    <result>
+      <result kind="OUT" name="result" type="PlaceType">
+        <value>
+          <modelElement href="binary.xml#//@place.5"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformBinaryClassificationComponent" package="transformToSCPN" module="transformToSCPN"/>
+    <context>
+      <context name="self" type="BinaryClassificationComponent">
+        <value>
+          <modelElement href="../binary.abcdcode#//@packages.0/@components.1"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Tuple(st : List(SubstitutionTransitionType), pl : List(PlaceType), iTr : List(TransitionType), arcs : List(ArcType), tt : List(TimedTransitionType), meas : List(MeasureType))">
+        <value collectionType="Tuple">
+          <collection xsi:type="trace:ETuplePartValue" name="st">
+            <value collectionType="List"/>
+          </collection>
+          <collection xsi:type="trace:ETuplePartValue" name="pl">
+            <value collectionType="List">
+              <collection>
+                <modelElement href="binary.xml#//@place.3"/>
+              </collection>
+              <collection>
+                <modelElement href="binary.xml#//@place.4"/>
+              </collection>
+              <collection>
+                <modelElement href="binary.xml#//@place.5"/>
+              </collection>
+              <collection>
+                <modelElement href="binary.xml#//@place.6"/>
+              </collection>
+              <collection>
+                <modelElement href="binary.xml#//@place.7"/>
+              </collection>
+              <collection>
+                <modelElement href="binary.xml#//@place.8"/>
+              </collection>
+              <collection>
+                <modelElement href="binary.xml#//@place.9"/>
+              </collection>
+              <collection>
+                <modelElement href="binary.xml#//@place.10"/>
+              </collection>
+              <collection>
+                <modelElement href="binary.xml#//@place.11"/>
+              </collection>
+              <collection>
+                <modelElement href="binary.xml#//@place.12"/>
+              </collection>
+              <collection>
+                <modelElement href="binary.xml#//@place.13"/>
+              </collection>
+            </value>
+          </collection>
+          <collection xsi:type="trace:ETuplePartValue" name="iTr">
+            <value collectionType="List">
+              <collection>
+                <modelElement href="binary.xml#//@immediateTransition.1"/>
+              </collection>
+              <collection>
+                <modelElement href="binary.xml#//@immediateTransition.2"/>
+              </collection>
+              <collection>
+                <modelElement href="binary.xml#//@immediateTransition.3"/>
+              </collection>
+              <collection>
+                <modelElement href="binary.xml#//@immediateTransition.4"/>
+              </collection>
+              <collection>
+                <modelElement href="binary.xml#//@immediateTransition.5"/>
+              </collection>
+              <collection>
+                <modelElement href="binary.xml#//@immediateTransition.6"/>
+              </collection>
+              <collection>
+                <modelElement href="binary.xml#//@immediateTransition.7"/>
+              </collection>
+              <collection>
+                <modelElement href="binary.xml#//@immediateTransition.8"/>
+              </collection>
+              <collection>
+                <modelElement href="binary.xml#//@immediateTransition.9"/>
+              </collection>
+            </value>
+          </collection>
+          <collection xsi:type="trace:ETuplePartValue" name="arcs">
+            <value collectionType="List">
+              <collection>
+                <modelElement href="binary.xml#//@arc.4"/>
+              </collection>
+              <collection>
+                <modelElement href="binary.xml#//@arc.5"/>
+              </collection>
+              <collection>
+                <modelElement href="binary.xml#//@arc.6"/>
+              </collection>
+              <collection>
+                <modelElement href="binary.xml#//@arc.7"/>
+              </collection>
+              <collection>
+                <modelElement href="binary.xml#//@arc.8"/>
+              </collection>
+              <collection>
+                <modelElement href="binary.xml#//@arc.9"/>
+              </collection>
+              <collection>
+                <modelElement href="binary.xml#//@arc.10"/>
+              </collection>
+              <collection>
+                <modelElement href="binary.xml#//@arc.11"/>
+              </collection>
+              <collection>
+                <modelElement href="binary.xml#//@arc.12"/>
+              </collection>
+              <collection>
+                <modelElement href="binary.xml#//@arc.13"/>
+              </collection>
+              <collection>
+                <modelElement href="binary.xml#//@arc.14"/>
+              </collection>
+              <collection>
+                <modelElement href="binary.xml#//@arc.15"/>
+              </collection>
+              <collection>
+                <modelElement href="binary.xml#//@arc.16"/>
+              </collection>
+              <collection>
+                <modelElement href="binary.xml#//@arc.17"/>
+              </collection>
+              <collection>
+                <modelElement href="binary.xml#//@arc.18"/>
+              </collection>
+              <collection>
+                <modelElement href="binary.xml#//@arc.19"/>
+              </collection>
+              <collection>
+                <modelElement href="binary.xml#//@arc.20"/>
+              </collection>
+              <collection>
+                <modelElement href="binary.xml#//@arc.21"/>
+              </collection>
+              <collection>
+                <modelElement href="binary.xml#//@arc.22"/>
+              </collection>
+              <collection>
+                <modelElement href="binary.xml#//@arc.23"/>
+              </collection>
+              <collection>
+                <modelElement href="binary.xml#//@arc.24"/>
+              </collection>
+            </value>
+          </collection>
+          <collection xsi:type="trace:ETuplePartValue" name="tt">
+            <value collectionType="List">
+              <collection>
+                <modelElement href="binary.xml#//@timedTransition.2"/>
+              </collection>
+            </value>
+          </collection>
+          <collection xsi:type="trace:ETuplePartValue" name="meas">
+            <value collectionType="List">
+              <collection>
+                <modelElement href="binary.xml#//@measure.1"/>
+              </collection>
+              <collection>
+                <modelElement href="binary.xml#//@measure.2"/>
+              </collection>
+              <collection>
+                <modelElement href="binary.xml#//@measure.3"/>
+              </collection>
+              <collection>
+                <modelElement href="binary.xml#//@measure.4"/>
+              </collection>
+              <collection>
+                <modelElement href="binary.xml#//@measure.5"/>
+              </collection>
+            </value>
+          </collection>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="connectorToSCPN" package="transformToSCPN" module="transformToSCPN"/>
+    <context>
+      <context name="self" type="Connector">
+        <value>
+          <modelElement href="../binary.abcdcode#//@packages.0/@connectors.0"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Tuple(arcs : List(ArcType), tt : TimedTransitionType)">
+        <value collectionType="Tuple">
+          <collection xsi:type="trace:ETuplePartValue" name="arcs">
+            <value collectionType="List">
+              <collection>
+                <modelElement href="binary.xml#//@arc.25"/>
+              </collection>
+              <collection>
+                <modelElement href="binary.xml#//@arc.26"/>
+              </collection>
+            </value>
+          </collection>
+          <collection xsi:type="trace:ETuplePartValue" name="tt">
+            <value>
+              <modelElement href="binary.xml#//@timedTransition.3"/>
+            </value>
+          </collection>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="connectorToSCPN" package="transformToSCPN" module="transformToSCPN"/>
+    <context>
+      <context name="self" type="Connector">
+        <value>
+          <modelElement href="../binary.abcdcode#//@packages.0/@connectors.1"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Tuple(arcs : List(ArcType), tt : TimedTransitionType)">
+        <value collectionType="Tuple">
+          <collection xsi:type="trace:ETuplePartValue" name="arcs">
+            <value collectionType="List">
+              <collection>
+                <modelElement href="binary.xml#//@arc.27"/>
+              </collection>
+              <collection>
+                <modelElement href="binary.xml#//@arc.28"/>
+              </collection>
+            </value>
+          </collection>
+          <collection xsi:type="trace:ETuplePartValue" name="tt">
+            <value>
+              <modelElement href="binary.xml#//@timedTransition.4"/>
+            </value>
+          </collection>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+</trace:Trace>

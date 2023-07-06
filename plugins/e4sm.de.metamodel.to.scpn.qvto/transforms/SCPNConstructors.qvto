@@ -6,14 +6,22 @@ library SCPNConstructors(){
 
 property immediateTransSuffix  : String = "_imm_tran_id";
 property placeSuffix  : String = "_place_id";
-
+	
 
 /** Constructors **/
-constructor LabelType::LabelType(given_text : String) {
+constructor LabelType::LabelType(given_text : String, labelAbove:Boolean) {
 	text := safeString(given_text);
 	type:= scpn::Type::text;
 	id := safeString(given_text) + "_id";
-	graphics := new GraphicsType(false);
+	if(labelAbove){
+		graphics := object GraphicsType{
+			x:=0; y:=-40;
+		}
+	}else{
+		graphics := object GraphicsType{
+			x:=0; y:=40;
+		}
+	};
 	log("Created Label called: " + text);
 }
 
@@ -26,10 +34,11 @@ constructor PlaceType::PlaceType(given_label : String) {
 	type := scpn::Type::node;
 	watch := false;
 	initialMarking := "";
+	queue:= scpn::QueueType::FIFO;
 	
 	//Children
 	graphics := new GraphicsType(true);
-	label := new LabelType(given_label);
+	label := new LabelType(given_label, true);
 	
 	log("Created Place called: " + label.text);
 }
@@ -43,10 +52,11 @@ constructor PlaceType::PlaceType(given_label : String, initial_marking : String)
 	type := scpn::Type::node;
 	watch := false;
 	initialMarking := initial_marking;
+	queue:= scpn::QueueType::FIFO;
 	
 	//Children
 	graphics := new GraphicsType(true);
-	label := new LabelType(given_label);
+	label := new LabelType(given_label, true);
 	
 	log("Created Place called: " + label.text);
 }
@@ -67,7 +77,9 @@ constructor InscriptionType::InscriptionType(){
 	type:=scpn::Type::inscriptionText;
 	
 	//Children
-	graphics := new GraphicsType(false);
+	graphics := object GraphicsType{
+		x:= -30; y:= -60;
+	};
 		
 	log("Created unnamed Inscription");
 }
@@ -109,7 +121,7 @@ constructor ImmediateTransitionType::ImmediateTransitionType() {
 	
 	//Children
 	graphics := new GraphicsType(true);
-	label := new LabelType("it");
+	label := new LabelType("it", false);
 	log("Created Immediate Transition");
 }
 
@@ -126,7 +138,7 @@ constructor ImmediateTransitionType::ImmediateTransitionType(name:String) {
 	
 	//Children
 	graphics := new GraphicsType(true);
-	label := new LabelType(name);
+	label := new LabelType(name, false);
 	
 	log("Created Immediate Transition with id: "+ id);
 }
@@ -142,7 +154,7 @@ constructor TimedTransitionType::TimedTransitionType(name : String) {
 	takeFirst := false;
 	watch := false;
 	
-	label := new LabelType(name);
+	label := new LabelType(name, false);
 	graphics := new GraphicsType(true);
 
     log("Created Deterministic transition called: " + label.text);
@@ -159,7 +171,7 @@ constructor SubstitutionTransitionType::SubstitutionTransitionType(name : String
 	watch := false;
 	
 	//Children
-	label := new LabelType(name);
+	label := new LabelType(name, false);
 	graphics := new GraphicsType(true);
 	net += object ReplicationType {  //TODO: should this also have a constructor?
     	gridActive := true;

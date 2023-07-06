@@ -280,6 +280,12 @@ public class ComponentItemProvider extends NamedElementItemProvider {
 		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.COMPONENT__COMPONENTS,
 				e4smFactory.eINSTANCE.createActuator()));
 
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.COMPONENT__COMPONENTS,
+				e4smFactory.eINSTANCE.createBinaryClassificationComponent()));
+
+		newChildDescriptors.add(createChildParameter(e4smPackage.Literals.COMPONENT__COMPONENTS,
+				e4smFactory.eINSTANCE.createMulticlassClassificationComponent()));
+
 		newChildDescriptors.add(
 				createChildParameter(e4smPackage.Literals.COMPONENT__PINS, e4smFactory.eINSTANCE.createInputPin()));
 

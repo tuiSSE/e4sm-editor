@@ -4,13 +4,23 @@ package e4sm.de.metamodel.e4sm.util;
 
 import e4sm.de.metamodel.e4sm.Actor;
 import e4sm.de.metamodel.e4sm.Actuator;
+import e4sm.de.metamodel.e4sm.BinaryClassificationComponent;
+import e4sm.de.metamodel.e4sm.BinaryConfusionMatrix;
+import e4sm.de.metamodel.e4sm.ClassificationClass;
+import e4sm.de.metamodel.e4sm.ClassificationClassDistribution;
+import e4sm.de.metamodel.e4sm.ClassificationComponent;
 import e4sm.de.metamodel.e4sm.Component;
+import e4sm.de.metamodel.e4sm.ConfusionMatrix;
+import e4sm.de.metamodel.e4sm.ConfusionMatrixEntry;
 import e4sm.de.metamodel.e4sm.Connector;
 import e4sm.de.metamodel.e4sm.ConversionByConvention;
 import e4sm.de.metamodel.e4sm.ConversionByPrefix;
 import e4sm.de.metamodel.e4sm.DataNode;
+import e4sm.de.metamodel.e4sm.DataSize;
 import e4sm.de.metamodel.e4sm.DataStore;
 import e4sm.de.metamodel.e4sm.DerivedUnit;
+import e4sm.de.metamodel.e4sm.DynamicRange;
+import e4sm.de.metamodel.e4sm.Environment;
 import e4sm.de.metamodel.e4sm.ExternalDependency;
 import e4sm.de.metamodel.e4sm.Function;
 import e4sm.de.metamodel.e4sm.Heuristic;
@@ -21,6 +31,8 @@ import e4sm.de.metamodel.e4sm.LogicalConnector;
 import e4sm.de.metamodel.e4sm.MachineLearningComponent;
 import e4sm.de.metamodel.e4sm.MeasurementUnit;
 import e4sm.de.metamodel.e4sm.Model;
+import e4sm.de.metamodel.e4sm.MulticlassClassificationComponent;
+import e4sm.de.metamodel.e4sm.MulticlassConfusionMatrix;
 import e4sm.de.metamodel.e4sm.OutputPin;
 import e4sm.de.metamodel.e4sm.Person;
 import e4sm.de.metamodel.e4sm.PhysicalComponent;
@@ -28,9 +40,14 @@ import e4sm.de.metamodel.e4sm.PhysicalConnector;
 import e4sm.de.metamodel.e4sm.Pin;
 import e4sm.de.metamodel.e4sm.Robot;
 import e4sm.de.metamodel.e4sm.Sector;
+import e4sm.de.metamodel.e4sm.SecurityThreatsImport;
 import e4sm.de.metamodel.e4sm.Sensor;
+import e4sm.de.metamodel.e4sm.Set;
+import e4sm.de.metamodel.e4sm.SetValue;
 import e4sm.de.metamodel.e4sm.SimpleUnit;
 import e4sm.de.metamodel.e4sm.SoftwareComponent;
+import e4sm.de.metamodel.e4sm.StaticSize;
+import e4sm.de.metamodel.e4sm.TokenSpecification;
 import e4sm.de.metamodel.e4sm.UnitConversion;
 import e4sm.de.metamodel.e4sm.UnitPrefix;
 import e4sm.de.metamodel.e4sm.analysis.ParameterizableElement;
@@ -263,6 +280,91 @@ public class e4smAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseDataNode(DataNode object) {
 			return createDataNodeAdapter();
+		}
+
+		@Override
+		public Adapter caseClassificationComponent(ClassificationComponent object) {
+			return createClassificationComponentAdapter();
+		}
+
+		@Override
+		public Adapter caseEnvironment(Environment object) {
+			return createEnvironmentAdapter();
+		}
+
+		@Override
+		public Adapter caseClassificationClass(ClassificationClass object) {
+			return createClassificationClassAdapter();
+		}
+
+		@Override
+		public Adapter caseClassificationClassDistribution(ClassificationClassDistribution object) {
+			return createClassificationClassDistributionAdapter();
+		}
+
+		@Override
+		public Adapter caseMulticlassConfusionMatrix(MulticlassConfusionMatrix object) {
+			return createMulticlassConfusionMatrixAdapter();
+		}
+
+		@Override
+		public Adapter caseConfusionMatrixEntry(ConfusionMatrixEntry object) {
+			return createConfusionMatrixEntryAdapter();
+		}
+
+		@Override
+		public Adapter caseBinaryConfusionMatrix(BinaryConfusionMatrix object) {
+			return createBinaryConfusionMatrixAdapter();
+		}
+
+		@Override
+		public Adapter caseBinaryClassificationComponent(BinaryClassificationComponent object) {
+			return createBinaryClassificationComponentAdapter();
+		}
+
+		@Override
+		public Adapter caseMulticlassClassificationComponent(MulticlassClassificationComponent object) {
+			return createMulticlassClassificationComponentAdapter();
+		}
+
+		@Override
+		public Adapter caseConfusionMatrix(ConfusionMatrix object) {
+			return createConfusionMatrixAdapter();
+		}
+
+		@Override
+		public Adapter caseTokenSpecification(TokenSpecification object) {
+			return createTokenSpecificationAdapter();
+		}
+
+		@Override
+		public Adapter caseDataSize(DataSize object) {
+			return createDataSizeAdapter();
+		}
+
+		@Override
+		public Adapter caseStaticSize(StaticSize object) {
+			return createStaticSizeAdapter();
+		}
+
+		@Override
+		public Adapter caseSet(Set object) {
+			return createSetAdapter();
+		}
+
+		@Override
+		public Adapter caseSetValue(SetValue object) {
+			return createSetValueAdapter();
+		}
+
+		@Override
+		public Adapter caseDynamicRange(DynamicRange object) {
+			return createDynamicRangeAdapter();
+		}
+
+		@Override
+		public Adapter caseSecurityThreatsImport(SecurityThreatsImport object) {
+			return createSecurityThreatsImportAdapter();
 		}
 
 		@Override
@@ -844,6 +946,244 @@ public class e4smAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDataNodeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.ClassificationComponent <em>Classification Component</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.ClassificationComponent
+	 * @generated
+	 */
+	public Adapter createClassificationComponentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.Environment <em>Environment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.Environment
+	 * @generated
+	 */
+	public Adapter createEnvironmentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.ClassificationClass <em>Classification Class</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.ClassificationClass
+	 * @generated
+	 */
+	public Adapter createClassificationClassAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.ClassificationClassDistribution <em>Classification Class Distribution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.ClassificationClassDistribution
+	 * @generated
+	 */
+	public Adapter createClassificationClassDistributionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.MulticlassConfusionMatrix <em>Multiclass Confusion Matrix</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.MulticlassConfusionMatrix
+	 * @generated
+	 */
+	public Adapter createMulticlassConfusionMatrixAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.ConfusionMatrix <em>Confusion Matrix</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.ConfusionMatrix
+	 * @generated
+	 */
+	public Adapter createConfusionMatrixAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.TokenSpecification <em>Token Specification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.TokenSpecification
+	 * @generated
+	 */
+	public Adapter createTokenSpecificationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.DataSize <em>Data Size</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.DataSize
+	 * @generated
+	 */
+	public Adapter createDataSizeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.StaticSize <em>Static Size</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.StaticSize
+	 * @generated
+	 */
+	public Adapter createStaticSizeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.Set <em>Set</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.Set
+	 * @generated
+	 */
+	public Adapter createSetAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.SetValue <em>Set Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.SetValue
+	 * @generated
+	 */
+	public Adapter createSetValueAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.DynamicRange <em>Dynamic Range</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.DynamicRange
+	 * @generated
+	 */
+	public Adapter createDynamicRangeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.SecurityThreatsImport <em>Security Threats Import</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.SecurityThreatsImport
+	 * @generated
+	 */
+	public Adapter createSecurityThreatsImportAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.ConfusionMatrixEntry <em>Confusion Matrix Entry</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.ConfusionMatrixEntry
+	 * @generated
+	 */
+	public Adapter createConfusionMatrixEntryAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.BinaryConfusionMatrix <em>Binary Confusion Matrix</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.BinaryConfusionMatrix
+	 * @generated
+	 */
+	public Adapter createBinaryConfusionMatrixAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.BinaryClassificationComponent <em>Binary Classification Component</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.BinaryClassificationComponent
+	 * @generated
+	 */
+	public Adapter createBinaryClassificationComponentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.MulticlassClassificationComponent <em>Multiclass Classification Component</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.MulticlassClassificationComponent
+	 * @generated
+	 */
+	public Adapter createMulticlassClassificationComponentAdapter() {
 		return null;
 	}
 

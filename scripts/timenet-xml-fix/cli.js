@@ -1,14 +1,9 @@
 #!/usr/bin/env node
 
 "use strict";
-//Version: 2022-05-19
+//Version: 2023-01-25
 const fs = require('fs').promises;
 const path = require('path');
-const
-  {
-    argv,
-    exit
-  } = require('process');
 
 try {
   require.resolve('xml2js');
@@ -264,48 +259,49 @@ function simplifyNet(net) {
 
     // Find the arc leading to the immediateTransition, check that it is only one
     const leftArcs = getArcsToElement(net, iT.id);
+	if(leftArcs.length !== 1)
+		{return;}
+	
     const leftInscription = getInscriptionText(leftArcs[0]);
     let lPlace = null;
-    if (leftArcs.length === 1) {
-      const lArc = leftArcs[0]['$'];
 
-      // Get the place which is supplying this immediateTransition
-      lPlace = getPlaceByID(net, lArc.fromNode);
-      // Check if the incoming place has only one outgoing arc
-      const outgoingArcs = getArcsFromElement(net, lPlace['$'].id);
-      if (outgoingArcs.length !== 1) {
-        return;
-      }
+    const lArc = leftArcs[0]['$'];
+
+    // Get the place which is supplying this immediateTransition
+    lPlace = getPlaceByID(net, lArc.fromNode);
+    // Check if the incoming place has only one outgoing arc
+    const outgoingArcs = getArcsFromElement(net, lPlace['$'].id);
+    if (outgoingArcs.length !== 1) {
+      return;
     }
-    else return;
+
     // Find the arc leaving from the immediateTransition, check that it is only one
     const rightArcs = getArcsFromElement(net, iT.id);
+	if(rightArcs.length!==1) {return;}
     const rightInscription = getInscriptionText(rightArcs[0]);
     if (leftInscription !== rightInscription) {
       return;
     }
-    if (rightArcs.length === 1) {
-      const rArc = rightArcs[0]['$'];
-      // Get the place the arc leads to
-      const rPlace = getPlaceByID(net, rArc.toNode);
-      // Check it the outgoing place has only one incoming arc
-      const incomingArcs = getArcsFromElement(net, rPlace['$'].id);
-      if (incomingArcs.length === 1) {
-        // TODO: maybe also check that the type of lPlace and rPlace is the same.
-        // It shouldn't be necessary as in that case the left and right inscriptions would not be identical.
+	
+	const rArc = rightArcs[0]['$'];
+	// Get the place the arc leads to
+	const rPlace = getPlaceByID(net, rArc.toNode);
+	// Check it the outgoing place has only one incoming arc
+	const incomingArcs = getArcsFromElement(net, rPlace['$'].id);
+	if (incomingArcs.length === 1) {
+	// TODO: maybe also check that the type of lPlace and rPlace is the same.
+	// It shouldn't be necessary as in that case the left and right inscriptions would not be identical.
 
-        // This immediate transition can be simplified!
-        immediateTransNode.simplify = true;
-        immediateTransNode.lPlaceID = lPlace['$'].id;
-        immediateTransNode.rPlaceID = rPlace['$'].id;
-        immediateTransNode.rPlaceLabel = getLabel(rPlace);
-        immediateTransNode.lPlaceLabel = getLabel(lPlace);
-        leftArcs[0].simplify = true;
-        rightArcs[0].simplify = true;
-      }
-      else return;
-    }
-    else return;
+	// This immediate transition can be simplified!
+	immediateTransNode.simplify = true;
+	immediateTransNode.lPlaceID = lPlace['$'].id;
+	immediateTransNode.rPlaceID = rPlace['$'].id;
+	immediateTransNode.rPlaceLabel = getLabel(rPlace);
+	immediateTransNode.lPlaceLabel = getLabel(lPlace);
+	leftArcs[0].simplify = true;
+	rightArcs[0].simplify = true;
+	}
+	else return;
   });
   removeSimplifyableElements(net);
   return net;
@@ -317,6 +313,7 @@ function simplifyNet(net) {
  * @param {string} placeID
  * @returns {string} the label of the element with the given ID
  */
+// eslint-disable-next-line no-unused-vars
 function getLabelByPlaceID(net, placeID) {
   return getLabel(getPlaceByID(net, placeID));
 }
@@ -347,7 +344,7 @@ function removeSimplifyableElements(net) {
   // remove the immediate transitions that are marked with simplify:true
   let removedTransitions = 0;
   let removedPlaces = 0;
-  let immT = net.immediateTransition.find(iT => iT.simplify === true);
+  let immT = net?.immediateTransition?.find(iT => iT.simplify === true);
   while (immT) {
     removedTransitions += 1;
     // simplify this immediateTransition
@@ -372,7 +369,7 @@ function removeSimplifyableElements(net) {
 
     // check if rPlace is referenced in any measure
     const regex = new RegExp(immT.rPlaceLabel, "g");
-    net.measure.forEach(m => {
+    net?.measure?.forEach(m => {
       m['$'].expression = m['$'].expression.replace(regex, immT.lPlaceLabel);
     });
 
@@ -416,6 +413,7 @@ function getElByID(net, ID, type) {
   return net[type].find(el => el['$'].id === ID);
 }
 
+// eslint-disable-next-line no-unused-vars
 function removeArcByID(net, ID) {
   removeElementByID(net, ID, 'arc');
 }
@@ -575,7 +573,7 @@ function moveGraphicInCircle(el, origin, radius, angle) {
     el.graphics[0]['$']['y'] = Math.round(origin.y + radius * Math.sin(angle));
   }
   else {
-    fatalError(`Element with ID "${t.id}" does not have a graphic`);
+    fatalError(`Element with ID "${el.id}" does not have a graphic`);
   }
 }
 

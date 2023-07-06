@@ -4,14 +4,24 @@ package e4sm.de.metamodel.e4sm.impl;
 
 import e4sm.de.metamodel.e4sm.Actor;
 import e4sm.de.metamodel.e4sm.Actuator;
+import e4sm.de.metamodel.e4sm.BinaryClassificationComponent;
+import e4sm.de.metamodel.e4sm.BinaryConfusionMatrix;
+import e4sm.de.metamodel.e4sm.ClassificationClass;
+import e4sm.de.metamodel.e4sm.ClassificationClassDistribution;
+import e4sm.de.metamodel.e4sm.ClassificationComponent;
 import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.ComponentFiringStrategy;
+import e4sm.de.metamodel.e4sm.ConfusionMatrix;
+import e4sm.de.metamodel.e4sm.ConfusionMatrixEntry;
 import e4sm.de.metamodel.e4sm.Connector;
 import e4sm.de.metamodel.e4sm.ConversionByConvention;
 import e4sm.de.metamodel.e4sm.ConversionByPrefix;
 import e4sm.de.metamodel.e4sm.DataNode;
+import e4sm.de.metamodel.e4sm.DataSize;
 import e4sm.de.metamodel.e4sm.DataStore;
 import e4sm.de.metamodel.e4sm.DerivedUnit;
+import e4sm.de.metamodel.e4sm.DynamicRange;
+import e4sm.de.metamodel.e4sm.Environment;
 import e4sm.de.metamodel.e4sm.ExternalDependency;
 import e4sm.de.metamodel.e4sm.Function;
 import e4sm.de.metamodel.e4sm.Heuristic;
@@ -22,6 +32,8 @@ import e4sm.de.metamodel.e4sm.LogicalConnector;
 import e4sm.de.metamodel.e4sm.MachineLearningComponent;
 import e4sm.de.metamodel.e4sm.MeasurementUnit;
 import e4sm.de.metamodel.e4sm.Model;
+import e4sm.de.metamodel.e4sm.MulticlassClassificationComponent;
+import e4sm.de.metamodel.e4sm.MulticlassConfusionMatrix;
 import e4sm.de.metamodel.e4sm.OutputPin;
 import e4sm.de.metamodel.e4sm.Person;
 import e4sm.de.metamodel.e4sm.PhysicalComponent;
@@ -31,9 +43,15 @@ import e4sm.de.metamodel.e4sm.QueueType;
 import e4sm.de.metamodel.e4sm.RaceSemantic;
 import e4sm.de.metamodel.e4sm.Robot;
 import e4sm.de.metamodel.e4sm.Sector;
+import e4sm.de.metamodel.e4sm.SecurityThreatsImport;
 import e4sm.de.metamodel.e4sm.Sensor;
+import e4sm.de.metamodel.e4sm.Set;
+import e4sm.de.metamodel.e4sm.SetValue;
 import e4sm.de.metamodel.e4sm.SimpleUnit;
+import e4sm.de.metamodel.e4sm.SizeComputation;
 import e4sm.de.metamodel.e4sm.SoftwareComponent;
+import e4sm.de.metamodel.e4sm.StaticSize;
+import e4sm.de.metamodel.e4sm.TokenSpecification;
 import e4sm.de.metamodel.e4sm.UnitConversion;
 import e4sm.de.metamodel.e4sm.UnitPrefix;
 import e4sm.de.metamodel.e4sm.analysis.AnalysisPackage;
@@ -47,6 +65,8 @@ import e4sm.de.metamodel.e4sm.execution.ExecutionPackage;
 import e4sm.de.metamodel.e4sm.execution.impl.ExecutionPackageImpl;
 import e4sm.de.metamodel.e4sm.guava.GuavaPackage;
 import e4sm.de.metamodel.e4sm.guava.impl.GuavaPackageImpl;
+import e4sm.de.metamodel.e4sm.security.SecurityPackage;
+import e4sm.de.metamodel.e4sm.security.impl.SecurityPackageImpl;
 import e4sm.de.metamodel.e4sm.core.impl.CorePackageImpl;
 import e4sm.de.metamodel.e4sm.util.e4smValidator;
 import org.eclipse.emf.ecore.EAttribute;
@@ -298,6 +318,125 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass classificationComponentEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass environmentEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass classificationClassEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass classificationClassDistributionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass multiclassConfusionMatrixEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass confusionMatrixEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass tokenSpecificationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dataSizeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass staticSizeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass setEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass setValueEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dynamicRangeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass securityThreatsImportEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass confusionMatrixEntryEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass binaryConfusionMatrixEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass binaryClassificationComponentEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass multiclassClassificationComponentEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum queueTypeEEnum = null;
 
 	/**
@@ -313,6 +452,13 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	private EEnum componentFiringStrategyEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum sizeComputationEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -382,7 +528,15 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		EcorePackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
-		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
+		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ResultsPackage.eNS_URI);
+		ResultsPackageImpl theResultsPackage = (ResultsPackageImpl) (registeredPackage instanceof ResultsPackageImpl
+				? registeredPackage
+				: ResultsPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(AnalysisPackage.eNS_URI);
+		AnalysisPackageImpl theAnalysisPackage = (AnalysisPackageImpl) (registeredPackage instanceof AnalysisPackageImpl
+				? registeredPackage
+				: AnalysisPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
 		CorePackageImpl theCorePackage = (CorePackageImpl) (registeredPackage instanceof CorePackageImpl
 				? registeredPackage
 				: CorePackage.eINSTANCE);
@@ -390,34 +544,32 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		ExecutionPackageImpl theExecutionPackage = (ExecutionPackageImpl) (registeredPackage instanceof ExecutionPackageImpl
 				? registeredPackage
 				: ExecutionPackage.eINSTANCE);
-		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(AnalysisPackage.eNS_URI);
-		AnalysisPackageImpl theAnalysisPackage = (AnalysisPackageImpl) (registeredPackage instanceof AnalysisPackageImpl
-				? registeredPackage
-				: AnalysisPackage.eINSTANCE);
-		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ResultsPackage.eNS_URI);
-		ResultsPackageImpl theResultsPackage = (ResultsPackageImpl) (registeredPackage instanceof ResultsPackageImpl
-				? registeredPackage
-				: ResultsPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(GuavaPackage.eNS_URI);
 		GuavaPackageImpl theGuavaPackage = (GuavaPackageImpl) (registeredPackage instanceof GuavaPackageImpl
 				? registeredPackage
 				: GuavaPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(SecurityPackage.eNS_URI);
+		SecurityPackageImpl theSecurityPackage = (SecurityPackageImpl) (registeredPackage instanceof SecurityPackageImpl
+				? registeredPackage
+				: SecurityPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		thee4smPackage.createPackageContents();
+		theResultsPackage.createPackageContents();
+		theAnalysisPackage.createPackageContents();
 		theCorePackage.createPackageContents();
 		theExecutionPackage.createPackageContents();
-		theAnalysisPackage.createPackageContents();
-		theResultsPackage.createPackageContents();
 		theGuavaPackage.createPackageContents();
+		theSecurityPackage.createPackageContents();
 
 		// Initialize created meta-data
 		thee4smPackage.initializePackageContents();
+		theResultsPackage.initializePackageContents();
+		theAnalysisPackage.initializePackageContents();
 		theCorePackage.initializePackageContents();
 		theExecutionPackage.initializePackageContents();
-		theAnalysisPackage.initializePackageContents();
-		theResultsPackage.initializePackageContents();
 		theGuavaPackage.initializePackageContents();
+		theSecurityPackage.initializePackageContents();
 
 		// Register package validator
 		EValidator.Registry.INSTANCE.put(thee4smPackage, new EValidator.Descriptor() {
@@ -523,16 +675,6 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	@Override
 	public EOperation getComponent__ComputeMainResponsible() {
 		return componentEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getComponent__NewOperation2() {
-		return componentEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -751,7 +893,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getPackage_SoftwareComponents() {
+	public EReference getPackage_Connectors() {
 		return (EReference) packageEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -761,7 +903,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getPackage_PhysicalComponents() {
+	public EReference getPackage_Sectors() {
 		return (EReference) packageEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -771,7 +913,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getPackage_Connectors() {
+	public EReference getPackage_MainResponsible() {
 		return (EReference) packageEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -781,7 +923,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getPackage_Sectors() {
+	public EReference getPackage_Packages() {
 		return (EReference) packageEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -791,7 +933,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getPackage_MainResponsible() {
+	public EReference getPackage_SpecifiesComponent() {
 		return (EReference) packageEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -801,7 +943,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getPackage_Packages() {
+	public EReference getPackage_Datastores() {
 		return (EReference) packageEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -811,8 +953,8 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getPackage_SpecifiesComponent() {
-		return (EReference) packageEClass.getEStructuralFeatures().get(7);
+	public EAttribute getPackage_ProcessingUnits() {
+		return (EAttribute) packageEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -821,8 +963,8 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getPackage_Datastores() {
-		return (EReference) packageEClass.getEStructuralFeatures().get(8);
+	public EAttribute getPackage_SimulationDuration() {
+		return (EAttribute) packageEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -913,6 +1055,56 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	@Override
 	public EReference getModel_Imports() {
 		return (EReference) modelEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getModel_Environments() {
+		return (EReference) modelEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getModel_ClassificationClasses() {
+		return (EReference) modelEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getModel_SecurityThreatsDefinition() {
+		return (EReference) modelEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getModel_SecurityThreatsImport() {
+		return (EReference) modelEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getModel_SecuritySpecification() {
+		return (EReference) modelEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -1153,6 +1345,26 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	@Override
 	public EAttribute getOutputPin_OutputUncertainty() {
 		return (EAttribute) outputPinEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getOutputPin_TokenSpecification() {
+		return (EReference) outputPinEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getOutputPin_OutputExpression() {
+		return (EReference) outputPinEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1421,6 +1633,636 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getClassificationComponent() {
+		return classificationComponentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getClassificationComponent_Environment() {
+		return (EReference) classificationComponentEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getEnvironment() {
+		return environmentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getEnvironment_ClassificationClasses() {
+		return (EReference) environmentEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getClassificationClass() {
+		return classificationClassEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getClassificationClassDistribution() {
+		return classificationClassDistributionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getClassificationClassDistribution_ClassificationClass() {
+		return (EReference) classificationClassDistributionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getClassificationClassDistribution_Probability() {
+		return (EAttribute) classificationClassDistributionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getMulticlassConfusionMatrix() {
+		return multiclassConfusionMatrixEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getMulticlassConfusionMatrix_Entries() {
+		return (EReference) multiclassConfusionMatrixEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getMulticlassConfusionMatrix__GetClasses() {
+		return multiclassConfusionMatrixEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getMulticlassConfusionMatrix__GetTP__ClassificationClass() {
+		return multiclassConfusionMatrixEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getMulticlassConfusionMatrix__GetFP__ClassificationClass() {
+		return multiclassConfusionMatrixEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getMulticlassConfusionMatrix__GetTN__ClassificationClass() {
+		return multiclassConfusionMatrixEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getMulticlassConfusionMatrix__GetFN__ClassificationClass() {
+		return multiclassConfusionMatrixEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getMulticlassConfusionMatrix__ComputeBalancedAccuracy() {
+		return multiclassConfusionMatrixEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getMulticlassConfusionMatrix__ComputeClassAccuracy__ClassificationClass() {
+		return multiclassConfusionMatrixEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getMulticlassConfusionMatrix__ComputeClassRecall__ClassificationClass() {
+		return multiclassConfusionMatrixEClass.getEOperations().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getMulticlassConfusionMatrix__ComputeClassPrecision__ClassificationClass() {
+		return multiclassConfusionMatrixEClass.getEOperations().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getMulticlassConfusionMatrix__ComputeClassF1Score__ClassificationClass() {
+		return multiclassConfusionMatrixEClass.getEOperations().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getMulticlassConfusionMatrix__ComputeClassSpecificity__ClassificationClass() {
+		return multiclassConfusionMatrixEClass.getEOperations().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getConfusionMatrix() {
+		return confusionMatrixEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getConfusionMatrix__ComputeAccuracy() {
+		return confusionMatrixEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getConfusionMatrix__ComputeRecall() {
+		return confusionMatrixEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getConfusionMatrix__ComputePrecision() {
+		return confusionMatrixEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getConfusionMatrix__ComputeF1Score() {
+		return confusionMatrixEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getConfusionMatrix__GetHighestValue() {
+		return confusionMatrixEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getConfusionMatrix__ComputeSpecificity() {
+		return confusionMatrixEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getTokenSpecification() {
+		return tokenSpecificationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getTokenSpecification_InputSize() {
+		return (EReference) tokenSpecificationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTokenSpecification_CollectSize() {
+		return (EAttribute) tokenSpecificationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getTokenSpecification_Type() {
+		return (EReference) tokenSpecificationEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getDataSize() {
+		return dataSizeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getDataSize__GetSize() {
+		return dataSizeEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getStaticSize() {
+		return staticSizeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getStaticSize_Size() {
+		return (EAttribute) staticSizeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getSet() {
+		return setEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getSet_Values() {
+		return (EReference) setEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getSetValue() {
+		return setValueEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getSetValue_Probability() {
+		return (EAttribute) setValueEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getSetValue_Size() {
+		return (EAttribute) setValueEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getSetValue_Value() {
+		return (EAttribute) setValueEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getDynamicRange() {
+		return dynamicRangeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDynamicRange_Min() {
+		return (EAttribute) dynamicRangeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDynamicRange_Max() {
+		return (EAttribute) dynamicRangeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDynamicRange_SizeFactor() {
+		return (EAttribute) dynamicRangeEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getSecurityThreatsImport() {
+		return securityThreatsImportEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getSecurityThreatsImport_SecurityThreat() {
+		return (EReference) securityThreatsImportEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getConfusionMatrixEntry() {
+		return confusionMatrixEntryEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getConfusionMatrixEntry_Value() {
+		return (EAttribute) confusionMatrixEntryEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getConfusionMatrixEntry_Predicted() {
+		return (EReference) confusionMatrixEntryEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getConfusionMatrixEntry_Truth() {
+		return (EReference) confusionMatrixEntryEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getBinaryConfusionMatrix() {
+		return binaryConfusionMatrixEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getBinaryConfusionMatrix_Tp() {
+		return (EAttribute) binaryConfusionMatrixEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getBinaryConfusionMatrix_Tn() {
+		return (EAttribute) binaryConfusionMatrixEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getBinaryConfusionMatrix_Fp() {
+		return (EAttribute) binaryConfusionMatrixEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getBinaryConfusionMatrix_Fn() {
+		return (EAttribute) binaryConfusionMatrixEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getBinaryConfusionMatrix_PositiveClass() {
+		return (EReference) binaryConfusionMatrixEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getBinaryConfusionMatrix_NegativeClass() {
+		return (EReference) binaryConfusionMatrixEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getBinaryClassificationComponent() {
+		return binaryClassificationComponentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getBinaryClassificationComponent_ConfusionMatrixes() {
+		return (EReference) binaryClassificationComponentEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getMulticlassClassificationComponent() {
+		return multiclassClassificationComponentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getMulticlassClassificationComponent_ConfusionMatrixes() {
+		return (EReference) multiclassClassificationComponentEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EEnum getQueueType() {
 		return queueTypeEEnum;
 	}
@@ -1443,6 +2285,16 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	@Override
 	public EEnum getComponentFiringStrategy() {
 		return componentFiringStrategyEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EEnum getSizeComputation() {
+		return sizeComputationEEnum;
 	}
 
 	/**
@@ -1504,7 +2356,6 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		createEAttribute(componentEClass, COMPONENT__FIRING_STRATEGY);
 		createEReference(componentEClass, COMPONENT__DATASTORES);
 		createEOperation(componentEClass, COMPONENT___COMPUTE_MAIN_RESPONSIBLE);
-		createEOperation(componentEClass, COMPONENT___NEW_OPERATION2);
 
 		machineLearningComponentEClass = createEClass(MACHINE_LEARNING_COMPONENT);
 
@@ -1536,14 +2387,14 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 
 		packageEClass = createEClass(PACKAGE);
 		createEReference(packageEClass, PACKAGE__COMPONENTS);
-		createEReference(packageEClass, PACKAGE__SOFTWARE_COMPONENTS);
-		createEReference(packageEClass, PACKAGE__PHYSICAL_COMPONENTS);
 		createEReference(packageEClass, PACKAGE__CONNECTORS);
 		createEReference(packageEClass, PACKAGE__SECTORS);
 		createEReference(packageEClass, PACKAGE__MAIN_RESPONSIBLE);
 		createEReference(packageEClass, PACKAGE__PACKAGES);
 		createEReference(packageEClass, PACKAGE__SPECIFIES_COMPONENT);
 		createEReference(packageEClass, PACKAGE__DATASTORES);
+		createEAttribute(packageEClass, PACKAGE__PROCESSING_UNITS);
+		createEAttribute(packageEClass, PACKAGE__SIMULATION_DURATION);
 		createEOperation(packageEClass, PACKAGE___GET_ALL_COMPONENTS);
 		createEOperation(packageEClass, PACKAGE___GET_MAX_FLOW);
 
@@ -1554,6 +2405,11 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		createEReference(modelEClass, MODEL__VARIANTS);
 		createEReference(modelEClass, MODEL__TYPES);
 		createEReference(modelEClass, MODEL__IMPORTS);
+		createEReference(modelEClass, MODEL__ENVIRONMENTS);
+		createEReference(modelEClass, MODEL__CLASSIFICATION_CLASSES);
+		createEReference(modelEClass, MODEL__SECURITY_THREATS_DEFINITION);
+		createEReference(modelEClass, MODEL__SECURITY_THREATS_IMPORT);
+		createEReference(modelEClass, MODEL__SECURITY_SPECIFICATION);
 		createEOperation(modelEClass, MODEL___IS_PERSON_PICTURE_PATH_VALID__DIAGNOSTICCHAIN_MAP);
 
 		actorEClass = createEClass(ACTOR);
@@ -1587,6 +2443,8 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		outputPinEClass = createEClass(OUTPUT_PIN);
 		createEAttribute(outputPinEClass, OUTPUT_PIN__AMPLIFY);
 		createEAttribute(outputPinEClass, OUTPUT_PIN__OUTPUT_UNCERTAINTY);
+		createEReference(outputPinEClass, OUTPUT_PIN__TOKEN_SPECIFICATION);
+		createEReference(outputPinEClass, OUTPUT_PIN__OUTPUT_EXPRESSION);
 		createEOperation(outputPinEClass, OUTPUT_PIN___COMPUTE_NAME);
 
 		personEClass = createEClass(PERSON);
@@ -1625,10 +2483,98 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		createEOperation(dataNodeEClass, DATA_NODE___GET_OUTGOING_CONNECTORS);
 		createEOperation(dataNodeEClass, DATA_NODE___GET_INCOMING_CONNECTORS);
 
+		classificationComponentEClass = createEClass(CLASSIFICATION_COMPONENT);
+		createEReference(classificationComponentEClass, CLASSIFICATION_COMPONENT__ENVIRONMENT);
+
+		environmentEClass = createEClass(ENVIRONMENT);
+		createEReference(environmentEClass, ENVIRONMENT__CLASSIFICATION_CLASSES);
+
+		classificationClassEClass = createEClass(CLASSIFICATION_CLASS);
+
+		classificationClassDistributionEClass = createEClass(CLASSIFICATION_CLASS_DISTRIBUTION);
+		createEReference(classificationClassDistributionEClass,
+				CLASSIFICATION_CLASS_DISTRIBUTION__CLASSIFICATION_CLASS);
+		createEAttribute(classificationClassDistributionEClass, CLASSIFICATION_CLASS_DISTRIBUTION__PROBABILITY);
+
+		multiclassConfusionMatrixEClass = createEClass(MULTICLASS_CONFUSION_MATRIX);
+		createEReference(multiclassConfusionMatrixEClass, MULTICLASS_CONFUSION_MATRIX__ENTRIES);
+		createEOperation(multiclassConfusionMatrixEClass, MULTICLASS_CONFUSION_MATRIX___GET_CLASSES);
+		createEOperation(multiclassConfusionMatrixEClass, MULTICLASS_CONFUSION_MATRIX___GET_TP__CLASSIFICATIONCLASS);
+		createEOperation(multiclassConfusionMatrixEClass, MULTICLASS_CONFUSION_MATRIX___GET_FP__CLASSIFICATIONCLASS);
+		createEOperation(multiclassConfusionMatrixEClass, MULTICLASS_CONFUSION_MATRIX___GET_TN__CLASSIFICATIONCLASS);
+		createEOperation(multiclassConfusionMatrixEClass, MULTICLASS_CONFUSION_MATRIX___GET_FN__CLASSIFICATIONCLASS);
+		createEOperation(multiclassConfusionMatrixEClass, MULTICLASS_CONFUSION_MATRIX___COMPUTE_BALANCED_ACCURACY);
+		createEOperation(multiclassConfusionMatrixEClass,
+				MULTICLASS_CONFUSION_MATRIX___COMPUTE_CLASS_ACCURACY__CLASSIFICATIONCLASS);
+		createEOperation(multiclassConfusionMatrixEClass,
+				MULTICLASS_CONFUSION_MATRIX___COMPUTE_CLASS_RECALL__CLASSIFICATIONCLASS);
+		createEOperation(multiclassConfusionMatrixEClass,
+				MULTICLASS_CONFUSION_MATRIX___COMPUTE_CLASS_PRECISION__CLASSIFICATIONCLASS);
+		createEOperation(multiclassConfusionMatrixEClass,
+				MULTICLASS_CONFUSION_MATRIX___COMPUTE_CLASS_F1_SCORE__CLASSIFICATIONCLASS);
+		createEOperation(multiclassConfusionMatrixEClass,
+				MULTICLASS_CONFUSION_MATRIX___COMPUTE_CLASS_SPECIFICITY__CLASSIFICATIONCLASS);
+
+		confusionMatrixEntryEClass = createEClass(CONFUSION_MATRIX_ENTRY);
+		createEAttribute(confusionMatrixEntryEClass, CONFUSION_MATRIX_ENTRY__VALUE);
+		createEReference(confusionMatrixEntryEClass, CONFUSION_MATRIX_ENTRY__PREDICTED);
+		createEReference(confusionMatrixEntryEClass, CONFUSION_MATRIX_ENTRY__TRUTH);
+
+		binaryConfusionMatrixEClass = createEClass(BINARY_CONFUSION_MATRIX);
+		createEAttribute(binaryConfusionMatrixEClass, BINARY_CONFUSION_MATRIX__TP);
+		createEAttribute(binaryConfusionMatrixEClass, BINARY_CONFUSION_MATRIX__TN);
+		createEAttribute(binaryConfusionMatrixEClass, BINARY_CONFUSION_MATRIX__FP);
+		createEAttribute(binaryConfusionMatrixEClass, BINARY_CONFUSION_MATRIX__FN);
+		createEReference(binaryConfusionMatrixEClass, BINARY_CONFUSION_MATRIX__POSITIVE_CLASS);
+		createEReference(binaryConfusionMatrixEClass, BINARY_CONFUSION_MATRIX__NEGATIVE_CLASS);
+
+		binaryClassificationComponentEClass = createEClass(BINARY_CLASSIFICATION_COMPONENT);
+		createEReference(binaryClassificationComponentEClass, BINARY_CLASSIFICATION_COMPONENT__CONFUSION_MATRIXES);
+
+		multiclassClassificationComponentEClass = createEClass(MULTICLASS_CLASSIFICATION_COMPONENT);
+		createEReference(multiclassClassificationComponentEClass,
+				MULTICLASS_CLASSIFICATION_COMPONENT__CONFUSION_MATRIXES);
+
+		confusionMatrixEClass = createEClass(CONFUSION_MATRIX);
+		createEOperation(confusionMatrixEClass, CONFUSION_MATRIX___COMPUTE_ACCURACY);
+		createEOperation(confusionMatrixEClass, CONFUSION_MATRIX___COMPUTE_RECALL);
+		createEOperation(confusionMatrixEClass, CONFUSION_MATRIX___COMPUTE_PRECISION);
+		createEOperation(confusionMatrixEClass, CONFUSION_MATRIX___COMPUTE_F1_SCORE);
+		createEOperation(confusionMatrixEClass, CONFUSION_MATRIX___GET_HIGHEST_VALUE);
+		createEOperation(confusionMatrixEClass, CONFUSION_MATRIX___COMPUTE_SPECIFICITY);
+
+		tokenSpecificationEClass = createEClass(TOKEN_SPECIFICATION);
+		createEReference(tokenSpecificationEClass, TOKEN_SPECIFICATION__INPUT_SIZE);
+		createEAttribute(tokenSpecificationEClass, TOKEN_SPECIFICATION__COLLECT_SIZE);
+		createEReference(tokenSpecificationEClass, TOKEN_SPECIFICATION__TYPE);
+
+		dataSizeEClass = createEClass(DATA_SIZE);
+		createEOperation(dataSizeEClass, DATA_SIZE___GET_SIZE);
+
+		staticSizeEClass = createEClass(STATIC_SIZE);
+		createEAttribute(staticSizeEClass, STATIC_SIZE__SIZE);
+
+		setEClass = createEClass(SET);
+		createEReference(setEClass, SET__VALUES);
+
+		setValueEClass = createEClass(SET_VALUE);
+		createEAttribute(setValueEClass, SET_VALUE__PROBABILITY);
+		createEAttribute(setValueEClass, SET_VALUE__SIZE);
+		createEAttribute(setValueEClass, SET_VALUE__VALUE);
+
+		dynamicRangeEClass = createEClass(DYNAMIC_RANGE);
+		createEAttribute(dynamicRangeEClass, DYNAMIC_RANGE__MIN);
+		createEAttribute(dynamicRangeEClass, DYNAMIC_RANGE__MAX);
+		createEAttribute(dynamicRangeEClass, DYNAMIC_RANGE__SIZE_FACTOR);
+
+		securityThreatsImportEClass = createEClass(SECURITY_THREATS_IMPORT);
+		createEReference(securityThreatsImportEClass, SECURITY_THREATS_IMPORT__SECURITY_THREAT);
+
 		// Create enums
 		queueTypeEEnum = createEEnum(QUEUE_TYPE);
 		raceSemanticEEnum = createEEnum(RACE_SEMANTIC);
 		componentFiringStrategyEEnum = createEEnum(COMPONENT_FIRING_STRATEGY);
+		sizeComputationEEnum = createEEnum(SIZE_COMPUTATION);
 
 		// Create data types
 		connectionspeedEDataType = createEDataType(CONNECTIONSPEED);
@@ -1666,6 +2612,8 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		ExecutionPackage theExecutionPackage = (ExecutionPackage) EPackage.Registry.INSTANCE
 				.getEPackage(ExecutionPackage.eNS_URI);
 		EcorePackage theEcorePackage = (EcorePackage) EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
+		SecurityPackage theSecurityPackage = (SecurityPackage) EPackage.Registry.INSTANCE
+				.getEPackage(SecurityPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -1680,6 +2628,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		connectorEClass.getESuperTypes().add(theAnalysisPackage.getParameterizableElement());
 		connectorEClass.getESuperTypes().add(theCorePackage.getNamedElement());
 		connectorEClass.getESuperTypes().add(theCorePackage.getDocumentableElement());
+		connectorEClass.getESuperTypes().add(theExecutionPackage.getDelayableElement());
 		physicalConnectorEClass.getESuperTypes().add(this.getConnector());
 		physicalComponentEClass.getESuperTypes().add(this.getComponent());
 		softwareComponentEClass.getESuperTypes().add(this.getComponent());
@@ -1715,6 +2664,19 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		dataNodeEClass.getESuperTypes().add(theExecutionPackage.getConnectableNode());
 		dataNodeEClass.getESuperTypes().add(theAnalysisPackage.getParameterizableElement());
 		dataNodeEClass.getESuperTypes().add(theCorePackage.getDocumentableElement());
+		classificationComponentEClass.getESuperTypes().add(this.getMachineLearningComponent());
+		environmentEClass.getESuperTypes().add(theCorePackage.getNamedElement());
+		classificationClassEClass.getESuperTypes().add(theCorePackage.getNamedElement());
+		multiclassConfusionMatrixEClass.getESuperTypes().add(this.getConfusionMatrix());
+		binaryConfusionMatrixEClass.getESuperTypes().add(this.getConfusionMatrix());
+		binaryClassificationComponentEClass.getESuperTypes().add(this.getClassificationComponent());
+		multiclassClassificationComponentEClass.getESuperTypes().add(this.getClassificationComponent());
+		confusionMatrixEClass.getESuperTypes().add(theCorePackage.getNamedElement());
+		dataSizeEClass.getESuperTypes().add(theCorePackage.getNamedElement());
+		staticSizeEClass.getESuperTypes().add(this.getDataSize());
+		setEClass.getESuperTypes().add(this.getDataSize());
+		setValueEClass.getESuperTypes().add(theCorePackage.getNamedElement());
+		dynamicRangeEClass.getESuperTypes().add(this.getDataSize());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(componentEClass, Component.class, "Component", !IS_ABSTRACT, !IS_INTERFACE,
@@ -1743,8 +2705,6 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 
 		initEOperation(getComponent__ComputeMainResponsible(), this.getPerson(), "computeMainResponsible", 0, 1,
 				IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getComponent__NewOperation2(), null, "newOperation2", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(machineLearningComponentEClass, MachineLearningComponent.class, "MachineLearningComponent",
 				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1808,12 +2768,6 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		initEReference(getPackage_Components(), this.getComponent(), null, "components", null, 0, -1,
 				e4sm.de.metamodel.e4sm.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPackage_SoftwareComponents(), this.getSoftwareComponent(), null, "softwareComponents", null,
-				0, -1, e4sm.de.metamodel.e4sm.Package.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEReference(getPackage_PhysicalComponents(), this.getPhysicalComponent(), null, "physicalComponents", null,
-				0, -1, e4sm.de.metamodel.e4sm.Package.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getPackage_Connectors(), this.getConnector(), null, "connectors", null, 0, -1,
 				e4sm.de.metamodel.e4sm.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1832,6 +2786,12 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		initEReference(getPackage_Datastores(), this.getDataStore(), null, "datastores", null, 0, -1,
 				e4sm.de.metamodel.e4sm.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPackage_ProcessingUnits(), theEcorePackage.getEInt(), "processingUnits", "-1", 0, 1,
+				e4sm.de.metamodel.e4sm.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+				!IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPackage_SimulationDuration(), theEcorePackage.getEInt(), "simulationDuration", null, 0, 1,
+				e4sm.de.metamodel.e4sm.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+				!IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getPackage__GetAllComponents(), this.getComponent(), "getAllComponents", 0, -1, IS_UNIQUE,
 				IS_ORDERED);
@@ -1858,6 +2818,21 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		initEReference(getModel_Imports(), this.getImport(), null, "imports", null, 0, -1, Model.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
+		initEReference(getModel_Environments(), this.getEnvironment(), null, "environments", null, 0, -1, Model.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModel_ClassificationClasses(), this.getClassificationClass(), null, "classificationClasses",
+				null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModel_SecurityThreatsDefinition(), theSecurityPackage.getKnownSecurityThreats(), null,
+				"securityThreatsDefinition", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModel_SecurityThreatsImport(), this.getSecurityThreatsImport(), null, "securityThreatsImport",
+				null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModel_SecuritySpecification(), theSecurityPackage.getSecuritySpecification(), null,
+				"securitySpecification", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getModel__IsPersonPicturePathValid__DiagnosticChain_Map(),
 				ecorePackage.getEBoolean(), "isPersonPicturePathValid", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1924,6 +2899,12 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		initEAttribute(getOutputPin_OutputUncertainty(), ecorePackage.getEDouble(), "outputUncertainty", "0.0", 0, 1,
 				OutputPin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
+		initEReference(getOutputPin_TokenSpecification(), this.getTokenSpecification(), null, "tokenSpecification",
+				null, 0, 1, OutputPin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOutputPin_OutputExpression(), theExecutionPackage.getExpression(), null, "outputExpression",
+				null, 0, 1, OutputPin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getOutputPin__ComputeName(), ecorePackage.getEString(), "computeName", 0, 1, IS_UNIQUE,
 				IS_ORDERED);
@@ -1997,6 +2978,197 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		initEOperation(getDataNode__GetIncomingConnectors(), this.getConnector(), "getIncomingConnectors", 0, -1,
 				IS_UNIQUE, IS_ORDERED);
 
+		initEClass(classificationComponentEClass, ClassificationComponent.class, "ClassificationComponent", IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getClassificationComponent_Environment(), this.getEnvironment(), null, "environment", null, 0, 1,
+				ClassificationComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(environmentEClass, Environment.class, "Environment", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getEnvironment_ClassificationClasses(), this.getClassificationClassDistribution(), null,
+				"classificationClasses", null, 0, -1, Environment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(classificationClassEClass, ClassificationClass.class, "ClassificationClass", !IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(classificationClassDistributionEClass, ClassificationClassDistribution.class,
+				"ClassificationClassDistribution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getClassificationClassDistribution_ClassificationClass(), this.getClassificationClass(), null,
+				"classificationClass", null, 1, 1, ClassificationClassDistribution.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getClassificationClassDistribution_Probability(), theEcorePackage.getEDouble(), "probability",
+				null, 1, 1, ClassificationClassDistribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(multiclassConfusionMatrixEClass, MulticlassConfusionMatrix.class, "MulticlassConfusionMatrix",
+				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getMulticlassConfusionMatrix_Entries(), this.getConfusionMatrixEntry(), null, "entries", null, 0,
+				-1, MulticlassConfusionMatrix.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getMulticlassConfusionMatrix__GetClasses(), this.getClassificationClass(), "getClasses", 0, -1,
+				IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getMulticlassConfusionMatrix__GetTP__ClassificationClass(), theEcorePackage.getEInt(),
+				"getTP", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getClassificationClass(), "class_", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getMulticlassConfusionMatrix__GetFP__ClassificationClass(), theEcorePackage.getEInt(),
+				"getFP", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getClassificationClass(), "class_", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getMulticlassConfusionMatrix__GetTN__ClassificationClass(), theEcorePackage.getEInt(),
+				"getTN", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getClassificationClass(), "class_", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getMulticlassConfusionMatrix__GetFN__ClassificationClass(), theEcorePackage.getEInt(),
+				"getFN", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getClassificationClass(), "class_", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getMulticlassConfusionMatrix__ComputeBalancedAccuracy(), theEcorePackage.getEDouble(),
+				"computeBalancedAccuracy", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getMulticlassConfusionMatrix__ComputeClassAccuracy__ClassificationClass(),
+				theEcorePackage.getEDouble(), "computeClassAccuracy", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getClassificationClass(), "class_", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getMulticlassConfusionMatrix__ComputeClassRecall__ClassificationClass(),
+				theEcorePackage.getEDouble(), "computeClassRecall", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getClassificationClass(), "class_", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getMulticlassConfusionMatrix__ComputeClassPrecision__ClassificationClass(),
+				theEcorePackage.getEDouble(), "computeClassPrecision", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getClassificationClass(), "class_", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getMulticlassConfusionMatrix__ComputeClassF1Score__ClassificationClass(),
+				theEcorePackage.getEDouble(), "computeClassF1Score", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getClassificationClass(), "class_", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getMulticlassConfusionMatrix__ComputeClassSpecificity__ClassificationClass(),
+				theEcorePackage.getEDouble(), "computeClassSpecificity", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getClassificationClass(), "class_", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(confusionMatrixEntryEClass, ConfusionMatrixEntry.class, "ConfusionMatrixEntry", !IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getConfusionMatrixEntry_Value(), theCorePackage.getInteger(), "value", "0", 0, 1,
+				ConfusionMatrixEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConfusionMatrixEntry_Predicted(), this.getClassificationClass(), null, "predicted", null, 1,
+				1, ConfusionMatrixEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConfusionMatrixEntry_Truth(), this.getClassificationClass(), null, "truth", null, 1, 1,
+				ConfusionMatrixEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(binaryConfusionMatrixEClass, BinaryConfusionMatrix.class, "BinaryConfusionMatrix", !IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBinaryConfusionMatrix_Tp(), theEcorePackage.getEInt(), "tp", "0", 0, 1,
+				BinaryConfusionMatrix.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBinaryConfusionMatrix_Tn(), theEcorePackage.getEInt(), "tn", "0", 0, 1,
+				BinaryConfusionMatrix.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBinaryConfusionMatrix_Fp(), theEcorePackage.getEInt(), "fp", "0", 0, 1,
+				BinaryConfusionMatrix.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBinaryConfusionMatrix_Fn(), theEcorePackage.getEInt(), "fn", "0", 0, 1,
+				BinaryConfusionMatrix.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBinaryConfusionMatrix_PositiveClass(), this.getClassificationClass(), null, "positiveClass",
+				null, 0, 1, BinaryConfusionMatrix.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBinaryConfusionMatrix_NegativeClass(), this.getClassificationClass(), null, "negativeClass",
+				null, 0, 1, BinaryConfusionMatrix.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(binaryClassificationComponentEClass, BinaryClassificationComponent.class,
+				"BinaryClassificationComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBinaryClassificationComponent_ConfusionMatrixes(), this.getBinaryConfusionMatrix(), null,
+				"confusionMatrixes", null, 0, -1, BinaryClassificationComponent.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(multiclassClassificationComponentEClass, MulticlassClassificationComponent.class,
+				"MulticlassClassificationComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getMulticlassClassificationComponent_ConfusionMatrixes(), this.getMulticlassConfusionMatrix(),
+				null, "confusionMatrixes", null, 0, -1, MulticlassClassificationComponent.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+
+		initEClass(confusionMatrixEClass, ConfusionMatrix.class, "ConfusionMatrix", IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+
+		initEOperation(getConfusionMatrix__ComputeAccuracy(), theEcorePackage.getEDouble(), "computeAccuracy", 0, 1,
+				IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getConfusionMatrix__ComputeRecall(), theEcorePackage.getEDouble(), "computeRecall", 0, 1,
+				IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getConfusionMatrix__ComputePrecision(), theEcorePackage.getEDouble(), "computePrecision", 0, 1,
+				IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getConfusionMatrix__ComputeF1Score(), theEcorePackage.getEDouble(), "computeF1Score", 0, 1,
+				IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getConfusionMatrix__GetHighestValue(), theEcorePackage.getEInt(), "getHighestValue", 0, 1,
+				IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getConfusionMatrix__ComputeSpecificity(), theEcorePackage.getEDouble(), "computeSpecificity", 0,
+				1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(tokenSpecificationEClass, TokenSpecification.class, "TokenSpecification", !IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTokenSpecification_InputSize(), this.getDataSize(), null, "inputSize", null, 0, -1,
+				TokenSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTokenSpecification_CollectSize(), this.getSizeComputation(), "collectSize", "SUM", 0, 1,
+				TokenSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEReference(getTokenSpecification_Type(), theCorePackage.getTypeSpecification(), null, "type", null, 0, 1,
+				TokenSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(dataSizeEClass, DataSize.class, "DataSize", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEOperation(getDataSize__GetSize(), theEcorePackage.getEDouble(), "getSize", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(staticSizeEClass, StaticSize.class, "StaticSize", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getStaticSize_Size(), theEcorePackage.getEDouble(), "size", null, 0, 1, StaticSize.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(setEClass, Set.class, "Set", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSet_Values(), this.getSetValue(), null, "values", null, 0, -1, Set.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+
+		initEClass(setValueEClass, SetValue.class, "SetValue", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSetValue_Probability(), theEcorePackage.getEDouble(), "probability", null, 0, 1,
+				SetValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSetValue_Size(), theEcorePackage.getEDouble(), "size", null, 0, 1, SetValue.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSetValue_Value(), theEcorePackage.getEString(), "value", null, 0, 1, SetValue.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(dynamicRangeEClass, DynamicRange.class, "DynamicRange", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDynamicRange_Min(), theEcorePackage.getEInt(), "min", "0", 0, 1, DynamicRange.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDynamicRange_Max(), theEcorePackage.getEInt(), "max", "0", 0, 1, DynamicRange.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDynamicRange_SizeFactor(), theEcorePackage.getEDouble(), "sizeFactor", null, 0, 1,
+				DynamicRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+
+		initEClass(securityThreatsImportEClass, SecurityThreatsImport.class, "SecurityThreatsImport", !IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSecurityThreatsImport_SecurityThreat(), theSecurityPackage.getKnownSecurityThreats(), null,
+				"securityThreat", null, 1, 1, SecurityThreatsImport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		// Initialize enums and add enum literals
 		initEEnum(queueTypeEEnum, QueueType.class, "QueueType");
 		addEEnumLiteral(queueTypeEEnum, QueueType.FIFO);
@@ -2014,6 +3186,10 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		initEEnum(componentFiringStrategyEEnum, ComponentFiringStrategy.class, "ComponentFiringStrategy");
 		addEEnumLiteral(componentFiringStrategyEEnum, ComponentFiringStrategy.AND);
 		addEEnumLiteral(componentFiringStrategyEEnum, ComponentFiringStrategy.OR);
+
+		initEEnum(sizeComputationEEnum, SizeComputation.class, "SizeComputation");
+		addEEnumLiteral(sizeComputationEEnum, SizeComputation.SUM);
+		addEEnumLiteral(sizeComputationEEnum, SizeComputation.MULTIPLY);
 
 		// Initialize data types
 		initEDataType(connectionspeedEDataType, Object.class, "Connectionspeed", IS_SERIALIZABLE,
@@ -2038,7 +3214,6 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 */
 	protected void createEcoreAnnotations() {
 		String source = "http://www.eclipse.org/emf/2002/Ecore";
-		addAnnotation(this, source, new String[] {});
 		addAnnotation(componentEClass, source, new String[] { "constraints", "ComponentC1 ComponentC2 ComponentC3" });
 		addAnnotation(connectorEClass, source, new String[] { "constraints", "ConnectorC1" });
 		addAnnotation(physicalConnectorEClass, source,
@@ -2048,6 +3223,11 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		addAnnotation(sensorEClass, source, new String[] { "constraints", "SensorC1" });
 		addAnnotation(actuatorEClass, source, new String[] { "constraints", "ActuatorC1" });
 		addAnnotation(pinEClass, source, new String[] { "constraints", "PinC1" });
+		addAnnotation(environmentEClass, source, new String[] { "constraints", "EnvironmentC1" });
+		addAnnotation(multiclassConfusionMatrixEClass, source,
+				new String[] { "constraints", "MulticlassConfusionMatrixC1" });
+		addAnnotation(binaryConfusionMatrixEClass, source,
+				new String[] { "constraints", "BinaryConfusionMatrixC1 BinaryConfusionMatrixC2" });
 	}
 
 	/**

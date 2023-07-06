@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17">
+	<classpathentry kind="src" output="bin/main" path="src/e4sm/de/antlr4/petri/model">
 		<attributes>
-			<attribute name="module" value="true"/>
+			<attribute name="gradle_scope" value="main"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
-	<classpathentry excluding="e4sm/de/antlr4/petri/grammar/|main/antlr/" kind="src" path="src"/>
-	<classpathentry kind="src" path="gen-src"/>
+	<classpathentry kind="src" output="bin/main" path="src/main/antlr">
+		<attributes>
+			<attribute name="gradle_scope" value="main"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17/"/>
 	<classpathentry kind="con" path="org.eclipse.buildship.core.gradleclasspathcontainer"/>
-	<classpathentry kind="lib" path="gradle-libs/antlr4-4.9.3.jar"/>
-	<classpathentry exported="true" kind="lib" path="gradle-libs/antlr4-runtime-4.9.3.jar"/>
-	<classpathentry exported="true" kind="lib" path="gradle-libs" sourcepath="gradle-libs"/>
 	<classpathentry kind="output" path="bin/default"/>
 </classpath>

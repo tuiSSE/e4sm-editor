@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: e4sm.de.timenet.runner;singleton:=true
+Bundle-Version: 1.0.0
+Require-Bundle: e4sm.de.metamodel;bundle-version="1.0.0"
+Automatic-Module-Name: e4sm.de.timenet.runner
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: lib/gpal.jar,
+ .,
+ lib/jargs.jar,
+ lib/antlr.jar,
+ lib/RemoteSystem.jar,
+ lib/gpsc.jar
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Export-Package: e4sm.de.timenet.runner;uses:="e4sm.de.metamodel.e4sm"
+Import-Package: org.eclipse.core.runtime

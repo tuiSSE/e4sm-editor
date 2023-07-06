@@ -85,6 +85,14 @@ public class ExecutionFactoryImpl extends EFactoryImpl implements ExecutionFacto
 			return createAssignment();
 		case ExecutionPackage.ASSIGNABLE_ELEMENT_REFERENCE:
 			return createAssignableElementReference();
+		case ExecutionPackage.INPUT_PIN_REFERENCE:
+			return createInputPinReference();
+		case ExecutionPackage.INPUT_PIN_ATTRIBUTE_REFERENCE:
+			return createInputPinAttributeReference();
+		case ExecutionPackage.PARAMETER_REFERENCE:
+			return createParameterReference();
+		case ExecutionPackage.EXPONENTIATION:
+			return createExponentiation();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -272,6 +280,50 @@ public class ExecutionFactoryImpl extends EFactoryImpl implements ExecutionFacto
 	public AssignableElementReference createAssignableElementReference() {
 		AssignableElementReferenceImpl assignableElementReference = new AssignableElementReferenceImpl();
 		return assignableElementReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public InputPinReference createInputPinReference() {
+		InputPinReferenceImpl inputPinReference = new InputPinReferenceImpl();
+		return inputPinReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public InputPinAttributeReference createInputPinAttributeReference() {
+		InputPinAttributeReferenceImpl inputPinAttributeReference = new InputPinAttributeReferenceImpl();
+		return inputPinAttributeReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ParameterReference createParameterReference() {
+		ParameterReferenceImpl parameterReference = new ParameterReferenceImpl();
+		return parameterReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Exponentiation createExponentiation() {
+		ExponentiationImpl exponentiation = new ExponentiationImpl();
+		return exponentiation;
 	}
 
 	/**

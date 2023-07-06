@@ -199,7 +199,7 @@ public class NetworkUtils {
 	public void generatePDF(String fileName) throws IOException {
 		System.out.println("Generating the PDF...");
 		// Generate to graph.pdf with: dot -O -Tpdf graph.gv
-		String cmd = "dot -O -Tpdf " + fileName;
+		String [] cmd = new String[] {"dot -O -Tpdf " + fileName};
 		Runtime run = Runtime.getRuntime();
 		run.exec(cmd);
 	}

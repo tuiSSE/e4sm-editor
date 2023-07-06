@@ -1,0 +1,34 @@
+model multiclassModel{
+	package p1 {
+	sensor "s1" {
+		out s1_out
+	},
+		multiclassClassificationComponent "mc" {
+		in m1_in,
+		out m2_out
+			confusionMatrixes {  
+				confusion matrix simple {
+					P P:10,	P Q:13,	P R:19,	P S:25,
+					Q P:5,	Q Q:545,	Q R:15,	Q S:20,
+					R P:166,	R Q:90,	R R:11,	R S:5,
+					S P:4,	S Q:1,	S R:5,	S S:3
+				}
+			}
+		},
+	actuator a1 {
+		in a1_in
+	}
+	connector c1 "s1.s1_out" -> "mc.m1_in",
+	connector c2 "mc.m2_out" -> "a1.a1_in"
+	}
+	
+	// Classification classes
+	cl P, cl Q, cl R, cl S
+	
+	environment e1 {
+		P 0.30,
+		Q 0.10,
+		R 0.01,
+		S 0.59
+	}
+}

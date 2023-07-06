@@ -16,6 +16,8 @@ import e4sm.de.metamodel.e4sm.execution.impl.ExecutionPackageImpl;
 import e4sm.de.metamodel.e4sm.guava.GuavaPackage;
 import e4sm.de.metamodel.e4sm.guava.impl.GuavaPackageImpl;
 import e4sm.de.metamodel.e4sm.impl.e4smPackageImpl;
+import e4sm.de.metamodel.e4sm.security.SecurityPackage;
+import e4sm.de.metamodel.e4sm.security.impl.SecurityPackageImpl;
 import e4sm.de.metamodel.e4sm.core.Element;
 import e4sm.de.metamodel.e4sm.core.IntegerAttribute;
 import e4sm.de.metamodel.e4sm.core.LiteralBoolean;
@@ -394,38 +396,44 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		e4smPackageImpl thee4smPackage = (e4smPackageImpl) (registeredPackage instanceof e4smPackageImpl
 				? registeredPackage
 				: e4smPackage.eINSTANCE);
-		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ExecutionPackage.eNS_URI);
-		ExecutionPackageImpl theExecutionPackage = (ExecutionPackageImpl) (registeredPackage instanceof ExecutionPackageImpl
-				? registeredPackage
-				: ExecutionPackage.eINSTANCE);
-		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(AnalysisPackage.eNS_URI);
-		AnalysisPackageImpl theAnalysisPackage = (AnalysisPackageImpl) (registeredPackage instanceof AnalysisPackageImpl
-				? registeredPackage
-				: AnalysisPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ResultsPackage.eNS_URI);
 		ResultsPackageImpl theResultsPackage = (ResultsPackageImpl) (registeredPackage instanceof ResultsPackageImpl
 				? registeredPackage
 				: ResultsPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(AnalysisPackage.eNS_URI);
+		AnalysisPackageImpl theAnalysisPackage = (AnalysisPackageImpl) (registeredPackage instanceof AnalysisPackageImpl
+				? registeredPackage
+				: AnalysisPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ExecutionPackage.eNS_URI);
+		ExecutionPackageImpl theExecutionPackage = (ExecutionPackageImpl) (registeredPackage instanceof ExecutionPackageImpl
+				? registeredPackage
+				: ExecutionPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(GuavaPackage.eNS_URI);
 		GuavaPackageImpl theGuavaPackage = (GuavaPackageImpl) (registeredPackage instanceof GuavaPackageImpl
 				? registeredPackage
 				: GuavaPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(SecurityPackage.eNS_URI);
+		SecurityPackageImpl theSecurityPackage = (SecurityPackageImpl) (registeredPackage instanceof SecurityPackageImpl
+				? registeredPackage
+				: SecurityPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theCorePackage.createPackageContents();
 		thee4smPackage.createPackageContents();
-		theExecutionPackage.createPackageContents();
-		theAnalysisPackage.createPackageContents();
 		theResultsPackage.createPackageContents();
+		theAnalysisPackage.createPackageContents();
+		theExecutionPackage.createPackageContents();
 		theGuavaPackage.createPackageContents();
+		theSecurityPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theCorePackage.initializePackageContents();
 		thee4smPackage.initializePackageContents();
-		theExecutionPackage.initializePackageContents();
-		theAnalysisPackage.initializePackageContents();
 		theResultsPackage.initializePackageContents();
+		theAnalysisPackage.initializePackageContents();
+		theExecutionPackage.initializePackageContents();
 		theGuavaPackage.initializePackageContents();
+		theSecurityPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theCorePackage.freeze();
@@ -1279,9 +1287,9 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
+		EcorePackage theEcorePackage = (EcorePackage) EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
 		ExecutionPackage theExecutionPackage = (ExecutionPackage) EPackage.Registry.INSTANCE
 				.getEPackage(ExecutionPackage.eNS_URI);
-		EcorePackage theEcorePackage = (EcorePackage) EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
 
 		// Create type parameters
 
@@ -1305,6 +1313,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		valueSpecificationEClass.getESuperTypes().add(theExecutionPackage.getExpression());
 		typedElementEClass.getESuperTypes().add(this.getNamedElement());
 		variantEClass.getESuperTypes().add(this.getNamedElement());
+		variantEClass.getESuperTypes().add(this.getDocumentableElement());
 		typeSpecificationEClass.getESuperTypes().add(this.getNamedElement());
 		attributeSpecificationEClass.getESuperTypes().add(this.getNamedElement());
 		integerAttributeEClass.getESuperTypes().add(this.getAttributeSpecification());
@@ -1334,7 +1343,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 
 		initEClass(literalIntegerEClass, LiteralInteger.class, "LiteralInteger", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getLiteralInteger_Value(), this.getInteger(), "value", null, 0, 1, LiteralInteger.class,
+		initEAttribute(getLiteralInteger_Value(), theEcorePackage.getEInt(), "value", null, 0, 1, LiteralInteger.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getLiteralInteger__GetTangibleChild(), theExecutionPackage.getExpression(), "getTangibleChild",
@@ -1354,8 +1363,9 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 
 		initEClass(literalDoubleEClass, LiteralDouble.class, "LiteralDouble", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getLiteralDouble_Value(), this.getDouble(), "value", "0.0", 0, 1, LiteralDouble.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLiteralDouble_Value(), theEcorePackage.getEDouble(), "value", "0.0", 0, 1,
+				LiteralDouble.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
 		initEClass(literalLongEClass, LiteralLong.class, "LiteralLong", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);

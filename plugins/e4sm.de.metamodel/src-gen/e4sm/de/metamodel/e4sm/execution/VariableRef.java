@@ -24,12 +24,12 @@ public interface VariableRef extends Expression {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Variable</em>' reference.
-	 * @see #setVariable(Variable)
+	 * @see #setVariable(ReferenceableItem)
 	 * @see e4sm.de.metamodel.e4sm.execution.ExecutionPackage#getVariableRef_Variable()
 	 * @model required="true"
 	 * @generated
 	 */
-	Variable getVariable();
+	ReferenceableItem getVariable();
 
 	/**
 	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.execution.VariableRef#getVariable <em>Variable</em>}' reference.
@@ -39,7 +39,7 @@ public interface VariableRef extends Expression {
 	 * @see #getVariable()
 	 * @generated
 	 */
-	void setVariable(Variable value);
+	void setVariable(ReferenceableItem value);
 
 	/**
 	 * <!-- begin-user-doc -->

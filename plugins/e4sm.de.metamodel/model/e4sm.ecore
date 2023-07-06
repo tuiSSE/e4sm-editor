@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="e4sm" nsURI="http://de.tu-ilmenau/e4sm/1.0.0" nsPrefix="e4sm">
-  <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore"/>
   <eClassifiers xsi:type="ecore:EClass" name="Component" eSuperTypes="core.ecore#//NamedElement analysis.ecore#//ParameterizableElement execution.ecore#//DelayableElement core.ecore#//DocumentableElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Generic component, which should be used to temporally specify an element before deciding how it will be realised.&#xD;&#xA;&#xD;&#xA;Constraints:&#xD;&#xA;- C1: no loops allowed between the component container (Package) and component &quot;specifiedInPackage&quot;&#xD;&#xA;- C2: components->size()>0, then specifiedInPackage=null - If the component contains other components, it can't be specified in a package."/>
@@ -45,7 +44,7 @@
       <details key="documentation" value="A software component which returns results based on a machine learning method estimate (e.g. classification...)"/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Connector" eSuperTypes="analysis.ecore#//ParameterizableElement core.ecore#//NamedElement core.ecore#//DocumentableElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Connector" eSuperTypes="analysis.ecore#//ParameterizableElement core.ecore#//NamedElement core.ecore#//DocumentableElement execution.ecore#//DelayableElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A connector connects one source to one target component.&#xD;&#xA;Constraints:&#xD;&#xA;- C1: A connector shall not connect two pins of the same component directly (loop/short circuit)"/>
     </eAnnotations>
@@ -138,19 +137,6 @@
         <details key="documentation" value="A list of components contained in this package"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="softwareComponents" upperBound="-1"
-        eType="#//SoftwareComponent" volatile="true" transient="true" derived="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="A subset of components only containing software components"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="physicalComponents" upperBound="-1"
-        eType="#//PhysicalComponent" changeable="false" volatile="true" transient="true"
-        derived="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="A subset of components only containing physical components"/>
-      </eAnnotations>
-    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="connectors" upperBound="-1"
         eType="#//Connector" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -182,6 +168,17 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="datastores" upperBound="-1"
         eType="#//DataStore" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="processingUnits" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"
+        defaultValueLiteral="-1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="When set to a value > 0, all components of this package share a thread pool with n threads. Components can only execute when they hold a token from the thread pool.&#xD;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="simulationDuration" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="How long this package should be simulated, in simulation units (e.g. Milliseconds)"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Model" eSuperTypes="core.ecore#//NamedElement analysis.ecore#//ParameterizableElement core.ecore#//DocumentableElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -223,6 +220,12 @@
         eType="#//Environment" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="classificationClasses"
         upperBound="-1" eType="#//ClassificationClass" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="securityThreatsDefinition"
+        eType="ecore:EClass security.ecore#//KnownSecurityThreats" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="securityThreatsImport"
+        upperBound="-1" eType="#//SecurityThreatsImport" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="securitySpecification"
+        eType="ecore:EClass security.ecore#//SecuritySpecification" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Actor" eSuperTypes="core.ecore#//NamedElement core.ecore#//DocumentableElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -321,6 +324,10 @@
         defaultValueLiteral="1"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputUncertainty" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="0.0"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tokenSpecification" eType="#//TokenSpecification"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputExpression" eType="ecore:EClass execution.ecore#//Expression"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Person" eSuperTypes="#//Human">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -438,31 +445,145 @@
     <eOperations name="getOutgoingConnectors" upperBound="-1" eType="#//Connector"/>
     <eOperations name="getIncomingConnectors" upperBound="-1" eType="#//Connector"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ClassificationComponent" eSuperTypes="#//MachineLearningComponent">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="classDetections" upperBound="-1"
-        eType="#//ClassDetection" containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ClassificationComponent" abstract="true"
+      eSuperTypes="#//MachineLearningComponent">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="environment" eType="#//Environment"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Environment" eSuperTypes="core.ecore#//NamedElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="EnvironmentC1"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="classificationClasses"
         upperBound="-1" eType="#//ClassificationClassDistribution" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ClassificationClass" eSuperTypes="core.ecore#//NamedElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ClassDetection">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="classificationClass" lowerBound="1"
-        eType="#//ClassificationClass"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="recall" eType="ecore:EDataType core.ecore#//Double"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="classPrecisions" upperBound="-1"
-        eType="#//ClassPrecision" containment="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ClassificationClassDistribution">
     <eStructuralFeatures xsi:type="ecore:EReference" name="classificationClass" lowerBound="1"
         eType="#//ClassificationClass"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="probability" lowerBound="1"
         eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ClassPrecision">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="classificationClass" lowerBound="1"
-        eType="#//ClassificationClass"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MulticlassConfusionMatrix" eSuperTypes="#//ConfusionMatrix">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="MulticlassConfusionMatrixC1"/>
+    </eAnnotations>
+    <eOperations name="getClasses" upperBound="-1" eType="#//ClassificationClass"/>
+    <eOperations name="getTP" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt">
+      <eParameters name="class" eType="#//ClassificationClass"/>
+    </eOperations>
+    <eOperations name="getFP" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt">
+      <eParameters name="class" eType="#//ClassificationClass"/>
+    </eOperations>
+    <eOperations name="getTN" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt">
+      <eParameters name="class" eType="#//ClassificationClass"/>
+    </eOperations>
+    <eOperations name="getFN" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt">
+      <eParameters name="class" eType="#//ClassificationClass"/>
+    </eOperations>
+    <eOperations name="computeBalancedAccuracy" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
+    <eOperations name="computeClassAccuracy" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble">
+      <eParameters name="class" eType="#//ClassificationClass"/>
+    </eOperations>
+    <eOperations name="computeClassRecall" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble">
+      <eParameters name="class" eType="#//ClassificationClass"/>
+    </eOperations>
+    <eOperations name="computeClassPrecision" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble">
+      <eParameters name="class" eType="#//ClassificationClass"/>
+    </eOperations>
+    <eOperations name="computeClassF1Score" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble">
+      <eParameters name="class" eType="#//ClassificationClass"/>
+    </eOperations>
+    <eOperations name="computeClassSpecificity" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble">
+      <eParameters name="class" eType="#//ClassificationClass"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entries" upperBound="-1"
+        eType="#//ConfusionMatrixEntry" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ConfusionMatrix"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ConfusionMatrixEntry">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType core.ecore#//Integer"
+        defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="predicted" lowerBound="1"
+        eType="#//ClassificationClass"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="truth" lowerBound="1" eType="#//ClassificationClass"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BinaryConfusionMatrix" eSuperTypes="#//ConfusionMatrix">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="BinaryConfusionMatrixC1 BinaryConfusionMatrixC2"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="If positive and negative classes are not provided: true | false is assumed.&#xD;&#xA;If only positive is provided, then positive | not positive is assumed.&#xD;&#xA;If both are provided, they must not be equal."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tp" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"
+        defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tn" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"
+        defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fp" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"
+        defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fn" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"
+        defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="positiveClass" eType="#//ClassificationClass"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="negativeClass" eType="#//ClassificationClass"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BinaryClassificationComponent" eSuperTypes="#//ClassificationComponent">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="confusionMatrixes" upperBound="-1"
+        eType="#//BinaryConfusionMatrix" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MulticlassClassificationComponent" eSuperTypes="#//ClassificationComponent">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="confusionMatrixes" upperBound="-1"
+        eType="#//MulticlassConfusionMatrix" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConfusionMatrix" abstract="true" eSuperTypes="core.ecore#//NamedElement">
+    <eOperations name="computeAccuracy" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
+    <eOperations name="computeRecall" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
+    <eOperations name="computePrecision" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
+    <eOperations name="computeF1Score" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
+    <eOperations name="getHighestValue" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
+    <eOperations name="computeSpecificity" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TokenSpecification">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inputSize" upperBound="-1"
+        eType="#//DataSize" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="collectSize" eType="#//SizeComputation"
+        defaultValueLiteral="SUM"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="ecore:EClass core.ecore#//TypeSpecification"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataSize" abstract="true" eSuperTypes="core.ecore#//NamedElement">
+    <eOperations name="getSize" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StaticSize" eSuperTypes="#//DataSize">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The input received by this input pin is static and always has the same value (is practically a parameter)"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Set" eSuperTypes="#//DataSize">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The possible inputs are limited to a finite set of values"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="values" upperBound="-1"
+        eType="#//SetValue" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SetValue" eSuperTypes="core.ecore#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="probability" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DynamicRange" eSuperTypes="#//DataSize">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The value of the input can change between the given minimum and maximum (or infinity, if empty)"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="min" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"
+        defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="max" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"
+        defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sizeFactor" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="SizeComputation">
+    <eLiterals name="SUM"/>
+    <eLiterals name="MULTIPLY" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SecurityThreatsImport">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="securityThreat" lowerBound="1"
+        eType="ecore:EClass security.ecore#//KnownSecurityThreats"/>
+  </eClassifiers>
 </ecore:EPackage>

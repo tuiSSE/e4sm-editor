@@ -7,6 +7,8 @@ import e4sm.de.metamodel.e4sm.core.DocumentableElement;
 import e4sm.de.metamodel.e4sm.core.NamedElement;
 import e4sm.de.metamodel.e4sm.core.TypeSpecification;
 import e4sm.de.metamodel.e4sm.core.Variant;
+import e4sm.de.metamodel.e4sm.security.KnownSecurityThreats;
+import e4sm.de.metamodel.e4sm.security.SecuritySpecification;
 import java.util.Map;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
@@ -30,6 +32,11 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link e4sm.de.metamodel.e4sm.Model#getVariants <em>Variants</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Model#getTypes <em>Types</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Model#getImports <em>Imports</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.Model#getEnvironments <em>Environments</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.Model#getClassificationClasses <em>Classification Classes</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.Model#getSecurityThreatsDefinition <em>Security Threats Definition</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.Model#getSecurityThreatsImport <em>Security Threats Import</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.Model#getSecuritySpecification <em>Security Specification</em>}</li>
  * </ul>
  *
  * @see e4sm.de.metamodel.e4sm.e4smPackage#getModel()
@@ -127,6 +134,86 @@ public interface Model extends NamedElement, ParameterizableElement, Documentabl
 	 * @generated
 	 */
 	EList<Import> getImports();
+
+	/**
+	 * Returns the value of the '<em><b>Environments</b></em>' containment reference list.
+	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.Environment}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Environments</em>' containment reference list.
+	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getModel_Environments()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Environment> getEnvironments();
+
+	/**
+	 * Returns the value of the '<em><b>Classification Classes</b></em>' containment reference list.
+	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.ClassificationClass}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Classification Classes</em>' containment reference list.
+	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getModel_ClassificationClasses()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<ClassificationClass> getClassificationClasses();
+
+	/**
+	 * Returns the value of the '<em><b>Security Threats Definition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Security Threats Definition</em>' containment reference.
+	 * @see #setSecurityThreatsDefinition(KnownSecurityThreats)
+	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getModel_SecurityThreatsDefinition()
+	 * @model containment="true"
+	 * @generated
+	 */
+	KnownSecurityThreats getSecurityThreatsDefinition();
+
+	/**
+	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.Model#getSecurityThreatsDefinition <em>Security Threats Definition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Security Threats Definition</em>' containment reference.
+	 * @see #getSecurityThreatsDefinition()
+	 * @generated
+	 */
+	void setSecurityThreatsDefinition(KnownSecurityThreats value);
+
+	/**
+	 * Returns the value of the '<em><b>Security Threats Import</b></em>' containment reference list.
+	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.SecurityThreatsImport}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Security Threats Import</em>' containment reference list.
+	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getModel_SecurityThreatsImport()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<SecurityThreatsImport> getSecurityThreatsImport();
+
+	/**
+	 * Returns the value of the '<em><b>Security Specification</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Security Specification</em>' containment reference.
+	 * @see #setSecuritySpecification(SecuritySpecification)
+	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getModel_SecuritySpecification()
+	 * @model containment="true"
+	 * @generated
+	 */
+	SecuritySpecification getSecuritySpecification();
+
+	/**
+	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.Model#getSecuritySpecification <em>Security Specification</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Security Specification</em>' containment reference.
+	 * @see #getSecuritySpecification()
+	 * @generated
+	 */
+	void setSecuritySpecification(SecuritySpecification value);
 
 	/**
 	 * <!-- begin-user-doc -->

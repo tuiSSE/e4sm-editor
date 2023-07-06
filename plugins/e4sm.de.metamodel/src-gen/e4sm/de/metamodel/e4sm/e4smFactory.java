@@ -292,6 +292,132 @@ public interface e4smFactory extends EFactory {
 	DataStore createDataStore();
 
 	/**
+	 * Returns a new object of class '<em>Environment</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Environment</em>'.
+	 * @generated
+	 */
+	Environment createEnvironment();
+
+	/**
+	 * Returns a new object of class '<em>Classification Class</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Classification Class</em>'.
+	 * @generated
+	 */
+	ClassificationClass createClassificationClass();
+
+	/**
+	 * Returns a new object of class '<em>Classification Class Distribution</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Classification Class Distribution</em>'.
+	 * @generated
+	 */
+	ClassificationClassDistribution createClassificationClassDistribution();
+
+	/**
+	 * Returns a new object of class '<em>Multiclass Confusion Matrix</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Multiclass Confusion Matrix</em>'.
+	 * @generated
+	 */
+	MulticlassConfusionMatrix createMulticlassConfusionMatrix();
+
+	/**
+	 * Returns a new object of class '<em>Confusion Matrix Entry</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Confusion Matrix Entry</em>'.
+	 * @generated
+	 */
+	ConfusionMatrixEntry createConfusionMatrixEntry();
+
+	/**
+	 * Returns a new object of class '<em>Binary Confusion Matrix</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Binary Confusion Matrix</em>'.
+	 * @generated
+	 */
+	BinaryConfusionMatrix createBinaryConfusionMatrix();
+
+	/**
+	 * Returns a new object of class '<em>Binary Classification Component</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Binary Classification Component</em>'.
+	 * @generated
+	 */
+	BinaryClassificationComponent createBinaryClassificationComponent();
+
+	/**
+	 * Returns a new object of class '<em>Multiclass Classification Component</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Multiclass Classification Component</em>'.
+	 * @generated
+	 */
+	MulticlassClassificationComponent createMulticlassClassificationComponent();
+
+	/**
+	 * Returns a new object of class '<em>Token Specification</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Token Specification</em>'.
+	 * @generated
+	 */
+	TokenSpecification createTokenSpecification();
+
+	/**
+	 * Returns a new object of class '<em>Static Size</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Static Size</em>'.
+	 * @generated
+	 */
+	StaticSize createStaticSize();
+
+	/**
+	 * Returns a new object of class '<em>Set</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Set</em>'.
+	 * @generated
+	 */
+	Set createSet();
+
+	/**
+	 * Returns a new object of class '<em>Set Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Set Value</em>'.
+	 * @generated
+	 */
+	SetValue createSetValue();
+
+	/**
+	 * Returns a new object of class '<em>Dynamic Range</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Dynamic Range</em>'.
+	 * @generated
+	 */
+	DynamicRange createDynamicRange();
+
+	/**
+	 * Returns a new object of class '<em>Security Threats Import</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Security Threats Import</em>'.
+	 * @generated
+	 */
+	SecurityThreatsImport createSecurityThreatsImport();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

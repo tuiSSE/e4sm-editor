@@ -4,6 +4,7 @@ package e4sm.de.metamodel.e4sm.analysis.util;
 
 import e4sm.de.metamodel.e4sm.analysis.*;
 
+import e4sm.de.metamodel.e4sm.core.DocumentableElement;
 import e4sm.de.metamodel.e4sm.core.Element;
 import e4sm.de.metamodel.e4sm.core.NamedElement;
 import e4sm.de.metamodel.e4sm.core.TypedElement;
@@ -142,6 +143,11 @@ public class AnalysisAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseNamedElement(NamedElement object) {
 			return createNamedElementAdapter();
+		}
+
+		@Override
+		public Adapter caseDocumentableElement(DocumentableElement object) {
+			return createDocumentableElementAdapter();
 		}
 
 		@Override
@@ -375,6 +381,20 @@ public class AnalysisAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNamedElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link e4sm.de.metamodel.e4sm.core.DocumentableElement <em>Documentable Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see e4sm.de.metamodel.e4sm.core.DocumentableElement
+	 * @generated
+	 */
+	public Adapter createDocumentableElementAdapter() {
 		return null;
 	}
 

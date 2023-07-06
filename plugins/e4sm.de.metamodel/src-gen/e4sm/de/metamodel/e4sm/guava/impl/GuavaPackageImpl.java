@@ -32,6 +32,8 @@ import e4sm.de.metamodel.e4sm.guava.GuavaFactory;
 import e4sm.de.metamodel.e4sm.guava.GuavaPackage;
 
 import e4sm.de.metamodel.e4sm.impl.e4smPackageImpl;
+import e4sm.de.metamodel.e4sm.security.SecurityPackage;
+import e4sm.de.metamodel.e4sm.security.impl.SecurityPackageImpl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
@@ -176,6 +178,14 @@ public class GuavaPackageImpl extends EPackageImpl implements GuavaPackage {
 		e4smPackageImpl thee4smPackage = (e4smPackageImpl) (registeredPackage instanceof e4smPackageImpl
 				? registeredPackage
 				: e4smPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ResultsPackage.eNS_URI);
+		ResultsPackageImpl theResultsPackage = (ResultsPackageImpl) (registeredPackage instanceof ResultsPackageImpl
+				? registeredPackage
+				: ResultsPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(AnalysisPackage.eNS_URI);
+		AnalysisPackageImpl theAnalysisPackage = (AnalysisPackageImpl) (registeredPackage instanceof AnalysisPackageImpl
+				? registeredPackage
+				: AnalysisPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
 		CorePackageImpl theCorePackage = (CorePackageImpl) (registeredPackage instanceof CorePackageImpl
 				? registeredPackage
@@ -184,30 +194,28 @@ public class GuavaPackageImpl extends EPackageImpl implements GuavaPackage {
 		ExecutionPackageImpl theExecutionPackage = (ExecutionPackageImpl) (registeredPackage instanceof ExecutionPackageImpl
 				? registeredPackage
 				: ExecutionPackage.eINSTANCE);
-		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(AnalysisPackage.eNS_URI);
-		AnalysisPackageImpl theAnalysisPackage = (AnalysisPackageImpl) (registeredPackage instanceof AnalysisPackageImpl
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(SecurityPackage.eNS_URI);
+		SecurityPackageImpl theSecurityPackage = (SecurityPackageImpl) (registeredPackage instanceof SecurityPackageImpl
 				? registeredPackage
-				: AnalysisPackage.eINSTANCE);
-		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ResultsPackage.eNS_URI);
-		ResultsPackageImpl theResultsPackage = (ResultsPackageImpl) (registeredPackage instanceof ResultsPackageImpl
-				? registeredPackage
-				: ResultsPackage.eINSTANCE);
+				: SecurityPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theGuavaPackage.createPackageContents();
 		thee4smPackage.createPackageContents();
+		theResultsPackage.createPackageContents();
+		theAnalysisPackage.createPackageContents();
 		theCorePackage.createPackageContents();
 		theExecutionPackage.createPackageContents();
-		theAnalysisPackage.createPackageContents();
-		theResultsPackage.createPackageContents();
+		theSecurityPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theGuavaPackage.initializePackageContents();
 		thee4smPackage.initializePackageContents();
+		theResultsPackage.initializePackageContents();
+		theAnalysisPackage.initializePackageContents();
 		theCorePackage.initializePackageContents();
 		theExecutionPackage.initializePackageContents();
-		theAnalysisPackage.initializePackageContents();
-		theResultsPackage.initializePackageContents();
+		theSecurityPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theGuavaPackage.freeze();

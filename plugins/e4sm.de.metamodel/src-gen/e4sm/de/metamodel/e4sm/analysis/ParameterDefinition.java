@@ -2,6 +2,7 @@
  */
 package e4sm.de.metamodel.e4sm.analysis;
 
+import e4sm.de.metamodel.e4sm.core.DocumentableElement;
 import e4sm.de.metamodel.e4sm.core.TypedElement;
 import e4sm.de.metamodel.e4sm.core.UnitOfMeasurement;
 import e4sm.de.metamodel.e4sm.core.ValueSpecification;
@@ -30,7 +31,7 @@ import org.eclipse.emf.ecore.EClass;
  * @model
  * @generated
  */
-public interface ParameterDefinition extends TypedElement {
+public interface ParameterDefinition extends TypedElement, DocumentableElement {
 	/**
 	 * Returns the value of the '<em><b>Parameters</b></em>' reference list.
 	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.analysis.Parameter}.

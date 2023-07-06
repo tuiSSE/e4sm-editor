@@ -763,6 +763,328 @@ public class e4smItemProviderAdapterFactory extends e4smAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.Environment} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EnvironmentItemProvider environmentItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.Environment}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEnvironmentAdapter() {
+		if (environmentItemProvider == null) {
+			environmentItemProvider = new EnvironmentItemProvider(this);
+		}
+
+		return environmentItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.ClassificationClass} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ClassificationClassItemProvider classificationClassItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.ClassificationClass}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createClassificationClassAdapter() {
+		if (classificationClassItemProvider == null) {
+			classificationClassItemProvider = new ClassificationClassItemProvider(this);
+		}
+
+		return classificationClassItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.ClassificationClassDistribution} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ClassificationClassDistributionItemProvider classificationClassDistributionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.ClassificationClassDistribution}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createClassificationClassDistributionAdapter() {
+		if (classificationClassDistributionItemProvider == null) {
+			classificationClassDistributionItemProvider = new ClassificationClassDistributionItemProvider(this);
+		}
+
+		return classificationClassDistributionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.MulticlassConfusionMatrix} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MulticlassConfusionMatrixItemProvider multiclassConfusionMatrixItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.MulticlassConfusionMatrix}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMulticlassConfusionMatrixAdapter() {
+		if (multiclassConfusionMatrixItemProvider == null) {
+			multiclassConfusionMatrixItemProvider = new MulticlassConfusionMatrixItemProvider(this);
+		}
+
+		return multiclassConfusionMatrixItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.ConfusionMatrixEntry} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ConfusionMatrixEntryItemProvider confusionMatrixEntryItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.ConfusionMatrixEntry}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createConfusionMatrixEntryAdapter() {
+		if (confusionMatrixEntryItemProvider == null) {
+			confusionMatrixEntryItemProvider = new ConfusionMatrixEntryItemProvider(this);
+		}
+
+		return confusionMatrixEntryItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.BinaryConfusionMatrix} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BinaryConfusionMatrixItemProvider binaryConfusionMatrixItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.BinaryConfusionMatrix}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBinaryConfusionMatrixAdapter() {
+		if (binaryConfusionMatrixItemProvider == null) {
+			binaryConfusionMatrixItemProvider = new BinaryConfusionMatrixItemProvider(this);
+		}
+
+		return binaryConfusionMatrixItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.BinaryClassificationComponent} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BinaryClassificationComponentItemProvider binaryClassificationComponentItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.BinaryClassificationComponent}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBinaryClassificationComponentAdapter() {
+		if (binaryClassificationComponentItemProvider == null) {
+			binaryClassificationComponentItemProvider = new BinaryClassificationComponentItemProvider(this);
+		}
+
+		return binaryClassificationComponentItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.MulticlassClassificationComponent} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MulticlassClassificationComponentItemProvider multiclassClassificationComponentItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.MulticlassClassificationComponent}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMulticlassClassificationComponentAdapter() {
+		if (multiclassClassificationComponentItemProvider == null) {
+			multiclassClassificationComponentItemProvider = new MulticlassClassificationComponentItemProvider(this);
+		}
+
+		return multiclassClassificationComponentItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.TokenSpecification} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TokenSpecificationItemProvider tokenSpecificationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.TokenSpecification}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTokenSpecificationAdapter() {
+		if (tokenSpecificationItemProvider == null) {
+			tokenSpecificationItemProvider = new TokenSpecificationItemProvider(this);
+		}
+
+		return tokenSpecificationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.StaticSize} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StaticSizeItemProvider staticSizeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.StaticSize}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStaticSizeAdapter() {
+		if (staticSizeItemProvider == null) {
+			staticSizeItemProvider = new StaticSizeItemProvider(this);
+		}
+
+		return staticSizeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.Set} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SetItemProvider setItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.Set}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSetAdapter() {
+		if (setItemProvider == null) {
+			setItemProvider = new SetItemProvider(this);
+		}
+
+		return setItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.SetValue} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SetValueItemProvider setValueItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.SetValue}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSetValueAdapter() {
+		if (setValueItemProvider == null) {
+			setValueItemProvider = new SetValueItemProvider(this);
+		}
+
+		return setValueItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.DynamicRange} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DynamicRangeItemProvider dynamicRangeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.DynamicRange}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDynamicRangeAdapter() {
+		if (dynamicRangeItemProvider == null) {
+			dynamicRangeItemProvider = new DynamicRangeItemProvider(this);
+		}
+
+		return dynamicRangeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.SecurityThreatsImport} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SecurityThreatsImportItemProvider securityThreatsImportItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.SecurityThreatsImport}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSecurityThreatsImportAdapter() {
+		if (securityThreatsImportItemProvider == null) {
+			securityThreatsImportItemProvider = new SecurityThreatsImportItemProvider(this);
+		}
+
+		return securityThreatsImportItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -927,6 +1249,34 @@ public class e4smItemProviderAdapterFactory extends e4smAdapterFactory
 			importItemProvider.dispose();
 		if (dataStoreItemProvider != null)
 			dataStoreItemProvider.dispose();
+		if (environmentItemProvider != null)
+			environmentItemProvider.dispose();
+		if (classificationClassItemProvider != null)
+			classificationClassItemProvider.dispose();
+		if (classificationClassDistributionItemProvider != null)
+			classificationClassDistributionItemProvider.dispose();
+		if (multiclassConfusionMatrixItemProvider != null)
+			multiclassConfusionMatrixItemProvider.dispose();
+		if (confusionMatrixEntryItemProvider != null)
+			confusionMatrixEntryItemProvider.dispose();
+		if (binaryConfusionMatrixItemProvider != null)
+			binaryConfusionMatrixItemProvider.dispose();
+		if (binaryClassificationComponentItemProvider != null)
+			binaryClassificationComponentItemProvider.dispose();
+		if (multiclassClassificationComponentItemProvider != null)
+			multiclassClassificationComponentItemProvider.dispose();
+		if (tokenSpecificationItemProvider != null)
+			tokenSpecificationItemProvider.dispose();
+		if (staticSizeItemProvider != null)
+			staticSizeItemProvider.dispose();
+		if (setItemProvider != null)
+			setItemProvider.dispose();
+		if (setValueItemProvider != null)
+			setValueItemProvider.dispose();
+		if (dynamicRangeItemProvider != null)
+			dynamicRangeItemProvider.dispose();
+		if (securityThreatsImportItemProvider != null)
+			securityThreatsImportItemProvider.dispose();
 	}
 
 }

@@ -394,6 +394,98 @@ public class ExecutionItemProviderAdapterFactory extends ExecutionAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.execution.InputPinReference} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected InputPinReferenceItemProvider inputPinReferenceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.execution.InputPinReference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createInputPinReferenceAdapter() {
+		if (inputPinReferenceItemProvider == null) {
+			inputPinReferenceItemProvider = new InputPinReferenceItemProvider(this);
+		}
+
+		return inputPinReferenceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.execution.InputPinAttributeReference} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected InputPinAttributeReferenceItemProvider inputPinAttributeReferenceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.execution.InputPinAttributeReference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createInputPinAttributeReferenceAdapter() {
+		if (inputPinAttributeReferenceItemProvider == null) {
+			inputPinAttributeReferenceItemProvider = new InputPinAttributeReferenceItemProvider(this);
+		}
+
+		return inputPinAttributeReferenceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.execution.ParameterReference} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ParameterReferenceItemProvider parameterReferenceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.execution.ParameterReference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createParameterReferenceAdapter() {
+		if (parameterReferenceItemProvider == null) {
+			parameterReferenceItemProvider = new ParameterReferenceItemProvider(this);
+		}
+
+		return parameterReferenceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link e4sm.de.metamodel.e4sm.execution.Exponentiation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ExponentiationItemProvider exponentiationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link e4sm.de.metamodel.e4sm.execution.Exponentiation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createExponentiationAdapter() {
+		if (exponentiationItemProvider == null) {
+			exponentiationItemProvider = new ExponentiationItemProvider(this);
+		}
+
+		return exponentiationItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

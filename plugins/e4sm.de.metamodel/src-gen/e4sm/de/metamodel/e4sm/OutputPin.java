@@ -3,6 +3,7 @@
 package e4sm.de.metamodel.e4sm;
 
 import e4sm.de.metamodel.e4sm.execution.AssignableElement;
+import e4sm.de.metamodel.e4sm.execution.Expression;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,6 +20,8 @@ import e4sm.de.metamodel.e4sm.execution.AssignableElement;
  * <ul>
  *   <li>{@link e4sm.de.metamodel.e4sm.OutputPin#getAmplify <em>Amplify</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.OutputPin#getOutputUncertainty <em>Output Uncertainty</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.OutputPin#getTokenSpecification <em>Token Specification</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.OutputPin#getOutputExpression <em>Output Expression</em>}</li>
  * </ul>
  *
  * @see e4sm.de.metamodel.e4sm.e4smPackage#getOutputPin()
@@ -72,6 +75,50 @@ public interface OutputPin extends Pin, AssignableElement {
 	 * @generated
 	 */
 	void setOutputUncertainty(double value);
+
+	/**
+	 * Returns the value of the '<em><b>Token Specification</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Token Specification</em>' containment reference.
+	 * @see #setTokenSpecification(TokenSpecification)
+	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getOutputPin_TokenSpecification()
+	 * @model containment="true"
+	 * @generated
+	 */
+	TokenSpecification getTokenSpecification();
+
+	/**
+	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.OutputPin#getTokenSpecification <em>Token Specification</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Token Specification</em>' containment reference.
+	 * @see #getTokenSpecification()
+	 * @generated
+	 */
+	void setTokenSpecification(TokenSpecification value);
+
+	/**
+	 * Returns the value of the '<em><b>Output Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Output Expression</em>' containment reference.
+	 * @see #setOutputExpression(Expression)
+	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getOutputPin_OutputExpression()
+	 * @model containment="true"
+	 * @generated
+	 */
+	Expression getOutputExpression();
+
+	/**
+	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.OutputPin#getOutputExpression <em>Output Expression</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Output Expression</em>' containment reference.
+	 * @see #getOutputExpression()
+	 * @generated
+	 */
+	void setOutputExpression(Expression value);
 
 	/**
 	 * <!-- begin-user-doc -->

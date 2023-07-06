@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<analysis:AnalysisDefinition xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:analysis="http://de.tu-ilmenau/e4sm/analysis/1.0.0" name="pipeline_def">
+  <parameterDefinitions name="canny_aperture">
+    <canBeDefinedOn href="http://de.tu-ilmenau/e4sm/1.0.0#//Function"/>
+  </parameterDefinitions>
+</analysis:AnalysisDefinition>

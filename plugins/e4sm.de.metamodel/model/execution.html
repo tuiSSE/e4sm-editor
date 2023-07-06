@@ -1,0 +1,702 @@
+<!-- This file was created using the HTML documentation generator. -->
+<!-- Creation date: Thu Jan 26 17:10:16 CET 2023-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+      	<title>Metamodel Documentation (platform:/resource/e4sm.de.metamodel/model/execution.ecore)</title>
+    	<script type="text/javascript">
+//<![CDATA[				    	
+// TOC script based on code taken from http://www.quirksmode.org/dom/toc.html
+function makeTOC() {
+	
+	var toc = document.createElement('div')				
+	toc.id = "toc";
+	toc.innerHTML = "Table of Contents"				
+	document.body.appendChild(toc);
+				
+	var innertocDiv = createTOC()				
+	toc.appendChild(innertocDiv);
+}
+
+
+function createTOC() {
+	var y = document.createElement('div');
+	y.id = 'innertoc';
+	//var a = y.appendChild(document.createElement('span'));
+	//a.onclick = showhideTOC;
+	//a.id = 'contentheader';
+	//a.innerHTML = 'Show Table of Contents';
+	var z = y.appendChild(document.createElement('div'));
+	//z.onclick = showhideTOC;
+	var toBeTOCced = getElementsByTagNames('h1,h2,h3');
+	if (toBeTOCced.length < 2) return false;
+	var hCount = 0;
+	var hhCount = 0;
+	var hhhCount = 0;
+	for (var i=0;i<toBeTOCced.length;i++) {
+	var tmp = document.createElement('a');
+	tmp.className = 'page';
+	var text;
+	var textPre;
+	if (toBeTOCced[i].nodeName == 'h2'){
+		tmp.className += ' indent';
+		textPre = hCount + "."+ ++hhCount + ". "; 
+	}
+	else if (toBeTOCced[i].nodeName == 'h3'){
+		tmp.className += ' extraindent';
+		textPre = hCount + "."+ hhCount + "."+ ++hhhCount +". "; 
+	}
+	else {
+		textPre = ++hCount + ". "; 
+		hhCount = 0;
+		hhhCount = 0;
+	}
+	text = textPre + toBeTOCced[i].textContent;
+	toBeTOCced[i].innerHTML = textPre + toBeTOCced[i].innerHTML;
+	
+	tmp.innerHTML = text; 
+	z.appendChild(tmp);
+	var headerId = toBeTOCced[i].id || 'link' + i;
+	tmp.href = '#' + headerId;
+	toBeTOCced[i].id = headerId;
+	}
+	return y;
+}
+
+function getElementsByTagNames(list,obj) {
+	if (!obj) var obj = document;
+	var tagNames = list.split(',');
+	var resultArray = new Array();
+	for (var i=0;i<tagNames.length;i++) {
+		var tags = obj.getElementsByTagName(tagNames[i]);
+		for (var j=0;j<tags.length;j++) {
+			resultArray.push(tags[j]);
+		}
+	}
+	var testNode = resultArray[0];
+	if (!testNode) return [];
+	if (testNode.sourceIndex) {
+		resultArray.sort(function (a,b) {
+				return a.sourceIndex - b.sourceIndex;
+		});
+	}
+	else if (testNode.compareDocumentPosition) {
+		resultArray.sort(function (a,b) {
+				return 3 - (a.compareDocumentPosition(b) & 6);
+		});
+	}
+	return resultArray;
+}
+	    	
+//]]>				    	
+	    	</script>
+	    	<link rel="stylesheet" type="text/css" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" /> 
+	    	<style>
+#toc {
+	position: fixed;
+	  right: 0;
+	  top: 0;
+	  background-color:#eee;
+	  overflow: scroll;
+	  border: 1px dashed;
+}
+
+#toc #innertoc { 
+	display: none;
+	height: 500px;
+} /* Hide the full TOC by default */
+
+#toc:hover #innertoc{
+	display: block; /* Show it on hover */
+}
+	td {
+	border: 1px solid;
+	}
+	.page{
+	display:table-row;
+	}
+	.indent {
+	text-indent:12pt;
+	}
+	.extraindent {
+	text-indent:14pt;
+	}
+
+	    	</style>
+	    	<link rel="stylesheet" type="text/css" href="style.css" />
+	</head>
+	<body onload="makeTOC();">
+<h1 id="execution"><a href="#execution"><span class="packageName">execution</span> package</a></h1>
+
+<div class="">EPackage properties:</div>
+<div class="keyValue"><span class="label">Namespace Prefix: </span><span class="teletype">execution</span></div>
+<div class="keyValue"><span class="label">Namespace URI: </span><span class="teletype">http://de.tu-ilmenau/e4sm/execution/1.0.0</span></div>
+<h2 id="executionAddition"><a href="#executionAddition"><a href="#executionAddition">Addition</a></a></h2>
+
+<h4><b>Supertype:</b><a href="#executionBinaryExpression">BinaryExpression</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Attributes</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="executionAddition.addition" class="teletype">addition</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"></span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="keyValue"><span class="label">Default: </span><span class="teletype">false</span></div>
+ </td> <td></td>
+		</tr><tr>	<td><div id="executionAddition.subtraction" class="teletype">subtraction</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"></span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="keyValue"><span class="label">Default: </span><span class="teletype">false</span></div>
+ </td> <td></td>
+		</tr></table>
+<a href="#execution.Addition.attr"></a>
+<table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Operations</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="executionAddition.isRealOperation" class="teletype">isRealOperation</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"></span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="label">Returns:</div>
+[0..1]
+ </td><td> </td>
+		</tr></table>
+<a href="#execution.Addition.op"></a>
+<h2 id="executionAssignableElement"><a href="#executionAssignableElement"><a href="#executionAssignableElement">AssignableElement</a></a></h2>
+
+<div class="eclassProps">EClass properties:<div class="eclassPropList"><span class="label">Interface</span>, <span class="label">Abstract</span></div></div><h2 id="executionAssignableElementReference"><a href="#executionAssignableElementReference"><a href="#executionAssignableElementReference">AssignableElementReference</a></a></h2>
+
+<table>
+<tr>
+	<th colspan="3"><div class="tableHeader">References</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="executionAssignableElementReference.ref" class="teletype">ref</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#executionAssignableElement">AssignableElement</a></span></div>
+<div class="label">Cardinality: [1..1]</div>
+</td> 
+<td> </td>
+		</tr></table>
+<a href="#execution.AssignableElementReference.ref"></a>
+<h2 id="executionAssignment"><a href="#executionAssignment"><a href="#executionAssignment">Assignment</a></a></h2>
+
+<h4><b>Supertype:</b><a href="#executionExecutionElement">ExecutionElement</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">References</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="executionAssignment.expression" class="teletype">expression</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#executionExpression">Expression</a></span></div>
+<div class="label">Cardinality: [1..1]</div>
+<div class="label">Containment</div>
+</td> 
+<td> </td>
+		</tr><tr>	<td><div id="executionAssignment.target" class="teletype">target</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#executionAssignableElementReference">AssignableElementReference</a></span></div>
+<div class="label">Cardinality: [1..1]</div>
+<div class="label">Containment</div>
+</td> 
+<td> </td>
+		</tr></table>
+<a href="#execution.Assignment.ref"></a>
+<h2 id="executionBinaryExpression"><a href="#executionBinaryExpression"><a href="#executionBinaryExpression">BinaryExpression</a></a></h2>
+
+<div class="eclassProps">EClass properties:<div class="eclassPropList"><span class="label">Abstract</span></div></div><h4><b>Supertype:</b><a href="#executionExpression">Expression</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">References</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="executionBinaryExpression.left" class="teletype">left</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#executionExpression">Expression</a></span></div>
+<div class="label">Cardinality: [1..1]</div>
+<div class="label">Containment</div>
+</td> 
+<td> </td>
+		</tr><tr>	<td><div id="executionBinaryExpression.right" class="teletype">right</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#executionExpression">Expression</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="label">Containment</div>
+</td> 
+<td> </td>
+		</tr></table>
+<a href="#execution.BinaryExpression.ref"></a>
+<table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Operations</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="executionBinaryExpression.getActualParent" class="teletype">getActualParent</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#executionExecutionElement">ExecutionElement</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="label">Returns:</div>
+<a href="#executionExecutionElement">ExecutionElement</a>[0..1]
+ </td><td> </td>
+		</tr><tr>	<td><div id="executionBinaryExpression.getTangibleChild" class="teletype">getTangibleChild</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#executionExpression">Expression</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="label">Returns:</div>
+<a href="#executionExpression">Expression</a>[0..1]
+ </td><td> </td>
+		</tr><tr>	<td><div id="executionBinaryExpression.isRealOperation" class="teletype">isRealOperation</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"></span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="label">Returns:</div>
+[0..1]
+ </td><td> </td>
+		</tr></table>
+<a href="#execution.BinaryExpression.op"></a>
+<h2 id="executionConnectableNode"><a href="#executionConnectableNode"><a href="#executionConnectableNode">ConnectableNode</a></a></h2>
+
+<div class="eclassProps">EClass properties:<div class="eclassPropList"><span class="label">Interface</span>, <span class="label">Abstract</span></div></div><h4><b>Supertype:</b><a href="#executionExecutionElement">ExecutionElement</a></h4><h2 id="executionConst"><a href="#executionConst"><a href="#executionConst">Const</a></a></h2>
+
+<h4><b>Supertypes:</b><a href="#executionExecutionElement">ExecutionElement</a>, <a href="#coreNamedElement">NamedElement</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">References</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="executionConst.expression" class="teletype">expression</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#executionExpression">Expression</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="label">Containment</div>
+</td> 
+<td> </td>
+		</tr></table>
+<a href="#execution.Const.ref"></a>
+<h2 id="executionDecisionNode"><a href="#executionDecisionNode"><a href="#executionDecisionNode">DecisionNode</a></a></h2>
+
+<h4><b>Supertype:</b><a href="#executionConnectableNode">ConnectableNode</a></h4><h2 id="executionDelayableElement"><a href="#executionDelayableElement"><a href="#executionDelayableElement">DelayableElement</a></a></h2>
+
+<div class="eclassProps">EClass properties:<div class="eclassPropList"><span class="label">Interface</span>, <span class="label">Abstract</span></div></div><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">References</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="executionDelayableElement.timeFunction" class="teletype">timeFunction</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#executionTimeFunction">TimeFunction</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="label">Containment</div>
+</td> 
+<td> </td>
+		</tr></table>
+<a href="#execution.DelayableElement.ref"></a>
+<h2 id="executionExecution"><a href="#executionExecution"><a href="#executionExecution">Execution</a></a></h2>
+
+<table>
+<tr>
+	<th colspan="3"><div class="tableHeader">References</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="executionExecution.elements" class="teletype">elements</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#executionExecutionElement">ExecutionElement</a></span></div>
+<div class="label">Cardinality: [0..*]</div>
+<div class="label">Containment</div>
+</td> 
+<td> </td>
+		</tr></table>
+<a href="#execution.Execution.ref"></a>
+<h2 id="executionExecutionElement"><a href="#executionExecutionElement"><a href="#executionExecutionElement">ExecutionElement</a></a></h2>
+
+<div class="eclassProps">EClass properties:<div class="eclassPropList"><span class="label">Abstract</span></div></div><h2 id="executionExpression"><a href="#executionExpression"><a href="#executionExpression">Expression</a></a></h2>
+
+<div class="eclassProps">EClass properties:<div class="eclassPropList"><span class="label">Abstract</span></div></div><h4><b>Supertype:</b><a href="#executionExecutionElement">ExecutionElement</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Operations</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="executionExpression.getActualParent" class="teletype">getActualParent</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#executionExecutionElement">ExecutionElement</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="label">Returns:</div>
+<a href="#executionExecutionElement">ExecutionElement</a>[0..1]
+ </td><td> </td>
+		</tr><tr>	<td><div id="executionExpression.getTangibleChild" class="teletype">getTangibleChild</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#executionExpression">Expression</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="label">Returns:</div>
+<a href="#executionExpression">Expression</a>[0..1]
+ </td><td> </td>
+		</tr></table>
+<a href="#execution.Expression.op"></a>
+<h2 id="executionFlow"><a href="#executionFlow"><a href="#executionFlow">Flow</a></a></h2>
+
+<h4><b>Supertypes:</b><a href="#executionDelayableElement">DelayableElement</a>, <a href="#executionExecutionElement">ExecutionElement</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">References</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="executionFlow.source" class="teletype">source</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#executionConnectableNode">ConnectableNode</a></span></div>
+<div class="label">Cardinality: [1..1]</div>
+</td> 
+<td> </td>
+		</tr><tr>	<td><div id="executionFlow.target" class="teletype">target</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#executionConnectableNode">ConnectableNode</a></span></div>
+<div class="label">Cardinality: [1..1]</div>
+</td> 
+<td> </td>
+		</tr></table>
+<a href="#execution.Flow.ref"></a>
+<h2 id="executionFlowFinal"><a href="#executionFlowFinal"><a href="#executionFlowFinal">FlowFinal</a></a></h2>
+
+<h4><b>Supertype:</b><a href="#executionConnectableNode">ConnectableNode</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">References</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="executionFlowFinal.source" class="teletype">source</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#executionConnectableNode">ConnectableNode</a></span></div>
+<div class="label">Cardinality: [1..1]</div>
+</td> 
+<td> </td>
+		</tr></table>
+<a href="#execution.FlowFinal.ref"></a>
+<h2 id="executionForkNode"><a href="#executionForkNode"><a href="#executionForkNode">ForkNode</a></a></h2>
+
+<h4><b>Supertypes:</b><a href="#executionConnectableNode">ConnectableNode</a>, <a href="#executionDelayableElement">DelayableElement</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">References</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="executionForkNode.source" class="teletype">source</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#executionConnectableNode">ConnectableNode</a></span></div>
+<div class="label">Cardinality: [1..1]</div>
+</td> 
+<td> </td>
+		</tr><tr>	<td><div id="executionForkNode.targets" class="teletype">targets</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#executionConnectableNode">ConnectableNode</a></span></div>
+<div class="label">Cardinality: [2..*]</div>
+</td> 
+<td> </td>
+		</tr></table>
+<a href="#execution.ForkNode.ref"></a>
+<h2 id="executionMergeNode"><a href="#executionMergeNode"><a href="#executionMergeNode">MergeNode</a></a></h2>
+
+<h4><b>Supertypes:</b><a href="#executionConnectableNode">ConnectableNode</a>, <a href="#executionDelayableElement">DelayableElement</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">References</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="executionMergeNode.sources" class="teletype">sources</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#executionConnectableNode">ConnectableNode</a></span></div>
+<div class="label">Cardinality: [2..*]</div>
+</td> 
+<td> </td>
+		</tr><tr>	<td><div id="executionMergeNode.target" class="teletype">target</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#executionConnectableNode">ConnectableNode</a></span></div>
+<div class="label">Cardinality: [1..1]</div>
+</td> 
+<td> </td>
+		</tr></table>
+<a href="#execution.MergeNode.ref"></a>
+<h2 id="executionMultiplication"><a href="#executionMultiplication"><a href="#executionMultiplication">Multiplication</a></a></h2>
+
+<h4><b>Supertype:</b><a href="#executionBinaryExpression">BinaryExpression</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Attributes</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="executionMultiplication.division" class="teletype">division</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"></span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="keyValue"><span class="label">Default: </span><span class="teletype">false</span></div>
+ </td> <td></td>
+		</tr><tr>	<td><div id="executionMultiplication.multiplication" class="teletype">multiplication</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"></span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="keyValue"><span class="label">Default: </span><span class="teletype">false</span></div>
+ </td> <td></td>
+		</tr></table>
+<a href="#execution.Multiplication.attr"></a>
+<table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Operations</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="executionMultiplication.isRealOperation" class="teletype">isRealOperation</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"></span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="label">Returns:</div>
+[0..1]
+ </td><td> </td>
+		</tr></table>
+<a href="#execution.Multiplication.op"></a>
+<h2 id="executionTimeFunction"><a href="#executionTimeFunction"><a href="#executionTimeFunction">TimeFunction</a></a></h2>
+
+<table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Attributes</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="executionTimeFunction.function" class="teletype">function</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#executionTimeFunctions">TimeFunctions</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+ </td> <td></td>
+		</tr><tr>	<td><div id="executionTimeFunction.par1" class="teletype">par1</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"></span></div>
+<div class="label">Cardinality: [1..1]</div>
+ </td> <td></td>
+		</tr><tr>	<td><div id="executionTimeFunction.par2" class="teletype">par2</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"></span></div>
+<div class="label">Cardinality: [0..1]</div>
+ </td> <td></td>
+		</tr></table>
+<a href="#execution.TimeFunction.attr"></a>
+<table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Operations</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="executionTimeFunction.getString" class="teletype">getString</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"></span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="label">Returns:</div>
+[0..1]
+ </td><td> </td>
+		</tr></table>
+<a href="#execution.TimeFunction.op"></a>
+<h2 id="executionTimeFunctions"><a href="#executionTimeFunctions"><a href="#executionTimeFunctions">TimeFunctions</a></a></h2>
+
+<table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Literals</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Value</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>
+	<td>
+		<span class="teletype">Det</span>
+	</td>
+	<td>
+		0
+	</td>
+	<td>
+	</td>	
+</tr>
+<tr>
+	<td>
+		<span class="teletype">Exp</span>
+	</td>
+	<td>
+		1
+	</td>
+	<td>
+	</td>	
+</tr>
+<tr>
+	<td>
+		<span class="teletype">Uni</span>
+	</td>
+	<td>
+		2
+	</td>
+	<td>
+	</td>	
+</tr>
+<tr>
+	<td>
+		<span class="teletype">DUni</span>
+	</td>
+	<td>
+		3
+	</td>
+	<td>
+	</td>	
+</tr>
+<tr>
+	<td>
+		<span class="teletype">Norm</span>
+	</td>
+	<td>
+		4
+	</td>
+	<td>
+	</td>	
+</tr>
+<tr>
+	<td>
+		<span class="teletype">LogNorm</span>
+	</td>
+	<td>
+		5
+	</td>
+	<td>
+	</td>	
+</tr>
+<tr>
+	<td>
+		<span class="teletype">Wei</span>
+	</td>
+	<td>
+		6
+	</td>
+	<td>
+	</td>	
+</tr>
+<tr>
+	<td>
+		<span class="teletype">Triang</span>
+	</td>
+	<td>
+		7
+	</td>
+	<td>
+	</td>	
+</tr>
+</table>
+<a href="#execution.TimeFunctions.lit"></a>
+<h2 id="executionUnaryExpression"><a href="#executionUnaryExpression"><a href="#executionUnaryExpression">UnaryExpression</a></a></h2>
+
+<div class="eclassProps">EClass properties:<div class="eclassPropList"><span class="label">Abstract</span></div></div><h4><b>Supertype:</b><a href="#executionExpression">Expression</a></h4><h2 id="executionVariable"><a href="#executionVariable"><a href="#executionVariable">Variable</a></a></h2>
+
+<h4><b>Supertypes:</b><a href="#executionAssignableElement">AssignableElement</a>, <a href="#executionConst">Const</a></h4><h2 id="executionVariableRef"><a href="#executionVariableRef"><a href="#executionVariableRef">VariableRef</a></a></h2>
+
+<h4><b>Supertype:</b><a href="#executionExpression">Expression</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">References</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="executionVariableRef.variable" class="teletype">variable</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#executionVariable">Variable</a></span></div>
+<div class="label">Cardinality: [1..1]</div>
+</td> 
+<td> </td>
+		</tr></table>
+<a href="#execution.VariableRef.ref"></a>
+<table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Operations</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="executionVariableRef.getActualParent" class="teletype">getActualParent</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#executionExecutionElement">ExecutionElement</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="label">Returns:</div>
+<a href="#executionExecutionElement">ExecutionElement</a>[0..1]
+ </td><td> </td>
+		</tr><tr>	<td><div id="executionVariableRef.getTangibleChild" class="teletype">getTangibleChild</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#executionExpression">Expression</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="label">Returns:</div>
+<a href="#executionExpression">Expression</a>[0..1]
+ </td><td> </td>
+		</tr></table>
+<a href="#execution.VariableRef.op"></a>
+</body>
+</html>

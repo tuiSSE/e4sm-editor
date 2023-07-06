@@ -1,8 +1,6 @@
 package e4sm.de.metamodel.design.analysis;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.URL;
 import java.nio.file.Path;
 import java.time.LocalDateTime;
@@ -17,6 +15,7 @@ import java.util.Optional;
 
 import e4sm.de.metamodel.design.Activator;
 import e4sm.de.metamodel.design.Utils;
+import e4sm.de.metamodel.design.NodeTools;
 import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.Connector;
 import e4sm.de.metamodel.e4sm.Model;
@@ -24,7 +23,6 @@ import e4sm.de.metamodel.e4sm.analysis.AnalysisDefinition;
 import e4sm.de.metamodel.e4sm.analysis.Parameter;
 import e4sm.de.metamodel.e4sm.Package;
 import e4sm.de.metamodel.e4sm.Sensor;
-
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.common.util.BasicDiagnostic;
@@ -68,12 +66,21 @@ public class AnalysisService {
 	// private void addResult(AnalysisResult ar) {
 	//	results.add(ar);
 	// }
+	
+	public String sanitizePath(String p) {
+		return p.replaceAll(" ", "_");
+	}
 
-	public void toSCPN(Package p, String outputPath) {
+	public int toSCPN(Package p, String outputPath) {
 		Utils.debug("Converting package to SCPN");
+		var pName = p.getName();
+		if(pName == null || pName.isEmpty()){
+			Utils.debug("Package name is empty, transformation canceled");
+			return 1;
+		}
 		Utils.debug("Package: " + p.getName());
 		Model m = Utils.getModel(p);
-
+		
 		// Get the path of the input model
 		var inputURI = EcoreUtil.getURI(m);
 		System.err.println(inputURI.toString());
@@ -92,11 +99,14 @@ public class AnalysisService {
 		}
 		Utils.debug("\nProject path: " + projectPath);
 		Utils.debug("\nModel file name: " + modelFileName);
+		Utils.debug("\nGiven outputPath is: " + outputPath);
 
-		if (outputPath == null || outputPath == "") {
+		if (outputPath == null || outputPath.isEmpty()) {
 			Utils.debug("Output path not provided, setting the default path /SCPN/<modelName>.xml");
 			// Using the default output SCPN/model_name.xml"
-			outputPath = projectPath + "SCPN/" + modelFileName + ".xml";
+			outputPath = projectPath + "SCPN/" + p.getName() + ".xml";
+			outputPath = sanitizePath(outputPath);
+			Utils.debug("\noutputPath set to: " + outputPath);
 		}
 
 		// Refer to an existing transformation via URI
@@ -132,7 +142,10 @@ public class AnalysisService {
 		// setup the execution environment details ->
 		// configuration properties, logger, monitor object etc.
 		ExecutionContextImpl context = new ExecutionContextImpl();
-		context.setConfigProperty("packageID", p.getName());
+		// set what one package should be transformed
+		context.setConfigProperty("packageName", p.getName());
+		// set if the transition should generate log files
+		context.setConfigProperty("logComponents", true);
 
 		// run the transformation assigned to the executor with the given
 		// input and output and execution context -> ChangeTheWorld(in, out)
@@ -161,23 +174,25 @@ public class AnalysisService {
 			} catch (IOException e) {
 				System.err.println("Failed to save output SCPN");
 				e.printStackTrace();
-				return;
+				return 2;
 			}
 			Utils.debug("SCPN net saved to " + outputPath);
 
 			Utils.debug("\nMaking net compatible with TimeNet...");
-			try {
+			/*try {
 				var rt = Runtime.getRuntime();
 
 				var scpnFolderPath = projectPath + "SCPN/";
 				var scpnFolderURI = URI.createURI(scpnFolderPath);
 				
 				var absoluteScpnPath = FileLocator.resolve(new URL(scpnFolderURI.toString())).getPath();
-				var npmCommand = "tn-fix-xml "+ modelFileName + " -a -o";
+				var npmCommand = "tn-fix-xml "+ pName + " -a -o";
 				
-				var command = "cmd.exe /C cd \"" + absoluteScpnPath + "\" && " + npmCommand;
+				var command = "cmd.exe /C \"cd \"" + absoluteScpnPath + "\" && " + npmCommand+"\"";
+
 				Utils.debug("\nRunning command: " + command);
-				var pr = rt.exec(command);
+
+				var pr = rt.exec(new String[] {"cmd.exe", "/C \"cd " + absoluteScpnPath + "\" &&" + npmCommand+"\""});
 				var in = new BufferedReader(new InputStreamReader(pr.getInputStream()));
 				String line = null;
 
@@ -186,15 +201,51 @@ public class AnalysisService {
 				}
 
 				int exitVal = pr.waitFor();
-				System.out.println("Exited with error code " + exitVal);
+				System.out.println("Exited with exit code " + exitVal);
+				// TODO: check exit code == 0 for success
 			} catch (IOException e) {
 				System.err.println("Execution error during tn-fix-xml");
 				System.out.println(e.toString());
 				e.printStackTrace();
+				return 3; // Generic error
 			} catch (InterruptedException e) {
 				System.err.println(e.toString());
 				e.printStackTrace();
+				return 3; // Generic error
 			}
+			*/
+			
+			
+			if(!NodeTools.checkNpm()) {
+				// Error: npm not available
+				return 4;
+			}
+			
+			if(!NodeTools.checkTnFix()) {
+				// Error: command tn-fix-xml not available
+				return 5;
+			}
+			
+			var scpnFolderPath = projectPath + "SCPN/";
+			var scpnFolderURI = URI.createURI(scpnFolderPath);
+			
+			String absoluteScpnPath = null;
+			
+			try {
+				absoluteScpnPath = FileLocator.resolve(new URL(scpnFolderURI.toString())).getPath();
+			} catch (IOException e) {
+				System.err.println(e.toString());
+				e.printStackTrace();
+			}
+			
+			if(!absoluteScpnPath.isEmpty()) {
+				boolean check = NodeTools.optimizePN(absoluteScpnPath, pName);
+				if(check) {
+					return 0;
+				} else {return 6;}
+			}
+			
+			return 7;
 
 		} else {
 			System.err.println("Sirius - Transformation failed");
@@ -202,6 +253,7 @@ public class AnalysisService {
 			IStatus status = BasicDiagnostic.toIStatus(result);
 			Activator.getDefault().getLog().log(status);
 		}
+		return 3; // Generic error
 	}
 
 	private Boolean startAnalysisExecution() {

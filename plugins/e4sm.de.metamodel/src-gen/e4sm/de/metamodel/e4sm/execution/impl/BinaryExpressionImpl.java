@@ -7,7 +7,7 @@ import e4sm.de.metamodel.e4sm.execution.ExecutionElement;
 import e4sm.de.metamodel.e4sm.execution.ExecutionPackage;
 
 import e4sm.de.metamodel.e4sm.execution.Expression;
-import e4sm.de.metamodel.e4sm.execution.Variable;
+import e4sm.de.metamodel.e4sm.execution.ReferenceableItem;
 
 import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
@@ -184,7 +184,7 @@ public abstract class BinaryExpressionImpl extends ExpressionImpl implements Bin
 		var container = this.eContainer();
 		while (container != null) {
 			var c = (ExecutionElement) container;
-			if (c instanceof Variable) {
+			if (c instanceof ReferenceableItem) {
 				return c;
 			}
 			if (c instanceof BinaryExpression) {

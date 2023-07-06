@@ -230,13 +230,13 @@
       <connectors xsi:type="e4sm:LogicalConnector" xmi:id="_5EVakB0SEeyWbaTgtWH7Bg" source="_iWES4R0SEeyWbaTgtWH7Bg" target="_-JvfwLfpEeupgN33SxbatQ"/>
     </packages>
   </packages>
-  <actors xsi:type="e4sm:Person" xmi:id="_J_Q6ILI1EeugWoCPIzQv5A" name="Francesco" surname="Bedini" department="SSE" responsibleForComponents="_J_Mow7I1EeugWoCPIzQv5A" pictureFileName="Francesco-Bedini-80.png"/>
-  <actors xsi:type="e4sm:Person" xmi:id="_J_Q6IrI1EeugWoCPIzQv5A" name="Christina" surname="Junger" department="QBV" responsibleForComponents="_J_N217I1EeugWoCPIzQv5A _J_Od67I1EeugWoCPIzQv5A _N1LRgJZPEey3Fps4t8QyTw" pictureFileName="Christina-Junger-80.png"/>
-  <actors xsi:type="e4sm:Person" xmi:id="_J_Q6JLI1EeugWoCPIzQv5A" name="Leander" surname="Schmidt" department="FT" responsibleForComponents="_KOBtgLbYEeupgN33SxbatQ _l-wCcLbYEeupgN33SxbatQ" pictureFileName="Leander-Schmidt-80.png"/>
-  <actors xsi:type="e4sm:Person" xmi:id="_J_RhMbI1EeugWoCPIzQv5A" name="Timo" surname="Räth" department="DBIS" responsibleForComponents="_WeFJ4LbYEeupgN33SxbatQ _-AzmgR0QEeyWbaTgtWH7Bg _VVrbMB0REeyWbaTgtWH7Bg" pictureFileName="Timo-Raeth-80.png"/>
-  <actors xsi:type="e4sm:Person" xmi:id="_J_RhM7I1EeugWoCPIzQv5A" name="Benedict" surname="Stephan" department="NIKR" responsibleForComponents="_J_N20bI1EeugWoCPIzQv5A _J_N227I1EeugWoCPIzQv5A _SsjH4NjYEeueifTkFX529g" pictureFileName="Benedict-Stephan-80.png"/>
-  <actors xsi:type="e4sm:Person" xmi:id="_J_RhNbI1EeugWoCPIzQv5A" name="Dominik" surname="Walther" department="SECSY" responsibleForComponents="_7yzkoLbYEeupgN33SxbatQ _hA7BELbZEeupgN33SxbatQ" pictureFileName="Dominik-Walther-80.png"/>
+  <actors xsi:type="e4sm:Person" xmi:id="_J_Q6ILI1EeugWoCPIzQv5A" name="Francesco" surname="Bedini" department="SSE" pictureFileName="Francesco-Bedini-80.png"/>
+  <actors xsi:type="e4sm:Person" xmi:id="_J_Q6IrI1EeugWoCPIzQv5A" name="Christina" surname="Junger" department="QBV" pictureFileName="Christina-Junger-80.png"/>
+  <actors xsi:type="e4sm:Person" xmi:id="_J_Q6JLI1EeugWoCPIzQv5A" name="Leander" surname="Schmidt" department="FT" pictureFileName="Leander-Schmidt-80.png"/>
+  <actors xsi:type="e4sm:Person" xmi:id="_J_RhMbI1EeugWoCPIzQv5A" name="Timo" surname="Räth" department="DBIS" pictureFileName="Timo-Raeth-80.png"/>
+  <actors xsi:type="e4sm:Person" xmi:id="_J_RhM7I1EeugWoCPIzQv5A" name="Benedict" surname="Stephan" department="NIKR" pictureFileName="Benedict-Stephan-80.png"/>
+  <actors xsi:type="e4sm:Person" xmi:id="_J_RhNbI1EeugWoCPIzQv5A" name="Dominik" surname="Walther" department="SECSY" pictureFileName="Dominik-Walther-80.png"/>
   <actors xsi:type="e4sm:Person" xmi:id="_J_RhN7I1EeugWoCPIzQv5A" name="Markus" surname="Eisenbach" department="NWG" pictureFileName="Markus-Eisenbach-80.png"/>
-  <actors xsi:type="e4sm:Person" xmi:id="_J_RhObI1EeugWoCPIzQv5A" name="Dustin" surname="Aganian" department="NWG" responsibleForComponents="_J_MosbI1EeugWoCPIzQv5A _J_Mot7I1EeugWoCPIzQv5A" pictureFileName="Dustin-Aganian-80.png"/>
-  <actors xsi:type="e4sm:Person" xmi:id="_J_RhO7I1EeugWoCPIzQv5A" name="Mona" surname="Köhler" department="NWG" responsibleForComponents="_J_MovbI1EeugWoCPIzQv5A _J_NPybI1EeugWoCPIzQv5A" pictureFileName="Mona-Koehler-80.png"/>
+  <actors xsi:type="e4sm:Person" xmi:id="_J_RhObI1EeugWoCPIzQv5A" name="Dustin" surname="Aganian" department="NWG" pictureFileName="Dustin-Aganian-80.png"/>
+  <actors xsi:type="e4sm:Person" xmi:id="_J_RhO7I1EeugWoCPIzQv5A" name="Mona" surname="Köhler" department="NWG" pictureFileName="Mona-Koehler-80.png"/>
 </e4sm:Model>

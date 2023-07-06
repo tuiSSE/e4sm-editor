@@ -3,7 +3,6 @@
  */
 package e4sm.de.metamodel.xtext.formatting2;
 
-import com.google.inject.Inject;
 import e4sm.de.metamodel.e4sm.Actor;
 import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.Connector;
@@ -14,6 +13,7 @@ import e4sm.de.metamodel.e4sm.Sector;
 import e4sm.de.metamodel.e4sm.core.TypeSpecification;
 import e4sm.de.metamodel.xtext.services.E4smGrammarAccess;
 import java.util.Arrays;
+import javax.inject.Inject;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.formatting2.AbstractFormatter2;

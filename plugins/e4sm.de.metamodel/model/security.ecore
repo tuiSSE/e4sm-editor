@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="security" nsURI="http://de.tu-ilmenau/e4sm/security/1.0.0" nsPrefix="security">
+  <eAnnotations source="http://www.eclipse.org/edapt">
+    <details key="historyURI" value="e4sm.history"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="AssetDefinition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="securityGoals" upperBound="-1"
+        eType="#//SecurityGoal" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="component" lowerBound="1"
+        eType="ecore:EClass e4sm.ecore#//Component"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SecurityGoal" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="severity" eType="#//SeverityLevel"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="impact" eType="#//ImpactLevel"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Confidentiality" eSuperTypes="#//SecurityGoal"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Integrity" eSuperTypes="#//SecurityGoal"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Availability" eSuperTypes="#//SecurityGoal"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="SeverityLevel">
+    <eLiterals name="LOW"/>
+    <eLiterals name="MEDIUM" value="1"/>
+    <eLiterals name="HIGH" value="2"/>
+    <eLiterals name="CRITICAL" value="3"/>
+    <eLiterals name="NONE" value="4"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ImpactLevel">
+    <eLiterals name="NO_IMPACT"/>
+    <eLiterals name="BUSINESS" value="1"/>
+    <eLiterals name="OPERATIONAL" value="2"/>
+    <eLiterals name="COMMERCIAL" value="3"/>
+    <eLiterals name="SAFETY" value="4"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CVE">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cvss" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Value must be greater or equal to 0 and lesser or equal to 10"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cveId" lowerBound="1" eType="#//CVE_ID"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="vectorString" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="affectsComponents" upperBound="-1"
+        eType="ecore:EClass e4sm.ecore#//Component"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="confidentialityImpact"
+        ordered="false" unique="false" eType="#//ConfidentialityImpact" changeable="false"
+        transient="true" derived="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CWE">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cwss" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"
+        defaultValueLiteral="0.0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cveId" lowerBound="1" eType="#//CWE_ID"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="vectorString" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="affectsComponents" upperBound="-1"
+        eType="ecore:EClass e4sm.ecore#//Component"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ThreatCondition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="securityGoals" eType="#//SecurityGoal"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SecuritySpecification">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assetDefinitions" upperBound="-1"
+        eType="#//AssetDefinition" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="threatConditions" upperBound="-1"
+        eType="#//ThreatCondition" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attackSurfaces" upperBound="-1"
+        eType="#//AttackSurface" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="KnownSecurityThreats">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cves" upperBound="-1" eType="#//CVE"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cwes" upperBound="-1" eType="#//CWE"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="CVE_ID" instanceClassName="java.lang.String"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="AttackVector">
+    <eLiterals name="NETWORK"/>
+    <eLiterals name="ADJACENT_NETWORK" value="1"/>
+    <eLiterals name="LOCAL" value="2"/>
+    <eLiterals name="PHYSICAL" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="AttackComplexity">
+    <eLiterals name="LOW"/>
+    <eLiterals name="HIGH" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="UserInteraction">
+    <eLiterals name="NONE"/>
+    <eLiterals name="REQUIRED" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="PrivilegesRequired">
+    <eLiterals name="HIGH"/>
+    <eLiterals name="LOW" value="1"/>
+    <eLiterals name="NONE" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ConfidentialityImpact">
+    <eLiterals name="LOW" value="1"/>
+    <eLiterals name="NONE" value="2"/>
+    <eLiterals name="HIGH"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="State">
+    <eLiterals name="PUBLISHED"/>
+    <eLiterals name="REJECTED" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="CWE_ID" instanceClassName="java.lang.String"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AttackSurface">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="component" lowerBound="1"
+        eType="ecore:EClass e4sm.ecore#//Component"/>
+  </eClassifiers>
+</ecore:EPackage>
