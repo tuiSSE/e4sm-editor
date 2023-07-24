@@ -8,3 +8,15 @@ pre code {
   min-width: 100px;
   padding: 0;
 }
+
+.p1 {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {font-family: Arial, Helvetica, sans-serif;}
+
+h2 {font-family: Arial, Helvetica, sans-serif;}
+
+h3 {font-family: Arial, Helvetica, sans-serif;}
+
+pre {font-family: Arial, Helvetica, sans-serif;}

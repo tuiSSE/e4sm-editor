@@ -20,42 +20,42 @@
 
 <h3>Creating a E4SM Model:</h3>
 
-<p><span style="font-size:14px">first off you need to create a modeling project, go through the toolbar like so</span><strong>&nbsp; -&nbsp;<em>File &gt; New &gt; Modeling Project</em></strong></p>
+<p class="p1"><span style="font-size:14px">first off you need to create a modeling project, go through the toolbar like so</span><strong>&nbsp; -&nbsp;<em>File &gt; New &gt; Modeling Project</em></strong></p>
 
-<p><span style="font-size:14px">now choose a name</span><em> -&nbsp;</em>Project name: &lt;ExampleProject&gt;</p>
+<p class="p1"><span style="font-size:14px">now choose a name</span><em> -&nbsp;</em>Project name: &lt;ExampleProject&gt;</p>
 
-<p><span style="font-size:14px">then press <strong>finish</strong></span></p>
+<p class="p1"><span style="font-size:14px">then press <strong>finish</strong></span></p>
 <br />
 
-<p><span style="font-size:14px">in order to create a E4SM model you need to right-click on your new modeling project and make your way through like this</span><strong> -&nbsp;<em>New &gt; Other... &gt; E4SM Model Creation Wizard &gt; E4SM Model</em></strong></p>
+<p class="p1"><span style="font-size:14px">in order to create a E4SM model you need to right-click on your new modeling project and make your way through like this</span><strong> -&nbsp;<em>New &gt; Other... &gt; E4SM Model Creation Wizard &gt; E4SM Model</em></strong></p>
 
-<p><span style="font-size:14px">now choose a name ending in <strong>.e4sm</strong></span> - File name: &lt;ExampleModel.e4sm&gt;</p>
+<p class="p1"><span style="font-size:14px">now choose a name ending in <strong>.e4sm</strong></span> - File name: &lt;ExampleModel.e4sm&gt;</p>
 
-<p><span style="font-size:14px">then press <strong>finish</strong></span></p>
+<p class="p1"><span style="font-size:14px">then press <strong>finish</strong></span></p>
 <br />
 
-<p>extending the model requires you to double-left-click a <strong>.e4sm</strong>&nbsp; model-file, you should be able to see a kind of collapsed &quot;path&quot;</p>
+<p class="p1">extending the model requires you to double-left-click a <strong>.e4sm</strong>&nbsp; model-file, you should be able to see a kind of collapsed &quot;path&quot;</p>
 
-<p>click on the small arrow to make the Model component appear, right-clicking this &quot;Model&quot; gives you the option to start creating parts via the <strong>New Child </strong>functionality</p>
+<p class="p1">click on the small arrow to make the Model component appear, right-clicking this &quot;Model&quot; gives you the option to start creating parts via the <strong>New Child </strong>functionality</p>
 
-<p>at this point you can freely build whatever model you want to</p>
+<p class="p1">at this point you can freely build whatever model you want to</p>
 <br />
 
 <h3>Using other Representations:</h3>
 
-<p>the E4SM Editor provides the option to build a package via drag-and-drop<br />
+<p class="p1">the E4SM Editor provides the option to build a package via drag-and-drop<br />
 if you want to use this functionality you will need to have already created a package via the New Child functionality in a model<br />
 <br />
 all you then need to do is right-click the package in the left-side model explorer and follow this <strong>- <em>New Representation &gt; [DTD]</em></strong>&nbsp;<br />
 <br />
 choose a name and press ok, the view should automatically open itself along with the drag-and-drop palette on the right side</p>
 
-<p>other useful representations can be created for the model-component, such as a <strong>Class Diagram</strong>, <strong>Documentation Table</strong> and <strong>Person Management Table</strong></p>
+<p class="p1">other useful representations can be created for the model-component, such as a <strong>Class Diagram</strong>, <strong>Documentation Table</strong> and <strong>Person Management Table</strong></p>
 <br />
 
 <h3>Undoing components:</h3>
 
-<p>undoing the creation or deletion of your latest component can be achieved via right-clicking the Model component and choosing the <strong>&quot;Undo &lt;...&gt;&quot;</strong> option<br />
+<p class="p1">undoing the creation or deletion of your latest component can be achieved via right-clicking the Model component and choosing the <strong>&quot;Undo &lt;...&gt;&quot;</strong> option<br />
 <br />
 the &quot;Redo &lt;...&gt;&quot; option cancels out the &quot;Undo &lt;...&gt;&quot; option, if there ever arises a need to undo the latest undo</p>
 <br />
@@ -63,11 +63,11 @@ the &quot;Redo &lt;...&gt;&quot; option cancels out the &quot;Undo &lt;...&gt;&q
 
 	<h3>Using text-format to create a model:</h3>
 
-	<p>with this editor it&#39;s also possible to create a model only using text</p>
+	<p class="p1">with this editor it&#39;s also possible to create a model only using text</p>
 
-	<p>first you will need to manually create a new file with <strong>.e4smcode</strong> as its ending</p>
+	<p class="p1">first you will need to manually create a new file with <strong>.e4smcode</strong> as its ending</p>
 
-		<p>in this file one can now simply write like so -&nbsp;</p>
+		<p class="p1">in this file one can now simply write like so -&nbsp;</p>
 
 		<pre><code><p>model binaryModel{
 	package p1 {
@@ -89,7 +89,7 @@ the &quot;Redo &lt;...&gt;&quot; option cancels out the &quot;Undo &lt;...&gt;&q
 }</p></code></pre>
 
 		<h3>Transforming a Model into a Stochastic Colored Petri Net:</h3>
-		<p><pre>It is possible to transform a .e4sm model or .e4smcode file into a scpn as a .xml file. 
+		<p class="p1"><pre>It is possible to transform a .e4sm model or .e4smcode file into a scpn as a .xml file. 
 You only need to go to the Run Configurations menu, click on QVTO Operational Transformation and create a new Configuration.
 Now insert the following into the Transformation module box: 
 	platform:/plugin/e4sm.de.metamodel.to.scpn.qvto/transforms/transformToSCPN.qvto
