@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: e4sm.de.metamodel.design;singleton:=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 1.0.0
 Bundle-Activator: e4sm.de.metamodel.design.Activator
 Bundle-Localization: plugin
 Require-Bundle: org.eclipse.ui,
