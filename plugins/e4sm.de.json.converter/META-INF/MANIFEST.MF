@@ -9,6 +9,6 @@ Bundle-Activator: e4sm.de.json.converter.Activator
 Bundle-Vendor: E4SM
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime
-Bundle-RequiredExecutionEnvironment: JavaSE-18
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Automatic-Module-Name: e4sm.de.json.converter
 Bundle-ActivationPolicy: lazy
