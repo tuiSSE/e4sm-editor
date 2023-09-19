@@ -108,7 +108,7 @@ mapping Package::packageToSCPN() : SCPNNet{
 		type:= Type::text;
 		id := "data_comment_id";
 		// TODO: only generate classification stuff if the model has one classification component
-		commentText:="n: name (string)<br>s:size (int)<br>ps:pixelSize (int)<br>l:length (int)<br>gT:generationTime (DateTime)<br>d:isDefault (bool)<br>tL:trueLabel (int)<br>gL:guessedLabel (int);ood:Out of distribution (bool)";
+		commentText:="n: name (string)<br>s:size (int)<br>ps:pixelSize (int)<br>l:length (int)<br>gT:generationTime (DateTime)<br>d:isDefault (bool)<br>tL:trueLabel (int)<br>gL:guessedLabel (int)<br>ood:Out of distribution (bool)";
 		graphics := object GraphicsType {
 			x := 110;
 	 		y := 1650
@@ -462,7 +462,7 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 	
 		//Transform all subcomponents contained by this component
 		if(not self.components->isEmpty()) {
-			log("Transforming all subcomponents");
+			log("Transforming all subcomponents: " + self.components->size().toString());
 			var res := self.components->map transformComponent(hasThreadPool, poolPackage);
 			pl += res.pl;
 			iTr += res.iTr;
@@ -471,6 +471,18 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 			st += res.st;
 			meas += res.meas;
 			pars += res.pars;
+			
+			if(not self.components[BinaryClassificationComponent]->isEmpty()) {
+				log("\n=== Transforming all Classification components ===");
+				var bin = self.components[BinaryClassificationComponent]->map transformBinaryClassificationComponent(hasThreadPool, poolPackage);
+				pl += bin.pl;	
+				iTr += bin.iTr[ImmediateTransitionType];
+				tt += bin.iTr[TimedTransitionType];
+				arcs += bin.arcs;
+				tt += bin.tt;
+				st += bin.st;
+				meas += bin.meas;
+			};
 		};
 		
 		// Datastores
