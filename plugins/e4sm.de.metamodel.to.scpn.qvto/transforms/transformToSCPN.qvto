@@ -543,65 +543,19 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 				
 				
 				// Create the _created place
-				var createdPlace : PlaceType := new PlaceType(self.name + "_created");
-				pl += createdPlace;
+				//var createdPlace : PlaceType := new PlaceType(self.name + "_created");
+				//pl += createdPlace;
 										
-				// Create the arc between the timed Transition and the _created place
+				// Create the arc between the timed Transition and the _post_execution
 				var arcFromTTtoCreated : ArcType := new ArcType (self.name + "_exec");
 				arcFromTTtoCreated.fromNode := singleComponentReadyTransition.id;
-				arcFromTTtoCreated.toNode := createdPlace.id;
+				arcFromTTtoCreated.toNode := placeExecuted.id;
 				arcFromTTtoCreated.inscription.text := "new({})";
 				assertArcIsConnected(arcFromTTtoCreated);
 				arcs += arcFromTTtoCreated;
 				
-				// For each output pin
-				self.pins[OutputPin]->forEach(op){
-					// if a token specification is present...
-					if(op.tokenSpecification->notEmpty()){
-						
-						var set : e4sm::Set := op.tokenSpecification.inputSize[e4sm::Set]->first();
-						var index := 0;
-						if(not set.oclIsUndefined()){
-							var setValues : OrderedSet(e4sm::SetValue) := set.values;
-							
-							// For each set value
-							setValues->forEach(val) {
-								
-								// Create the immediate transition for the probability
-								index := index + 1;
-								var initImmTr : ImmediateTransitionType := new ImmediateTransitionType(self.name + "_" + op.name + "_" + index.toString());
-								initImmTr.weight := val.probability.toString();
-								iTr += initImmTr;
-								
-								// create the arc from _created to the immediate transition
-								var arcCreatedImm : ArcType := new ArcType (self.name + "_" + op.name + "_" + index.toString()+"_created");
-								arcCreatedImm.fromNode := createdPlace.id;
-								arcCreatedImm.toNode := initImmTr.id;
-								assertArcIsConnected(arcCreatedImm);
-								arcs += arcCreatedImm;
-								
-								// Create the arc for setting the values
-								var arcTokenResult : ArcType := new ArcType (self.name + "_" + op.name + "_" + index.toString());
-								arcTokenResult.fromNode := initImmTr.id;
-								arcTokenResult.toNode := placeExecuted.id;
-								arcTokenResult.inscription.text := "x(ps=" +val.value.toString()+ ";s=" + val.size.toString() +")";
-								assertArcIsConnected(arcTokenResult);
-								arcs += arcTokenResult;
-								
-							};
-						
-						}else{
-							assert fatal (false) with log("Other token specifications are currently not supported");
-						}
-					}else{
-						var arcFromTTtoExecuted : ArcType := new ArcType (self.name + "_exec");
-						arcFromTTtoExecuted.fromNode := singleComponentReadyTransition.id;
-						arcFromTTtoExecuted.toNode := placeExecuted.id;
-						arcFromTTtoExecuted.inscription.text := "new({})"; // TODO: improve specification
-						assertArcIsConnected(arcFromTTtoExecuted);
-						arcs += arcFromTTtoExecuted;
-					};
-				};
+				
+				
 			}else if(self.firingStrategy = ComponentFiringStrategy::AND){
 					componentMainPlace := new PlaceType(self.name + "_main");
 					pl->add(componentMainPlace);
@@ -742,7 +696,7 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 		
 		};
 		
-		if(hasThreadPool){
+		if(hasThreadPool and not self.isSensor()){
 		   // arc from post_execution to pool
 	   		var arcPostToPool : ArcType := new ArcType(self.name + "_post_to_pool");
 			arcPostToPool.fromNode := immTranExecuted.id;
@@ -861,29 +815,83 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 				
 				//Create an arc to connect the the component to the place
 				if(isSimpleComponent) {
-					var arcFromTransition = new ArcType(outputPinPlace.id + "_from_" + self.name);
-					arcFromTransition.fromNode := immTranExecuted.id;
-					/*if(self.isSensor()){
-						arcFromTransition.fromNode := singleComponentReadyTransition.id;
+					
+
+
+					// if a token specification is present...
+					if(op.tokenSpecification->notEmpty()){
+						
+						var set : e4sm::Set := op.tokenSpecification.inputSize[e4sm::Set]->first();
+						var index := 0;
+						if(not set.oclIsUndefined()){
+							var setValues : OrderedSet(e4sm::SetValue) := set.values;
+							
+							// Create the pin_create place
+							var placeOutputCreated : PlaceType := new PlaceType(op.name + "_create");
+							pl->add(placeOutputCreated);
+							
+							//Join _post_exec to the place
+							var arcPostExecToPinCreated : ArcType := new ArcType("post_exec_to_" + op.name + "_create");
+							arcPostExecToPinCreated.fromNode := immTranExecuted.id;
+							arcPostExecToPinCreated.toNode := placeOutputCreated.id;
+							arcPostExecToPinCreated.inscription.text := "copy x";
+							assertArcIsConnected(arcPostExecToPinCreated);
+							arcs += arcPostExecToPinCreated;
+							
+							// For each set value
+							setValues->forEach(val) {
+								index := index + 1;
+								
+								
+								// Create the immediate transition for the probability
+								var initImmTr : ImmediateTransitionType := new ImmediateTransitionType(self.name + "_" + op.name + "_" + index.toString());
+								initImmTr.weight := val.probability.toString();
+								iTr += initImmTr;
+								
+								// create the arc from _pin_create to the immediate transition
+								var arcCreatedImm : ArcType := new ArcType (self.name + "_" + op.name + "_" + index.toString()+"_created");
+								arcCreatedImm.fromNode := placeOutputCreated.id;
+								arcCreatedImm.toNode := initImmTr.id;
+								assertArcIsConnected(arcCreatedImm);
+								arcs += arcCreatedImm;
+								
+								// Create the arc for setting the values
+								var arcTokenResult : ArcType := new ArcType (self.name + "_" + op.name + "_" + index.toString());
+								arcTokenResult.fromNode := initImmTr.id;
+								arcTokenResult.toNode := outputPinPlace.id;
+								arcTokenResult.inscription.text := "x(ps=" +val.value.toString()+ ";s=" + val.size.toString() +")";
+								// Add multiplicity, if needed
+								if(op.amplify > 1) {
+									arcTokenResult.inscription.text := op.amplify.toString()  + "'" + arcPostExecToPinCreated.inscription.text;
+								}endif;
+								assertArcIsConnected(arcTokenResult);
+								arcs += arcTokenResult;
+								
+							};
+						
+						}else{
+							assert fatal (false) with log("Other token specifications are currently not supported");
+						}
 					}else{
-						arcFromTransition.fromNode := immTranExecuted.id;
-					};*/
+							//Join _post_exec to the Output pin place
+							var arcPostExecToPinCreated : ArcType := new ArcType("post_exec_to_" + op.name);
+							arcPostExecToPinCreated.fromNode := immTranExecuted.id;
+							arcPostExecToPinCreated.toNode := outputPinPlace.id;
+							if(not op.outputExpression.oclIsUndefined()){
+								arcPostExecToPinCreated.inscription.text := "x(s=" + op.outputExpression.toString() + ")";
+							} else {
+								arcPostExecToPinCreated.inscription.text := "copy x"; //TODO: improve specification
+							};
+							
+							// Add multiplicity, if needed
+							if(op.amplify > 1) {
+								arcPostExecToPinCreated.inscription.text := op.amplify.toString()  + "'" + arcPostExecToPinCreated.inscription.text;
+							}endif;
 					
-					arcFromTransition.toNode := outputPinPlace.id;
-					
-					// TODO: maybe the following line only applies to sensors
-					if(not op.outputExpression.oclIsUndefined()){
-						arcFromTransition.inscription.text := "x(s=" + op.outputExpression.toString() + ")";
-					} else {
-						arcFromTransition.inscription.text := "x"; //TODO: improve specification
-					};
-					
-					// Add multiplicity, if needed
-					if(op.amplify > 1) {
-						arcFromTransition.inscription.text := op.amplify.toString()  + "'" + arcFromTransition.inscription.text;
-					}endif;
-					assertArcIsConnected(arcFromTransition);
-					arcs->add(arcFromTransition);
+							assertArcIsConnected(arcPostExecToPinCreated);
+							arcs += arcPostExecToPinCreated;
+							
+					};					
 				}; // else this component is redefined and not generated completely
 			} else if (op.requiresMerge()) {
 				//OUT Merge
