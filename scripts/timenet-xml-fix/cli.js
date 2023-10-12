@@ -21,8 +21,7 @@ const stripPrefix = require('xml2js').processors.stripPrefix;
 const help = process.argv.some(a => a === "-h" || a === "--help" || a === "help");
 
 if (process.argv.length <= 2 || help) {
-  printUsage();
-  process.exit();
+  printUsageAndExit();
 }
 
 // Check if the optimize parameter was provided
@@ -48,7 +47,7 @@ async function bootstrap() {
     inputXML = await fs.readFile(inputFilePath);
   }
   catch (error) {
-    fatalError("An error occurred while reading the XML file.\n" + error.message);
+    return fatalError("An error occurred while reading the XML file.\n" + error.message);
   }
   parseString(inputXML,
     {
@@ -68,7 +67,7 @@ function getNetworkType(netXML) {
     shortNetName = "eDSPN";
   }
   else {
-    fatalError("The provided XML does not have a root element of type EDSPNNet/SCPNNet");
+    return fatalError("The provided XML does not have a root element of type EDSPNNet/SCPNNet");
   }
   return { toReplace, shortNetName };
 }
@@ -82,7 +81,7 @@ function getNetworkType(netXML) {
 async function mainScript(netXML, outputPath, fileName) {
   if (typeof netXML['XMI'] !== "undefined") {
     //The XML is malformed, an element was not assigned to a parent and the XML has more than one root.
-    fatalError("FAIL: The XML file has more than one root, you probably forgot to assign an element to its container.");
+    return fatalError("FAIL: The XML file has more than one root, you probably forgot to assign an element to its container.");
   }
 
   // Get the type of net
@@ -115,27 +114,30 @@ async function mainScript(netXML, outputPath, fileName) {
   //}
 
 
+  logIf(!arrange, "Info: Elements arrangement was skipped, rerun the command with the -a flag, if needed");
   if (arrange === true) {
     // Change the position of the elements so that they are not one over another
     placeNodesCircle(netXML['net']);
-  } else {
-    console.log("Info: Elements arrangement was skipped, rerun the command with the -a flag, if needed");
   }
 
   // Check that the used ID are unique and correctly referenced.
   let success = checkIDs(netXML['net']);
 
 
-  if (success === true) {
-    // Write the output file
-    if (storeXML(netXML, outputPath + fileName + '_compatible.xml')) {
-      printMessage("Success!");
+  if (!success) {
+    // Write the inspectable output file
+    if (await storeXML(netXML, outputPath + fileName + '_debug.xml')) {
+      printMessage("Debug file stored. You can open it in TimeNET to find out what went wrong.");
     }
-  }
-  else {
-    fatalError("At least one error was found in the original file. Please fix the errors listed above and try again.");
+    return fatalError("At least one error was found in the original file. Please fix the errors listed above and try again.");
   }
 
+  // Write the compatible output file
+  if (await storeXML(netXML, outputPath + fileName + '_compatible.xml')) {
+    printMessage("Success!");
+  }
+
+  logIf(!optimize, "Info: Net optimization was skipped, rerun the command with the -o flag, if needed");
   if (optimize === true) {
     // Optimize the generated Petri Net.
     netXML['net'] = simplifyNet(netXML['net']);
@@ -149,17 +151,25 @@ async function mainScript(netXML, outputPath, fileName) {
     let optimizationSuccessful = checkIDs(netXML['net']);
     if (optimizationSuccessful === true) {
       // Write the output file
-      if (storeXML(netXML, outputPath + fileName + '_optimized.xml')) {
+      if (await storeXML(netXML, outputPath + fileName + '_optimized.xml')) {
         printMessage("Optimization successful!");
       }
     }
     else {
       await storeXML(netXML, outputPath + fileName + '_optimized_with_errors.xml');
-      fatalError("There was a problem during the optimization. Please fix the errors listed above and try again.");
+      return fatalError("There was a problem during the optimization. Please fix the errors listed above and try again.");
     }
-  } else {
-    console.log("Info: Net optimization was skipped, rerun the command with the -o flag, if needed");
   }
+}
+
+/**
+ * 
+ * @param {boolean} condition 
+ * @param {string} string
+ */
+function logIf(condition, string) {
+  if (condition)
+    console.log(string);
 }
 
 /**
@@ -180,7 +190,8 @@ function fileParsed(err, netXML, outputPath, fileName) {
  * Prints an error message and terminates the execution immediately
  * @param {string} message The message to print
  * @param {number} errorLevel The error level to use when exiting the process. Greater than 0 means: failure. Defaults to 1
- */
+ * @returns {never}
+*/
 function fatalError(message, errorLevel = 1) {
   printError(message);
   process.exit(errorLevel);
@@ -217,7 +228,7 @@ async function storeXML(data, filePath) {
   }
   catch (err) {
     console.error(err.message);
-    fatalError(`Could not write XML file at location "${filePath}"`)
+    return fatalError(`Could not write XML file at location "${filePath}"`)
   }
   console.log("\nOutput file stored in: " + path.normalize(filePath));
   return true;
@@ -259,9 +270,8 @@ function simplifyNet(net) {
 
     // Find the arc leading to the immediateTransition, check that it is only one
     const leftArcs = getArcsToElement(net, iT.id);
-	if(leftArcs.length !== 1)
-		{return;}
-	
+    if (leftArcs.length !== 1) { return; }
+
     const leftInscription = getInscriptionText(leftArcs[0]);
     let lPlace = null;
 
@@ -277,31 +287,31 @@ function simplifyNet(net) {
 
     // Find the arc leaving from the immediateTransition, check that it is only one
     const rightArcs = getArcsFromElement(net, iT.id);
-	if(rightArcs.length!==1) {return;}
+    if (rightArcs.length !== 1) { return; }
     const rightInscription = getInscriptionText(rightArcs[0]);
     if (leftInscription !== rightInscription) {
       return;
     }
-	
-	const rArc = rightArcs[0]['$'];
-	// Get the place the arc leads to
-	const rPlace = getPlaceByID(net, rArc.toNode);
-	// Check it the outgoing place has only one incoming arc
-	const incomingArcs = getArcsFromElement(net, rPlace['$'].id);
-	if (incomingArcs.length === 1) {
-	// TODO: maybe also check that the type of lPlace and rPlace is the same.
-	// It shouldn't be necessary as in that case the left and right inscriptions would not be identical.
 
-	// This immediate transition can be simplified!
-	immediateTransNode.simplify = true;
-	immediateTransNode.lPlaceID = lPlace['$'].id;
-	immediateTransNode.rPlaceID = rPlace['$'].id;
-	immediateTransNode.rPlaceLabel = getLabel(rPlace);
-	immediateTransNode.lPlaceLabel = getLabel(lPlace);
-	leftArcs[0].simplify = true;
-	rightArcs[0].simplify = true;
-	}
-	else return;
+    const rArc = rightArcs[0]['$'];
+    // Get the place the arc leads to
+    const rPlace = getPlaceByID(net, rArc.toNode);
+    // Check it the outgoing place has only one incoming arc
+    const incomingArcs = getArcsFromElement(net, rPlace['$'].id);
+    if (incomingArcs.length === 1) {
+      // TODO: maybe also check that the type of lPlace and rPlace is the same.
+      // It shouldn't be necessary as in that case the left and right inscriptions would not be identical.
+
+      // This immediate transition can be simplified!
+      immediateTransNode.simplify = true;
+      immediateTransNode.lPlaceID = lPlace['$'].id;
+      immediateTransNode.rPlaceID = rPlace['$'].id;
+      immediateTransNode.rPlaceLabel = getLabel(rPlace);
+      immediateTransNode.lPlaceLabel = getLabel(lPlace);
+      leftArcs[0].simplify = true;
+      rightArcs[0].simplify = true;
+    }
+    else return;
   });
   removeSimplifyableElements(net);
   return net;
@@ -434,6 +444,79 @@ function getArcsToElement(net, id) {
   return net.arc.filter(arc => arc['$'].toNode === id);
 }
 
+/**
+ * @typedef {Object} InitializedNet
+ * @property {Array} places
+ * @property {Array} expTrans
+ * @property {Array} immTrans
+ * @property {Array} timedTrans
+ * @property {Array} arcs
+ */
+
+/**
+ * 
+ * @param {*} net 
+ * @returns {InitializedNet}
+ */
+function initVariables(net) {
+  return {
+    places: net.place ?? [],
+    expTrans: net.exponentialTransition ?? [], // EDSPN only
+    immTrans: net.immediateTransition ?? [],
+    timedTrans: net.timedTransition ?? [], // SCPN only
+    arcs: net.arc ?? []
+  }
+}
+
+/** 
+ * @typedef {Object} Arc 
+ * @property {string} id
+ * @property {string} fromNode
+ * @property {string} toNode
+ * @property {string} type
+*/
+
+/**
+ * 
+ * @param {Arc} arc 
+ * @param {string[]} ids 
+ * @param {string[]} placesIDs 
+ * @returns {boolean}
+ */
+function checkArcIsCorrectlyConnected(arc, ids, placesIDs) {
+  let success = true;
+  let sourceIsPlace;
+  let targetIsPlace;
+  if (ids.indexOf(arc.fromNode) === -1) {
+    console.error(`\n\tIn Arc with id: ${arc.id}\n\tERROR - fromNode | Referenced node not found: ${arc.fromNode}`);
+    success = false;
+  }
+  else {
+    sourceIsPlace = placesIDs.indexOf(arc.fromNode) >= 0;
+  }
+
+  if (ids.indexOf(arc.toNode) === -1) {
+    console.error(`\n\tIn Arc with id: ${arc.id}\n\tERROR - toNode | Referenced node not found: ${arc.toNode}`);
+    success = false;
+  }
+  else {
+    targetIsPlace = placesIDs.indexOf(arc.toNode) >= 0;
+  }
+
+  if (sourceIsPlace === undefined || targetIsPlace === undefined) {
+    return success;
+  }
+
+    // Check that the arcs are connected between place and transitions only.
+  if (sourceIsPlace ? targetIsPlace : !targetIsPlace) {
+    console.error("----\n\tERROR:The arc with ID '" + arc.id + "' is not valid; it connects two transitions or two places.");
+    console.error("\tSource is a place: " + (sourceIsPlace ? "yes" : "no"));
+    console.error("\tTarget is a place: " + (targetIsPlace ? "yes" : "no") + "\n----");
+    success = false;
+  }
+  return success;
+}
+
 
 /**
  * This functions checks that all IDS are unique and that referenced IDS exist.
@@ -442,16 +525,14 @@ function getArcsToElement(net, id) {
  */
 function checkIDs(net) {
   let success = true;
-  let ids = [], // List of known IDs
-    placesIndexes = [];
-  let places = net.place ?? [];
-  let expTrans = net.exponentialTransition ?? []; // EDSPN only
-  let immTrans = net.immediateTransition ?? [];
-  let timedTrans = net.timedTransition ?? []; // SCPN only
-  let arcs = net.arc ?? [];
+  /**@type{string[]} */
+  let ids = []; // List of known IDs
+  /**@type{string[]} */
+  let placesIDs = [];
+  let { places, expTrans, immTrans, timedTrans, arcs } = initVariables(net);
   for (const element of places) {
     ids.push(element['$'].id);
-    placesIndexes.push(element['$'].id);
+    placesIDs.push(element['$'].id);
     removeXmiID(element);
   }
   for (const element of expTrans) {
@@ -468,36 +549,11 @@ function checkIDs(net) {
   }
   for (const element of arcs) {
     ids.push(element['$'].id);
-    let sourceIsPlace = undefined;
-    let targetIsPlace = undefined;
-    if (ids.indexOf(element['$'].fromNode) === -1) {
-      console.error(`\n\tIn Arc with id: ${element['$'].id}\n\tERROR - fromNode | Referenced node not found: ${element['$'].fromNode}`);
-      success = false;
-    }
-    else {
-      sourceIsPlace = placesIndexes.indexOf(element['$'].fromNode) >= 0;
-    }
-
-    if (ids.indexOf(element['$'].toNode) === -1) {
-      console.error(`\n\tIn Arc with id: ${element['$'].id}\n\tERROR - toNode | Referenced node not found: ${element['$'].toNode}`);
-      success = false;
-    }
-    else {
-      targetIsPlace = placesIndexes.indexOf(element['$'].toNode) >= 0;
-    }
-
-    // Check that the arcs are connected between place and transitions only.
-    if (sourceIsPlace !== undefined && targetIsPlace !== undefined) {
-      if (sourceIsPlace ? targetIsPlace : !targetIsPlace) {
-        console.error("----\n\tERROR:The arc with ID '" + element['$'].id + "' is not valid; it connects two transitions or two places.");
-        console.error("\tSource is a place: " + (sourceIsPlace ? "yes" : "no"));
-        console.error("\tTarget is a place: " + (targetIsPlace ? "yes" : "no") + "\n----");
-      }
-    }
+    success = checkArcIsCorrectlyConnected(element['$'], ids, placesIDs);
     removeXmiID(element);
   }
 
-  ids = ids.sort();
+  ids = ids.sort((a, b) => a.localeCompare(b));
   for (let i = 1; i < ids.length; i++) {
     if (ids[i] === ids[i - 1]) {
       console.error("\tERROR: The ID '" + ids[i] + "' is not unique.");
@@ -573,14 +629,15 @@ function moveGraphicInCircle(el, origin, radius, angle) {
     el.graphics[0]['$']['y'] = Math.round(origin.y + radius * Math.sin(angle));
   }
   else {
-    fatalError(`Element with ID "${el.id}" does not have a graphic`);
+    return fatalError(`Element with ID "${el.id}" does not have a graphic`);
   }
 }
 
 /**
- * Prints the scripts' command line instructions and returns
+ * Prints the scripts' command line instructions and terminates the execution
+ * @returns {never}
  */
-function printUsage() {
+function printUsageAndExit() {
   console.log(
     `Usage:
     tn-fix-xml <fileName>[.xml] : transforms the given Petri Net to a format which can be opened by TimeNET
@@ -588,4 +645,5 @@ function printUsage() {
     tn-fix-xml <fileName>[.xml] [-a|--arrange] : additionally places the elements in circles of different radius to allow moving them more easily
     `
   );
+  process.exit();
 }

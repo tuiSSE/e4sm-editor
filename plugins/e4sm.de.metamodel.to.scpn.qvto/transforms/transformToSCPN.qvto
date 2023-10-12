@@ -827,11 +827,11 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 							var setValues : OrderedSet(e4sm::SetValue) := set.values;
 							
 							// Create the pin_create place
-							var placeOutputCreated : PlaceType := new PlaceType(op.name + "_create");
+							var placeOutputCreated : PlaceType := new PlaceType(self.name + "_" + op.name + "_create");
 							pl->add(placeOutputCreated);
 							
 							//Join _post_exec to the place
-							var arcPostExecToPinCreated : ArcType := new ArcType("post_exec_to_" + op.name + "_create");
+							var arcPostExecToPinCreated : ArcType := new ArcType("post_exec_to_" + self.name + "_" + op.name + "_create");
 							arcPostExecToPinCreated.fromNode := immTranExecuted.id;
 							arcPostExecToPinCreated.toNode := placeOutputCreated.id;
 							arcPostExecToPinCreated.inscription.text := "copy x";
@@ -874,7 +874,7 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 						}
 					}else{
 							//Join _post_exec to the Output pin place
-							var arcPostExecToPinCreated : ArcType := new ArcType("post_exec_to_" + op.name);
+							var arcPostExecToPinCreated : ArcType := new ArcType("post_exec_to_" + self.name + "_" + op.name);
 							arcPostExecToPinCreated.fromNode := immTranExecuted.id;
 							arcPostExecToPinCreated.toNode := outputPinPlace.id;
 							if(not op.outputExpression.oclIsUndefined()){
