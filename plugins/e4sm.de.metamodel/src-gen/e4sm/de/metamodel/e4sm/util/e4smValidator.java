@@ -57,7 +57,11 @@ import e4sm.de.metamodel.e4sm.UnitConversion;
 import e4sm.de.metamodel.e4sm.UnitPrefix;
 import e4sm.de.metamodel.e4sm.Package;
 import e4sm.de.metamodel.e4sm.e4smPackage;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
@@ -1284,12 +1288,15 @@ public class e4smValidator extends EObjectValidator {
 			result &= validate_EveryMapEntryUnique(environment, diagnostics, context);
 		if (result || diagnostics != null)
 			result &= validateEnvironment_EnvironmentC1(environment, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateEnvironment_EnvironmentC2(environment, diagnostics, context);
 		return result;
 	}
 
 	/**
 	 * Validates the EnvironmentC1 constraint of '<em>Environment</em>'. <!--
-	 * begin-user-doc --> C1: The entries of an environment specification should sum to 1.0 <!-- end-user-doc -->
+	 * begin-user-doc --> C1: The entries of an environment specification should sum
+	 * to 1.0 <!-- end-user-doc -->
 	 * 
 	 * @generated NOT
 	 */
@@ -1305,6 +1312,58 @@ public class e4smValidator extends EObjectValidator {
 								"C1: The entries of an environment specification should sum to 1.0, but equals " + sum,
 								getObjectLabel(environment, context) },
 						new Object[] { environment }, context));
+			}
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * Validates the EnvironmentC2 constraint of '<em>Environment</em>'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public boolean validateEnvironment_EnvironmentC2(Environment environment, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+
+		// Get the environment model
+		Model m = (Model) environment.eContainer();
+		AtomicBoolean validates = new AtomicBoolean(true);
+
+		// get all sensors which generate a certain class
+		List<Component> sensors = new ArrayList<Component>();
+		m.getPackages().forEach(p -> {
+			sensors.addAll(p.getComponents().stream()
+					.filter(c -> c instanceof Sensor && ((Sensor) c).getClassificationClasses().size() > 0).toList());
+		});
+
+		// Check that all classes are matched to a sensor
+		environment.getClassificationClasses().forEach(ccd -> {
+			if (!ccd.isNot()) {
+				AtomicBoolean classFound = new AtomicBoolean(false);
+				// For each sensor
+				sensors.forEach(s -> {
+					// For each classification class linked in the sensor
+					((Sensor) s).getClassificationClasses().forEach(sensorClass -> {
+						if (ccd.getClassificationClass().equals(sensorClass)) {
+							classFound.set(true);
+						}
+					});
+				});
+				if (classFound.get() == false) {
+					validates.set(false);
+				}
+			}
+
+		});
+		if (!validates.get()) {
+			if (diagnostics != null) {
+				diagnostics.add(
+						createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic",
+								new Object[] { "C2: At least one class is not assigned to any sensor.",
+										getObjectLabel(environment, context) },
+								new Object[] { environment }, context));
 			}
 			return false;
 		}
@@ -1331,8 +1390,7 @@ public class e4smValidator extends EObjectValidator {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean validateMulticlassConfusionMatrix(MulticlassConfusionMatrix multiclassConfusionMatrix,
@@ -1361,9 +1419,9 @@ public class e4smValidator extends EObjectValidator {
 	}
 
 	/**
-	 * Validates the MulticlassConfusionMatrixC1 constraint of '<em>Multiclass Confusion Matrix</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Validates the MulticlassConfusionMatrixC1 constraint of '<em>Multiclass
+	 * Confusion Matrix</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
 	public boolean validateMulticlassConfusionMatrix_MulticlassConfusionMatrixC1(
@@ -1397,8 +1455,7 @@ public class e4smValidator extends EObjectValidator {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean validateTokenSpecification(TokenSpecification tokenSpecification, DiagnosticChain diagnostics,
@@ -1407,8 +1464,7 @@ public class e4smValidator extends EObjectValidator {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean validateDataSize(DataSize dataSize, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -1416,8 +1472,7 @@ public class e4smValidator extends EObjectValidator {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean validateStaticSize(StaticSize staticSize, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -1425,8 +1480,7 @@ public class e4smValidator extends EObjectValidator {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean validateSet(Set set, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -1434,8 +1488,7 @@ public class e4smValidator extends EObjectValidator {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean validateSetValue(SetValue setValue, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -1443,8 +1496,7 @@ public class e4smValidator extends EObjectValidator {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean validateDynamicRange(DynamicRange dynamicRange, DiagnosticChain diagnostics,
@@ -1453,8 +1505,7 @@ public class e4smValidator extends EObjectValidator {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean validateSecurityThreatsImport(SecurityThreatsImport securityThreatsImport,
@@ -1472,8 +1523,7 @@ public class e4smValidator extends EObjectValidator {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean validateBinaryConfusionMatrix(BinaryConfusionMatrix binaryConfusionMatrix,
@@ -1505,10 +1555,10 @@ public class e4smValidator extends EObjectValidator {
 	}
 
 	/**
-	 * Validates the BinaryConfusionMatrixC1 constraint of '<em>Binary Confusion Matrix</em>'.
-	 * <!-- begin-user-doc -->
-	 * if positive and negative classes are provided, they shall not be equal
-	 * <!-- end-user-doc -->
+	 * Validates the BinaryConfusionMatrixC1 constraint of '<em>Binary Confusion
+	 * Matrix</em>'. <!-- begin-user-doc --> if positive and negative classes are
+	 * provided, they shall not be equal <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
 	public boolean validateBinaryConfusionMatrix_BinaryConfusionMatrixC1(BinaryConfusionMatrix binaryConfusionMatrix,
@@ -1529,10 +1579,10 @@ public class e4smValidator extends EObjectValidator {
 	}
 
 	/**
-	 * Validates the BinaryConfusionMatrixC2 constraint of '<em>Binary Confusion Matrix</em>'.
-	 * <!-- begin-user-doc -->
-	 * Negative is provided, but positive is not.
-	 * <!-- end-user-doc -->
+	 * Validates the BinaryConfusionMatrixC2 constraint of '<em>Binary Confusion
+	 * Matrix</em>'. <!-- begin-user-doc --> Negative is provided, but positive is
+	 * not. <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
 	public boolean validateBinaryConfusionMatrix_BinaryConfusionMatrixC2(BinaryConfusionMatrix binaryConfusionMatrix,
@@ -1553,8 +1603,7 @@ public class e4smValidator extends EObjectValidator {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean validateBinaryClassificationComponent(BinaryClassificationComponent binaryClassificationComponent,
@@ -1589,8 +1638,7 @@ public class e4smValidator extends EObjectValidator {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean validateMulticlassClassificationComponent(
@@ -1653,8 +1701,7 @@ public class e4smValidator extends EObjectValidator {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean validateSizeComputation(SizeComputation sizeComputation, DiagnosticChain diagnostics,

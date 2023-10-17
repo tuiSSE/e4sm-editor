@@ -4864,12 +4864,8 @@
       </changes>
       <changes xsi:type="history:Create" xmi:id="_PjHETc_IEe2VEtw2v-DCBg" referenceName="eStructuralFeatures">
         <target href="e4sm.ecore#//ClassificationComponent"/>
-        <element href="e4sm.ecore#//ClassificationComponent/environment"/>
-        <changes xsi:type="history:Set" xmi:id="_PjHETs_IEe2VEtw2v-DCBg" featureName="name" dataValue="environment">
-          <element href="e4sm.ecore#//ClassificationComponent/environment"/>
-        </changes>
+        <changes xsi:type="history:Set" xmi:id="_PjHETs_IEe2VEtw2v-DCBg" featureName="name" dataValue="environment"/>
         <changes xsi:type="history:Set" xmi:id="_PjHET8_IEe2VEtw2v-DCBg" featureName="eType">
-          <element href="e4sm.ecore#//ClassificationComponent/environment"/>
           <referenceValue href="e4sm.ecore#//Environment"/>
         </changes>
       </changes>

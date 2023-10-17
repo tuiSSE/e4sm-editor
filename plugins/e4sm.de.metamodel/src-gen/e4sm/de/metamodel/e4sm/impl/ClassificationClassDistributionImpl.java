@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ClassificationClassDistributionImpl#getClassificationClass <em>Classification Class</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ClassificationClassDistributionImpl#getProbability <em>Probability</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.ClassificationClassDistributionImpl#isNot <em>Not</em>}</li>
  * </ul>
  *
  * @generated
@@ -59,6 +60,26 @@ public class ClassificationClassDistributionImpl extends MinimalEObjectImpl.Cont
 	 * @ordered
 	 */
 	protected double probability = PROBABILITY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isNot() <em>Not</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isNot()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean NOT_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isNot() <em>Not</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isNot()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean not = NOT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -153,6 +174,30 @@ public class ClassificationClassDistributionImpl extends MinimalEObjectImpl.Cont
 	 * @generated
 	 */
 	@Override
+	public boolean isNot() {
+		return not;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setNot(boolean newNot) {
+		boolean oldNot = not;
+		not = newNot;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.CLASSIFICATION_CLASS_DISTRIBUTION__NOT,
+					oldNot, not));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case e4smPackage.CLASSIFICATION_CLASS_DISTRIBUTION__CLASSIFICATION_CLASS:
@@ -161,6 +206,8 @@ public class ClassificationClassDistributionImpl extends MinimalEObjectImpl.Cont
 			return basicGetClassificationClass();
 		case e4smPackage.CLASSIFICATION_CLASS_DISTRIBUTION__PROBABILITY:
 			return getProbability();
+		case e4smPackage.CLASSIFICATION_CLASS_DISTRIBUTION__NOT:
+			return isNot();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -178,6 +225,9 @@ public class ClassificationClassDistributionImpl extends MinimalEObjectImpl.Cont
 			return;
 		case e4smPackage.CLASSIFICATION_CLASS_DISTRIBUTION__PROBABILITY:
 			setProbability((Double) newValue);
+			return;
+		case e4smPackage.CLASSIFICATION_CLASS_DISTRIBUTION__NOT:
+			setNot((Boolean) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -197,6 +247,9 @@ public class ClassificationClassDistributionImpl extends MinimalEObjectImpl.Cont
 		case e4smPackage.CLASSIFICATION_CLASS_DISTRIBUTION__PROBABILITY:
 			setProbability(PROBABILITY_EDEFAULT);
 			return;
+		case e4smPackage.CLASSIFICATION_CLASS_DISTRIBUTION__NOT:
+			setNot(NOT_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -213,6 +266,8 @@ public class ClassificationClassDistributionImpl extends MinimalEObjectImpl.Cont
 			return classificationClass != null;
 		case e4smPackage.CLASSIFICATION_CLASS_DISTRIBUTION__PROBABILITY:
 			return probability != PROBABILITY_EDEFAULT;
+		case e4smPackage.CLASSIFICATION_CLASS_DISTRIBUTION__NOT:
+			return not != NOT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -230,6 +285,8 @@ public class ClassificationClassDistributionImpl extends MinimalEObjectImpl.Cont
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (probability: ");
 		result.append(probability);
+		result.append(", not: ");
+		result.append(not);
 		result.append(')');
 		return result.toString();
 	}

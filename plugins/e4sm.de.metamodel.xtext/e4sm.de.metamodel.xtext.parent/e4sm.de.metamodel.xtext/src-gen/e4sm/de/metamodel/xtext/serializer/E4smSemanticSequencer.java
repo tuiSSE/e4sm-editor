@@ -665,20 +665,11 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     ClassificationClassDistribution returns ClassificationClassDistribution
 	 *
 	 * Constraint:
-	 *     (classificationClass=[ClassificationClass|ID] probability=EDouble)
+	 *     (not?='not'? classificationClass=[ClassificationClass|ID] probability=EDouble)
 	 * </pre>
 	 */
 	protected void sequence_ClassificationClassDistribution(ISerializationContext context, ClassificationClassDistribution semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, e4smPackage.Literals.CLASSIFICATION_CLASS_DISTRIBUTION__CLASSIFICATION_CLASS) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, e4smPackage.Literals.CLASSIFICATION_CLASS_DISTRIBUTION__CLASSIFICATION_CLASS));
-			if (transientValues.isValueTransient(semanticObject, e4smPackage.Literals.CLASSIFICATION_CLASS_DISTRIBUTION__PROBABILITY) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, e4smPackage.Literals.CLASSIFICATION_CLASS_DISTRIBUTION__PROBABILITY));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getClassificationClassDistributionAccess().getClassificationClassClassificationClassIDTerminalRuleCall_1_0_1(), semanticObject.eGet(e4smPackage.Literals.CLASSIFICATION_CLASS_DISTRIBUTION__CLASSIFICATION_CLASS, false));
-		feeder.accept(grammarAccess.getClassificationClassDistributionAccess().getProbabilityEDoubleParserRuleCall_2_0(), semanticObject.getProbability());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -2084,6 +2075,7 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         firingStrategy=ComponentFiringStrategy? 
 	 *         timeFunction=ComplexTimefunction? 
 	 *         (pins+=Pin pins+=Pin*)? 
+	 *         classificationClasses+=[ClassificationClass|EString]? 
 	 *         mainResponsible=[Person|EString]? 
 	 *         specifiedInPackage=[Package|EString]? 
 	 *         (parameters+=Parameter parameters+=Parameter*)? 

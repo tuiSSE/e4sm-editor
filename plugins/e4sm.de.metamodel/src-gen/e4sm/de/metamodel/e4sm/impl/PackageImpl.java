@@ -5,6 +5,7 @@ package e4sm.de.metamodel.e4sm.impl;
 import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.Connector;
 import e4sm.de.metamodel.e4sm.DataStore;
+import e4sm.de.metamodel.e4sm.Model;
 import e4sm.de.metamodel.e4sm.Person;
 import e4sm.de.metamodel.e4sm.Sector;
 import e4sm.de.metamodel.e4sm.analysis.AnalysisPackage;
@@ -24,6 +25,7 @@ import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -503,6 +505,21 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public Model getModel() {
+		EObject parent = this.eContainer();
+		while (parent != null && !(parent instanceof Model))
+		{
+			parent = parent.eContainer();
+		}
+		return (Model) parent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -769,6 +786,8 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 			return getAllComponents();
 		case e4smPackage.PACKAGE___GET_MAX_FLOW:
 			return getMaxFlow();
+		case e4smPackage.PACKAGE___GET_MODEL:
+			return getModel();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

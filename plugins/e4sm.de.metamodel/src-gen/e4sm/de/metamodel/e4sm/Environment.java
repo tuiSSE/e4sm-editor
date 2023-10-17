@@ -19,7 +19,7 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  *
  * @see e4sm.de.metamodel.e4sm.e4smPackage#getEnvironment()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='EnvironmentC1'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='EnvironmentC1 EnvironmentC2'"
  * @generated
  */
 public interface Environment extends NamedElement {

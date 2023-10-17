@@ -5,6 +5,7 @@ package e4sm.de.metamodel.e4sm.impl;
 import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.ComponentFiringStrategy;
 import e4sm.de.metamodel.e4sm.DataStore;
+import e4sm.de.metamodel.e4sm.Model;
 import e4sm.de.metamodel.e4sm.core.NamedElement;
 import e4sm.de.metamodel.e4sm.Person;
 import e4sm.de.metamodel.e4sm.Pin;
@@ -28,6 +29,7 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -538,6 +540,21 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public Model getModel() {
+		EObject parent = this.eContainer();
+		while (parent != null && !(parent instanceof Model))
+		{
+			parent = parent.eContainer();
+		}
+		return (Model) parent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -815,6 +832,8 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 		switch (operationID) {
 		case e4smPackage.COMPONENT___COMPUTE_MAIN_RESPONSIBLE:
 			return computeMainResponsible();
+		case e4smPackage.COMPONENT___GET_MODEL:
+			return getModel();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

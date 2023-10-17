@@ -233,4 +233,12 @@ public interface Package extends NamedElement, ParameterizableElement, Documenta
 	 */
 	double getMaxFlow();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	Model getModel();
+
 } // Package

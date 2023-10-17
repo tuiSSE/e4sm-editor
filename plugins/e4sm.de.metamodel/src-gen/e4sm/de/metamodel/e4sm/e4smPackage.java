@@ -189,13 +189,22 @@ public interface e4smPackage extends EPackage {
 	int COMPONENT___COMPUTE_MAIN_RESPONSIBLE = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Get Model</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT___GET_MODEL = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Component</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_OPERATION_COUNT = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 1;
+	int COMPONENT_OPERATION_COUNT = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.SoftwareComponentImpl <em>Software Component</em>}' class.
@@ -341,6 +350,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOFTWARE_COMPONENT___COMPUTE_MAIN_RESPONSIBLE = COMPONENT___COMPUTE_MAIN_RESPONSIBLE;
+
+	/**
+	 * The operation id for the '<em>Get Model</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOFTWARE_COMPONENT___GET_MODEL = COMPONENT___GET_MODEL;
 
 	/**
 	 * The operation id for the '<em>Is Parallel</em>' operation.
@@ -504,6 +522,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int MACHINE_LEARNING_COMPONENT___COMPUTE_MAIN_RESPONSIBLE = SOFTWARE_COMPONENT___COMPUTE_MAIN_RESPONSIBLE;
+
+	/**
+	 * The operation id for the '<em>Get Model</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MACHINE_LEARNING_COMPONENT___GET_MODEL = SOFTWARE_COMPONENT___GET_MODEL;
 
 	/**
 	 * The operation id for the '<em>Is Parallel</em>' operation.
@@ -989,6 +1016,15 @@ public interface e4smPackage extends EPackage {
 	int PHYSICAL_COMPONENT___COMPUTE_MAIN_RESPONSIBLE = COMPONENT___COMPUTE_MAIN_RESPONSIBLE;
 
 	/**
+	 * The operation id for the '<em>Get Model</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PHYSICAL_COMPONENT___GET_MODEL = COMPONENT___GET_MODEL;
+
+	/**
 	 * The number of operations of the '<em>Physical Component</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1223,6 +1259,15 @@ public interface e4smPackage extends EPackage {
 	int HEURISTIC___COMPUTE_MAIN_RESPONSIBLE = SOFTWARE_COMPONENT___COMPUTE_MAIN_RESPONSIBLE;
 
 	/**
+	 * The operation id for the '<em>Get Model</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HEURISTIC___GET_MODEL = SOFTWARE_COMPONENT___GET_MODEL;
+
+	/**
 	 * The operation id for the '<em>Is Parallel</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1376,6 +1421,15 @@ public interface e4smPackage extends EPackage {
 	int FUNCTION___COMPUTE_MAIN_RESPONSIBLE = SOFTWARE_COMPONENT___COMPUTE_MAIN_RESPONSIBLE;
 
 	/**
+	 * The operation id for the '<em>Get Model</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION___GET_MODEL = SOFTWARE_COMPONENT___GET_MODEL;
+
+	/**
 	 * The operation id for the '<em>Is Parallel</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1518,6 +1572,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXTERNAL_DEPENDENCY_FEATURE_COUNT = SOFTWARE_COMPONENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Model</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_DEPENDENCY___GET_MODEL = SOFTWARE_COMPONENT___GET_MODEL;
 
 	/**
 	 * The operation id for the '<em>Is Parallel</em>' operation.
@@ -1682,13 +1745,22 @@ public interface e4smPackage extends EPackage {
 	int PACKAGE___GET_MAX_FLOW = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Get Model</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE___GET_MODEL = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 2;
+
+	/**
 	 * The number of operations of the '<em>Package</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE_OPERATION_COUNT = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 2;
+	int PACKAGE_OPERATION_COUNT = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2123,13 +2195,22 @@ public interface e4smPackage extends EPackage {
 	int SENSOR__DATASTORES = PHYSICAL_COMPONENT__DATASTORES;
 
 	/**
+	 * The feature id for the '<em><b>Classification Classes</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENSOR__CLASSIFICATION_CLASSES = PHYSICAL_COMPONENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Sensor</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SENSOR_FEATURE_COUNT = PHYSICAL_COMPONENT_FEATURE_COUNT + 0;
+	int SENSOR_FEATURE_COUNT = PHYSICAL_COMPONENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Compute Main Responsible</em>' operation.
@@ -2139,6 +2220,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int SENSOR___COMPUTE_MAIN_RESPONSIBLE = PHYSICAL_COMPONENT___COMPUTE_MAIN_RESPONSIBLE;
+
+	/**
+	 * The operation id for the '<em>Get Model</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENSOR___GET_MODEL = PHYSICAL_COMPONENT___GET_MODEL;
 
 	/**
 	 * The number of operations of the '<em>Sensor</em>' class.
@@ -2265,6 +2355,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTUATOR___COMPUTE_MAIN_RESPONSIBLE = PHYSICAL_COMPONENT___COMPUTE_MAIN_RESPONSIBLE;
+
+	/**
+	 * The operation id for the '<em>Get Model</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTUATOR___GET_MODEL = PHYSICAL_COMPONENT___GET_MODEL;
 
 	/**
 	 * The number of operations of the '<em>Actuator</em>' class.
@@ -3398,22 +3497,13 @@ public interface e4smPackage extends EPackage {
 	int CLASSIFICATION_COMPONENT__NUMBER_OF_SERVERS = MACHINE_LEARNING_COMPONENT__NUMBER_OF_SERVERS;
 
 	/**
-	 * The feature id for the '<em><b>Environment</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLASSIFICATION_COMPONENT__ENVIRONMENT = MACHINE_LEARNING_COMPONENT_FEATURE_COUNT + 0;
-
-	/**
 	 * The number of structural features of the '<em>Classification Component</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLASSIFICATION_COMPONENT_FEATURE_COUNT = MACHINE_LEARNING_COMPONENT_FEATURE_COUNT + 1;
+	int CLASSIFICATION_COMPONENT_FEATURE_COUNT = MACHINE_LEARNING_COMPONENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Compute Main Responsible</em>' operation.
@@ -3423,6 +3513,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int CLASSIFICATION_COMPONENT___COMPUTE_MAIN_RESPONSIBLE = MACHINE_LEARNING_COMPONENT___COMPUTE_MAIN_RESPONSIBLE;
+
+	/**
+	 * The operation id for the '<em>Get Model</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSIFICATION_COMPONENT___GET_MODEL = MACHINE_LEARNING_COMPONENT___GET_MODEL;
 
 	/**
 	 * The operation id for the '<em>Is Parallel</em>' operation.
@@ -3554,13 +3653,22 @@ public interface e4smPackage extends EPackage {
 	int CLASSIFICATION_CLASS_DISTRIBUTION__PROBABILITY = 1;
 
 	/**
+	 * The feature id for the '<em><b>Not</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSIFICATION_CLASS_DISTRIBUTION__NOT = 2;
+
+	/**
 	 * The number of structural features of the '<em>Classification Class Distribution</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLASSIFICATION_CLASS_DISTRIBUTION_FEATURE_COUNT = 2;
+	int CLASSIFICATION_CLASS_DISTRIBUTION_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Classification Class Distribution</em>' class.
@@ -4203,15 +4311,6 @@ public interface e4smPackage extends EPackage {
 	int BINARY_CLASSIFICATION_COMPONENT__NUMBER_OF_SERVERS = CLASSIFICATION_COMPONENT__NUMBER_OF_SERVERS;
 
 	/**
-	 * The feature id for the '<em><b>Environment</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BINARY_CLASSIFICATION_COMPONENT__ENVIRONMENT = CLASSIFICATION_COMPONENT__ENVIRONMENT;
-
-	/**
 	 * The feature id for the '<em><b>Confusion Matrixes</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4237,6 +4336,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int BINARY_CLASSIFICATION_COMPONENT___COMPUTE_MAIN_RESPONSIBLE = CLASSIFICATION_COMPONENT___COMPUTE_MAIN_RESPONSIBLE;
+
+	/**
+	 * The operation id for the '<em>Get Model</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_CLASSIFICATION_COMPONENT___GET_MODEL = CLASSIFICATION_COMPONENT___GET_MODEL;
 
 	/**
 	 * The operation id for the '<em>Is Parallel</em>' operation.
@@ -4374,15 +4482,6 @@ public interface e4smPackage extends EPackage {
 	int MULTICLASS_CLASSIFICATION_COMPONENT__NUMBER_OF_SERVERS = CLASSIFICATION_COMPONENT__NUMBER_OF_SERVERS;
 
 	/**
-	 * The feature id for the '<em><b>Environment</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MULTICLASS_CLASSIFICATION_COMPONENT__ENVIRONMENT = CLASSIFICATION_COMPONENT__ENVIRONMENT;
-
-	/**
 	 * The feature id for the '<em><b>Confusion Matrixes</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4408,6 +4507,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int MULTICLASS_CLASSIFICATION_COMPONENT___COMPUTE_MAIN_RESPONSIBLE = CLASSIFICATION_COMPONENT___COMPUTE_MAIN_RESPONSIBLE;
+
+	/**
+	 * The operation id for the '<em>Get Model</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTICLASS_CLASSIFICATION_COMPONENT___GET_MODEL = CLASSIFICATION_COMPONENT___GET_MODEL;
 
 	/**
 	 * The operation id for the '<em>Is Parallel</em>' operation.
@@ -4970,6 +5078,16 @@ public interface e4smPackage extends EPackage {
 	EOperation getComponent__ComputeMainResponsible();
 
 	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.Component#getModel() <em>Get Model</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Model</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.Component#getModel()
+	 * @generated
+	 */
+	EOperation getComponent__GetModel();
+
+	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.MachineLearningComponent <em>Machine Learning Component</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5295,6 +5413,16 @@ public interface e4smPackage extends EPackage {
 	EOperation getPackage__GetMaxFlow();
 
 	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.Package#getModel() <em>Get Model</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Model</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.Package#getModel()
+	 * @generated
+	 */
+	EOperation getPackage__GetModel();
+
+	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.Model <em>Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5527,6 +5655,17 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getSensor();
+
+	/**
+	 * Returns the meta object for the reference list '{@link e4sm.de.metamodel.e4sm.Sensor#getClassificationClasses <em>Classification Classes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Classification Classes</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Sensor#getClassificationClasses()
+	 * @see #getSensor()
+	 * @generated
+	 */
+	EReference getSensor_ClassificationClasses();
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.Actuator <em>Actuator</em>}'.
@@ -5979,17 +6118,6 @@ public interface e4smPackage extends EPackage {
 	EClass getClassificationComponent();
 
 	/**
-	 * Returns the meta object for the reference '{@link e4sm.de.metamodel.e4sm.ClassificationComponent#getEnvironment <em>Environment</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Environment</em>'.
-	 * @see e4sm.de.metamodel.e4sm.ClassificationComponent#getEnvironment()
-	 * @see #getClassificationComponent()
-	 * @generated
-	 */
-	EReference getClassificationComponent_Environment();
-
-	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.Environment <em>Environment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6051,6 +6179,17 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getClassificationClassDistribution_Probability();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.ClassificationClassDistribution#isNot <em>Not</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Not</em>'.
+	 * @see e4sm.de.metamodel.e4sm.ClassificationClassDistribution#isNot()
+	 * @see #getClassificationClassDistribution()
+	 * @generated
+	 */
+	EAttribute getClassificationClassDistribution_Not();
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.MulticlassConfusionMatrix <em>Multiclass Confusion Matrix</em>}'.
@@ -6786,6 +6925,14 @@ public interface e4smPackage extends EPackage {
 		EOperation COMPONENT___COMPUTE_MAIN_RESPONSIBLE = eINSTANCE.getComponent__ComputeMainResponsible();
 
 		/**
+		 * The meta object literal for the '<em><b>Get Model</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COMPONENT___GET_MODEL = eINSTANCE.getComponent__GetModel();
+
+		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.MachineLearningComponentImpl <em>Machine Learning Component</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7055,6 +7202,14 @@ public interface e4smPackage extends EPackage {
 		EOperation PACKAGE___GET_MAX_FLOW = eINSTANCE.getPackage__GetMaxFlow();
 
 		/**
+		 * The meta object literal for the '<em><b>Get Model</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PACKAGE___GET_MODEL = eINSTANCE.getPackage__GetModel();
+
+		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.ModelImpl <em>Model</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7242,6 +7397,14 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EClass SENSOR = eINSTANCE.getSensor();
+
+		/**
+		 * The meta object literal for the '<em><b>Classification Classes</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SENSOR__CLASSIFICATION_CLASSES = eINSTANCE.getSensor_ClassificationClasses();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.ActuatorImpl <em>Actuator</em>}' class.
@@ -7620,14 +7783,6 @@ public interface e4smPackage extends EPackage {
 		EClass CLASSIFICATION_COMPONENT = eINSTANCE.getClassificationComponent();
 
 		/**
-		 * The meta object literal for the '<em><b>Environment</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CLASSIFICATION_COMPONENT__ENVIRONMENT = eINSTANCE.getClassificationComponent_Environment();
-
-		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.EnvironmentImpl <em>Environment</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7682,6 +7837,14 @@ public interface e4smPackage extends EPackage {
 		 */
 		EAttribute CLASSIFICATION_CLASS_DISTRIBUTION__PROBABILITY = eINSTANCE
 				.getClassificationClassDistribution_Probability();
+
+		/**
+		 * The meta object literal for the '<em><b>Not</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CLASSIFICATION_CLASS_DISTRIBUTION__NOT = eINSTANCE.getClassificationClassDistribution_Not();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.MulticlassConfusionMatrixImpl <em>Multiclass Confusion Matrix</em>}' class.

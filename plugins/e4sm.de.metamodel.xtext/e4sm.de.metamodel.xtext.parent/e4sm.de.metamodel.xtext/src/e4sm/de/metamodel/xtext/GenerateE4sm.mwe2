@@ -2,11 +2,13 @@ module e4sm.de.metamodel.xtext.GenerateE4sm
 
 import org.eclipse.xtext.xtext.generator.*
 import org.eclipse.xtext.xtext.generator.model.project.*
+import com.github.darvasd.xtextdocs.xtext.fragment.DocsGeneratorFragment
+import com.github.darvasd.xtextdocs.xtext.formatter.MarkdownDocsFormatter
 
 var rootPath = ".."
 
 Workflow {
-	
+
 	component = XtextGenerator {
 		configuration = {
 			project = StandardProjectConfig {
@@ -41,7 +43,7 @@ Workflow {
 				generateStub = true
 				generateXtendStub = true
 			}
-			scopeProvider ={
+			scopeProvider = {
 				generateStub = true
 				generateXtendStub = true
 			}
@@ -50,8 +52,8 @@ Workflow {
 				generateStub = false
 			}
 			validator = {
-				// composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
-				// Generates checks for @Deprecated grammar annotations, an IssueProvider and a corresponding PropertyPage
+			// composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
+			// Generates checks for @Deprecated grammar annotations, an IssueProvider and a corresponding PropertyPage
 				generateDeprecationValidation = true
 			}
 			generator = {
@@ -59,6 +61,16 @@ Workflow {
 			}
 			junitSupport = {
 				junitVersion = "5"
+			}
+
+			// xtext-docs-gen https://github.com/darvasd/xtext-docs-gen
+			fragment = DocsGeneratorFragment auto-inject {
+				outputFileName = "xtext.md"
+				formatter = MarkdownDocsFormatter {
+					includeSimplifiedGrammar = true
+					includeDotReferenceGraph = false
+					mainTitle = "E4SM Textual Concrete Syntax Specification"// optional
+				}
 			}
 		}
 	}

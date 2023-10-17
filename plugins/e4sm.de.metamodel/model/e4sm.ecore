@@ -9,6 +9,7 @@
       <details key="constraints" value="ComponentC1 ComponentC2 ComponentC3"/>
     </eAnnotations>
     <eOperations name="computeMainResponsible" eType="#//Person"/>
+    <eOperations name="getModel" eType="#//Model"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
         eType="#//Component" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -131,6 +132,7 @@
       </eAnnotations>
     </eOperations>
     <eOperations name="getMaxFlow" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
+    <eOperations name="getModel" eType="#//Model"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
         eType="#//Component" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -273,6 +275,8 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="constraints" value="SensorC1"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="classificationClasses"
+        upperBound="-1" eType="#//ClassificationClass"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Actuator" eSuperTypes="#//PhysicalComponent">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -446,12 +450,10 @@
     <eOperations name="getIncomingConnectors" upperBound="-1" eType="#//Connector"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ClassificationComponent" abstract="true"
-      eSuperTypes="#//MachineLearningComponent">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="environment" eType="#//Environment"/>
-  </eClassifiers>
+      eSuperTypes="#//MachineLearningComponent"/>
   <eClassifiers xsi:type="ecore:EClass" name="Environment" eSuperTypes="core.ecore#//NamedElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="EnvironmentC1"/>
+      <details key="constraints" value="EnvironmentC1 EnvironmentC2"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="classificationClasses"
         upperBound="-1" eType="#//ClassificationClassDistribution" containment="true"/>
@@ -462,6 +464,8 @@
         eType="#//ClassificationClass"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="probability" lowerBound="1"
         eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="not" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"
+        defaultValueLiteral="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MulticlassConfusionMatrix" eSuperTypes="#//ConfusionMatrix">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">

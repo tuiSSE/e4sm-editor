@@ -38,7 +38,7 @@ main() {
 		assert fatal (not selectedPackage.oclIsUndefined()) 
 		with log("Could not find any package named \"" + packageName + "\". Please check your Run Configurations.");
 	};
-	selectedPackage.map packageToSCPN();
+	selectedPackage.map packageToSCPN(e.rootObjects()[Model]->asOrderedSet()->first());
 	
 	
 	log("\nMain: Transformation completed to the end!");
@@ -46,7 +46,7 @@ main() {
 	
 
 /** Mappings **/
-mapping Package::packageToSCPN() : SCPNNet{
+mapping Package::packageToSCPN(model : Model) : SCPNNet{
 	log("\nTransforming package " +  self.name);
 	// Transform types
 	//recordTokentype := e.rootObjects()[Model].types->map convert();
@@ -83,7 +83,9 @@ mapping Package::packageToSCPN() : SCPNNet{
 		};
 		
 	// TODO: only generate classification stuff if the model has one classification component
-	attribute += object AttributeType{
+	/*
+		
+	}attribute += object AttributeType{
 			name := "ood"; //out of distribution
 			dataType:="bool";
 		};
@@ -97,6 +99,23 @@ mapping Package::packageToSCPN() : SCPNNet{
 			name := "gL"; //guessedLabel
 			dataType:="int";
 		};
+		*/
+	if(not model->environments->isEmpty()){
+		// Generate attributes for the possible classes
+	 	var env :=	model.environments->first(); // TODO: only the first one, at the moment
+	 	log(env.toString());
+	 	log("\nGenerating the environment " + env.name);
+	 	env.classificationClasses->forEach(ccd){
+	 		ccd.classificationClass->forEach(cc){
+	 			if(ccd._not = false){
+		 			attribute += object AttributeType{
+						name := "cl_" + cc.name;
+						dataType:="bool";
+					};
+				};
+		};
+	 	};
+	};
 		
 	graphics := object GraphicsType {
 		x := 130;
@@ -108,7 +127,7 @@ mapping Package::packageToSCPN() : SCPNNet{
 		type:= Type::text;
 		id := "data_comment_id";
 		// TODO: only generate classification stuff if the model has one classification component
-		commentText:="n: name (string)<br>s:size (int)<br>ps:pixelSize (int)<br>l:length (int)<br>gT:generationTime (DateTime)<br>d:isDefault (bool)<br>tL:trueLabel (int)<br>gL:guessedLabel (int)<br>ood:Out of distribution (bool)";
+		commentText:="n: name (string)<br>s:size (int)<br>ps:pixelSize (int)<br>l:length (int)<br>gT:generationTime (DateTime)<br>d:isDefault (bool)";
 		graphics := object GraphicsType {
 			x := 110;
 	 		y := 1650
@@ -506,13 +525,19 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 			immTranExecuted.logfileExpression := "NOW,TAB,x.s,TAB,x.ps";
 		};
 		var placeExecuted : PlaceType := new PlaceType(self.name + "_executed");
-		var arcExecuted : ArcType := new ArcType(self.name + "_executed_to_post");
-		arcExecuted.fromNode := placeExecuted.id;
-		arcExecuted.toNode := immTranExecuted.id;
+		
+		// if it's not a sensor and does not generate any class
+		var sensorGeneratesClasses : Boolean := self.isSensor() and (not self.oclAsType(e4sm::Sensor).classificationClasses->isEmpty());
+		if(not sensorGeneratesClasses){
+			var arcExecuted : ArcType := new ArcType(self.name + "_executed_to_post");
+			arcExecuted.fromNode := placeExecuted.id;
+			arcExecuted.toNode := immTranExecuted.id;
+			arcs += arcExecuted;
+		};
 		
 		iTr += immTranExecuted;
 		pl += placeExecuted;
-		arcs += arcExecuted;
+
 		
 
 		//Generate the full component only if it is not redefined
@@ -553,6 +578,75 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 				arcFromTTtoCreated.inscription.text := "new({})";
 				assertArcIsConnected(arcFromTTtoCreated);
 				arcs += arcFromTTtoCreated;
+				
+
+				if(sensorGeneratesClasses){
+					var ccCounter := 1;
+					var lastFirstPlaceID := placeExecuted.id;
+					var model := self.getModel();
+					assert fatal (not model.oclIsUndefined()) with log("Model not found");
+					var env := model.environments->first(); // TODO: limitation, only the first environment is considered so far.
+					assert fatal (not env.oclIsUndefined()) with log("Class distribution environment not found");
+					
+					// for each class
+					self.oclAsType(e4sm::Sensor).classificationClasses->forEach(cc){
+						log("Generating initialization of class " + cc.name);
+						
+						var envClasses := env.classificationClasses->select(cd | cd.classificationClass = cc);
+						assert fatal (envClasses->size() > 1) with log("Expected 2 classes in the environment, the class and its inverse");			
+						
+						// immPos
+						var immTrPos : ImmediateTransitionType := new ImmediateTransitionType(self.name + "_" + cc.name + "_pos");
+						immTrPos.weight := envClasses->select(cd | not cd._not)->first().probability.toString();
+						iTr += immTrPos;
+						
+						// immNeg
+						var immTrNeg : ImmediateTransitionType := new ImmediateTransitionType(self.name + "_" + cc.name + "_neg");
+						immTrNeg.weight := envClasses->select(cd | cd._not)->first().probability.toString();
+						iTr += immTrNeg;
+						
+						// arcToPos
+						var arcToPos : ArcType := new ArcType(self.name +"_" + cc.name + "_to_pos");
+						arcToPos.fromNode := lastFirstPlaceID;
+						arcToPos.toNode := immTrPos.id;
+						arcs += arcToPos;
+						
+						// arcToNeg
+						var arcToNeg : ArcType := new ArcType(self.name +"_" + cc.name + "_to_neg");
+						arcToNeg.fromNode := lastFirstPlaceID;
+						arcToNeg.toNode := immTrNeg.id;
+						arcs += arcToNeg;
+						
+						// placeInitialized
+						var placeInitialized : PlaceType := new PlaceType(self.name + "_" + cc.name + "_init");
+						pl += placeInitialized;
+						lastFirstPlaceID := placeInitialized.id;
+						
+						// arcFromPos
+						var arcFromPos : ArcType := new ArcType(self.name +"_" + cc.name + "_from_pos");
+						arcFromPos.fromNode := immTrPos.id;
+						arcFromPos.toNode := placeInitialized.id;
+						arcs += arcFromPos;	
+						
+						// arcFromNeg
+						var arcFromNeg : ArcType := new ArcType(self.name +"_" + cc.name + "_from_neg");
+						arcFromNeg.fromNode := immTrNeg.id;
+						arcFromNeg.toNode := placeInitialized.id;
+						arcs += arcFromNeg;		
+						
+						// if it is the last class
+						if (ccCounter = self.oclAsType(e4sm::Sensor).classificationClasses->size()) {
+							//arcToPost
+							var arcExecuted : ArcType := new ArcType(self.name + "_initialized_to_post");
+							arcExecuted.fromNode := placeInitialized.id;
+							arcExecuted.toNode := immTranExecuted.id;
+							arcs += arcExecuted;
+						} else {
+							ccCounter := ccCounter + 1;
+						};
+						
+					};
+				};
 				
 				
 				
@@ -1461,23 +1555,19 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 		// Generate all immediate transitions
 		
 		var cm : BinaryConfusionMatrix := self.confusionMatrixes->first();
-
-		var notOOD : ImmediateTransitionType := new ImmediateTransitionType(self.name+"_not_OOD");
-		notOOD.weight := "1";
-		iTr += notOOD;
 		
-		var OOD : ImmediateTransitionType := new ImmediateTransitionType(self.name+"_OOD");
-		OOD.weight := "0";
-		iTr += OOD;
-		
-		var allPositives : Double := (1.0 * cm.tp + cm.fn) / (cm.tp + cm.fn + cm.tn + cm.fp);
+		//var allPositives : Double := (1.0 * cm.tp + cm.fn) / (cm.tp + cm.fn + cm.tn + cm.fp);
+		var className := self.confusionMatrixes->first().positiveClass.name;
+		assert fatal (className->size()>0) with log(self.name + " does not have a positive class set in its confusion matrix (confusion matrix <name> with positive <class> {...");
 		
 		var classTruth : ImmediateTransitionType := new ImmediateTransitionType(self.name+"_ClassTruth");
-		classTruth.weight := allPositives.toString();
+		classTruth.localGuard := "x.cl_" + className + " == true";
+		//classTruth.weight := allPositives.toString();
 		iTr += classTruth;
 		
 		var classOther : ImmediateTransitionType := new ImmediateTransitionType(self.name+"_ClassOther");
-		classOther.weight := (1.0 - allPositives).toString();
+		classOther.localGuard := "x.cl_" + className + " == false";
+		//classOther.weight := (1.0 - allPositives).toString();
 		iTr += classOther;
 		
 		var ct_tp : ImmediateTransitionType := new ImmediateTransitionType(self.name+"_ct_tp");
@@ -1501,9 +1591,6 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 		
 		var inData : PlaceType := new PlaceType(self.name + "_in_data");
 		pl += inData;
-		
-		var dataGen : PlaceType := new PlaceType(self.name + "_data_gen");
-		pl += dataGen;
 		
 		var ct : PlaceType := new PlaceType(self.name + "_ct");
 		pl += ct;
@@ -1530,46 +1617,25 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 		execution_to_in_data.toNode := inData.id;
 		arcs+=execution_to_in_data;
 		
-		var in_data_to_not_odd : ArcType := new ArcType(self.name + "in_data_to_not_odd");
-		in_data_to_not_odd.fromNode := inData.id;
-		in_data_to_not_odd.toNode := notOOD.id;
-		arcs+=in_data_to_not_odd;
+		var in_data_to_classTruth: ArcType := new ArcType(self.name + "in_data_truth");
+		in_data_to_classTruth.fromNode := inData.id;
+		in_data_to_classTruth.toNode := classTruth.id;
+		arcs+=in_data_to_classTruth;
 		
-		var in_data_to_odd : ArcType := new ArcType(self.name + "in_data_to_odd");
-		in_data_to_odd.fromNode := inData.id;
-		in_data_to_odd.toNode := OOD.id;
-		arcs+=in_data_to_odd;
-		
-		var not_ood_to_data_gen : ArcType := new ArcType(self.name + "not_ood_to_dataGen");
-		not_ood_to_data_gen.fromNode := notOOD.id;
-		not_ood_to_data_gen.toNode := dataGen.id;
-		arcs+=not_ood_to_data_gen;
-		
-		var ood_to_cf : ArcType := new ArcType(self.name + "ood_to_cf");
-		ood_to_cf.fromNode := OOD.id;
-		ood_to_cf.inscription.text := "x(ood=true)";
-		ood_to_cf.toNode := cf.id;
-		arcs+=ood_to_cf;
-		
-		var data_gen_to_class_truth : ArcType := new ArcType(self.name + "data_gen_to_class_truth");
-		data_gen_to_class_truth.fromNode := dataGen.id;
-		data_gen_to_class_truth.toNode := classTruth.id;
-		arcs+=data_gen_to_class_truth;
-		
-		var data_gen_to_class_other : ArcType := new ArcType(self.name + "data_gen_to_class_other");
-		data_gen_to_class_other.fromNode := dataGen.id;
-		data_gen_to_class_other.toNode := classOther.id;
-		arcs+=data_gen_to_class_other;
+		var in_data_to_classFalse : ArcType := new ArcType(self.name + "in_data_to_false");
+		in_data_to_classFalse.fromNode := inData.id;
+		in_data_to_classFalse.toNode := classOther.id;
+		arcs+=in_data_to_classFalse;
 		
 		var class_truth_to_ct : ArcType := new ArcType(self.name + "class_truth_to_ct");
 		class_truth_to_ct.fromNode := classTruth.id;
-		class_truth_to_ct.inscription.text := "x(tL=1)";
+		//class_truth_to_ct.inscription.text := "x(tL=1)";
 		class_truth_to_ct.toNode := ct.id;
 		arcs+=class_truth_to_ct;
 		
 		var class_other_to_cf : ArcType := new ArcType(self.name + "class_other_to_cf");
 		class_other_to_cf.fromNode := classOther.id;
-		class_other_to_cf.inscription.text := "x(tL=2)";
+		//class_other_to_cf.inscription.text := "x(tL=2)";
 		class_other_to_cf.toNode := cf.id;
 		arcs+=class_other_to_cf;
 		
