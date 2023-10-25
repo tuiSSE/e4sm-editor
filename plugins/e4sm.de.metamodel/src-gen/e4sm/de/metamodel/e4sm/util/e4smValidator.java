@@ -1528,78 +1528,7 @@ public class e4smValidator extends EObjectValidator {
 	 */
 	public boolean validateBinaryConfusionMatrix(BinaryConfusionMatrix binaryConfusionMatrix,
 			DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(binaryConfusionMatrix, diagnostics, context))
-			return false;
-		boolean result = validate_EveryMultiplicityConforms(binaryConfusionMatrix, diagnostics, context);
-		if (result || diagnostics != null)
-			result &= validate_EveryDataValueConforms(binaryConfusionMatrix, diagnostics, context);
-		if (result || diagnostics != null)
-			result &= validate_EveryReferenceIsContained(binaryConfusionMatrix, diagnostics, context);
-		if (result || diagnostics != null)
-			result &= validate_EveryBidirectionalReferenceIsPaired(binaryConfusionMatrix, diagnostics, context);
-		if (result || diagnostics != null)
-			result &= validate_EveryProxyResolves(binaryConfusionMatrix, diagnostics, context);
-		if (result || diagnostics != null)
-			result &= validate_UniqueID(binaryConfusionMatrix, diagnostics, context);
-		if (result || diagnostics != null)
-			result &= validate_EveryKeyUnique(binaryConfusionMatrix, diagnostics, context);
-		if (result || diagnostics != null)
-			result &= validate_EveryMapEntryUnique(binaryConfusionMatrix, diagnostics, context);
-		if (result || diagnostics != null)
-			result &= validateBinaryConfusionMatrix_BinaryConfusionMatrixC1(binaryConfusionMatrix, diagnostics,
-					context);
-		if (result || diagnostics != null)
-			result &= validateBinaryConfusionMatrix_BinaryConfusionMatrixC2(binaryConfusionMatrix, diagnostics,
-					context);
-		return result;
-	}
-
-	/**
-	 * Validates the BinaryConfusionMatrixC1 constraint of '<em>Binary Confusion
-	 * Matrix</em>'. <!-- begin-user-doc --> if positive and negative classes are
-	 * provided, they shall not be equal <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	public boolean validateBinaryConfusionMatrix_BinaryConfusionMatrixC1(BinaryConfusionMatrix binaryConfusionMatrix,
-			DiagnosticChain diagnostics, Map<Object, Object> context) {
-		var pc = binaryConfusionMatrix.getPositiveClass();
-		var nc = binaryConfusionMatrix.getNegativeClass();
-		if (pc != null && nc != null && pc == nc) {
-			if (diagnostics != null) {
-				diagnostics.add(
-						createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic",
-								new Object[] { "The positive and negative classes must be different",
-										getObjectLabel(binaryConfusionMatrix, context) },
-								new Object[] { binaryConfusionMatrix }, context));
-			}
-			return false;
-		}
-		return true;
-	}
-
-	/**
-	 * Validates the BinaryConfusionMatrixC2 constraint of '<em>Binary Confusion
-	 * Matrix</em>'. <!-- begin-user-doc --> Negative is provided, but positive is
-	 * not. <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	public boolean validateBinaryConfusionMatrix_BinaryConfusionMatrixC2(BinaryConfusionMatrix binaryConfusionMatrix,
-			DiagnosticChain diagnostics, Map<Object, Object> context) {
-		var pc = binaryConfusionMatrix.getPositiveClass();
-		var nc = binaryConfusionMatrix.getNegativeClass();
-		if (nc != null && pc == null) {
-			if (diagnostics != null) {
-				diagnostics.add(createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0,
-						"_UI_GenericConstraint_diagnostic",
-						new Object[] { "If you provide a negative class, you must also provide a positive class",
-								getObjectLabel(binaryConfusionMatrix, context) },
-						new Object[] { binaryConfusionMatrix }, context));
-			}
-			return false;
-		}
-		return true;
+		return validate_EveryDefaultConstraint(binaryConfusionMatrix, diagnostics, context);
 	}
 
 	/**

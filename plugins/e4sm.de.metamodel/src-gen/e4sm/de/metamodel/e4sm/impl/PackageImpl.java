@@ -510,8 +510,7 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	@Override
 	public Model getModel() {
 		EObject parent = this.eContainer();
-		while (parent != null && !(parent instanceof Model))
-		{
+		while (parent != null && !(parent instanceof Model)) {
 			parent = parent.eContainer();
 		}
 		return (Model) parent;

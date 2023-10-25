@@ -545,8 +545,7 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 	@Override
 	public Model getModel() {
 		EObject parent = this.eContainer();
-		while (parent != null && !(parent instanceof Model))
-		{
+		while (parent != null && !(parent instanceof Model)) {
 			parent = parent.eContainer();
 		}
 		return (Model) parent;

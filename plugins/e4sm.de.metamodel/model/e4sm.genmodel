@@ -230,7 +230,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//BinaryConfusionMatrix/fp"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//BinaryConfusionMatrix/fn"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//BinaryConfusionMatrix/positiveClass"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//BinaryConfusionMatrix/negativeClass"/>
     </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//BinaryClassificationComponent">
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//BinaryClassificationComponent/confusionMatrixes"/>

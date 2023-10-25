@@ -88,7 +88,6 @@ public class E4smParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getEnvironmentAccess().getGroup_4_1(), "rule__Environment__Group_4_1__0");
 			builder.put(grammarAccess.getBinaryConfusionMatrixAccess().getGroup(), "rule__BinaryConfusionMatrix__Group__0");
 			builder.put(grammarAccess.getBinaryConfusionMatrixAccess().getGroup_4(), "rule__BinaryConfusionMatrix__Group_4__0");
-			builder.put(grammarAccess.getBinaryConfusionMatrixAccess().getGroup_4_3(), "rule__BinaryConfusionMatrix__Group_4_3__0");
 			builder.put(grammarAccess.getMulticlassConfusionMatrixAccess().getGroup(), "rule__MulticlassConfusionMatrix__Group__0");
 			builder.put(grammarAccess.getMulticlassConfusionMatrixAccess().getGroup_5(), "rule__MulticlassConfusionMatrix__Group_5__0");
 			builder.put(grammarAccess.getMulticlassConfusionMatrixAccess().getGroup_5_1(), "rule__MulticlassConfusionMatrix__Group_5_1__0");
@@ -463,6 +462,7 @@ public class E4smParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSensorAccess().getGroup_6(), "rule__Sensor__Group_6__0");
 			builder.put(grammarAccess.getSensorAccess().getGroup_6_1(), "rule__Sensor__Group_6_1__0");
 			builder.put(grammarAccess.getSensorAccess().getGroup_7(), "rule__Sensor__Group_7__0");
+			builder.put(grammarAccess.getSensorAccess().getGroup_7_2(), "rule__Sensor__Group_7_2__0");
 			builder.put(grammarAccess.getSensorAccess().getGroup_8(), "rule__Sensor__Group_8__0");
 			builder.put(grammarAccess.getSensorAccess().getGroup_9(), "rule__Sensor__Group_9__0");
 			builder.put(grammarAccess.getSensorAccess().getGroup_10(), "rule__Sensor__Group_10__0");
@@ -607,8 +607,7 @@ public class E4smParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getEnvironmentAccess().getClassificationClassesAssignment_4_0(), "rule__Environment__ClassificationClassesAssignment_4_0");
 			builder.put(grammarAccess.getEnvironmentAccess().getClassificationClassesAssignment_4_1_1(), "rule__Environment__ClassificationClassesAssignment_4_1_1");
 			builder.put(grammarAccess.getBinaryConfusionMatrixAccess().getNameAssignment_3(), "rule__BinaryConfusionMatrix__NameAssignment_3");
-			builder.put(grammarAccess.getBinaryConfusionMatrixAccess().getPositiveClassAssignment_4_2(), "rule__BinaryConfusionMatrix__PositiveClassAssignment_4_2");
-			builder.put(grammarAccess.getBinaryConfusionMatrixAccess().getNegativeClassAssignment_4_3_2(), "rule__BinaryConfusionMatrix__NegativeClassAssignment_4_3_2");
+			builder.put(grammarAccess.getBinaryConfusionMatrixAccess().getPositiveClassAssignment_4_1(), "rule__BinaryConfusionMatrix__PositiveClassAssignment_4_1");
 			builder.put(grammarAccess.getBinaryConfusionMatrixAccess().getTpAssignment_8(), "rule__BinaryConfusionMatrix__TpAssignment_8");
 			builder.put(grammarAccess.getBinaryConfusionMatrixAccess().getFnAssignment_12(), "rule__BinaryConfusionMatrix__FnAssignment_12");
 			builder.put(grammarAccess.getBinaryConfusionMatrixAccess().getFpAssignment_16(), "rule__BinaryConfusionMatrix__FpAssignment_16");
@@ -995,6 +994,7 @@ public class E4smParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSensorAccess().getPinsAssignment_6_0(), "rule__Sensor__PinsAssignment_6_0");
 			builder.put(grammarAccess.getSensorAccess().getPinsAssignment_6_1_1(), "rule__Sensor__PinsAssignment_6_1_1");
 			builder.put(grammarAccess.getSensorAccess().getClassificationClassesAssignment_7_1(), "rule__Sensor__ClassificationClassesAssignment_7_1");
+			builder.put(grammarAccess.getSensorAccess().getClassificationClassesAssignment_7_2_1(), "rule__Sensor__ClassificationClassesAssignment_7_2_1");
 			builder.put(grammarAccess.getSensorAccess().getMainResponsibleAssignment_8_1(), "rule__Sensor__MainResponsibleAssignment_8_1");
 			builder.put(grammarAccess.getSensorAccess().getSpecifiedInPackageAssignment_9_1(), "rule__Sensor__SpecifiedInPackageAssignment_9_1");
 			builder.put(grammarAccess.getSensorAccess().getParametersAssignment_10_2(), "rule__Sensor__ParametersAssignment_10_2");

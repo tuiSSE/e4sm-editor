@@ -596,7 +596,7 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         name=EString 
-	 *         (positiveClass=[ClassificationClass|EString] negativeClass=[ClassificationClass|EString]?)? 
+	 *         positiveClass=[ClassificationClass|EString]? 
 	 *         tp=EInt 
 	 *         fn=EInt 
 	 *         fp=EInt 
@@ -2075,7 +2075,7 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         firingStrategy=ComponentFiringStrategy? 
 	 *         timeFunction=ComplexTimefunction? 
 	 *         (pins+=Pin pins+=Pin*)? 
-	 *         classificationClasses+=[ClassificationClass|EString]? 
+	 *         (classificationClasses+=[ClassificationClass|EString] classificationClasses+=[ClassificationClass|EString]?)? 
 	 *         mainResponsible=[Person|EString]? 
 	 *         specifiedInPackage=[Package|EString]? 
 	 *         (parameters+=Parameter parameters+=Parameter*)? 

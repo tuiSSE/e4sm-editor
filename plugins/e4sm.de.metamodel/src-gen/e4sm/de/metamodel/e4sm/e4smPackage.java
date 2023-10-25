@@ -4113,22 +4113,13 @@ public interface e4smPackage extends EPackage {
 	int BINARY_CONFUSION_MATRIX__POSITIVE_CLASS = CONFUSION_MATRIX_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Negative Class</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BINARY_CONFUSION_MATRIX__NEGATIVE_CLASS = CONFUSION_MATRIX_FEATURE_COUNT + 5;
-
-	/**
 	 * The number of structural features of the '<em>Binary Confusion Matrix</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BINARY_CONFUSION_MATRIX_FEATURE_COUNT = CONFUSION_MATRIX_FEATURE_COUNT + 6;
+	int BINARY_CONFUSION_MATRIX_FEATURE_COUNT = CONFUSION_MATRIX_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Compute Accuracy</em>' operation.
@@ -6713,17 +6704,6 @@ public interface e4smPackage extends EPackage {
 	EReference getBinaryConfusionMatrix_PositiveClass();
 
 	/**
-	 * Returns the meta object for the reference '{@link e4sm.de.metamodel.e4sm.BinaryConfusionMatrix#getNegativeClass <em>Negative Class</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Negative Class</em>'.
-	 * @see e4sm.de.metamodel.e4sm.BinaryConfusionMatrix#getNegativeClass()
-	 * @see #getBinaryConfusionMatrix()
-	 * @generated
-	 */
-	EReference getBinaryConfusionMatrix_NegativeClass();
-
-	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.BinaryClassificationComponent <em>Binary Classification Component</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8277,14 +8257,6 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BINARY_CONFUSION_MATRIX__POSITIVE_CLASS = eINSTANCE.getBinaryConfusionMatrix_PositiveClass();
-
-		/**
-		 * The meta object literal for the '<em><b>Negative Class</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference BINARY_CONFUSION_MATRIX__NEGATIVE_CLASS = eINSTANCE.getBinaryConfusionMatrix_NegativeClass();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.BinaryClassificationComponentImpl <em>Binary Classification Component</em>}' class.

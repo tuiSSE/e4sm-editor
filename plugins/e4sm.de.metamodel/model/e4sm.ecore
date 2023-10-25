@@ -511,9 +511,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="truth" lowerBound="1" eType="#//ClassificationClass"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BinaryConfusionMatrix" eSuperTypes="#//ConfusionMatrix">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="BinaryConfusionMatrixC1 BinaryConfusionMatrixC2"/>
-    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore"/>
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="If positive and negative classes are not provided: true | false is assumed.&#xD;&#xA;If only positive is provided, then positive | not positive is assumed.&#xD;&#xA;If both are provided, they must not be equal."/>
     </eAnnotations>
@@ -525,8 +523,8 @@
         defaultValueLiteral="0"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fn" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"
         defaultValueLiteral="0"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="positiveClass" eType="#//ClassificationClass"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="negativeClass" eType="#//ClassificationClass"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="positiveClass" lowerBound="1"
+        eType="#//ClassificationClass"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BinaryClassificationComponent" eSuperTypes="#//ClassificationComponent">
     <eStructuralFeatures xsi:type="ecore:EReference" name="confusionMatrixes" upperBound="-1"

@@ -49,8 +49,7 @@ ConfusionMatrix returns ConfusionMatrix:
 BinaryConfusionMatrix returns BinaryConfusionMatrix:
 	{BinaryConfusionMatrix}
 	'confusion' 'matrix' name=EString
-	('with' 'positive' positiveClass = [ClassificationClass|EString] (',' 'negative'
-	negativeClass = [ClassificationClass|EString])?)?
+	'+' positiveClass = [ClassificationClass|EString]
 	'{'
 	'TP' PROPERTY_ASSIGN tp=EInt ',' 'FN' PROPERTY_ASSIGN fn=EInt
 	',' 'FP' PROPERTY_ASSIGN fp=EInt ',' 'TN' PROPERTY_ASSIGN tn=EInt
@@ -703,7 +702,7 @@ Sensor returns Sensor:
 	('takes' timeFunction=ComplexTimefunction)?
 	(pins += Pin ("," pins += Pin)*)?
 	// 'timeFunction' timeFunction=TimeFunction
-	('generates' classificationClasses+=[ClassificationClass|EString])?
+	('generates' classificationClasses+=[ClassificationClass|EString] (',' classificationClasses+=[ClassificationClass|EString])?)?
 	('mainResponsible' mainResponsible = [Person|EString])?
 	('specifiedInPackage' specifiedInPackage = [Package|EString])?
 	('parameters' '{' parameters += Parameter ("," parameters += Parameter)* '}')?

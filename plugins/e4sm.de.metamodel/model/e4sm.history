@@ -998,13 +998,8 @@
       </changes>
       <changes xsi:type="history:Create" xmi:id="_PjG_-c_IEe2VEtw2v-DCBg" referenceName="details">
         <target href="e4sm.ecore#//BinaryConfusionMatrix/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FEcore%"/>
-        <element href="e4sm.ecore#//BinaryConfusionMatrix/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FEcore%/@details.0"/>
-        <changes xsi:type="history:Set" xmi:id="_PjG_-s_IEe2VEtw2v-DCBg" featureName="key" dataValue="constraints">
-          <element href="e4sm.ecore#//BinaryConfusionMatrix/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FEcore%/@details.0"/>
-        </changes>
-        <changes xsi:type="history:Set" xmi:id="_PjG_-8_IEe2VEtw2v-DCBg" featureName="value" dataValue="BinaryConfusionMatrixC1 BinaryConfusionMatrixC2">
-          <element href="e4sm.ecore#//BinaryConfusionMatrix/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FEcore%/@details.0"/>
-        </changes>
+        <changes xsi:type="history:Set" xmi:id="_PjG_-s_IEe2VEtw2v-DCBg" featureName="key" dataValue="constraints"/>
+        <changes xsi:type="history:Set" xmi:id="_PjG_-8_IEe2VEtw2v-DCBg" featureName="value" dataValue="BinaryConfusionMatrixC1 BinaryConfusionMatrixC2"/>
       </changes>
       <changes xsi:type="history:Create" xmi:id="_PjG__M_IEe2VEtw2v-DCBg" referenceName="eAnnotations">
         <target href="e4sm.ecore#//BinaryConfusionMatrix"/>
@@ -1036,12 +1031,8 @@
       </changes>
       <changes xsi:type="history:Create" xmi:id="_PjHABM_IEe2VEtw2v-DCBg" referenceName="eStructuralFeatures">
         <target href="e4sm.ecore#//BinaryConfusionMatrix"/>
-        <element href="e4sm.ecore#//BinaryConfusionMatrix/negativeClass"/>
-        <changes xsi:type="history:Set" xmi:id="_PjHABc_IEe2VEtw2v-DCBg" featureName="name" dataValue="negativeClass">
-          <element href="e4sm.ecore#//BinaryConfusionMatrix/negativeClass"/>
-        </changes>
+        <changes xsi:type="history:Set" xmi:id="_PjHABc_IEe2VEtw2v-DCBg" featureName="name" dataValue="negativeClass"/>
         <changes xsi:type="history:Set" xmi:id="_PjHABs_IEe2VEtw2v-DCBg" featureName="eType">
-          <element href="e4sm.ecore#//BinaryConfusionMatrix/negativeClass"/>
           <referenceValue href="e4sm.ecore#//ClassificationClass"/>
         </changes>
       </changes>

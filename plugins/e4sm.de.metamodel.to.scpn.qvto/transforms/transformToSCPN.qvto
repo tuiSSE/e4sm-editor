@@ -591,45 +591,48 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 					// for each class
 					self.oclAsType(e4sm::Sensor).classificationClasses->forEach(cc){
 						log("Generating initialization of class " + cc.name);
+						var className=safeString(cc.name);
 						
 						var envClasses := env.classificationClasses->select(cd | cd.classificationClass = cc);
 						assert fatal (envClasses->size() > 1) with log("Expected 2 classes in the environment, the class and its inverse");			
 						
 						// immPos
-						var immTrPos : ImmediateTransitionType := new ImmediateTransitionType(self.name + "_" + cc.name + "_pos");
+						var immTrPos : ImmediateTransitionType := new ImmediateTransitionType(self.name + "_" + className + "_pos");
 						immTrPos.weight := envClasses->select(cd | not cd._not)->first().probability.toString();
 						iTr += immTrPos;
 						
 						// immNeg
-						var immTrNeg : ImmediateTransitionType := new ImmediateTransitionType(self.name + "_" + cc.name + "_neg");
+						var immTrNeg : ImmediateTransitionType := new ImmediateTransitionType(self.name + "_" + className + "_neg");
 						immTrNeg.weight := envClasses->select(cd | cd._not)->first().probability.toString();
 						iTr += immTrNeg;
 						
 						// arcToPos
-						var arcToPos : ArcType := new ArcType(self.name +"_" + cc.name + "_to_pos");
+						var arcToPos : ArcType := new ArcType(self.name +"_" + className + "_to_pos");
 						arcToPos.fromNode := lastFirstPlaceID;
 						arcToPos.toNode := immTrPos.id;
 						arcs += arcToPos;
 						
 						// arcToNeg
-						var arcToNeg : ArcType := new ArcType(self.name +"_" + cc.name + "_to_neg");
+						var arcToNeg : ArcType := new ArcType(self.name +"_" + className + "_to_neg");
 						arcToNeg.fromNode := lastFirstPlaceID;
 						arcToNeg.toNode := immTrNeg.id;
 						arcs += arcToNeg;
 						
 						// placeInitialized
-						var placeInitialized : PlaceType := new PlaceType(self.name + "_" + cc.name + "_init");
+						var placeInitialized : PlaceType := new PlaceType(self.name + "_" + className + "_init");
 						pl += placeInitialized;
 						lastFirstPlaceID := placeInitialized.id;
 						
 						// arcFromPos
-						var arcFromPos : ArcType := new ArcType(self.name +"_" + cc.name + "_from_pos");
+						var arcFromPos : ArcType := new ArcType(self.name +"_" + className + "_from_pos");
+						arcFromPos.inscription.text := "x(cl_" + cc.name + "=true)";
 						arcFromPos.fromNode := immTrPos.id;
 						arcFromPos.toNode := placeInitialized.id;
 						arcs += arcFromPos;	
 						
 						// arcFromNeg
-						var arcFromNeg : ArcType := new ArcType(self.name +"_" + cc.name + "_from_neg");
+						var arcFromNeg : ArcType := new ArcType(self.name +"_" + className + "_from_neg");
+						arcFromNeg.inscription.text := "x(cl_" + cc.name + "=false)";
 						arcFromNeg.fromNode := immTrNeg.id;
 						arcFromNeg.toNode := placeInitialized.id;
 						arcs += arcFromNeg;		

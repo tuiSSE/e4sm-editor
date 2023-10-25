@@ -575,17 +575,10 @@ public class E4smGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cNameEStringParserRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cWithKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Keyword cPositiveKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
-		private final Assignment cPositiveClassAssignment_4_2 = (Assignment)cGroup_4.eContents().get(2);
-		private final CrossReference cPositiveClassClassificationClassCrossReference_4_2_0 = (CrossReference)cPositiveClassAssignment_4_2.eContents().get(0);
-		private final RuleCall cPositiveClassClassificationClassEStringParserRuleCall_4_2_0_1 = (RuleCall)cPositiveClassClassificationClassCrossReference_4_2_0.eContents().get(1);
-		private final Group cGroup_4_3 = (Group)cGroup_4.eContents().get(3);
-		private final Keyword cCommaKeyword_4_3_0 = (Keyword)cGroup_4_3.eContents().get(0);
-		private final Keyword cNegativeKeyword_4_3_1 = (Keyword)cGroup_4_3.eContents().get(1);
-		private final Assignment cNegativeClassAssignment_4_3_2 = (Assignment)cGroup_4_3.eContents().get(2);
-		private final CrossReference cNegativeClassClassificationClassCrossReference_4_3_2_0 = (CrossReference)cNegativeClassAssignment_4_3_2.eContents().get(0);
-		private final RuleCall cNegativeClassClassificationClassEStringParserRuleCall_4_3_2_0_1 = (RuleCall)cNegativeClassClassificationClassCrossReference_4_3_2_0.eContents().get(1);
+		private final Keyword cPlusSignKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cPositiveClassAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final CrossReference cPositiveClassClassificationClassCrossReference_4_1_0 = (CrossReference)cPositiveClassAssignment_4_1.eContents().get(0);
+		private final RuleCall cPositiveClassClassificationClassEStringParserRuleCall_4_1_0_1 = (RuleCall)cPositiveClassClassificationClassCrossReference_4_1_0.eContents().get(1);
 		private final Keyword cLeftCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Keyword cTPKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		private final RuleCall cPROPERTY_ASSIGNTerminalRuleCall_7 = (RuleCall)cGroup.eContents().get(7);
@@ -611,8 +604,7 @@ public class E4smGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//BinaryConfusionMatrix returns BinaryConfusionMatrix:
 		//    {BinaryConfusionMatrix}
 		//    'confusion' 'matrix' name=EString
-		//    ('with' 'positive' positiveClass = [ClassificationClass|EString] (',' 'negative'
-		//    negativeClass = [ClassificationClass|EString])?)?
+		//    ('+' positiveClass = [ClassificationClass|EString])?
 		//    '{'
 		//    'TP' PROPERTY_ASSIGN tp=EInt ',' 'FN' PROPERTY_ASSIGN fn=EInt
 		//    ',' 'FP' PROPERTY_ASSIGN fp=EInt ',' 'TN' PROPERTY_ASSIGN tn=EInt
@@ -621,8 +613,7 @@ public class E4smGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		
 		//{BinaryConfusionMatrix}
 		//'confusion' 'matrix' name=EString
-		//('with' 'positive' positiveClass = [ClassificationClass|EString] (',' 'negative'
-		//negativeClass = [ClassificationClass|EString])?)?
+		//('+' positiveClass = [ClassificationClass|EString])?
 		//'{'
 		//'TP' PROPERTY_ASSIGN tp=EInt ',' 'FN' PROPERTY_ASSIGN fn=EInt
 		//',' 'FP' PROPERTY_ASSIGN fp=EInt ',' 'TN' PROPERTY_ASSIGN tn=EInt
@@ -644,43 +635,20 @@ public class E4smGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//EString
 		public RuleCall getNameEStringParserRuleCall_3_0() { return cNameEStringParserRuleCall_3_0; }
 		
-		//('with' 'positive' positiveClass = [ClassificationClass|EString] (',' 'negative'
-		//negativeClass = [ClassificationClass|EString])?)?
+		//('+' positiveClass = [ClassificationClass|EString])?
 		public Group getGroup_4() { return cGroup_4; }
 		
-		//'with'
-		public Keyword getWithKeyword_4_0() { return cWithKeyword_4_0; }
-		
-		//'positive'
-		public Keyword getPositiveKeyword_4_1() { return cPositiveKeyword_4_1; }
+		//'+'
+		public Keyword getPlusSignKeyword_4_0() { return cPlusSignKeyword_4_0; }
 		
 		//positiveClass = [ClassificationClass|EString]
-		public Assignment getPositiveClassAssignment_4_2() { return cPositiveClassAssignment_4_2; }
+		public Assignment getPositiveClassAssignment_4_1() { return cPositiveClassAssignment_4_1; }
 		
 		//[ClassificationClass|EString]
-		public CrossReference getPositiveClassClassificationClassCrossReference_4_2_0() { return cPositiveClassClassificationClassCrossReference_4_2_0; }
+		public CrossReference getPositiveClassClassificationClassCrossReference_4_1_0() { return cPositiveClassClassificationClassCrossReference_4_1_0; }
 		
 		//EString
-		public RuleCall getPositiveClassClassificationClassEStringParserRuleCall_4_2_0_1() { return cPositiveClassClassificationClassEStringParserRuleCall_4_2_0_1; }
-		
-		//(',' 'negative'
-		//   negativeClass = [ClassificationClass|EString])?
-		public Group getGroup_4_3() { return cGroup_4_3; }
-		
-		//','
-		public Keyword getCommaKeyword_4_3_0() { return cCommaKeyword_4_3_0; }
-		
-		//'negative'
-		public Keyword getNegativeKeyword_4_3_1() { return cNegativeKeyword_4_3_1; }
-		
-		//negativeClass = [ClassificationClass|EString]
-		public Assignment getNegativeClassAssignment_4_3_2() { return cNegativeClassAssignment_4_3_2; }
-		
-		//[ClassificationClass|EString]
-		public CrossReference getNegativeClassClassificationClassCrossReference_4_3_2_0() { return cNegativeClassClassificationClassCrossReference_4_3_2_0; }
-		
-		//EString
-		public RuleCall getNegativeClassClassificationClassEStringParserRuleCall_4_3_2_0_1() { return cNegativeClassClassificationClassEStringParserRuleCall_4_3_2_0_1; }
+		public RuleCall getPositiveClassClassificationClassEStringParserRuleCall_4_1_0_1() { return cPositiveClassClassificationClassEStringParserRuleCall_4_1_0_1; }
 		
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_5() { return cLeftCurlyBracketKeyword_5; }
@@ -9671,6 +9639,11 @@ public class E4smGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		private final Assignment cClassificationClassesAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
 		private final CrossReference cClassificationClassesClassificationClassCrossReference_7_1_0 = (CrossReference)cClassificationClassesAssignment_7_1.eContents().get(0);
 		private final RuleCall cClassificationClassesClassificationClassEStringParserRuleCall_7_1_0_1 = (RuleCall)cClassificationClassesClassificationClassCrossReference_7_1_0.eContents().get(1);
+		private final Group cGroup_7_2 = (Group)cGroup_7.eContents().get(2);
+		private final Keyword cCommaKeyword_7_2_0 = (Keyword)cGroup_7_2.eContents().get(0);
+		private final Assignment cClassificationClassesAssignment_7_2_1 = (Assignment)cGroup_7_2.eContents().get(1);
+		private final CrossReference cClassificationClassesClassificationClassCrossReference_7_2_1_0 = (CrossReference)cClassificationClassesAssignment_7_2_1.eContents().get(0);
+		private final RuleCall cClassificationClassesClassificationClassEStringParserRuleCall_7_2_1_0_1 = (RuleCall)cClassificationClassesClassificationClassCrossReference_7_2_1_0.eContents().get(1);
 		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
 		private final Keyword cMainResponsibleKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
 		private final Assignment cMainResponsibleAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
@@ -9728,7 +9701,7 @@ public class E4smGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//    ('takes' timeFunction=ComplexTimefunction)?
 		//    (pins += Pin ("," pins += Pin)*)?
 		//    // 'timeFunction' timeFunction=TimeFunction
-		//    ('generates' classificationClasses+=[ClassificationClass|EString])?
+		//    ('generates' classificationClasses+=[ClassificationClass|EString] (',' classificationClasses+=[ClassificationClass|EString])?)?
 		//    ('mainResponsible' mainResponsible = [Person|EString])?
 		//    ('specifiedInPackage' specifiedInPackage = [Package|EString])?
 		//    ('parameters' '{' parameters += Parameter ("," parameters += Parameter)* '}')?
@@ -9746,7 +9719,7 @@ public class E4smGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//('takes' timeFunction=ComplexTimefunction)?
 		//(pins += Pin ("," pins += Pin)*)?
 		//// 'timeFunction' timeFunction=TimeFunction
-		//('generates' classificationClasses+=[ClassificationClass|EString])?
+		//('generates' classificationClasses+=[ClassificationClass|EString] (',' classificationClasses+=[ClassificationClass|EString])?)?
 		//('mainResponsible' mainResponsible = [Person|EString])?
 		//('specifiedInPackage' specifiedInPackage = [Package|EString])?
 		//('parameters' '{' parameters += Parameter ("," parameters += Parameter)* '}')?
@@ -9829,7 +9802,7 @@ public class E4smGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		public RuleCall getPinsPinParserRuleCall_6_1_1_0() { return cPinsPinParserRuleCall_6_1_1_0; }
 		
 		//// 'timeFunction' timeFunction=TimeFunction
-		//('generates' classificationClasses+=[ClassificationClass|EString])?
+		//('generates' classificationClasses+=[ClassificationClass|EString] (',' classificationClasses+=[ClassificationClass|EString])?)?
 		public Group getGroup_7() { return cGroup_7; }
 		
 		//'generates'
@@ -9843,6 +9816,21 @@ public class E4smGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		
 		//EString
 		public RuleCall getClassificationClassesClassificationClassEStringParserRuleCall_7_1_0_1() { return cClassificationClassesClassificationClassEStringParserRuleCall_7_1_0_1; }
+		
+		//(',' classificationClasses+=[ClassificationClass|EString])?
+		public Group getGroup_7_2() { return cGroup_7_2; }
+		
+		//','
+		public Keyword getCommaKeyword_7_2_0() { return cCommaKeyword_7_2_0; }
+		
+		//classificationClasses+=[ClassificationClass|EString]
+		public Assignment getClassificationClassesAssignment_7_2_1() { return cClassificationClassesAssignment_7_2_1; }
+		
+		//[ClassificationClass|EString]
+		public CrossReference getClassificationClassesClassificationClassCrossReference_7_2_1_0() { return cClassificationClassesClassificationClassCrossReference_7_2_1_0; }
+		
+		//EString
+		public RuleCall getClassificationClassesClassificationClassEStringParserRuleCall_7_2_1_0_1() { return cClassificationClassesClassificationClassEStringParserRuleCall_7_2_1_0_1; }
 		
 		//('mainResponsible' mainResponsible = [Person|EString])?
 		public Group getGroup_8() { return cGroup_8; }
@@ -13597,8 +13585,7 @@ public class E4smGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	//BinaryConfusionMatrix returns BinaryConfusionMatrix:
 	//    {BinaryConfusionMatrix}
 	//    'confusion' 'matrix' name=EString
-	//    ('with' 'positive' positiveClass = [ClassificationClass|EString] (',' 'negative'
-	//    negativeClass = [ClassificationClass|EString])?)?
+	//    ('+' positiveClass = [ClassificationClass|EString])?
 	//    '{'
 	//    'TP' PROPERTY_ASSIGN tp=EInt ',' 'FN' PROPERTY_ASSIGN fn=EInt
 	//    ',' 'FP' PROPERTY_ASSIGN fp=EInt ',' 'TN' PROPERTY_ASSIGN tn=EInt
@@ -14740,7 +14727,7 @@ public class E4smGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	//    ('takes' timeFunction=ComplexTimefunction)?
 	//    (pins += Pin ("," pins += Pin)*)?
 	//    // 'timeFunction' timeFunction=TimeFunction
-	//    ('generates' classificationClasses+=[ClassificationClass|EString])?
+	//    ('generates' classificationClasses+=[ClassificationClass|EString] (',' classificationClasses+=[ClassificationClass|EString])?)?
 	//    ('mainResponsible' mainResponsible = [Person|EString])?
 	//    ('specifiedInPackage' specifiedInPackage = [Package|EString])?
 	//    ('parameters' '{' parameters += Parameter ("," parameters += Parameter)* '}')?

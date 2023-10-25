@@ -2243,16 +2243,6 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getBinaryConfusionMatrix_NegativeClass() {
-		return (EReference) binaryConfusionMatrixEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getBinaryClassificationComponent() {
 		return binaryClassificationComponentEClass;
 	}
@@ -2559,7 +2549,6 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		createEAttribute(binaryConfusionMatrixEClass, BINARY_CONFUSION_MATRIX__FP);
 		createEAttribute(binaryConfusionMatrixEClass, BINARY_CONFUSION_MATRIX__FN);
 		createEReference(binaryConfusionMatrixEClass, BINARY_CONFUSION_MATRIX__POSITIVE_CLASS);
-		createEReference(binaryConfusionMatrixEClass, BINARY_CONFUSION_MATRIX__NEGATIVE_CLASS);
 
 		binaryClassificationComponentEClass = createEClass(BINARY_CLASSIFICATION_COMPONENT);
 		createEReference(binaryClassificationComponentEClass, BINARY_CLASSIFICATION_COMPONENT__CONFUSION_MATRIXES);
@@ -3117,10 +3106,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 				BinaryConfusionMatrix.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBinaryConfusionMatrix_PositiveClass(), this.getClassificationClass(), null, "positiveClass",
-				null, 0, 1, BinaryConfusionMatrix.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getBinaryConfusionMatrix_NegativeClass(), this.getClassificationClass(), null, "negativeClass",
-				null, 0, 1, BinaryConfusionMatrix.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				null, 1, 1, BinaryConfusionMatrix.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
 				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(binaryClassificationComponentEClass, BinaryClassificationComponent.class,
@@ -3266,8 +3252,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		addAnnotation(environmentEClass, source, new String[] { "constraints", "EnvironmentC1 EnvironmentC2" });
 		addAnnotation(multiclassConfusionMatrixEClass, source,
 				new String[] { "constraints", "MulticlassConfusionMatrixC1" });
-		addAnnotation(binaryConfusionMatrixEClass, source,
-				new String[] { "constraints", "BinaryConfusionMatrixC1 BinaryConfusionMatrixC2" });
+		addAnnotation(binaryConfusionMatrixEClass, source, new String[] {});
 	}
 
 	/**
