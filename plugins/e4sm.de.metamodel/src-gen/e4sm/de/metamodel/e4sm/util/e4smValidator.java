@@ -1336,6 +1336,10 @@ public class e4smValidator extends EObjectValidator {
 		m.getPackages().forEach(p -> {
 			sensors.addAll(p.getComponents().stream()
 					.filter(c -> c instanceof Sensor && ((Sensor) c).getClassificationClasses().size() > 0).toList());
+			p.getSectors().forEach(sec ->{
+				sensors.addAll(sec.getComponents().stream()
+						.filter(c -> c instanceof Sensor && ((Sensor) c).getClassificationClasses().size() > 0).toList());
+			});
 		});
 
 		// Check that all classes are matched to a sensor
