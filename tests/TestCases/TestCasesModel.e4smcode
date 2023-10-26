@@ -1,0 +1,835 @@
+model Test1{
+	type Image{int x, int y, int color_depth},
+	type ActuatorImpulse{boolean enable}
+	
+	package onlyPhys{
+		physicalComponent TestPhys {
+			takes Det(3)
+			out out_phys ,
+			in in_phys
+	} ,
+	sensor sens {
+		takes Det(5)
+		out out_vCV8{generates set{value:"3"prob:1.0;}}
+	} ,
+	actuator act {
+		takes Det(6)
+		in in_uJUs
+	}
+	connector con_H8Sl "sens.out_vCV8" -> "TestPhys.in_phys" ,
+	connector con_ORd0 "TestPhys.out_phys" -> "act.in_uJUs" }
+	,
+	package onlySoftware{
+		softwareComponent TestSoft {
+			takes Det(7)
+			out out_soft ,
+			in in_soft
+	} ,
+	sensor sens {
+		takes Det(4)
+		out out_grER
+	} ,
+	actuator act {
+		takes Det(4)
+		in in_Gdek
+	}
+	connector con_TdBZ "sens.out_grER" -> "TestSoft.in_soft" ,
+	connector con_eHpU "TestSoft.out_soft" -> "act.in_Gdek" }
+	,
+	package onlyGeneric{
+		component TestGeneric {
+			takes Det(8)
+			out out_generic ,
+			in in_generic
+	} ,
+	sensor sens {
+		takes Det(4)
+		out out_TQno
+	} ,
+	actuator act {
+		takes Det(2)
+		in in_PElw
+	}
+	connector con_Eb8u "sens.out_TQno" -> "TestGeneric.in_generic" ,
+	connector con_UT9c "TestGeneric.out_generic" -> "act.in_PElw" }
+	,
+	package onlyMachineLearning{
+		mlComponent TestMachineLearning {
+			takes Det(4)
+			out out_ml ,
+			in in_ml
+	} ,
+	sensor sens {
+		takes Det(5)
+		out out_SEgy
+	} ,
+	actuator act {
+		takes Det(12)
+		in in_rhkU
+	}
+	connector con_XAkt "sens.out_SEgy" -> "TestMachineLearning.in_ml" ,
+	connector con_kiRM "TestMachineLearning.out_ml" -> "act.in_rhkU" }
+	,
+	package onlyNewFunction{
+		function TestNewFunction {
+			takes Det(6)
+			out out_nf ,
+			in in_nf
+	} ,
+	sensor sens {
+		takes Det(9)
+		out out_ngBd
+	} ,
+	actuator act {
+		takes Det(2)
+		in in_p9rx
+	}
+	connector con_FO4c "sens.out_ngBd" -> "TestNewFunction.in_nf" ,
+	connector con_p2MX "TestNewFunction.out_nf" -> "act.in_p9rx" }
+	,
+	package onlyHeuristic{
+		heuristic TestHeuristic {
+			takes Det(3)
+			out out_heu ,
+			in in_heu
+	} ,
+	sensor sens {
+		takes Det(7)
+		out out_7T2E
+	} ,
+	actuator act {
+		takes Det(4)
+		in in_cPeJ
+	}
+	connector con_Cleo "sens.out_7T2E" -> "TestHeuristic.in_heu" ,
+	connector con_QiE7 "TestHeuristic.out_heu" -> "act.in_cPeJ" }
+	,
+	package onlyExternalDependency{
+		externalDependency TestExternalDep {
+			takes Det(4)
+			out out_ed ,
+			in in_ed
+	} ,
+	actuator act {
+		takes Det(6)
+		in in_TN5L
+	} ,
+	sensor sens {
+		takes Det(2)
+		out out_9Qe4
+	}
+	connector con_FoOz "sens.out_9Qe4" -> "TestExternalDep.in_ed" ,
+	connector con_QXMV "TestExternalDep.out_ed" -> "act.in_TN5L" }
+	,
+
+	package onlyMulticlass{
+		multiclassClassificationComponent TestMulticlass {
+			takes Det(3)
+			out out_mult ,
+			in in_mult
+	} ,
+	sensor sens {
+		takes Det(4)
+		out out_zDe5{generates set{value:"2"prob:1.0;}}
+	} ,
+	actuator act {
+		takes Det(6)
+		in in_3rSw
+	}
+	connector con_7hB1 "sens.out_zDe5" -> "TestMulticlass.in_mult" ,
+	connector con_x3Eu "TestMulticlass.out_mult" -> "act.in_3rSw" }
+	,
+	package SensorActuator{
+		sensor TestSensor {
+			takes Det(4)
+			out out_sensor},
+		actuator TestActuator{
+			takes Det(4)
+			in in_actuator
+		} connector con_sensTOactu "TestSensor.out_sensor" -> "TestActuator.in_actuator" }
+		
+	,
+	package PhysicalAndOthers{
+		
+		physicalComponent PhysicalC {
+			out out_phys } ,
+		softwareComponent SoftwareC {
+			out out_soft ,
+			in in_soft
+		} ,
+		heuristic Heuristic {
+			out out_heu ,
+			in in_heu
+		} ,
+	actuator Actuator {
+			firingStrategy OR
+			in in_VTFg ,
+			in in_4hZt ,
+			in in_lGRM
+		,
+		in in_ijEG
+	} ,
+		mlComponent MachineLearningC {
+			out out_ml ,
+			in in_ml
+		} ,
+	externalDependency ExternalDep {
+		out out_Bhuh ,
+		in in_FHCQ
+	} ,
+	function Function {
+		out out_MtMd ,
+		in in_6dJB
+	} ,
+	physicalComponent PhysC2 {
+		out out_ZeD2 ,
+		in in_GEDF
+	}
+		connector con_oH4i "PhysicalC.out_phys" -> "SoftwareC.in_soft" ,
+		connector con_Tth5 "PhysicalC.out_phys" -> "Heuristic.in_heu" ,
+		connector con_3bd5 "PhysicalC.out_phys" -> "MachineLearningC.in_ml" ,
+		connector con_yrPQ "MachineLearningC.out_ml" -> "Actuator.in_lGRM" ,
+		connector con_wlZ3 "Heuristic.out_heu" -> "Actuator.in_VTFg" ,
+		connector con_2Hoy "SoftwareC.out_soft" -> "Actuator.in_4hZt" ,
+	connector con_X7bh "PhysicalC.out_phys" -> "ExternalDep.in_FHCQ" ,
+	connector con_fJmn "ExternalDep.out_Bhuh" -> "Actuator.in_VTFg" ,
+	connector con_szrA "PhysicalC.out_phys" -> "Function.in_6dJB" ,
+	connector con_YpvR "Function.out_MtMd" -> "Actuator.in_4hZt" ,
+	connector con_y3Is "PhysC2.out_ZeD2" -> "Actuator.in_ijEG" ,
+	connector con_wZpH "PhysicalC.out_phys" -> "PhysC2.in_GEDF" }	
+	,
+	
+	package Connections{
+	softwareComponent SoftwareC {
+			out out_soft ,
+			in in_soft
+		} ,
+		heuristic Heuristic {
+			out out_heu ,
+			in in_heu
+		} ,
+	actuator Actuator {
+			firingStrategy OR
+			in in_VTFg ,
+			in in_4hZt ,
+			in in_lGRM
+		,
+		in in_ijEG
+	,
+		in in_Xf1r
+	} ,
+		mlComponent MachineLearningC {
+			out out_ml ,
+			in in_ml
+		} ,
+	externalDependency ExternalDep {
+		out out_Bhuh ,
+		in in_FHCQ
+	} ,
+	function Function {
+		out out_MtMd ,
+		in in_6dJB
+	} ,
+	physicalComponent PhysC2 {
+		out out_ZeD2 ,
+		in in_GEDF
+	} ,
+	softwareComponent MainSoft {
+		out out_vZbL ,
+		in in_15zL
+	} 
+	connector con_yrPQ "MachineLearningC.out_ml" -> "Actuator.in_lGRM" ,
+	connector con_2Hoy "SoftwareC.out_soft" -> "Actuator.in_4hZt" ,
+	connector con_fJmn "ExternalDep.out_Bhuh" -> "Actuator.in_VTFg" ,
+	connector con_YpvR "Function.out_MtMd" -> "Actuator.in_4hZt" ,
+	connector con_y3Is "PhysC2.out_ZeD2" -> "Actuator.in_ijEG" ,
+	connector con_ebeV "MainSoft.out_vZbL" -> "Function.in_6dJB" ,
+	connector con_fNcP "MainSoft.out_vZbL" -> "SoftwareC.in_soft" ,
+	connector con_kDvO "MainSoft.out_vZbL" -> "MachineLearningC.in_ml" ,
+	connector con_ngeK "MainSoft.out_vZbL" -> "PhysC2.in_GEDF" ,
+	connector con_b2GJ "SoftwareC.out_soft" -> "ExternalDep.in_FHCQ" ,
+	connector con_71gZ "ExternalDep.out_Bhuh" -> "Heuristic.in_heu" ,
+	connector con_NjRt "Heuristic.out_heu" -> "Actuator.in_Xf1r" }	
+	,
+	package Connections2{
+		physicalComponent Phys3 {
+		out out_yOKX ,
+		in in_mZAA
+	} ,
+	physicalComponent Phys4 {
+		out out_bOxj ,
+		in in_gRgE
+	}
+	logicalConnector con_VoVs "Phys3.in_mZAA" -> "Phys4.out_bOxj" ,
+	physicalConnector con_4kn4 "Phys3.out_yOKX" -> "Phys4.in_gRgE" 
+	}
+	,
+	package SmallConnection{
+		physicalComponent Phys2 {
+		out out_nPpf ,
+		in in_dhj3
+	} ,
+	actuator " Actuator" {
+		in in_eu0Z
+	} ,
+	softwareComponent "New Software Component" {
+		out out_6oZH
+	}
+	connector con_9OMY "Phys2.out_nPpf" -> " Actuator.in_eu0Z" ,
+	connector con_xGDS "New Software Component.out_6oZH" -> "Phys2.in_dhj3" }
+	,
+	package MultConnections1{
+		
+	sensor "2" {
+		out out_RHGE
+	} ,
+	sensor "1" {
+		out out_T5Yb
+	} ,
+	function Function_FCFS {
+		out out_BA9r ,
+		in in_D7Gr {
+			raceSemantic FCFS
+		}
+	} ,
+	sensor "3" {
+		out out_70Gc
+	} ,
+	sensor "4" {
+		out out_6PBq
+	} ,
+	actuator Actuator_FCFS {
+		in in_djIv {
+			raceSemantic FCFS
+		}
+	} ,
+	heuristic Heuristic_FCFS {
+		out out_RD4L ,
+		in in_QccJ {
+			raceSemantic FCFS
+		}
+	} ,
+	sensor "5" {
+		out out_ROHP
+	} ,
+	sensor "6" {
+		out out_Lnzd
+	} connector con_pl2g "2.out_RHGE" -> "Function_FCFS.in_D7Gr" ,
+	connector con_8ZjW "1.out_T5Yb" -> "Function_FCFS.in_D7Gr" ,
+	connector con_8czN "3.out_70Gc" -> "Actuator_FCFS.in_djIv" ,
+	connector con_RVPy "4.out_6PBq" -> "Actuator_FCFS.in_djIv" ,
+	connector con_on5P "6.out_Lnzd" -> "Heuristic_FCFS.in_QccJ" ,
+	connector con_k6NC "5.out_ROHP" -> "Heuristic_FCFS.in_QccJ" }
+	,
+	package MultConnections2{
+	sensor "3" {
+		out out_pkqs
+	} ,
+	function Function_Merge {
+		out out_ijmC ,
+		in in_p4h7
+	{
+			raceSemantic MERGE
+		}
+	} ,
+	sensor "4" {
+		out out_wFcX
+	} ,
+	sensor "5" {
+		out out_gMge
+	} ,
+	sensor "8" {
+		out out_Cebo
+	} ,
+	sensor "6" {
+		out out_fF0M
+	} ,
+	sensor "7" {
+		out out_fq1k
+	} ,
+	actuator Actuator_Merge {
+		in in_nNkD {
+			raceSemantic MERGE
+		}
+	} ,
+	heuristic Heuristic_Merge {
+		out out_6pzA ,
+		in in_33pi {
+			raceSemantic MERGE
+		}
+	} connector con_7lDk "3.out_pkqs" -> "Function_Merge.in_p4h7" ,
+	connector con_iFCp "4.out_wFcX" -> "Function_Merge.in_p4h7" ,
+	connector con_2ZyB "8.out_Cebo" -> "Heuristic_Merge.in_33pi" ,
+	connector con_5mHT "5.out_gMge" -> "Heuristic_Merge.in_33pi" ,
+	connector con_lDx1 "7.out_fq1k" -> "Actuator_Merge.in_nNkD" ,
+	connector con_2EG2 "6.out_fF0M" -> "Actuator_Merge.in_nNkD" }
+	,
+	package MultConnections3{
+	sensor duplicate {
+		out out_yW3d
+	{
+			raceSemantic DUPLICATE
+		}
+	} ,
+	function function_dupe2 {
+		out out_jQOD ,
+		in in_9Nbo
+	{
+			raceSemantic DUPLICATE
+		}
+	} ,
+	function function_dupe1 {
+		out out_KUNi ,
+		in in_0Zx7
+	{
+			raceSemantic DUPLICATE
+		}
+	} ,
+	sensor duplicate2 {
+		out out_Psgd
+	} ,
+	sensor duplictae3 {
+		out out_UIeX
+	} ,
+	actuator actuator_dupe1 {
+		in in_ISr8
+	} ,
+	actuator actuator_dupe2 {
+		in in_4CwL
+	} ,
+	heuristic heuristic_dupe2 {
+		out out_1064 ,
+		in in_xh4T
+	} ,
+	heuristic heuristic_dupe1 {
+		out out_7fTf ,
+		in in_x7M7
+	}
+	connector con_MDqX "duplicate.out_yW3d" -> "function_dupe2.in_9Nbo" ,
+	connector con_nZxo "duplicate.out_yW3d" -> "function_dupe1.in_0Zx7" ,
+	connector con_Zd1b "duplicate2.out_Psgd" -> "actuator_dupe1.in_ISr8" ,
+	connector con_ZsGG "duplicate2.out_Psgd" -> "actuator_dupe2.in_4CwL" ,
+	connector con_KWMP "duplictae3.out_UIeX" -> "heuristic_dupe1.in_x7M7" ,
+	connector con_fyl6 "duplictae3.out_UIeX" -> "heuristic_dupe2.in_xh4T" }
+	,
+	package Queues{
+	function function_LIFO {
+		in in_EM3y {
+			queueType LIFO
+		} ,
+			in in_WeFM
+		{
+			queueType LIFO
+		}
+	} ,
+	sensor s1 {
+			out out_I2zi
+		} ,
+		sensor s2 {
+			out out_I2zl
+		} ,
+	sensor s3 {
+		out out_E2SD
+	} ,
+	sensor s4 {
+		out out_R7po
+	} ,
+	actuator act_LIFO {
+		in in_vXJn {
+			queueType LIFO
+		} ,
+		in in_2pGG {
+			queueType LIFO
+		}
+	} connector con_AAko "s2.out_I2zl" -> "function_LIFO.in_WeFM" ,
+		connector con_YJ9b "s1.out_I2zi" -> "function_LIFO.in_EM3y" ,
+	connector con_qAE2 "s3.out_E2SD" -> "act_LIFO.in_vXJn" ,
+	connector con_Z4sN "s4.out_R7po" -> "act_LIFO.in_2pGG" }
+	,
+	package Queues2{
+	function function_RND {
+			firingStrategy OR
+		in in_EM3y {
+			queueType RANDOM
+		} ,
+			in in_WeFM
+		{
+			queueType RANDOM
+		}
+	} ,
+	sensor s1 {
+			out out_I2zd
+		} ,
+		sensor s2 {
+			out out_I2zt
+		} ,
+	sensor s3 {
+		out out_hoUX
+	} ,
+	sensor s4 {
+		out out_n7Mx
+	} ,
+	actuator act_RND {
+		in in_78s2 {
+			queueType RANDOM
+		} ,
+		in in_97Aq {
+			queueType RANDOM
+		}
+	} connector con_tbAR "s1.out_I2zd" -> "function_RND.in_EM3y" ,
+		connector con_g3AW "s2.out_I2zt" -> "function_RND.in_WeFM" ,
+	connector con_cf6Q "s3.out_hoUX" -> "act_RND.in_78s2" ,
+	connector con_FxMa "s4.out_n7Mx" -> "act_RND.in_97Aq" }
+	,
+	package Queues3{
+	sensor s1 {
+		out out_pTSJ
+	} ,
+		sensor s2 {
+		out out_Wgn3
+	} ,
+	function function_FIFO {
+		in in_CkXL ,
+		in in_f9XK
+	} ,
+	sensor s4 {
+		out out_OHh2
+	} ,
+	sensor s3 {
+		out out_kwr3
+	} ,
+	actuator act_FIFO {
+		in in_tVak ,
+		in in_NKVT
+	} connector con_ZHCc "s2.out_Wgn3" -> "function_FIFO.in_f9XK" ,
+	connector con_IaLx "s1.out_pTSJ" -> "function_FIFO.in_CkXL" ,
+	connector con_JrQ9 "s4.out_OHh2" -> "act_FIFO.in_NKVT" ,
+	connector con_mQGu "s3.out_kwr3" -> "act_FIFO.in_tVak" }
+	,
+	package Queues4{
+	function "function_FIFO/LIFO" {
+		out out_5ODT ,
+		in in_CQoi ,
+		in in_lkxI {
+			queueType LIFO
+		}
+	} ,
+	sensor s1 {
+		out out_KxNl
+	} ,
+	sensor s2 {
+		out out_FCPp
+	} ,
+	sensor s3 {
+		out out_2nVw
+	} ,
+	sensor s4 {
+		out out_tBaV
+	} ,
+	actuator "act_FIFO/LIFO" {
+		in in_bSBA ,
+		in in_qAkT {
+			queueType LIFO
+		}
+	}
+	connector con_MMFs "s2.out_FCPp" -> "function_FIFO/LIFO.in_lkxI" ,
+	connector con_E8Co "s1.out_KxNl" -> "function_FIFO/LIFO.in_CQoi" ,
+	connector con_t2FZ "s4.out_tBaV" -> "act_FIFO/LIFO.in_qAkT" ,
+	connector con_ke0R "s3.out_2nVw" -> "act_FIFO/LIFO.in_bSBA" }
+	,
+	package FiringStrategies{
+	function function_TimeBased {
+			takes Det(200)
+			out out_2fIB{
+				generates set {value: "700000" prob: 0.500  size:0.000;value: "4000000" prob: 0.500  size:0.000;}
+			}
+		} ,
+	sensor sensor_TimeBased {
+		takes Exp(3)
+		out out_6aQl{
+			generates set {value: "700000" prob: 0.500  size:0.000;value: "4000000" prob: 0.500  size:0.000;}
+		}
+	} ,
+	heuristic heuristic_TimeBased {
+		takes Det(250)
+		out out_F9e7{
+			generates set {value: "700000" prob: 0.500  size:0.000;value: "4000000" prob: 0.500  size:0.000;}
+		}
+	} ,
+	actuator a3 {
+		takes Det((1) * 1000)
+		in in_vHw8
+	} ,
+	actuator a2 {
+		takes Det((1) * 1000)
+		in in_9jFF
+	} ,
+	actuator a1 {
+		takes Det((1) * 1000)
+		in in_UAl5
+	}
+	connector con_uoRa "heuristic_TimeBased.out_F9e7" -> "a3.in_vHw8" ,
+	connector con_7ElJ "sensor_TimeBased.out_6aQl" -> "a2.in_9jFF" ,
+	connector con_qP8x "function_TimeBased.out_2fIB" -> "a1.in_UAl5" }
+	,
+	
+	package FiringStrategies2{
+		function function_oneInput {
+			takes Det(600)
+			out out_2fIB = 100 + $in_EM3y,
+			in in_EM3y
+		} ,
+	sensor s1 {
+		takes Det(500)
+			out out_I2zw{	generates set {value: "700000" prob: 0.500  size:0.000;value: "4000000" prob: 0.500  size:0.000;}}
+		} ,
+	sensor s2 {
+		takes Det(350)
+		out out_ME9i{	generates set {value: "700000" prob: 0.500  size:0.000;value: "4000000" prob: 0.500  size:0.000;}}
+	} ,
+	actuator act_oneInput {
+		takes Det(200)
+		in in_c6gN
+	} ,
+	actuator a2 {
+		takes Det(200)
+		in in_ijiM
+	} connector con_gnvG "s1.out_I2zw" -> "function_oneInput.in_EM3y" ,
+	connector con_BF23 "s2.out_ME9i" -> "act_oneInput.in_c6gN" ,
+	connector con_oX5r "function_oneInput.out_2fIB" -> "a2.in_ijiM" }
+		,
+		package FiringStrategies3{
+	function MultiInputAND {
+		takes Det(200)
+			out out_2fIB = $in_EM3y + $in_WeFM,
+			in in_EM3y ,
+			in in_WeFM
+		} ,
+	sensor s1 {
+		takes Det(250)
+			out out_I2zi {	generates set {value: "700000" prob: 0.500  size:0.000;value: "4000000" prob: 0.500  size:0.000;}}
+		} ,
+		sensor s2 {
+			takes Det(300)
+			out out_I2zl{	generates set {value: "700000" prob: 0.500  size:0.000;value: "4000000" prob: 0.500  size:0.000;}}
+		} ,
+	actuator act_AND {
+		takes Det(400)
+		in in_Ut9f ,
+		in in_4lLx
+	} ,
+	sensor s3 {
+		takes Det(200)
+		out out_A2Ng{	generates set {value: "700000" prob: 0.500  size:0.000;value: "4000000" prob: 0.500  size:0.000;}}
+	} ,
+	sensor s4 {
+		takes Det(500)
+		out out_G1Ej{	generates set {value: "700000" prob: 0.500  size:0.000;value: "4000000" prob: 0.500  size:0.000;}}
+	} ,
+	actuator a2 {
+		takes Det(100)
+		in in_KM2U
+	} connector con_AAko "s2.out_I2zl" -> "MultiInputAND.in_WeFM" ,
+		connector con_YJ9b "s1.out_I2zi" -> "MultiInputAND.in_EM3y" ,
+	connector con_ikIB "s4.out_G1Ej" -> "act_AND.in_4lLx" ,
+	connector con_YNg3 "s3.out_A2Ng" -> "act_AND.in_Ut9f" ,
+	connector con_mG7s "MultiInputAND.out_2fIB" -> "a2.in_KM2U" }
+		,
+		package FiringStrategies4{
+	sensor s3 {
+		takes Det(100)
+		out out_Dto7{	generates set {value: "700000" prob: 0.500  size:0.000;value: "4000000" prob: 0.500  size:0.000;}}
+	} ,
+	sensor s4 {
+		takes Det(400)
+		out out_JE3Q{	generates set {value: "700000" prob: 0.500  size:0.000;value: "4000000" prob: 0.500  size:0.000;}}
+	} ,
+	actuator act_OR {
+		firingStrategy OR
+		takes Det(150)
+		in in_JEe3 ,
+		in in_UZkF
+	} connector con_iWKj "s3.out_Dto7" -> "act_OR.in_JEe3" ,
+	connector con_Xfzt "s4.out_JE3Q" -> "act_OR.in_UZkF" }
+	,
+	
+	package p1 {
+	processingUnits : -1
+	physicalConnector con_bzhW "Controlled Area.Camera.c_out" -> "Controlled Area.Processing Unit.pu_in" ,
+	physicalConnector con_x5E7 "Controlled Area.Processing Unit.pu_out" -> "Controlled Area.Alarm.a_in" ,
+	logicalConnector con_Jr29 "Controlled Area.Processing Unit.pu_in" -> "Controlled Area.Processing Unit.intruderDetection.in_dZuo" ,
+	logicalConnector con_Ckwh "Controlled Area.Processing Unit.intruderDetection.out_KdGA" -> "Controlled Area.Processing Unit.pu_out"
+	sector "Controlled Area" { components {
+	physicalComponent "Processing Unit" {
+		out pu_out ,
+		in Image pu_in 
+		components {
+		heuristic intruderDetection {
+			out out_KdGA ,
+			in in_dZuo
+		}
+	}},
+	actuator Alarm {
+		takes Exp(15.0)
+		in ActuatorImpulse a_in
+	},
+	sensor Camera {
+		takes Det(33)
+		out Image c_out{generates set {value:"10" prob:1.0 size:0.0;}}
+	}}}}
+	,
+	package cameras{
+	processingUnits : 5
+		sensor Camera{
+			takes Det(33)
+			out "c_out"{generates set {value: "700000" prob: 0.500  size:0.000;value: "4000000" prob: 0.500  size:0.000;}},
+			out "c_out_2"{generates set {value: "700000" prob: 0.500  size:0.000;value: "4000000" prob: 0.500  size:0.000;}}
+		},
+		actuator ValSink{
+			takes Det(25)
+			in "In_1", 
+			in "In_2"
+		}
+	connector con "Camera.c_out_2" -> "ValSink.In_2" ,
+	connector con_J9rT "Camera.c_out" -> "ValSink.In_1" }
+	,
+	package cameras2{
+	processingUnits : 5
+	actuator act2 {
+		takes Det(14)
+		in in_LZLY
+	} ,
+	actuator act1 {
+		takes Det(5)
+		in in_SZkh
+	,
+		in in_bvb3
+	} ,
+	sensor sens1 {
+		takes Det(9)
+		out out_4bAz {generates set {value: "700000" prob: 0.500  size:0.000;value: "4000000" prob: 0.500  size:0.000;}},
+		out out_ykrb {generates set {value: "700000" prob: 0.500  size:0.000;value: "4000000" prob: 0.500  size:0.000;}}
+	} ,
+	sensor sens2 {
+		takes Det(4)
+		out out_tKhh {generates set {value:"479713" prob: 1.0 size:0.000;}}
+	}
+	connector con_8tr4 "sens1.out_4bAz" -> "act1.in_SZkh" ,
+	connector con_RESr "sens1.out_ykrb" -> "act2.in_LZLY" ,
+	connector con_t67j "sens2.out_tKhh" -> "act2.in_LZLY" ,
+	connector con_5qFE "sens2.out_tKhh" -> "act1.in_bvb3" }
+	,
+	package Inception{
+	
+	softwareComponent software1 {
+		takes Det(4)
+		out out_N9Ah ,
+		in in_v4R6 components {
+		mlComponent ml_inside {
+			takes Det(7)
+			out out_x9nB ,
+			in in_YSTJ
+		} } } , binaryClassificationComponent binary_outside {
+		takes Det(9)
+		out out_PmM6 ,
+		in in_RSxJ
+		confusionMatrixes { confusion matrix cm1 + cl1 
+					{TP : 800, FN : 8, FP: 20, TN: 16}
+				}
+	} ,
+	sensor sens {
+		takes Det(7)
+		out out_mQYq{generates set{value:"13" prob:1.0 size: 0.00;}}
+	} ,
+	actuator act {
+		takes Det(3)
+		in in_yLEN
+	} ,
+	softwareComponent software2 {
+		out out_Ae16 ,
+		in in_RdIu components { binaryClassificationComponent binary_inside {
+			takes Det(3)
+			out out_7Gvc ,
+			in in_Kwbg
+			confusionMatrixes { confusion matrix cm1 +cl1
+					{TP : 800, FN : 8, FP: 20, TN: 16}
+				}
+		}
+	} }
+	connector con_HQrD "software1.in_v4R6" -> "software1.ml_inside.in_YSTJ" ,
+	connector con_6bIl "binary_outside.out_PmM6" -> "act.in_yLEN" ,
+	connector con_3oY8 "sens.out_mQYq" -> "software1.in_v4R6" ,
+	connector con_UPZ2 "software1.ml_inside.out_x9nB" -> "software1.out_N9Ah" ,
+	connector con_PrN9 "software2.in_RdIu" -> "software2.binary_inside.in_Kwbg" ,
+	connector con_Ig6h "software2.binary_inside.out_7Gvc" -> "software2.out_Ae16" ,
+	connector con_vrEW "software1.out_N9Ah" -> "software2.in_RdIu" ,
+	connector con_6REK "software2.out_Ae16" -> "binary_outside.in_RSxJ" }
+	,
+	package BinaryClassTest{
+	sensor sens {
+		takes Det(5)
+		out out_VNFa {generates set{value:"9" prob:0.4 size:0.5;value:"6" prob:0.6 size:0.5;}}
+	} ,
+	actuator act {
+		takes Det(4)
+		in in_C9yy
+	} , binaryClassificationComponent bin1 {
+		takes Det(6)
+		out out_nTjh ,
+		in in_gu24
+		confusionMatrixes { confusion matrix cm1 + cl1
+					{TP : 800, FN : 8, FP: 20, TN: 16}
+				}
+	} , binaryClassificationComponent bin2 {
+		takes Det(5)
+		out out_FWrk ,
+		in in_Ze6O
+		confusionMatrixes { confusion matrix cm1 + cl1
+					{TP : 800, FN : 8, FP: 20, TN: 16}
+				}
+	}
+	connector con_vw6C "sens.out_VNFa" -> "bin1.in_gu24" ,
+	connector con_MfnT "bin1.out_nTjh" -> "bin2.in_Ze6O" ,
+	connector con_78d7 "bin2.out_FWrk" -> "act.in_C9yy" }
+	,
+	package Inception2{
+	sensor sens {
+		takes Det(7)
+		out out_mQYq{generates set{value:"13" prob:1.0 size: 0.00;}}
+	} ,
+	actuator act {
+		takes Det(3)
+		in in_yLEN
+	} ,
+	physicalComponent phys {
+		out out_QdTv ,
+		in in_8K89 ,
+		in in_5p2O ,
+		out out_55wk components {
+		softwareComponent soft_inside {
+			out out_XyGh ,
+			in in_ImQ3
+		} ,
+		mlComponent ml_inside {
+			out out_3fUx ,
+			in in_TBYW
+		}
+	} } ,
+	sensor sens2 {
+		out out_Pq8q
+	} ,
+	actuator act2 {
+		in in_84rL
+	}
+	connector con_24G6 "sens.out_mQYq" -> "phys.in_8K89" ,
+	connector con_BqoF "phys.in_8K89" -> "phys.soft_inside.in_ImQ3" ,
+	connector con_xoIb "phys.soft_inside.out_XyGh" -> "phys.ml_inside.in_TBYW" ,
+	connector con_u9Da "phys.ml_inside.out_3fUx" -> "phys.out_QdTv" ,
+	connector con_zySA "phys.out_QdTv" -> "act.in_yLEN" ,
+	connector con_cXb2 "sens2.out_Pq8q" -> "phys.in_5p2O" ,
+	connector con_flNX "phys.out_55wk" -> "act2.in_84rL" }
+	cl cl1
+	environment env1 {
+		cl1 0.4, not cl1 0.6
+	}
+}
