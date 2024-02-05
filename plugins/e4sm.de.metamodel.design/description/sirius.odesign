@@ -334,7 +334,7 @@
           </style>
         </containerMappings>
         <toolSections name="d2_create_tools" label="Create Connectors">
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="d2_create_connector" label="Generic Connector" precondition="aql:preSource.eContainer()&lt;>preTarget.eContainer()" edgeMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_connector']" extraTargetMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_MachineLearningComponent'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_HeuristicComponent'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_SoftwareComponent'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Actuator'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_PhisicalComponent']">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="d2_create_connector" label="Generic Connector" precondition="aql:preSource.eContainer()&lt;>preTarget.eContainer() and not(preSource.oclIsTypeOf(e4sm::InputPin) and preTarget.oclIsTypeOf(e4sm::OutputPin))" edgeMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_connector']" extraTargetMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_MachineLearningComponent'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_HeuristicComponent'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_SoftwareComponent'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Actuator'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_PhisicalComponent']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -363,7 +363,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="d2_create_physical_connector" label="Physical Connector" precondition="aql:preSource.canPhysicalConnectorConnectSourceToTarget(preTarget)" edgeMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_physical_connector']" connectionStartPrecondition="aql:(preSource.oclIsTypeOf(e4sm::OutputPin) and preSource.eContainer().oclIsKindOf(e4sm::PhysicalComponent)) or preSource.oclIsTypeOf(e4sm::DataStore)">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="d2_create_physical_connector" label="Physical Connector" precondition="aql:preSource.canPhysicalConnectorConnectSourceToTarget(preTarget) and not(preSource.oclIsTypeOf(e4sm::InputPin) and preTarget.oclIsTypeOf(e4sm::OutputPin))" edgeMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_physical_connector']" connectionStartPrecondition="aql:(preSource.oclIsTypeOf(e4sm::OutputPin) and preSource.eContainer().oclIsKindOf(e4sm::PhysicalComponent)) or preSource.oclIsTypeOf(e4sm::DataStore)">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -378,7 +378,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="d2_create_logical_connector" label="Logical Connector" precondition="aql:preSource&lt;>preTarget and ((preSource.oclIsTypeOf(e4sm::DataStore) or preTarget.oclIsTypeOf(e4sm::DataStore)) or  preSource.eContainer()&lt;>preTarget.eContainer())" edgeMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_logical_connector']">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="d2_create_logical_connector" label="Logical Connector" precondition="aql:preSource&lt;>preTarget and ((preSource.oclIsTypeOf(e4sm::DataStore) or preTarget.oclIsTypeOf(e4sm::DataStore)) or  preSource.eContainer()&lt;>preTarget.eContainer()) and not(preSource.oclIsTypeOf(e4sm::InputPin) and preTarget.oclIsTypeOf(e4sm::OutputPin))" edgeMappings="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@edgeMappings[name='d2_edge_logical_connector']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -962,7 +962,7 @@
             </itemDescriptions>
             <itemDescriptions xsi:type="tool_1:PopupMenu" documentation="Provides the simulation option(s) for the graphical editor." name="popup_simulation" label="Start Simulation">
               <menuItemDescription xsi:type="tool_1:GroupMenu" name="timenetGroup" label="Timenet Options">
-                <itemDescriptions xsi:type="tool_1:OperationAction" documentation="Starts the simulation via the TimenetSimRunner class." name="timenet_simulation_start" label="Timenet" icon="/e4sm.de.metamodel.design/icons/specified.gif">
+                <itemDescriptions xsi:type="tool_1:OperationAction" documentation="Starts the simulation via the TimenetSimRunner class." name="timenet_simulation_start" label="TimeNET" icon="/e4sm.de.metamodel.design/icons/specified.gif">
                   <view name="views"/>
                   <initialOperation>
                     <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">

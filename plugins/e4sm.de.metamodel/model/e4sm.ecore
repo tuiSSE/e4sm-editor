@@ -50,6 +50,9 @@
       <details key="documentation" value="A connector connects one source to one target component.&#xD;&#xA;Constraints:&#xD;&#xA;- C1: A connector shall not connect two pins of the same component directly (loop/short circuit)"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="ConnectorC1 ConnectorC2"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="constraints" value="ConnectorC1"/>
     </eAnnotations>
     <eOperations name="computeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

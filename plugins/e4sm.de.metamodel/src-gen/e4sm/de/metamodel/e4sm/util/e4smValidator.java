@@ -443,6 +443,8 @@ public class e4smValidator extends EObjectValidator {
 			result &= validate_EveryMapEntryUnique(connector, diagnostics, context);
 		if (result || diagnostics != null)
 			result &= validateConnector_ConnectorC1(connector, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateConnector_ConnectorC2(connector, diagnostics, context);
 		return result;
 	}
 
@@ -476,6 +478,31 @@ public class e4smValidator extends EObjectValidator {
 	}
 
 	/**
+	 * Validates the ConnectorC2 constraint of '<em>Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean validateConnector_ConnectorC2(Connector connector, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		DataNode source = connector.getSource();
+		DataNode target = connector.getTarget();
+		if(source instanceof InputPin && target instanceof OutputPin){
+			if (diagnostics != null) {
+				diagnostics.add(createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0,
+						"_UI_GenericConstraint_diagnostic",
+						new Object[] {
+								"C2: A connector shall not connect an inputpin to an outputpin",
+								getObjectLabel(connector, context) },
+						new Object[] { connector }, context));
+			}
+			return false;
+		}
+		
+		return true;
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -500,6 +527,8 @@ public class e4smValidator extends EObjectValidator {
 			result &= validate_EveryMapEntryUnique(physicalConnector, diagnostics, context);
 		if (result || diagnostics != null)
 			result &= validateConnector_ConnectorC1(physicalConnector, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateConnector_ConnectorC2(physicalConnector, diagnostics, context);
 		if (result || diagnostics != null)
 			result &= validatePhysicalConnector_PhysicalConnectorC1(physicalConnector, diagnostics, context);
 		if (result || diagnostics != null)
@@ -706,6 +735,8 @@ public class e4smValidator extends EObjectValidator {
 			result &= validate_EveryMapEntryUnique(logicalConnector, diagnostics, context);
 		if (result || diagnostics != null)
 			result &= validateConnector_ConnectorC1(logicalConnector, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateConnector_ConnectorC2(logicalConnector, diagnostics, context);
 		return result;
 	}
 
@@ -1336,9 +1367,10 @@ public class e4smValidator extends EObjectValidator {
 		m.getPackages().forEach(p -> {
 			sensors.addAll(p.getComponents().stream()
 					.filter(c -> c instanceof Sensor && ((Sensor) c).getClassificationClasses().size() > 0).toList());
-			p.getSectors().forEach(sec ->{
+			p.getSectors().forEach(sec -> {
 				sensors.addAll(sec.getComponents().stream()
-						.filter(c -> c instanceof Sensor && ((Sensor) c).getClassificationClasses().size() > 0).toList());
+						.filter(c -> c instanceof Sensor && ((Sensor) c).getClassificationClasses().size() > 0)
+						.toList());
 			});
 		});
 
