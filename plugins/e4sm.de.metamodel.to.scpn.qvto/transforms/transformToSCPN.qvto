@@ -1679,29 +1679,30 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 		
 		//arcs from decision results to placeExecuted
 		var aClass : e4sm::ClassificationClass := self.confusionMatrixes->positiveClass->first();
-		var bcName := self.name;
+		var bcName := safeString(self.name);
+		var cName := safeString(aClass.name);
 		var ct_tp_to_executed : ArcType := new ArcType(bcName + "ct_tp_to_executed");
 		ct_tp_to_executed.fromNode := ct_tp.id;
 		ct_tp_to_executed.toNode := placeExecuted.id;
-		ct_tp_to_executed.inscription.text := "x(cl_" + aClass.name + "_" + bcName + "=true)";
+		ct_tp_to_executed.inscription.text := "x(cl_" + cName + "_" + bcName + "=true)";
 		arcs+=ct_tp_to_executed;
 		
 		var ct_fn_to_executed : ArcType := new ArcType(bcName + "ct_fn_to_executed");
 		ct_fn_to_executed.fromNode := ct_fn.id;
 		ct_fn_to_executed.toNode := placeExecuted.id;
-		ct_fn_to_executed.inscription.text := "x(cl_" + aClass.name + "_" + bcName + "=false)";
+		ct_fn_to_executed.inscription.text := "x(cl_" + cName + "_" + bcName + "=false)";
 		arcs+=ct_fn_to_executed;
 		
 		var cf_tn_to_executed : ArcType := new ArcType(bcName + "cf_tn_to_executed");
 		cf_tn_to_executed.fromNode := cf_tn.id;
 		cf_tn_to_executed.toNode := placeExecuted.id;
-		cf_tn_to_executed.inscription.text := "x(cl_" + aClass.name + "_" + bcName + "=false)";
+		cf_tn_to_executed.inscription.text := "x(cl_" + cName + "_" + bcName + "=false)";
 		arcs+=cf_tn_to_executed;
 		
 		var cf_fp_to_executed : ArcType := new ArcType(bcName + "cf_fp_to_executed");
 		cf_fp_to_executed.fromNode := cf_fp.id;
 		cf_fp_to_executed.toNode := placeExecuted.id;
-		cf_fp_to_executed.inscription.text := "x(cl_" + aClass.name + "_" + bcName + "=true)";
+		cf_fp_to_executed.inscription.text := "x(cl_" + cName + "_" + bcName + "=true)";
 		arcs+=cf_fp_to_executed;
 		
 		//var ct_tp_2_tp : ArcType := new ArcType(self.name + "ct_tp_2_tp");
