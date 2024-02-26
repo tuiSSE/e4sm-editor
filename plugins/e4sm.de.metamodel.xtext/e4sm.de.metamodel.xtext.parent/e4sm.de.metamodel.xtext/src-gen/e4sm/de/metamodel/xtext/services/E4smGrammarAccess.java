@@ -574,37 +574,36 @@ public class E4smGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		private final Keyword cMatrixKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cNameEStringParserRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cPlusSignKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cPositiveClassAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final CrossReference cPositiveClassClassificationClassCrossReference_4_1_0 = (CrossReference)cPositiveClassAssignment_4_1.eContents().get(0);
-		private final RuleCall cPositiveClassClassificationClassEStringParserRuleCall_4_1_0_1 = (RuleCall)cPositiveClassClassificationClassCrossReference_4_1_0.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Keyword cTPKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final RuleCall cPROPERTY_ASSIGNTerminalRuleCall_7 = (RuleCall)cGroup.eContents().get(7);
-		private final Assignment cTpAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final RuleCall cTpEIntParserRuleCall_8_0 = (RuleCall)cTpAssignment_8.eContents().get(0);
-		private final Keyword cCommaKeyword_9 = (Keyword)cGroup.eContents().get(9);
-		private final Keyword cFNKeyword_10 = (Keyword)cGroup.eContents().get(10);
-		private final RuleCall cPROPERTY_ASSIGNTerminalRuleCall_11 = (RuleCall)cGroup.eContents().get(11);
-		private final Assignment cFnAssignment_12 = (Assignment)cGroup.eContents().get(12);
-		private final RuleCall cFnEIntParserRuleCall_12_0 = (RuleCall)cFnAssignment_12.eContents().get(0);
-		private final Keyword cCommaKeyword_13 = (Keyword)cGroup.eContents().get(13);
-		private final Keyword cFPKeyword_14 = (Keyword)cGroup.eContents().get(14);
-		private final RuleCall cPROPERTY_ASSIGNTerminalRuleCall_15 = (RuleCall)cGroup.eContents().get(15);
-		private final Assignment cFpAssignment_16 = (Assignment)cGroup.eContents().get(16);
-		private final RuleCall cFpEIntParserRuleCall_16_0 = (RuleCall)cFpAssignment_16.eContents().get(0);
-		private final Keyword cCommaKeyword_17 = (Keyword)cGroup.eContents().get(17);
-		private final Keyword cTNKeyword_18 = (Keyword)cGroup.eContents().get(18);
-		private final RuleCall cPROPERTY_ASSIGNTerminalRuleCall_19 = (RuleCall)cGroup.eContents().get(19);
-		private final Assignment cTnAssignment_20 = (Assignment)cGroup.eContents().get(20);
-		private final RuleCall cTnEIntParserRuleCall_20_0 = (RuleCall)cTnAssignment_20.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_21 = (Keyword)cGroup.eContents().get(21);
+		private final Keyword cPlusSignKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cPositiveClassAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final CrossReference cPositiveClassClassificationClassCrossReference_5_0 = (CrossReference)cPositiveClassAssignment_5.eContents().get(0);
+		private final RuleCall cPositiveClassClassificationClassEStringParserRuleCall_5_0_1 = (RuleCall)cPositiveClassClassificationClassCrossReference_5_0.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Keyword cTPKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final RuleCall cPROPERTY_ASSIGNTerminalRuleCall_8 = (RuleCall)cGroup.eContents().get(8);
+		private final Assignment cTpAssignment_9 = (Assignment)cGroup.eContents().get(9);
+		private final RuleCall cTpEIntParserRuleCall_9_0 = (RuleCall)cTpAssignment_9.eContents().get(0);
+		private final Keyword cCommaKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		private final Keyword cFNKeyword_11 = (Keyword)cGroup.eContents().get(11);
+		private final RuleCall cPROPERTY_ASSIGNTerminalRuleCall_12 = (RuleCall)cGroup.eContents().get(12);
+		private final Assignment cFnAssignment_13 = (Assignment)cGroup.eContents().get(13);
+		private final RuleCall cFnEIntParserRuleCall_13_0 = (RuleCall)cFnAssignment_13.eContents().get(0);
+		private final Keyword cCommaKeyword_14 = (Keyword)cGroup.eContents().get(14);
+		private final Keyword cFPKeyword_15 = (Keyword)cGroup.eContents().get(15);
+		private final RuleCall cPROPERTY_ASSIGNTerminalRuleCall_16 = (RuleCall)cGroup.eContents().get(16);
+		private final Assignment cFpAssignment_17 = (Assignment)cGroup.eContents().get(17);
+		private final RuleCall cFpEIntParserRuleCall_17_0 = (RuleCall)cFpAssignment_17.eContents().get(0);
+		private final Keyword cCommaKeyword_18 = (Keyword)cGroup.eContents().get(18);
+		private final Keyword cTNKeyword_19 = (Keyword)cGroup.eContents().get(19);
+		private final RuleCall cPROPERTY_ASSIGNTerminalRuleCall_20 = (RuleCall)cGroup.eContents().get(20);
+		private final Assignment cTnAssignment_21 = (Assignment)cGroup.eContents().get(21);
+		private final RuleCall cTnEIntParserRuleCall_21_0 = (RuleCall)cTnAssignment_21.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_22 = (Keyword)cGroup.eContents().get(22);
 		
 		//BinaryConfusionMatrix returns BinaryConfusionMatrix:
 		//    {BinaryConfusionMatrix}
 		//    'confusion' 'matrix' name=EString
-		//    ('+' positiveClass = [ClassificationClass|EString])?
+		//    '+' positiveClass = [ClassificationClass|EString]
 		//    '{'
 		//    'TP' PROPERTY_ASSIGN tp=EInt ',' 'FN' PROPERTY_ASSIGN fn=EInt
 		//    ',' 'FP' PROPERTY_ASSIGN fp=EInt ',' 'TN' PROPERTY_ASSIGN tn=EInt
@@ -613,7 +612,7 @@ public class E4smGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		
 		//{BinaryConfusionMatrix}
 		//'confusion' 'matrix' name=EString
-		//('+' positiveClass = [ClassificationClass|EString])?
+		//'+' positiveClass = [ClassificationClass|EString]
 		//'{'
 		//'TP' PROPERTY_ASSIGN tp=EInt ',' 'FN' PROPERTY_ASSIGN fn=EInt
 		//',' 'FP' PROPERTY_ASSIGN fp=EInt ',' 'TN' PROPERTY_ASSIGN tn=EInt
@@ -635,83 +634,80 @@ public class E4smGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//EString
 		public RuleCall getNameEStringParserRuleCall_3_0() { return cNameEStringParserRuleCall_3_0; }
 		
-		//('+' positiveClass = [ClassificationClass|EString])?
-		public Group getGroup_4() { return cGroup_4; }
-		
 		//'+'
-		public Keyword getPlusSignKeyword_4_0() { return cPlusSignKeyword_4_0; }
+		public Keyword getPlusSignKeyword_4() { return cPlusSignKeyword_4; }
 		
 		//positiveClass = [ClassificationClass|EString]
-		public Assignment getPositiveClassAssignment_4_1() { return cPositiveClassAssignment_4_1; }
+		public Assignment getPositiveClassAssignment_5() { return cPositiveClassAssignment_5; }
 		
 		//[ClassificationClass|EString]
-		public CrossReference getPositiveClassClassificationClassCrossReference_4_1_0() { return cPositiveClassClassificationClassCrossReference_4_1_0; }
+		public CrossReference getPositiveClassClassificationClassCrossReference_5_0() { return cPositiveClassClassificationClassCrossReference_5_0; }
 		
 		//EString
-		public RuleCall getPositiveClassClassificationClassEStringParserRuleCall_4_1_0_1() { return cPositiveClassClassificationClassEStringParserRuleCall_4_1_0_1; }
+		public RuleCall getPositiveClassClassificationClassEStringParserRuleCall_5_0_1() { return cPositiveClassClassificationClassEStringParserRuleCall_5_0_1; }
 		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_5() { return cLeftCurlyBracketKeyword_5; }
+		public Keyword getLeftCurlyBracketKeyword_6() { return cLeftCurlyBracketKeyword_6; }
 		
 		//'TP'
-		public Keyword getTPKeyword_6() { return cTPKeyword_6; }
+		public Keyword getTPKeyword_7() { return cTPKeyword_7; }
 		
 		//PROPERTY_ASSIGN
-		public RuleCall getPROPERTY_ASSIGNTerminalRuleCall_7() { return cPROPERTY_ASSIGNTerminalRuleCall_7; }
+		public RuleCall getPROPERTY_ASSIGNTerminalRuleCall_8() { return cPROPERTY_ASSIGNTerminalRuleCall_8; }
 		
 		//tp=EInt
-		public Assignment getTpAssignment_8() { return cTpAssignment_8; }
+		public Assignment getTpAssignment_9() { return cTpAssignment_9; }
 		
 		//EInt
-		public RuleCall getTpEIntParserRuleCall_8_0() { return cTpEIntParserRuleCall_8_0; }
+		public RuleCall getTpEIntParserRuleCall_9_0() { return cTpEIntParserRuleCall_9_0; }
 		
 		//','
-		public Keyword getCommaKeyword_9() { return cCommaKeyword_9; }
+		public Keyword getCommaKeyword_10() { return cCommaKeyword_10; }
 		
 		//'FN'
-		public Keyword getFNKeyword_10() { return cFNKeyword_10; }
+		public Keyword getFNKeyword_11() { return cFNKeyword_11; }
 		
 		//PROPERTY_ASSIGN
-		public RuleCall getPROPERTY_ASSIGNTerminalRuleCall_11() { return cPROPERTY_ASSIGNTerminalRuleCall_11; }
+		public RuleCall getPROPERTY_ASSIGNTerminalRuleCall_12() { return cPROPERTY_ASSIGNTerminalRuleCall_12; }
 		
 		//fn=EInt
-		public Assignment getFnAssignment_12() { return cFnAssignment_12; }
+		public Assignment getFnAssignment_13() { return cFnAssignment_13; }
 		
 		//EInt
-		public RuleCall getFnEIntParserRuleCall_12_0() { return cFnEIntParserRuleCall_12_0; }
+		public RuleCall getFnEIntParserRuleCall_13_0() { return cFnEIntParserRuleCall_13_0; }
 		
 		//','
-		public Keyword getCommaKeyword_13() { return cCommaKeyword_13; }
+		public Keyword getCommaKeyword_14() { return cCommaKeyword_14; }
 		
 		//'FP'
-		public Keyword getFPKeyword_14() { return cFPKeyword_14; }
+		public Keyword getFPKeyword_15() { return cFPKeyword_15; }
 		
 		//PROPERTY_ASSIGN
-		public RuleCall getPROPERTY_ASSIGNTerminalRuleCall_15() { return cPROPERTY_ASSIGNTerminalRuleCall_15; }
+		public RuleCall getPROPERTY_ASSIGNTerminalRuleCall_16() { return cPROPERTY_ASSIGNTerminalRuleCall_16; }
 		
 		//fp=EInt
-		public Assignment getFpAssignment_16() { return cFpAssignment_16; }
+		public Assignment getFpAssignment_17() { return cFpAssignment_17; }
 		
 		//EInt
-		public RuleCall getFpEIntParserRuleCall_16_0() { return cFpEIntParserRuleCall_16_0; }
+		public RuleCall getFpEIntParserRuleCall_17_0() { return cFpEIntParserRuleCall_17_0; }
 		
 		//','
-		public Keyword getCommaKeyword_17() { return cCommaKeyword_17; }
+		public Keyword getCommaKeyword_18() { return cCommaKeyword_18; }
 		
 		//'TN'
-		public Keyword getTNKeyword_18() { return cTNKeyword_18; }
+		public Keyword getTNKeyword_19() { return cTNKeyword_19; }
 		
 		//PROPERTY_ASSIGN
-		public RuleCall getPROPERTY_ASSIGNTerminalRuleCall_19() { return cPROPERTY_ASSIGNTerminalRuleCall_19; }
+		public RuleCall getPROPERTY_ASSIGNTerminalRuleCall_20() { return cPROPERTY_ASSIGNTerminalRuleCall_20; }
 		
 		//tn=EInt
-		public Assignment getTnAssignment_20() { return cTnAssignment_20; }
+		public Assignment getTnAssignment_21() { return cTnAssignment_21; }
 		
 		//EInt
-		public RuleCall getTnEIntParserRuleCall_20_0() { return cTnEIntParserRuleCall_20_0; }
+		public RuleCall getTnEIntParserRuleCall_21_0() { return cTnEIntParserRuleCall_21_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_21() { return cRightCurlyBracketKeyword_21; }
+		public Keyword getRightCurlyBracketKeyword_22() { return cRightCurlyBracketKeyword_22; }
 	}
 	public class MulticlassConfusionMatrixElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "e4sm.de.metamodel.xtext.E4sm.MulticlassConfusionMatrix");
@@ -9701,7 +9697,7 @@ public class E4smGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//    ('takes' timeFunction=ComplexTimefunction)?
 		//    (pins += Pin ("," pins += Pin)*)?
 		//    // 'timeFunction' timeFunction=TimeFunction
-		//    ('generates' classificationClasses+=[ClassificationClass|EString] (',' classificationClasses+=[ClassificationClass|EString])?)?
+		//    ('generates' classificationClasses+=[ClassificationClass|EString] (',' classificationClasses+=[ClassificationClass|EString])*)?
 		//    ('mainResponsible' mainResponsible = [Person|EString])?
 		//    ('specifiedInPackage' specifiedInPackage = [Package|EString])?
 		//    ('parameters' '{' parameters += Parameter ("," parameters += Parameter)* '}')?
@@ -9719,7 +9715,7 @@ public class E4smGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//('takes' timeFunction=ComplexTimefunction)?
 		//(pins += Pin ("," pins += Pin)*)?
 		//// 'timeFunction' timeFunction=TimeFunction
-		//('generates' classificationClasses+=[ClassificationClass|EString] (',' classificationClasses+=[ClassificationClass|EString])?)?
+		//('generates' classificationClasses+=[ClassificationClass|EString] (',' classificationClasses+=[ClassificationClass|EString])*)?
 		//('mainResponsible' mainResponsible = [Person|EString])?
 		//('specifiedInPackage' specifiedInPackage = [Package|EString])?
 		//('parameters' '{' parameters += Parameter ("," parameters += Parameter)* '}')?
@@ -9802,7 +9798,7 @@ public class E4smGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		public RuleCall getPinsPinParserRuleCall_6_1_1_0() { return cPinsPinParserRuleCall_6_1_1_0; }
 		
 		//// 'timeFunction' timeFunction=TimeFunction
-		//('generates' classificationClasses+=[ClassificationClass|EString] (',' classificationClasses+=[ClassificationClass|EString])?)?
+		//('generates' classificationClasses+=[ClassificationClass|EString] (',' classificationClasses+=[ClassificationClass|EString])*)?
 		public Group getGroup_7() { return cGroup_7; }
 		
 		//'generates'
@@ -9817,7 +9813,7 @@ public class E4smGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//EString
 		public RuleCall getClassificationClassesClassificationClassEStringParserRuleCall_7_1_0_1() { return cClassificationClassesClassificationClassEStringParserRuleCall_7_1_0_1; }
 		
-		//(',' classificationClasses+=[ClassificationClass|EString])?
+		//(',' classificationClasses+=[ClassificationClass|EString])*
 		public Group getGroup_7_2() { return cGroup_7_2; }
 		
 		//','
@@ -13585,7 +13581,7 @@ public class E4smGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	//BinaryConfusionMatrix returns BinaryConfusionMatrix:
 	//    {BinaryConfusionMatrix}
 	//    'confusion' 'matrix' name=EString
-	//    ('+' positiveClass = [ClassificationClass|EString])?
+	//    '+' positiveClass = [ClassificationClass|EString]
 	//    '{'
 	//    'TP' PROPERTY_ASSIGN tp=EInt ',' 'FN' PROPERTY_ASSIGN fn=EInt
 	//    ',' 'FP' PROPERTY_ASSIGN fp=EInt ',' 'TN' PROPERTY_ASSIGN tn=EInt
@@ -14727,7 +14723,7 @@ public class E4smGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	//    ('takes' timeFunction=ComplexTimefunction)?
 	//    (pins += Pin ("," pins += Pin)*)?
 	//    // 'timeFunction' timeFunction=TimeFunction
-	//    ('generates' classificationClasses+=[ClassificationClass|EString] (',' classificationClasses+=[ClassificationClass|EString])?)?
+	//    ('generates' classificationClasses+=[ClassificationClass|EString] (',' classificationClasses+=[ClassificationClass|EString])*)?
 	//    ('mainResponsible' mainResponsible = [Person|EString])?
 	//    ('specifiedInPackage' specifiedInPackage = [Package|EString])?
 	//    ('parameters' '{' parameters += Parameter ("," parameters += Parameter)* '}')?

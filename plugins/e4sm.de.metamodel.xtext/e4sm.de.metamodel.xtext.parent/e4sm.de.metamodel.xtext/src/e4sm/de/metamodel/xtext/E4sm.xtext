@@ -702,7 +702,7 @@ Sensor returns Sensor:
 	('takes' timeFunction=ComplexTimefunction)?
 	(pins += Pin ("," pins += Pin)*)?
 	// 'timeFunction' timeFunction=TimeFunction
-	('generates' classificationClasses+=[ClassificationClass|EString] (',' classificationClasses+=[ClassificationClass|EString])?)?
+	('generates' classificationClasses+=[ClassificationClass|EString] (',' classificationClasses+=[ClassificationClass|EString])*)?
 	('mainResponsible' mainResponsible = [Person|EString])?
 	('specifiedInPackage' specifiedInPackage = [Package|EString])?
 	('parameters' '{' parameters += Parameter ("," parameters += Parameter)* '}')?

@@ -895,44 +895,42 @@ ruleBinaryConfusionMatrix returns [EObject current=null]
 				}
 			)
 		)
-		(
-			otherlv_4='+'
-			{
-				newLeafNode(otherlv_4, grammarAccess.getBinaryConfusionMatrixAccess().getPlusSignKeyword_4_0());
-			}
-			(
-				(
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getBinaryConfusionMatrixRule());
-						}
-					}
-					{
-						newCompositeNode(grammarAccess.getBinaryConfusionMatrixAccess().getPositiveClassClassificationClassCrossReference_4_1_0());
-					}
-					ruleEString
-					{
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)?
-		otherlv_6='{'
+		otherlv_4='+'
 		{
-			newLeafNode(otherlv_6, grammarAccess.getBinaryConfusionMatrixAccess().getLeftCurlyBracketKeyword_5());
-		}
-		otherlv_7='TP'
-		{
-			newLeafNode(otherlv_7, grammarAccess.getBinaryConfusionMatrixAccess().getTPKeyword_6());
-		}
-		this_PROPERTY_ASSIGN_8=RULE_PROPERTY_ASSIGN
-		{
-			newLeafNode(this_PROPERTY_ASSIGN_8, grammarAccess.getBinaryConfusionMatrixAccess().getPROPERTY_ASSIGNTerminalRuleCall_7());
+			newLeafNode(otherlv_4, grammarAccess.getBinaryConfusionMatrixAccess().getPlusSignKeyword_4());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getBinaryConfusionMatrixAccess().getTpEIntParserRuleCall_8_0());
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getBinaryConfusionMatrixRule());
+					}
+				}
+				{
+					newCompositeNode(grammarAccess.getBinaryConfusionMatrixAccess().getPositiveClassClassificationClassCrossReference_5_0());
+				}
+				ruleEString
+				{
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_6='{'
+		{
+			newLeafNode(otherlv_6, grammarAccess.getBinaryConfusionMatrixAccess().getLeftCurlyBracketKeyword_6());
+		}
+		otherlv_7='TP'
+		{
+			newLeafNode(otherlv_7, grammarAccess.getBinaryConfusionMatrixAccess().getTPKeyword_7());
+		}
+		this_PROPERTY_ASSIGN_8=RULE_PROPERTY_ASSIGN
+		{
+			newLeafNode(this_PROPERTY_ASSIGN_8, grammarAccess.getBinaryConfusionMatrixAccess().getPROPERTY_ASSIGNTerminalRuleCall_8());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getBinaryConfusionMatrixAccess().getTpEIntParserRuleCall_9_0());
 				}
 				lv_tp_9_0=ruleEInt
 				{
@@ -950,20 +948,20 @@ ruleBinaryConfusionMatrix returns [EObject current=null]
 		)
 		otherlv_10=','
 		{
-			newLeafNode(otherlv_10, grammarAccess.getBinaryConfusionMatrixAccess().getCommaKeyword_9());
+			newLeafNode(otherlv_10, grammarAccess.getBinaryConfusionMatrixAccess().getCommaKeyword_10());
 		}
 		otherlv_11='FN'
 		{
-			newLeafNode(otherlv_11, grammarAccess.getBinaryConfusionMatrixAccess().getFNKeyword_10());
+			newLeafNode(otherlv_11, grammarAccess.getBinaryConfusionMatrixAccess().getFNKeyword_11());
 		}
 		this_PROPERTY_ASSIGN_12=RULE_PROPERTY_ASSIGN
 		{
-			newLeafNode(this_PROPERTY_ASSIGN_12, grammarAccess.getBinaryConfusionMatrixAccess().getPROPERTY_ASSIGNTerminalRuleCall_11());
+			newLeafNode(this_PROPERTY_ASSIGN_12, grammarAccess.getBinaryConfusionMatrixAccess().getPROPERTY_ASSIGNTerminalRuleCall_12());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getBinaryConfusionMatrixAccess().getFnEIntParserRuleCall_12_0());
+					newCompositeNode(grammarAccess.getBinaryConfusionMatrixAccess().getFnEIntParserRuleCall_13_0());
 				}
 				lv_fn_13_0=ruleEInt
 				{
@@ -981,20 +979,20 @@ ruleBinaryConfusionMatrix returns [EObject current=null]
 		)
 		otherlv_14=','
 		{
-			newLeafNode(otherlv_14, grammarAccess.getBinaryConfusionMatrixAccess().getCommaKeyword_13());
+			newLeafNode(otherlv_14, grammarAccess.getBinaryConfusionMatrixAccess().getCommaKeyword_14());
 		}
 		otherlv_15='FP'
 		{
-			newLeafNode(otherlv_15, grammarAccess.getBinaryConfusionMatrixAccess().getFPKeyword_14());
+			newLeafNode(otherlv_15, grammarAccess.getBinaryConfusionMatrixAccess().getFPKeyword_15());
 		}
 		this_PROPERTY_ASSIGN_16=RULE_PROPERTY_ASSIGN
 		{
-			newLeafNode(this_PROPERTY_ASSIGN_16, grammarAccess.getBinaryConfusionMatrixAccess().getPROPERTY_ASSIGNTerminalRuleCall_15());
+			newLeafNode(this_PROPERTY_ASSIGN_16, grammarAccess.getBinaryConfusionMatrixAccess().getPROPERTY_ASSIGNTerminalRuleCall_16());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getBinaryConfusionMatrixAccess().getFpEIntParserRuleCall_16_0());
+					newCompositeNode(grammarAccess.getBinaryConfusionMatrixAccess().getFpEIntParserRuleCall_17_0());
 				}
 				lv_fp_17_0=ruleEInt
 				{
@@ -1012,20 +1010,20 @@ ruleBinaryConfusionMatrix returns [EObject current=null]
 		)
 		otherlv_18=','
 		{
-			newLeafNode(otherlv_18, grammarAccess.getBinaryConfusionMatrixAccess().getCommaKeyword_17());
+			newLeafNode(otherlv_18, grammarAccess.getBinaryConfusionMatrixAccess().getCommaKeyword_18());
 		}
 		otherlv_19='TN'
 		{
-			newLeafNode(otherlv_19, grammarAccess.getBinaryConfusionMatrixAccess().getTNKeyword_18());
+			newLeafNode(otherlv_19, grammarAccess.getBinaryConfusionMatrixAccess().getTNKeyword_19());
 		}
 		this_PROPERTY_ASSIGN_20=RULE_PROPERTY_ASSIGN
 		{
-			newLeafNode(this_PROPERTY_ASSIGN_20, grammarAccess.getBinaryConfusionMatrixAccess().getPROPERTY_ASSIGNTerminalRuleCall_19());
+			newLeafNode(this_PROPERTY_ASSIGN_20, grammarAccess.getBinaryConfusionMatrixAccess().getPROPERTY_ASSIGNTerminalRuleCall_20());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getBinaryConfusionMatrixAccess().getTnEIntParserRuleCall_20_0());
+					newCompositeNode(grammarAccess.getBinaryConfusionMatrixAccess().getTnEIntParserRuleCall_21_0());
 				}
 				lv_tn_21_0=ruleEInt
 				{
@@ -1043,7 +1041,7 @@ ruleBinaryConfusionMatrix returns [EObject current=null]
 		)
 		otherlv_22='}'
 		{
-			newLeafNode(otherlv_22, grammarAccess.getBinaryConfusionMatrixAccess().getRightCurlyBracketKeyword_21());
+			newLeafNode(otherlv_22, grammarAccess.getBinaryConfusionMatrixAccess().getRightCurlyBracketKeyword_22());
 		}
 	)
 ;
@@ -12930,7 +12928,7 @@ ruleSensor returns [EObject current=null]
 						}
 					)
 				)
-			)?
+			)*
 		)?
 		(
 			otherlv_17='mainResponsible'

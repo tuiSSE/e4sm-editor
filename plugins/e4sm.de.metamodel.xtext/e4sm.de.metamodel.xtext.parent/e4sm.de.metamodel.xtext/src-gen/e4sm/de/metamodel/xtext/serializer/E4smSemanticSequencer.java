@@ -596,7 +596,7 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         name=EString 
-	 *         positiveClass=[ClassificationClass|EString]? 
+	 *         positiveClass=[ClassificationClass|EString] 
 	 *         tp=EInt 
 	 *         fn=EInt 
 	 *         fp=EInt 
@@ -605,7 +605,28 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * </pre>
 	 */
 	protected void sequence_BinaryConfusionMatrix(ISerializationContext context, BinaryConfusionMatrix semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, CorePackage.Literals.NAMED_ELEMENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CorePackage.Literals.NAMED_ELEMENT__NAME));
+			if (transientValues.isValueTransient(semanticObject, e4smPackage.Literals.BINARY_CONFUSION_MATRIX__POSITIVE_CLASS) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, e4smPackage.Literals.BINARY_CONFUSION_MATRIX__POSITIVE_CLASS));
+			if (transientValues.isValueTransient(semanticObject, e4smPackage.Literals.BINARY_CONFUSION_MATRIX__TP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, e4smPackage.Literals.BINARY_CONFUSION_MATRIX__TP));
+			if (transientValues.isValueTransient(semanticObject, e4smPackage.Literals.BINARY_CONFUSION_MATRIX__FN) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, e4smPackage.Literals.BINARY_CONFUSION_MATRIX__FN));
+			if (transientValues.isValueTransient(semanticObject, e4smPackage.Literals.BINARY_CONFUSION_MATRIX__FP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, e4smPackage.Literals.BINARY_CONFUSION_MATRIX__FP));
+			if (transientValues.isValueTransient(semanticObject, e4smPackage.Literals.BINARY_CONFUSION_MATRIX__TN) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, e4smPackage.Literals.BINARY_CONFUSION_MATRIX__TN));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getBinaryConfusionMatrixAccess().getNameEStringParserRuleCall_3_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getBinaryConfusionMatrixAccess().getPositiveClassClassificationClassEStringParserRuleCall_5_0_1(), semanticObject.eGet(e4smPackage.Literals.BINARY_CONFUSION_MATRIX__POSITIVE_CLASS, false));
+		feeder.accept(grammarAccess.getBinaryConfusionMatrixAccess().getTpEIntParserRuleCall_9_0(), semanticObject.getTp());
+		feeder.accept(grammarAccess.getBinaryConfusionMatrixAccess().getFnEIntParserRuleCall_13_0(), semanticObject.getFn());
+		feeder.accept(grammarAccess.getBinaryConfusionMatrixAccess().getFpEIntParserRuleCall_17_0(), semanticObject.getFp());
+		feeder.accept(grammarAccess.getBinaryConfusionMatrixAccess().getTnEIntParserRuleCall_21_0(), semanticObject.getTn());
+		feeder.finish();
 	}
 	
 	
@@ -2075,7 +2096,7 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         firingStrategy=ComponentFiringStrategy? 
 	 *         timeFunction=ComplexTimefunction? 
 	 *         (pins+=Pin pins+=Pin*)? 
-	 *         (classificationClasses+=[ClassificationClass|EString] classificationClasses+=[ClassificationClass|EString]?)? 
+	 *         (classificationClasses+=[ClassificationClass|EString] classificationClasses+=[ClassificationClass|EString]*)? 
 	 *         mainResponsible=[Person|EString]? 
 	 *         specifiedInPackage=[Package|EString]? 
 	 *         (parameters+=Parameter parameters+=Parameter*)? 

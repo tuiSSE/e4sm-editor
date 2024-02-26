@@ -87,7 +87,6 @@ public class E4smParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getEnvironmentAccess().getGroup_4(), "rule__Environment__Group_4__0");
 			builder.put(grammarAccess.getEnvironmentAccess().getGroup_4_1(), "rule__Environment__Group_4_1__0");
 			builder.put(grammarAccess.getBinaryConfusionMatrixAccess().getGroup(), "rule__BinaryConfusionMatrix__Group__0");
-			builder.put(grammarAccess.getBinaryConfusionMatrixAccess().getGroup_4(), "rule__BinaryConfusionMatrix__Group_4__0");
 			builder.put(grammarAccess.getMulticlassConfusionMatrixAccess().getGroup(), "rule__MulticlassConfusionMatrix__Group__0");
 			builder.put(grammarAccess.getMulticlassConfusionMatrixAccess().getGroup_5(), "rule__MulticlassConfusionMatrix__Group_5__0");
 			builder.put(grammarAccess.getMulticlassConfusionMatrixAccess().getGroup_5_1(), "rule__MulticlassConfusionMatrix__Group_5_1__0");
@@ -607,11 +606,11 @@ public class E4smParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getEnvironmentAccess().getClassificationClassesAssignment_4_0(), "rule__Environment__ClassificationClassesAssignment_4_0");
 			builder.put(grammarAccess.getEnvironmentAccess().getClassificationClassesAssignment_4_1_1(), "rule__Environment__ClassificationClassesAssignment_4_1_1");
 			builder.put(grammarAccess.getBinaryConfusionMatrixAccess().getNameAssignment_3(), "rule__BinaryConfusionMatrix__NameAssignment_3");
-			builder.put(grammarAccess.getBinaryConfusionMatrixAccess().getPositiveClassAssignment_4_1(), "rule__BinaryConfusionMatrix__PositiveClassAssignment_4_1");
-			builder.put(grammarAccess.getBinaryConfusionMatrixAccess().getTpAssignment_8(), "rule__BinaryConfusionMatrix__TpAssignment_8");
-			builder.put(grammarAccess.getBinaryConfusionMatrixAccess().getFnAssignment_12(), "rule__BinaryConfusionMatrix__FnAssignment_12");
-			builder.put(grammarAccess.getBinaryConfusionMatrixAccess().getFpAssignment_16(), "rule__BinaryConfusionMatrix__FpAssignment_16");
-			builder.put(grammarAccess.getBinaryConfusionMatrixAccess().getTnAssignment_20(), "rule__BinaryConfusionMatrix__TnAssignment_20");
+			builder.put(grammarAccess.getBinaryConfusionMatrixAccess().getPositiveClassAssignment_5(), "rule__BinaryConfusionMatrix__PositiveClassAssignment_5");
+			builder.put(grammarAccess.getBinaryConfusionMatrixAccess().getTpAssignment_9(), "rule__BinaryConfusionMatrix__TpAssignment_9");
+			builder.put(grammarAccess.getBinaryConfusionMatrixAccess().getFnAssignment_13(), "rule__BinaryConfusionMatrix__FnAssignment_13");
+			builder.put(grammarAccess.getBinaryConfusionMatrixAccess().getFpAssignment_17(), "rule__BinaryConfusionMatrix__FpAssignment_17");
+			builder.put(grammarAccess.getBinaryConfusionMatrixAccess().getTnAssignment_21(), "rule__BinaryConfusionMatrix__TnAssignment_21");
 			builder.put(grammarAccess.getMulticlassConfusionMatrixAccess().getNameAssignment_3(), "rule__MulticlassConfusionMatrix__NameAssignment_3");
 			builder.put(grammarAccess.getMulticlassConfusionMatrixAccess().getEntriesAssignment_5_0(), "rule__MulticlassConfusionMatrix__EntriesAssignment_5_0");
 			builder.put(grammarAccess.getMulticlassConfusionMatrixAccess().getEntriesAssignment_5_1_1(), "rule__MulticlassConfusionMatrix__EntriesAssignment_5_1_1");
