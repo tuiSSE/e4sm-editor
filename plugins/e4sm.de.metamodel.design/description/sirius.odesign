@@ -1440,7 +1440,7 @@
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="literal_integer_node" label="Literal Integer Node" semanticCandidatesExpression="aql:self.execution.elements.eAllContents(core::LiteralInteger)->select(e|not e.getActualParent().oclIsKindOf(execution::ReferenceableItem))" domainClass="core::LiteralInteger">
+        <nodeMappings name="literal_integer_node" label="Literal Integer Node" semanticCandidatesExpression="aql:self.execution.elements.eAllContents()->filter(core::LiteralInteger)" domainClass="core::LiteralInteger">
           <style xsi:type="style:EllipseNodeDescription" labelSize="9" showIcon="false" labelExpression="feature:value" tooltipExpression="feature:value" labelPosition="node" resizeKind="NSEW" horizontalDiameterComputationExpression="aql:self.value.toString().size()+2" verticalDiameterComputationExpression="3">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -1463,6 +1463,12 @@
           <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:'ref: ' + self.ref.oclAsType(core::NamedElement).name" tooltipExpression="Variable ref" sizeComputationExpression="-1" labelPosition="node" resizeKind="EAST_WEST" width="8" height="6" color="//@userColorsPalettes[name='E4SMColors']/@entries[name='ilm_green']">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="exponentiation_node" label="Exponentiation Node" preconditionExpression="feature:right" semanticCandidatesExpression="aql:self.execution.elements.eAllContents()->filter(execution::Exponentiation)" domainClass="execution::Exponentiation">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="" tooltipExpression="*" sizeComputationExpression="4" labelPosition="node" workspacePath="/e4sm.de.metamodel.design/icons/exponentiation.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
         <edgeMappings name="flow_element" label="Flow" semanticCandidatesExpression="aql:self.execution.elements->filter(execution::Flow)" sourceMapping="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='[CSD]']/@defaultLayer/@nodeMappings[name='imported_input_pin'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='[CSD]']/@defaultLayer/@nodeMappings[name='ouput_pin_imported']" targetMapping="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='[CSD]']/@defaultLayer/@nodeMappings[name='imported_input_pin'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='[CSD]']/@defaultLayer/@nodeMappings[name='ouput_pin_imported']" targetFinderExpression="feature:target" sourceFinderExpression="feature:source" domainClass="execution::Flow" useDomainElement="true">
