@@ -487,18 +487,17 @@ public class e4smValidator extends EObjectValidator {
 			Map<Object, Object> context) {
 		DataNode source = connector.getSource();
 		DataNode target = connector.getTarget();
-		if(source instanceof InputPin && target instanceof OutputPin){
+		if (source instanceof InputPin && target instanceof OutputPin) {
 			if (diagnostics != null) {
-				diagnostics.add(createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0,
-						"_UI_GenericConstraint_diagnostic",
-						new Object[] {
-								"C2: A connector shall not connect an inputpin to an outputpin",
-								getObjectLabel(connector, context) },
-						new Object[] { connector }, context));
+				diagnostics.add(
+						createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic",
+								new Object[] { "C2: A connector shall not connect an inputpin to an outputpin",
+										getObjectLabel(connector, context) },
+								new Object[] { connector }, context));
 			}
 			return false;
 		}
-		
+
 		return true;
 	}
 

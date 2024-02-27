@@ -3241,8 +3241,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	protected void createEcoreAnnotations() {
 		String source = "http://www.eclipse.org/emf/2002/Ecore";
 		addAnnotation(componentEClass, source, new String[] { "constraints", "ComponentC1 ComponentC2 ComponentC3" });
-		addAnnotation(connectorEClass, source, new String[] { "constraints", "ConnectorC1\r\nConnectorC2" });
-		addAnnotation(connectorEClass, source, new String[] { "constraints", "ConnectorC1" });
+		addAnnotation(connectorEClass, source, new String[] { "constraints", "ConnectorC1 ConnectorC2" });
 		addAnnotation(physicalConnectorEClass, source,
 				new String[] { "constraints", "PhysicalConnectorC1 PhysicalConnectorC2 PhysicalConnectorC3" });
 		addAnnotation(softwareComponentEClass, source, new String[] { "constraints", "SoftwareComponentC1" });

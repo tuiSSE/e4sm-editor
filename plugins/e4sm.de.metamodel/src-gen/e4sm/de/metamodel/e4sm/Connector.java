@@ -27,8 +27,7 @@ import e4sm.de.metamodel.e4sm.execution.DelayableElement;
  * </ul>
  *
  * @see e4sm.de.metamodel.e4sm.e4smPackage#getConnector()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='ConnectorC1\r\nConnectorC2'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='ConnectorC1'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='ConnectorC1 ConnectorC2'"
  * @generated
  */
 public interface Connector extends ParameterizableElement, NamedElement, DocumentableElement, DelayableElement {
