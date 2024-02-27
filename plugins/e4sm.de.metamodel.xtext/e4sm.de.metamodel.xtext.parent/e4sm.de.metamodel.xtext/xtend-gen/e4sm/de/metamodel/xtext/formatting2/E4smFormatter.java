@@ -11,9 +11,7 @@ import e4sm.de.metamodel.e4sm.Person;
 import e4sm.de.metamodel.e4sm.Pin;
 import e4sm.de.metamodel.e4sm.Sector;
 import e4sm.de.metamodel.e4sm.core.TypeSpecification;
-import e4sm.de.metamodel.xtext.services.E4smGrammarAccess;
 import java.util.Arrays;
-import javax.inject.Inject;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.formatting2.AbstractFormatter2;
@@ -26,10 +24,6 @@ import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 
 @SuppressWarnings("all")
 public class E4smFormatter extends AbstractFormatter2 {
-  @Inject
-  @Extension
-  private E4smGrammarAccess _e4smGrammarAccess;
-
   protected void _format(final Model model, @Extension final IFormattableDocument doc) {
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.newLine();

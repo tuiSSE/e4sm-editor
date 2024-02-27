@@ -12,25 +12,21 @@ import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl
-import org.eclipse.xtext.serializer.impl.Serializer
 import org.eclipse.xtext.testing.InjectWith
-import org.eclipse.xtext.testing.XtextRunner
 import org.eclipse.xtext.testing.extensions.InjectionExtension
 import org.eclipse.xtext.testing.util.ParseHelper
 import org.junit.jupiter.api.Assertions
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.^extension.ExtendWith
-import org.junit.runner.RunWith
 import e4sm.de.metamodel.e4sm.execution.Variable
+import org.eclipse.xtext.serializer.ISerializer
+import org.eclipse.xtext.resource.SaveOptions
 
-@RunWith(XtextRunner)
-@ExtendWith(InjectionExtension)
+@ExtendWith(InjectionExtension) 
 @InjectWith(E4smInjectorProvider)
 class E4smParsingTest {
-	@Inject
-	ParseHelper<Model> parseHelper
-
-	@Inject Serializer serializer
+	@Inject extension ParseHelper<Model>  parseHelper
+	@Inject extension ISerializer
 
 	static val toBeParsed = '''
 		model test {
@@ -103,8 +99,15 @@ class E4smParsingTest {
 		val myModel = resource.contents.get(0) as Model
 		println("Model '" + myModel.name + "' loaded, serializing it...")
 
-		println(serializer.serialize(myModel))
+		println(serialize(myModel))
 
+	}
+	
+	@Test 
+	def void testFormatter() {
+		e4smPackage.eINSTANCE.eClass() 
+   		Assertions.assertEquals(toBeParsed,
+        parseHelper.parse(toBeParsed).serialize(SaveOptions.newBuilder.format().getOptions()))
 	}
 	
 	@Test

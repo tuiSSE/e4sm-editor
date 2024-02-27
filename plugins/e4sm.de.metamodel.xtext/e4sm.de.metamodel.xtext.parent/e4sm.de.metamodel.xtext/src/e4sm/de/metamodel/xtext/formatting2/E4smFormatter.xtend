@@ -10,9 +10,8 @@ import e4sm.de.metamodel.e4sm.Package
 import e4sm.de.metamodel.e4sm.Person
 import e4sm.de.metamodel.e4sm.Pin
 import e4sm.de.metamodel.e4sm.core.TypeSpecification
-import e4sm.de.metamodel.xtext.services.E4smGrammarAccess
-import javax.inject.Inject
-import java.util.Arrays
+//import e4sm.de.metamodel.xtext.services.E4smGrammarAccess
+//import com.google.inject.Inject
 import org.eclipse.xtext.formatting2.AbstractFormatter2
 import org.eclipse.xtext.formatting2.IFormattableDocument
 
@@ -22,7 +21,7 @@ import org.eclipse.xtext.formatting2.IFormattableDocument
 //import org.eclipse.xtext.formatting2.IHiddenRegionFormatting
 class E4smFormatter extends AbstractFormatter2 {
 
-	@Inject extension E4smGrammarAccess
+//	@Inject extension E4smGrammarAccess
 
 //	def protected void formatIntoSingleLine(IFormattableDocument doc, EObject obj) {
 //		doc.formatter.format(obj, doc.withReplacerFilter[suppressLineWraps(it); true])
