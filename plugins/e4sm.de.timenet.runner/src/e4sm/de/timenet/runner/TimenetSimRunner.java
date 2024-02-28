@@ -42,11 +42,11 @@ public class TimenetSimRunner {
 		
 		var parts = inputURI.toString().split("/");
 		var projectPath = "";
-		var modelFileName = "";
+		//var modelFileName = "";
 		for (int i = 0; i < parts.length; i++) {
 			if (parts[i].contains("#")) {
 				// example: "model.e4sm#"
-				modelFileName = parts[i].substring(0, parts[i].indexOf("."));
+				//	modelFileName = parts[i].substring(0, parts[i].indexOf("."));
 				break;
 			} else {
 				projectPath += (parts[i] + "/");
