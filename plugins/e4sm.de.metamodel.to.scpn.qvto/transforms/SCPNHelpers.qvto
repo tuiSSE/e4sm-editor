@@ -38,6 +38,19 @@ transformation SCPNHelpers() {
 	    return ts;
 	}
 	
+	helper sensorClassesInitialization(trueClass :e4sm::ClassificationClass,falseClasses :  OrderedSet(e4sm::ClassificationClass) ) : String {
+	    // x()
+	    
+	    var temp : String := "x(cl_" + trueClass.name + "=true";
+	    falseClasses->forEach(c){
+	    	var name : String := ";cl_" + c.name + "=false";
+	    	temp := temp.toString().concat(name);
+	    };
+	    var res : String := temp.toString().concat(")");
+	    return res;
+	    
+	}
+	
 	helper Component::hasNoInputs() : Boolean {
 	    // if the time function is not set, just return the default value
 	    return self.pins[InputPin]->isEmpty();

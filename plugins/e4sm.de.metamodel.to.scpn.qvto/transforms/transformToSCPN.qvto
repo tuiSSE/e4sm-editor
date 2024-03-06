@@ -81,6 +81,10 @@ mapping Package::packageToSCPN(model : Model) : SCPNNet{
 			name := "d"; //isDefault
 			dataType:="bool";
 		};
+	attribute += object AttributeType{
+			name := "r"; //remove
+			dataType:="bool";	
+		};
 		
 	// TODO: only generate classification stuff if the model has one classification component
 	/*
@@ -113,8 +117,21 @@ mapping Package::packageToSCPN(model : Model) : SCPNNet{
 						name := "cl_" + cc.name;
 						dataType:="bool";
 					};
+					//creates the attributes for the mutliclasscomponents wrong selection "tree"
+	 				self.components[e4sm::MulticlassClassificationComponent]->forEach(mCl){
+	 					
+	 					mCl.confusionMatrixes->first().entries.truth->asOrderedSet()->forEach(aClass){
+					
+							if(aClass = cc){	
+								attribute += object AttributeType{
+								name := safeString("cl_" + cc.name + "_" + mCl.name);
+								dataType:="bool";
+								};
+							};
+						};
+					};
 				};
-		};
+			};
 	 	};
 
 	 	// TODO: extend to all possible subComponents
@@ -478,7 +495,7 @@ mapping Sector::transformSector(hasThreadPool : Boolean, poolPackage : e4sm::Pac
 }
 
 mapping Component::transformComponent(hasThreadPool : Boolean, poolPackage : e4sm::Package) : pl: List(PlaceType), iTr : List(TransitionType), arcs : List (ArcType),
-tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : List(MeasureType), pars : List(ParameterType) when {not self.oclIsKindOf(e4sm::BinaryClassificationComponent)} {		
+tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : List(MeasureType), pars : List(ParameterType) when {not self.oclIsKindOf(e4sm::BinaryClassificationComponent) and not self.oclIsKindOf(MulticlassClassificationComponent)} {		
 	init{
 		log("\nTransforming component " +  self.name);
 		
@@ -598,73 +615,123 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 					var ccCounter := 1;
 					var lastFirstPlaceID := placeExecuted.id;
 					var model := self.getModel();
+					var sensor : e4sm::Sensor := self.oclAsType(e4sm::Sensor);
 					assert fatal (not model.oclIsUndefined()) with log("Model not found");
 					var env := model.environments->first(); // TODO: limitation, only the first environment is considered so far.
 					assert fatal (not env.oclIsUndefined()) with log("Class distribution environment not found");
+					var classAmount := sensor.classificationClasses->size();
 					
-					// for each class
-					self.oclAsType(e4sm::Sensor).classificationClasses->forEach(cc){
-						log("Generating initialization of class " + cc.name);
-						var className=safeString(cc.name);
-						
-						var envClasses := env.classificationClasses->select(cd | cd.classificationClass = cc);
-						assert fatal (envClasses->size() > 1) with log("Expected 2 classes in the environment, the class and its inverse");			
-						
-						// immPos
-						var immTrPos : ImmediateTransitionType := new ImmediateTransitionType(self.name + "_" + className + "_pos");
-						immTrPos.weight := envClasses->select(cd | not cd._not)->first().probability.toString();
-						iTr += immTrPos;
-						
-						// immNeg
-						var immTrNeg : ImmediateTransitionType := new ImmediateTransitionType(self.name + "_" + className + "_neg");
-						immTrNeg.weight := envClasses->select(cd | cd._not)->first().probability.toString();
-						iTr += immTrNeg;
-						
-						// arcToPos
-						var arcToPos : ArcType := new ArcType(self.name +"_" + className + "_to_pos");
-						arcToPos.fromNode := lastFirstPlaceID;
-						arcToPos.toNode := immTrPos.id;
-						arcs += arcToPos;
-						
-						// arcToNeg
-						var arcToNeg : ArcType := new ArcType(self.name +"_" + className + "_to_neg");
-						arcToNeg.fromNode := lastFirstPlaceID;
-						arcToNeg.toNode := immTrNeg.id;
-						arcs += arcToNeg;
+					if(classAmount = 1){
+						// for each class
+						sensor.classificationClasses->forEach(cc){
+							log("Generating initialization of class " + cc.name);
+							var className=safeString(cc.name);
+							
+							var envClasses := env.classificationClasses->select(cd | cd.classificationClass = cc);
+							if(self.oclAsType(e4sm::Sensor).classificationClasses->size() = 1){
+								assert fatal ( envClasses->size() > 1) with log("Expected 2 classes in the environment, the class and its inverse");			
+							};
+							// immPos
+							var immTrPos : ImmediateTransitionType := new ImmediateTransitionType(self.name + "_" + className + "_pos");
+							immTrPos.weight := envClasses->select(cd | not cd._not)->first().probability.toString();
+							iTr += immTrPos;
+							
+							// immNeg
+							var immTrNeg : ImmediateTransitionType := new ImmediateTransitionType(self.name + "_" + className + "_neg");
+							immTrNeg.weight := envClasses->select(cd | cd._not)->first().probability.toString();
+							iTr += immTrNeg;
+							
+							// arcToPos
+							var arcToPos : ArcType := new ArcType(self.name +"_" + className + "_to_pos");
+							arcToPos.fromNode := lastFirstPlaceID;
+							arcToPos.toNode := immTrPos.id;
+							arcs += arcToPos;
+							
+							// arcToNeg
+							var arcToNeg : ArcType := new ArcType(self.name +"_" + className + "_to_neg");
+							arcToNeg.fromNode := lastFirstPlaceID;
+							arcToNeg.toNode := immTrNeg.id;
+							arcs += arcToNeg;
+							
+							// placeInitialized
+							var placeInitialized : PlaceType := new PlaceType(self.name + "_" + className + "_init");
+							pl += placeInitialized;
+							lastFirstPlaceID := placeInitialized.id;
+							
+							// arcFromPos
+							var arcFromPos : ArcType := new ArcType(self.name +"_" + className + "_from_pos");
+							arcFromPos.inscription.text := "x(cl_" + cc.name + "=true)";
+							arcFromPos.fromNode := immTrPos.id;
+							arcFromPos.toNode := placeInitialized.id;
+							arcs += arcFromPos;	
+							
+							// arcFromNeg
+							var arcFromNeg : ArcType := new ArcType(self.name +"_" + className + "_from_neg");
+							arcFromNeg.inscription.text := "x(cl_" + cc.name + "=false)";
+							arcFromNeg.fromNode := immTrNeg.id;
+							arcFromNeg.toNode := placeInitialized.id;
+							arcs += arcFromNeg;		
+							
+							// if it is the last class
+							if (ccCounter = self.oclAsType(e4sm::Sensor).classificationClasses->size()) {
+								//arcToPost
+								var arcExecuted : ArcType := new ArcType(self.name + "_initialized_to_post");
+								arcExecuted.fromNode := placeInitialized.id;
+								arcExecuted.toNode := immTranExecuted.id;
+								arcs += arcExecuted;
+							} else {
+								ccCounter := ccCounter + 1;
+							};
+						};
+					} else {
+						//TODO: only create as many arcs as there are classes
+						//each marking own class as true and others as false
 						
 						// placeInitialized
-						var placeInitialized : PlaceType := new PlaceType(self.name + "_" + className + "_init");
-						pl += placeInitialized;
-						lastFirstPlaceID := placeInitialized.id;
-						
-						// arcFromPos
-						var arcFromPos : ArcType := new ArcType(self.name +"_" + className + "_from_pos");
-						arcFromPos.inscription.text := "x(cl_" + cc.name + "=true)";
-						arcFromPos.fromNode := immTrPos.id;
-						arcFromPos.toNode := placeInitialized.id;
-						arcs += arcFromPos;	
-						
-						// arcFromNeg
-						var arcFromNeg : ArcType := new ArcType(self.name +"_" + className + "_from_neg");
-						arcFromNeg.inscription.text := "x(cl_" + cc.name + "=false)";
-						arcFromNeg.fromNode := immTrNeg.id;
-						arcFromNeg.toNode := placeInitialized.id;
-						arcs += arcFromNeg;		
-						
-						// if it is the last class
-						if (ccCounter = self.oclAsType(e4sm::Sensor).classificationClasses->size()) {
-							//arcToPost
-							var arcExecuted : ArcType := new ArcType(self.name + "_initialized_to_post");
-							arcExecuted.fromNode := placeInitialized.id;
-							arcExecuted.toNode := immTranExecuted.id;
-							arcs += arcExecuted;
-						} else {
-							ccCounter := ccCounter + 1;
-						};
-						
+							var placeInitialized : PlaceType := new PlaceType(self.name + "_init");
+							pl += placeInitialized;
+							
+							
+						self.oclAsType(e4sm::Sensor).classificationClasses->forEach(cc){
+							log("Generating initialization of class " + cc.name);
+							var className=safeString(cc.name);
+							
+							var envClasses := env.classificationClasses->select(cd | cd.classificationClass = cc);
+							if(self.oclAsType(e4sm::Sensor).classificationClasses->size() = 1){
+								assert fatal ( envClasses->size() > 1) with log("Expected 2 classes in the environment, the class and its inverse");			
+							};
+							
+							// immPos
+							var immTrPos : ImmediateTransitionType := new ImmediateTransitionType(self.name + "_" + className + "_pos");
+							immTrPos.weight := envClasses->select(cd | not cd._not)->first().probability.toString();
+							iTr += immTrPos;
+							
+							// arcToPos
+							var arcToPos : ArcType := new ArcType(self.name +"_" + className + "_to_pos");
+							arcToPos.fromNode := lastFirstPlaceID;
+							arcToPos.toNode := immTrPos.id;
+							arcs += arcToPos;
+
+							// arcFromPos
+							var arcFromPos : ArcType := new ArcType(self.name +"_" + className + "_from_pos");
+							arcFromPos.inscription.text := sensorClassesInitialization(cc, sensor.classificationClasses->select(c|c<>cc));
+							arcFromPos.fromNode := immTrPos.id;
+							arcFromPos.toNode := placeInitialized.id;
+							arcs += arcFromPos;		
+							
+							// if it is the last class
+							if (ccCounter = self.oclAsType(e4sm::Sensor).classificationClasses->size()) {
+								//arcToPost
+								var arcExecuted : ArcType := new ArcType(self.name + "_initialized_to_post");
+								arcExecuted.fromNode := placeInitialized.id;
+								arcExecuted.toNode := immTranExecuted.id;
+								arcs += arcExecuted;
+							} else {
+								ccCounter := ccCounter + 1;
+							};
 					};
 				};
-				
+			};
 				
 				
 			}else if(self.firingStrategy = ComponentFiringStrategy::AND){
@@ -1835,7 +1902,7 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 
 mapping MulticlassClassificationComponent::transformMulticlassClassificationComponent(hasThreadPool : Boolean, poolPackage : e4sm::Package) : pl: List(PlaceType), iTr : List(TransitionType), arcs : List (ArcType),
 tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : List(MeasureType) when {self.oclIsKindOf(e4sm::MulticlassClassificationComponent)}{
-	init{
+		init{
 		log("\nTransforming multiclass classification component " +  self.name);
 		
 		var inputPins : OrderedSet(InputPin) := self.pins[e4sm::InputPin];
@@ -1867,6 +1934,27 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 		var singleComponentReadyTransition : TransitionType := null;
 		var multipleComponentReadyTransitions : OrderedSet(TransitionType);
 		var timedTran : TimedTransitionType := null;
+		
+		var immTranExecuted : ImmediateTransitionType := new ImmediateTransitionType(self.name + "_post_execution");
+			if(logComponents){
+				immTranExecuted.logfileName := self.name + "_post_execution.csv";
+				// TODO: generalize
+				immTranExecuted.logfileDescription := "current_time,size,pixelSize";
+				immTranExecuted.logfileExpression := "NOW,TAB,x.s,TAB,x.ps";
+			};
+		var placeExecuted : PlaceType := new PlaceType(self.name + "_executed");
+		var arcExecuted : ArcType := new ArcType(self.name + "_executed_to_post");
+		immTranExecuted.localGuard := "x.r==false";
+		arcExecuted.fromNode := placeExecuted.id;
+		arcExecuted.toNode := immTranExecuted.id;
+		
+		if(self.oclIsKindOf(Actuator)){
+			immTranExecuted.watch := true;
+		};
+		
+		iTr += immTranExecuted;
+		pl += placeExecuted;
+		arcs += arcExecuted;
 		
 		//Generate the full component only if it is not redefined
 		// - The component must not have subcomponents
@@ -1916,9 +2004,10 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 					// if the component is a Sensor, 
 					// or if it has multiple input pins
 					// or if at least an input pin has a "collect" value > 1 set
-					if(self.oclIsTypeOf(e4sm::Sensor) or self.hasNoInputs() or inputPins->size() > 1 or inputPins->select(ip | ip.collect>1)->size()>0) {
+					
+					/*if(self.oclIsTypeOf(e4sm::Sensor) or self.hasNoInputs() or inputPins->size() > 1 or inputPins->select(ip | ip.collect>1)->size()>0) {
 						readyToMain.inscription.text := "new({})";
-					};
+					};*/
 					arcs->add(readyToMain);
 				}
 				else if (self.firingStrategy = ComponentFiringStrategy::OR) {
@@ -1951,9 +2040,6 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 					with log("Unsupported firing strategy for component " + self.toString());
 				};
 			
-			//if(not self.isSensor()) {
-				
-
 			// Timed transition for the component execution
 			timedTran := new TimedTransitionType(self.name + "_execution");
 			timedTran.timeFunction := timeExpressionToString(self.timeFunction);
@@ -1971,7 +2057,11 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 			mainToTimed.toNode := timedTran.id;
 			arcs->add(mainToTimed);
 			
-			//}
+			// Arc between the execution tt and the executed Place
+			/*var arcFromTTtoExecuted : ArcType := new ArcType (self.name + "_exec");
+			arcFromTTtoExecuted.fromNode := timedTran.id;
+			arcFromTTtoExecuted.toNode := placeExecuted.id;
+			arcs += arcFromTTtoExecuted;*/
 		};
 		
 		
@@ -2009,7 +2099,7 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 			// Create the Arcs
 			var semBack := new ArcType(self.name+"_semBack");
 			semBack.inscription.text := "new(0)";
-			semBack.fromNode := timedTran.id; // TODO, from _post_execution
+			semBack.fromNode := immTranExecuted.id;
 			semBack.toNode := sem.id;
 			arcs->add(semBack);
 			
@@ -2116,15 +2206,17 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 				//Create an arc to connect the the component to the place
 				if(isSimpleComponent) {
 					var arcFromTransition = new ArcType(outputPinPlace.id + "_from_" + self.name);
-					if(self.isSensor()){
+					arcFromTransition.fromNode := immTranExecuted.id;
+					/*if(self.isSensor()){
 						arcFromTransition.fromNode := singleComponentReadyTransition.id;
 					}else{
-						arcFromTransition.fromNode := timedTran.id;
-					};
+						arcFromTransition.fromNode := immTranExecuted.id;
+					};*/
+					
 					arcFromTransition.toNode := outputPinPlace.id;
 					
-					// TODO: maybe the following line only applies to sensors
-					arcFromTransition.inscription.text := "new({})"; //TODO: improve specification
+					// TODO: sensors should initialize their tokens
+					//arcFromTransition.inscription.text := "x";
 					
 					// Add multiplicity, if needed
 					if(op.amplify > 1) {
@@ -2147,13 +2239,14 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 			    
 			    if(isSimpleComponent) {
 			    var arcFromTransition = new ArcType(outputPin.pl->first().id + "_from_" + self.name);
-					if(self.isSensor()){
+			        arcFromTransition.fromNode := immTranExecuted.id;
+					/*if(self.isSensor()){
 						arcFromTransition.fromNode := singleComponentReadyTransition.id;
 					}else{
-						arcFromTransition.fromNode := timedTran.id;
-					};
+						arcFromTransition.fromNode := immTranExecuted.id;							
+					}*/
 					arcFromTransition.toNode := outputPin.pl->first().id;
-					arcFromTransition.inscription.text :=  "new({})"; //TODO: improve specification
+					arcFromTransition.inscription.text :=  "copy x"; //TODO: improve specification
 					
 					// Add multiplicity, if needed
 					if(op.oclIsTypeOf(OutputPin) and op.amplify > 1) {
@@ -2178,193 +2271,296 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 		
 		var cm : MulticlassConfusionMatrix := self.confusionMatrixes->first();
 		
-		cm.getClasses()->forEach(cl) {
-			cm.computeClassAccuracy(cl);
-		};
-
-		var notOOD : ImmediateTransitionType := new ImmediateTransitionType(self.name+"_not_OOD");
-		notOOD.weight := "1";
-		iTr += notOOD;
-		
-		var OOD : ImmediateTransitionType := new ImmediateTransitionType(self.name+"_OOD");
-		OOD.weight := "0";
-		iTr += OOD;
-		
-		//var allPositives : Double := (1.0 * cm.tp + cm.fn) / (cm.tp + cm.fn + cm.tn + cm.fp);
-		
-		var classTruth : ImmediateTransitionType := new ImmediateTransitionType(self.name+"_ClassTruth");
-		//classTruth.weight := allPositives.toString();
-		iTr += classTruth;
-		
-		var classOther : ImmediateTransitionType := new ImmediateTransitionType(self.name+"_ClassOther");
-		//classOther.weight := (1.0 - allPositives).toString();
-		iTr += classOther;
-		
-		var ct_tp : ImmediateTransitionType := new ImmediateTransitionType(self.name+"_ct_tp");
-		ct_tp.weight := cm.computeRecall().toString();
-		iTr += ct_tp;
-		
-		var ct_fn : ImmediateTransitionType := new ImmediateTransitionType(self.name+"_ct_fn");
-		ct_fn.weight := (1.0 - cm.computeRecall()).toString();
-		iTr += ct_fn;
-	
-		var cf_tn : ImmediateTransitionType := new ImmediateTransitionType(self.name+"_ cf_tn");
-		cf_tn.weight := cm.computeSpecificity().toString();
-		iTr += cf_tn;
-		
-		var cf_fp : ImmediateTransitionType := new ImmediateTransitionType(self.name+"_cf_fp");
-		cf_fp.weight := (1.0 - cm.computeSpecificity()).toString();
-		iTr += cf_fp;
-		
-		
-		// Generate all places
 		
 		var inData : PlaceType := new PlaceType(self.name + "_in_data");
 		pl += inData;
 		
-		var dataGen : PlaceType := new PlaceType(self.name + "_data_gen");
-		pl += dataGen;
+		var wrongClass : PlaceType := new PlaceType(self.name + "_wrong_class");
+		pl += wrongClass;
 		
-		var ct : PlaceType := new PlaceType(self.name + "_ct");
-		pl += ct;
-	
-		var cf : PlaceType := new PlaceType(self.name + "_cf");
-		pl += cf;
+		//var wrongClassOut : PlaceType := new PlaceType(self.name + "_wrong_class_out");
+		//pl += wrongClassOut;
 		
-		var tp : PlaceType := new PlaceType(self.name + "_tp");
-		pl += tp;
+		//var wrongCLiTr : ImmediateTransitionType := new ImmediateTransitionType(self.name + "_Wrong_Class_Out");
+		//iTr += wrongCLiTr;	
 		
-		var fn : PlaceType := new PlaceType(self.name + "_fn");
-		pl += fn;
+		//OOD iTr and Place
+		//TODO: add class "ood" to the matrix thingy 
+		var OODiTr : ImmediateTransitionType := new ImmediateTransitionType(self.name + "_OOD");
+		iTr += OODiTr;	
 		
-		var tn : PlaceType := new PlaceType(self.name + "_tn");
-		pl += tn;
+		var in_data_to_ood: ArcType := new ArcType(self.name + "in_data_ood");
+		in_data_to_ood.fromNode := inData.id;
+		in_data_to_ood.toNode := OODiTr.id;
+		arcs+=in_data_to_ood;
 		
-		var fp : PlaceType := new PlaceType(self.name + "_fp");
-		pl += fp;
+		var ood_to_wrong_class: ArcType := new ArcType(self.name + "odd_wrong_class");
+		ood_to_wrong_class.fromNode := OODiTr.id;
+		ood_to_wrong_class.toNode := wrongClass.id;
+		arcs+=ood_to_wrong_class;
 		
-		// Generate all arcs
+		//var wrCLOut_to_wrCLiTr: ArcType := new ArcType(self.name + "wrCLOut_wrCLiTr");
+		//wrCLOut_to_wrCLiTr.fromNode := wrongClassOut.id;
+		//wrCLOut_to_wrCLiTr.toNode := wrongCLiTr.id;
+		//arcs+=wrCLOut_to_wrCLiTr;
+		
+		
+		self.confusionMatrixes->first().getClasses()->forEach(cl){
+			var classTruth : ImmediateTransitionType := new ImmediateTransitionType(cl.name + "_IsBaseTruth");
+			classTruth.localGuard := "x.cl_" + cl.name + " == true";
+			classTruth.priority := 2;
+			iTr += classTruth;
+			
+			var ct_tp : ImmediateTransitionType := new ImmediateTransitionType(cl.name+"_selected");
+			ct_tp.weight := cm.computeClassRecall(cl).toString();
+			iTr += ct_tp;
+		
+			var ct_fn : ImmediateTransitionType := new ImmediateTransitionType(cl.name+"_not_selected");
+			ct_fn.weight := (1.0 - cm.computeClassRecall(cl)).toString();
+			iTr += ct_fn;
+				
+			var  classPlace: PlaceType := new PlaceType(cl.name + "_True");
+			pl += classPlace;
+			
+			var in_data_to_classTruth: ArcType := new ArcType(cl.name + "in_data_truth");
+			in_data_to_classTruth.fromNode := inData.id;
+			in_data_to_classTruth.toNode := classTruth.id;
+			arcs+=in_data_to_classTruth;
+			
+			var class_iTr_to_class_place: ArcType := new ArcType(cl.name + "class_itr_place");
+			class_iTr_to_class_place.fromNode := classTruth.id;
+			class_iTr_to_class_place.toNode := classPlace.id;
+			arcs+=class_iTr_to_class_place;
+			
+			var class_place_to_ct_tp: ArcType := new ArcType(cl.name + "class_place_tp");
+			class_place_to_ct_tp.fromNode := classPlace.id;
+			class_place_to_ct_tp.toNode := ct_tp.id;
+			arcs+=class_place_to_ct_tp;
+			
+			var class_place_to_ct_fn: ArcType := new ArcType(cl.name + "class_place_fn");
+			class_place_to_ct_fn.fromNode := classPlace.id;
+			class_place_to_ct_fn.toNode := ct_fn.id;
+			arcs+=class_place_to_ct_fn;
+			
+			var fn_to_wrong_class: ArcType := new ArcType(cl.name + "fn_wrong_class");
+			fn_to_wrong_class.fromNode := ct_fn.id;
+			fn_to_wrong_class.toNode := wrongClass.id;
+			arcs+=fn_to_wrong_class;
+			
+			
+			// here ends the first block "Class Selection"
+			// -------------------------------
+			// here starts the second block "Evaluation"
+			
+			
+			//Place of evaluation and arc to it from correct selection
+			var  classEvalPlace: PlaceType := new PlaceType(cl.name + "_Correct");
+			pl += classEvalPlace;
+			
+			var tp_to_eval: ArcType := new ArcType(cl.name + "tp_eval");
+			tp_to_eval.fromNode := ct_tp.id;
+			tp_to_eval.toNode := classEvalPlace.id;
+			//tp_to_eval.inscription.text:= "x(cl_" +cl.name + "_comp=true;r=false)";
+			tp_to_eval.inscription.text:="x(cl_" +cl.name + "=true;cl_" + cl.name + "_" + self.name + "=true;r=false)";
+			arcs+=tp_to_eval;
+			
+			//iTr for each evaluation possibility
+			var cl_tp : ImmediateTransitionType := new ImmediateTransitionType(cl.name+"_tp");
+			cl_tp.localGuard := "x.cl_" + cl.name + " == true && x.cl_" + cl.name + "_" + self.name + " == true";
+			cl_tp.weight := cm.computeClassRecall(cl).toString();
+			iTr += cl_tp;
+			
+			var cl_tn : ImmediateTransitionType := new ImmediateTransitionType(cl.name+"_tn");
+			cl_tn.localGuard := "x.cl_" + cl.name + " == false && x.cl_" + cl.name + "_" + self.name + " == false";
+			cl_tn.weight := cm.computeClassRecall(cl).toString();
+			iTr += cl_tn;
+			
+			var cl_fp : ImmediateTransitionType := new ImmediateTransitionType(cl.name+"_fp");
+			cl_fp.localGuard := "x.cl_" + cl.name + " == false && x.cl_" + cl.name + "_" + self.name + " == true";
+			cl_fp.weight := (1.0 - cm.computeClassRecall(cl)).toString();
+			iTr += cl_fp;
+			
+			var cl_fn : ImmediateTransitionType := new ImmediateTransitionType(cl.name+"_fn");
+			cl_fn.localGuard := "x.cl_" + cl.name + " == true && x.cl_" + cl.name + "_" + self.name + " == false";
+			cl_fn.weight := (1.0 - cm.computeClassRecall(cl)).toString();
+			iTr += cl_fn;
+			
+			//arcs to and from each evaluation possibility
+			var eval_to_cl_tp: ArcType := new ArcType(cl.name + "eval_to_cl_tp");
+			eval_to_cl_tp.fromNode := classEvalPlace.id;
+			eval_to_cl_tp.toNode := cl_tp.id;
+			arcs+=eval_to_cl_tp;
+			
+			var eval_to_cl_tn: ArcType := new ArcType(cl.name + "eval_to_cl_tn");
+			eval_to_cl_tn.fromNode := classEvalPlace.id;
+			eval_to_cl_tn.toNode := cl_tn.id;
+			arcs+=eval_to_cl_tn;
+			
+			var eval_to_cl_fp: ArcType := new ArcType(cl.name + "eval_to_cl_fp");
+			eval_to_cl_fp.fromNode := classEvalPlace.id;
+			eval_to_cl_fp.toNode := cl_fp.id;
+			arcs+=eval_to_cl_fp;
+			
+			var eval_to_cl_fn: ArcType := new ArcType(cl.name + "eval_to_cl_fn");
+			eval_to_cl_fn.fromNode := classEvalPlace.id;
+			eval_to_cl_fn.toNode := cl_fn.id;
+			arcs+=eval_to_cl_fn;
+			
+			var cl_tp_to_exec: ArcType := new ArcType(cl.name + "cl_tp_to_exec");
+			cl_tp_to_exec.fromNode := cl_tp.id;
+			cl_tp_to_exec.toNode := placeExecuted.id;
+			arcs+=cl_tp_to_exec;
+			
+			var cl_tn_to_exec: ArcType := new ArcType(cl.name + "cl_tn_to_exec");
+			cl_tn_to_exec.fromNode := cl_tn.id;
+			cl_tn_to_exec.toNode := placeExecuted.id;
+			arcs+=cl_tn_to_exec;
+			
+			var cl_fp_to_exec: ArcType := new ArcType(cl.name + "cl_fp_to_exec");
+			cl_fp_to_exec.fromNode := cl_fp.id;
+			cl_fp_to_exec.toNode := placeExecuted.id;
+			arcs+=cl_fp_to_exec;
+			
+			var cl_fn_to_exec: ArcType := new ArcType(cl.name + "cl_fn_to_exec");
+			cl_fn_to_exec.fromNode := cl_fn.id;
+			cl_fn_to_exec.toNode := placeExecuted.id;
+			arcs+=cl_fn_to_exec;
+			
+			
+			// here ends the second block "Evaluation"
+			// ------------------
+			// here starts the third block "Wrong Class Selected"
+			
+			
+			var cl_wrong : ImmediateTransitionType := new ImmediateTransitionType(cl.name + "_wrong");
+			cl_wrong.localGuard := "x.cl_" + cl.name + " == false";
+			//cl_wrong.weight := cm.computeRecall().toString();
+			iTr += cl_wrong;
+			
+			var wrong_class_to_cl_wrong: ArcType := new ArcType(cl.name + "wrong_class_to_cl_wrong");
+			wrong_class_to_cl_wrong.fromNode := wrongClass.id;
+			wrong_class_to_cl_wrong.toNode := cl_wrong.id;
+			arcs+=wrong_class_to_cl_wrong;
+			
+			var cl_wrong_to_eval: ArcType := new ArcType(cl.name + "cl_wrong_to_eval");
+			cl_wrong_to_eval.fromNode := cl_wrong.id;
+			cl_wrong_to_eval.toNode := classEvalPlace.id;
+			//cl_wrong_to_eval.inscription.text := "x(cl_" + cl.name + "_comp=true;r=false)";
+			cl_wrong_to_eval.inscription.text := "x(cl_" +cl.name + "=false;cl_" + cl.name +"_" +self.name + "=true;r=false)";
+			arcs+=cl_wrong_to_eval;
+			
+			//var cl_wrong_to_wr_out: ArcType := new ArcType(cl.name + "cl_wrong_to_wr_out");
+			//cl_wrong_to_wr_out.fromNode := cl_wrong.id;
+			//cl_wrong_to_wr_out.toNode := wrongClassOut.id;
+			//arcs+=cl_wrong_to_wr_out;
+			
+			//var cl_wr_iTr_to_eval: ArcType := new ArcType(cl.name + "wr_iTr_to_eval");
+			//cl_wr_iTr_to_eval.fromNode := wrongCLiTr.id;
+			//cl_wr_iTr_to_eval.toNode := classEvalPlace.id;
+			//cl_wr_iTr_to_eval.inscription.text := "copy x";
+			//arcs+=cl_wr_iTr_to_eval;
+			
+			
+			//here ends the third(/final) block
+		};
+		
+		
+		//creates all arcs from the "selected" iTrs and "wrong selection" iTrs to the evaluation places
+		self.confusionMatrixes->first().getClasses()->forEach(cl){
+			self.confusionMatrixes->first().getClasses()->forEach(differentCl){
+				if(cl.name != differentCl.name){
+					
+					var cl_tp_to_other_cl_eval: ArcType := new ArcType(cl.name + "tp_to_" + differentCl.name + "_eval");
+					cl_tp_to_other_cl_eval.fromNode :=  cl.name + "_selected_imm_tran_id";
+					cl_tp_to_other_cl_eval.toNode := differentCl.name + "_Correct_place_id";
+					cl_tp_to_other_cl_eval.inscription.text := "copy x(r=true)";
+					arcs+=cl_tp_to_other_cl_eval;
+					
+					var wrong_cl_to_other_cl_eval: ArcType := new ArcType(cl.name + "wrong_to_" + differentCl.name + "_eval");
+					wrong_cl_to_other_cl_eval.fromNode := cl.name + "_wrong_imm_tran_id";
+					wrong_cl_to_other_cl_eval.toNode := differentCl.name + "_Correct_place_id";
+					wrong_cl_to_other_cl_eval.inscription.text := "copy x(r=true)";
+					arcs+=wrong_cl_to_other_cl_eval;
+				};	
+			
+			};
+		};
+		
+		// Generate more arcs and an iTr
+		
 		var execution_to_in_data : ArcType := new ArcType(self.name + "execution_to_in_data");
 		execution_to_in_data.fromNode := timedTran.id;
 		execution_to_in_data.inscription.text := "copy x";
 		execution_to_in_data.toNode := inData.id;
 		arcs+=execution_to_in_data;
 		
-		var in_data_to_not_odd : ArcType := new ArcType(self.name + "in_data_to_not_odd");
-		in_data_to_not_odd.fromNode := inData.id;
-		in_data_to_not_odd.toNode := notOOD.id;
-		arcs+=in_data_to_not_odd;
 		
-		var in_data_to_odd : ArcType := new ArcType(self.name + "in_data_to_odd");
-		in_data_to_odd.fromNode := inData.id;
-		in_data_to_odd.toNode := OOD.id;
-		arcs+=in_data_to_odd;
+		//dead end for the unneeded tokens
+		var immTranRemove: ImmediateTransitionType := new ImmediateTransitionType(self.name + "_Remove");
+		var arcRemove : ArcType := new ArcType(self.name + "_executed_to_remove");
+		immTranRemove.localGuard := "x.r==true";
+		arcRemove.fromNode := placeExecuted.id;
+		arcRemove.toNode := immTranRemove.id;
+		iTr += immTranRemove;
+		arcs+=arcRemove;
 		
-		var not_ood_to_data_gen : ArcType := new ArcType(self.name + "not_ood_to_dataGen");
-		not_ood_to_data_gen.fromNode := notOOD.id;
-		not_ood_to_data_gen.toNode := dataGen.id;
-		arcs+=not_ood_to_data_gen;
+		// Generate all the measures
 		
-		var ood_to_cf : ArcType := new ArcType(self.name + "ood_to_cf");
-		ood_to_cf.fromNode := OOD.id;
-		ood_to_cf.inscription.text := "x(ood=true)";
-		ood_to_cf.toNode := cf.id;
-		arcs+=ood_to_cf;
+		//var tp : MeasureType := new MeasureType(self.name + "_tp");
+		//tp.expression := getMeasureReference(ct_tp);
+		//tp.eval := MeasureEvalType::Cumulative;
+		//tp.watch := false;
+		//meas += tp;
 		
-		var data_gen_to_class_truth : ArcType := new ArcType(self.name + "data_gen_to_class_truth");
-		data_gen_to_class_truth.fromNode := dataGen.id;
-		data_gen_to_class_truth.toNode := classTruth.id;
-		arcs+=data_gen_to_class_truth;
+		//var tn : MeasureType := new MeasureType(self.name + "_tn");
+		//tn.expression := getMeasureReference(cf_tn);
+		//tn.eval := MeasureEvalType::Cumulative;
+		//tn.watch := false;
+		//meas += tn;
 		
-		var data_gen_to_class_other : ArcType := new ArcType(self.name + "data_gen_to_class_other");
-		data_gen_to_class_other.fromNode := dataGen.id;
-		data_gen_to_class_other.toNode := classOther.id;
-		arcs+=data_gen_to_class_other;
+		//var fp : MeasureType := new MeasureType(self.name + "_fp");
+		//fp.expression := getMeasureReference(cf_fp);
+		//fp.eval := MeasureEvalType::Cumulative;
+		//fp.watch := false;
+		//meas += fp;
 		
-		var class_truth_to_ct : ArcType := new ArcType(self.name + "class_truth_to_ct");
-		class_truth_to_ct.fromNode := classTruth.id;
-		class_truth_to_ct.inscription.text := "x(tL=1)";
-		class_truth_to_ct.toNode := ct.id;
-		arcs+=class_truth_to_ct;
-		
-		var class_other_to_cf : ArcType := new ArcType(self.name + "class_other_to_cf");
-		class_other_to_cf.fromNode := classOther.id;
-		class_other_to_cf.inscription.text := "x(tL=2)";
-		class_other_to_cf.toNode := cf.id;
-		arcs+=class_other_to_cf;
+		//var fn : MeasureType := new MeasureType(self.name + "_fn");
+		//fn.expression := getMeasureReference(ct_fn);
+		//fn.eval := MeasureEvalType::Cumulative;
+		//fn.watch := false;
+		//meas += fn;
 		
 		
-		var ct_to_ct_tp : ArcType := new ArcType(self.name + "ct_to_ct_tp");
-		ct_to_ct_tp.fromNode := ct.id;
-		ct_to_ct_tp.toNode := ct_tp.id;
-		arcs+=ct_to_ct_tp;
+		// var accuracy : MeasureType := new MeasureType(self.name + "_accuracy");
+		// accuracy.expression := "(#"+tp.label.text + "+ #" + tn.label.text +") / (0.00000001 + #" +  tp.label.text +" + #" +  tn.label.text +" + #" +  fp.label.text +" + #" +  fn.label.text +")" ;
+		// accuracy.eval := scpn::MeasureEvalType::Instantaneous;
+		// accuracy.watch := false;
+		// meas += accuracy;
 		
-		var ct_to_ct_fn : ArcType := new ArcType(self.name + "ct_to_ct_fn");
-		ct_to_ct_fn.fromNode := ct.id;
-		ct_to_ct_fn.toNode := ct_fn.id;
-		arcs+=ct_to_ct_fn;
+		// var specificity : MeasureType := new MeasureType(self.name + "_specificity");
+		// specificity.expression := "#" + tn.label.text + " / (0.00000001 + #" +  tn.label.text +" + #" +  fp.label.text +")" ;
+		// specificity.eval := scpn::MeasureEvalType::Instantaneous;
+		// specificity.watch := false;
+		// meas += specificity;
 		
-		var cf_to_cf_tn : ArcType := new ArcType(self.name + "cf_to_cf_tn");
-		cf_to_cf_tn.fromNode := cf.id;
-		cf_to_cf_tn.toNode := cf_tn.id;
-		arcs+=cf_to_cf_tn;
+		// var recall : MeasureType := new MeasureType(self.name + "_recall");
+		// recall.expression := "#" + tp.label.text + " / (0.00000001 + #" +  tp.label.text +" + #" +  fn.label.text +")" ;
+		// recall.eval := scpn::MeasureEvalType::Instantaneous;
+		// recall.watch := false;
+		// meas += recall;
 		
-		var cd_to_cf_fp : ArcType := new ArcType(self.name + "cd_to_cf_fp");
-		cd_to_cf_fp.fromNode := cf.id;
-		cd_to_cf_fp.toNode := cf_fp.id;
-		arcs+=cd_to_cf_fp;
+		// var precision : MeasureType := new MeasureType(self.name + "_precision");
+		// precision.expression := "#" + tp.label.text + " / (0.00000001 + #" +  tp.label.text +" + #" +  fp.label.text +")" ;
+		// precision.eval := scpn::MeasureEvalType::Instantaneous;
+		// precision.watch := false;
+		// meas += precision;
 		
+		// var f1Score : MeasureType := new MeasureType(self.name + "_f1Score");
+		// f1Score.expression := "#" + tp.label.text + " / (0.00000001 + #" +  tp.label.text +" +(#"+fn.label.text+" + #" +  fp.label.text +")/2.0)" ;
+		// f1Score.eval := scpn::MeasureEvalType::Instantaneous;
+		// f1Score.watch := false;
+		// meas += f1Score;
 		
-		var ct_tp_2_tp : ArcType := new ArcType(self.name + "ct_tp_2_tp");
-		ct_tp_2_tp.fromNode := ct_tp.id;
-		ct_tp_2_tp.toNode := tp.id;
-		arcs+=ct_tp_2_tp;
-		
-		var ct_fn_2_fn : ArcType := new ArcType(self.name + "ct_fn_2_fn");
-		ct_fn_2_fn.fromNode := ct_fn.id;
-		ct_fn_2_fn.toNode := fn.id;
-		arcs+=ct_fn_2_fn;
-		
-		var cf_tn_2_tn : ArcType := new ArcType(self.name + "cf_tn_2_tn");
-		cf_tn_2_tn.fromNode := cf_tn.id;
-		cf_tn_2_tn.toNode := tn.id;
-		arcs+=cf_tn_2_tn;
-		
-		var cf_fp_2_fp : ArcType := new ArcType(self.name + "cf_fp_2_fp");
-		cf_fp_2_fp.fromNode := cf_fp.id;
-		cf_fp_2_fp.toNode := fp.id;
-		arcs+=cf_fp_2_fp;
-		
-		// Generate all the measures (TODO: do not compute them in TN!)
-		var accuracy : MeasureType := new MeasureType(self.name + "_accuracy");
-		accuracy.expression := "(#"+tp.label.text + "+ #" + tn.label.text +") / (0.00000001 + #" +  tp.label.text +" + #" +  tn.label.text +" + #" +  fp.label.text +" + #" +  fn.label.text +")" ;
-		accuracy.eval := scpn::MeasureEvalType::Instantaneous;
-		accuracy.watch := false;
-		meas += accuracy;
-		
-		var specificity : MeasureType := new MeasureType(self.name + "_specificity");
-		specificity.expression := "#" + tn.label.text + " / (0.00000001 + #" +  tn.label.text +" + #" +  fp.label.text +")" ;
-		specificity.eval := scpn::MeasureEvalType::Instantaneous;
-		specificity.watch := false;
-		meas += specificity;
-		
-		var recall : MeasureType := new MeasureType(self.name + "_recall");
-		recall.expression := "#" + tp.label.text + " / (0.00000001 + #" +  tp.label.text +" + #" +  fn.label.text +")" ;
-		recall.eval := scpn::MeasureEvalType::Instantaneous;
-		recall.watch := false;
-		meas += recall;
-		
-		var precision : MeasureType := new MeasureType(self.name + "_precision");
-		precision.expression := "#" + tp.label.text + " / (0.00000001 + #" +  tp.label.text +" + #" +  fp.label.text +")" ;
-		precision.eval := scpn::MeasureEvalType::Instantaneous;
-		precision.watch := false;
-		meas += precision;
-		
-		var f1Score : MeasureType := new MeasureType(self.name + "_f1Score");
-		f1Score.expression := "#" + tp.label.text + " / (0.00000001 + #" +  tp.label.text +" +(#"+fn.label.text+" + #" +  fp.label.text +")/2.0)" ;
-		f1Score.eval := scpn::MeasureEvalType::Instantaneous;
-		f1Score.watch := false;
-		meas += f1Score;
 		
 		// Transform the execution, if any was defined
 		// Classification components shouldn't have an execution specified
