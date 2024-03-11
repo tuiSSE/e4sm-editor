@@ -16,6 +16,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link e4sm.de.metamodel.e4sm.Environment#getClassificationClasses <em>Classification Classes</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.Environment#getOodProbability <em>Ood Probability</em>}</li>
  * </ul>
  *
  * @see e4sm.de.metamodel.e4sm.e4smPackage#getEnvironment()
@@ -34,5 +35,27 @@ public interface Environment extends NamedElement {
 	 * @generated
 	 */
 	EList<ClassificationClassDistribution> getClassificationClasses();
+
+	/**
+	 * Returns the value of the '<em><b>Ood Probability</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Ood Probability</em>' attribute.
+	 * @see #setOodProbability(double)
+	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getEnvironment_OodProbability()
+	 * @model
+	 * @generated
+	 */
+	double getOodProbability();
+
+	/**
+	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.Environment#getOodProbability <em>Ood Probability</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Ood Probability</em>' attribute.
+	 * @see #getOodProbability()
+	 * @generated
+	 */
+	void setOodProbability(double value);
 
 } // Environment

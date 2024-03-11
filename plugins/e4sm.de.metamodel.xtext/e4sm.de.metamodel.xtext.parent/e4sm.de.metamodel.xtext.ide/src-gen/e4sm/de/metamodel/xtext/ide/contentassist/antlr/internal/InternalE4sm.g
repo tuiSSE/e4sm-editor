@@ -5532,7 +5532,6 @@ rule__ClassificationClassDistribution__Group__1
 	}
 :
 	rule__ClassificationClassDistribution__Group__1__Impl
-	rule__ClassificationClassDistribution__Group__2
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -5544,62 +5543,90 @@ rule__ClassificationClassDistribution__Group__1__Impl
 	}
 :
 (
-	{ before(grammarAccess.getClassificationClassDistributionAccess().getNotAssignment_1()); }
-	(rule__ClassificationClassDistribution__NotAssignment_1)?
-	{ after(grammarAccess.getClassificationClassDistributionAccess().getNotAssignment_1()); }
+	{ before(grammarAccess.getClassificationClassDistributionAccess().getGroup_1()); }
+	(rule__ClassificationClassDistribution__Group_1__0)
+	{ after(grammarAccess.getClassificationClassDistributionAccess().getGroup_1()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__ClassificationClassDistribution__Group__2
+
+rule__ClassificationClassDistribution__Group_1__0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__ClassificationClassDistribution__Group__2__Impl
-	rule__ClassificationClassDistribution__Group__3
+	rule__ClassificationClassDistribution__Group_1__0__Impl
+	rule__ClassificationClassDistribution__Group_1__1
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__ClassificationClassDistribution__Group__2__Impl
+rule__ClassificationClassDistribution__Group_1__0__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getClassificationClassDistributionAccess().getClassificationClassAssignment_2()); }
-	(rule__ClassificationClassDistribution__ClassificationClassAssignment_2)
-	{ after(grammarAccess.getClassificationClassDistributionAccess().getClassificationClassAssignment_2()); }
+	{ before(grammarAccess.getClassificationClassDistributionAccess().getNotAssignment_1_0()); }
+	(rule__ClassificationClassDistribution__NotAssignment_1_0)?
+	{ after(grammarAccess.getClassificationClassDistributionAccess().getNotAssignment_1_0()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__ClassificationClassDistribution__Group__3
+rule__ClassificationClassDistribution__Group_1__1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__ClassificationClassDistribution__Group__3__Impl
+	rule__ClassificationClassDistribution__Group_1__1__Impl
+	rule__ClassificationClassDistribution__Group_1__2
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__ClassificationClassDistribution__Group__3__Impl
+rule__ClassificationClassDistribution__Group_1__1__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getClassificationClassDistributionAccess().getProbabilityAssignment_3()); }
-	(rule__ClassificationClassDistribution__ProbabilityAssignment_3)
-	{ after(grammarAccess.getClassificationClassDistributionAccess().getProbabilityAssignment_3()); }
+	{ before(grammarAccess.getClassificationClassDistributionAccess().getClassificationClassAssignment_1_1()); }
+	(rule__ClassificationClassDistribution__ClassificationClassAssignment_1_1)
+	{ after(grammarAccess.getClassificationClassDistributionAccess().getClassificationClassAssignment_1_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ClassificationClassDistribution__Group_1__2
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__ClassificationClassDistribution__Group_1__2__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ClassificationClassDistribution__Group_1__2__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getClassificationClassDistributionAccess().getProbabilityAssignment_1_2()); }
+	(rule__ClassificationClassDistribution__ProbabilityAssignment_1_2)
+	{ after(grammarAccess.getClassificationClassDistributionAccess().getProbabilityAssignment_1_2()); }
 )
 ;
 finally {
@@ -5748,6 +5775,7 @@ rule__Environment__Group__5
 	}
 :
 	rule__Environment__Group__5__Impl
+	rule__Environment__Group__6
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -5759,9 +5787,35 @@ rule__Environment__Group__5__Impl
 	}
 :
 (
-	{ before(grammarAccess.getEnvironmentAccess().getRightCurlyBracketKeyword_5()); }
+	{ before(grammarAccess.getEnvironmentAccess().getGroup_5()); }
+	(rule__Environment__Group_5__0)?
+	{ after(grammarAccess.getEnvironmentAccess().getGroup_5()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Environment__Group__6
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__Environment__Group__6__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Environment__Group__6__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getEnvironmentAccess().getRightCurlyBracketKeyword_6()); }
 	'}'
-	{ after(grammarAccess.getEnvironmentAccess().getRightCurlyBracketKeyword_5()); }
+	{ after(grammarAccess.getEnvironmentAccess().getRightCurlyBracketKeyword_6()); }
 )
 ;
 finally {
@@ -5870,6 +5924,87 @@ rule__Environment__Group_4_1__1__Impl
 	{ before(grammarAccess.getEnvironmentAccess().getClassificationClassesAssignment_4_1_1()); }
 	(rule__Environment__ClassificationClassesAssignment_4_1_1)
 	{ after(grammarAccess.getEnvironmentAccess().getClassificationClassesAssignment_4_1_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__Environment__Group_5__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__Environment__Group_5__0__Impl
+	rule__Environment__Group_5__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Environment__Group_5__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getEnvironmentAccess().getCommaKeyword_5_0()); }
+	','
+	{ after(grammarAccess.getEnvironmentAccess().getCommaKeyword_5_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Environment__Group_5__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__Environment__Group_5__1__Impl
+	rule__Environment__Group_5__2
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Environment__Group_5__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getEnvironmentAccess().getOODKeyword_5_1()); }
+	'OOD'
+	{ after(grammarAccess.getEnvironmentAccess().getOODKeyword_5_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Environment__Group_5__2
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__Environment__Group_5__2__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Environment__Group_5__2__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getEnvironmentAccess().getOodProbabilityAssignment_5_2()); }
+	(rule__Environment__OodProbabilityAssignment_5_2)
+	{ after(grammarAccess.getEnvironmentAccess().getOodProbabilityAssignment_5_2()); }
 )
 ;
 finally {
@@ -53928,53 +54063,53 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__ClassificationClassDistribution__NotAssignment_1
+rule__ClassificationClassDistribution__NotAssignment_1_0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getClassificationClassDistributionAccess().getNotNotKeyword_1_0()); }
+		{ before(grammarAccess.getClassificationClassDistributionAccess().getNotNotKeyword_1_0_0()); }
 		(
-			{ before(grammarAccess.getClassificationClassDistributionAccess().getNotNotKeyword_1_0()); }
+			{ before(grammarAccess.getClassificationClassDistributionAccess().getNotNotKeyword_1_0_0()); }
 			'not'
-			{ after(grammarAccess.getClassificationClassDistributionAccess().getNotNotKeyword_1_0()); }
+			{ after(grammarAccess.getClassificationClassDistributionAccess().getNotNotKeyword_1_0_0()); }
 		)
-		{ after(grammarAccess.getClassificationClassDistributionAccess().getNotNotKeyword_1_0()); }
+		{ after(grammarAccess.getClassificationClassDistributionAccess().getNotNotKeyword_1_0_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__ClassificationClassDistribution__ClassificationClassAssignment_2
+rule__ClassificationClassDistribution__ClassificationClassAssignment_1_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getClassificationClassDistributionAccess().getClassificationClassClassificationClassCrossReference_2_0()); }
+		{ before(grammarAccess.getClassificationClassDistributionAccess().getClassificationClassClassificationClassCrossReference_1_1_0()); }
 		(
-			{ before(grammarAccess.getClassificationClassDistributionAccess().getClassificationClassClassificationClassIDTerminalRuleCall_2_0_1()); }
-			RULE_ID
-			{ after(grammarAccess.getClassificationClassDistributionAccess().getClassificationClassClassificationClassIDTerminalRuleCall_2_0_1()); }
+			{ before(grammarAccess.getClassificationClassDistributionAccess().getClassificationClassClassificationClassEStringParserRuleCall_1_1_0_1()); }
+			ruleEString
+			{ after(grammarAccess.getClassificationClassDistributionAccess().getClassificationClassClassificationClassEStringParserRuleCall_1_1_0_1()); }
 		)
-		{ after(grammarAccess.getClassificationClassDistributionAccess().getClassificationClassClassificationClassCrossReference_2_0()); }
+		{ after(grammarAccess.getClassificationClassDistributionAccess().getClassificationClassClassificationClassCrossReference_1_1_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__ClassificationClassDistribution__ProbabilityAssignment_3
+rule__ClassificationClassDistribution__ProbabilityAssignment_1_2
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getClassificationClassDistributionAccess().getProbabilityEDoubleParserRuleCall_3_0()); }
+		{ before(grammarAccess.getClassificationClassDistributionAccess().getProbabilityEDoubleParserRuleCall_1_2_0()); }
 		ruleEDouble
-		{ after(grammarAccess.getClassificationClassDistributionAccess().getProbabilityEDoubleParserRuleCall_3_0()); }
+		{ after(grammarAccess.getClassificationClassDistributionAccess().getProbabilityEDoubleParserRuleCall_1_2_0()); }
 	)
 ;
 finally {
@@ -54020,6 +54155,21 @@ rule__Environment__ClassificationClassesAssignment_4_1_1
 		{ before(grammarAccess.getEnvironmentAccess().getClassificationClassesClassificationClassDistributionParserRuleCall_4_1_1_0()); }
 		ruleClassificationClassDistribution
 		{ after(grammarAccess.getEnvironmentAccess().getClassificationClassesClassificationClassDistributionParserRuleCall_4_1_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Environment__OodProbabilityAssignment_5_2
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getEnvironmentAccess().getOodProbabilityEDoubleParserRuleCall_5_2_0()); }
+		ruleEDouble
+		{ after(grammarAccess.getEnvironmentAccess().getOodProbabilityEDoubleParserRuleCall_5_2_0()); }
 	)
 ;
 finally {

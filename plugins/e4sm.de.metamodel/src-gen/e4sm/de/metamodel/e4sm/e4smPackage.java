@@ -3570,13 +3570,22 @@ public interface e4smPackage extends EPackage {
 	int ENVIRONMENT__CLASSIFICATION_CLASSES = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Ood Probability</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENVIRONMENT__OOD_PROBABILITY = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Environment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENVIRONMENT_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int ENVIRONMENT_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Environment</em>' class.
@@ -6130,6 +6139,17 @@ public interface e4smPackage extends EPackage {
 	EReference getEnvironment_ClassificationClasses();
 
 	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.Environment#getOodProbability <em>Ood Probability</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Ood Probability</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Environment#getOodProbability()
+	 * @see #getEnvironment()
+	 * @generated
+	 */
+	EAttribute getEnvironment_OodProbability();
+
+	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.ClassificationClass <em>Classification Class</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7779,6 +7799,14 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ENVIRONMENT__CLASSIFICATION_CLASSES = eINSTANCE.getEnvironment_ClassificationClasses();
+
+		/**
+		 * The meta object literal for the '<em><b>Ood Probability</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ENVIRONMENT__OOD_PROBABILITY = eINSTANCE.getEnvironment_OodProbability();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.ClassificationClassImpl <em>Classification Class</em>}' class.

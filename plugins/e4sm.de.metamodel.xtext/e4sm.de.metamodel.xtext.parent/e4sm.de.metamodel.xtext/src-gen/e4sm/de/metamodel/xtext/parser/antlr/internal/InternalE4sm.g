@@ -695,48 +695,53 @@ ruleClassificationClassDistribution returns [EObject current=null]
 		)
 		(
 			(
-				lv_not_1_0='not'
-				{
-					newLeafNode(lv_not_1_0, grammarAccess.getClassificationClassDistributionAccess().getNotNotKeyword_1_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getClassificationClassDistributionRule());
+				(
+					lv_not_1_0='not'
+					{
+						newLeafNode(lv_not_1_0, grammarAccess.getClassificationClassDistributionAccess().getNotNotKeyword_1_0_0());
 					}
-					setWithLastConsumed($current, "not", lv_not_1_0 != null, "not");
-				}
-			)
-		)?
-		(
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getClassificationClassDistributionRule());
+						}
+						setWithLastConsumed($current, "not", lv_not_1_0 != null, "not");
+					}
+				)
+			)?
 			(
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getClassificationClassDistributionRule());
+				(
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getClassificationClassDistributionRule());
+						}
 					}
-				}
-				otherlv_2=RULE_ID
-				{
-					newLeafNode(otherlv_2, grammarAccess.getClassificationClassDistributionAccess().getClassificationClassClassificationClassCrossReference_2_0());
-				}
+					{
+						newCompositeNode(grammarAccess.getClassificationClassDistributionAccess().getClassificationClassClassificationClassCrossReference_1_1_0());
+					}
+					ruleEString
+					{
+						afterParserOrEnumRuleCall();
+					}
+				)
 			)
-		)
-		(
 			(
-				{
-					newCompositeNode(grammarAccess.getClassificationClassDistributionAccess().getProbabilityEDoubleParserRuleCall_3_0());
-				}
-				lv_probability_3_0=ruleEDouble
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getClassificationClassDistributionRule());
+				(
+					{
+						newCompositeNode(grammarAccess.getClassificationClassDistributionAccess().getProbabilityEDoubleParserRuleCall_1_2_0());
 					}
-					set(
-						$current,
-						"probability",
-						lv_probability_3_0,
-						"e4sm.de.metamodel.xtext.E4sm.EDouble");
-					afterParserOrEnumRuleCall();
-				}
+					lv_probability_3_0=ruleEDouble
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getClassificationClassDistributionRule());
+						}
+						set(
+							$current,
+							"probability",
+							lv_probability_3_0,
+							"e4sm.de.metamodel.xtext.E4sm.EDouble");
+						afterParserOrEnumRuleCall();
+					}
+				)
 			)
 		)
 	)
@@ -838,9 +843,38 @@ ruleEnvironment returns [EObject current=null]
 				)
 			)*
 		)?
-		otherlv_7='}'
+		(
+			otherlv_7=','
+			{
+				newLeafNode(otherlv_7, grammarAccess.getEnvironmentAccess().getCommaKeyword_5_0());
+			}
+			otherlv_8='OOD'
+			{
+				newLeafNode(otherlv_8, grammarAccess.getEnvironmentAccess().getOODKeyword_5_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getEnvironmentAccess().getOodProbabilityEDoubleParserRuleCall_5_2_0());
+					}
+					lv_oodProbability_9_0=ruleEDouble
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getEnvironmentRule());
+						}
+						set(
+							$current,
+							"oodProbability",
+							lv_oodProbability_9_0,
+							"e4sm.de.metamodel.xtext.E4sm.EDouble");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		otherlv_10='}'
 		{
-			newLeafNode(otherlv_7, grammarAccess.getEnvironmentAccess().getRightCurlyBracketKeyword_5());
+			newLeafNode(otherlv_10, grammarAccess.getEnvironmentAccess().getRightCurlyBracketKeyword_6());
 		}
 	)
 ;

@@ -686,7 +686,7 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     ClassificationClassDistribution returns ClassificationClassDistribution
 	 *
 	 * Constraint:
-	 *     (not?='not'? classificationClass=[ClassificationClass|ID] probability=EDouble)
+	 *     (not?='not'? classificationClass=[ClassificationClass|EString] probability=EDouble)
 	 * </pre>
 	 */
 	protected void sequence_ClassificationClassDistribution(ISerializationContext context, ClassificationClassDistribution semanticObject) {
@@ -1126,7 +1126,11 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Environment returns Environment
 	 *
 	 * Constraint:
-	 *     (name=EString (classificationClasses+=ClassificationClassDistribution classificationClasses+=ClassificationClassDistribution*)?)
+	 *     (
+	 *         name=EString 
+	 *         (classificationClasses+=ClassificationClassDistribution classificationClasses+=ClassificationClassDistribution*)? 
+	 *         oodProbability=EDouble?
+	 *     )
 	 * </pre>
 	 */
 	protected void sequence_Environment(ISerializationContext context, Environment semanticObject) {

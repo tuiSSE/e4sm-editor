@@ -1693,6 +1693,16 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getEnvironment_OodProbability() {
+		return (EAttribute) environmentEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getClassificationClass() {
 		return classificationClassEClass;
 	}
@@ -2510,6 +2520,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 
 		environmentEClass = createEClass(ENVIRONMENT);
 		createEReference(environmentEClass, ENVIRONMENT__CLASSIFICATION_CLASSES);
+		createEAttribute(environmentEClass, ENVIRONMENT__OOD_PROBABILITY);
 
 		classificationClassEClass = createEClass(CLASSIFICATION_CLASS);
 
@@ -3015,6 +3026,9 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		initEReference(getEnvironment_ClassificationClasses(), this.getClassificationClassDistribution(), null,
 				"classificationClasses", null, 0, -1, Environment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
 				IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEnvironment_OodProbability(), theEcorePackage.getEDouble(), "oodProbability", null, 0, 1,
+				Environment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
 		initEClass(classificationClassEClass, ClassificationClass.class, "ClassificationClass", !IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

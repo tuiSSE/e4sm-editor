@@ -18,10 +18,10 @@ Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: e4sm.de.metamodel.xtext,
  e4sm.de.metamodel.xtext.formatting2,
  e4sm.de.metamodel.xtext.generator,
- e4sm.de.metamodel.xtext.parser.antlr,
  e4sm.de.metamodel.xtext.parser.antlr.internal;x-internal:=true,
  e4sm.de.metamodel.xtext.scoping,
  e4sm.de.metamodel.xtext.serializer,
  e4sm.de.metamodel.xtext.services,
- e4sm.de.metamodel.xtext.validation
+ e4sm.de.metamodel.xtext.validation,
+ e4sm.de.metamodel.xtext.parser.antlr
 Import-Package: org.apache.log4j

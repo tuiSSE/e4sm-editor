@@ -78,7 +78,7 @@ ClassificationClass returns ClassificationClass:
 
 **Refers to:**
 - [EDouble](#edouble)
-- ID
+- [EString](#estring)
 
 **Referred by:**
 - [Environment](#environment)
@@ -87,7 +87,8 @@ ClassificationClass returns ClassificationClass:
 ```
 ClassificationClassDistribution returns ClassificationClassDistribution:
 	{ClassificationClassDistribution}
-	(not ?= 'not')? classificationClass = [ClassificationClass] probability=EDouble;
+	((not ?= 'not')? classificationClass = [ClassificationClass|EString] probability=EDouble)
+	;
 ```
 
 
@@ -97,6 +98,7 @@ ClassificationClassDistribution returns ClassificationClassDistribution:
 
 **Refers to:**
 - [ClassificationClassDistribution](#classificationclassdistribution)
+- [EDouble](#edouble)
 - [EString](#estring)
 
 **Referred by:**
@@ -110,6 +112,7 @@ Environment returns Environment:
 	'{'
 	(classificationClasses += ClassificationClassDistribution ("," classificationClasses += ClassificationClassDistribution)
 	*)?
+	(',' 'OOD' oodProbability=EDouble)?
 	'}';
 ```
 
@@ -635,6 +638,7 @@ Pin returns Pin:
 - [BinaryConfusionMatrix](#binaryconfusionmatrix)
 - [CVE](#cve)
 - [ClassificationClass](#classificationclass)
+- [ClassificationClassDistribution](#classificationclassdistribution)
 - [Component_Impl](#component_impl)
 - [ConfusionMatrixEntry](#confusionmatrixentry)
 - [Connector_Impl](#connector_impl)
@@ -2342,6 +2346,7 @@ enum QueueType returns QueueType:
 - [CVE](#cve)
 - [ClassificationClassDistribution](#classificationclassdistribution)
 - [DoubleAttribute](#doubleattribute)
+- [Environment](#environment)
 - [LiteralDouble](#literaldouble)
 - [OutputPin](#outputpin)
 - [SetValue](#setvalue)
@@ -3313,7 +3318,7 @@ ClassAttribute returns core::ClassAttribute:
 
 **ClassificationClass** ::=    `cl`   _EString_;
 
-**Environment** ::=    `environment`   _EString_   `{`   (_ClassificationClassDistribution_   (`,`   _ClassificationClassDistribution_)*)?   `}`;
+**Environment** ::=    `environment`   _EString_   `{`   (_ClassificationClassDistribution_   (`,`   _ClassificationClassDistribution_)*)?   (`,`   `OOD`   _EDouble_)?   `}`;
 
 **STRING** ::= (`"`   ((`\`   _._) | !(`\` | `"`))*   `"`) | (`'`   ((`\`   _._) | !(`\` | `'`))*   `'`);
 
@@ -3347,7 +3352,7 @@ ClassAttribute returns core::ClassAttribute:
 
 **Person** ::= `person`   (_EString_ | (_EString_   `,`   _EString_))   `{`   (`doc`   _PROPERTY_ASSIGN_   _EString_)?   (`department`   _EString_)?   (`pictureFileName`   _EString_)?   `}`;
 
-**ClassificationClassDistribution** ::=    `not`?   _ID_   _EDouble_;
+**ClassificationClassDistribution** ::=    (`not`?   _EString_   _EDouble_);
 
 **EDouble** ::= _DOUBLE_;
 

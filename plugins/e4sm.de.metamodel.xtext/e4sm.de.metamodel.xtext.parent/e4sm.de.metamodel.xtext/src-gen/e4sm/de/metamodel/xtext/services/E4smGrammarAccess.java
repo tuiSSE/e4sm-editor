@@ -431,46 +431,51 @@ public class E4smGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "e4sm.de.metamodel.xtext.E4sm.ClassificationClassDistribution");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cClassificationClassDistributionAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cNotAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final Keyword cNotNotKeyword_1_0 = (Keyword)cNotAssignment_1.eContents().get(0);
-		private final Assignment cClassificationClassAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final CrossReference cClassificationClassClassificationClassCrossReference_2_0 = (CrossReference)cClassificationClassAssignment_2.eContents().get(0);
-		private final RuleCall cClassificationClassClassificationClassIDTerminalRuleCall_2_0_1 = (RuleCall)cClassificationClassClassificationClassCrossReference_2_0.eContents().get(1);
-		private final Assignment cProbabilityAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cProbabilityEDoubleParserRuleCall_3_0 = (RuleCall)cProbabilityAssignment_3.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Assignment cNotAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final Keyword cNotNotKeyword_1_0_0 = (Keyword)cNotAssignment_1_0.eContents().get(0);
+		private final Assignment cClassificationClassAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final CrossReference cClassificationClassClassificationClassCrossReference_1_1_0 = (CrossReference)cClassificationClassAssignment_1_1.eContents().get(0);
+		private final RuleCall cClassificationClassClassificationClassEStringParserRuleCall_1_1_0_1 = (RuleCall)cClassificationClassClassificationClassCrossReference_1_1_0.eContents().get(1);
+		private final Assignment cProbabilityAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
+		private final RuleCall cProbabilityEDoubleParserRuleCall_1_2_0 = (RuleCall)cProbabilityAssignment_1_2.eContents().get(0);
 		
 		//ClassificationClassDistribution returns ClassificationClassDistribution:
 		//    {ClassificationClassDistribution}
-		//    (not ?= 'not')? classificationClass = [ClassificationClass] probability=EDouble;
+		//    ((not ?= 'not')? classificationClass = [ClassificationClass|EString] probability=EDouble)
+		//    ;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{ClassificationClassDistribution}
-		//(not ?= 'not')? classificationClass = [ClassificationClass] probability=EDouble
+		//((not ?= 'not')? classificationClass = [ClassificationClass|EString] probability=EDouble)
 		public Group getGroup() { return cGroup; }
 		
 		//{ClassificationClassDistribution}
 		public Action getClassificationClassDistributionAction_0() { return cClassificationClassDistributionAction_0; }
 		
+		//((not ?= 'not')? classificationClass = [ClassificationClass|EString] probability=EDouble)
+		public Group getGroup_1() { return cGroup_1; }
+		
 		//(not ?= 'not')?
-		public Assignment getNotAssignment_1() { return cNotAssignment_1; }
+		public Assignment getNotAssignment_1_0() { return cNotAssignment_1_0; }
 		
 		//'not'
-		public Keyword getNotNotKeyword_1_0() { return cNotNotKeyword_1_0; }
+		public Keyword getNotNotKeyword_1_0_0() { return cNotNotKeyword_1_0_0; }
 		
-		//classificationClass = [ClassificationClass]
-		public Assignment getClassificationClassAssignment_2() { return cClassificationClassAssignment_2; }
+		//classificationClass = [ClassificationClass|EString]
+		public Assignment getClassificationClassAssignment_1_1() { return cClassificationClassAssignment_1_1; }
 		
-		//[ClassificationClass]
-		public CrossReference getClassificationClassClassificationClassCrossReference_2_0() { return cClassificationClassClassificationClassCrossReference_2_0; }
+		//[ClassificationClass|EString]
+		public CrossReference getClassificationClassClassificationClassCrossReference_1_1_0() { return cClassificationClassClassificationClassCrossReference_1_1_0; }
 		
-		//ID
-		public RuleCall getClassificationClassClassificationClassIDTerminalRuleCall_2_0_1() { return cClassificationClassClassificationClassIDTerminalRuleCall_2_0_1; }
+		//EString
+		public RuleCall getClassificationClassClassificationClassEStringParserRuleCall_1_1_0_1() { return cClassificationClassClassificationClassEStringParserRuleCall_1_1_0_1; }
 		
 		//probability=EDouble
-		public Assignment getProbabilityAssignment_3() { return cProbabilityAssignment_3; }
+		public Assignment getProbabilityAssignment_1_2() { return cProbabilityAssignment_1_2; }
 		
 		//EDouble
-		public RuleCall getProbabilityEDoubleParserRuleCall_3_0() { return cProbabilityEDoubleParserRuleCall_3_0; }
+		public RuleCall getProbabilityEDoubleParserRuleCall_1_2_0() { return cProbabilityEDoubleParserRuleCall_1_2_0; }
 	}
 	public class EnvironmentElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "e4sm.de.metamodel.xtext.E4sm.Environment");
@@ -487,7 +492,12 @@ public class E4smGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		private final Keyword cCommaKeyword_4_1_0 = (Keyword)cGroup_4_1.eContents().get(0);
 		private final Assignment cClassificationClassesAssignment_4_1_1 = (Assignment)cGroup_4_1.eContents().get(1);
 		private final RuleCall cClassificationClassesClassificationClassDistributionParserRuleCall_4_1_1_0 = (RuleCall)cClassificationClassesAssignment_4_1_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cCommaKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Keyword cOODKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
+		private final Assignment cOodProbabilityAssignment_5_2 = (Assignment)cGroup_5.eContents().get(2);
+		private final RuleCall cOodProbabilityEDoubleParserRuleCall_5_2_0 = (RuleCall)cOodProbabilityAssignment_5_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//Environment returns Environment:
 		//    {Environment}
@@ -495,6 +505,7 @@ public class E4smGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//    '{'
 		//    (classificationClasses += ClassificationClassDistribution ("," classificationClasses += ClassificationClassDistribution)
 		//    *)?
+		//    (',' 'OOD' oodProbability=EDouble)?
 		//    '}';
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -503,6 +514,7 @@ public class E4smGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//'{'
 		//(classificationClasses += ClassificationClassDistribution ("," classificationClasses += ClassificationClassDistribution)
 		//*)?
+		//(',' 'OOD' oodProbability=EDouble)?
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
@@ -544,8 +556,23 @@ public class E4smGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//ClassificationClassDistribution
 		public RuleCall getClassificationClassesClassificationClassDistributionParserRuleCall_4_1_1_0() { return cClassificationClassesClassificationClassDistributionParserRuleCall_4_1_1_0; }
 		
+		//(',' 'OOD' oodProbability=EDouble)?
+		public Group getGroup_5() { return cGroup_5; }
+		
+		//','
+		public Keyword getCommaKeyword_5_0() { return cCommaKeyword_5_0; }
+		
+		//'OOD'
+		public Keyword getOODKeyword_5_1() { return cOODKeyword_5_1; }
+		
+		//oodProbability=EDouble
+		public Assignment getOodProbabilityAssignment_5_2() { return cOodProbabilityAssignment_5_2; }
+		
+		//EDouble
+		public RuleCall getOodProbabilityEDoubleParserRuleCall_5_2_0() { return cOodProbabilityEDoubleParserRuleCall_5_2_0; }
+		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
 	}
 	public class ConfusionMatrixElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "e4sm.de.metamodel.xtext.E4sm.ConfusionMatrix");
@@ -13544,7 +13571,8 @@ public class E4smGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	
 	//ClassificationClassDistribution returns ClassificationClassDistribution:
 	//    {ClassificationClassDistribution}
-	//    (not ?= 'not')? classificationClass = [ClassificationClass] probability=EDouble;
+	//    ((not ?= 'not')? classificationClass = [ClassificationClass|EString] probability=EDouble)
+	//    ;
 	public ClassificationClassDistributionElements getClassificationClassDistributionAccess() {
 		return pClassificationClassDistribution;
 	}
@@ -13559,6 +13587,7 @@ public class E4smGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	//    '{'
 	//    (classificationClasses += ClassificationClassDistribution ("," classificationClasses += ClassificationClassDistribution)
 	//    *)?
+	//    (',' 'OOD' oodProbability=EDouble)?
 	//    '}';
 	public EnvironmentElements getEnvironmentAccess() {
 		return pEnvironment;

@@ -111,7 +111,8 @@ mapping Package::packageToSCPN(model : Model) : SCPNNet{
 	 	log(env.toString());
 	 	log("\nGenerating the environment " + env.name);
 	 	env.classificationClasses->forEach(ccd){
-	 		ccd.classificationClass->forEach(cc){
+	 		// For each classification class, warning, OOD is in ccd.classificationClass[OutOfDistributionClass]
+	 		ccd.classificationClass[ClassificationClass]->forEach(cc){
 	 			if(ccd._not = false){
 		 			attribute += object AttributeType{
 						name := "cl_" + cc.name;
@@ -154,7 +155,7 @@ mapping Package::packageToSCPN(model : Model) : SCPNNet{
 		type:= Type::text;
 		id := "data_comment_id";
 		// TODO: only generate classification stuff if the model has one classification component
-		commentText:="n: name (string)<br>s:size (int)<br>ps:pixelSize (int)<br>l:length (int)<br>gT:generationTime (DateTime)<br>d:isDefault (bool)";
+		commentText:="n: name (string)<br>s:size (int)<br>ps:pixelSize (int)<br>l:length (int)<br>gT:generationTime (DateTime)<br>d:isDefault (bool)<br>r:removeToken (bool)";
 		graphics := object GraphicsType {
 			x := 110;
 	 		y := 1650
@@ -623,7 +624,8 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 					
 					if(classAmount = 1){
 						// for each class
-						sensor.classificationClasses->forEach(cc){
+						// For each classification class, warning, OOD is in sensor.classificationClasses[OutOfDistributionClass]
+						sensor.classificationClasses[ClassificationClass]->forEach(cc){
 							log("Generating initialization of class " + cc.name);
 							var className=safeString(cc.name);
 							
@@ -692,7 +694,7 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 							pl += placeInitialized;
 							
 							
-						self.oclAsType(e4sm::Sensor).classificationClasses->forEach(cc){
+						self.oclAsType(e4sm::Sensor).classificationClasses[ClassificationClass]->forEach(cc){
 							log("Generating initialization of class " + cc.name);
 							var className=safeString(cc.name);
 							
@@ -714,7 +716,7 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 
 							// arcFromPos
 							var arcFromPos : ArcType := new ArcType(self.name +"_" + className + "_from_pos");
-							arcFromPos.inscription.text := sensorClassesInitialization(cc, sensor.classificationClasses->select(c|c<>cc));
+							arcFromPos.inscription.text := sensorClassesInitialization(cc, sensor.classificationClasses[ClassificationClass]->select(c|c<>cc));
 							arcFromPos.fromNode := immTrPos.id;
 							arcFromPos.toNode := placeInitialized.id;
 							arcs += arcFromPos;		
@@ -1427,10 +1429,10 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 			arcs->add(mainToTimed);
 			
 			// Arc between the execution tt and the executed Place
-			/*var arcFromTTtoExecuted : ArcType := new ArcType (self.name + "_exec");
+			var arcFromTTtoExecuted : ArcType := new ArcType (self.name + "_exec");
 			arcFromTTtoExecuted.fromNode := timedTran.id;
 			arcFromTTtoExecuted.toNode := placeExecuted.id;
-			arcs += arcFromTTtoExecuted;*/
+			arcs += arcFromTTtoExecuted;
 		};
 		
 		

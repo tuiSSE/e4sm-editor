@@ -180,6 +180,7 @@
     <genClasses ecoreClass="e4sm.ecore#//ClassificationComponent"/>
     <genClasses ecoreClass="e4sm.ecore#//Environment">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//Environment/classificationClasses"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//Environment/oodProbability"/>
     </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//ClassificationClass"/>
     <genClasses ecoreClass="e4sm.ecore#//ClassificationClassDistribution">

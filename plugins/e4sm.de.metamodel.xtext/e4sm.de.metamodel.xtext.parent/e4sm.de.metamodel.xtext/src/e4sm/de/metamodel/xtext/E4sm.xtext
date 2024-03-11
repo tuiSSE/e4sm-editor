@@ -33,7 +33,8 @@ ClassificationClass returns ClassificationClass:
 
 ClassificationClassDistribution returns ClassificationClassDistribution:
 	{ClassificationClassDistribution}
-	(not ?= 'not')? classificationClass = [ClassificationClass] probability=EDouble;
+	((not ?= 'not')? classificationClass = [ClassificationClass|EString] probability=EDouble)
+	;
 
 Environment returns Environment:
 	{Environment}
@@ -41,6 +42,7 @@ Environment returns Environment:
 	'{'
 	(classificationClasses += ClassificationClassDistribution ("," classificationClasses += ClassificationClassDistribution)
 	*)?
+	(',' 'OOD' oodProbability=EDouble)?
 	'}';
 
 ConfusionMatrix returns ConfusionMatrix:
@@ -710,7 +712,7 @@ Sensor returns Sensor:
 	('datastores' '{' datastores += DataStore ("," datastores += DataStore)* '}')?
 	('runs' '{' execution=Execution '}')?
 	'}';
-
+	
 Actuator returns Actuator:
 	{Actuator}
 	'actuator'

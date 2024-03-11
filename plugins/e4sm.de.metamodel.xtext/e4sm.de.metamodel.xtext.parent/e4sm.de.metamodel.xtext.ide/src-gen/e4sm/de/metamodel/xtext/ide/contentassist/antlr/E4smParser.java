@@ -83,9 +83,11 @@ public class E4smParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getModelAccess().getGroup_15_1(), "rule__Model__Group_15_1__0");
 			builder.put(grammarAccess.getClassificationClassAccess().getGroup(), "rule__ClassificationClass__Group__0");
 			builder.put(grammarAccess.getClassificationClassDistributionAccess().getGroup(), "rule__ClassificationClassDistribution__Group__0");
+			builder.put(grammarAccess.getClassificationClassDistributionAccess().getGroup_1(), "rule__ClassificationClassDistribution__Group_1__0");
 			builder.put(grammarAccess.getEnvironmentAccess().getGroup(), "rule__Environment__Group__0");
 			builder.put(grammarAccess.getEnvironmentAccess().getGroup_4(), "rule__Environment__Group_4__0");
 			builder.put(grammarAccess.getEnvironmentAccess().getGroup_4_1(), "rule__Environment__Group_4_1__0");
+			builder.put(grammarAccess.getEnvironmentAccess().getGroup_5(), "rule__Environment__Group_5__0");
 			builder.put(grammarAccess.getBinaryConfusionMatrixAccess().getGroup(), "rule__BinaryConfusionMatrix__Group__0");
 			builder.put(grammarAccess.getMulticlassConfusionMatrixAccess().getGroup(), "rule__MulticlassConfusionMatrix__Group__0");
 			builder.put(grammarAccess.getMulticlassConfusionMatrixAccess().getGroup_5(), "rule__MulticlassConfusionMatrix__Group_5__0");
@@ -599,12 +601,13 @@ public class E4smParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getModelAccess().getEnvironmentsAssignment_15_0(), "rule__Model__EnvironmentsAssignment_15_0");
 			builder.put(grammarAccess.getModelAccess().getEnvironmentsAssignment_15_1_1(), "rule__Model__EnvironmentsAssignment_15_1_1");
 			builder.put(grammarAccess.getClassificationClassAccess().getNameAssignment_2(), "rule__ClassificationClass__NameAssignment_2");
-			builder.put(grammarAccess.getClassificationClassDistributionAccess().getNotAssignment_1(), "rule__ClassificationClassDistribution__NotAssignment_1");
-			builder.put(grammarAccess.getClassificationClassDistributionAccess().getClassificationClassAssignment_2(), "rule__ClassificationClassDistribution__ClassificationClassAssignment_2");
-			builder.put(grammarAccess.getClassificationClassDistributionAccess().getProbabilityAssignment_3(), "rule__ClassificationClassDistribution__ProbabilityAssignment_3");
+			builder.put(grammarAccess.getClassificationClassDistributionAccess().getNotAssignment_1_0(), "rule__ClassificationClassDistribution__NotAssignment_1_0");
+			builder.put(grammarAccess.getClassificationClassDistributionAccess().getClassificationClassAssignment_1_1(), "rule__ClassificationClassDistribution__ClassificationClassAssignment_1_1");
+			builder.put(grammarAccess.getClassificationClassDistributionAccess().getProbabilityAssignment_1_2(), "rule__ClassificationClassDistribution__ProbabilityAssignment_1_2");
 			builder.put(grammarAccess.getEnvironmentAccess().getNameAssignment_2(), "rule__Environment__NameAssignment_2");
 			builder.put(grammarAccess.getEnvironmentAccess().getClassificationClassesAssignment_4_0(), "rule__Environment__ClassificationClassesAssignment_4_0");
 			builder.put(grammarAccess.getEnvironmentAccess().getClassificationClassesAssignment_4_1_1(), "rule__Environment__ClassificationClassesAssignment_4_1_1");
+			builder.put(grammarAccess.getEnvironmentAccess().getOodProbabilityAssignment_5_2(), "rule__Environment__OodProbabilityAssignment_5_2");
 			builder.put(grammarAccess.getBinaryConfusionMatrixAccess().getNameAssignment_3(), "rule__BinaryConfusionMatrix__NameAssignment_3");
 			builder.put(grammarAccess.getBinaryConfusionMatrixAccess().getPositiveClassAssignment_5(), "rule__BinaryConfusionMatrix__PositiveClassAssignment_5");
 			builder.put(grammarAccess.getBinaryConfusionMatrixAccess().getTpAssignment_9(), "rule__BinaryConfusionMatrix__TpAssignment_9");

@@ -1334,6 +1334,7 @@ public class e4smValidator extends EObjectValidator {
 			Map<Object, Object> context) {
 		double epsilon = 0.000000001d;
 		double sum = environment.getClassificationClasses().stream().mapToDouble(c -> c.getProbability()).sum();
+		sum += environment.getOodProbability();
 		if (Math.abs(sum - 1.0d) > epsilon) { // Sum equals 1?
 			if (diagnostics != null) {
 				diagnostics.add(createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0,
