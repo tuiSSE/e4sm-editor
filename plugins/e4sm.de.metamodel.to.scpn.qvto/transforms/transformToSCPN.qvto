@@ -2483,7 +2483,7 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 			var cl_wrong_iTr_to_wrong_place: ArcType := new ArcType(cl.name + "_wrong_to_wrong_place");
 			cl_wrong_iTr_to_wrong_place.fromNode := cl_wrong.id;
 			cl_wrong_iTr_to_wrong_place.toNode := wrongClassOut.id;
-			cl_wrong_iTr_to_wrong_place.inscription.text := "copy x";
+			cl_wrong_iTr_to_wrong_place.inscription.text := "x(cl_" + cl.name + "_" + self.name + "=true)";
 			arcs+=cl_wrong_iTr_to_wrong_place;
 			
 			//for now give one arc r=false, TODO find better way to choose
@@ -2561,11 +2561,13 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 					var cl_place_to_other_iTr: ArcType := new ArcType("not_" + cl.name + "_to_" + differentCl.name + "_option");
 					cl_place_to_other_iTr.fromNode := "Not_" + cl.name + "_place_id";
 					cl_place_to_other_iTr.toNode := other_cl_iTr.id;
+					cl_place_to_other_iTr.inscription.text := "x";
 					arcs += cl_place_to_other_iTr;
 					
 					var other_iTr_to_wrong_class_out_place: ArcType := new ArcType(cl.name + "_" + differentCl.name + "_to_wr_cl_out");
 					other_iTr_to_wrong_class_out_place.fromNode := other_cl_iTr.id;
 					other_iTr_to_wrong_class_out_place.toNode := wrongClassOut.id;
+					other_iTr_to_wrong_class_out_place.inscription.text := "x(cl_" + differentCl.name + "_" + self.name + "=true)";
 					arcs += other_iTr_to_wrong_class_out_place;
 							
 					//var wrong_cl_to_other_cl_eval: ArcType := new ArcType(cl.name + "wrong_to_" + differentCl.name + "_eval");
