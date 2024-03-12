@@ -2518,24 +2518,32 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 			tp.expression := getMeasureReference(cl_tp);
 			tp.eval := MeasureEvalType::Cumulative;
 			tp.watch := false;
+			tp.graphics.x := 20;
+			tp.graphics.y := 30 * (4*j + 0);
 			meas += tp;
 		
 			var tn : MeasureType := new MeasureType(self.name + "_" + cl.name + "_tn");
 			tn.expression := getMeasureReference(cl_tn);
 			tn.eval := MeasureEvalType::Cumulative;
 			tn.watch := false;
+			tn.graphics.x := 20;
+			tn.graphics.y := 30 * (4*j + 1);
 			meas += tn;
 			
 			var fp : MeasureType := new MeasureType(self.name + "_" + cl.name + "_fp");
 			fp.expression := getMeasureReference(cl_fp);
 			fp.eval := MeasureEvalType::Cumulative;
 			fp.watch := false;
+			fp.graphics.x := 20;
+			fp.graphics.y := 30 * (4*j + 2);
 			meas += fp;
 			
 			var fn : MeasureType := new MeasureType(self.name + "_" + cl.name + "_fn");
 			fn.expression := getMeasureReference(cl_fn);
 			fn.eval := MeasureEvalType::Cumulative;
 			fn.watch := false;
+			fn.graphics.x := 20;
+			fn.graphics.y := 30 * (4*j + 3);
 			meas += fn;
 
 			
