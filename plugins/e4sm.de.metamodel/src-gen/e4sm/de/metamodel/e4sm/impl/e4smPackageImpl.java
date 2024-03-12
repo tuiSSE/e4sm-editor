@@ -1883,6 +1883,16 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
+	public EOperation getMulticlassConfusionMatrix__ComputeProbabilityOfFirstWhenNotSecond__ClassificationClass_ClassificationClass() {
+		return multiclassConfusionMatrixEClass.getEOperations().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getConfusionMatrix() {
 		return confusionMatrixEClass;
 	}
@@ -2548,6 +2558,8 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 				MULTICLASS_CONFUSION_MATRIX___COMPUTE_CLASS_F1_SCORE__CLASSIFICATIONCLASS);
 		createEOperation(multiclassConfusionMatrixEClass,
 				MULTICLASS_CONFUSION_MATRIX___COMPUTE_CLASS_SPECIFICITY__CLASSIFICATIONCLASS);
+		createEOperation(multiclassConfusionMatrixEClass,
+				MULTICLASS_CONFUSION_MATRIX___COMPUTE_PROBABILITY_OF_FIRST_WHEN_NOT_SECOND__CLASSIFICATIONCLASS_CLASSIFICATIONCLASS);
 
 		confusionMatrixEntryEClass = createEClass(CONFUSION_MATRIX_ENTRY);
 		createEAttribute(confusionMatrixEntryEClass, CONFUSION_MATRIX_ENTRY__VALUE);
@@ -3092,6 +3104,12 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		op = initEOperation(getMulticlassConfusionMatrix__ComputeClassSpecificity__ClassificationClass(),
 				theEcorePackage.getEDouble(), "computeClassSpecificity", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getClassificationClass(), "class_", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(
+				getMulticlassConfusionMatrix__ComputeProbabilityOfFirstWhenNotSecond__ClassificationClass_ClassificationClass(),
+				theEcorePackage.getEDouble(), "computeProbabilityOfFirstWhenNotSecond", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getClassificationClass(), "first", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getClassificationClass(), "second", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(confusionMatrixEntryEClass, ConfusionMatrixEntry.class, "ConfusionMatrixEntry", !IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

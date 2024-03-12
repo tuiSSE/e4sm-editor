@@ -219,6 +219,10 @@
       <genOperations ecoreOperation="e4sm.ecore#//MulticlassConfusionMatrix/computeClassSpecificity">
         <genParameters ecoreParameter="e4sm.ecore#//MulticlassConfusionMatrix/computeClassSpecificity/class"/>
       </genOperations>
+      <genOperations ecoreOperation="e4sm.ecore#//MulticlassConfusionMatrix/computeProbabilityOfFirstWhenNotSecond">
+        <genParameters ecoreParameter="e4sm.ecore#//MulticlassConfusionMatrix/computeProbabilityOfFirstWhenNotSecond/first"/>
+        <genParameters ecoreParameter="e4sm.ecore#//MulticlassConfusionMatrix/computeProbabilityOfFirstWhenNotSecond/second"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//ConfusionMatrixEntry">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//ConfusionMatrixEntry/value"/>

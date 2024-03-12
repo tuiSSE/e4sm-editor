@@ -121,4 +121,12 @@ public interface MulticlassConfusionMatrix extends ConfusionMatrix {
 	 */
 	double computeClassSpecificity(ClassificationClass class_);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	double computeProbabilityOfFirstWhenNotSecond(ClassificationClass first, ClassificationClass second);
+
 } // MulticlassConfusionMatrix

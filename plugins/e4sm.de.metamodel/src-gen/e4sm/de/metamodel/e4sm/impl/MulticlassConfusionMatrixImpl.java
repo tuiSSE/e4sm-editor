@@ -285,6 +285,23 @@ public class MulticlassConfusionMatrixImpl extends ConfusionMatrixImpl implement
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public double computeProbabilityOfFirstWhenNotSecond(ClassificationClass first, ClassificationClass second) {
+		double fp_first;
+		double fn_second;
+		fp_first = this.getEntries().stream().filter(e->e.getTruth().equals(second) && e.getPredicted().equals(first)).findFirst().get().getValue();
+		fn_second = this.getFN(second);
+		if(fn_second < 0.0000000000000000000000001) {
+			return -1.0;
+		}
+		return fp_first / fn_second;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
 	 * computes the macro specificity
 	 * <!-- end-user-doc -->
 	 * @generated NOT
@@ -413,6 +430,9 @@ public class MulticlassConfusionMatrixImpl extends ConfusionMatrixImpl implement
 			return computeClassF1Score((ClassificationClass) arguments.get(0));
 		case e4smPackage.MULTICLASS_CONFUSION_MATRIX___COMPUTE_CLASS_SPECIFICITY__CLASSIFICATIONCLASS:
 			return computeClassSpecificity((ClassificationClass) arguments.get(0));
+		case e4smPackage.MULTICLASS_CONFUSION_MATRIX___COMPUTE_PROBABILITY_OF_FIRST_WHEN_NOT_SECOND__CLASSIFICATIONCLASS_CLASSIFICATIONCLASS:
+			return computeProbabilityOfFirstWhenNotSecond((ClassificationClass) arguments.get(0),
+					(ClassificationClass) arguments.get(1));
 		}
 		return super.eInvoke(operationID, arguments);
 	}
