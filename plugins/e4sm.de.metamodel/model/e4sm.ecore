@@ -505,6 +505,9 @@
       <eParameters name="first" eType="#//ClassificationClass"/>
       <eParameters name="second" eType="#//ClassificationClass"/>
     </eOperations>
+    <eOperations name="computeClassFalsePositivity" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble">
+      <eParameters name="class" eType="#//ClassificationClass"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="entries" upperBound="-1"
         eType="#//ConfusionMatrixEntry" containment="true"/>
   </eClassifiers>

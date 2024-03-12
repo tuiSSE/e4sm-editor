@@ -1893,6 +1893,16 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
+	public EOperation getMulticlassConfusionMatrix__ComputeClassFalsePositivity__ClassificationClass() {
+		return multiclassConfusionMatrixEClass.getEOperations().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getConfusionMatrix() {
 		return confusionMatrixEClass;
 	}
@@ -2560,6 +2570,8 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 				MULTICLASS_CONFUSION_MATRIX___COMPUTE_CLASS_SPECIFICITY__CLASSIFICATIONCLASS);
 		createEOperation(multiclassConfusionMatrixEClass,
 				MULTICLASS_CONFUSION_MATRIX___COMPUTE_PROBABILITY_OF_FIRST_WHEN_NOT_SECOND__CLASSIFICATIONCLASS_CLASSIFICATIONCLASS);
+		createEOperation(multiclassConfusionMatrixEClass,
+				MULTICLASS_CONFUSION_MATRIX___COMPUTE_CLASS_FALSE_POSITIVITY__CLASSIFICATIONCLASS);
 
 		confusionMatrixEntryEClass = createEClass(CONFUSION_MATRIX_ENTRY);
 		createEAttribute(confusionMatrixEntryEClass, CONFUSION_MATRIX_ENTRY__VALUE);
@@ -3110,6 +3122,10 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 				theEcorePackage.getEDouble(), "computeProbabilityOfFirstWhenNotSecond", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getClassificationClass(), "first", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getClassificationClass(), "second", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getMulticlassConfusionMatrix__ComputeClassFalsePositivity__ClassificationClass(),
+				theEcorePackage.getEDouble(), "computeClassFalsePositivity", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getClassificationClass(), "class_", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(confusionMatrixEntryEClass, ConfusionMatrixEntry.class, "ConfusionMatrixEntry", !IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

@@ -40,7 +40,7 @@
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="e4sm.ecore#/"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_GQzdcMzmEeuObrZwAqjzng" name="e4sm CD - Variants" repPath="#_GQy2YMzmEeuObrZwAqjzng" changeId="1710238075202">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_GQzdcMzmEeuObrZwAqjzng" name="e4sm CD - Variants" repPath="#_GQy2YMzmEeuObrZwAqjzng" changeId="1696585363448">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="e4sm.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -48,7 +48,7 @@
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="e4sm.ecore#/"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_fFJv0N_JEeuulr_rs9nI6w" name="e4sm ALL" repPath="#_fEkhAN_JEeuulr_rs9nI6w" changeId="1710236956940">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_fFJv0N_JEeuulr_rs9nI6w" name="e4sm ALL" repPath="#_fEkhAN_JEeuulr_rs9nI6w" changeId="1710248099901">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="e4sm.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -72,7 +72,7 @@
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="security.ecore#/"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_Wng08GQsEe6YMe4GL5HLhA" name="e4smPublicationClassification" repPath="#_WndxoGQsEe6YMe4GL5HLhA" changeId="1710236956940">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_Wng08GQsEe6YMe4GL5HLhA" name="e4smPublicationClassification" repPath="#_WndxoGQsEe6YMe4GL5HLhA" changeId="1710248099901">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="e4sm.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -98,7 +98,7 @@
         <description xmi:type="description_2:CrossTableDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']"/>
         <target xmi:type="ecore:EPackage" href="e4sm.ecore#/"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_pl1JYN2REeub94TrfsycXQ" name="e4sm package dependencies" repPath="#_plytIN2REeub94TrfsycXQ" changeId="1710238082679">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_pl1JYN2REeub94TrfsycXQ" name="e4sm package dependencies" repPath="#_plytIN2REeub94TrfsycXQ" changeId="1696585170697">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']"/>
         <target xmi:type="ecore:EPackage" href="e4sm.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -8095,8 +8095,9 @@
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_ZQpF4eBYEe6m5NSAccUy4w" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
-        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_sqe84WQsEe6YMe4GL5HLhA" iconPath="/org.eclipse.emf.ecoretools.design/icons/full/obj16/EClass_interface.gif" borderSize="1" borderSizeComputationExpression="1" borderColor="125,125,125" backgroundStyle="Liquid" foregroundColor="228,228,228">
+        <labelFormat>italic</labelFormat>
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@conditionnalStyles.0/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_0ffNweC2Eeu77YN60kLwTQ" name="personsPicturesPath : EString" visible="false" tooltipText="">
@@ -9401,7 +9402,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Dependencies']/@defaultLayer/@containerMappings[name='Analyzed%20Package']/@subNodeMappings[name='EClassfierIntroducingDependency']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_P8JwNmQsEe6YMe4GL5HLhA" name="Environment (4)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassEnvironment extends type Element in package core&#xA; - EClassEnvironment extends type NamedElement in package core">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_P8JwNmQsEe6YMe4GL5HLhA" name="Environment (3)" tooltipText="Dependency to http://de.tu-ilmenau/e4sm/core/1.0.0: &#xA; - EClassEnvironment extends type Element in package core&#xA; - EClassEnvironment extends type NamedElement in package core">
         <target xmi:type="ecore:EClass" href="e4sm.ecore#//Environment"/>
         <semanticElements xmi:type="ecore:EClass" href="e4sm.ecore#//Environment"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_P8K-UGQsEe6YMe4GL5HLhA" labelAlignment="LEFT" labelPosition="node">
@@ -11244,6 +11245,10 @@
             <children xmi:type="notation:Node" xmi:id="_pIXT4OBVEe6m5NSAccUy4w" type="3010" element="_pFrMReBVEe6m5NSAccUy4w">
               <styles xmi:type="notation:FontStyle" xmi:id="_pIXT4eBVEe6m5NSAccUy4w" fontName="Segoe UI" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_pIXT4uBVEe6m5NSAccUy4w"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_WwJdEOBuEe6m5NSAccUy4w" type="3010" element="_WvMa2eBuEe6m5NSAccUy4w">
+              <styles xmi:type="notation:FontStyle" xmi:id="_WwJdEeBuEe6m5NSAccUy4w" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_WwJdEuBuEe6m5NSAccUy4w"/>
             </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="__fsd8XYfEe2FDu_P6h_-Lw"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="__fsd8nYfEe2FDu_P6h_-Lw"/>
@@ -16335,6 +16340,15 @@
         <semanticElements xmi:type="ecore:EParameter" href="e4sm.ecore#//MulticlassConfusionMatrix/computeProbabilityOfFirstWhenNotSecond/first"/>
         <semanticElements xmi:type="ecore:EParameter" href="e4sm.ecore#//MulticlassConfusionMatrix/computeProbabilityOfFirstWhenNotSecond/second"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_pFrzUOBVEe6m5NSAccUy4w" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_WvMa2eBuEe6m5NSAccUy4w" name="computeClassFalsePositivity(class ClassificationClass) : EDouble" tooltipText="computeClassFalsePositivity(class) : EDouble">
+        <target xmi:type="ecore:EOperation" href="e4sm.ecore#//MulticlassConfusionMatrix/computeClassFalsePositivity"/>
+        <semanticElements xmi:type="ecore:EOperation" href="e4sm.ecore#//MulticlassConfusionMatrix/computeClassFalsePositivity"/>
+        <semanticElements xmi:type="ecore:EParameter" href="e4sm.ecore#//MulticlassConfusionMatrix/computeClassFalsePositivity/class"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_WvMa2uBuEe6m5NSAccUy4w" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
@@ -26443,6 +26457,10 @@
               <styles xmi:type="notation:FontStyle" xmi:id="_pGnnceBVEe6m5NSAccUy4w" fontName="Segoe UI" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_pGnncuBVEe6m5NSAccUy4w"/>
             </children>
+            <children xmi:type="notation:Node" xmi:id="_WvhK8OBuEe6m5NSAccUy4w" type="3010" element="_WoOQIOBuEe6m5NSAccUy4w">
+              <styles xmi:type="notation:FontStyle" xmi:id="_WvhK8eBuEe6m5NSAccUy4w" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_WvhK8uBuEe6m5NSAccUy4w"/>
+            </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_iwZSVWQsEe6YMe4GL5HLhA"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_iwZSVmQsEe6YMe4GL5HLhA"/>
           </children>
@@ -27360,6 +27378,15 @@
         <semanticElements xmi:type="ecore:EParameter" href="e4sm.ecore#//MulticlassConfusionMatrix/computeProbabilityOfFirstWhenNotSecond/first"/>
         <semanticElements xmi:type="ecore:EParameter" href="e4sm.ecore#//MulticlassConfusionMatrix/computeProbabilityOfFirstWhenNotSecond/second"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_o7_r0eBVEe6m5NSAccUy4w" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_WoOQIOBuEe6m5NSAccUy4w" name="computeClassFalsePositivity(class ClassificationClass) : EDouble" tooltipText="computeClassFalsePositivity(class) : EDouble">
+        <target xmi:type="ecore:EOperation" href="e4sm.ecore#//MulticlassConfusionMatrix/computeClassFalsePositivity"/>
+        <semanticElements xmi:type="ecore:EOperation" href="e4sm.ecore#//MulticlassConfusionMatrix/computeClassFalsePositivity"/>
+        <semanticElements xmi:type="ecore:EParameter" href="e4sm.ecore#//MulticlassConfusionMatrix/computeClassFalsePositivity/class"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_WoO3MOBuEe6m5NSAccUy4w" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>

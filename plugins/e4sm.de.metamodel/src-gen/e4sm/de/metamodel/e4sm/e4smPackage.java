@@ -4024,13 +4024,23 @@ public interface e4smPackage extends EPackage {
 			+ 11;
 
 	/**
+	 * The operation id for the '<em>Compute Class False Positivity</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTICLASS_CONFUSION_MATRIX___COMPUTE_CLASS_FALSE_POSITIVITY__CLASSIFICATIONCLASS = CONFUSION_MATRIX_OPERATION_COUNT
+			+ 12;
+
+	/**
 	 * The number of operations of the '<em>Multiclass Confusion Matrix</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MULTICLASS_CONFUSION_MATRIX_OPERATION_COUNT = CONFUSION_MATRIX_OPERATION_COUNT + 12;
+	int MULTICLASS_CONFUSION_MATRIX_OPERATION_COUNT = CONFUSION_MATRIX_OPERATION_COUNT + 13;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -6354,6 +6364,16 @@ public interface e4smPackage extends EPackage {
 	EOperation getMulticlassConfusionMatrix__ComputeProbabilityOfFirstWhenNotSecond__ClassificationClass_ClassificationClass();
 
 	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.MulticlassConfusionMatrix#computeClassFalsePositivity(e4sm.de.metamodel.e4sm.ClassificationClass) <em>Compute Class False Positivity</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Compute Class False Positivity</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.MulticlassConfusionMatrix#computeClassFalsePositivity(e4sm.de.metamodel.e4sm.ClassificationClass)
+	 * @generated
+	 */
+	EOperation getMulticlassConfusionMatrix__ComputeClassFalsePositivity__ClassificationClass();
+
+	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.ConfusionMatrix <em>Confusion Matrix</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7998,6 +8018,15 @@ public interface e4smPackage extends EPackage {
 		 */
 		EOperation MULTICLASS_CONFUSION_MATRIX___COMPUTE_PROBABILITY_OF_FIRST_WHEN_NOT_SECOND__CLASSIFICATIONCLASS_CLASSIFICATIONCLASS = eINSTANCE
 				.getMulticlassConfusionMatrix__ComputeProbabilityOfFirstWhenNotSecond__ClassificationClass_ClassificationClass();
+
+		/**
+		 * The meta object literal for the '<em><b>Compute Class False Positivity</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation MULTICLASS_CONFUSION_MATRIX___COMPUTE_CLASS_FALSE_POSITIVITY__CLASSIFICATIONCLASS = eINSTANCE
+				.getMulticlassConfusionMatrix__ComputeClassFalsePositivity__ClassificationClass();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.ConfusionMatrixImpl <em>Confusion Matrix</em>}' class.
