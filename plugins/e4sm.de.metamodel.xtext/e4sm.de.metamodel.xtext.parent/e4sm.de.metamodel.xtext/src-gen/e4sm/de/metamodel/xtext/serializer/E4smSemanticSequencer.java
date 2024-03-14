@@ -123,10 +123,10 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		if (epackage == AnalysisPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
 			case AnalysisPackage.PARAMETER:
-				sequence_Parameter(context, (e4sm.de.metamodel.e4sm.analysis.Parameter) semanticObject); 
+				sequence_Documentation_Name_Parameter(context, (e4sm.de.metamodel.e4sm.analysis.Parameter) semanticObject); 
 				return; 
 			case AnalysisPackage.PARAMETER_DEFINITION:
-				sequence_ParameterDefinition(context, (ParameterDefinition) semanticObject); 
+				sequence_Documentation_Name_ParameterDefinition(context, (ParameterDefinition) semanticObject); 
 				return; 
 			}
 		else if (epackage == CorePackage.eINSTANCE)
@@ -147,13 +147,13 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				sequence_LiteralBoolean(context, (LiteralBoolean) semanticObject); 
 				return; 
 			case CorePackage.LITERAL_BYTE:
-				sequence_LiteralByte(context, (LiteralByte) semanticObject); 
+				sequence_LiteralByte_Name(context, (LiteralByte) semanticObject); 
 				return; 
 			case CorePackage.LITERAL_CHARACTER:
-				sequence_LiteralCharacter(context, (LiteralCharacter) semanticObject); 
+				sequence_LiteralCharacter_Name(context, (LiteralCharacter) semanticObject); 
 				return; 
 			case CorePackage.LITERAL_DATE:
-				sequence_LiteralDate(context, (LiteralDate) semanticObject); 
+				sequence_LiteralDate_Name(context, (LiteralDate) semanticObject); 
 				return; 
 			case CorePackage.LITERAL_DOUBLE:
 				sequence_LiteralDouble(context, (LiteralDouble) semanticObject); 
@@ -171,7 +171,7 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				sequence_LiteralNull(context, (LiteralNull) semanticObject); 
 				return; 
 			case CorePackage.LITERAL_SHORT:
-				sequence_LiteralShort(context, (LiteralShort) semanticObject); 
+				sequence_LiteralShort_Name(context, (LiteralShort) semanticObject); 
 				return; 
 			case CorePackage.LITERAL_STRING:
 				sequence_LiteralString(context, (LiteralString) semanticObject); 
@@ -183,103 +183,103 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				sequence_TypeSpecification(context, (TypeSpecification) semanticObject); 
 				return; 
 			case CorePackage.VARIANT:
-				sequence_Variant(context, (Variant) semanticObject); 
+				sequence_Documentation_Name_Variant(context, (Variant) semanticObject); 
 				return; 
 			}
 		else if (epackage == e4smPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
 			case e4smPackage.ACTOR:
-				sequence_Actor_Impl(context, (Actor) semanticObject); 
+				sequence_Actor_Impl_Documentation_Name(context, (Actor) semanticObject); 
 				return; 
 			case e4smPackage.ACTUATOR:
-				sequence_Actuator(context, (Actuator) semanticObject); 
+				sequence_Actuator_Documentation_Name_Parameters(context, (Actuator) semanticObject); 
 				return; 
 			case e4smPackage.BINARY_CLASSIFICATION_COMPONENT:
-				sequence_BinaryClassificationComponent(context, (BinaryClassificationComponent) semanticObject); 
+				sequence_BinaryClassificationComponent_Documentation_Name_Parameters(context, (BinaryClassificationComponent) semanticObject); 
 				return; 
 			case e4smPackage.BINARY_CONFUSION_MATRIX:
-				sequence_BinaryConfusionMatrix(context, (BinaryConfusionMatrix) semanticObject); 
+				sequence_BinaryConfusionMatrix_Name(context, (BinaryConfusionMatrix) semanticObject); 
 				return; 
 			case e4smPackage.CLASSIFICATION_CLASS:
-				sequence_ClassificationClass(context, (ClassificationClass) semanticObject); 
+				sequence_ClassificationClass_Name(context, (ClassificationClass) semanticObject); 
 				return; 
 			case e4smPackage.CLASSIFICATION_CLASS_DISTRIBUTION:
 				sequence_ClassificationClassDistribution(context, (ClassificationClassDistribution) semanticObject); 
 				return; 
 			case e4smPackage.COMPONENT:
-				sequence_Component_Impl(context, (Component) semanticObject); 
+				sequence_Component_Impl_Documentation_Name_Parameters(context, (Component) semanticObject); 
 				return; 
 			case e4smPackage.CONFUSION_MATRIX_ENTRY:
 				sequence_ConfusionMatrixEntry(context, (ConfusionMatrixEntry) semanticObject); 
 				return; 
 			case e4smPackage.CONNECTOR:
-				sequence_Connector_Impl(context, (Connector) semanticObject); 
+				sequence_Connector_Impl_Documentation_Name_Parameters(context, (Connector) semanticObject); 
 				return; 
 			case e4smPackage.DATA_STORE:
-				sequence_DataStore(context, (DataStore) semanticObject); 
+				sequence_DataStore_Documentation_Name_Parameters(context, (DataStore) semanticObject); 
 				return; 
 			case e4smPackage.ENVIRONMENT:
-				sequence_Environment(context, (Environment) semanticObject); 
+				sequence_Environment_Name(context, (Environment) semanticObject); 
 				return; 
 			case e4smPackage.EXTERNAL_DEPENDENCY:
-				sequence_ExternalDependency(context, (ExternalDependency) semanticObject); 
+				sequence_Documentation_ExternalDependency_Name_Parameters(context, (ExternalDependency) semanticObject); 
 				return; 
 			case e4smPackage.FUNCTION:
-				sequence_Function(context, (Function) semanticObject); 
+				sequence_Documentation_Function_Name_Parameters(context, (Function) semanticObject); 
 				return; 
 			case e4smPackage.HEURISTIC:
-				sequence_Heuristic(context, (Heuristic) semanticObject); 
+				sequence_Documentation_Heuristic_Name_Parameters(context, (Heuristic) semanticObject); 
 				return; 
 			case e4smPackage.HUMAN:
-				sequence_Human_Impl(context, (Human) semanticObject); 
+				sequence_Documentation_Human_Impl_Name(context, (Human) semanticObject); 
 				return; 
 			case e4smPackage.IMPORT:
 				sequence_Import(context, (Import) semanticObject); 
 				return; 
 			case e4smPackage.INPUT_PIN:
-				sequence_InputPin(context, (InputPin) semanticObject); 
+				sequence_Documentation_InputPin_Name_Parameters(context, (InputPin) semanticObject); 
 				return; 
 			case e4smPackage.LOGICAL_CONNECTOR:
-				sequence_LogicalConnector(context, (LogicalConnector) semanticObject); 
+				sequence_Documentation_LogicalConnector_Name_Parameters(context, (LogicalConnector) semanticObject); 
 				return; 
 			case e4smPackage.MACHINE_LEARNING_COMPONENT:
-				sequence_MachineLearningComponent(context, (MachineLearningComponent) semanticObject); 
+				sequence_Documentation_MachineLearningComponent_Name_Parameters(context, (MachineLearningComponent) semanticObject); 
 				return; 
 			case e4smPackage.MODEL:
-				sequence_Model(context, (Model) semanticObject); 
+				sequence_Documentation_Model_Name_Parameters(context, (Model) semanticObject); 
 				return; 
 			case e4smPackage.MULTICLASS_CLASSIFICATION_COMPONENT:
-				sequence_MulticlassClassificationComponent(context, (MulticlassClassificationComponent) semanticObject); 
+				sequence_Documentation_MulticlassClassificationComponent_Name_Parameters(context, (MulticlassClassificationComponent) semanticObject); 
 				return; 
 			case e4smPackage.MULTICLASS_CONFUSION_MATRIX:
-				sequence_MulticlassConfusionMatrix(context, (MulticlassConfusionMatrix) semanticObject); 
+				sequence_MulticlassConfusionMatrix_Name(context, (MulticlassConfusionMatrix) semanticObject); 
 				return; 
 			case e4smPackage.OUTPUT_PIN:
-				sequence_OutputPin(context, (OutputPin) semanticObject); 
+				sequence_Documentation_Name_OutputPin_Parameters(context, (OutputPin) semanticObject); 
 				return; 
 			case e4smPackage.PACKAGE:
-				sequence_Package(context, (e4sm.de.metamodel.e4sm.Package) semanticObject); 
+				sequence_Documentation_Name_Package_Parameters(context, (e4sm.de.metamodel.e4sm.Package) semanticObject); 
 				return; 
 			case e4smPackage.PERSON:
-				sequence_Person(context, (Person) semanticObject); 
+				sequence_Documentation_Name_Person(context, (Person) semanticObject); 
 				return; 
 			case e4smPackage.PHYSICAL_COMPONENT:
-				sequence_PhysicalComponent_Impl(context, (PhysicalComponent) semanticObject); 
+				sequence_Documentation_Name_Parameters_PhysicalComponent_Impl(context, (PhysicalComponent) semanticObject); 
 				return; 
 			case e4smPackage.PHYSICAL_CONNECTOR:
-				sequence_PhysicalConnector(context, (PhysicalConnector) semanticObject); 
+				sequence_Documentation_Name_Parameters_PhysicalConnector(context, (PhysicalConnector) semanticObject); 
 				return; 
 			case e4smPackage.ROBOT:
-				sequence_Robot(context, (Robot) semanticObject); 
+				sequence_Documentation_Name_Robot(context, (Robot) semanticObject); 
 				return; 
 			case e4smPackage.SECTOR:
-				sequence_Sector(context, (Sector) semanticObject); 
+				sequence_Documentation_Name_Sector(context, (Sector) semanticObject); 
 				return; 
 			case e4smPackage.SECURITY_THREATS_IMPORT:
 				sequence_SecurityThreatsImport(context, (SecurityThreatsImport) semanticObject); 
 				return; 
 			case e4smPackage.SENSOR:
-				sequence_Sensor(context, (Sensor) semanticObject); 
+				sequence_Documentation_Name_Parameters_Sensor(context, (Sensor) semanticObject); 
 				return; 
 			case e4smPackage.SET:
 				sequence_Set(context, (e4sm.de.metamodel.e4sm.Set) semanticObject); 
@@ -288,7 +288,7 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				sequence_SetValue(context, (SetValue) semanticObject); 
 				return; 
 			case e4smPackage.SOFTWARE_COMPONENT:
-				sequence_SoftwareComponent_Impl(context, (SoftwareComponent) semanticObject); 
+				sequence_Documentation_Name_Parameters_SoftwareComponent_Impl(context, (SoftwareComponent) semanticObject); 
 				return; 
 			case e4smPackage.TOKEN_SPECIFICATION:
 				sequence_TokenSpecification(context, (TokenSpecification) semanticObject); 
@@ -300,19 +300,19 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				sequence_EAnnotation(context, (EAnnotation) semanticObject); 
 				return; 
 			case EcorePackage.EATTRIBUTE:
-				sequence_EAttribute(context, (EAttribute) semanticObject); 
+				sequence_EAttribute_EcoreName(context, (EAttribute) semanticObject); 
 				return; 
 			case EcorePackage.ECLASS:
-				sequence_EClass(context, (EClass) semanticObject); 
+				sequence_EClass_EcoreName(context, (EClass) semanticObject); 
 				return; 
 			case EcorePackage.EDATA_TYPE:
-				sequence_EDataType_Impl(context, (EDataType) semanticObject); 
+				sequence_EDataType_Impl_EcoreName(context, (EDataType) semanticObject); 
 				return; 
 			case EcorePackage.EENUM:
-				sequence_EEnum(context, (EEnum) semanticObject); 
+				sequence_EEnum_EcoreName(context, (EEnum) semanticObject); 
 				return; 
 			case EcorePackage.EENUM_LITERAL:
-				sequence_EEnumLiteral(context, (EEnumLiteral) semanticObject); 
+				sequence_EEnumLiteral_EcoreName(context, (EEnumLiteral) semanticObject); 
 				return; 
 			case EcorePackage.EGENERIC_TYPE:
 				sequence_EGenericType(context, (EGenericType) semanticObject); 
@@ -321,19 +321,19 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				sequence_EObject(context, (EObject) semanticObject); 
 				return; 
 			case EcorePackage.EOPERATION:
-				sequence_EOperation(context, (EOperation) semanticObject); 
+				sequence_EOperation_EcoreName(context, (EOperation) semanticObject); 
 				return; 
 			case EcorePackage.EPARAMETER:
-				sequence_EParameter(context, (EParameter) semanticObject); 
+				sequence_EParameter_EcoreName(context, (EParameter) semanticObject); 
 				return; 
 			case EcorePackage.EREFERENCE:
-				sequence_EReference(context, (EReference) semanticObject); 
+				sequence_EReference_EcoreName(context, (EReference) semanticObject); 
 				return; 
 			case EcorePackage.ESTRING_TO_STRING_MAP_ENTRY:
 				sequence_EStringToStringMapEntry(context, (Map.Entry) semanticObject); 
 				return; 
 			case EcorePackage.ETYPE_PARAMETER:
-				sequence_ETypeParameter(context, (ETypeParameter) semanticObject); 
+				sequence_ETypeParameter_EcoreName(context, (ETypeParameter) semanticObject); 
 				return; 
 			}
 		else if (epackage == ExecutionPackage.eINSTANCE)
@@ -422,7 +422,7 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     (name=EString documentation=EString?)
 	 * </pre>
 	 */
-	protected void sequence_Actor_Impl(ISerializationContext context, Actor semanticObject) {
+	protected void sequence_Actor_Impl_Documentation_Name(ISerializationContext context, Actor semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -449,7 +449,7 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     )
 	 * </pre>
 	 */
-	protected void sequence_Actuator(ISerializationContext context, Actuator semanticObject) {
+	protected void sequence_Actuator_Documentation_Name_Parameters(ISerializationContext context, Actuator semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -582,7 +582,7 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     )
 	 * </pre>
 	 */
-	protected void sequence_BinaryClassificationComponent(ISerializationContext context, BinaryClassificationComponent semanticObject) {
+	protected void sequence_BinaryClassificationComponent_Documentation_Name_Parameters(ISerializationContext context, BinaryClassificationComponent semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -604,7 +604,7 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     )
 	 * </pre>
 	 */
-	protected void sequence_BinaryConfusionMatrix(ISerializationContext context, BinaryConfusionMatrix semanticObject) {
+	protected void sequence_BinaryConfusionMatrix_Name(ISerializationContext context, BinaryConfusionMatrix semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, CorePackage.Literals.NAMED_ELEMENT__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CorePackage.Literals.NAMED_ELEMENT__NAME));
@@ -620,7 +620,7 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, e4smPackage.Literals.BINARY_CONFUSION_MATRIX__TN));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getBinaryConfusionMatrixAccess().getNameEStringParserRuleCall_3_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getNameAccess().getNameEStringParserRuleCall_0(), semanticObject.getName());
 		feeder.accept(grammarAccess.getBinaryConfusionMatrixAccess().getPositiveClassClassificationClassEStringParserRuleCall_5_0_1(), semanticObject.eGet(e4smPackage.Literals.BINARY_CONFUSION_MATRIX__POSITIVE_CLASS, false));
 		feeder.accept(grammarAccess.getBinaryConfusionMatrixAccess().getTpEIntParserRuleCall_9_0(), semanticObject.getTp());
 		feeder.accept(grammarAccess.getBinaryConfusionMatrixAccess().getFnEIntParserRuleCall_13_0(), semanticObject.getFn());
@@ -703,13 +703,13 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     name=EString
 	 * </pre>
 	 */
-	protected void sequence_ClassificationClass(ISerializationContext context, ClassificationClass semanticObject) {
+	protected void sequence_ClassificationClass_Name(ISerializationContext context, ClassificationClass semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, CorePackage.Literals.NAMED_ELEMENT__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CorePackage.Literals.NAMED_ELEMENT__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getClassificationClassAccess().getNameEStringParserRuleCall_2_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getNameAccess().getNameEStringParserRuleCall_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	
@@ -736,7 +736,7 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     )
 	 * </pre>
 	 */
-	protected void sequence_Component_Impl(ISerializationContext context, Component semanticObject) {
+	protected void sequence_Component_Impl_Documentation_Name_Parameters(ISerializationContext context, Component semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -784,7 +784,7 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     )
 	 * </pre>
 	 */
-	protected void sequence_Connector_Impl(ISerializationContext context, Connector semanticObject) {
+	protected void sequence_Connector_Impl_Documentation_Name_Parameters(ISerializationContext context, Connector semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -815,7 +815,515 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     (type=[TypeSpecification|ID]? name=EString documentation=EString? (parameters+=Parameter parameters+=Parameter*)?)
 	 * </pre>
 	 */
-	protected void sequence_DataStore(ISerializationContext context, DataStore semanticObject) {
+	protected void sequence_DataStore_Documentation_Name_Parameters(ISerializationContext context, DataStore semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Component returns ExternalDependency
+	 *     ExternalDependency returns ExternalDependency
+	 *
+	 * Constraint:
+	 *     (
+	 *         name=EString 
+	 *         documentation=EString? 
+	 *         firingStrategy=ComponentFiringStrategy? 
+	 *         timeFunction=ComplexTimefunction? 
+	 *         (pins+=Pin pins+=Pin*)? 
+	 *         synchronous=EBoolean? 
+	 *         numberOfServers=EInt? 
+	 *         mainResponsible=[Person|EString]? 
+	 *         specifiedInPackage=[Package|EString]? 
+	 *         (parameters+=Parameter parameters+=Parameter*)? 
+	 *         (components+=Component components+=Component*)? 
+	 *         (datastores+=DataStore datastores+=DataStore*)? 
+	 *         execution=Execution?
+	 *     )
+	 * </pre>
+	 */
+	protected void sequence_Documentation_ExternalDependency_Name_Parameters(ISerializationContext context, ExternalDependency semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Component returns Function
+	 *     Function returns Function
+	 *
+	 * Constraint:
+	 *     (
+	 *         name=EString 
+	 *         documentation=EString? 
+	 *         firingStrategy=ComponentFiringStrategy? 
+	 *         timeFunction=ComplexTimefunction? 
+	 *         (pins+=Pin pins+=Pin*)? 
+	 *         synchronous=EBoolean? 
+	 *         numberOfServers=EInt? 
+	 *         mainResponsible=[Person|EString]? 
+	 *         specifiedInPackage=[Package|EString]? 
+	 *         (parameters+=Parameter parameters+=Parameter*)? 
+	 *         (components+=Component components+=Component*)? 
+	 *         (datastores+=DataStore datastores+=DataStore*)? 
+	 *         execution=Execution?
+	 *     )
+	 * </pre>
+	 */
+	protected void sequence_Documentation_Function_Name_Parameters(ISerializationContext context, Function semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Component returns Heuristic
+	 *     Heuristic returns Heuristic
+	 *
+	 * Constraint:
+	 *     (
+	 *         name=EString 
+	 *         documentation=EString? 
+	 *         firingStrategy=ComponentFiringStrategy? 
+	 *         timeFunction=ComplexTimefunction? 
+	 *         (pins+=Pin pins+=Pin*)? 
+	 *         synchronous=EBoolean? 
+	 *         numberOfServers=EInt? 
+	 *         mainResponsible=[Person|EString]? 
+	 *         specifiedInPackage=[Package|EString]? 
+	 *         (parameters+=Parameter parameters+=Parameter*)? 
+	 *         (components+=Component components+=Component*)? 
+	 *         (datastores+=DataStore datastores+=DataStore*)? 
+	 *         execution=Execution?
+	 *     )
+	 * </pre>
+	 */
+	protected void sequence_Documentation_Heuristic_Name_Parameters(ISerializationContext context, Heuristic semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Actor returns Human
+	 *     Human_Impl returns Human
+	 *
+	 * Constraint:
+	 *     (name=EString documentation=EString?)
+	 * </pre>
+	 */
+	protected void sequence_Documentation_Human_Impl_Name(ISerializationContext context, Human semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     DataNode returns InputPin
+	 *     Pin returns InputPin
+	 *     InputPin returns InputPin
+	 *
+	 * Constraint:
+	 *     (
+	 *         optional?='optional'? 
+	 *         stream?='stream'? 
+	 *         type=[TypeSpecification|ID]? 
+	 *         name=EString 
+	 *         documentation=EString? 
+	 *         collect=EInt? 
+	 *         raceSemantic=RaceSemantic? 
+	 *         queueType=QueueType? 
+	 *         (parameters+=Parameter parameters+=Parameter*)?
+	 *     )
+	 * </pre>
+	 */
+	protected void sequence_Documentation_InputPin_Name_Parameters(ISerializationContext context, InputPin semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Connector returns LogicalConnector
+	 *     LogicalConnector returns LogicalConnector
+	 *
+	 * Constraint:
+	 *     (
+	 *         name=EString 
+	 *         source=[Pin|EString] 
+	 *         target=[Pin|EString] 
+	 *         documentation=EString? 
+	 *         timeFunction=ComplexTimefunction? 
+	 *         (parameters+=Parameter parameters+=Parameter*)?
+	 *     )
+	 * </pre>
+	 */
+	protected void sequence_Documentation_LogicalConnector_Name_Parameters(ISerializationContext context, LogicalConnector semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Component returns MachineLearningComponent
+	 *     MachineLearningComponent returns MachineLearningComponent
+	 *
+	 * Constraint:
+	 *     (
+	 *         name=EString 
+	 *         documentation=EString? 
+	 *         firingStrategy=ComponentFiringStrategy? 
+	 *         timeFunction=ComplexTimefunction? 
+	 *         (pins+=Pin pins+=Pin*)? 
+	 *         synchronous=EBoolean? 
+	 *         numberOfServers=EInt? 
+	 *         mainResponsible=[Person|EString]? 
+	 *         specifiedInPackage=[Package|EString]? 
+	 *         (parameters+=Parameter parameters+=Parameter*)? 
+	 *         (components+=Component components+=Component*)? 
+	 *         (datastores+=DataStore datastores+=DataStore*)? 
+	 *         execution=Execution?
+	 *     )
+	 * </pre>
+	 */
+	protected void sequence_Documentation_MachineLearningComponent_Name_Parameters(ISerializationContext context, MachineLearningComponent semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Model returns Model
+	 *
+	 * Constraint:
+	 *     (
+	 *         name=EString 
+	 *         documentation=EString? 
+	 *         (imports+=Import imports+=Import*)? 
+	 *         (securityThreatsImport+=SecurityThreatsImport securityThreatsImport+=SecurityThreatsImport*)? 
+	 *         securityThreatsDefinition=KnownSecurityThreats? 
+	 *         securitySpecification=SecuritySpecification? 
+	 *         personsPicturesPath=EString? 
+	 *         (types+=TypeSpecification types+=TypeSpecification*)? 
+	 *         (parameters+=Parameter parameters+=Parameter*)? 
+	 *         (packages+=Package packages+=Package*)? 
+	 *         (actors+=Actor actors+=Actor*)? 
+	 *         (variants+=Variant variants+=Variant*)? 
+	 *         (classificationClasses+=ClassificationClass classificationClasses+=ClassificationClass*)? 
+	 *         (environments+=Environment environments+=Environment*)?
+	 *     )
+	 * </pre>
+	 */
+	protected void sequence_Documentation_Model_Name_Parameters(ISerializationContext context, Model semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Component returns MulticlassClassificationComponent
+	 *     ClassificationComponent returns MulticlassClassificationComponent
+	 *     MulticlassClassificationComponent returns MulticlassClassificationComponent
+	 *
+	 * Constraint:
+	 *     (
+	 *         name=EString 
+	 *         documentation=EString? 
+	 *         firingStrategy=ComponentFiringStrategy? 
+	 *         timeFunction=ComplexTimefunction? 
+	 *         (pins+=Pin pins+=Pin*)? 
+	 *         synchronous=EBoolean? 
+	 *         numberOfServers=EInt? 
+	 *         mainResponsible=[Person|EString]? 
+	 *         specifiedInPackage=[Package|EString]? 
+	 *         (parameters+=Parameter parameters+=Parameter*)? 
+	 *         (components+=Component components+=Component*)? 
+	 *         (datastores+=DataStore datastores+=DataStore*)? 
+	 *         execution=Execution? 
+	 *         (confusionMatrixes+=MulticlassConfusionMatrix confusionMatrixes+=MulticlassConfusionMatrix*)?
+	 *     )
+	 * </pre>
+	 */
+	protected void sequence_Documentation_MulticlassClassificationComponent_Name_Parameters(ISerializationContext context, MulticlassClassificationComponent semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     DataNode returns OutputPin
+	 *     Pin returns OutputPin
+	 *     OutputPin returns OutputPin
+	 *     AssignableElement returns OutputPin
+	 *
+	 * Constraint:
+	 *     (
+	 *         stream?='stream'? 
+	 *         type=[TypeSpecification|ID]? 
+	 *         name=EString 
+	 *         documentation=EString? 
+	 *         amplify=EInt? 
+	 *         outputUncertainty=EDouble? 
+	 *         raceSemantic=RaceSemantic? 
+	 *         tokenSpecification=TokenSpecification? 
+	 *         (parameters+=Parameter parameters+=Parameter*)? 
+	 *         outputExpression=Expression?
+	 *     )
+	 * </pre>
+	 */
+	protected void sequence_Documentation_Name_OutputPin_Parameters(ISerializationContext context, OutputPin semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Package returns Package
+	 *
+	 * Constraint:
+	 *     (
+	 *         name=EString 
+	 *         documentation=EString? 
+	 *         simulationDuration=EInt? 
+	 *         mainResponsible=[Person|EString]? 
+	 *         specifiesComponent=[Component|EString]? 
+	 *         processingUnits=EInt? 
+	 *         (parameters+=Parameter parameters+=Parameter*)? 
+	 *         (components+=Component components+=Component*)? 
+	 *         (connectors+=Connector connectors+=Connector*)? 
+	 *         (datastores+=DataStore datastores+=DataStore*)? 
+	 *         (sectors+=Sector sectors+=Sector*)? 
+	 *         (packages+=Package packages+=Package*)?
+	 *     )
+	 * </pre>
+	 */
+	protected void sequence_Documentation_Name_Package_Parameters(ISerializationContext context, e4sm.de.metamodel.e4sm.Package semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     ParameterDefinition returns ParameterDefinition
+	 *
+	 * Constraint:
+	 *     (
+	 *         name=EString 
+	 *         documentation=EString? 
+	 *         unit=UnitOfMeasurement? 
+	 *         (parameters+=[Parameter|EString] parameters+=[Parameter|EString]*)? 
+	 *         defaultValue=ValueSpecification?
+	 *     )
+	 * </pre>
+	 */
+	protected void sequence_Documentation_Name_ParameterDefinition(ISerializationContext context, ParameterDefinition semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Parameter returns Parameter
+	 *
+	 * Constraint:
+	 *     (
+	 *         name=EString 
+	 *         initialValue=ValueSpecification? 
+	 *         documentation=EString? 
+	 *         parameterDefinition=[ParameterDefinition|EString]? 
+	 *         (appliesOnlyOnVariants+=[Variant|EString] appliesOnlyOnVariants+=[Variant|EString]*)? 
+	 *         (doesNotApplyOnVariants+=[Variant|EString] doesNotApplyOnVariants+=[Variant|EString]*)? 
+	 *         currentValue=ValueSpecification?
+	 *     )
+	 * </pre>
+	 */
+	protected void sequence_Documentation_Name_Parameter(ISerializationContext context, e4sm.de.metamodel.e4sm.analysis.Parameter semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Component returns PhysicalComponent
+	 *     PhysicalComponent_Impl returns PhysicalComponent
+	 *
+	 * Constraint:
+	 *     (
+	 *         name=EString 
+	 *         documentation=EString? 
+	 *         firingStrategy=ComponentFiringStrategy? 
+	 *         timeFunction=ComplexTimefunction? 
+	 *         (pins+=Pin pins+=Pin*)? 
+	 *         mainResponsible=[Person|EString]? 
+	 *         specifiedInPackage=[Package|EString]? 
+	 *         (parameters+=Parameter parameters+=Parameter*)? 
+	 *         (components+=Component components+=Component*)? 
+	 *         (datastores+=DataStore datastores+=DataStore*)? 
+	 *         execution=Execution?
+	 *     )
+	 * </pre>
+	 */
+	protected void sequence_Documentation_Name_Parameters_PhysicalComponent_Impl(ISerializationContext context, PhysicalComponent semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Connector returns PhysicalConnector
+	 *     PhysicalConnector returns PhysicalConnector
+	 *
+	 * Constraint:
+	 *     (
+	 *         name=EString 
+	 *         source=[Pin|EString] 
+	 *         target=[Pin|EString] 
+	 *         documentation=EString? 
+	 *         minSpeed=Connectionspeed? 
+	 *         maxSpeed=Connectionspeed? 
+	 *         timeFunction=ComplexTimefunction? 
+	 *         (parameters+=Parameter parameters+=Parameter*)?
+	 *     )
+	 * </pre>
+	 */
+	protected void sequence_Documentation_Name_Parameters_PhysicalConnector(ISerializationContext context, PhysicalConnector semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Component returns Sensor
+	 *     Sensor returns Sensor
+	 *
+	 * Constraint:
+	 *     (
+	 *         name=EString 
+	 *         documentation=EString? 
+	 *         firingStrategy=ComponentFiringStrategy? 
+	 *         timeFunction=ComplexTimefunction? 
+	 *         (pins+=Pin pins+=Pin*)? 
+	 *         (classificationClasses+=[ClassificationClass|EString] classificationClasses+=[ClassificationClass|EString]*)? 
+	 *         mainResponsible=[Person|EString]? 
+	 *         specifiedInPackage=[Package|EString]? 
+	 *         (parameters+=Parameter parameters+=Parameter*)? 
+	 *         (components+=Component components+=Component*)? 
+	 *         (datastores+=DataStore datastores+=DataStore*)? 
+	 *         execution=Execution?
+	 *     )
+	 * </pre>
+	 */
+	protected void sequence_Documentation_Name_Parameters_Sensor(ISerializationContext context, Sensor semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Component returns SoftwareComponent
+	 *     SoftwareComponent_Impl returns SoftwareComponent
+	 *
+	 * Constraint:
+	 *     (
+	 *         name=EString 
+	 *         documentation=EString? 
+	 *         firingStrategy=ComponentFiringStrategy? 
+	 *         timeFunction=ComplexTimefunction? 
+	 *         (pins+=Pin pins+=Pin*)? 
+	 *         synchronous=EBoolean? 
+	 *         numberOfServers=EInt? 
+	 *         mainResponsible=[Person|EString]? 
+	 *         specifiedInPackage=[Package|EString]? 
+	 *         (parameters+=Parameter parameters+=Parameter*)? 
+	 *         (components+=Component components+=Component*)? 
+	 *         (datastores+=DataStore datastores+=DataStore*)? 
+	 *         execution=Execution?
+	 *     )
+	 * </pre>
+	 */
+	protected void sequence_Documentation_Name_Parameters_SoftwareComponent_Impl(ISerializationContext context, SoftwareComponent semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Actor returns Person
+	 *     Person returns Person
+	 *
+	 * Constraint:
+	 *     (surname=EString? name=EString documentation=EString? department=EString? pictureFileName=EString?)
+	 * </pre>
+	 */
+	protected void sequence_Documentation_Name_Person(ISerializationContext context, Person semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Actor returns Robot
+	 *     Robot returns Robot
+	 *
+	 * Constraint:
+	 *     (name=EString documentation=EString?)
+	 * </pre>
+	 */
+	protected void sequence_Documentation_Name_Robot(ISerializationContext context, Robot semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Sector returns Sector
+	 *
+	 * Constraint:
+	 *     (
+	 *         name=EString 
+	 *         documentation=EString? 
+	 *         (components+=Component components+=Component*)? 
+	 *         (datastores+=DataStore datastores+=DataStore*)? 
+	 *         (sectors+=Sector sectors+=Sector*)?
+	 *     )
+	 * </pre>
+	 */
+	protected void sequence_Documentation_Name_Sector(ISerializationContext context, Sector semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Variant returns Variant
+	 *
+	 * Constraint:
+	 *     (name=EString documentation=EString?)
+	 * </pre>
+	 */
+	protected void sequence_Documentation_Name_Variant(ISerializationContext context, Variant semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -881,7 +1389,7 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     )
 	 * </pre>
 	 */
-	protected void sequence_EAttribute(ISerializationContext context, EAttribute semanticObject) {
+	protected void sequence_EAttribute_EcoreName(ISerializationContext context, EAttribute semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -908,7 +1416,7 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     )
 	 * </pre>
 	 */
-	protected void sequence_EClass(ISerializationContext context, EClass semanticObject) {
+	protected void sequence_EClass_EcoreName(ISerializationContext context, EClass semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -931,7 +1439,7 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     )
 	 * </pre>
 	 */
-	protected void sequence_EDataType_Impl(ISerializationContext context, EDataType semanticObject) {
+	protected void sequence_EDataType_Impl_EcoreName(ISerializationContext context, EDataType semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -945,7 +1453,7 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     (name=EString value=EInt? literal=EString? (eAnnotations+=EAnnotation eAnnotations+=EAnnotation*)?)
 	 * </pre>
 	 */
-	protected void sequence_EEnumLiteral(ISerializationContext context, EEnumLiteral semanticObject) {
+	protected void sequence_EEnumLiteral_EcoreName(ISerializationContext context, EEnumLiteral semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -969,7 +1477,7 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     )
 	 * </pre>
 	 */
-	protected void sequence_EEnum(ISerializationContext context, EEnum semanticObject) {
+	protected void sequence_EEnum_EcoreName(ISerializationContext context, EEnum semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1030,7 +1538,7 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     )
 	 * </pre>
 	 */
-	protected void sequence_EOperation(ISerializationContext context, EOperation semanticObject) {
+	protected void sequence_EOperation_EcoreName(ISerializationContext context, EOperation semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1053,7 +1561,7 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     )
 	 * </pre>
 	 */
-	protected void sequence_EParameter(ISerializationContext context, EParameter semanticObject) {
+	protected void sequence_EParameter_EcoreName(ISerializationContext context, EParameter semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1087,7 +1595,7 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     )
 	 * </pre>
 	 */
-	protected void sequence_EReference(ISerializationContext context, EReference semanticObject) {
+	protected void sequence_EReference_EcoreName(ISerializationContext context, EReference semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1115,7 +1623,7 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     (name=EString (eAnnotations+=EAnnotation eAnnotations+=EAnnotation*)? (eBounds+=EGenericType eBounds+=EGenericType*)?)
 	 * </pre>
 	 */
-	protected void sequence_ETypeParameter(ISerializationContext context, ETypeParameter semanticObject) {
+	protected void sequence_ETypeParameter_EcoreName(ISerializationContext context, ETypeParameter semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1133,7 +1641,7 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     )
 	 * </pre>
 	 */
-	protected void sequence_Environment(ISerializationContext context, Environment semanticObject) {
+	protected void sequence_Environment_Name(ISerializationContext context, Environment semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1199,35 +1707,6 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Component returns ExternalDependency
-	 *     ExternalDependency returns ExternalDependency
-	 *
-	 * Constraint:
-	 *     (
-	 *         name=EString 
-	 *         documentation=EString? 
-	 *         firingStrategy=ComponentFiringStrategy? 
-	 *         timeFunction=ComplexTimefunction? 
-	 *         (pins+=Pin pins+=Pin*)? 
-	 *         synchronous=EBoolean? 
-	 *         numberOfServers=EInt? 
-	 *         mainResponsible=[Person|EString]? 
-	 *         specifiedInPackage=[Package|EString]? 
-	 *         (parameters+=Parameter parameters+=Parameter*)? 
-	 *         (components+=Component components+=Component*)? 
-	 *         (datastores+=DataStore datastores+=DataStore*)? 
-	 *         execution=Execution?
-	 *     )
-	 * </pre>
-	 */
-	protected void sequence_ExternalDependency(ISerializationContext context, ExternalDependency semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
 	 *     Elements returns FlowFinal
 	 *     ConnectableNode returns FlowFinal
 	 *     FlowFinal returns FlowFinal
@@ -1274,79 +1753,6 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * </pre>
 	 */
 	protected void sequence_ForkNode(ISerializationContext context, ForkNode semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
-	 *     Component returns Function
-	 *     Function returns Function
-	 *
-	 * Constraint:
-	 *     (
-	 *         name=EString 
-	 *         documentation=EString? 
-	 *         firingStrategy=ComponentFiringStrategy? 
-	 *         timeFunction=ComplexTimefunction? 
-	 *         (pins+=Pin pins+=Pin*)? 
-	 *         synchronous=EBoolean? 
-	 *         numberOfServers=EInt? 
-	 *         mainResponsible=[Person|EString]? 
-	 *         specifiedInPackage=[Package|EString]? 
-	 *         (parameters+=Parameter parameters+=Parameter*)? 
-	 *         (components+=Component components+=Component*)? 
-	 *         (datastores+=DataStore datastores+=DataStore*)? 
-	 *         execution=Execution?
-	 *     )
-	 * </pre>
-	 */
-	protected void sequence_Function(ISerializationContext context, Function semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
-	 *     Component returns Heuristic
-	 *     Heuristic returns Heuristic
-	 *
-	 * Constraint:
-	 *     (
-	 *         name=EString 
-	 *         documentation=EString? 
-	 *         firingStrategy=ComponentFiringStrategy? 
-	 *         timeFunction=ComplexTimefunction? 
-	 *         (pins+=Pin pins+=Pin*)? 
-	 *         synchronous=EBoolean? 
-	 *         numberOfServers=EInt? 
-	 *         mainResponsible=[Person|EString]? 
-	 *         specifiedInPackage=[Package|EString]? 
-	 *         (parameters+=Parameter parameters+=Parameter*)? 
-	 *         (components+=Component components+=Component*)? 
-	 *         (datastores+=DataStore datastores+=DataStore*)? 
-	 *         execution=Execution?
-	 *     )
-	 * </pre>
-	 */
-	protected void sequence_Heuristic(ISerializationContext context, Heuristic semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
-	 *     Actor returns Human
-	 *     Human_Impl returns Human
-	 *
-	 * Constraint:
-	 *     (name=EString documentation=EString?)
-	 * </pre>
-	 */
-	protected void sequence_Human_Impl(ISerializationContext context, Human semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1419,32 +1825,6 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     DataNode returns InputPin
-	 *     Pin returns InputPin
-	 *     InputPin returns InputPin
-	 *
-	 * Constraint:
-	 *     (
-	 *         optional?='optional'? 
-	 *         stream?='stream'? 
-	 *         type=[TypeSpecification|ID]? 
-	 *         name=EString 
-	 *         documentation=EString? 
-	 *         collect=EInt? 
-	 *         raceSemantic=RaceSemantic? 
-	 *         queueType=QueueType? 
-	 *         (parameters+=Parameter parameters+=Parameter*)?
-	 *     )
-	 * </pre>
-	 */
-	protected void sequence_InputPin(ISerializationContext context, InputPin semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
 	 *     AttributeSpecification returns IntegerAttribute
 	 *     IntegerAttribute returns IntegerAttribute
 	 *
@@ -1498,7 +1878,7 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     (name=EString value=Byte?)
 	 * </pre>
 	 */
-	protected void sequence_LiteralByte(ISerializationContext context, LiteralByte semanticObject) {
+	protected void sequence_LiteralByte_Name(ISerializationContext context, LiteralByte semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1514,7 +1894,7 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     (name=EString value=Character?)
 	 * </pre>
 	 */
-	protected void sequence_LiteralCharacter(ISerializationContext context, LiteralCharacter semanticObject) {
+	protected void sequence_LiteralCharacter_Name(ISerializationContext context, LiteralCharacter semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1530,7 +1910,7 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     (name=EString value=Date?)
 	 * </pre>
 	 */
-	protected void sequence_LiteralDate(ISerializationContext context, LiteralDate semanticObject) {
+	protected void sequence_LiteralDate_Name(ISerializationContext context, LiteralDate semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1650,7 +2030,7 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     (name=EString value=Short?)
 	 * </pre>
 	 */
-	protected void sequence_LiteralShort(ISerializationContext context, LiteralShort semanticObject) {
+	protected void sequence_LiteralShort_Name(ISerializationContext context, LiteralShort semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1680,57 +2060,6 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Connector returns LogicalConnector
-	 *     LogicalConnector returns LogicalConnector
-	 *
-	 * Constraint:
-	 *     (
-	 *         name=EString 
-	 *         source=[Pin|EString] 
-	 *         target=[Pin|EString] 
-	 *         documentation=EString? 
-	 *         timeFunction=ComplexTimefunction? 
-	 *         (parameters+=Parameter parameters+=Parameter*)?
-	 *     )
-	 * </pre>
-	 */
-	protected void sequence_LogicalConnector(ISerializationContext context, LogicalConnector semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
-	 *     Component returns MachineLearningComponent
-	 *     MachineLearningComponent returns MachineLearningComponent
-	 *
-	 * Constraint:
-	 *     (
-	 *         name=EString 
-	 *         documentation=EString? 
-	 *         firingStrategy=ComponentFiringStrategy? 
-	 *         timeFunction=ComplexTimefunction? 
-	 *         (pins+=Pin pins+=Pin*)? 
-	 *         synchronous=EBoolean? 
-	 *         numberOfServers=EInt? 
-	 *         mainResponsible=[Person|EString]? 
-	 *         specifiedInPackage=[Package|EString]? 
-	 *         (parameters+=Parameter parameters+=Parameter*)? 
-	 *         (components+=Component components+=Component*)? 
-	 *         (datastores+=DataStore datastores+=DataStore*)? 
-	 *         execution=Execution?
-	 *     )
-	 * </pre>
-	 */
-	protected void sequence_MachineLearningComponent(ISerializationContext context, MachineLearningComponent semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
 	 *     Elements returns MergeNode
 	 *     ConnectableNode returns MergeNode
 	 *     MergeNode returns MergeNode
@@ -1747,66 +2076,6 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Model returns Model
-	 *
-	 * Constraint:
-	 *     (
-	 *         name=EString 
-	 *         documentation=EString? 
-	 *         (imports+=Import imports+=Import*)? 
-	 *         (securityThreatsImport+=SecurityThreatsImport securityThreatsImport+=SecurityThreatsImport*)? 
-	 *         securityThreatsDefinition=KnownSecurityThreats? 
-	 *         securitySpecification=SecuritySpecification? 
-	 *         personsPicturesPath=EString? 
-	 *         (types+=TypeSpecification types+=TypeSpecification*)? 
-	 *         (parameters+=Parameter parameters+=Parameter*)? 
-	 *         (packages+=Package packages+=Package*)? 
-	 *         (actors+=Actor actors+=Actor*)? 
-	 *         (variants+=Variant variants+=Variant*)? 
-	 *         (classificationClasses+=ClassificationClass classificationClasses+=ClassificationClass*)? 
-	 *         (environments+=Environment environments+=Environment*)?
-	 *     )
-	 * </pre>
-	 */
-	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
-	 *     Component returns MulticlassClassificationComponent
-	 *     ClassificationComponent returns MulticlassClassificationComponent
-	 *     MulticlassClassificationComponent returns MulticlassClassificationComponent
-	 *
-	 * Constraint:
-	 *     (
-	 *         name=EString 
-	 *         documentation=EString? 
-	 *         firingStrategy=ComponentFiringStrategy? 
-	 *         timeFunction=ComplexTimefunction? 
-	 *         (pins+=Pin pins+=Pin*)? 
-	 *         synchronous=EBoolean? 
-	 *         numberOfServers=EInt? 
-	 *         mainResponsible=[Person|EString]? 
-	 *         specifiedInPackage=[Package|EString]? 
-	 *         (parameters+=Parameter parameters+=Parameter*)? 
-	 *         (components+=Component components+=Component*)? 
-	 *         (datastores+=DataStore datastores+=DataStore*)? 
-	 *         execution=Execution? 
-	 *         (confusionMatrixes+=MulticlassConfusionMatrix confusionMatrixes+=MulticlassConfusionMatrix*)?
-	 *     )
-	 * </pre>
-	 */
-	protected void sequence_MulticlassClassificationComponent(ISerializationContext context, MulticlassClassificationComponent semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
 	 *     ConfusionMatrix returns MulticlassConfusionMatrix
 	 *     MulticlassConfusionMatrix returns MulticlassConfusionMatrix
 	 *
@@ -1814,7 +2083,7 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     (name=EString (entries+=ConfusionMatrixEntry entries+=ConfusionMatrixEntry*)?)
 	 * </pre>
 	 */
-	protected void sequence_MulticlassConfusionMatrix(ISerializationContext context, MulticlassConfusionMatrix semanticObject) {
+	protected void sequence_MulticlassConfusionMatrix_Name(ISerializationContext context, MulticlassConfusionMatrix semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1837,81 +2106,6 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     DataNode returns OutputPin
-	 *     Pin returns OutputPin
-	 *     OutputPin returns OutputPin
-	 *     AssignableElement returns OutputPin
-	 *
-	 * Constraint:
-	 *     (
-	 *         stream?='stream'? 
-	 *         type=[TypeSpecification|ID]? 
-	 *         name=EString 
-	 *         documentation=EString? 
-	 *         amplify=EInt? 
-	 *         outputUncertainty=EDouble? 
-	 *         raceSemantic=RaceSemantic? 
-	 *         tokenSpecification=TokenSpecification? 
-	 *         (parameters+=Parameter parameters+=Parameter*)? 
-	 *         outputExpression=Expression?
-	 *     )
-	 * </pre>
-	 */
-	protected void sequence_OutputPin(ISerializationContext context, OutputPin semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
-	 *     Package returns Package
-	 *
-	 * Constraint:
-	 *     (
-	 *         name=EString 
-	 *         documentation=EString? 
-	 *         simulationDuration=EInt? 
-	 *         mainResponsible=[Person|EString]? 
-	 *         specifiesComponent=[Component|EString]? 
-	 *         processingUnits=EInt? 
-	 *         (parameters+=Parameter parameters+=Parameter*)? 
-	 *         (components+=Component components+=Component*)? 
-	 *         (connectors+=Connector connectors+=Connector*)? 
-	 *         (datastores+=DataStore datastores+=DataStore*)? 
-	 *         (sectors+=Sector sectors+=Sector*)? 
-	 *         (packages+=Package packages+=Package*)?
-	 *     )
-	 * </pre>
-	 */
-	protected void sequence_Package(ISerializationContext context, e4sm.de.metamodel.e4sm.Package semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
-	 *     ParameterDefinition returns ParameterDefinition
-	 *
-	 * Constraint:
-	 *     (
-	 *         name=EString 
-	 *         documentation=EString? 
-	 *         unit=UnitOfMeasurement? 
-	 *         (parameters+=[Parameter|EString] parameters+=[Parameter|EString]*)? 
-	 *         defaultValue=ValueSpecification?
-	 *     )
-	 * </pre>
-	 */
-	protected void sequence_ParameterDefinition(ISerializationContext context, ParameterDefinition semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
 	 *     Primary returns ParameterReference
 	 *     ParameterReference returns ParameterReference
 	 *
@@ -1927,129 +2121,6 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getParameterReferenceAccess().getParameterParameterIDTerminalRuleCall_2_0_1(), semanticObject.eGet(ExecutionPackage.Literals.PARAMETER_REFERENCE__PARAMETER, false));
 		feeder.finish();
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
-	 *     Parameter returns Parameter
-	 *
-	 * Constraint:
-	 *     (
-	 *         name=EString 
-	 *         initialValue=ValueSpecification? 
-	 *         documentation=EString? 
-	 *         parameterDefinition=[ParameterDefinition|EString]? 
-	 *         (appliesOnlyOnVariants+=[Variant|EString] appliesOnlyOnVariants+=[Variant|EString]*)? 
-	 *         (doesNotApplyOnVariants+=[Variant|EString] doesNotApplyOnVariants+=[Variant|EString]*)? 
-	 *         currentValue=ValueSpecification?
-	 *     )
-	 * </pre>
-	 */
-	protected void sequence_Parameter(ISerializationContext context, e4sm.de.metamodel.e4sm.analysis.Parameter semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
-	 *     Actor returns Person
-	 *     Person returns Person
-	 *
-	 * Constraint:
-	 *     ((name=EString | (surname=EString name=EString)) documentation=EString? department=EString? pictureFileName=EString?)
-	 * </pre>
-	 */
-	protected void sequence_Person(ISerializationContext context, Person semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
-	 *     Component returns PhysicalComponent
-	 *     PhysicalComponent_Impl returns PhysicalComponent
-	 *
-	 * Constraint:
-	 *     (
-	 *         name=EString 
-	 *         documentation=EString? 
-	 *         firingStrategy=ComponentFiringStrategy? 
-	 *         timeFunction=ComplexTimefunction? 
-	 *         (pins+=Pin pins+=Pin*)? 
-	 *         mainResponsible=[Person|EString]? 
-	 *         specifiedInPackage=[Package|EString]? 
-	 *         (parameters+=Parameter parameters+=Parameter*)? 
-	 *         (components+=Component components+=Component*)? 
-	 *         (datastores+=DataStore datastores+=DataStore*)? 
-	 *         execution=Execution?
-	 *     )
-	 * </pre>
-	 */
-	protected void sequence_PhysicalComponent_Impl(ISerializationContext context, PhysicalComponent semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
-	 *     Connector returns PhysicalConnector
-	 *     PhysicalConnector returns PhysicalConnector
-	 *
-	 * Constraint:
-	 *     (
-	 *         name=EString 
-	 *         source=[Pin|EString] 
-	 *         target=[Pin|EString] 
-	 *         documentation=EString? 
-	 *         minSpeed=Connectionspeed? 
-	 *         maxSpeed=Connectionspeed? 
-	 *         timeFunction=ComplexTimefunction? 
-	 *         (parameters+=Parameter parameters+=Parameter*)?
-	 *     )
-	 * </pre>
-	 */
-	protected void sequence_PhysicalConnector(ISerializationContext context, PhysicalConnector semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
-	 *     Actor returns Robot
-	 *     Robot returns Robot
-	 *
-	 * Constraint:
-	 *     (name=EString documentation=EString?)
-	 * </pre>
-	 */
-	protected void sequence_Robot(ISerializationContext context, Robot semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
-	 *     Sector returns Sector
-	 *
-	 * Constraint:
-	 *     (
-	 *         name=EString 
-	 *         documentation=EString? 
-	 *         (components+=Component components+=Component*)? 
-	 *         (datastores+=DataStore datastores+=DataStore*)? 
-	 *         (sectors+=Sector sectors+=Sector*)?
-	 *     )
-	 * </pre>
-	 */
-	protected void sequence_Sector(ISerializationContext context, Sector semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -2090,34 +2161,6 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Component returns Sensor
-	 *     Sensor returns Sensor
-	 *
-	 * Constraint:
-	 *     (
-	 *         name=EString 
-	 *         documentation=EString? 
-	 *         firingStrategy=ComponentFiringStrategy? 
-	 *         timeFunction=ComplexTimefunction? 
-	 *         (pins+=Pin pins+=Pin*)? 
-	 *         (classificationClasses+=[ClassificationClass|EString] classificationClasses+=[ClassificationClass|EString]*)? 
-	 *         mainResponsible=[Person|EString]? 
-	 *         specifiedInPackage=[Package|EString]? 
-	 *         (parameters+=Parameter parameters+=Parameter*)? 
-	 *         (components+=Component components+=Component*)? 
-	 *         (datastores+=DataStore datastores+=DataStore*)? 
-	 *         execution=Execution?
-	 *     )
-	 * </pre>
-	 */
-	protected void sequence_Sensor(ISerializationContext context, Sensor semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
 	 *     SetValue returns SetValue
 	 *
 	 * Constraint:
@@ -2139,35 +2182,6 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * </pre>
 	 */
 	protected void sequence_Set(ISerializationContext context, e4sm.de.metamodel.e4sm.Set semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
-	 *     Component returns SoftwareComponent
-	 *     SoftwareComponent_Impl returns SoftwareComponent
-	 *
-	 * Constraint:
-	 *     (
-	 *         name=EString 
-	 *         documentation=EString? 
-	 *         firingStrategy=ComponentFiringStrategy? 
-	 *         timeFunction=ComplexTimefunction? 
-	 *         (pins+=Pin pins+=Pin*)? 
-	 *         synchronous=EBoolean? 
-	 *         numberOfServers=EInt? 
-	 *         mainResponsible=[Person|EString]? 
-	 *         specifiedInPackage=[Package|EString]? 
-	 *         (parameters+=Parameter parameters+=Parameter*)? 
-	 *         (components+=Component components+=Component*)? 
-	 *         (datastores+=DataStore datastores+=DataStore*)? 
-	 *         execution=Execution?
-	 *     )
-	 * </pre>
-	 */
-	protected void sequence_SoftwareComponent_Impl(ISerializationContext context, SoftwareComponent semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -2249,20 +2263,6 @@ public class E4smSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * </pre>
 	 */
 	protected void sequence_Variable(ISerializationContext context, Variable semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
-	 *     Variant returns Variant
-	 *
-	 * Constraint:
-	 *     (name=EString documentation=EString?)
-	 * </pre>
-	 */
-	protected void sequence_Variant(ISerializationContext context, Variant semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

@@ -14,10 +14,10 @@ public abstract class AbstractE4smValidator extends AbstractDeclarativeValidator
 	protected List<EPackage> getEPackages() {
 		List<EPackage> result = new ArrayList<EPackage>();
 		result.add(EPackage.Registry.INSTANCE.getEPackage("http://de.tu-ilmenau/e4sm/1.0.0"));
-		result.add(EPackage.Registry.INSTANCE.getEPackage("http://de.tu-ilmenau/e4sm/security/1.0.0"));
 		result.add(EPackage.Registry.INSTANCE.getEPackage("http://de.tu-ilmenau/e4sm/core/1.0.0"));
-		result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.eclipse.org/emf/2002/Ecore"));
 		result.add(EPackage.Registry.INSTANCE.getEPackage("http://de.tu-ilmenau/e4sm/analysis/1.0.0"));
+		result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.eclipse.org/emf/2002/Ecore"));
+		result.add(EPackage.Registry.INSTANCE.getEPackage("http://de.tu-ilmenau/e4sm/security/1.0.0"));
 		result.add(EPackage.Registry.INSTANCE.getEPackage("http://de.tu-ilmenau/e4sm/execution/1.0.0"));
 		return result;
 	}
