@@ -12,6 +12,22 @@ catch (e) {
   console.error("xml2js is not installed.\nPlease run: \"npm install\" first and run this script again.");
   process.exit(e.code);
 }
+const { program } = require('commander');
+
+program
+  .name('tn-fix-html')
+  .description('CLI to fix a qvto generated Petri net to work in TimeNET.')
+  .usage("<inputXml[.xml]> [options]")
+  .version(require('./package.json').version)
+  //.option('-h, --help')
+  .option('-a, --arrange', "arrange the resulting net in order to be able to select its segments. If not provided, all elements will remain in their original location.")
+  .option('-o, --optimize', "removes superflous immediate transitions.")
+  .option('-c, --compress', "simplify the net by merging together subsequent immediate transitions of different paths. If both o and c are provided, the net will be first optimized and then compressed")
+  .option('-i, --inputFile <NAME>', "The name of the input file, with or without xml extension, this takes precedence on any unnamed argument.")
+
+program.parse();
+
+const options = program.opts();
 
 const xml2js = require('xml2js');
 const parseString = require('xml2js').parseString;
@@ -20,21 +36,22 @@ const stripPrefix = require('xml2js').processors.stripPrefix;
 // Check if the help parameter was provided
 const help = process.argv.some(a => a === "-h" || a === "--help" || a === "help");
 
-if (process.argv.length <= 2 || help) {
-  printUsageAndExit();
+if (options.help !== undefined || (program.args.length === 0 && options.inputFile === undefined)) {
+  program.help();
 }
 
-// Check if the optimize parameter was provided
-const optimize = process.argv.some(a => a === "-o" || a === "--optimize");
-
-// Check if the optimize parameter was provided
-const arrange = process.argv.some(a => a === "-a" || a === "--arrange");
+// Initialize the parameters
+const optimize = options.optimize ?? false;
+const arrange = options.arrange ?? false;
+const compress = options.compress ?? false;
 
 bootstrap();
 
 async function bootstrap() {
   // Set the provided filename - if you reach this part, there are at least 3 arguments
-  let fileName = process.argv[2];
+  let fileName = options.inputFile ?? program.args[0];
+
+  console.log(`Executing with following settings:\n\tInput file: "${fileName}"\n\tOptimize: ${optimize}\n\tArrange: ${arrange}`);
 
   //Remove the xml extension, if provided:
   fileName = fileName.replace(".xml", "");
@@ -160,6 +177,30 @@ async function mainScript(netXML, outputPath, fileName) {
       return fatalError("There was a problem during the optimization. Please fix the errors listed above and try again.");
     }
   }
+
+  logIf(!compress, "Info: Net compression was skipped, rerun the command with the -c flag, if needed");
+  if(compress === true){
+      // Optimize the generated Petri Net.
+      netXML['net'] = compressNet(netXML['net']);
+  
+      if (arrange === true) {
+        // Change the position of the elements so that they are not one over another
+        placeNodesCircle(netXML['net']);
+      }
+  
+      // Check that the used ID are unique and correctly referenced.
+      let compressionSuccessful = checkIDs(netXML['net']);
+      if (compressionSuccessful === true) {
+        // Write the output file
+        if (await storeXML(netXML, outputPath + fileName + '_compressed.xml')) {
+          printMessage("Compression successful!");
+        }
+      }
+      else {
+        await storeXML(netXML, outputPath + fileName + '_compressed_with_errors.xml');
+        return fatalError("There was a problem during the compression. Please fix the errors listed above and try again.");
+      }
+  }
 }
 
 /**
@@ -194,6 +235,7 @@ function fileParsed(err, netXML, outputPath, fileName) {
 */
 function fatalError(message, errorLevel = 1) {
   printError(message);
+  program.help();
   process.exit(errorLevel);
 }
 
@@ -258,6 +300,72 @@ function removeXmiID(el) {
  * @returns a net without useless immediate transition that do not change anything
  */
 function simplifyNet(net) {
+  net.immediateTransition.forEach(immediateTransNode => {
+    let iT = immediateTransNode['$'];
+
+    // All of the following must be false in order for the transition to be simplifyable
+    if ('localGuard' in iT) return;
+    if ('globalGuard' in iT) return;
+    if (iT.watch === true) return;
+    if ('displayExpression' in iT) return;
+    if ('logfileExpression' in iT) return;
+
+    // Find the arc leading to the immediateTransition, check that it is only one
+    const leftArcs = getArcsToElement(net, iT.id);
+    if (leftArcs.length !== 1) { return; }
+
+    const leftInscription = getInscriptionText(leftArcs[0]);
+    let lPlace = null;
+
+    const lArc = leftArcs[0]['$'];
+
+    // Get the place which is supplying this immediateTransition
+    lPlace = getPlaceByID(net, lArc.fromNode);
+    // Check if the incoming place has only one outgoing arc
+    const outgoingArcs = getArcsFromElement(net, lPlace['$'].id);
+    if (outgoingArcs.length !== 1) {
+      return;
+    }
+
+    // Find the arc leaving from the immediateTransition, check that it is only one
+    const rightArcs = getArcsFromElement(net, iT.id);
+    if (rightArcs.length !== 1) { return; }
+    const rightInscription = getInscriptionText(rightArcs[0]);
+    if (leftInscription !== rightInscription) {
+      return;
+    }
+
+    const rArc = rightArcs[0]['$'];
+    // Get the place the arc leads to
+    const rPlace = getPlaceByID(net, rArc.toNode);
+    // Check it the outgoing place has only one incoming arc
+    const incomingArcs = getArcsFromElement(net, rPlace['$'].id);
+    if (incomingArcs.length === 1) {
+      // TODO: maybe also check that the type of lPlace and rPlace is the same.
+      // It shouldn't be necessary as in that case the left and right inscriptions would not be identical.
+
+      // This immediate transition can be simplified!
+      immediateTransNode.simplify = true;
+      immediateTransNode.lPlaceID = lPlace['$'].id;
+      immediateTransNode.rPlaceID = rPlace['$'].id;
+      immediateTransNode.rPlaceLabel = getLabel(rPlace);
+      immediateTransNode.lPlaceLabel = getLabel(lPlace);
+      leftArcs[0].simplify = true;
+      rightArcs[0].simplify = true;
+    }
+    else return;
+  });
+  removeSimplifyableElements(net);
+  return net;
+}
+
+
+/**
+ * Merge together immediate transitions belonging to different decision branches
+ * @param {*} net
+ * @returns a net with less immediate transitions
+ */
+function compressNet(net) {
   net.immediateTransition.forEach(immediateTransNode => {
     let iT = immediateTransNode['$'];
 
@@ -507,7 +615,7 @@ function checkArcIsCorrectlyConnected(arc, ids, placesIDs) {
     return success;
   }
 
-    // Check that the arcs are connected between place and transitions only.
+  // Check that the arcs are connected between place and transitions only.
   if (sourceIsPlace ? targetIsPlace : !targetIsPlace) {
     console.error("----\n\tERROR:The arc with ID '" + arc.id + "' is not valid; it connects two transitions or two places.");
     console.error("\tSource is a place: " + (sourceIsPlace ? "yes" : "no"));
@@ -631,19 +739,4 @@ function moveGraphicInCircle(el, origin, radius, angle) {
   else {
     return fatalError(`Element with ID "${el.id}" does not have a graphic`);
   }
-}
-
-/**
- * Prints the scripts' command line instructions and terminates the execution
- * @returns {never}
- */
-function printUsageAndExit() {
-  console.log(
-    `Usage:
-    tn-fix-xml <fileName>[.xml] : transforms the given Petri Net to a format which can be opened by TimeNET
-    tn-fix-xml <fileName>[.xml] [-o|--optimize] : also remove useless transitions, additionally saved as <filename>_optimized.xml
-    tn-fix-xml <fileName>[.xml] [-a|--arrange] : additionally places the elements in circles of different radius to allow moving them more easily
-    `
-  );
-  process.exit();
 }
