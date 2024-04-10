@@ -4,7 +4,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: e4sm.de.metamodel.xtext
 Bundle-Vendor: SSE @ TU Ilmenau
 Bundle-Version: 1.0.0.qualifier
-Bundle-SymbolicName: e4sm.de.metamodel.xtext; singleton:=true
+Bundle-SymbolicName: e4sm.de.metamodel.xtext;singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: e4sm.de.metamodel,
  org.eclipse.xtext;visibility:=reexport,
@@ -18,10 +18,10 @@ Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: e4sm.de.metamodel.xtext,
  e4sm.de.metamodel.xtext.formatting2,
  e4sm.de.metamodel.xtext.generator,
+ e4sm.de.metamodel.xtext.parser.antlr,
  e4sm.de.metamodel.xtext.parser.antlr.internal;x-internal:=true,
  e4sm.de.metamodel.xtext.scoping,
  e4sm.de.metamodel.xtext.serializer,
  e4sm.de.metamodel.xtext.services,
- e4sm.de.metamodel.xtext.validation,
- e4sm.de.metamodel.xtext.parser.antlr
+ e4sm.de.metamodel.xtext.validation
 Import-Package: org.apache.log4j
