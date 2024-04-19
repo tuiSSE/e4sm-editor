@@ -1667,29 +1667,33 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 		var className := self.confusionMatrixes->first().positiveClass.name;
 		assert fatal (className->size()>0) with log(self.name + " does not have a positive class set in its confusion matrix (confusion matrix <name> with positive <class> {...");
 		
-		var classTruth : ImmediateTransitionType := new ImmediateTransitionType(self.name+"_ClassTruth");
-		classTruth.localGuard := "x.cl_" + className + " == true";
+		//var classTruth : ImmediateTransitionType := new ImmediateTransitionType(self.name+"_ClassTruth");
+		//classTruth.localGuard := "x.cl_" + className + " == true";
 		//classTruth.weight := allPositives.toString();
-		iTr += classTruth;
+		//iTr += classTruth;
 		
-		var classOther : ImmediateTransitionType := new ImmediateTransitionType(self.name+"_ClassOther");
-		classOther.localGuard := "x.cl_" + className + " == false";
+		//var classOther : ImmediateTransitionType := new ImmediateTransitionType(self.name+"_ClassOther");
+		//classOther.localGuard := "x.cl_" + className + " == false";
 		//classOther.weight := (1.0 - allPositives).toString();
-		iTr += classOther;
+		//iTr += classOther;
 		
 		var ct_tp : ImmediateTransitionType := new ImmediateTransitionType(self.name+"_ct_tp");
+		ct_tp.localGuard := "x.cl_" + className + " == true";
 		ct_tp.weight := cm.computeRecall().toString();
 		iTr += ct_tp;
 		
 		var ct_fn : ImmediateTransitionType := new ImmediateTransitionType(self.name+"_ct_fn");
+		ct_fn.localGuard := "x.cl_" + className + " == true";
 		ct_fn.weight := (1.0 - cm.computeRecall()).toString();
 		iTr += ct_fn;
 	
 		var cf_tn : ImmediateTransitionType := new ImmediateTransitionType(self.name+"_ cf_tn");
+		cf_tn.localGuard := "x.cl_" + className + " == false";
 		cf_tn.weight := cm.computeSpecificity().toString();
 		iTr += cf_tn;
 		
 		var cf_fp : ImmediateTransitionType := new ImmediateTransitionType(self.name+"_cf_fp");
+		cf_fp.localGuard := "x.cl_" + className + " == false";
 		cf_fp.weight := (1.0 - cm.computeSpecificity()).toString();
 		iTr += cf_fp;
 		
@@ -1699,11 +1703,11 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 		var inData : PlaceType := new PlaceType(self.name + "_in_data");
 		pl += inData;
 		
-		var ct : PlaceType := new PlaceType(self.name + "_ct");
-		pl += ct;
+		//var ct : PlaceType := new PlaceType(self.name + "_ct");
+		//pl += ct;
 	
-		var cf : PlaceType := new PlaceType(self.name + "_cf");
-		pl += cf;
+		//var cf : PlaceType := new PlaceType(self.name + "_cf");
+		//pl += cf;
 		
 		//var tp : PlaceType := new PlaceType(self.name + "_tp");
 		//pl += tp;
@@ -1724,48 +1728,68 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 		execution_to_in_data.toNode := inData.id;
 		arcs+=execution_to_in_data;
 		
-		var in_data_to_classTruth: ArcType := new ArcType(self.name + "in_data_truth");
-		in_data_to_classTruth.fromNode := inData.id;
-		in_data_to_classTruth.toNode := classTruth.id;
-		arcs+=in_data_to_classTruth;
+		var in_data_to_tp: ArcType := new ArcType(self.name + "in_data_tp");
+		in_data_to_tp.fromNode := inData.id;
+		in_data_to_tp.toNode := ct_tp.id;
+		arcs+=in_data_to_tp;
 		
-		var in_data_to_classFalse : ArcType := new ArcType(self.name + "in_data_to_false");
-		in_data_to_classFalse.fromNode := inData.id;
-		in_data_to_classFalse.toNode := classOther.id;
-		arcs+=in_data_to_classFalse;
+		var in_data_to_fn: ArcType := new ArcType(self.name + "in_data_fn");
+		in_data_to_fn.fromNode := inData.id;
+		in_data_to_fn.toNode := ct_fn.id;
+		arcs+=in_data_to_fn;
 		
-		var class_truth_to_ct : ArcType := new ArcType(self.name + "class_truth_to_ct");
-		class_truth_to_ct.fromNode := classTruth.id;
+		var in_data_to_fp: ArcType := new ArcType(self.name + "in_data_fp");
+		in_data_to_fp.fromNode := inData.id;
+		in_data_to_fp.toNode := cf_fp.id;
+		arcs+=in_data_to_fp;
+		
+		var in_data_to_tn: ArcType := new ArcType(self.name + "in_data_tn");
+		in_data_to_tn.fromNode := inData.id;
+		in_data_to_tn.toNode := cf_tn.id;
+		arcs+=in_data_to_tn;
+		
+		//var in_data_to_classTruth: ArcType := new ArcType(self.name + "in_data_truth");
+		//in_data_to_classTruth.fromNode := inData.id;
+		//in_data_to_classTruth.toNode := classTruth.id;
+		//arcs+=in_data_to_classTruth;
+		
+		//var in_data_to_classFalse : ArcType := new ArcType(self.name + "in_data_to_false");
+		//in_data_to_classFalse.fromNode := inData.id;
+		//in_data_to_classFalse.toNode := classOther.id;
+		//arcs+=in_data_to_classFalse;
+		
+		//var class_truth_to_ct : ArcType := new ArcType(self.name + "class_truth_to_ct");
+		//class_truth_to_ct.fromNode := classTruth.id;
 		//class_truth_to_ct.inscription.text := "x(tL=1)";
-		class_truth_to_ct.toNode := ct.id;
-		arcs+=class_truth_to_ct;
+		//class_truth_to_ct.toNode := ct.id;
+		//arcs+=class_truth_to_ct;
 		
-		var class_other_to_cf : ArcType := new ArcType(self.name + "class_other_to_cf");
-		class_other_to_cf.fromNode := classOther.id;
+		//var class_other_to_cf : ArcType := new ArcType(self.name + "class_other_to_cf");
+		//class_other_to_cf.fromNode := classOther.id;
 		//class_other_to_cf.inscription.text := "x(tL=2)";
-		class_other_to_cf.toNode := cf.id;
-		arcs+=class_other_to_cf;
+		//class_other_to_cf.toNode := cf.id;
+		//arcs+=class_other_to_cf;
 		
 		
-		var ct_to_ct_tp : ArcType := new ArcType(self.name + "ct_to_ct_tp");
-		ct_to_ct_tp.fromNode := ct.id;
-		ct_to_ct_tp.toNode := ct_tp.id;
-		arcs+=ct_to_ct_tp;
+		//var ct_to_ct_tp : ArcType := new ArcType(self.name + "ct_to_ct_tp");
+		//ct_to_ct_tp.fromNode := ct.id;
+		//ct_to_ct_tp.toNode := ct_tp.id;
+		//arcs+=ct_to_ct_tp;
 		
-		var ct_to_ct_fn : ArcType := new ArcType(self.name + "ct_to_ct_fn");
-		ct_to_ct_fn.fromNode := ct.id;
-		ct_to_ct_fn.toNode := ct_fn.id;
-		arcs+=ct_to_ct_fn;
+		//var ct_to_ct_fn : ArcType := new ArcType(self.name + "ct_to_ct_fn");
+		//ct_to_ct_fn.fromNode := ct.id;
+		//ct_to_ct_fn.toNode := ct_fn.id;
+		//arcs+=ct_to_ct_fn;
 		
-		var cf_to_cf_tn : ArcType := new ArcType(self.name + "cf_to_cf_tn");
-		cf_to_cf_tn.fromNode := cf.id;
-		cf_to_cf_tn.toNode := cf_tn.id;
-		arcs+=cf_to_cf_tn;
+		//var cf_to_cf_tn : ArcType := new ArcType(self.name + "cf_to_cf_tn");
+		//cf_to_cf_tn.fromNode := cf.id;
+		//cf_to_cf_tn.toNode := cf_tn.id;
+		//arcs+=cf_to_cf_tn;
 		
-		var cd_to_cf_fp : ArcType := new ArcType(self.name + "cd_to_cf_fp");
-		cd_to_cf_fp.fromNode := cf.id;
-		cd_to_cf_fp.toNode := cf_fp.id;
-		arcs+=cd_to_cf_fp;
+		//var cd_to_cf_fp : ArcType := new ArcType(self.name + "cd_to_cf_fp");
+		//cd_to_cf_fp.fromNode := cf.id;
+		//cd_to_cf_fp.toNode := cf_fp.id;
+		//arcs+=cd_to_cf_fp;
 		
 		//arcs from decision results to placeExecuted
 		var aClass : e4sm::ClassificationClass := self.confusionMatrixes->positiveClass->first();
