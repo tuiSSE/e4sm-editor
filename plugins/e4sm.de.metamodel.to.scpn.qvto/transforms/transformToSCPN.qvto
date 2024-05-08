@@ -547,28 +547,36 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 		var multipleComponentReadyTransitions : OrderedSet(TransitionType);
 		var timedTran : TimedTransitionType := null;
 		
+		var sensorGeneratesClasses : Boolean := false;
 		
-		immTranExecuted := new ImmediateTransitionType(self.name + "_post_execution");
-		if(logComponents and self.isSensor()){
-			immTranExecuted.logfileName := self.name + "_postExecution.csv";
-			// TODO: generalize
-			immTranExecuted.logfileDescription := "current_time,size,pixelSize";
-			immTranExecuted.logfileExpression := "NOW,TAB,x.s,TAB,x.ps";
+		var isSimpleComponent : Boolean := false;
+		if(self.components->isEmpty() and self.specifiedInPackage = null and self.execution = null) {
+			isSimpleComponent := true;
 		};
 		
-		placeExecuted := new PlaceType(self.name + "_executed");
-		
-		// if it's not a sensor and does not generate any class
-		var sensorGeneratesClasses : Boolean := self.isSensor() and (not self.oclAsType(e4sm::Sensor).classificationClasses->isEmpty());
-		if(not sensorGeneratesClasses){
-			var arcExecuted : ArcType := new ArcType(self.name + "_executed_to_post");
-			arcExecuted.fromNode := placeExecuted.id;
-			arcExecuted.toNode := immTranExecuted.id;
-			arcs += arcExecuted;
+		if(isSimpleComponent){
+			immTranExecuted := new ImmediateTransitionType(self.name + "_post_execution");
+			if(logComponents and self.isSensor()){
+				immTranExecuted.logfileName := self.name + "_postExecution.csv";
+				// TODO: generalize
+				immTranExecuted.logfileDescription := "current_time,size,pixelSize";
+				immTranExecuted.logfileExpression := "NOW,TAB,x.s,TAB,x.ps";
+			};
+			
+			placeExecuted := new PlaceType(self.name + "_executed");
+			
+			// if it's not a sensor and does not generate any class
+			sensorGeneratesClasses := self.isSensor() and (not self.oclAsType(e4sm::Sensor).classificationClasses->isEmpty());
+			if(not sensorGeneratesClasses){
+				var arcExecuted : ArcType := new ArcType(self.name + "_executed_to_post");
+				arcExecuted.fromNode := placeExecuted.id;
+				arcExecuted.toNode := immTranExecuted.id;
+				arcs += arcExecuted;
+			};
+			
+			iTr += immTranExecuted;
+			pl += placeExecuted;
 		};
-		
-		iTr += immTranExecuted;
-		pl += placeExecuted;
 
 		
 
@@ -576,10 +584,8 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 		// - The component must not have subcomponents
 		// - The component must not be specified by a package
 		// - The component must not have an internal specification "runs { ... }"
-		var isSimpleComponent : Boolean := false;
-		if(self.components->isEmpty() and self.specifiedInPackage = null and self.execution = null) {
-			isSimpleComponent := true;
-			
+		if(isSimpleComponent) {
+		
 			// Create measures for Sensors and Actuators, for simple components only
 			if(self.oclIsKindOf(Sensor)) {
 			    // Transitions have watch:true, the mainPlace is not generated anymore for sensors.
