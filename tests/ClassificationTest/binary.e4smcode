@@ -1,5 +1,5 @@
 model binaryModel{
-	package p1 {
+	package binary {
 		sensor "Sensor Binary" {
 			out s1_out
 		generates intruderDetected
@@ -7,7 +7,7 @@ model binaryModel{
 		binaryClassificationComponent "Binary Classification" {
 			in b1_in,
 			out b2_out
-			confusionMatrixes { confusion matrix cm1 +intruderDetected {TP : 200, FN : 2, FP: 5, TN: 8}}
+			confusionMatrixes { confusion matrix cm1 +intruderDetected {TP : 800, FN : 100, FP: 50, TN: 1600}}
 		},
 		actuator Actuator {
 			in a1_in
@@ -17,6 +17,6 @@ model binaryModel{
 	}
 	cl intruderDetected
 		environment Env1 {
-		intruderDetected 0.02, not intruderDetected 0.98
+		intruderDetected 0.3, not intruderDetected 0.7
 	}
 }
