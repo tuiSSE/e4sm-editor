@@ -141,7 +141,7 @@ final public class NodeTools {
 				pr = rt.exec(new String[] {"cmd.exe", "/c", usedCommand});
 			}
 			else {
-				pr = rt.exec(new String[] {usedCommand});
+				pr = rt.exec(new String[] {"bash", "-c", usedCommand});
 			}
 			
 			var in = new BufferedReader(new InputStreamReader(pr.getInputStream()));
