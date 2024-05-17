@@ -20,7 +20,7 @@ transformation SCPNHelpers() {
 	if(s.oclIsUndefined()){
 		return "placeholder";
 	}endif;
-		return s.replaceAll(" ", "_").replaceAll("\\.","_").replaceAll("\\(","").replaceAll("\\)","");
+		return s.replaceAll("[ \\-:;,.$?&§€=%]", "_").replaceAll("\\.","_").replaceAll("\\(","").replaceAll("\\)","").replaceAll("ß","ss").replaceAll("ä","ae").replaceAll("ü","ue").replaceAll("ö","oe");
 	}
 	
 	/***

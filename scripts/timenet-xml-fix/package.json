@@ -1,6 +1,6 @@
 {
   "name": "@tuiilm/timenet-xml-fix",
-  "version": "1.1",
+  "version": "1.2.0",
   "description": "Fixes the generated qVTO XML file in order to be opened by TimeNet. Optionally allows optimizing the generated net by removed unneeded immediate transitions",
   "main": "cli.js",
   "dependencies": {
