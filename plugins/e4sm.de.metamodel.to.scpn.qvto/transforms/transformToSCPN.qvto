@@ -800,6 +800,12 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 					self.pins[InputPin]->forEach(ip) {
 						// Create the immediate transition
 						var componentReadyTransition := new ImmediateTransitionType(self.name + "_ready_" + i.toString());
+						if(logComponents){
+							componentReadyTransition.logfileName := self.name + "_" + i.toString() + "_ready.csv";
+							// TODO: generalize
+							componentReadyTransition.logfileDescription := "current_time,size,pixelSize";
+							componentReadyTransition.logfileExpression := "NOW,TAB,x.s,TAB,x.ps";
+						};
 						iTr->add(componentReadyTransition);
 						multipleComponentReadyTransitions->including(componentReadyTransition);
 						

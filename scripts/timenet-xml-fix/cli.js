@@ -339,7 +339,7 @@ function simplifyNet(net) {
     // Get the place the arc leads to
     const rPlace = getPlaceByID(net, rArc.toNode);
     // Check it the outgoing place has only one incoming arc
-    const incomingArcs = getArcsFromElement(net, rPlace['$'].id);
+    const incomingArcs = getArcsToElement(net, rPlace['$'].id);
     if (incomingArcs.length === 1) {
       // TODO: maybe also check that the type of lPlace and rPlace is the same.
       // It shouldn't be necessary as in that case the left and right inscriptions would not be identical.
@@ -353,7 +353,9 @@ function simplifyNet(net) {
       leftArcs[0].simplify = true;
       rightArcs[0].simplify = true;
     }
-    else return;
+    else{
+      return;
+    }
   });
   removeSimplifyableElements(net);
   return net;
