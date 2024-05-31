@@ -5,6 +5,7 @@
   "main": "cli.js",
   "type": "module",
   "scripts": {
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "files": [
@@ -16,7 +17,8 @@
     "ILMtoE4SM": "./cli.js"
   },
   "keywords": [
-    "E4SM", "ILM"
+    "E4SM",
+    "ILM"
   ],
   "author": "Francesco Bedini <francesco.bedini@tu-ilmenau.de> (https://sse.tu-ilmenau.de)",
   "license": "ISC",
@@ -25,5 +27,9 @@
     "command-line-usage": "^7.0.1",
     "eslint": "^8.39.0",
     "jsonschema": "^1.4.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.13",
+    "typescript": "^5.4.5"
   }
 }

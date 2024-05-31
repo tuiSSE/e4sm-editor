@@ -7,7 +7,7 @@ import { Validator } from 'jsonschema';
 import { readFile, writeFile } from 'fs/promises';
 import commandLineArgs from 'command-line-args';
 import commandLineUsage from 'command-line-usage'
-import generateE4SM from './modules/transformations.js';
+import {generateE4SM, generateE4SMInsideModel} from './modules/transformations.js';
 import * as path from 'path';
 import * as url from 'url';
 
@@ -15,7 +15,8 @@ const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
 const optionDefinitions = [
     { name: 'source', alias: 's', type: String, description: "The path of the input file, in the intermediate language model JSON format" },
-    { name: 'target', alias: 't', type: String, description: "The optional path of the output e4sm file. If not provided, it will be generated to ./out.e4smcode" }
+    { name: 'target', alias: 't', type: String, description: "The optional path of the output e4sm file. If not provided, it will be generated to ./out.e4smcode" },
+    { name: 'merge', alias: 'm', type: String, description: "Path to a e4sm model where the transformed model should be inserted into" }
 ]
 const options = commandLineArgs(optionDefinitions)
 
@@ -26,7 +27,8 @@ async function run() {
     if (!options.source) {
         console.error("Error: source option is required!");
         printHelp();
-        process.exit(1);
+        process.exitCode = 1;
+        return;
     }
 
     console.log(`Converting file ${options.source}`);
@@ -42,10 +44,14 @@ async function run() {
 
     // console.dir(input); // TODO remove
 
-    let res = generateE4SM(input);
-
+    if(!options.merge){
+        let res = generateE4SM(input);
     // console.log(res); // TODO out to file
-    writeStringToFile(res, options.target ?? "out.e4smcode");
+        writeStringToFile(res, options.target ?? "out.e4smcode");
+        return;
+    }
+
+    generateE4SMInsideModel(input, options.merge);
 
     // Run tests with runTests();
 }
@@ -110,6 +116,12 @@ async function writeStringToFile(content, path) {
     process.exit(1);
   }
 
+  /**
+   * 
+   * @param {*} instance 
+   * @param {*} schema 
+   * @returns 
+   */
 function isValid(instance, schema) {
     const res = v.validate(instance, schema);
     res.errors.forEach(element => {
