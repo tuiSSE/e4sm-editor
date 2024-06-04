@@ -67,9 +67,7 @@ Export-Package: e4sm.de.metamodel.e4sm;
    org.eclipse.emf.ecore.resource,
    org.eclipse.emf.ecore.xmi.impl,
    org.eclipse.emf.ecore.util",
- e4sm.de.metamodel.e4sm.core;
-  uses:="org.eclipse.emf.ecore,
-   org.eclipse.emf.common.util",
+ e4sm.de.metamodel.e4sm.core;uses:="org.eclipse.emf.ecore,org.eclipse.emf.common.util",
  e4sm.de.metamodel.e4sm.core.impl;
   uses:="org.eclipse.emf.ecore,
    e4sm.de.metamodel.e4sm.core,
@@ -84,12 +82,8 @@ Export-Package: e4sm.de.metamodel.e4sm;
  e4sm.de.metamodel.e4sm.execution,
  e4sm.de.metamodel.e4sm.execution.impl,
  e4sm.de.metamodel.e4sm.execution.util,
- e4sm.de.metamodel.e4sm.guava;
-  uses:="org.eclipse.emf.ecore",
- e4sm.de.metamodel.e4sm.guava.impl;
-  uses:="e4sm.de.metamodel.e4sm.guava,
-   org.eclipse.emf.ecore,
-   org.eclipse.emf.ecore.impl",
+ e4sm.de.metamodel.e4sm.guava;uses:="org.eclipse.emf.ecore",
+ e4sm.de.metamodel.e4sm.guava.impl;uses:="e4sm.de.metamodel.e4sm.guava,org.eclipse.emf.ecore,org.eclipse.emf.ecore.impl",
  e4sm.de.metamodel.e4sm.guava.util;
   uses:="e4sm.de.metamodel.e4sm.guava,
    org.eclipse.emf.ecore,
@@ -107,18 +101,8 @@ Export-Package: e4sm.de.metamodel.e4sm;
  e4sm.de.metamodel.e4sm.security,
  e4sm.de.metamodel.e4sm.security.impl,
  e4sm.de.metamodel.e4sm.security.util,
- e4sm.de.metamodel.e4sm.util;
-  uses:="org.eclipse.emf.ecore,
-   e4sm.de.metamodel.e4sm.core,
-   org.eclipse.emf.ecore.resource.impl,
-   org.eclipse.emf.ecore.xmi.impl,
-   e4sm.de.metamodel.e4sm.analysis,
-   org.eclipse.emf.common.util,
-   org.eclipse.emf.ecore.resource,
-   org.eclipse.emf.common.notify,
-   org.eclipse.emf.common.notify.impl,
-   org.eclipse.emf.ecore.util,
-   e4sm.de.metamodel.e4sm"
+ e4sm.de.metamodel.e4sm.util,
+ e4sm.de.metamodel.e4sm.utils
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,

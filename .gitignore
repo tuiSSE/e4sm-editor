@@ -8,3 +8,5 @@ scripts/timenet-xml-fix/node_modules/
 org.eclipse.buildship.core.prefs
 build.xml
 plugins/e4sm.de.metamodel.acceleo.documentation/tasks/generate.xml
+
+plugins/e4sm.de.metamodel.xtext/e4sm.de.metamodel.xtext.parent/e4sm.de.metamodel.xtext/.launch/
