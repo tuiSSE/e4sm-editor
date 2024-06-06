@@ -2,12 +2,14 @@
  */
 package e4sm.de.metamodel.e4sm.impl;
 
+import e4sm.de.metamodel.e4sm.Actuator;
 import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.Connector;
 import e4sm.de.metamodel.e4sm.DataStore;
 import e4sm.de.metamodel.e4sm.Model;
 import e4sm.de.metamodel.e4sm.Person;
 import e4sm.de.metamodel.e4sm.Sector;
+import e4sm.de.metamodel.e4sm.Sensor;
 import e4sm.de.metamodel.e4sm.analysis.AnalysisPackage;
 import e4sm.de.metamodel.e4sm.analysis.Parameter;
 import e4sm.de.metamodel.e4sm.analysis.ParameterizableElement;
@@ -519,6 +521,40 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public EList<Sensor> getAllSensors() {
+		EList<Sensor> s = ECollections.newBasicEList();
+		var c = this.getAllComponents();
+		for (int i = 0; i < c.size(); i++) {
+			if (c.get(i) instanceof Sensor) {
+				s.add((Sensor) c.get(i));
+			}
+		}
+		return s;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public EList<Actuator> getAllActuators() {
+		EList<Actuator> a = ECollections.newBasicEList();
+		var c = this.getAllComponents();
+		for (int i = 0; i < c.size(); i++) {
+			if (c.get(i) instanceof Actuator) {
+				a.add((Actuator) c.get(i));
+			}
+		}
+		return a;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -787,6 +823,10 @@ public class PackageImpl extends NamedElementImpl implements e4sm.de.metamodel.e
 			return getMaxFlow();
 		case e4smPackage.PACKAGE___GET_MODEL:
 			return getModel();
+		case e4smPackage.PACKAGE___GET_ALL_SENSORS:
+			return getAllSensors();
+		case e4smPackage.PACKAGE___GET_ALL_ACTUATORS:
+			return getAllActuators();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

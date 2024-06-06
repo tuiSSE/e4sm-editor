@@ -67,7 +67,9 @@ Export-Package: e4sm.de.metamodel.e4sm;
    org.eclipse.emf.ecore.resource,
    org.eclipse.emf.ecore.xmi.impl,
    org.eclipse.emf.ecore.util",
- e4sm.de.metamodel.e4sm.core;uses:="org.eclipse.emf.ecore,org.eclipse.emf.common.util",
+ e4sm.de.metamodel.e4sm.core;
+  uses:="org.eclipse.emf.ecore,
+   org.eclipse.emf.common.util",
  e4sm.de.metamodel.e4sm.core.impl;
   uses:="org.eclipse.emf.ecore,
    e4sm.de.metamodel.e4sm.core,
@@ -82,8 +84,12 @@ Export-Package: e4sm.de.metamodel.e4sm;
  e4sm.de.metamodel.e4sm.execution,
  e4sm.de.metamodel.e4sm.execution.impl,
  e4sm.de.metamodel.e4sm.execution.util,
- e4sm.de.metamodel.e4sm.guava;uses:="org.eclipse.emf.ecore",
- e4sm.de.metamodel.e4sm.guava.impl;uses:="e4sm.de.metamodel.e4sm.guava,org.eclipse.emf.ecore,org.eclipse.emf.ecore.impl",
+ e4sm.de.metamodel.e4sm.guava;
+  uses:="org.eclipse.emf.ecore",
+ e4sm.de.metamodel.e4sm.guava.impl;
+  uses:="e4sm.de.metamodel.e4sm.guava,
+   org.eclipse.emf.ecore,
+   org.eclipse.emf.ecore.impl",
  e4sm.de.metamodel.e4sm.guava.util;
   uses:="e4sm.de.metamodel.e4sm.guava,
    org.eclipse.emf.ecore,

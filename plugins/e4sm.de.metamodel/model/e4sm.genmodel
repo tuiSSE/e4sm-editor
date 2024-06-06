@@ -92,6 +92,10 @@
       <genOperations ecoreOperation="e4sm.ecore#//Package/getAllComponents" body="&#x9;&#x9;// Get all components which are contained directly in this package&#xD;&#xA;&#x9;&#x9;EList&lt;Component> res = ECollections.newBasicEList(this.getComponents());&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;// Look into sectors&#xD;&#xA;&#x9;&#x9;this.getSectors().forEach(s -> {&#xD;&#xA;&#x9;&#x9;&#x9;res.addAll(s.getAllComponents());&#xD;&#xA;&#x9;&#x9;});&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;return res;"/>
       <genOperations ecoreOperation="e4sm.ecore#//Package/getMaxFlow"/>
       <genOperations ecoreOperation="e4sm.ecore#//Package/getModel"/>
+      <genOperations documentation="Returns all sensors directly contained by this package, including those inside sectors."
+          ecoreOperation="e4sm.ecore#//Package/getAllSensors"/>
+      <genOperations documentation="Returns all actuators directly contained by this package, including those inside sectors."
+          ecoreOperation="e4sm.ecore#//Package/getAllActuators"/>
     </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//Model">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//Model/packages"/>

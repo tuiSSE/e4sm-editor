@@ -241,4 +241,26 @@ public interface Package extends NamedElement, ParameterizableElement, Documenta
 	 */
 	Model getModel();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Returns all sensors directly contained by this package, including those inside sectors.
+	 * <!-- end-model-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	EList<Sensor> getAllSensors();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Returns all actuators directly contained by this package, including those inside sectors.
+	 * <!-- end-model-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	EList<Actuator> getAllActuators();
+
 } // Package

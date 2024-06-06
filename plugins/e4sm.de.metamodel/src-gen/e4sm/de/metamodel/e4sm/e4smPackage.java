@@ -1754,13 +1754,31 @@ public interface e4smPackage extends EPackage {
 	int PACKAGE___GET_MODEL = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
+	 * The operation id for the '<em>Get All Sensors</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE___GET_ALL_SENSORS = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Get All Actuators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE___GET_ALL_ACTUATORS = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 4;
+
+	/**
 	 * The number of operations of the '<em>Package</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE_OPERATION_COUNT = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 3;
+	int PACKAGE_OPERATION_COUNT = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -5443,6 +5461,26 @@ public interface e4smPackage extends EPackage {
 	EOperation getPackage__GetModel();
 
 	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.Package#getAllSensors() <em>Get All Sensors</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Sensors</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.Package#getAllSensors()
+	 * @generated
+	 */
+	EOperation getPackage__GetAllSensors();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.Package#getAllActuators() <em>Get All Actuators</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Actuators</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.Package#getAllActuators()
+	 * @generated
+	 */
+	EOperation getPackage__GetAllActuators();
+
+	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.Model <em>Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7248,6 +7286,22 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PACKAGE___GET_MODEL = eINSTANCE.getPackage__GetModel();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Sensors</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PACKAGE___GET_ALL_SENSORS = eINSTANCE.getPackage__GetAllSensors();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Actuators</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PACKAGE___GET_ALL_ACTUATORS = eINSTANCE.getPackage__GetAllActuators();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.ModelImpl <em>Model</em>}' class.

@@ -1013,6 +1013,26 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
+	public EOperation getPackage__GetAllSensors() {
+		return packageEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getPackage__GetAllActuators() {
+		return packageEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getModel() {
 		return modelEClass;
 	}
@@ -2449,6 +2469,8 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		createEOperation(packageEClass, PACKAGE___GET_ALL_COMPONENTS);
 		createEOperation(packageEClass, PACKAGE___GET_MAX_FLOW);
 		createEOperation(packageEClass, PACKAGE___GET_MODEL);
+		createEOperation(packageEClass, PACKAGE___GET_ALL_SENSORS);
+		createEOperation(packageEClass, PACKAGE___GET_ALL_ACTUATORS);
 
 		modelEClass = createEClass(MODEL);
 		createEReference(modelEClass, MODEL__PACKAGES);
@@ -2859,6 +2881,11 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 				IS_ORDERED);
 
 		initEOperation(getPackage__GetModel(), this.getModel(), "getModel", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getPackage__GetAllSensors(), this.getSensor(), "getAllSensors", 0, -1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getPackage__GetAllActuators(), this.getActuator(), "getAllActuators", 0, -1, IS_UNIQUE,
+				IS_ORDERED);
 
 		initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getModel_Packages(), this.getPackage(), null, "packages", null, 0, -1, Model.class,

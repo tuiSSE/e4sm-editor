@@ -133,6 +133,16 @@
     </eOperations>
     <eOperations name="getMaxFlow" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
     <eOperations name="getModel" eType="#//Model"/>
+    <eOperations name="getAllSensors" upperBound="-1" eType="#//Sensor">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Returns all components directly contained by this package, including those inside sectors."/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="getAllActuators" upperBound="-1" eType="#//Actuator">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Returns all components directly contained by this package, including those inside sectors."/>
+      </eAnnotations>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
         eType="#//Component" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

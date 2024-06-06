@@ -20,6 +20,7 @@ package e4sm.de.metamodel.e4sm.core;
  *
  * @see e4sm.de.metamodel.e4sm.core.CorePackage#getNamedElement()
  * @model abstract="true"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='C1'"
  * @generated
  */
 public interface NamedElement extends Element {
