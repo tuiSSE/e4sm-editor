@@ -33,6 +33,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link e4sm.de.metamodel.e4sm.Component#getExecution <em>Execution</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Component#getFiringStrategy <em>Firing Strategy</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.Component#getDatastores <em>Datastores</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.Component#getOutputPins <em>Output Pins</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.Component#getInputPins <em>Input Pins</em>}</li>
  * </ul>
  *
  * @see e4sm.de.metamodel.e4sm.e4smPackage#getComponent()
@@ -183,6 +185,30 @@ public interface Component extends NamedElement, ParameterizableElement, Delayab
 	 * @generated
 	 */
 	EList<DataStore> getDatastores();
+
+	/**
+	 * Returns the value of the '<em><b>Output Pins</b></em>' reference list.
+	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.OutputPin}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Output Pins</em>' reference list.
+	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getComponent_OutputPins()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	EList<OutputPin> getOutputPins();
+
+	/**
+	 * Returns the value of the '<em><b>Input Pins</b></em>' reference list.
+	 * The list contents are of type {@link e4sm.de.metamodel.e4sm.InputPin}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Input Pins</em>' reference list.
+	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getComponent_InputPins()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	EList<InputPin> getInputPins();
 
 	/**
 	 * <!-- begin-user-doc -->

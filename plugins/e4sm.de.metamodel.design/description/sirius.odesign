@@ -1026,6 +1026,30 @@
                 </firstModelOperations>
               </initialOperation>
             </itemDescriptions>
+            <itemDescriptions xsi:type="tool_1:OperationAction" name="operation_export_pipeline" label="Export Pipeline Info" precondition="aql:self.oclIsKindOf(e4sm::SoftwareComponent)" icon="/org.eclipse.sirius.diagram.ui/icons/full/obj16/Note.gif">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                  <subModelOperations xsi:type="tool_1:Let" variableName="info" valueExpression="aql:self.oclAsType(e4sm::SoftwareComponent).pipelineInformation()"/>
+                  <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Export">
+                    <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                      <initialOperation/>
+                    </buttons>
+                    <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                      <initialOperation/>
+                    </buttons>
+                    <page name="Default Page" labelExpression="Pipeline Info" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@toolSections.2/@ownedTools[name='start_simulation_group']/@itemDescriptions.4/@initialOperation/@firstModelOperations/@subModelOperations.1/@groups.0"/>
+                    <groups name="Default Group" labelExpression="Group" semanticCandidateExpression="var:self">
+                      <controls xsi:type="properties:TextAreaDescription" name="text_area_pipeline_info_output" label="Pipeline Information" helpExpression="You can use these information to design a pipeline in StreamVizzard" lineCount="40" valueExpression="var:info">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
+                        </initialOperation>
+                      </controls>
+                    </groups>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </itemDescriptions>
           </ownedTools>
           <ownedTools xsi:type="tool:DeleteElementDescription" documentation="Prevent deleting the last output pin from a sensor" name="action_delete_output_pin" label="Delete Output Pin" precondition="aql: not self.eContainer().oclIsTypeOf(e4sm::Sensor) or (self.eContainer().oclIsTypeOf(e4sm::Sensor) and self.eContainer().oclAsType(e4sm::Sensor).pins->filter(e4sm::OutputPin)->size()>1)">
             <element name="element"/>

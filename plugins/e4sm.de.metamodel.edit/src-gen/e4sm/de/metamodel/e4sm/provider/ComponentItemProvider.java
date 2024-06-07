@@ -58,6 +58,8 @@ public class ComponentItemProvider extends NamedElementItemProvider {
 			addMainResponsiblePropertyDescriptor(object);
 			addSpecifiedInPackagePropertyDescriptor(object);
 			addFiringStrategyPropertyDescriptor(object);
+			addOutputPinsPropertyDescriptor(object);
+			addInputPinsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -137,6 +139,36 @@ public class ComponentItemProvider extends NamedElementItemProvider {
 								"_UI_Component_type"),
 						e4smPackage.Literals.COMPONENT__FIRING_STRATEGY, true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Output Pins feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOutputPinsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Component_outputPins_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Component_outputPins_feature",
+								"_UI_Component_type"),
+						e4smPackage.Literals.COMPONENT__OUTPUT_PINS, false, false, false, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Input Pins feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addInputPinsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Component_inputPins_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Component_inputPins_feature",
+								"_UI_Component_type"),
+						e4smPackage.Literals.COMPONENT__INPUT_PINS, false, false, false, null, null, null));
 	}
 
 	/**

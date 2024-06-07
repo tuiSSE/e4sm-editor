@@ -673,6 +673,26 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getComponent_OutputPins() {
+		return (EReference) componentEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getComponent_InputPins() {
+		return (EReference) componentEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getComponent__ComputeMainResponsible() {
 		return componentEClass.getEOperations().get(0);
 	}
@@ -2425,6 +2445,8 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		createEReference(componentEClass, COMPONENT__EXECUTION);
 		createEAttribute(componentEClass, COMPONENT__FIRING_STRATEGY);
 		createEReference(componentEClass, COMPONENT__DATASTORES);
+		createEReference(componentEClass, COMPONENT__OUTPUT_PINS);
+		createEReference(componentEClass, COMPONENT__INPUT_PINS);
 		createEOperation(componentEClass, COMPONENT___COMPUTE_MAIN_RESPONSIBLE);
 		createEOperation(componentEClass, COMPONENT___GET_MODEL);
 
@@ -2781,6 +2803,12 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		initEReference(getComponent_Datastores(), this.getDataStore(), null, "datastores", null, 0, -1, Component.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComponent_OutputPins(), this.getOutputPin(), null, "outputPins", null, 0, -1, Component.class,
+				IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+				IS_DERIVED, IS_ORDERED);
+		initEReference(getComponent_InputPins(), this.getInputPin(), null, "inputPins", null, 0, -1, Component.class,
+				IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+				IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getComponent__ComputeMainResponsible(), this.getPerson(), "computeMainResponsible", 0, 1,
 				IS_UNIQUE, IS_ORDERED);

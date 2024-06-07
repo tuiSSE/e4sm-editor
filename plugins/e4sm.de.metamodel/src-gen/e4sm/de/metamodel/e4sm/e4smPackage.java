@@ -171,13 +171,31 @@ public interface e4smPackage extends EPackage {
 	int COMPONENT__DATASTORES = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 9;
 
 	/**
+	 * The feature id for the '<em><b>Output Pins</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT__OUTPUT_PINS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 10;
+
+	/**
+	 * The feature id for the '<em><b>Input Pins</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT__INPUT_PINS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 11;
+
+	/**
 	 * The number of structural features of the '<em>Component</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 10;
+	int COMPONENT_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 12;
 
 	/**
 	 * The operation id for the '<em>Compute Main Responsible</em>' operation.
@@ -314,6 +332,24 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOFTWARE_COMPONENT__DATASTORES = COMPONENT__DATASTORES;
+
+	/**
+	 * The feature id for the '<em><b>Output Pins</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOFTWARE_COMPONENT__OUTPUT_PINS = COMPONENT__OUTPUT_PINS;
+
+	/**
+	 * The feature id for the '<em><b>Input Pins</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOFTWARE_COMPONENT__INPUT_PINS = COMPONENT__INPUT_PINS;
 
 	/**
 	 * The feature id for the '<em><b>Synchronous</b></em>' attribute.
@@ -486,6 +522,24 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int MACHINE_LEARNING_COMPONENT__DATASTORES = SOFTWARE_COMPONENT__DATASTORES;
+
+	/**
+	 * The feature id for the '<em><b>Output Pins</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MACHINE_LEARNING_COMPONENT__OUTPUT_PINS = SOFTWARE_COMPONENT__OUTPUT_PINS;
+
+	/**
+	 * The feature id for the '<em><b>Input Pins</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MACHINE_LEARNING_COMPONENT__INPUT_PINS = SOFTWARE_COMPONENT__INPUT_PINS;
 
 	/**
 	 * The feature id for the '<em><b>Synchronous</b></em>' attribute.
@@ -998,6 +1052,24 @@ public interface e4smPackage extends EPackage {
 	int PHYSICAL_COMPONENT__DATASTORES = COMPONENT__DATASTORES;
 
 	/**
+	 * The feature id for the '<em><b>Output Pins</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PHYSICAL_COMPONENT__OUTPUT_PINS = COMPONENT__OUTPUT_PINS;
+
+	/**
+	 * The feature id for the '<em><b>Input Pins</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PHYSICAL_COMPONENT__INPUT_PINS = COMPONENT__INPUT_PINS;
+
+	/**
 	 * The number of structural features of the '<em>Physical Component</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1223,6 +1295,24 @@ public interface e4smPackage extends EPackage {
 	int HEURISTIC__DATASTORES = SOFTWARE_COMPONENT__DATASTORES;
 
 	/**
+	 * The feature id for the '<em><b>Output Pins</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HEURISTIC__OUTPUT_PINS = SOFTWARE_COMPONENT__OUTPUT_PINS;
+
+	/**
+	 * The feature id for the '<em><b>Input Pins</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HEURISTIC__INPUT_PINS = SOFTWARE_COMPONENT__INPUT_PINS;
+
+	/**
 	 * The feature id for the '<em><b>Synchronous</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1385,6 +1475,24 @@ public interface e4smPackage extends EPackage {
 	int FUNCTION__DATASTORES = SOFTWARE_COMPONENT__DATASTORES;
 
 	/**
+	 * The feature id for the '<em><b>Output Pins</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION__OUTPUT_PINS = SOFTWARE_COMPONENT__OUTPUT_PINS;
+
+	/**
+	 * The feature id for the '<em><b>Input Pins</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION__INPUT_PINS = SOFTWARE_COMPONENT__INPUT_PINS;
+
+	/**
 	 * The feature id for the '<em><b>Synchronous</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1545,6 +1653,24 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXTERNAL_DEPENDENCY__DATASTORES = SOFTWARE_COMPONENT__DATASTORES;
+
+	/**
+	 * The feature id for the '<em><b>Output Pins</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_DEPENDENCY__OUTPUT_PINS = SOFTWARE_COMPONENT__OUTPUT_PINS;
+
+	/**
+	 * The feature id for the '<em><b>Input Pins</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_DEPENDENCY__INPUT_PINS = SOFTWARE_COMPONENT__INPUT_PINS;
 
 	/**
 	 * The feature id for the '<em><b>Synchronous</b></em>' attribute.
@@ -2213,6 +2339,24 @@ public interface e4smPackage extends EPackage {
 	int SENSOR__DATASTORES = PHYSICAL_COMPONENT__DATASTORES;
 
 	/**
+	 * The feature id for the '<em><b>Output Pins</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENSOR__OUTPUT_PINS = PHYSICAL_COMPONENT__OUTPUT_PINS;
+
+	/**
+	 * The feature id for the '<em><b>Input Pins</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENSOR__INPUT_PINS = PHYSICAL_COMPONENT__INPUT_PINS;
+
+	/**
 	 * The feature id for the '<em><b>Classification Classes</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2355,6 +2499,24 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTUATOR__DATASTORES = PHYSICAL_COMPONENT__DATASTORES;
+
+	/**
+	 * The feature id for the '<em><b>Output Pins</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTUATOR__OUTPUT_PINS = PHYSICAL_COMPONENT__OUTPUT_PINS;
+
+	/**
+	 * The feature id for the '<em><b>Input Pins</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTUATOR__INPUT_PINS = PHYSICAL_COMPONENT__INPUT_PINS;
 
 	/**
 	 * The number of structural features of the '<em>Actuator</em>' class.
@@ -3497,6 +3659,24 @@ public interface e4smPackage extends EPackage {
 	int CLASSIFICATION_COMPONENT__DATASTORES = MACHINE_LEARNING_COMPONENT__DATASTORES;
 
 	/**
+	 * The feature id for the '<em><b>Output Pins</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSIFICATION_COMPONENT__OUTPUT_PINS = MACHINE_LEARNING_COMPONENT__OUTPUT_PINS;
+
+	/**
+	 * The feature id for the '<em><b>Input Pins</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSIFICATION_COMPONENT__INPUT_PINS = MACHINE_LEARNING_COMPONENT__INPUT_PINS;
+
+	/**
 	 * The feature id for the '<em><b>Synchronous</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4331,6 +4511,24 @@ public interface e4smPackage extends EPackage {
 	int BINARY_CLASSIFICATION_COMPONENT__DATASTORES = CLASSIFICATION_COMPONENT__DATASTORES;
 
 	/**
+	 * The feature id for the '<em><b>Output Pins</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_CLASSIFICATION_COMPONENT__OUTPUT_PINS = CLASSIFICATION_COMPONENT__OUTPUT_PINS;
+
+	/**
+	 * The feature id for the '<em><b>Input Pins</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_CLASSIFICATION_COMPONENT__INPUT_PINS = CLASSIFICATION_COMPONENT__INPUT_PINS;
+
+	/**
 	 * The feature id for the '<em><b>Synchronous</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4500,6 +4698,24 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int MULTICLASS_CLASSIFICATION_COMPONENT__DATASTORES = CLASSIFICATION_COMPONENT__DATASTORES;
+
+	/**
+	 * The feature id for the '<em><b>Output Pins</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTICLASS_CLASSIFICATION_COMPONENT__OUTPUT_PINS = CLASSIFICATION_COMPONENT__OUTPUT_PINS;
+
+	/**
+	 * The feature id for the '<em><b>Input Pins</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTICLASS_CLASSIFICATION_COMPONENT__INPUT_PINS = CLASSIFICATION_COMPONENT__INPUT_PINS;
 
 	/**
 	 * The feature id for the '<em><b>Synchronous</b></em>' attribute.
@@ -5104,6 +5320,28 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getComponent_Datastores();
+
+	/**
+	 * Returns the meta object for the reference list '{@link e4sm.de.metamodel.e4sm.Component#getOutputPins <em>Output Pins</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Output Pins</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Component#getOutputPins()
+	 * @see #getComponent()
+	 * @generated
+	 */
+	EReference getComponent_OutputPins();
+
+	/**
+	 * Returns the meta object for the reference list '{@link e4sm.de.metamodel.e4sm.Component#getInputPins <em>Input Pins</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Input Pins</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Component#getInputPins()
+	 * @see #getComponent()
+	 * @generated
+	 */
+	EReference getComponent_InputPins();
 
 	/**
 	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.Component#computeMainResponsible() <em>Compute Main Responsible</em>}' operation.
@@ -6993,6 +7231,22 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EReference COMPONENT__DATASTORES = eINSTANCE.getComponent_Datastores();
+
+		/**
+		 * The meta object literal for the '<em><b>Output Pins</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPONENT__OUTPUT_PINS = eINSTANCE.getComponent_OutputPins();
+
+		/**
+		 * The meta object literal for the '<em><b>Input Pins</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPONENT__INPUT_PINS = eINSTANCE.getComponent_InputPins();
 
 		/**
 		 * The meta object literal for the '<em><b>Compute Main Responsible</b></em>' operation.

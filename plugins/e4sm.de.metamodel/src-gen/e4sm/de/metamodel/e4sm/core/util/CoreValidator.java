@@ -211,12 +211,12 @@ public class CoreValidator extends EObjectValidator {
 	 */
 	public boolean validateNamedElement_C1(NamedElement namedElement, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
-		if (namedElement.getName().equals("")) {
+		if ("".equals(namedElement.getName())) {
 			if (diagnostics != null) {
-				diagnostics.add(
-						createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic",
-								new Object[] { "C1: the name shall not be an empty string", getObjectLabel(namedElement, context) },
-								new Object[] { namedElement }, context));
+				diagnostics.add(createDiagnostic(
+						Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic", new Object[] {
+								"C1: the name shall not be an empty string", getObjectLabel(namedElement, context) },
+						new Object[] { namedElement }, context));
 			}
 			return false;
 		}
