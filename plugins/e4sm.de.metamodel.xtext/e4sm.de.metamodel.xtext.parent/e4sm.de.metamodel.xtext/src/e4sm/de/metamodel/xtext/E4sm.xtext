@@ -514,7 +514,7 @@ Component_Impl returns Component:
 Connector_Impl returns Connector:
 	'connector'
 	Name
-	source=[Pin|EString] '->' target=[Pin|EString]
+	(source=[Pin|EString])? '->' (target=[Pin|EString])?
 	('{'
 	Documentation?
 	('takes' timeFunction=ComplexTimefunction)?
@@ -801,7 +801,7 @@ SetValue returns SetValue:
 PhysicalConnector returns PhysicalConnector:
 	'physicalConnector'
 	Name
-	source=[Pin|EString] '->' target=[Pin|EString]
+	(source=[Pin|EString])? '->' (target=[Pin|EString])?
 	('{'
 	Documentation?
 	('minSpeed' minSpeed=Connectionspeed)?
@@ -813,7 +813,7 @@ PhysicalConnector returns PhysicalConnector:
 LogicalConnector returns LogicalConnector:
 	'logicalConnector'
 	Name
-	source=[Pin|EString] '->' target=[Pin|EString]
+	(source=[Pin|EString])? '->' (target=[Pin|EString])?
 	('{'
 	Documentation?
 	('takes' timeFunction=ComplexTimefunction)?

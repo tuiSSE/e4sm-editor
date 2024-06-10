@@ -1853,7 +1853,7 @@ Component_Impl returns Component:
 Connector_Impl returns Connector:
 	'connector'
 	Name
-	source=[Pin|EString] '->' target=[Pin|EString]
+	(source=[Pin|EString])? '->' (target=[Pin|EString])?
 	('{'
 	Documentation?
 	('takes' timeFunction=ComplexTimefunction)?
@@ -2632,7 +2632,7 @@ SetValue returns SetValue:
 PhysicalConnector returns PhysicalConnector:
 	'physicalConnector'
 	Name
-	source=[Pin|EString] '->' target=[Pin|EString]
+	(source=[Pin|EString])? '->' (target=[Pin|EString])?
 	('{'
 	Documentation?
 	('minSpeed' minSpeed=Connectionspeed)?
@@ -2662,7 +2662,7 @@ PhysicalConnector returns PhysicalConnector:
 LogicalConnector returns LogicalConnector:
 	'logicalConnector'
 	Name
-	source=[Pin|EString] '->' target=[Pin|EString]
+	(source=[Pin|EString])? '->' (target=[Pin|EString])?
 	('{'
 	Documentation?
 	('takes' timeFunction=ComplexTimefunction)?
@@ -3522,11 +3522,11 @@ ClassAttribute returns core::ClassAttribute:
 
 **Actuator** ::=    `actuator`   _Name_   `{`   _Documentation_?   (`firingStrategy`   _ComponentFiringStrategy_)?   (`takes`   _ComplexTimefunction_)?   (_Pin_   (`,`   _Pin_)*)?   (`mainResponsible`   _EString_)?   (`specifiedInPackage`   _EString_)?   _Parameters_?   (`components`   `{`   _Component_   (`,`   _Component_)*   `}`)?   (`datastores`   `{`   _DataStore_   (`,`   _DataStore_)*   `}`)?   (`runs`   `{`   _Execution_   `}`)?   `}`;
 
-**Connector_Impl** ::= `connector`   _Name_   _EString_   `->`   _EString_   (`{`   _Documentation_?   (`takes`   _ComplexTimefunction_)?   _Parameters_?   `}`)?;
+**Connector_Impl** ::= `connector`   _Name_   _EString_?   `->`   _EString_?   (`{`   _Documentation_?   (`takes`   _ComplexTimefunction_)?   _Parameters_?   `}`)?;
 
-**PhysicalConnector** ::= `physicalConnector`   _Name_   _EString_   `->`   _EString_   (`{`   _Documentation_?   (`minSpeed`   _Connectionspeed_)?   (`maxSpeed`   _Connectionspeed_)?   (`takes`   _ComplexTimefunction_)?   _Parameters_?   `}`)?;
+**PhysicalConnector** ::= `physicalConnector`   _Name_   _EString_?   `->`   _EString_?   (`{`   _Documentation_?   (`minSpeed`   _Connectionspeed_)?   (`maxSpeed`   _Connectionspeed_)?   (`takes`   _ComplexTimefunction_)?   _Parameters_?   `}`)?;
 
-**LogicalConnector** ::= `logicalConnector`   _Name_   _EString_   `->`   _EString_   (`{`   _Documentation_?   (`takes`   _ComplexTimefunction_)?   _Parameters_?   `}`)?;
+**LogicalConnector** ::= `logicalConnector`   _Name_   _EString_?   `->`   _EString_?   (`{`   _Documentation_?   (`takes`   _ComplexTimefunction_)?   _Parameters_?   `}`)?;
 
 **DOUBLE** ::= `-`?   _INT_?   `.`   _INT_   ((`E` | `e`)   `-`?   _INT_)?;
 
