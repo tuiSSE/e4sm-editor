@@ -1050,6 +1050,12 @@
                 </firstModelOperations>
               </initialOperation>
             </itemDescriptions>
+            <itemDescriptions xsi:type="tool_1:OperationAction" name="operation_delete_specification" label="Delete Component Specification" precondition="aql:self.oclAsType(e4sm::Component).specifiedInPackage" icon="/org.eclipse.sirius.ui/icons/full/others/delete.gif">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.oclAsType(e4sm::Component).deletePackageSpecification()"/>
+              </initialOperation>
+            </itemDescriptions>
           </ownedTools>
           <ownedTools xsi:type="tool:DeleteElementDescription" documentation="Prevent deleting the last output pin from a sensor" name="action_delete_output_pin" label="Delete Output Pin" precondition="aql: not self.eContainer().oclIsTypeOf(e4sm::Sensor) or (self.eContainer().oclIsTypeOf(e4sm::Sensor) and self.eContainer().oclAsType(e4sm::Sensor).pins->filter(e4sm::OutputPin)->size()>1)">
             <element name="element"/>

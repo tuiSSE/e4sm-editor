@@ -334,4 +334,15 @@ public class Services {
 		}
 		return res.toString();
 	}
+	
+	/**
+	 * Removes the packageSpecification from the model and the component.
+	 * @param c A component with a specifiedInPackage value set
+	 */
+	public void deletePackageSpecification(Component c) {
+		var p = c.getSpecifiedInPackage();
+		if(p == null)
+			return;
+		EcoreUtil.delete(p);
+	}
 }
