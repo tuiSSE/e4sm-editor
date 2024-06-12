@@ -29,7 +29,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.acceleo.engine;bundle-version="3.7.11",
  e4sm.de.timenet.runner;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-17
+Bundle-RequiredExecutionEnvironment: JavaSE-21
 Bundle-Vendor: %providerName
 Automatic-Module-Name: e4sm.de.metamodel.design
 Import-Package: com.google.common.graph;version="30.1.0"

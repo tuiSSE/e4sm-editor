@@ -3,7 +3,9 @@ package e4sm.de.metamodel.design;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.EcoreUtil.Copier;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
@@ -36,11 +38,10 @@ import e4sm.de.metamodel.e4sm.SoftwareComponent;
 import e4sm.de.metamodel.e4sm.e4smFactory;
 
 public class ElementTransformationServices {
-	
+
 	public ElementTransformationServices() {
-		
+
 	}
-	
 
 	/***
 	 * This method returns the EditPart corresponding to a DDiagramElement Source:
@@ -70,7 +71,8 @@ public class ElementTransformationServices {
 	}
 
 	/**
-	 * Places the new element at the same position of the old one 
+	 * Places the new element at the same position of the old one
+	 * 
 	 * @param existingNode
 	 */
 	private static void restorePositionAndSize(DNodeContainer existingNode) {
@@ -84,77 +86,66 @@ public class ElementTransformationServices {
 
 	/**
 	 * Transforms the given (software/physical) component to a Component
+	 * 
 	 * @param c
 	 * @param containingViews
 	 */
 	public static void transformToComponent(Component c, List<DSemanticDecorator> containingViews) {
 		final Component newComponent = e4smFactory.eINSTANCE.createComponent();
-		// ArrayList<EObject> references = new ArrayList<EObject>( new
-		// EObjectQuery(c).getInverseReferences(ViewpointPackage.Literals.DSEMANTIC_DECORATOR__TARGET));
 
 		final boolean isPhysicalComponent = c instanceof PhysicalComponent;
 		final boolean hasPins = c.getPins().size() > 0;
+
 		NamedElement oldComponentContainer = (NamedElement) c.eContainer();
-		if (oldComponentContainer instanceof Component) {
-			// This component is contained by another component
-			((Component) oldComponentContainer).getComponents().add(newComponent);
-		} else if (isPhysicalComponent && oldComponentContainer instanceof Sector) {
-			// This component is contained by a sector. A sector can only contain Physical
-			// Components.
-			final Package container = Utils.getContainingPackage(oldComponentContainer);
-			container.getComponents().add(newComponent);
-		} else if (oldComponentContainer instanceof Package) {
-			// This component is contained by a package
-			((Package) oldComponentContainer).getComponents().add(newComponent);
+		switch (oldComponentContainer) {
+		case Component comp -> comp.getComponents().add(newComponent);
+		case Sector sect -> {
+			if (isPhysicalComponent) {
+				final Package container = Utils.getContainingPackage(oldComponentContainer);
+				container.getComponents().add(newComponent);
+			} else {
+				System.err.println("Component is inside a sector but is not a physical component");
+				return;
+			}
 		}
-		System.out.println("Co");
+		case Package pack -> pack.getComponents().add(newComponent);
+		case null -> {
+			System.err.println("Component has no parent");
+			return;
+		}
+		default -> throw new IllegalArgumentException("Unexpected value: " + oldComponentContainer);
+		}
 
 		// Copy all attributes
 		newComponent.setName(c.getName());
 		if (hasPins) {
-			newComponent.getPins().addAll(c.getPins());
+			System.out.println("Has pins");
+			final var newCompPins = newComponent.getPins();
+			final var oldPins = c.getPins();
+			for (int i = oldPins.size() - 1; i > -1; i--) {
+				var p = oldPins.get(i);
+				newCompPins.add(p);
+			}
 		}
+
+		System.out.println("Pin done");
 		newComponent.setSpecifiedInPackage(c.getSpecifiedInPackage());
 		newComponent.setMainResponsible(c.getMainResponsible());
-		newComponent.getComponents().addAll(c.getComponents());
+		newComponent.getComponents().addAll(EcoreUtil.copyAll(c.getComponents()));
+
+		System.out.println("Copy done");
 
 		// Give to the new component the same size/position as the old one.
 		if (containingViews != null && containingViews.size() > 0) {
+			System.out.println("Layouting");
 			DNodeContainer existingNode = (DNodeContainer) containingViews.get(0);
 			restorePositionAndSize(existingNode);
-
-			// TODO: place all contained elements at the same position:
-//			existingNode.getElements().stream().forEach(e -> {
-//				IGraphicalEditPart editPart = getEditPart(e);
-//				if (editPart instanceof ShapeEditPart) {
-//					ShapeEditPart part = (ShapeEditPart) editPart;
-//					SiriusLayoutDataManager.INSTANCE
-//							.addData(new RootLayoutData(e.eContainer(), part.getLocation(), part.getSize()));
-//				}
-//
-//			});
-
-			// TODO: Place bordered nodes at the same position:
-			// if(hasPins) {
-//			existingNode.getOwnedBorderedNodes().stream().forEach(bn -> {
-//				IGraphicalEditPart editPart2 = getEditPart(bn);
-//				System.out.println(editPart2.toString());
-//				if (editPart2 instanceof ShapeEditPart) {
-//					System.out.println("Is Shape Edit Part");
-//					ShapeEditPart part = (ShapeEditPart) editPart2;
-//					System.out.println(part.toString());
-//					SiriusLayoutDataManager.INSTANCE
-//							.addData(new RootLayoutData(bn, part.getLocation(), part.getSize()));
-//				}
-//			});
-			// }
 		}
 
 		System.out.println("Del");
 		// Delete the old component
 		try {
-			// Delete does not work here, why?
-			EcoreUtil.remove(c);
+			EcoreUtil.delete(c);
 			System.out.println("Element transformed to component");
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
@@ -166,7 +157,7 @@ public class ElementTransformationServices {
 	/*
 	 * Transforms the given specific software component to a SoftwareComponent
 	 */
-	public void transformToSoftwareComponent(SoftwareComponent c,  List<DSemanticDecorator> containingViews) {
+	public void transformToSoftwareComponent(SoftwareComponent c, List<DSemanticDecorator> containingViews) {
 		final SoftwareComponent newComponent = e4smFactory.eINSTANCE.createSoftwareComponent();
 		NamedElement oldComponentContainer = (NamedElement) c.eContainer();
 		if (oldComponentContainer instanceof Component) {
@@ -188,8 +179,8 @@ public class ElementTransformationServices {
 		if (containingViews != null && containingViews.size() > 0) {
 			DNodeContainer existingNode = (DNodeContainer) containingViews.get(0);
 			restorePositionAndSize(existingNode);
-			
-			//TODO, see "transformToComponent"
+
+			// TODO, see "transformToComponent"
 		}
 
 		// Delete the old component
@@ -198,9 +189,11 @@ public class ElementTransformationServices {
 	}
 
 	/*
-	 * Transforms the given specific machine learning component to a MachineLearningComponent
+	 * Transforms the given specific machine learning component to a
+	 * MachineLearningComponent
 	 */
-	public void transformToMachineLearningComponent(MachineLearningComponent c,  List<DSemanticDecorator> containingViews) {
+	public void transformToMachineLearningComponent(MachineLearningComponent c,
+			List<DSemanticDecorator> containingViews) {
 		final MachineLearningComponent newComponent = e4smFactory.eINSTANCE.createMachineLearningComponent();
 		NamedElement oldComponentContainer = (NamedElement) c.eContainer();
 		if (oldComponentContainer instanceof Component) {
@@ -222,8 +215,8 @@ public class ElementTransformationServices {
 		if (containingViews != null && containingViews.size() > 0) {
 			DNodeContainer existingNode = (DNodeContainer) containingViews.get(0);
 			restorePositionAndSize(existingNode);
-			
-			//TODO, see "transformToComponent"
+
+			// TODO, see "transformToComponent"
 		}
 
 		// Delete the old component
@@ -231,7 +224,6 @@ public class ElementTransformationServices {
 		System.out.println("Binary Classification Component transformed to Machine Learning Component");
 	}
 
-	
 	/*
 	 * Transforms the given Sensor/Actuator to a PhysicalComponent
 	 */
@@ -499,62 +491,63 @@ public class ElementTransformationServices {
 		System.out.println("SoftwareComponent transformed to ExternalDependency");
 	}
 
+	/*
+	 * Transforms the given MachineLearningComponent to a Binary Classification
+	 * Component
+	 */
+	public void transformDownToBinaryClassificationComponent(MachineLearningComponent c) {
+		final BinaryClassificationComponent newComponent = e4smFactory.eINSTANCE.createBinaryClassificationComponent();
+		NamedElement oldComponentContainer = (NamedElement) c.eContainer();
+		if (oldComponentContainer instanceof Component) {
+			// This component is contained by another component
+			((Component) oldComponentContainer).getComponents().add(newComponent);
+		} else if (oldComponentContainer instanceof Package) {
+			// This component is contained by a package
+			((Package) oldComponentContainer).getComponents().add(newComponent);
+		}
 
+		// Copy all attributes
+		newComponent.setName(c.getName());
+		newComponent.getPins().addAll(c.getPins());
+		newComponent.setSpecifiedInPackage(c.getSpecifiedInPackage());
+		newComponent.setMainResponsible(c.getMainResponsible());
+		newComponent.getComponents().addAll(c.getComponents());
 
-/*
- * Transforms the given MachineLearningComponent to a Binary Classification Component
- */
-public void transformDownToBinaryClassificationComponent(MachineLearningComponent c) {
-	final BinaryClassificationComponent newComponent = e4smFactory.eINSTANCE.createBinaryClassificationComponent();
-	NamedElement oldComponentContainer = (NamedElement) c.eContainer();
-	if (oldComponentContainer instanceof Component) {
-		// This component is contained by another component
-		((Component) oldComponentContainer).getComponents().add(newComponent);
-	} else if (oldComponentContainer instanceof Package) {
-		// This component is contained by a package
-		((Package) oldComponentContainer).getComponents().add(newComponent);
+		// TODO: give to the new component the same size/position as the old one.
+
+		// Delete the old component
+		EcoreUtil.remove(c);
+		System.out.println("MachineLearningComponent transformed to BinaryClassificationComponent");
 	}
 
-	// Copy all attributes
-	newComponent.setName(c.getName());
-	newComponent.getPins().addAll(c.getPins());
-	newComponent.setSpecifiedInPackage(c.getSpecifiedInPackage());
-	newComponent.setMainResponsible(c.getMainResponsible());
-	newComponent.getComponents().addAll(c.getComponents());
+	/*
+	 * Transforms the given MachineLearningComponent to a Multiclass Classification
+	 * Component
+	 */
+	public void transformDownToMulticlassClassificationComponent(MachineLearningComponent c) {
+		final MulticlassClassificationComponent newComponent = e4smFactory.eINSTANCE
+				.createMulticlassClassificationComponent();
+		NamedElement oldComponentContainer = (NamedElement) c.eContainer();
+		if (oldComponentContainer instanceof Component) {
+			// This component is contained by another component
+			((Component) oldComponentContainer).getComponents().add(newComponent);
+		} else if (oldComponentContainer instanceof Package) {
+			// This component is contained by a package
+			((Package) oldComponentContainer).getComponents().add(newComponent);
+		}
 
-	// TODO: give to the new component the same size/position as the old one.
+		// Copy all attributes
+		newComponent.setName(c.getName());
+		newComponent.getPins().addAll(c.getPins());
+		newComponent.setSpecifiedInPackage(c.getSpecifiedInPackage());
+		newComponent.setMainResponsible(c.getMainResponsible());
+		newComponent.getComponents().addAll(c.getComponents());
 
-	// Delete the old component
-	EcoreUtil.remove(c);
-	System.out.println("MachineLearningComponent transformed to BinaryClassificationComponent");
-	}
+		// TODO: give to the new component the same size/position as the old one.
 
-/*
- * Transforms the given MachineLearningComponent to a Multiclass Classification Component
- */
-public void transformDownToMulticlassClassificationComponent(MachineLearningComponent c) {
-	final MulticlassClassificationComponent newComponent = e4smFactory.eINSTANCE.createMulticlassClassificationComponent();
-	NamedElement oldComponentContainer = (NamedElement) c.eContainer();
-	if (oldComponentContainer instanceof Component) {
-		// This component is contained by another component
-		((Component) oldComponentContainer).getComponents().add(newComponent);
-	} else if (oldComponentContainer instanceof Package) {
-		// This component is contained by a package
-		((Package) oldComponentContainer).getComponents().add(newComponent);
-	}
-
-	// Copy all attributes
-	newComponent.setName(c.getName());
-	newComponent.getPins().addAll(c.getPins());
-	newComponent.setSpecifiedInPackage(c.getSpecifiedInPackage());
-	newComponent.setMainResponsible(c.getMainResponsible());
-	newComponent.getComponents().addAll(c.getComponents());
-
-	// TODO: give to the new component the same size/position as the old one.
-
-	// Delete the old component
-	EcoreUtil.remove(c);
-	System.out.println("MachineLearningComponent transformed to MulticlassClassificationComponent");
+		// Delete the old component
+		EcoreUtil.remove(c);
+		System.out.println("MachineLearningComponent transformed to MulticlassClassificationComponent");
 	}
 
 }

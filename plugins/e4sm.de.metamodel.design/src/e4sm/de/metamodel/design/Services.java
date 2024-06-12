@@ -32,9 +32,12 @@ import e4sm.de.metamodel.e4sm.LogicalConnector;
 import e4sm.de.metamodel.e4sm.Model;
 import e4sm.de.metamodel.e4sm.OutputPin;
 import e4sm.de.metamodel.e4sm.Package;
+import e4sm.de.metamodel.e4sm.PhysicalComponent;
+import e4sm.de.metamodel.e4sm.Sector;
 import e4sm.de.metamodel.e4sm.Sensor;
 import e4sm.de.metamodel.e4sm.SoftwareComponent;
 import e4sm.de.metamodel.e4sm.e4smFactory;
+import e4sm.de.metamodel.e4sm.core.NamedElement;
 import e4sm.de.metamodel.e4sm.utils.Utils;
 import e4sm.de.metamodel.xtext.E4smRuntimeModule;
 import e4sm.de.metamodel.xtext.E4smStandaloneSetup;
@@ -165,22 +168,18 @@ public class Services {
 		// component
 		try {
 			var targetSensors = copy.getAllSensors();
-			System.out.println("SENSORS: " + targetSensors);
-
-			var targetConnectors = copy.getConnectors();
-			System.out.println("TargetConnectors: " + targetConnectors);
+			System.out.println("Sensors: " + targetSensors);
 
 			var componentInputs = c.getInputPins();
 			System.out.println("ComponentInputs: " + componentInputs);
 
 			// for each Sensor try to match an inputPin
-			for (int i = targetSensors.size() - 1; i > -1; i--) {
+			for ( int j = 0; j < componentInputs.size(); j++) {
+				var currInput = componentInputs.get(j);
 
-				var currSens = targetSensors.get(i);
+				for (int i = targetSensors.size() - 1; i > -1; i--) {
 
-				for (int j = 0; j < componentInputs.size(); j++) {
-
-					var currInput = componentInputs.get(j);
+					var currSens = targetSensors.get(i);
 					if (currInput.getName() != null && currInput.getName().equals(currSens.getName())) {
 						var selectedConnector = currSens.getOutputPins().get(0).getOutgoingConnectors().get(0);
 						LogicalConnector lc = e4smFactory.eINSTANCE.createLogicalConnector();
@@ -190,12 +189,13 @@ public class Services {
 						lc.setTarget(selectedConnector.getTarget());
 						lc.setTimeFunction(selectedConnector.getTimeFunction());
 						copy.getConnectors().add(lc);
-						EcoreUtil.delete(currSens);
+						
 						EcoreUtil.delete(selectedConnector);
+						EcoreUtil.delete(currSens);
 						continue;
 					}
 					if (j == componentInputs.size() - 1) {
-						System.err.println("NO MATCH FOUND FOR SENSOR: " + currSens.getName());
+						System.err.println("NO MATCH FOUND FOR InputPin: " + currInput.getName());
 					}
 				}
 			}
@@ -203,6 +203,75 @@ public class Services {
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
 		}
+		
+		
+		try {
+			var targetActuators = copy.getAllActuators();
+			var componentOutputs = c.getOutputPins();
+			
+			for(int j = 0; j < componentOutputs.size(); j++ ) {
+				var currOut = componentOutputs.get(j);
+				
+				for(int i = targetActuators.size() -1 ; i > -1; i--) {
+					 var currAct = targetActuators.get(i);
+						if(currOut.getName() != null && currOut.getName().equals(currAct.getName())) {
+							final Component newComponent = e4smFactory.eINSTANCE.createSoftwareComponent();
+							final boolean hasPins = currAct.getPins().size() > 0;
+							Package oldComponentContainer = Utils.getContainingPackage(currAct);
+							// Copy all attributes
+							newComponent.setName(currAct.getName() + "_s");
+							try {
+								if (hasPins) {
+									System.out.println("Has pins");
+									final var newCompPins = newComponent.getPins();
+									final var oldPins = currAct.getPins();
+									for (int k = oldPins.size() - 1; k > -1; k--) {
+										var pin = oldPins.get(k);
+										newCompPins.add(pin);
+									}
+								}
+							} catch (Exception e) {
+								System.out.println(e.toString());
+							}
+							
+							newComponent.setSpecifiedInPackage(currAct.getSpecifiedInPackage());
+						
+
+							try {
+								EcoreUtil.delete(currAct);
+								System.out.println("Actuator transformed to Software component");
+							} catch (Exception e) {
+								System.err.println(e.getMessage());
+								System.err.println("Could not delete the original element.");
+							}
+							
+							// New output pin
+							var newOutpin = e4smFactory.eINSTANCE.createOutputPin();
+							newOutpin.setName(currAct.getName() + "_OUT");
+							newComponent.getPins().add(newOutpin);
+							
+							
+							// New connector
+							var newConnector = e4smFactory.eINSTANCE.createLogicalConnector();
+							newConnector.setName(currAct.getName() + "_conn");
+							newConnector.setSource(newOutpin);
+							newConnector.setTarget(currOut);
+
+							copy.getConnectors().add(newConnector);
+							oldComponentContainer.getComponents().add(newComponent);
+						}
+					
+					if (j == componentOutputs.size() - 1) {
+						System.err.println("NO MATCH FOUND FOR OutputPin: " + currOut.getName()); 
+					}
+				}
+			}
+			
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+		}
+		
+		
 		Utils.getContainingPackage(c).getPackages().add(copy);
 		c.setSpecifiedInPackage(copy);
 
