@@ -6,7 +6,22 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
+    "watch": "npm-watch build",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "watch":{
+    "build": {
+      "patterns": [
+        "modules"
+      ],
+      "ignore": [
+        "build",
+        "node_modules",
+        "modules/transformations.js"
+      ],
+      "quiet": true,
+      "extensions": "ts,js"
+    }
   },
   "files": [
     "cli.js",
@@ -26,7 +41,8 @@
     "command-line-args": "^5.2.1",
     "command-line-usage": "^7.0.1",
     "eslint": "^8.39.0",
-    "jsonschema": "^1.4.1"
+    "jsonschema": "^1.4.1",
+    "npm-watch": "^0.13.0"
   },
   "devDependencies": {
     "@types/node": "^20.12.13",

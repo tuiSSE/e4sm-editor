@@ -2,7 +2,7 @@
 ## Model Environment
 Model: "main"
 
-> Generated on: 06/06/2024 14:41:05<br>
+> Generated on: 06/06/2024 14:43:09<br>
 > Version: 1.0.0
 
 ### Sensors
@@ -17,7 +17,7 @@ Model: "main"
 - "Linearmotor 2" *no firing info*
 
 
-## Pipeline Component
+## Component Details
 Name: "Pipeline"
 
 ### Inputs

@@ -1,12 +1,9 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.generateE4SMInsideModel = exports.generateE4SM = void 0;
 const scalingFactor = 1000;
 const ID_SEPARATOR = "__";
 /**
  * Transforms the given object to an E4SM model
  */
-function generateE4SM(input) {
+export default function generateE4SM(input) {
     return `// Generated from '${input.name}', : '${new Date(input.timestamp * 1000).toLocaleString()}'
     model "${input.name}_model"{
         package "${input.name}" {
@@ -17,22 +14,6 @@ function generateE4SM(input) {
         }
     }`;
 }
-exports.generateE4SM = generateE4SM;
-/**
- * Transforms the given object to an E4SM model
- */
-function generateE4SMInsideModel(input, modelPath) {
-    let res = `// Generated from '${input.name}', : '${new Date(input.timestamp * 1000).toLocaleString()}'
-    model "${input.name}_model"{
-        package "${input.name}" {
-            ${input.duration ? 'simulationDuration :' + input.duration : ''}
-            ${generateSensors(input.sources)}
-            ${generateComponents(input.components)}
-            ${generateConnectors(input.connections)}
-        }
-    }`;
-}
-exports.generateE4SMInsideModel = generateE4SMInsideModel;
 /**
  * transforms an execution function element to its string representation
  */
@@ -51,46 +32,53 @@ function generateOutputFunction(outputFunction) {
         OUT_0 = ${outputFunction};
     }`;
 }
-/**
- *
- * @param {Component[]} components
- * @returns {string}
- */
 function generateComponents(components) {
-    var _a;
     let result = "// Components\n";
     for (let i = 0; i < components.length; i++) {
-        const c = components[i];
-        if (((_a = c.outputPins) === null || _a === void 0 ? void 0 : _a.length) > 0) {
-            result += `softwareComponent "${c.name}${ID_SEPARATOR}${c.id}" {
-            takes ${executionFunctionToString(c.executionFunction)}
-            ${generateInputPins(c.inputPins)},
-            ${generateOutputPins(c.outputPins, c.outputSize)}
-            ${generateParameters(c.parameters)}
-        }`;
-        }
-        else {
-            result += `actuator "${c.name}${ID_SEPARATOR}${c.id}" {
-            takes ${executionFunctionToString(c.executionFunction)}
-            ${generateInputPins(c.inputPins)}
-            ${generateParameters(c.parameters)}
-    }`;
-        }
+        result += generateComponent(components[i]);
         if ((i + 1) < components.length)
             result += ",\n";
     }
     return result;
 }
+function generateComponent(c) {
+    var _a, _b;
+    let collect = 1;
+    if (c.settings && c.settings.length > 0) {
+        let res = (_a = c.settings) === null || _a === void 0 ? void 0 : _a.filter(s => s.key === 'collect');
+        if ((res === null || res === void 0 ? void 0 : res.length) == 1) {
+            collect = res[0].value;
+        }
+    }
+    if (((_b = c.outputPins) === null || _b === void 0 ? void 0 : _b.length) > 0) {
+        return `softwareComponent "${c.name}${ID_SEPARATOR}${c.id}" {
+        takes ${executionFunctionToString(c.executionFunction)}
+        ${generateInputPins(c.inputPins, collect)},
+        ${generateOutputPins(c.outputPins, c.outputSize)}
+        ${generateParameters(c.parameters)}
+    }`;
+    }
+    else {
+        return `actuator "${c.name}${ID_SEPARATOR}${c.id}" {
+        takes ${executionFunctionToString(c.executionFunction)}
+        ${generateInputPins(c.inputPins)}
+        ${generateParameters(c.parameters)}
+    }`;
+    }
+}
 function generateSensors(sensors) {
     let result = "// Sensors\n";
     for (const s of sensors) {
-        result += `sensor "${s.name}${ID_SEPARATOR}${s.id}" {
-            takes ${executionFunctionToString(s.executionFunction)}
-            ${generateOutputPins(s.outputPins)}
-            ${generateParameters(s.parameters)}
-            }, `; // always print the comma, as it is followed by other components...
+        result += generateSensor(s) + ", "; // always print the comma, as it is followed by other components...
     }
     return result;
+}
+function generateSensor(s) {
+    return `sensor "${s.name}${ID_SEPARATOR}${s.id}" {
+        takes ${executionFunctionToString(s.executionFunction)}
+        ${generateOutputPins(s.outputPins)}
+        ${generateParameters(s.parameters)}
+    }`;
 }
 function generateParameters(parameters) {
     if (!parameters || parameters.length === 0)
@@ -106,10 +94,15 @@ function generateParameters(parameters) {
     result += "}";
     return result;
 }
-function generateInputPins(iPins) {
+function generateInputPins(iPins, collect = 1) {
     let result = "// Input Pins\n";
     for (const [i, p] of iPins.entries()) {
         result += `in "${p.id}"`;
+        if (collect > 1) {
+            result += ` {
+                    collects ${collect}
+                }`;
+        }
         if ((i + 1) < iPins.length) {
             result += ",\n";
         }
@@ -163,4 +156,3 @@ function probabilitiesSumToOne(results) {
     // this may not always work if a probability smaller than 1% is provided
     return results.map(r => r.probability * 100).reduce((a, b) => a + b) === 100;
 }
-exports.default = generateE4SM;

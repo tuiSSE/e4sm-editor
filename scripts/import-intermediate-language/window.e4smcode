@@ -1,0 +1,110 @@
+// Generated from 'StreamVizzard ILM', : '20.6.2023, 11:38:58'
+    model "StreamVizzard ILM_model"{
+        package "StreamVizzard ILM" {
+            simulationDuration :300000
+            // Sensors
+sensor "UDS__37" {
+        takes Det((400) * 1000)
+        // Output Pins
+out "OUT_0" {
+generates set {value: "0" prob: 1.000  size:0.000;}
+}
+
+        
+    }, sensor "UDS__41" {
+        takes Det((200) * 1000)
+        // Output Pins
+out "OUT_0" {
+generates set {value: "700000" prob: 0.500  size:0.000;value: "4000000" prob: 0.500  size:0.000;}
+}
+
+        
+    }, 
+            // Components
+softwareComponent "LstmPrediction__4" {
+        takes Det((1) * 1000)
+        // Input Pins
+in "IN_0" {
+                    collects 10
+                },
+        // Output Pins
+out "OUT_0" = $IN_0 * @collect
+        // Parameters
+parameters {par "predictSteps" := 50 }
+    },
+softwareComponent "ExtractROI__7" {
+        takes Norm((0.006032285017117705 + -6.781201941274815e-10 * $IN_0) * 1000, (0.001193392420076137)* 1000)
+        // Input Pins
+in "IN_0",
+        // Output Pins
+out "OUT_0" = 482.8276400077157 + 0.9999999483629665 * $IN_0
+        
+    },
+softwareComponent "CnnPrediction__9" {
+        takes Norm((27.87400063464002 + 0.0001 * $IN_0) * 1000, (0.16892351054531932)* 1000)
+        // Input Pins
+in "IN_0",
+        // Output Pins
+out "OUT_0" = 24.0 + 0.0001 * $IN_0
+        
+    },
+actuator "UDF__11" {
+        takes Det((1) * 1000)
+        // Input Pins
+in "IN_0",
+in "IN_1"
+        
+    },
+softwareComponent "ValidateLstmPrediction__38" {
+        takes Norm((0.0017123603773583813 + 0.0 * $IN_1) * 1000, (0.00005044317465720801)* 1000)
+        // Input Pins
+in "IN_1",
+        // Output Pins
+out "OUT_0" = 392.0 + 0.0 * $IN_1
+        
+    },
+softwareComponent "ValidateCnnPrediction__39" {
+        takes Norm((0.014221086357947995 + 0.0 * $IN_0) * 1000, (0.00038070837729095044)* 1000)
+        // Input Pins
+in "IN_0",
+        // Output Pins
+out "OUT_0" = 12656.0 + 0.0 * $IN_0
+        
+    },
+softwareComponent "GaussianBlur__42" {
+        takes Norm((1.1017621554670445 + 7.916466944501189e-07 * $IN_0 + -0.03116845294501236 * @kernelX + 0.002035822670046898 * @kernelY + -2.0334428585400133e-14 * $IN_0^2 + 1.1613192300186578e-08 * $IN_0 * @kernelX + 1.3440398426053636e-08 * $IN_0 * @kernelY + 0.0005753162245208584 * @kernelX^2 + 0.0008825892302221771 * @kernelX * @kernelY + -0.00017317477445640152 * @kernelY^2) * 1000, (0.5836206953538171)* 1000)
+        // Input Pins
+in "IN_0",
+        // Output Pins
+out "OUT_0" = 370.5852496176958 + 3.0000000348754723 * $IN_0
+        // Parameters
+parameters {par "kernelX" := 3 ,
+par "kernelY" := 3 }
+    }
+            // Connectors
+connector "LstmPrediction__4.OUT_0_to_ValidateLstmPrediction__38.IN_1" "LstmPrediction__4.OUT_0" -> "ValidateLstmPrediction__38.IN_1" {
+                    takes Det((1)*1000)
+            } ,
+connector "ExtractROI__7.OUT_0_to_GaussianBlur__42.IN_0" "ExtractROI__7.OUT_0" -> "GaussianBlur__42.IN_0" {
+                    takes Det((1)*1000)
+            } ,
+connector "CnnPrediction__9.OUT_0_to_ValidateCnnPrediction__39.IN_0" "CnnPrediction__9.OUT_0" -> "ValidateCnnPrediction__39.IN_0" {
+                    takes Det((1)*1000)
+            } ,
+connector "UDS__37.OUT_0_to_LstmPrediction__4.IN_0" "UDS__37.OUT_0" -> "LstmPrediction__4.IN_0" {
+                    takes Det((1)*1000)
+            } ,
+connector "ValidateLstmPrediction__38.OUT_0_to_UDF__11.IN_0" "ValidateLstmPrediction__38.OUT_0" -> "UDF__11.IN_0" {
+                    takes Det((1)*1000)
+            } ,
+connector "ValidateCnnPrediction__39.OUT_0_to_UDF__11.IN_1" "ValidateCnnPrediction__39.OUT_0" -> "UDF__11.IN_1" {
+                    takes Det((1)*1000)
+            } ,
+connector "UDS__41.OUT_0_to_ExtractROI__7.IN_0" "UDS__41.OUT_0" -> "ExtractROI__7.IN_0" {
+                    takes Det((1)*1000)
+            } ,
+connector "GaussianBlur__42.OUT_0_to_CnnPrediction__9.IN_0" "GaussianBlur__42.OUT_0" -> "CnnPrediction__9.IN_0" {
+                    takes Det((1)*1000)
+            } 
+        }
+    }
