@@ -944,13 +944,30 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 		var i:Integer := 1;
 		inputPins->forEach(ip) {
 			if (ip.requiresSimpleTransformation()) {
-				//OUT FCFS
-				//Create the place
-			    var inputPinPlace := ip.map simpleTransformOutputPin(self.name, i);
-			    pl += inputPinPlace;
 				
-				//Create an arc to connect the place to the simple component 
-					
+				var inputPinPlace : PlaceType = null;
+				if(ip.collect > 1 and isSimpleComponent){
+					//the following method creates all the necessary places, arcs and iTr's					
+					//and puts them in lists 
+					 var res := ip.map simpleTransformInputPinWithCollect(self.name, i);
+					 
+					 //add those lists to our already existing lists
+					 pl += res.pl;
+					 iTr += res.it;
+					 arcs += res.arcs; 
+					 
+					 //get the place of the inputPin, in order to make sure that the older code down below doesnt need rewriting
+					 inputPinPlace := res.pl->any(p : PlaceType | p.id = safeString(self.name + ip.getDirectionShort() + i.toString()) + placeSuffix);
+					 assert fatal(inputPinPlace != null)with log("InputPinPlace not found/set!");
+				}
+				else 
+				{//OUT FCFS
+				//Create the place
+				    inputPinPlace := ip.map simpleTransformOutputPin(self.name, i);
+				    pl += inputPinPlace;
+				};
+		
+				//Create an arc to connect the place to the simple component
 				if(isSimpleComponent) {
 					var arcToTransition = new ArcType(inputPinPlace.id + "_to_" + self.name);
 					arcToTransition.fromNode := inputPinPlace.id;
@@ -971,18 +988,20 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 					};
 					
 					// Add multiplicity, if needed
-					if(ip.collect > 1) {
+					//if(ip.collect > 1) {
 						// Add a multiplicity in the arc.
-						 arcToTransition.inscription.text := ip.collect.toString()  + "'" + arcToTransition.inscription.text
+						// arcToTransition.inscription.text := ip.collect.toString()  + "'" + arcToTransition.inscription.text;
 						 
  						// An alternative method would be to add a global guard: #placeName >= collectValue, but in that case then all collected
  						// tokens are transferred when the global guard is satisfied
 						// singleComponentReadyTransition.globalGuard := "#"+inputPinPlace.label.text + ">=" + ip.collect.toString();
-					}endif;
+					//}endif;
 					assertArcIsConnected(arcToTransition);
 					arcs->add(arcToTransition);
 				}; //else this component is redefined and not generated completely
 			} else if (ip.requiresMerge()) {
+				if(ip.collect > 1){assert fatal (false) with log("pins with merge and collect is not yet supported in the transformation");}
+				else{
 				// Merge
 				var transformationResult := ip.map transformPinMerge(self.name, i);
 			    pl += transformationResult.pl;
@@ -993,7 +1012,8 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 					arcToTransition.fromNode := transformationResult.pl->first().id;
 					arcToTransition.toNode := singleComponentReadyTransition.id;
 					assertArcIsConnected(arcToTransition);
-					arcs->add(arcToTransition);			    
+					arcs->add(arcToTransition);
+					};			    
 			    }endif;
 
 			} else if(ip.requiresDuplicate())
@@ -1004,15 +1024,18 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 			    arcs += transformationResult.arcs;
 			} else if(ip.requiresMergeAndDuplicate())
 			{
+				if(ip.collect > 1){assert fatal (false) with log("pins with merge and collect is not yet supported in the transformation");}
+				else{
 				var transformationResult := ip.map transformPinMergeAndDuplicate(self.name, i);
 			    pl += transformationResult.pl;
 			    iTr += transformationResult.it;
 			    arcs += transformationResult.arcs;
+			    };
 			}endif;
 			
 			//If the pin is optional, also add the extra transitions
 			if (ip.optional) {
-			
+			   assert fatal (false) with log("Optional input pins are not yet supported in the transformation");
 			};
 			
 			i := i + 1;
