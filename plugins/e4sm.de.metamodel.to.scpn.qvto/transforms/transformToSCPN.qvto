@@ -13,10 +13,12 @@ modeltype scpn "strict" uses scpn("http://timenet.tu-ilmenau.de/schema/SCPN");
 transformation transformToSCPN(in e:e4sm, out s:scpn);
 configuration property packageName : String;
 configuration property logComponents : Boolean;
+property measureCounter : Integer;
 
 
 main() {
 	log("\nTransforming E4SM Model to Stochastic Colored Petri Net");
+	measureCounter := 0;
 	
 	var packages := e.rootObjects()[Model].packages;
 	var selectedPackage : Package;
@@ -194,6 +196,8 @@ mapping Package::packageToSCPN(model : Model) : SCPNNet{
 	   var pool_measure : scpn::MeasureType := new MeasureType(self.name + "_thread_pool_in_use");
 			pool_measure.expression := self.processingUnits.toString() + " - #" + safeString(self.name) + "_thread_pool";
 			pool_measure.eval := scpn::MeasureEvalType::Instantaneous;
+			pool_measure.graphics.y := measureCounter * 30;
+			measureCounter := measureCounter +1;
 			measure += pool_measure;
 	   
 	} endif;
@@ -905,6 +909,8 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 			
 			var semMeasure := new MeasureType(self.name + "_in_use");
 			semMeasure.expression := servers.toString() + " - #" + safeString(self.name) + "_sem";
+			semMeasure.graphics.y := measureCounter * 30;
+			measureCounter := measureCounter +1;
 			meas->add(semMeasure);
 		}
 		
@@ -1540,6 +1546,8 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 			
 			var semMeasure := new MeasureType(self.name + "_in_use");
 			semMeasure.expression := servers.toString() + " - #" + safeString(self.name) + "_sem";
+			semMeasure.graphics.y := measureCounter * 30;
+			measureCounter := measureCounter +1;
 			meas->add(semMeasure);
 		}
 		
@@ -1882,24 +1890,32 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 		tp.expression := getMeasureReference(ct_tp);
 		tp.eval := MeasureEvalType::Cumulative;
 		tp.watch := false;
+		tp.graphics.y := measureCounter * 30;
+		measureCounter := measureCounter +1;
 		meas += tp;
 		
 		var tn : MeasureType := new MeasureType(self.name + "_tn");
 		tn.expression := getMeasureReference(cf_tn);
 		tn.eval := MeasureEvalType::Cumulative;
 		tn.watch := false;
+		tn.graphics.y := measureCounter * 30;
+		measureCounter := measureCounter +1;
 		meas += tn;
 		
 		var fp : MeasureType := new MeasureType(self.name + "_fp");
 		fp.expression := getMeasureReference(cf_fp);
 		fp.eval := MeasureEvalType::Cumulative;
 		fp.watch := false;
+		fp.graphics.y := measureCounter * 30;
+		measureCounter := measureCounter +1;
 		meas += fp;
 		
 		var fn : MeasureType := new MeasureType(self.name + "_fn");
 		fn.expression := getMeasureReference(ct_fn);
 		fn.eval := MeasureEvalType::Cumulative;
 		fn.watch := false;
+		fn.graphics.y := measureCounter * 30;
+		measureCounter := measureCounter +1;
 		meas += fn;
 		
 		
@@ -2195,6 +2211,8 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 			
 			var semMeasure := new MeasureType(self.name + "_in_use");
 			semMeasure.expression := servers.toString() + " - #" + safeString(self.name) + "_sem";
+			semMeasure.graphics.y := measureCounter * 30;
+			measureCounter := measureCounter +1;
 			meas->add(semMeasure);
 		}
 		
