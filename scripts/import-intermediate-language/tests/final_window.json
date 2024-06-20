@@ -16,6 +16,9 @@
         {
           "name": "predictSteps",
           "value": 50
+        },{
+          "name": "collect", 
+          "value": 10
         }
       ],
       "executionFunction": {

@@ -1185,6 +1185,7 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 			arcs += res.arcs;
 			st += res.st;
 			meas += res.meas;
+			pars += res.pars;
 		}endif;
 	 }
 	 log("Transformed component '" +  self.name + "' to " + pl->size().toString()+ " place(s), "

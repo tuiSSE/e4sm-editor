@@ -131,7 +131,7 @@ public class Services {
 			return 2; // parse error
 		}
 		
-		// TODO: parsing errors are not catched, the first string is a model
+		// TODO: parsing errors are not cached, the first string is a model
 		
 		System.err.println(root);
 		System.out.println("Root is a model");

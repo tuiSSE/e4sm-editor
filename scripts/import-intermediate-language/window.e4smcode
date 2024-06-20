@@ -1,4 +1,4 @@
-// Generated from 'StreamVizzard ILM', : '20.6.2023, 11:38:58'
+// Generated on 18/06/2024, 13:40:26 from 'StreamVizzard ILM' '20.6.2023, 11:38:58'
     model "StreamVizzard ILM_model"{
         package "StreamVizzard ILM" {
             simulationDuration :300000
@@ -30,7 +30,8 @@ in "IN_0" {
         // Output Pins
 out "OUT_0" = $IN_0 * @collect
         // Parameters
-parameters {par "predictSteps" := 50 }
+parameters {par "predictSteps" := 50 ,
+par "collect" := 10 }
     },
 softwareComponent "ExtractROI__7" {
         takes Norm((0.006032285017117705 + -6.781201941274815e-10 * $IN_0) * 1000, (0.001193392420076137)* 1000)

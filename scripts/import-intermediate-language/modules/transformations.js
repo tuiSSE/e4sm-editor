@@ -4,7 +4,7 @@ const ID_SEPARATOR = "__";
  * Transforms the given object to an E4SM model
  */
 export default function generateE4SM(input) {
-    return `// Generated from '${input.name}', : '${new Date(input.timestamp * 1000).toLocaleString()}'
+    return `// Generated on ${new Date().toLocaleString()} from '${input.name}' '${new Date(input.timestamp * 1000).toLocaleString()}'
     model "${input.name}_model"{
         package "${input.name}" {
             ${input.duration ? 'simulationDuration :' + input.duration : ''}
