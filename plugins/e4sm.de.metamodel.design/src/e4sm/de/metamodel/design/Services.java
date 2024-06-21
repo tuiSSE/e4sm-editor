@@ -5,8 +5,11 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Random;
+import java.util.Set;
 import java.util.UUID;
 
 import org.eclipse.emf.common.util.EList;
@@ -26,7 +29,10 @@ import com.google.inject.Injector;
 
 import e4sm.de.metamodel.e4sm.Actuator;
 import e4sm.de.metamodel.e4sm.Component;
+import e4sm.de.metamodel.e4sm.ComponentFiringStrategy;
 import e4sm.de.metamodel.e4sm.Connector;
+import e4sm.de.metamodel.e4sm.DataNode;
+import e4sm.de.metamodel.e4sm.DataStore;
 import e4sm.de.metamodel.e4sm.InputPin;
 import e4sm.de.metamodel.e4sm.LogicalConnector;
 import e4sm.de.metamodel.e4sm.Model;
@@ -79,6 +85,97 @@ public class Services {
 			sb.append(AB.charAt(rnd.nextInt(AB.length())));
 		return sb.toString();
 	}
+	
+	public boolean checkExecutability(Component c) {
+		System.out.println("Checking executability of " + c.getName());
+		if(c instanceof Sensor || c.getInputPins().isEmpty())
+			return true;
+		else {
+			if(c.getFiringStrategy() == ComponentFiringStrategy.OR) {
+				// one executable input pin is enough
+				return c.getInputPins().stream().anyMatch(
+						ip -> checkPinExecutability(ip, new HashSet<Component>())
+					);
+			}else if(c.getFiringStrategy() == ComponentFiringStrategy.AND) {
+				// all input pins must be executable
+				return c.getInputPins().stream().allMatch(
+							ip -> checkPinExecutability(ip, new HashSet<Component>())
+						);
+			}
+		}
+		return false;
+	}
+	
+	public boolean checkExecutabilityChain(Component c, final Set<Component> visitedComponents) {
+		System.out.println("Checking executability of " + c.getName());
+		if(visitedComponents.contains(c))
+			return false;
+		
+		visitedComponents.add(c);
+	
+		if(c instanceof Sensor || c.getInputPins().isEmpty())
+			return true;
+		else {
+			if(c.getFiringStrategy() == ComponentFiringStrategy.OR) {
+				// one executable input pin is enough
+				return c.getInputPins().stream().anyMatch(
+						ip -> checkPinExecutability(ip, visitedComponents)
+					);
+			}else if(c.getFiringStrategy() == ComponentFiringStrategy.AND) {
+				// all input pins must be executable
+				return c.getInputPins().stream().allMatch(
+							ip -> checkPinExecutability(ip, visitedComponents)
+						);
+			}
+		}
+		return false;
+	}
+	
+	private boolean checkPinExecutability(DataNode ip, final Set<Component> visitedComponents) {
+		System.out.println("\tPin: " + ip.getName());
+		var conn = ip.getIncomingConnectors();
+		if(conn.isEmpty()) {
+			System.err.println("The input pin is does not receive any input! " + ip.toString());
+			return false;
+		}
+		if(conn.size()==1)
+		{
+			var source = conn.get(0).getSource();
+			
+			if(source == null) {
+				System.err.println("Connector not properly connected (source is missing) " + conn.toString());
+				return false;
+			}
+			
+			// Source can be a pin (with a container) or a datastore
+			if(source instanceof DataStore) {
+				//Check if the datastore ever receives any data
+				return checkPinExecutability(source, visitedComponents);
+			}
+			
+			// The pin should have a container
+			var sourceElement = source.eContainer();
+			if (sourceElement instanceof Component) {
+				var sourceContainer = (Component) sourceElement;
+				if(sourceContainer.getSpecifiedInPackage()!=null) {
+					// this is a gatewaypin, we assume that whatever comes is executable
+					return true;
+				}
+				if(!visitedComponents.contains(sourceContainer)) {
+					return checkExecutabilityChain(sourceContainer, visitedComponents);
+				}
+				return false;
+			}else {
+				System.err.println("Container of this pin is not a component! " + source.toString());
+				return false;
+			}
+		}else {
+			// more than one connector is connected to this pin
+			System.err.println("Multiple connectors are not supported yet");
+			return false;
+		}
+		//return false;
+	}
 
 	public int mergeModels(Component c, String text) {
 		System.out.println("\n\n");
@@ -91,12 +188,17 @@ public class Services {
 		System.out.println("Component is valid");
 		// E4smStandaloneSetup.doSetup();
 		if (!xTextInitialized) {
+			System.out.println("Init XText: start");
 			new org.eclipse.emf.mwe.utils.StandaloneSetup().setPlatformUri("../");
+			System.out.println("Step 1");
 			Injector injector = Guice.createInjector(new E4smRuntimeModule());
+			System.out.println("Step 2");
 			injector.injectMembers(this);
+			System.out.println("Step 3");
 			resourceSet.addLoadOption(XtextResource.OPTION_RESOLVE_ALL, Boolean.TRUE);
 			System.out.println("Parser initialized");
 			xTextInitialized = true;
+			System.out.println("Init XText: end");
 		}
 
 		// IParseResult res = null;

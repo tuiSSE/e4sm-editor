@@ -209,7 +209,7 @@
         <edgeMappings name="d2_edge_logical_connector" label="Logical Connector" sourceMapping="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@nodeMappings[name='package_input_pin'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@nodeMappings[name='package_datastore']" targetMapping="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_input_pin'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@borderedNodeMappings[name='diag2_output_pin'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@nodeMappings[name='package_output_pin'] //@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@nodeMappings[name='package_datastore']" targetFinderExpression="feature:target" sourceFinderExpression="feature:source" targetExpression="var:self" domainClass="e4sm::LogicalConnector" useDomainElement="true">
           <style sizeComputationExpression="3" endsCentering="Both">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-            <centerLabelStyleDescription labelSize="10" showIcon="false" labelExpression="aql: if (self.source.getOutgoingConnectors()->size()>1 and self.source.oclIsKindOf(e4sm::Pin)) then (if self.source.oclAsType(e4sm::Pin).raceSemantic=e4sm::RaceSemantic::DUPLICATE or self.source.oclAsType(e4sm::Pin).raceSemantic=e4sm::RaceSemantic::MERGE_AND_DUPLICATE then '«dupl»' else '' endif) else '' endif + if (self.target.getIncomingConnectors()->size()>1 and self.target.oclIsKindOf(e4sm::Pin)) then (if self.target.oclAsType(e4sm::Pin).raceSemantic=e4sm::RaceSemantic::MERGE or self.target.oclAsType(e4sm::Pin).raceSemantic=e4sm::RaceSemantic::MERGE_AND_DUPLICATE then '«merge»' else '' endif) else '' endif">
+            <centerLabelStyleDescription labelSize="10" showIcon="false" labelExpression="aql: if(self.source.getOutgoingConnectors()->size()>1 and self.source.oclIsKindOf(e4sm::Pin)) then (if self.source.oclAsType(e4sm::Pin).raceSemantic=e4sm::RaceSemantic::DUPLICATE or self.source.oclAsType(e4sm::Pin).raceSemantic=e4sm::RaceSemantic::MERGE_AND_DUPLICATE then '«dupl»' else '' endif) else '' endif + if (self.target.getIncomingConnectors()->size()>1 and self.target.oclIsKindOf(e4sm::Pin)) then (if self.target.oclAsType(e4sm::Pin).raceSemantic=e4sm::RaceSemantic::MERGE or self.target.oclAsType(e4sm::Pin).raceSemantic=e4sm::RaceSemantic::MERGE_AND_DUPLICATE then '«merge»' else '' endif) else '' endif">
               <labelFormat>italic</labelFormat>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
@@ -1415,6 +1415,24 @@
             <featureCustomizations xsi:type="description:EReferenceCustomization" appliedOn="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@additionalLayers[name='security_layer']/@nodeMappings[name='cve_node']/@style" referenceName="color">
               <value href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
             </featureCustomizations>
+          </vsmElementCustomizations>
+        </customization>
+      </additionalLayers>
+      <additionalLayers name="d2_layer_executability" label="Check Executability">
+        <customization>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.oclIsKindOf(e4sm::Component) and self.checkExecutability()">
+            <featureCustomizations xsi:type="description:EReferenceCustomization" appliedOn="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_SoftwareComponent']/@style" applyOnAll="true" referenceName="backgroundColor">
+              <value href="environment:/viewpoint#//@systemColors/@entries[name='dark_green']"/>
+            </featureCustomizations>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" appliedOn="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_SoftwareComponent']/@style" applyOnAll="true" referenceName="borderColor">
+              <value href="environment:/viewpoint#//@systemColors/@entries[name='dark_green']"/>
+            </featureCustomizations>
+          </vsmElementCustomizations>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.oclAsType(e4sm::Component).firingStrategy = e4sm::ComponentFiringStrategy::AND">
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@style" applyOnAll="true" attributeName="labelExpression" value="aql:'AND: ' + self.name"/>
+          </vsmElementCustomizations>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.oclAsType(e4sm::Component).firingStrategy = e4sm::ComponentFiringStrategy::OR">
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='E4SM_Viewpoint']/@ownedRepresentations[name='e4sm_diagram_2']/@defaultLayer/@containerMappings[name='diag1_Component']/@style" applyOnAll="true" attributeName="labelExpression" value="aql:'OR: ' + self.name"/>
           </vsmElementCustomizations>
         </customization>
       </additionalLayers>
