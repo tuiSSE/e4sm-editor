@@ -94,74 +94,74 @@ where {self.collect > 1 and self.raceSemantic = RaceSemantic::FCFS or (self.getI
 	 	var Place1 = new PlaceType(safeString(parentName + "_" + self.name) + "_collect");
 		pl += Place1;
 	
-		var Place2 : PlaceType = new PlaceType(safeString(self.name) + "_collect_first");
+		var Place2 : PlaceType = new PlaceType(safeString(parentName + "_" + self.name) + "_collect_first");
 		Place2.capacity := "1";
 		pl += Place2;
 					
-		var Place3 = new PlaceType(safeString(self.name) + "_collect_rem");
+		var Place3 = new PlaceType(safeString(parentName + "_" + self.name) + "_collect_rem");
 		var place3Capacity = self.collect - 1;
 		Place3.tokentype := "int";
 		Place3.capacity:=place3Capacity.toString();
 		pl += Place3;
 		 
-		var Transition2 = new ImmediateTransitionType(safeString(self.name) + "_immtrans_two");
+		var Transition2 = new ImmediateTransitionType(safeString(parentName + "_" + self.name) + "_immtrans_two");
 		it += Transition2;
 		 
-		var Transition3 = new ImmediateTransitionType(safeString(self.name) + "_immtrans_three");
+		var Transition3 = new ImmediateTransitionType(safeString(parentName + "_" + self.name) + "_immtrans_three");
 		it += Transition3;
 		 
-		var Transition4 = new ImmediateTransitionType(safeString(self.name) + "_immtrans_four");
+		var Transition4 = new ImmediateTransitionType(safeString(parentName + "_" + self.name) + "_immtrans_four");
 		it += Transition4;
 		 
-		var Arc1 = new ArcType(safeString(self.name) + "_arc_one");
+		var Arc1 = new ArcType(safeString(parentName + "_" + self.name) + "_arc_one");
 		Arc1.fromNode := Transition4.id;
 		Arc1.toNode := place.id;
 		Arc1.inscription.text := "x(s=x.s*" + self.collect.toString() + ")";
 		arcs += Arc1;
 		 
-		var Arc2 = new ArcType(safeString(self.name) + "_arc_two");
+		var Arc2 = new ArcType(safeString(parentName + "_" + self.name) + "_arc_two");
 		Arc2.fromNode := Place1.id;
 		Arc2.toNode := Transition2.id;
 		Arc2.inscription.text := "x";
 		arcs += Arc2;
 		 
-		var Arc3 = new ArcType(safeString(self.name) + "_arc_three");
+		var Arc3 = new ArcType(safeString(parentName + "_" + self.name) + "_arc_three");
 		Arc3.fromNode := Place1.id;
 		Arc3.toNode := Transition3.id;
 		Arc3.inscription.text := "x";
 		arcs += Arc3;
 		 
-		var Arc4 = new ArcType(safeString(self.name) + "_arc_four");
+		var Arc4 = new ArcType(safeString(parentName + "_" + self.name) + "_arc_four");
 		Arc4.fromNode := Transition2.id;
 		Arc4.toNode := Place2.id;
 		Arc4.inscription.text := "z";
 		arcs += Arc4;
 		 
-		var Arc5 = new ArcType(safeString(self.name) + "_arc_five");
+		var Arc5 = new ArcType(safeString(parentName + "_" + self.name) + "_arc_five");
 		Arc5.fromNode := Transition3.id;
 		Arc5.toNode := Place2.id;
 		Arc5.inscription.text := "x";
 		arcs += Arc5;
 		 
-		var Arc6 = new ArcType(safeString(self.name) + "_arc_six");
+		var Arc6 = new ArcType(safeString(parentName + "_" + self.name) + "_arc_six");
 		Arc6.fromNode := Place2.id;
 		Arc6.toNode := Transition2.id;
 		Arc6.inscription.text := "z";
 		arcs += Arc6;
 		 
-		var Arc7 = new ArcType(safeString(self.name) + "_arc_seven");
+		var Arc7 = new ArcType(safeString(parentName + "_" + self.name) + "_arc_seven");
 		Arc7.fromNode := Transition2.id;
 		Arc7.toNode := Place3.id;
 		Arc7.inscription.text := "new(0)";
 		arcs += Arc7;
 		 
-		var Arc8 = new ArcType(safeString(self.name) + "_arc_eight");
+		var Arc8 = new ArcType(safeString(parentName + "_" + self.name) + "_arc_eight");
 		Arc8.fromNode := Place3.id;
 		Arc8.toNode := Transition4.id;
 		Arc8.inscription.text := place3Capacity.toString() + "'y";
 		arcs += Arc8;
 		 
-		var Arc9 = new ArcType(safeString(self.name) + "_arc_nine");
+		var Arc9 = new ArcType(safeString(parentName + "_" + self.name) + "_arc_nine");
 		Arc9.fromNode := Place2.id;
 		Arc9.toNode := Transition4.id;
 		Arc9.inscription.text := "x";

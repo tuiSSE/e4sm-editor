@@ -235,7 +235,7 @@ public class Services {
 		
 		// TODO: parsing errors are not cached, the first string is a model
 		
-		System.err.println(root);
+		//System.err.println(root);
 		System.out.println("Root is a model");
 		Model m = (Model) root;
 		System.out.println("Model name: " + m.getName());
@@ -256,16 +256,16 @@ public class Services {
 		Package p = packages.get(0);
 		System.out.println("Package name: " + p.getName());
 
-		System.err.println(p.getConnectors());
+		//System.err.println(p.getConnectors());
 
 		Copier copier = new Copier();
 		Model modelCopy = (Model) copier.copy(m);
 		copier.copyReferences();
-		System.err.println(copier.toString());
+		//System.err.println(copier.toString());
 
 		Package copy = modelCopy.getPackages().get(0);
 
-		System.err.println(copy.getConnectors().get(0).getSource());
+		//System.err.println(copy.getConnectors().get(0).getSource());
 		// TODO - change connections from sensors to the input pins of the higher
 		// component
 		try {
