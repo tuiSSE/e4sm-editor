@@ -1,6 +1,6 @@
 {
   "name": "StreamVizzard ILM",
-  "timestamp": 1718892809,
+  "timestamp": 1718959259,
   "duration": 300000,
   "components": [
     {
@@ -12,7 +12,7 @@
         "stdDev": 0,
         "maxError": 0
       },
-      "outputSize": "IN_0 * 10.0",
+      "outputSize": "$IN_0 * 10.0",
       "settings": [
         {
           "key": "collect",
@@ -126,11 +126,11 @@
       "name": "TCM Pred",
       "parameters": [],
       "executionFunction": {
-        "meanValue": 1,
-        "stdDev": 0,
-        "maxError": 0
+        "meanValue": "3.7573960170558234 + 0.0 * $IN_0",
+        "stdDev": 0.2401596533784641,
+        "maxError": 1.2973239851707081
       },
-      "outputSize": 0,
+      "outputSize": "312.0 + 0.0 * $IN_0",
       "settings": [],
       "inputPins": [
         {
@@ -149,11 +149,11 @@
       "name": "RAFI Prediction",
       "parameters": [],
       "executionFunction": {
-        "meanValue": 1,
-        "stdDev": 0,
-        "maxError": 0
+        "meanValue": "66.29662746018434 + 0.0 * $IN_0",
+        "stdDev": 3.278803077783719,
+        "maxError": 8.73445254364347
       },
-      "outputSize": 0,
+      "outputSize": "5016.0 + 0.0 * $IN_0",
       "settings": [],
       "inputPins": [
         {
@@ -176,7 +176,7 @@
         "stdDev": 0,
         "maxError": 0
       },
-      "outputSize": "IN_0 * 30.0",
+      "outputSize": "$IN_0 * 30.0",
       "settings": [
         {
           "key": "collect",
@@ -222,7 +222,7 @@
   "sources": [
     {
       "id": "39",
-      "name": "Sensor Socket",
+      "name": "SensorSocket",
       "parameters": [],
       "executionFunction": {
         "meanValue": 66.66666666666667,
@@ -246,7 +246,7 @@
     },
     {
       "id": "351",
-      "name": "Image Socket",
+      "name": "ImageSocket",
       "parameters": [],
       "executionFunction": {
         "meanValue": 66.66666666666667,
@@ -276,7 +276,7 @@
       "transferTime": 1
     },
     {
-      "source": "Sensor Socket__39.OUT_0",
+      "source": "SensorSocket__39.OUT_0",
       "target": "Parse Sensor Data__348.IN_0",
       "transferTime": 1
     },
@@ -296,7 +296,7 @@
       "transferTime": 1
     },
     {
-      "source": "Image Socket__351.OUT_0",
+      "source": "ImageSocket__351.OUT_0",
       "target": "Parse Image Data__350.IN_0",
       "transferTime": 1
     },

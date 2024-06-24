@@ -201,7 +201,7 @@
           "name": {
             "type": "string",
       		"description" : "The name of the source, it shall not start with a number",
-      		"pattern": "^([a-z]|[A-Z]|_)[a-zA-Z0-9_]*$"
+      		"pattern": "^([a-z]|[A-Z]|_)[a-zA-Z0-9_ ]*$"
           },
           "outputSize": {
             "description": "A formula computing the size of the output or a numerical value",
@@ -217,7 +217,7 @@
                 "id": {
                   "description": "A component-unique identifier for the pin.",
                   "type": "string",
-                  "pattern": "^([a-z]|[A-Z]|_)[a-zA-Z0-9_]*$"
+                  "pattern": "^([a-z]|[A-Z]|_)[a-zA-Z0-9_ ]*$"
                 },
                 "dataFunction": {
                   "type": "string"

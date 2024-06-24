@@ -751,7 +751,7 @@
               <menuItemDescription xsi:type="tool_1:OperationAction" documentation="Provides the option to transform any component, which directly inherits from the physical component, into a physical component." name="change_to_physical_component_action" label="To Physical Component" precondition="aql:container.oclIsKindOf(e4sm::PhysicalComponent) and not container.oclIsTypeOf(e4sm::PhysicalComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/PhysicalComponent.gif">
                 <view name="views"/>
                 <initialOperation>
-                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformToPhysicalComponent()"/>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformToPhysicalComponent(views)"/>
                 </initialOperation>
               </menuItemDescription>
               <menuItemDescription xsi:type="tool_1:OperationAction" documentation="Provides the option for any component which inherits from the machine learning component &#xD;&#xA;to be transformed into a machine learning component." name="change_to_machine_learning_component_action" label="To Machine Learning Component" precondition="aql:container.oclIsKindOf(e4sm::MachineLearningComponent) and not container.oclIsTypeOf(e4sm::MachineLearningComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/MachineLearningComponent.gif">
@@ -765,61 +765,61 @@
               <menuItemDescription xsi:type="tool_1:OperationAction" documentation="Provides the option to transform a generic component into a software component." name="change_to_software_component_action" label="To Software Component" precondition="aql:container.oclIsTypeOf(e4sm::Component)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/SoftwareComponent.gif">
                 <view name="views"/>
                 <initialOperation>
-                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformDownToSoftwareComponent()"/>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformDownToSoftwareComponent(views)"/>
                 </initialOperation>
               </menuItemDescription>
               <menuItemDescription xsi:type="tool_1:OperationAction" documentation="Provides the option to transform a generic component into a physical component." name="change_to_physical_component_action" label="To Physical Component" precondition="aql:container.oclIsTypeOf(e4sm::Component)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/PhysicalComponent.gif">
                 <view name="views"/>
                 <initialOperation>
-                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformDownToPhysicalComponent()"/>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformDownToPhysicalComponent(views)"/>
                 </initialOperation>
               </menuItemDescription>
               <menuItemDescription xsi:type="tool_1:OperationAction" documentation="Provides the option to transform a physical component into a sensor component." name="change_to_sensor_action" label="To Sensor" precondition="aql:container.oclIsTypeOf(e4sm::PhysicalComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/Sensor.gif">
                 <view name="views"/>
                 <initialOperation>
-                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformDownToSensor()"/>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformDownToSensor(views)"/>
                 </initialOperation>
               </menuItemDescription>
               <menuItemDescription xsi:type="tool_1:OperationAction" documentation="Provides the option to transform a physical component into a actuator component." name="change_to_actuator_action" label="To Actuator" precondition="aql:container.oclIsTypeOf(e4sm::PhysicalComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/Actuator.gif">
                 <view name="views"/>
                 <initialOperation>
-                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:transformDownToActuator"/>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:transformDownToActuator(views)"/>
                 </initialOperation>
               </menuItemDescription>
               <menuItemDescription xsi:type="tool_1:OperationAction" documentation="Provides the option to transform a software component into a machine learning component." name="change_to_machine_learning_component_action" label="To Machine Learning Component" precondition="aql:container.oclIsTypeOf(e4sm::SoftwareComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/MachineLearningComponent.gif">
                 <view name="views"/>
                 <initialOperation>
-                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformDownToMachineLearningComponent()"/>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformDownToMachineLearningComponent(views)"/>
                 </initialOperation>
               </menuItemDescription>
               <menuItemDescription xsi:type="tool_1:OperationAction" documentation="Provides the option to transform a software component into a heuristic component." name="change_to_heuristic_action" label="To Heuristic" precondition="aql:container.oclIsTypeOf(e4sm::SoftwareComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/Heuristic.gif">
                 <view name="views"/>
                 <initialOperation>
-                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformDownToHeuristic()"/>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformDownToHeuristic(views)"/>
                 </initialOperation>
               </menuItemDescription>
               <menuItemDescription xsi:type="tool_1:OperationAction" documentation="Provides the option to transform a software component into a function component." name="change_to_function_action" label="To Function" precondition="aql:container.oclIsTypeOf(e4sm::SoftwareComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/Function.gif">
                 <view name="views"/>
                 <initialOperation>
-                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformDownToFunction()"/>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformDownToFunction(views)"/>
                 </initialOperation>
               </menuItemDescription>
               <menuItemDescription xsi:type="tool_1:OperationAction" documentation="Provides the option to transform a software component into a external dependency component." name="change_to_external_dependency_action" label="To External Dependency" precondition="aql:container.oclIsTypeOf(e4sm::SoftwareComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/ExternalDependency.gif">
                 <view name="views"/>
                 <initialOperation>
-                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformDownToExternalDependency()"/>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformDownToExternalDependency(views)"/>
                 </initialOperation>
               </menuItemDescription>
               <menuItemDescription xsi:type="tool_1:OperationAction" documentation="Provides the option to transform a machine learning component into a binary classification component." name="change_to_binary_classification_component_action" label="To Binary Classification Component" precondition="aql:container.oclIsTypeOf(e4sm::MachineLearningComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/BinaryClassificationComponent.gif">
                 <view name="views"/>
                 <initialOperation>
-                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformDownToBinaryClassificationComponent()"/>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformDownToBinaryClassificationComponent(views)"/>
                 </initialOperation>
               </menuItemDescription>
               <menuItemDescription xsi:type="tool_1:OperationAction" documentation="Provides the option to transform a machine learning component into a mutliclass classification component." name="change_to_multiclass_classification_component_action" label="To Multiclass Classification Component" precondition="aql:container.oclIsTypeOf(e4sm::MachineLearningComponent)" icon="/e4sm.de.metamodel.edit/icons/full/obj16/MulticlassClassificationComponent.gif">
                 <view name="views"/>
                 <initialOperation>
-                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformDownToMulticlassClassificationComponent()"/>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.transformDownToMulticlassClassificationComponent(views)"/>
                 </initialOperation>
               </menuItemDescription>
             </itemDescriptions>
