@@ -546,8 +546,7 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 	@Override
 	public EList<InputPin> getInputPins() {
 		EList<InputPin> i = ECollections.newBasicEList();
-		i.addAll(
-				(Collection<? extends InputPin>) this.getPins().stream().filter(p -> p instanceof InputPin).toList());
+		i.addAll((Collection<? extends InputPin>) this.getPins().stream().filter(p -> p instanceof InputPin).toList());
 		return i;
 	}
 

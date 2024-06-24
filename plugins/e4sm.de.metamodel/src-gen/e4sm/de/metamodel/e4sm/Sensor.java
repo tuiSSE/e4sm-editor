@@ -23,7 +23,7 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  *
  * @see e4sm.de.metamodel.e4sm.e4smPackage#getSensor()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='SensorC1'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='SensorC1 SensorC2'"
  * @generated
  */
 public interface Sensor extends PhysicalComponent {

@@ -517,6 +517,9 @@ public class e4smValidator extends EObjectValidator {
 		return true;
 	}
 
+	
+
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -1102,6 +1105,8 @@ public class e4smValidator extends EObjectValidator {
 			result &= validateComponent_ComponentC3(sensor, diagnostics, context);
 		if (result || diagnostics != null)
 			result &= validateSensor_SensorC1(sensor, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateSensor_SensorC2(sensor, diagnostics, context);
 		return result;
 	}
 
@@ -1117,6 +1122,25 @@ public class e4smValidator extends EObjectValidator {
 				diagnostics.add(createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0,
 						"_UI_GenericConstraint_diagnostic",
 						new Object[] { "C1: A sensor shall not have input pins", getObjectLabel(sensor, context) },
+						new Object[] { sensor }, context));
+			}
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * Validates the SensorC2 constraint of '<em>Sensor</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean validateSensor_SensorC2(Sensor sensor, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (sensor.getOutputPins().isEmpty()) {
+			if (diagnostics != null) {
+				diagnostics.add(createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0,
+						"_UI_GenericConstraint_diagnostic", new Object[] {
+								"C2: a sensor must have at least one output pin", getObjectLabel(sensor, context) },
 						new Object[] { sensor }, context));
 			}
 			return false;
@@ -1156,6 +1180,8 @@ public class e4smValidator extends EObjectValidator {
 			result &= validateComponent_ComponentC3(actuator, diagnostics, context);
 		if (result || diagnostics != null)
 			result &= validateActuator_ActuatorC1(actuator, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateActuator_ActuatorC2(actuator, diagnostics, context);
 		return result;
 	}
 
@@ -1173,6 +1199,26 @@ public class e4smValidator extends EObjectValidator {
 				diagnostics.add(createDiagnostic(
 						Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic", new Object[] {
 								"C1: An actuator shall not have output pins", getObjectLabel(actuator, context) },
+						new Object[] { actuator }, context));
+			}
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * Validates the ActuatorC2 constraint of '<em>Actuator</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean validateActuator_ActuatorC2(Actuator actuator, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		if (actuator.getInputPins().isEmpty()) {
+			if (diagnostics != null) {
+				diagnostics.add(createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0,
+						"_UI_GenericConstraint_diagnostic", new Object[] {
+								"C2: an actuator must have at least one input pin", getObjectLabel(actuator, context) },
 						new Object[] { actuator }, context));
 			}
 			return false;

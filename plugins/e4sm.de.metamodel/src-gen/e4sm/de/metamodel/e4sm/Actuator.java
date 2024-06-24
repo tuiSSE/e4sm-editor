@@ -15,7 +15,7 @@ package e4sm.de.metamodel.e4sm;
  *
  *
  * @see e4sm.de.metamodel.e4sm.e4smPackage#getActuator()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='ActuatorC1'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='ActuatorC1 ActuatorC2'"
  * @generated
  */
 public interface Actuator extends PhysicalComponent {
