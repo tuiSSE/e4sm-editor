@@ -1,13 +1,10 @@
 package e4sm.de.metamodel.design;
 
 import java.io.ByteArrayInputStream;
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
 import java.util.Random;
 import java.util.Set;
 import java.util.UUID;
@@ -18,8 +15,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.EcoreUtil.Copier;
-import org.eclipse.sirius.viewpoint.description.tool.Let;
-import org.eclipse.xtext.parser.IParseResult;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.resource.XtextResourceSet;
 
@@ -38,16 +33,11 @@ import e4sm.de.metamodel.e4sm.LogicalConnector;
 import e4sm.de.metamodel.e4sm.Model;
 import e4sm.de.metamodel.e4sm.OutputPin;
 import e4sm.de.metamodel.e4sm.Package;
-import e4sm.de.metamodel.e4sm.PhysicalComponent;
-import e4sm.de.metamodel.e4sm.Sector;
 import e4sm.de.metamodel.e4sm.Sensor;
 import e4sm.de.metamodel.e4sm.SoftwareComponent;
 import e4sm.de.metamodel.e4sm.e4smFactory;
-import e4sm.de.metamodel.e4sm.core.NamedElement;
 import e4sm.de.metamodel.e4sm.utils.Utils;
 import e4sm.de.metamodel.xtext.E4smRuntimeModule;
-import e4sm.de.metamodel.xtext.E4smStandaloneSetup;
-import e4sm.de.metamodel.xtext.parser.antlr.E4smParser;
 
 /**
  * The services class used by VSM.
@@ -55,9 +45,21 @@ import e4sm.de.metamodel.xtext.parser.antlr.E4smParser;
 public class Services {
 
 	@Inject
-	private XtextResourceSet resourceSet;
-
-	private static boolean xTextInitialized = false;
+	private XtextResourceSet xtextResourceSet;
+	
+	public Services() {
+		super();
+		System.out.println("Init XText: start");
+		new org.eclipse.emf.mwe.utils.StandaloneSetup().setPlatformUri("../");
+		System.out.println("Step 1");
+		Injector injector = Guice.createInjector(new E4smRuntimeModule());
+		System.out.println("Step 2");
+		injector.injectMembers(this);
+		System.out.println("Step 3");
+		xtextResourceSet.addLoadOption(XtextResource.OPTION_RESOLVE_ALL, Boolean.TRUE);
+		System.out.println("Parser initialized");
+		System.out.println("Init XText: end");
+	}
 
 	/**
 	 * See
@@ -187,26 +189,26 @@ public class Services {
 		}
 		System.out.println("Component is valid");
 		// E4smStandaloneSetup.doSetup();
-		if (!xTextInitialized) {
-			System.out.println("Init XText: start");
-			new org.eclipse.emf.mwe.utils.StandaloneSetup().setPlatformUri("../");
-			System.out.println("Step 1");
-			Injector injector = Guice.createInjector(new E4smRuntimeModule());
-			System.out.println("Step 2");
-			injector.injectMembers(this);
-			System.out.println("Step 3");
-			resourceSet.addLoadOption(XtextResource.OPTION_RESOLVE_ALL, Boolean.TRUE);
-			System.out.println("Parser initialized");
-			xTextInitialized = true;
-			System.out.println("Init XText: end");
-		}
+//		if (!xTextInitialized) {
+//			System.out.println("Init XText: start");
+//			new org.eclipse.emf.mwe.utils.StandaloneSetup().setPlatformUri("../");
+//			System.out.println("Step 1");
+//			Injector injector = Guice.createInjector(new E4smRuntimeModule());
+//			System.out.println("Step 2");
+//			injector.injectMembers(this);
+//			System.out.println("Step 3");
+//			xtextResourceSet.addLoadOption(XtextResource.OPTION_RESOLVE_ALL, Boolean.TRUE);
+//			System.out.println("Parser initialized");
+//			xTextInitialized = true;
+//			System.out.println("Init XText: end");
+//		}
 
 		// IParseResult res = null;
 		Resource resource = null;
 		try {
-			resource = resourceSet
+			resource = xtextResourceSet
 					.createResource(URI.createURI("dummy:/" + UUID.randomUUID().toString() + ".e4smcode"));
-			resource.load(new ByteArrayInputStream(text.getBytes()), resourceSet.getLoadOptions());
+			resource.load(new ByteArrayInputStream(text.getBytes()), xtextResourceSet.getLoadOptions());
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -277,11 +279,11 @@ public class Services {
 
 			// for each Sensor try to match an inputPin
 			for ( int j = 0; j < componentInputs.size(); j++) {
-				var currInput = componentInputs.get(j);
+				final var currInput = componentInputs.get(j);
 
 				for (int i = targetSensors.size() - 1; i > -1; i--) {
 
-					var currSens = targetSensors.get(i);
+					final var currSens = targetSensors.get(i);
 					if (currInput.getName() != null && currInput.getName().equals(currSens.getName())) {
 						var selectedConnector = currSens.getOutputPins().get(0).getOutgoingConnectors().get(0);
 						LogicalConnector lc = e4smFactory.eINSTANCE.createLogicalConnector();
@@ -296,7 +298,7 @@ public class Services {
 						EcoreUtil.delete(currSens);
 						continue;
 					}
-					if (j == componentInputs.size() - 1) {
+					if (i == targetSensors.size() - 1) {
 						System.err.println("NO MATCH FOUND FOR InputPin: " + currInput.getName());
 					}
 				}
@@ -312,10 +314,10 @@ public class Services {
 			var componentOutputs = c.getOutputPins();
 			
 			for(int j = 0; j < componentOutputs.size(); j++ ) {
-				var currOut = componentOutputs.get(j);
+				final var currOut = componentOutputs.get(j);
 				
 				for(int i = targetActuators.size() -1 ; i > -1; i--) {
-					 var currAct = targetActuators.get(i);
+					 final var currAct = targetActuators.get(i);
 						if(currOut.getName() != null && currOut.getName().equals(currAct.getName())) {
 							final Component newComponent = e4smFactory.eINSTANCE.createSoftwareComponent();
 							final boolean hasPins = currAct.getPins().size() > 0;
@@ -363,7 +365,7 @@ public class Services {
 							oldComponentContainer.getComponents().add(newComponent);
 						}
 					
-					if (j == componentOutputs.size() - 1) {
+					if (i == 0) {
 						System.err.println("NO MATCH FOUND FOR OutputPin: " + currOut.getName()); 
 					}
 				}
