@@ -591,12 +591,12 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 		if(isSimpleComponent) {
 		
 			// Create measures for Sensors and Actuators, for simple components only
-			if(self.oclIsKindOf(Sensor)) {
+			//if(self.oclIsKindOf(Sensor)) {
 			    // Transitions have watch:true, the mainPlace is not generated anymore for sensors.
 				// meas += self.oclAsType(Sensor).map sensorToMeasure();
-			} else if(self.oclIsKindOf(Actuator)){
+			//} else if(self.oclIsKindOf(Actuator)){
 				//meas += self.oclAsType(Actuator)->map actuatorToMeasure();
-			};
+			//};
 			
 			var componentMainPlace : PlaceType := null;
 			
@@ -772,7 +772,8 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 					pl->add(componentMainPlace);
 					
 					singleComponentReadyTransition := new ImmediateTransitionType(self.name + "_ready");
-					if(logComponents){
+					if(logComponents and self.inputPins->first().collect<=1){
+						// only log here if collect is not set, otherwise, it is logged in the collect transitions
 						singleComponentReadyTransition.logfileName := self.name + "_ready.csv";
 						// TODO: generalize
 						singleComponentReadyTransition.logfileDescription := "current_time,size,pixelSize";

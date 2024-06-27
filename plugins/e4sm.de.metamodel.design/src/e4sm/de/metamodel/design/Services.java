@@ -33,9 +33,14 @@ import e4sm.de.metamodel.e4sm.LogicalConnector;
 import e4sm.de.metamodel.e4sm.Model;
 import e4sm.de.metamodel.e4sm.OutputPin;
 import e4sm.de.metamodel.e4sm.Package;
+import e4sm.de.metamodel.e4sm.Pin;
 import e4sm.de.metamodel.e4sm.Sensor;
 import e4sm.de.metamodel.e4sm.SoftwareComponent;
 import e4sm.de.metamodel.e4sm.e4smFactory;
+import e4sm.de.metamodel.e4sm.core.CoreFactory;
+import e4sm.de.metamodel.e4sm.core.NamedElement;
+import e4sm.de.metamodel.e4sm.execution.ExecutionFactory;
+import e4sm.de.metamodel.e4sm.execution.TimeFunctions;
 import e4sm.de.metamodel.e4sm.utils.Utils;
 import e4sm.de.metamodel.xtext.E4smRuntimeModule;
 
@@ -46,7 +51,7 @@ public class Services {
 
 	@Inject
 	private XtextResourceSet xtextResourceSet;
-	
+
 	public Services() {
 		super();
 		System.out.println("Init XText: start");
@@ -88,95 +93,145 @@ public class Services {
 		return sb.toString();
 	}
 	
+	//public boolean checkPlaceholderContainer (Component c) {
+	//	return true;
+	//}
+
 	public boolean checkExecutability(Component c) {
-		System.out.println("Checking executability of " + c.getName());
-		if(c instanceof Sensor || c.getInputPins().isEmpty())
+		System.out.println("Start: checking executability of " + c.getName());
+		if (c instanceof Sensor || c.getInputPins().isEmpty())
 			return true;
 		else {
-			if(c.getFiringStrategy() == ComponentFiringStrategy.OR) {
+			if(c.getComponents().size() > 0){
+				return false;
+			}
+			if (c.getFiringStrategy() == ComponentFiringStrategy.OR) {
 				// one executable input pin is enough
-				return c.getInputPins().stream().anyMatch(
-						ip -> checkPinExecutability(ip, new HashSet<Component>())
-					);
-			}else if(c.getFiringStrategy() == ComponentFiringStrategy.AND) {
+				return c.getInputPins().stream().anyMatch(ip -> checkPinExecutability(ip, new HashSet<Component>()));
+			} else if (c.getFiringStrategy() == ComponentFiringStrategy.AND) {
 				// all input pins must be executable
-				return c.getInputPins().stream().allMatch(
-							ip -> checkPinExecutability(ip, new HashSet<Component>())
-						);
+				return c.getInputPins().stream().allMatch(ip -> checkPinExecutability(ip, new HashSet<Component>()));
 			}
 		}
 		return false;
 	}
-	
+
 	public boolean checkExecutabilityChain(Component c, final Set<Component> visitedComponents) {
 		System.out.println("Checking executability of " + c.getName());
-		if(visitedComponents.contains(c))
+		if (visitedComponents.contains(c))
 			return false;
-		
+
 		visitedComponents.add(c);
-	
-		if(c instanceof Sensor || c.getInputPins().isEmpty())
+
+		if (c instanceof Sensor || c.getInputPins().isEmpty())
 			return true;
 		else {
-			if(c.getFiringStrategy() == ComponentFiringStrategy.OR) {
+			if (c.getFiringStrategy() == ComponentFiringStrategy.OR) {
 				// one executable input pin is enough
-				return c.getInputPins().stream().anyMatch(
-						ip -> checkPinExecutability(ip, visitedComponents)
-					);
-			}else if(c.getFiringStrategy() == ComponentFiringStrategy.AND) {
+				return c.getInputPins().stream().anyMatch(ip -> checkPinExecutability(ip, visitedComponents));
+			} else if (c.getFiringStrategy() == ComponentFiringStrategy.AND) {
 				// all input pins must be executable
-				return c.getInputPins().stream().allMatch(
-							ip -> checkPinExecutability(ip, visitedComponents)
-						);
+				return c.getInputPins().stream().allMatch(ip -> checkPinExecutability(ip, visitedComponents));
 			}
 		}
 		return false;
 	}
-	
+
 	private boolean checkPinExecutability(DataNode ip, final Set<Component> visitedComponents) {
-		System.out.println("\tPin: " + ip.getName());
-		var conn = ip.getIncomingConnectors();
-		if(conn.isEmpty()) {
-			System.err.println("The input pin is does not receive any input! " + ip.toString());
+		if(ip == null) {
+			System.err.println("Cannot check executability of null");
 			return false;
 		}
-		if(conn.size()==1)
-		{
+		System.out.println("\tPin: " + ip.getName());
+		var conn = ip.getIncomingConnectors();
+		if (conn.isEmpty()) {
+			System.err.println("The input pin is does not receive any input! " + ip.toString());
+			System.err.println(ip.getName() + " of " + ((NamedElement)ip.eContainer()).getName());
+			return false;
+		}
+		if (conn.size() == 1) {
 			var source = conn.get(0).getSource();
-			
-			if(source == null) {
+
+			if (source == null) {
 				System.err.println("Connector not properly connected (source is missing) " + conn.toString());
 				return false;
 			}
-			
+
 			// Source can be a pin (with a container) or a datastore
-			if(source instanceof DataStore) {
-				//Check if the datastore ever receives any data
+			if (source instanceof DataStore) {
+				// Check if the datastore ever receives any data
 				return checkPinExecutability(source, visitedComponents);
 			}
-			
-			// The pin should have a container
-			var sourceElement = source.eContainer();
-			if (sourceElement instanceof Component) {
-				var sourceContainer = (Component) sourceElement;
-				if(sourceContainer.getSpecifiedInPackage()!=null) {
-					// this is a gatewaypin, we assume that whatever comes is executable
-					return true;
+
+			// The pin is not a datastore and therefore should have a container
+			Pin p = (Pin) source;
+
+			if (!p.isGatewayPin()) {
+				// The container 
+				var sourceElement = source.eContainer();
+				if (sourceElement instanceof Component) {
+					var sourceContainer = (Component) sourceElement;
+					if (sourceContainer.getSpecifiedInPackage() != null) {
+						// this is a gatewaypin, we assume that whatever comes is executable
+						return true;
+					}
+					if (!visitedComponents.contains(sourceContainer)) {
+						return checkExecutabilityChain(sourceContainer, visitedComponents);
+					}
+					return false;
+				} else {
+					System.err.println("Container of this pin is not a component! " + source.toString());
+					return false;
 				}
-				if(!visitedComponents.contains(sourceContainer)) {
-					return checkExecutabilityChain(sourceContainer, visitedComponents);
-				}
-				return false;
 			}else {
-				System.err.println("Container of this pin is not a component! " + source.toString());
-				return false;
+				// the pin is a gateway pin, send the same request to the internal element
+				EObject sourceElement = null;
+				while(sourceElement == null) {
+					if(p.getIncomingConnectors().size() != 1) {
+						System.err.println("Multiple incoming arcs to a pin are not supported yet");
+						System.err.println(p.toString());
+						return false;
+					}
+					var gatewaySource = p.getIncomingConnectors().get(0).getSource();
+					if(gatewaySource instanceof Pin) {
+						Pin possiblyGatewayPin = (Pin) gatewaySource;
+						if(!possiblyGatewayPin.isGatewayPin()) {
+							sourceElement = gatewaySource.eContainer();
+						} else {
+							// the source is also a gateway pin, we must dig further
+							if(possiblyGatewayPin instanceof InputPin) {
+								p = possiblyGatewayPin; // TODO: check if this case makes sense
+							} else {
+								// gatewaySource is an OutputPin
+								p = possiblyGatewayPin;
+							}
+						}
+					}else if(gatewaySource instanceof DataStore) {
+						return checkPinExecutability(gatewaySource, visitedComponents);
+					}
+
+				}
+				if (sourceElement instanceof Component) {
+					var sourceContainer = (Component) sourceElement;
+					if (sourceContainer.getSpecifiedInPackage() != null) {
+						// this is a gatewaypin, we assume that whatever comes is executable
+						return true;
+					}
+					if (!visitedComponents.contains(sourceContainer)) {
+						return checkExecutabilityChain(sourceContainer, visitedComponents);
+					}
+					return false;
+				} else {
+					System.err.println("Container of this pin is not a component! " + source.toString());
+					return false;
+				}
 			}
-		}else {
+		} else {
 			// more than one connector is connected to this pin
 			System.err.println("Multiple connectors are not supported yet");
 			return false;
 		}
-		//return false;
+		// return false;
 	}
 
 	public int mergeModels(Component c, String text) {
@@ -234,10 +289,10 @@ public class Services {
 			System.err.println("Root is not a model");
 			return 2; // parse error
 		}
-		
+
 		// TODO: parsing errors are not cached, the first string is a model
-		
-		//System.err.println(root);
+
+		// System.err.println(root);
 		System.out.println("Root is a model");
 		Model m = (Model) root;
 		System.out.println("Model name: " + m.getName());
@@ -258,16 +313,16 @@ public class Services {
 		Package p = packages.get(0);
 		System.out.println("Package name: " + p.getName());
 
-		//System.err.println(p.getConnectors());
+		// System.err.println(p.getConnectors());
 
 		Copier copier = new Copier();
 		Model modelCopy = (Model) copier.copy(m);
 		copier.copyReferences();
-		//System.err.println(copier.toString());
+		// System.err.println(copier.toString());
 
 		Package copy = modelCopy.getPackages().get(0);
 
-		//System.err.println(copy.getConnectors().get(0).getSource());
+		// System.err.println(copy.getConnectors().get(0).getSource());
 		// TODO - change connections from sensors to the input pins of the higher
 		// component
 		try {
@@ -278,9 +333,9 @@ public class Services {
 			System.out.println("ComponentInputs: " + componentInputs);
 
 			// for each Sensor try to match an inputPin
-			for ( int j = 0; j < componentInputs.size(); j++) {
+			for (int j = 0; j < componentInputs.size(); j++) {
 				final var currInput = componentInputs.get(j);
-
+				System.out.println("Searching sensor match for input pin " + currInput.getName());
 				for (int i = targetSensors.size() - 1; i > -1; i--) {
 
 					final var currSens = targetSensors.get(i);
@@ -293,12 +348,12 @@ public class Services {
 						lc.setTarget(selectedConnector.getTarget());
 						lc.setTimeFunction(selectedConnector.getTimeFunction());
 						copy.getConnectors().add(lc);
-						
+
 						EcoreUtil.delete(selectedConnector);
 						EcoreUtil.delete(currSens);
-						continue;
+						break;
 					}
-					if (i == targetSensors.size() - 1) {
+					if (i == 0) {
 						System.err.println("NO MATCH FOUND FOR InputPin: " + currInput.getName());
 					}
 				}
@@ -307,75 +362,84 @@ public class Services {
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
 		}
-		
-		
+
 		try {
 			var targetActuators = copy.getAllActuators();
 			var componentOutputs = c.getOutputPins();
-			
-			for(int j = 0; j < componentOutputs.size(); j++ ) {
+
+			for (int j = 0; j < componentOutputs.size(); j++) {
 				final var currOut = componentOutputs.get(j);
-				
-				for(int i = targetActuators.size() -1 ; i > -1; i--) {
-					 final var currAct = targetActuators.get(i);
-						if(currOut.getName() != null && currOut.getName().equals(currAct.getName())) {
-							final Component newComponent = e4smFactory.eINSTANCE.createSoftwareComponent();
-							final boolean hasPins = currAct.getPins().size() > 0;
-							Package oldComponentContainer = Utils.getContainingPackage(currAct);
-							// Copy all attributes
-							newComponent.setName(currAct.getName() + "_s");
-							try {
-								if (hasPins) {
-									System.out.println("Has pins");
-									final var newCompPins = newComponent.getPins();
-									final var oldPins = currAct.getPins();
-									for (int k = oldPins.size() - 1; k > -1; k--) {
-										var pin = oldPins.get(k);
-										newCompPins.add(pin);
-									}
-								}
-							} catch (Exception e) {
-								System.out.println(e.toString());
-							}
-							
-							newComponent.setSpecifiedInPackage(currAct.getSpecifiedInPackage());
+				System.out.println("Searching actuator match for output pin " + currOut.getName());
+
+				for (int i = targetActuators.size() - 1; i > -1; i--) {
+					final var currAct = targetActuators.get(i);
+					if (currOut.getName() != null && currOut.getName().equals(currAct.getName())) {
+						final Component newComponent = e4smFactory.eINSTANCE.createSoftwareComponent();
+						final boolean actuatorHasPins = currAct.getPins().size() > 0;
+						Package oldActuatorContainer = Utils.getContainingPackage(currAct);
 						
-
-							try {
-								EcoreUtil.delete(currAct);
-								System.out.println("Actuator transformed to Software component");
-							} catch (Exception e) {
-								System.err.println(e.getMessage());
-								System.err.println("Could not delete the original element.");
+						// Copy all attributes
+						newComponent.setName(currAct.getName());
+						newComponent.setTimeFunction(currAct.getTimeFunction());
+						
+//						var tf = ExecutionFactory.eINSTANCE.createTimeFunction();
+//						tf.setFunction(TimeFunctions.DET);
+//						var lit = CoreFactory.eINSTANCE.createLiteralInteger();
+//						lit.setValue(1);
+//						tf.setPar1(lit);
+//						newComponent.setTimeFunction(tf);
+						
+						try {
+							if (actuatorHasPins) {
+								System.out.println("Has pins");
+								final var newCompPins = newComponent.getPins();
+								final var oldPins = currAct.getPins();
+								for (int k = oldPins.size() - 1; k > -1; k--) {
+									var pin = oldPins.get(k);
+									newCompPins.add(pin);
+								}
 							}
-							
-							// New output pin
-							var newOutpin = e4smFactory.eINSTANCE.createOutputPin();
-							newOutpin.setName(currAct.getName() + "_OUT");
-							newComponent.getPins().add(newOutpin);
-							
-							
-							// New connector
-							var newConnector = e4smFactory.eINSTANCE.createLogicalConnector();
-							newConnector.setName(currAct.getName() + "_conn");
-							newConnector.setSource(newOutpin);
-							newConnector.setTarget(currOut);
-
-							copy.getConnectors().add(newConnector);
-							oldComponentContainer.getComponents().add(newComponent);
+						} catch (Exception e) {
+							System.out.println(e.toString());
 						}
-					
+
+						newComponent.setSpecifiedInPackage(currAct.getSpecifiedInPackage());
+
+						try {
+							EcoreUtil.delete(currAct);
+							System.out.println("Actuator transformed to Software component");
+						} catch (Exception e) {
+							System.err.println(e.getMessage());
+							System.err.println("Could not delete the original element.");
+						}
+
+						// New output pin
+						var newOutpin = e4smFactory.eINSTANCE.createOutputPin();
+						newOutpin.setName(currAct.getName() + "_OUT");
+						newComponent.getPins().add(newOutpin);
+
+						// New connector
+						var newConnector = e4smFactory.eINSTANCE.createLogicalConnector();
+						newConnector.setName(currAct.getName() + "_conn");
+						newConnector.setSource(newOutpin);
+						newConnector.setTarget(currOut);
+
+						copy.getConnectors().add(newConnector);
+						oldActuatorContainer.getComponents().add(newComponent);
+						break;
+
+					}
+
 					if (i == 0) {
-						System.err.println("NO MATCH FOUND FOR OutputPin: " + currOut.getName()); 
+						System.err.println("NO MATCH FOUND FOR OutputPin: " + currOut.getName());
 					}
 				}
 			}
-			
+
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
 		}
-		
-		
+
 		Utils.getContainingPackage(c).getPackages().add(copy);
 		c.setSpecifiedInPackage(copy);
 
@@ -507,14 +571,15 @@ public class Services {
 		}
 		return res.toString();
 	}
-	
+
 	/**
 	 * Removes the packageSpecification from the model and the component.
+	 * 
 	 * @param c A component with a specifiedInPackage value set
 	 */
 	public void deletePackageSpecification(Component c) {
 		var p = c.getSpecifiedInPackage();
-		if(p == null)
+		if (p == null)
 			return;
 		EcoreUtil.delete(p);
 	}

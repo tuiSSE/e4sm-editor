@@ -5,6 +5,8 @@ import SCPNHelpers;
 modeltype e4sm "strict" uses e4sm("http://de.tu-ilmenau/e4sm/1.0.0");
 modeltype scpn "strict" uses scpn("http://timenet.tu-ilmenau.de/schema/SCPN");
 
+configuration property logComponents : Boolean;
+
 //mapping InputPin::transformInputPin(parentName:String, index: Integer) : PlaceType when {true} {
 //init{
 //	log("\t~Transforming FCFS input pin " + self.computeName());
@@ -105,9 +107,23 @@ where {self.collect > 1 and self.raceSemantic = RaceSemantic::FCFS or (self.getI
 		pl += Place3;
 		 
 		var Transition2 = new ImmediateTransitionType(safeString(parentName + "_" + self.name) + "_immtrans_two");
+		
+		if(logComponents){
+				Transition2.logfileName := safeString(parentName) + "_ready.csv";
+				// TODO: generalize
+				Transition2.logfileDescription := "current_time,size,pixelSize";
+				Transition2.logfileExpression := "NOW,TAB,x.s,TAB,x.ps";
+		};
 		it += Transition2;
 		 
 		var Transition3 = new ImmediateTransitionType(safeString(parentName + "_" + self.name) + "_immtrans_three");
+		if(logComponents){
+				Transition3.logfileName := safeString(parentName) + "_ready.csv";
+				// TODO: generalize
+				Transition3.logfileDescription := "current_time,size,pixelSize";
+				Transition3.logfileExpression := "NOW,TAB,x.s,TAB,x.ps";
+		};
+		
 		it += Transition3;
 		 
 		var Transition4 = new ImmediateTransitionType(safeString(parentName + "_" + self.name) + "_immtrans_four");
