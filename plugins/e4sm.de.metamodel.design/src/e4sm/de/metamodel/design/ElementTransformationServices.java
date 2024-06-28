@@ -3,9 +3,7 @@ package e4sm.de.metamodel.design;
 import java.util.List;
 import java.util.Map;
 
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.util.EcoreUtil.Copier;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
@@ -23,21 +21,21 @@ import org.eclipse.ui.IEditorPart;
 
 import e4sm.de.metamodel.e4sm.Actuator;
 import e4sm.de.metamodel.e4sm.BinaryClassificationComponent;
-import e4sm.de.metamodel.e4sm.MulticlassClassificationComponent;
-import e4sm.de.metamodel.e4sm.OutputPin;
 import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.ExternalDependency;
 import e4sm.de.metamodel.e4sm.Function;
 import e4sm.de.metamodel.e4sm.Heuristic;
 import e4sm.de.metamodel.e4sm.InputPin;
 import e4sm.de.metamodel.e4sm.MachineLearningComponent;
-import e4sm.de.metamodel.e4sm.core.NamedElement;
+import e4sm.de.metamodel.e4sm.MulticlassClassificationComponent;
+import e4sm.de.metamodel.e4sm.OutputPin;
 import e4sm.de.metamodel.e4sm.Package;
 import e4sm.de.metamodel.e4sm.PhysicalComponent;
 import e4sm.de.metamodel.e4sm.Sector;
 import e4sm.de.metamodel.e4sm.Sensor;
 import e4sm.de.metamodel.e4sm.SoftwareComponent;
 import e4sm.de.metamodel.e4sm.e4smFactory;
+import e4sm.de.metamodel.e4sm.core.NamedElement;
 
 public class ElementTransformationServices {
 
@@ -92,7 +90,7 @@ public class ElementTransformationServices {
 	 * @param c
 	 * @param containingViews
 	 */
-	public static void transformToComponent(Component c, List<DSemanticDecorator> containingViews) {
+	public void transformToComponent(Component c, List<DSemanticDecorator> containingViews) {
 		final Component newComponent = e4smFactory.eINSTANCE.createComponent();
 
 		final boolean isPhysicalComponent = c instanceof PhysicalComponent;
@@ -138,11 +136,7 @@ public class ElementTransformationServices {
 //		System.out.println("Copy done");
 
 		// Give to the new component the same size/position as the old one.
-		if (containingViews != null && containingViews.size() > 0) {
-			System.out.println("Layouting");
-			DNodeContainer existingNode = (DNodeContainer) containingViews.get(0);
-			restorePositionAndSize(existingNode);
-		}
+		fixElementPosition(containingViews);
 
 //		System.out.println("Del");
 		// Delete the old component
@@ -173,15 +167,6 @@ public class ElementTransformationServices {
 		default -> throw new IllegalArgumentException("Unexpected value: " + oldComponentContainer);
 		}
 
-		/*
-		 * if (oldComponentContainer instanceof Component) { // This component is
-		 * contained by another component ((Component)
-		 * oldComponentContainer).getComponents().add(newComponent); } else if
-		 * (oldComponentContainer instanceof Package) { // This component is contained
-		 * by a package ((Package)
-		 * oldComponentContainer).getComponents().add(newComponent); }
-		 */
-
 		// Copy all attributes
 		newComponent.setName(c.getName());
 		if (hasPins) {
@@ -200,12 +185,7 @@ public class ElementTransformationServices {
 		newComponent.getComponents().addAll(c.getComponents());
 
 		// Give to the new component the same size/position as the old one.
-		if (containingViews != null && containingViews.size() > 0) {
-			DNodeContainer existingNode = (DNodeContainer) containingViews.get(0);
-			restorePositionAndSize(existingNode);
-
-			// TODO, see "transformToComponent"
-		}
+		fixElementPosition(containingViews);
 
 		// Delete the old component
 		EcoreUtil.delete(c);
@@ -231,15 +211,6 @@ public class ElementTransformationServices {
 		default -> throw new IllegalArgumentException("Unexpected value: " + oldComponentContainer);
 		}
 
-		/*
-		 * if (oldComponentContainer instanceof Component) { // This component is
-		 * contained by another component ((Component)
-		 * oldComponentContainer).getComponents().add(newComponent); } else if
-		 * (oldComponentContainer instanceof Package) { // This component is contained
-		 * by a package ((Package)
-		 * oldComponentContainer).getComponents().add(newComponent); }
-		 */
-
 		// Copy all attributes
 		newComponent.setName(c.getName());
 		if (hasPins) {
@@ -251,17 +222,14 @@ public class ElementTransformationServices {
 				newCompPins.add(p);
 			}
 		}
+		// TODO: this does not work, as if there are references they would be pointing
+		// to the old one
+		// newComponent.getParameters().addAll(EcoreUtil.copyAll(c.getParameters()));
 		newComponent.setSpecifiedInPackage(c.getSpecifiedInPackage());
 		newComponent.setMainResponsible(c.getMainResponsible());
 		newComponent.getComponents().addAll(c.getComponents());
 
-		// Give to the new component the same size/position as the old one.
-		if (containingViews != null && containingViews.size() > 0) {
-			DNodeContainer existingNode = (DNodeContainer) containingViews.get(0);
-			restorePositionAndSize(existingNode);
-
-			// TODO, see "transformToComponent"
-		}
+		fixElementPosition(containingViews);
 
 		// Delete the old component
 		EcoreUtil.delete(c);
@@ -289,17 +257,6 @@ public class ElementTransformationServices {
 		default -> throw new IllegalArgumentException("Unexpected value: " + oldComponentContainer);
 		}
 
-		/*
-		 * if (oldComponentContainer instanceof Component) { // This component is
-		 * contained by another component ((Component)
-		 * oldComponentContainer).getComponents().add(newComponent); } else if
-		 * (c.eContainer() instanceof Sector) { // This component is contained by a
-		 * Sector final Sector container = (Sector) c.eContainer();
-		 * container.getComponents().add(newComponent); } else if (oldComponentContainer
-		 * instanceof Package) { // This component is contained by a package ((Package)
-		 * oldComponentContainer).getComponents().add(newComponent); }
-		 */
-
 		// Copy all attributes
 		newComponent.setName(c.getName());
 		if (hasPins) {
@@ -315,13 +272,7 @@ public class ElementTransformationServices {
 		newComponent.setMainResponsible(c.getMainResponsible());
 		newComponent.getComponents().addAll(EcoreUtil.copyAll(c.getComponents()));
 
-		if (containingViews != null && containingViews.size() > 0) {
-			System.out.println("Layouting");
-			DNodeContainer existingNode = (DNodeContainer) containingViews.get(0);
-			restorePositionAndSize(existingNode);
-		}
-
-		// TODO: give to the new component the same size/position as the old one.
+		fixElementPosition(containingViews);
 
 		// Delete the old component
 		EcoreUtil.delete(c);
@@ -345,15 +296,6 @@ public class ElementTransformationServices {
 		default -> throw new IllegalArgumentException("Unexpected value: " + oldComponentContainer);
 		}
 
-		/*
-		 * if (oldComponentContainer instanceof Component) { // This component is
-		 * contained by another component ((Component)
-		 * oldComponentContainer).getComponents().add(newComponent); } else if
-		 * (oldComponentContainer instanceof Package) { // This component is contained
-		 * by a package ((Package)
-		 * oldComponentContainer).getComponents().add(newComponent); }
-		 */
-
 		// Copy all attributes
 		newComponent.setName(c.getName());
 		if (hasPins) {
@@ -369,13 +311,7 @@ public class ElementTransformationServices {
 		newComponent.setMainResponsible(c.getMainResponsible());
 		newComponent.getComponents().addAll(EcoreUtil.copyAll(c.getComponents()));
 
-		if (containingViews != null && containingViews.size() > 0) {
-			System.out.println("Layouting");
-			DNodeContainer existingNode = (DNodeContainer) containingViews.get(0);
-			restorePositionAndSize(existingNode);
-		}
-
-		// TODO: give to the new component the same size/position as the old one.
+		fixElementPosition(containingViews);
 
 		// Delete the old component
 		EcoreUtil.delete(c);
@@ -399,14 +335,6 @@ public class ElementTransformationServices {
 		default -> throw new IllegalArgumentException("Unexpected value: " + oldComponentContainer);
 		}
 
-//		if (oldComponentContainer instanceof Component) {
-//			// This component is contained by another component
-//			((Component) oldComponentContainer).getComponents().add(newComponent);
-//		} else if (oldComponentContainer instanceof Package) {
-//			// This component is contained by a package
-//			((Package) oldComponentContainer).getComponents().add(newComponent);
-//		}
-
 		// Copy all attributes
 		newComponent.setName(c.getName());
 		if (hasPins) {
@@ -422,13 +350,7 @@ public class ElementTransformationServices {
 		newComponent.setMainResponsible(c.getMainResponsible());
 		newComponent.getComponents().addAll(EcoreUtil.copyAll(c.getComponents()));
 
-		if (containingViews != null && containingViews.size() > 0) {
-			System.out.println("Layouting");
-			DNodeContainer existingNode = (DNodeContainer) containingViews.get(0);
-			restorePositionAndSize(existingNode);
-		}
-
-		// TODO: give to the new component the same size/position as the old one.
+		fixElementPosition(containingViews);
 
 		// Delete the old component
 		EcoreUtil.delete(c);
@@ -456,20 +378,7 @@ public class ElementTransformationServices {
 		default -> throw new IllegalArgumentException("Unexpected value: " + oldComponentContainer);
 		}
 
-//		if (oldComponentContainer instanceof Component) {
-//			// This component is contained by another component
-//			((Component) oldComponentContainer).getComponents().add(newComponent);
-//		} else if (c.eContainer() instanceof Sector) {
-//			// This component is contained by a Sector
-//			final Sector container = (Sector) c.eContainer();
-//			container.getComponents().add(newComponent);
-//		} else if (oldComponentContainer instanceof Package) {
-//			// This component is contained by a package
-//			((Package) oldComponentContainer).getComponents().add(newComponent);
-//		}
-
 		// Copy all attributes
-		// TODO: only copy output pins?
 		newComponent.setName(c.getName());
 		if (hasPins) {
 			System.out.println("Has pins");
@@ -501,11 +410,7 @@ public class ElementTransformationServices {
 		newComponent.setMainResponsible(c.getMainResponsible());
 		newComponent.getComponents().addAll(EcoreUtil.copyAll(c.getComponents()));
 
-		if (containingViews != null && containingViews.size() > 0) {
-			System.out.println("Layouting");
-			DNodeContainer existingNode = (DNodeContainer) containingViews.get(0);
-			restorePositionAndSize(existingNode);
-		}
+		fixElementPosition(containingViews);
 
 		// Delete the old component
 		try {
@@ -537,20 +442,7 @@ public class ElementTransformationServices {
 		default -> throw new IllegalArgumentException("Unexpected value: " + oldComponentContainer);
 		}
 
-//		if (oldComponentContainer instanceof Component) {
-//			// This component is contained by another component
-//			((Component) oldComponentContainer).getComponents().add(newComponent);
-//		} else if (c.eContainer() instanceof Sector) {
-//			// This component is contained by a Sector
-//			final Sector container = (Sector) c.eContainer();
-//			container.getComponents().add(newComponent);
-//		} else if (oldComponentContainer instanceof Package) {
-//			// This component is contained by a package
-//			((Package) oldComponentContainer).getComponents().add(newComponent);
-//		}
-
 		// Copy all attributes
-		// TODO: only copy input pins?
 		newComponent.setName(c.getName());
 		if (hasPins) {
 			System.out.println("Has pins");
@@ -583,12 +475,8 @@ public class ElementTransformationServices {
 		newComponent.setMainResponsible(c.getMainResponsible());
 		newComponent.getComponents().addAll(EcoreUtil.copyAll(c.getComponents()));
 
-		// TODO: give to the new component the same size/position as the old one.
-		if (containingViews != null && containingViews.size() > 0) {
-			System.out.println("Layouting");
-			DNodeContainer existingNode = (DNodeContainer) containingViews.get(0);
-			restorePositionAndSize(existingNode);
-		}
+		fixElementPosition(containingViews);
+
 		// Delete the old component
 		try {
 			EcoreUtil.delete(c);
@@ -616,14 +504,6 @@ public class ElementTransformationServices {
 		default -> throw new IllegalArgumentException("Unexpected value: " + oldComponentContainer);
 		}
 
-//		if (oldComponentContainer instanceof Component) {
-//			// This component is contained by another component
-//			((Component) oldComponentContainer).getComponents().add(newComponent);
-//		} else if (oldComponentContainer instanceof Package) {
-//			// This component is contained by a package
-//			((Package) oldComponentContainer).getComponents().add(newComponent);
-//		}
-
 		// Copy all attributes
 		newComponent.setName(c.getName());
 		if (hasPins) {
@@ -638,13 +518,8 @@ public class ElementTransformationServices {
 		newComponent.setSpecifiedInPackage(c.getSpecifiedInPackage());
 		newComponent.setMainResponsible(c.getMainResponsible());
 		newComponent.getComponents().addAll(c.getComponents());
-		if (containingViews != null && containingViews.size() > 0) {
-			System.out.println("Layouting");
-			DNodeContainer existingNode = (DNodeContainer) containingViews.get(0);
-			restorePositionAndSize(existingNode);
-		}
-
-		// TODO: give to the new component the same size/position as the old one.
+		
+		fixElementPosition(containingViews);
 
 		// Delete the old component
 		try {
@@ -672,14 +547,6 @@ public class ElementTransformationServices {
 		default -> throw new IllegalArgumentException("Unexpected value: " + oldComponentContainer);
 		}
 
-//		if (oldComponentContainer instanceof Component) {
-//			// This component is contained by another component
-//			((Component) oldComponentContainer).getComponents().add(newComponent);
-//		} else if (oldComponentContainer instanceof Package) {
-//			// This component is contained by a package
-//			((Package) oldComponentContainer).getComponents().add(newComponent);
-//		}
-
 		// Copy all attributes
 		newComponent.setName(c.getName());
 		if (hasPins) {
@@ -695,12 +562,7 @@ public class ElementTransformationServices {
 		newComponent.setMainResponsible(c.getMainResponsible());
 		newComponent.getComponents().addAll(c.getComponents());
 
-		// TODO: give to the new component the same size/position as the old one.
-		if (containingViews != null && containingViews.size() > 0) {
-			System.out.println("Layouting");
-			DNodeContainer existingNode = (DNodeContainer) containingViews.get(0);
-			restorePositionAndSize(existingNode);
-		}
+		fixElementPosition(containingViews);
 
 		// Delete the old component
 		try {
@@ -708,6 +570,18 @@ public class ElementTransformationServices {
 			System.out.println("SoftwareComponent transformed to Heuristic");
 		} catch (Exception e) {
 			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * Places the element back to its original location
+	 * @param containingViews
+	 */
+	private void fixElementPosition(List<DSemanticDecorator> containingViews) {
+		if (containingViews != null && containingViews.size() > 0) {
+			System.out.println("Layouting");
+			DNodeContainer existingNode = (DNodeContainer) containingViews.get(0);
+			restorePositionAndSize(existingNode);
 		}
 	}
 
@@ -728,14 +602,6 @@ public class ElementTransformationServices {
 		default -> throw new IllegalArgumentException("Unexpected value: " + oldComponentContainer);
 		}
 
-//		if (oldComponentContainer instanceof Component) {
-//			// This component is contained by another component
-//			((Component) oldComponentContainer).getComponents().add(newComponent);
-//		} else if (oldComponentContainer instanceof Package) {
-//			// This component is contained by a package
-//			((Package) oldComponentContainer).getComponents().add(newComponent);
-//		}
-
 		// Copy all attributes
 		newComponent.setName(c.getName());
 		if (hasPins) {
@@ -751,12 +617,7 @@ public class ElementTransformationServices {
 		newComponent.setMainResponsible(c.getMainResponsible());
 		newComponent.getComponents().addAll(c.getComponents());
 
-		// TODO: give to the new component the same size/position as the old one.
-		if (containingViews != null && containingViews.size() > 0) {
-			System.out.println("Layouting");
-			DNodeContainer existingNode = (DNodeContainer) containingViews.get(0);
-			restorePositionAndSize(existingNode);
-		}
+		fixElementPosition(containingViews);
 
 		// Delete the old component
 		try {
@@ -784,14 +645,6 @@ public class ElementTransformationServices {
 		default -> throw new IllegalArgumentException("Unexpected value: " + oldComponentContainer);
 		}
 
-//		if (oldComponentContainer instanceof Component) {
-//			// This component is contained by another component
-//			((Component) oldComponentContainer).getComponents().add(newComponent);
-//		} else if (oldComponentContainer instanceof Package) {
-//			// This component is contained by a package
-//			((Package) oldComponentContainer).getComponents().add(newComponent);
-//		}
-
 		// Copy all attributes
 		newComponent.setName(c.getName());
 		if (hasPins) {
@@ -808,12 +661,7 @@ public class ElementTransformationServices {
 		// newComponent.setMainResponsible(c.getMainResponsible());
 		newComponent.getComponents().addAll(c.getComponents());
 
-		// TODO: give to the new component the same size/position as the old one.
-		if (containingViews != null && containingViews.size() > 0) {
-			System.out.println("Layouting");
-			DNodeContainer existingNode = (DNodeContainer) containingViews.get(0);
-			restorePositionAndSize(existingNode);
-		}
+		fixElementPosition(containingViews);
 
 		// Delete the old component
 		try {
@@ -843,14 +691,6 @@ public class ElementTransformationServices {
 		default -> throw new IllegalArgumentException("Unexpected value: " + oldComponentContainer);
 		}
 
-//		if (oldComponentContainer instanceof Component) {
-//			// This component is contained by another component
-//			((Component) oldComponentContainer).getComponents().add(newComponent);
-//		} else if (oldComponentContainer instanceof Package) {
-//			// This component is contained by a package
-//			((Package) oldComponentContainer).getComponents().add(newComponent);
-//		}
-
 		// Copy all attributes
 		newComponent.setName(c.getName());
 		if (hasPins) {
@@ -866,12 +706,7 @@ public class ElementTransformationServices {
 		newComponent.setMainResponsible(c.getMainResponsible());
 		newComponent.getComponents().addAll(c.getComponents());
 
-		// TODO: give to the new component the same size/position as the old one.
-		if (containingViews != null && containingViews.size() > 0) {
-			System.out.println("Layouting");
-			DNodeContainer existingNode = (DNodeContainer) containingViews.get(0);
-			restorePositionAndSize(existingNode);
-		}
+		fixElementPosition(containingViews);
 
 		// Delete the old component
 		try {
@@ -902,14 +737,6 @@ public class ElementTransformationServices {
 		default -> throw new IllegalArgumentException("Unexpected value: " + oldComponentContainer);
 		}
 
-//		if (oldComponentContainer instanceof Component) {
-//			// This component is contained by another component
-//			((Component) oldComponentContainer).getComponents().add(newComponent);
-//		} else if (oldComponentContainer instanceof Package) {
-//			// This component is contained by a package
-//			((Package) oldComponentContainer).getComponents().add(newComponent);
-//		}
-
 		// Copy all attributes
 		newComponent.setName(c.getName());
 		if (hasPins) {
@@ -925,12 +752,7 @@ public class ElementTransformationServices {
 		newComponent.setMainResponsible(c.getMainResponsible());
 		newComponent.getComponents().addAll(c.getComponents());
 
-		// TODO: give to the new component the same size/position as the old one.
-		if (containingViews != null && containingViews.size() > 0) {
-			System.out.println("Layouting");
-			DNodeContainer existingNode = (DNodeContainer) containingViews.get(0);
-			restorePositionAndSize(existingNode);
-		}
+		fixElementPosition(containingViews);
 
 		// Delete the old component
 		try {

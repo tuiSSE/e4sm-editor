@@ -37,10 +37,7 @@ import e4sm.de.metamodel.e4sm.Pin;
 import e4sm.de.metamodel.e4sm.Sensor;
 import e4sm.de.metamodel.e4sm.SoftwareComponent;
 import e4sm.de.metamodel.e4sm.e4smFactory;
-import e4sm.de.metamodel.e4sm.core.CoreFactory;
 import e4sm.de.metamodel.e4sm.core.NamedElement;
-import e4sm.de.metamodel.e4sm.execution.ExecutionFactory;
-import e4sm.de.metamodel.e4sm.execution.TimeFunctions;
 import e4sm.de.metamodel.e4sm.utils.Utils;
 import e4sm.de.metamodel.xtext.E4smRuntimeModule;
 
@@ -456,11 +453,14 @@ public class Services {
 
 				> Generated on: %GENERATED_ON%<br>
 				> Version: 1.0.0
+				
 
 				### Sensors
+				unit: μm<br>
 				%SENSORS%
 
 				### Actuators
+				unit: μm<br>
 				%ACTUATORS%
 
 				## Component Details
