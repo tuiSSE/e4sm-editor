@@ -125,10 +125,10 @@ public class Services {
 		else {
 			if (c.getFiringStrategy() == ComponentFiringStrategy.OR) {
 				// one executable input pin is enough
-				return c.getInputPins().stream().anyMatch(ip -> checkPinExecutability(ip, visitedComponents));
+				return c.getInputPins().stream().anyMatch(ip -> checkPinExecutability(ip, new HashSet<Component>(visitedComponents)));
 			} else if (c.getFiringStrategy() == ComponentFiringStrategy.AND) {
 				// all input pins must be executable
-				return c.getInputPins().stream().allMatch(ip -> checkPinExecutability(ip, visitedComponents));
+				return c.getInputPins().stream().allMatch(ip -> checkPinExecutability(ip, new HashSet<Component>(visitedComponents)));
 			}
 		}
 		return false;
@@ -210,9 +210,9 @@ public class Services {
 				}
 				if (sourceElement instanceof Component) {
 					var sourceContainer = (Component) sourceElement;
-					if (sourceContainer.getSpecifiedInPackage() != null) {
+					if (sourceContainer.getSpecifiedInPackage() != null && p instanceof InputPin) {
 						// this is a gatewaypin, we assume that whatever comes is executable
-						return true;
+						return true; 
 					}
 					if (!visitedComponents.contains(sourceContainer)) {
 						return checkExecutabilityChain(sourceContainer, visitedComponents);
