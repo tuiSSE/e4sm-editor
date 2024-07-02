@@ -307,6 +307,8 @@ public class e4smValidator extends EObjectValidator {
 			result &= validateComponent_ComponentC2(component, diagnostics, context);
 		if (result || diagnostics != null)
 			result &= validateComponent_ComponentC3(component, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateComponent_ComponentC4(component, diagnostics, context);
 		return result;
 	}
 
@@ -398,6 +400,26 @@ public class e4smValidator extends EObjectValidator {
 	}
 
 	/**
+	 * Validates the ComponentC4 constraint of '<em>Component</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean validateComponent_ComponentC4(Component component, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		if (component.getInputPins().stream().anyMatch( (InputPin i) ->{ return i.getCollect()>1;}) && component.getInputPins().size() > 1) {
+			if (diagnostics != null) {
+				diagnostics.add(
+						createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic",
+								new Object[] { "C4: If a component has a pin with collect > 1, the component shall only have one pin!", getObjectLabel(component, context) },
+								new Object[] { component }, context));
+			}
+			return false;
+		}
+		return true;
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -428,6 +450,8 @@ public class e4smValidator extends EObjectValidator {
 			result &= validateComponent_ComponentC2(machineLearningComponent, diagnostics, context);
 		if (result || diagnostics != null)
 			result &= validateComponent_ComponentC3(machineLearningComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateComponent_ComponentC4(machineLearningComponent, diagnostics, context);
 		if (result || diagnostics != null)
 			result &= validateSoftwareComponent_SoftwareComponentC1(machineLearningComponent, diagnostics, context);
 		return result;
@@ -461,6 +485,8 @@ public class e4smValidator extends EObjectValidator {
 			result &= validateConnector_ConnectorC1(connector, diagnostics, context);
 		if (result || diagnostics != null)
 			result &= validateConnector_ConnectorC2(connector, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateConnector_ConnectorC3(connector, diagnostics, context);
 		return result;
 	}
 
@@ -517,9 +543,26 @@ public class e4smValidator extends EObjectValidator {
 		return true;
 	}
 
-	
+	/**
+	 * Validates the ConnectorC3 constraint of '<em>Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean validateConnector_ConnectorC3(Connector connector, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		if (connector.getSource() instanceof PhysicalComponent && connector.getTarget() instanceof PhysicalComponent) {
+			if (diagnostics != null) {
+				diagnostics.add(
+						createDiagnostic(Diagnostic.WARNING, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic",
+								new Object[] { "C3: a generic connector should not connect two PhysicalComponents!", getObjectLabel(connector, context) },
+								new Object[] { connector }, context));
+			}
+			return false;
+		}
+		return true;
+	}
 
-	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -550,11 +593,15 @@ public class e4smValidator extends EObjectValidator {
 		if (result || diagnostics != null)
 			result &= validateConnector_ConnectorC2(physicalConnector, diagnostics, context);
 		if (result || diagnostics != null)
+			result &= validateConnector_ConnectorC3(physicalConnector, diagnostics, context);
+		if (result || diagnostics != null)
 			result &= validatePhysicalConnector_PhysicalConnectorC1(physicalConnector, diagnostics, context);
 		if (result || diagnostics != null)
 			result &= validatePhysicalConnector_PhysicalConnectorC2(physicalConnector, diagnostics, context);
 		if (result || diagnostics != null)
 			result &= validatePhysicalConnector_PhysicalConnectorC3(physicalConnector, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validatePhysicalConnector_PhysicalConnectorC4(physicalConnector, diagnostics, context);
 		return result;
 	}
 
@@ -641,6 +688,26 @@ public class e4smValidator extends EObjectValidator {
 	}
 
 	/**
+	 * Validates the PhysicalConnectorC4 constraint of '<em>Physical Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean validatePhysicalConnector_PhysicalConnectorC4(PhysicalConnector physicalConnector,
+			DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (physicalConnector.getSource() instanceof SoftwareComponent && physicalConnector.getTarget() instanceof SoftwareComponent) {
+			if (diagnostics != null) {
+				diagnostics.add(
+						createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic",
+								new Object[] { "C4: a PhysicalConnecotr shall not connect 2 SoftwareComponents!", getObjectLabel(physicalConnector, context) },
+								new Object[] { physicalConnector }, context));
+			}
+			return false;
+		}
+		return true;
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -671,6 +738,8 @@ public class e4smValidator extends EObjectValidator {
 			result &= validateComponent_ComponentC2(physicalComponent, diagnostics, context);
 		if (result || diagnostics != null)
 			result &= validateComponent_ComponentC3(physicalComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateComponent_ComponentC4(physicalComponent, diagnostics, context);
 		return result;
 	}
 
@@ -705,6 +774,8 @@ public class e4smValidator extends EObjectValidator {
 			result &= validateComponent_ComponentC2(softwareComponent, diagnostics, context);
 		if (result || diagnostics != null)
 			result &= validateComponent_ComponentC3(softwareComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateComponent_ComponentC4(softwareComponent, diagnostics, context);
 		if (result || diagnostics != null)
 			result &= validateSoftwareComponent_SoftwareComponentC1(softwareComponent, diagnostics, context);
 		return result;
@@ -763,7 +834,31 @@ public class e4smValidator extends EObjectValidator {
 			result &= validateConnector_ConnectorC1(logicalConnector, diagnostics, context);
 		if (result || diagnostics != null)
 			result &= validateConnector_ConnectorC2(logicalConnector, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateConnector_ConnectorC3(logicalConnector, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateLogicalConnector_LogicalConnectorC1(logicalConnector, diagnostics, context);
 		return result;
+	}
+
+	/**
+	 * Validates the LogicalConnectorC1 constraint of '<em>Logical Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean validateLogicalConnector_LogicalConnectorC1(LogicalConnector logicalConnector,
+			DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (logicalConnector.getSource() instanceof PhysicalComponent && logicalConnector.getTarget() instanceof PhysicalComponent) {
+			if (diagnostics != null) {
+				diagnostics.add(
+						createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic",
+								new Object[] { "C1: a LogicalConnetor shall not connect two PhysicalComponents!", getObjectLabel(logicalConnector, context) },
+								new Object[] { logicalConnector }, context));
+			}
+			return false;
+		}
+		return true;
 	}
 
 	/**
@@ -796,6 +891,8 @@ public class e4smValidator extends EObjectValidator {
 			result &= validateComponent_ComponentC2(heuristic, diagnostics, context);
 		if (result || diagnostics != null)
 			result &= validateComponent_ComponentC3(heuristic, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateComponent_ComponentC4(heuristic, diagnostics, context);
 		if (result || diagnostics != null)
 			result &= validateSoftwareComponent_SoftwareComponentC1(heuristic, diagnostics, context);
 		return result;
@@ -832,6 +929,8 @@ public class e4smValidator extends EObjectValidator {
 		if (result || diagnostics != null)
 			result &= validateComponent_ComponentC3(function, diagnostics, context);
 		if (result || diagnostics != null)
+			result &= validateComponent_ComponentC4(function, diagnostics, context);
+		if (result || diagnostics != null)
 			result &= validateSoftwareComponent_SoftwareComponentC1(function, diagnostics, context);
 		return result;
 	}
@@ -867,6 +966,8 @@ public class e4smValidator extends EObjectValidator {
 			result &= validateComponent_ComponentC2(externalDependency, diagnostics, context);
 		if (result || diagnostics != null)
 			result &= validateComponent_ComponentC3(externalDependency, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateComponent_ComponentC4(externalDependency, diagnostics, context);
 		if (result || diagnostics != null)
 			result &= validateSoftwareComponent_SoftwareComponentC1(externalDependency, diagnostics, context);
 		return result;
@@ -1104,6 +1205,8 @@ public class e4smValidator extends EObjectValidator {
 		if (result || diagnostics != null)
 			result &= validateComponent_ComponentC3(sensor, diagnostics, context);
 		if (result || diagnostics != null)
+			result &= validateComponent_ComponentC4(sensor, diagnostics, context);
+		if (result || diagnostics != null)
 			result &= validateSensor_SensorC1(sensor, diagnostics, context);
 		if (result || diagnostics != null)
 			result &= validateSensor_SensorC2(sensor, diagnostics, context);
@@ -1178,6 +1281,8 @@ public class e4smValidator extends EObjectValidator {
 			result &= validateComponent_ComponentC2(actuator, diagnostics, context);
 		if (result || diagnostics != null)
 			result &= validateComponent_ComponentC3(actuator, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateComponent_ComponentC4(actuator, diagnostics, context);
 		if (result || diagnostics != null)
 			result &= validateActuator_ActuatorC1(actuator, diagnostics, context);
 		if (result || diagnostics != null)
@@ -1513,6 +1618,8 @@ public class e4smValidator extends EObjectValidator {
 			result &= validateComponent_ComponentC2(classificationComponent, diagnostics, context);
 		if (result || diagnostics != null)
 			result &= validateComponent_ComponentC3(classificationComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateComponent_ComponentC4(classificationComponent, diagnostics, context);
 		if (result || diagnostics != null)
 			result &= validateSoftwareComponent_SoftwareComponentC1(classificationComponent, diagnostics, context);
 		return result;
@@ -1980,6 +2087,8 @@ public class e4smValidator extends EObjectValidator {
 		if (result || diagnostics != null)
 			result &= validateComponent_ComponentC3(binaryClassificationComponent, diagnostics, context);
 		if (result || diagnostics != null)
+			result &= validateComponent_ComponentC4(binaryClassificationComponent, diagnostics, context);
+		if (result || diagnostics != null)
 			result &= validateSoftwareComponent_SoftwareComponentC1(binaryClassificationComponent, diagnostics,
 					context);
 		return result;
@@ -2018,6 +2127,8 @@ public class e4smValidator extends EObjectValidator {
 			result &= validateComponent_ComponentC2(multiclassClassificationComponent, diagnostics, context);
 		if (result || diagnostics != null)
 			result &= validateComponent_ComponentC3(multiclassClassificationComponent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateComponent_ComponentC4(multiclassClassificationComponent, diagnostics, context);
 		if (result || diagnostics != null)
 			result &= validateSoftwareComponent_SoftwareComponentC1(multiclassClassificationComponent, diagnostics,
 					context);

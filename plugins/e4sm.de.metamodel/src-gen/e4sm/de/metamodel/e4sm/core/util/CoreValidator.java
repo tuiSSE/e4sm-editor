@@ -7,8 +7,10 @@ import e4sm.de.metamodel.e4sm.core.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Set;
 
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
@@ -692,7 +694,37 @@ public class CoreValidator extends EObjectValidator {
 			result &= validate_EveryMapEntryUnique(typeSpecification, diagnostics, context);
 		if (result || diagnostics != null)
 			result &= validateNamedElement_C1(typeSpecification, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateTypeSpecification_TypeSpecificationC1(typeSpecification, diagnostics, context);
 		return result;
+	}
+
+	/**
+	 * Validates the TypeSpecificationC1 constraint of '<em>Type Specification</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean validateTypeSpecification_TypeSpecificationC1(TypeSpecification typeSpecification,
+			DiagnosticChain diagnostics, Map<Object, Object> context) {
+		Set<String> set = new HashSet<>();
+		var attr = typeSpecification.getAttributes();
+		var result = true;
+		
+		for (int i = 0; result == true && i < attr.size(); i++) {
+			result = set.add(attr.get(i).getName());
+		}
+		
+		if (!result) {
+			if (diagnostics != null) {
+				diagnostics.add(
+						createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic",
+								new Object[] { "C1: Type shall not contain attributes with the same name!", getObjectLabel(typeSpecification, context) },
+								new Object[] { typeSpecification }, context));
+			}
+			return false;
+		}
+		return true;
 	}
 
 	/**

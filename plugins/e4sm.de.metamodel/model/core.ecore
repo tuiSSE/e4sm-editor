@@ -99,6 +99,9 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Variant" eSuperTypes="#//NamedElement #//DocumentableElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="TypeSpecification" eSuperTypes="#//NamedElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="TypeSpecificationC1"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
         eType="#//AttributeSpecification" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="superType" eType="#//TypeSpecification"/>

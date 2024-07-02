@@ -1533,6 +1533,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	protected void createEcoreAnnotations() {
 		String source = "http://www.eclipse.org/emf/2002/Ecore";
 		addAnnotation(namedElementEClass, source, new String[] { "constraints", "C1" });
+		addAnnotation(typeSpecificationEClass, source, new String[] { "constraints", "TypeSpecificationC1" });
 	}
 
 	/**

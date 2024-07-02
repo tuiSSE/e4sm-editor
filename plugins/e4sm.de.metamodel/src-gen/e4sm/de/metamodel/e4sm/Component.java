@@ -38,7 +38,7 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  *
  * @see e4sm.de.metamodel.e4sm.e4smPackage#getComponent()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='ComponentC1 ComponentC2 ComponentC3'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='ComponentC1 ComponentC2 ComponentC3 ComponentC4'"
  * @generated
  */
 public interface Component extends NamedElement, ParameterizableElement, DelayableElement, DocumentableElement {

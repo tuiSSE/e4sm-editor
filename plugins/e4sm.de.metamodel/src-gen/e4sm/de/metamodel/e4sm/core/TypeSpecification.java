@@ -19,7 +19,7 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  *
  * @see e4sm.de.metamodel.e4sm.core.CorePackage#getTypeSpecification()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='TypeSpecificationC1'"
  * @generated
  */
 public interface TypeSpecification extends NamedElement {
