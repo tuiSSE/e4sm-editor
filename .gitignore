@@ -1,6 +1,7 @@
 bin
 target
 javaCompiler\.\.\.args
+**/.classpath
 
 plugins/e4sm.de.metamodel.to.scpn.qvto/docs/~$Transformation Definition.pptx
 
