@@ -262,10 +262,8 @@ public class Services {
 					.createResource(URI.createURI("dummy:/" + UUID.randomUUID().toString() + ".e4smcode"));
 			resource.load(new ByteArrayInputStream(text.getBytes()), xtextResourceSet.getLoadOptions());
 		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
