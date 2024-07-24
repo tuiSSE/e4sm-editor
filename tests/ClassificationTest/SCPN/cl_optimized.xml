@@ -9,13 +9,6 @@
       <graphics x="30" y="30"/>
     </label>
   </place>
-  <place capacity="0" id="Destination_in_1_place_id" initialMarking=""
-    queue="Random" tokentype="Data" type="node" watch="false">
-    <graphics orientation="0" x="2780" y="80"/>
-    <label id="Destination_in_1_id" text="Destination_in_1" type="text">
-      <graphics x="30" y="30"/>
-    </label>
-  </place>
   <place capacity="0" id="clTest_in_1_place_id" initialMarking=""
     queue="Random" tokentype="Data" type="node" watch="false">
     <graphics orientation="0" x="845" y="80"/>
@@ -23,24 +16,10 @@
       <graphics x="30" y="30"/>
     </label>
   </place>
-  <place capacity="0" id="clTest_out1_place_id" initialMarking=""
-    queue="Random" tokentype="Data" type="node" watch="false">
-    <graphics orientation="0" x="2160" y="80"/>
-    <label id="clTest_out1_id" text="clTest_out1" type="text">
-      <graphics x="30" y="30"/>
-    </label>
-  </place>
   <place capacity="0" id="Pi_in_1_place_id" initialMarking=""
     queue="Random" tokentype="Data" type="node" watch="false">
     <graphics orientation="0" x="535" y="80"/>
     <label id="Pi_in_1_id" text="Pi_in_1" type="text">
-      <graphics x="30" y="30"/>
-    </label>
-  </place>
-  <place capacity="0" id="Pi_out1_place_id" initialMarking=""
-    queue="Random" tokentype="Data" type="node" watch="false">
-    <graphics orientation="0" x="2470" y="80"/>
-    <label id="Pi_out1_id" text="Pi_out1" type="text">
       <graphics x="30" y="30"/>
     </label>
   </place>
@@ -73,14 +52,6 @@
       <graphics x="30" y="30"/>
     </label>
   </timedTransition>
-  <timedTransition id="Destination_execution_timed_trans_id"
-    serverType="ExclusiveServer" specType="Automatic" takeFirst="false"
-    timeFunction="EXP(1.0)" type="node" watch="false">
-    <graphics orientation="0" x="2940" y="80"/>
-    <label id="Destination_execution_id" text="Destination_execution" type="text">
-      <graphics x="30" y="30"/>
-    </label>
-  </timedTransition>
   <timedTransition id="clTest_execution_timed_trans_id"
     serverType="ExclusiveServer" specType="Automatic" takeFirst="false"
     timeFunction="EXP(1.0)" type="node" watch="false">
@@ -97,14 +68,6 @@
       <graphics x="30" y="30"/>
     </label>
   </timedTransition>
-  <timedTransition id="con_sweq_timed_trans_id"
-    serverType="ExclusiveServer" specType="Automatic" takeFirst="false"
-    timeFunction="EXP(1.0)" type="node" watch="false">
-    <graphics orientation="0" x="2630" y="80"/>
-    <label id="con_sweq_id" text="con_sweq" type="text">
-      <graphics x="30" y="30"/>
-    </label>
-  </timedTransition>
   <timedTransition id="con_9O3j_timed_trans_id"
     serverType="ExclusiveServer" specType="Automatic" takeFirst="false"
     timeFunction="EXP(1.0)" type="node" watch="false">
@@ -113,19 +76,11 @@
       <graphics x="30" y="30"/>
     </label>
   </timedTransition>
-  <timedTransition id="con_vFG3_timed_trans_id"
-    serverType="ExclusiveServer" specType="Automatic" takeFirst="false"
-    timeFunction="EXP(1.0)" type="node" watch="false">
-    <graphics orientation="0" x="2320" y="80"/>
-    <label id="con_vFG3_id" text="con_vFG3" type="text">
-      <graphics x="30" y="30"/>
-    </label>
-  </timedTransition>
   <immediateTransition id="p.1" priority="1"
     serverType="ExclusiveServer" specType="Automatic" takeFirst="false"
     type="node" watch="false" weight="1-$OOD_RATIO_CL1">
     <graphics orientation="0" x="1410" y="430"/>
-    <label id="p.1.0" text="T0" type="text">
+    <label id="p.1.0" text="T12" type="text">
       <graphics x="-10" y="-40"/>
     </label>
   </immediateTransition>
@@ -176,13 +131,6 @@
       <graphics x="30" y="30"/>
     </inscription>
   </arc>
-  <arc fromNode="Destination_in_1_place_id"
-    id="Destination_main_to_timed_arc_id"
-    toNode="Destination_execution_timed_trans_id" type="connector">
-    <inscription id="anonymous_inscription_id" text="x" type="inscriptionText">
-      <graphics x="30" y="30"/>
-    </inscription>
-  </arc>
   <arc fromNode="clTest_in_1_place_id" id="clTest_main_to_timed_arc_id"
     toNode="clTest_execution_timed_trans_id" type="connector">
     <inscription id="anonymous_inscription_id" text="x" type="inscriptionText">
@@ -201,18 +149,6 @@
       <graphics x="30" y="30"/>
     </inscription>
   </arc>
-  <arc fromNode="Pi_out1_place_id" id="con_sweq_1_arc_id"
-    toNode="con_sweq_timed_trans_id" type="connector">
-    <inscription id="anonymous_inscription_id" text="x" type="inscriptionText">
-      <graphics x="30" y="30"/>
-    </inscription>
-  </arc>
-  <arc fromNode="con_sweq_timed_trans_id" id="con_sweq_2_arc_id"
-    toNode="Destination_in_1_place_id" type="connector">
-    <inscription id="anonymous_inscription_id" text="x" type="inscriptionText">
-      <graphics x="25" y="30"/>
-    </inscription>
-  </arc>
   <arc fromNode="Pi_in_1_place_id" id="con_9O3j_1_arc_id"
     toNode="con_9O3j_timed_trans_id" type="connector">
     <inscription id="anonymous_inscription_id" text="x" type="inscriptionText">
@@ -223,18 +159,6 @@
     toNode="clTest_in_1_place_id" type="connector">
     <inscription id="anonymous_inscription_id" text="x" type="inscriptionText">
       <graphics x="30" y="30"/>
-    </inscription>
-  </arc>
-  <arc fromNode="clTest_out1_place_id" id="con_vFG3_1_arc_id"
-    toNode="con_vFG3_timed_trans_id" type="connector">
-    <inscription id="anonymous_inscription_id" text="x" type="inscriptionText">
-      <graphics x="30" y="30"/>
-    </inscription>
-  </arc>
-  <arc fromNode="con_vFG3_timed_trans_id" id="con_vFG3_2_arc_id"
-    toNode="Pi_out1_place_id" type="connector">
-    <inscription id="anonymous_inscription_id" text="x" type="inscriptionText">
-      <graphics x="25" y="30"/>
     </inscription>
   </arc>
   <arc fromNode="p.0" id="p.3" toNode="p.1" type="connector">
@@ -303,11 +227,6 @@
       <graphics x="0" y="0"/>
     </inscription>
   </arc>
-  <measure eval="Cumulative" expression="#Destination_in_1"
-    id="Destination_a_meas" name="DestinationReady" result=""
-    type="text" watch="true">
-    <graphics x="0" y="0"/>
-  </measure>
   <comment
     commentText="n: name (string)&lt;br>s:size (int)&lt;br>l:length (int)&lt;br>gT:generationTime (DateTime)&lt;br>d:isDefault (bool)&lt;br>tL:trueLabel (int)&lt;br>gL:guessedLabel (int);ood:Out of distribution (bool)"
     id="data_comment_id" type="text">

@@ -127,6 +127,7 @@ public class TimenetSimRunner {
 		params.setStartTime(startTime);				//set the Start Time of the simulation
 		params.setEndTime(endTime);					//set the End Time of the simulation
 		params.setLogging(true);					//de- or activate logging
+		params.setSecMax("10");					//run for at most 2 minutes
 		
 		//setting up thread structure to run the client
 		//without blocking the active use of the whole eclipse product

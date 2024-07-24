@@ -1,4 +1,4 @@
-// Generated on 26.6.2024, 11:17:33 from 'StreamVizzard ILM' '26.6.2024, 11:13:08'
+// Generated on 27.6.2024, 07:15:57 from 'StreamVizzard ILM' '26.6.2024, 16:42:21'
     model "StreamVizzard ILM_model"{
         package "StreamVizzard ILM" {
             simulationDuration :300000
@@ -58,15 +58,8 @@ out "OUT_0"
 actuator "Send__359" {
         takes Det((1) * 1000)
         // Input Pins
-in "IN_0"
-        
-    },
-softwareComponent "TCN Pred__378" {
-        takes Norm((3.7573960170558234 + 0.0 * $IN_0) * 1000, (0.2401596533784641)* 1000)
-        // Input Pins
 in "IN_0",
-        // Output Pins
-out "OUT_0" = 312.0 + 0.0 * $IN_0
+in "IN_1"
         
     },
 softwareComponent "RAFI Pred__414" {
@@ -95,11 +88,14 @@ in "IN_0",
 out "OUT_0"
         
     },
-actuator "Send__435" {
-        takes Det((1) * 1000)
+softwareComponent "LSTM_Pred__449" {
+        takes Norm((37.85013274133121 + 2.9585425838881028 * @predictSteps) * 1000, (2.9576011670394258)* 1000)
         // Input Pins
-in "IN_0"
-        
+in "IN_0",
+        // Output Pins
+out "OUT_0" = 2615.0817321301874 + 96.22648573259397 * @predictSteps
+        // Parameters
+parameters {par "predictSteps" := 450 }
     }
             // Connectors
 connector "Window__3.OUT_0_to_Collect__187.IN_0" "Window__3.OUT_0" -> "Collect__187.IN_0" {
@@ -108,7 +104,7 @@ connector "Window__3.OUT_0_to_Collect__187.IN_0" "Window__3.OUT_0" -> "Collect__
 connector "Sensor Socket__39.OUT_0_to_Parse Sensor Data__348.IN_0" "Sensor Socket__39.OUT_0" -> "Parse Sensor Data__348.IN_0" {
                     takes Det((1)*1000)
             } ,
-connector "Collect__187.OUT_0_to_TCN Pred__378.IN_0" "Collect__187.OUT_0" -> "TCN Pred__378.IN_0" {
+connector "Collect__187.OUT_0_to_LSTM_Pred__449.IN_0" "Collect__187.OUT_0" -> "LSTM_Pred__449.IN_0" {
                     takes Det((1)*1000)
             } ,
 connector "Parse Sensor Data__348.OUT_0_to_Window__3.IN_0" "Parse Sensor Data__348.OUT_0" -> "Window__3.IN_0" {
@@ -120,16 +116,16 @@ connector "Parse Image Data__350.OUT_0_to_Window__416.IN_0" "Parse Image Data__3
 connector "Image Socket__351.OUT_0_to_Parse Image Data__350.IN_0" "Image Socket__351.OUT_0" -> "Parse Image Data__350.IN_0" {
                     takes Det((1)*1000)
             } ,
-connector "TCN Pred__378.OUT_0_to_Send__359.IN_0" "TCN Pred__378.OUT_0" -> "Send__359.IN_0" {
-                    takes Det((1)*1000)
-            } ,
-connector "RAFI Pred__414.OUT_0_to_Send__435.IN_0" "RAFI Pred__414.OUT_0" -> "Send__435.IN_0" {
+connector "RAFI Pred__414.OUT_0_to_Send__359.IN_1" "RAFI Pred__414.OUT_0" -> "Send__359.IN_1" {
                     takes Det((1)*1000)
             } ,
 connector "Window__416.OUT_0_to_Collect__417.IN_0" "Window__416.OUT_0" -> "Collect__417.IN_0" {
                     takes Det((1)*1000)
             } ,
 connector "Collect__417.OUT_0_to_RAFI Pred__414.IN_0" "Collect__417.OUT_0" -> "RAFI Pred__414.IN_0" {
+                    takes Det((1)*1000)
+            } ,
+connector "LSTM_Pred__449.OUT_0_to_Send__359.IN_0" "LSTM_Pred__449.OUT_0" -> "Send__359.IN_0" {
                     takes Det((1)*1000)
             } 
         }
