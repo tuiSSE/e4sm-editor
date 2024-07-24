@@ -862,7 +862,7 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 		
 		
 		// Check if the component can be executed in parallel
-		if(self.oclIsKindOf(SoftwareComponent) and self.firingStrategy = ComponentFiringStrategy::AND){
+		if(self.oclIsKindOf(SoftwareComponent) and self.firingStrategy = ComponentFiringStrategy::AND and isSimpleComponent){
 		var servers : Integer = self.oclAsType(SoftwareComponent).numberOfServers;
 		if(servers = -1){
 			timedTran.serverType := ServerTypeType::InfiniteServer;
@@ -894,7 +894,7 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 			pl->add(sem);
 			
 			// Create the Arcs
-			var semBackArc := new ArcType(self.name+"_semBack");
+			var semBackArc := new ArcType(self.name + "_semBack");
 			semBackArc.inscription.text := "new(0)";
 			semBackArc.fromNode := immTranExecuted.id;
 			semBackArc.toNode := sem.id;
@@ -1533,7 +1533,7 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 			pl->add(sem);
 			
 			// Create the Arcs
-			var semBack := new ArcType(self.name+"_semBack");
+			var semBack := new ArcType(self.name + "_semBack");
 			semBack.inscription.text := "new(0)";
 			semBack.fromNode := immTranExecuted.id;
 			semBack.toNode := sem.id;
@@ -2198,7 +2198,7 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 			pl->add(sem);
 			
 			// Create the Arcs
-			var semBack := new ArcType(self.name+"_semBack");
+			var semBack := new ArcType(self.name + "_semBack");
 			semBack.inscription.text := "new(0)";
 			semBack.fromNode := immTranExecuted.id;
 			semBack.toNode := sem.id;

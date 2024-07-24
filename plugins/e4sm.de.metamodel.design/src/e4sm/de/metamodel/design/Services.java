@@ -134,7 +134,7 @@ public class Services {
 		return false;
 	}
 
-	private boolean checkPinExecutability(DataNode ip, final Set<Component> visitedComponents) {
+	public boolean checkPinExecutability(DataNode ip, final Set<Component> visitedComponents) {
 		if(ip == null) {
 			System.err.println("Cannot check executability of null");
 			return false;
@@ -538,11 +538,11 @@ public class Services {
 			res.append("\"");
 			var timeFunction = s.getTimeFunction();
 			if (timeFunction != null) {
-				res.append(" fires in **");
+				res.append(" executes in **");
 				res.append(timeFunction.getString());
 				res.append("**");
 			} else {
-				res.append(" *no firing info*");
+				res.append(" *no execution info*");
 			}
 			res.append("\n");
 		}
@@ -561,11 +561,11 @@ public class Services {
 			res.append("\"");
 			var timeFunction = a.getTimeFunction();
 			if (timeFunction != null) {
-				res.append(" fires in **");
+				res.append(" executes in **");
 				res.append(timeFunction.getString());
 				res.append("**");
 			} else {
-				res.append(" *no firing info*");
+				res.append(" *no execution info*");
 			}
 			res.append("\n");
 		}
