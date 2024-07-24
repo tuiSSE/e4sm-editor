@@ -7,10 +7,10 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry exported="true" kind="lib" path="lib/gpal.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/jargs.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/antlr.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/RemoteSystem.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/gpsc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/erba4908/Documents/Development/TimeNET/lib/antlr.jar"/>
+	<classpathentry kind="lib" path="C:/Users/erba4908/Documents/Development/TimeNET/GPAL/build/libs/GPAL.jar"/>
+	<classpathentry kind="lib" path="C:/Users/erba4908/Documents/Development/TimeNET/GPSC/build/libs/GPSC.jar" sourcepath="C:/Users/erba4908/Documents/Development/TimeNET/GPSC"/>
+	<classpathentry kind="lib" path="C:/Users/erba4908/Documents/Development/TimeNET/lib/jargs.jar"/>
+	<classpathentry kind="lib" path="C:/Users/erba4908/Documents/Development/TimeNET/RemoteSystem/build/libs/RemoteSystem.jar" sourcepath="C:/Users/erba4908/Documents/Development/TimeNET/RemoteSystem"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

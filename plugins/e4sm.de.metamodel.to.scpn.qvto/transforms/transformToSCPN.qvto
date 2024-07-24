@@ -696,7 +696,7 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 							};
 						};
 					} else {
-						//TODO: only create as many arcs as there are classes
+						//only create as many arcs as there are classes
 						//each marking own class as true and others as false
 						
 						// placeInitialized
@@ -1178,7 +1178,7 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 		};
 		
 		// Transform the execution, if any was defined
-		if (self.execution != null) { // TODO
+		if (self.execution != null) { 
 			self.execution.elements->forEach(el){
 				if(el.oclIsTypeOf(Flow)) {
 				   var f : Flow = el.oclAsType(Flow);
@@ -1713,15 +1713,6 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 		var className := self.confusionMatrixes->first().positiveClass.name;
 		assert fatal (className->size()>0) with log(self.name + " does not have a positive class set in its confusion matrix (confusion matrix <name> with positive <class> {...");
 		
-		//var classTruth : ImmediateTransitionType := new ImmediateTransitionType(self.name+"_ClassTruth");
-		//classTruth.localGuard := "x.cl_" + className + " == true";
-		//classTruth.weight := allPositives.toString();
-		//iTr += classTruth;
-		
-		//var classOther : ImmediateTransitionType := new ImmediateTransitionType(self.name+"_ClassOther");
-		//classOther.localGuard := "x.cl_" + className + " == false";
-		//classOther.weight := (1.0 - allPositives).toString();
-		//iTr += classOther;
 		
 		var ct_tp : ImmediateTransitionType := new ImmediateTransitionType(self.name+"_ct_tp");
 		ct_tp.localGuard := "x.cl_" + className + " == true";
@@ -1748,24 +1739,7 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 		
 		var inData : PlaceType := new PlaceType(self.name + "_in_data");
 		pl += inData;
-		
-		//var ct : PlaceType := new PlaceType(self.name + "_ct");
-		//pl += ct;
 	
-		//var cf : PlaceType := new PlaceType(self.name + "_cf");
-		//pl += cf;
-		
-		//var tp : PlaceType := new PlaceType(self.name + "_tp");
-		//pl += tp;
-		
-		//var fn : PlaceType := new PlaceType(self.name + "_fn");
-		//pl += fn;
-		
-		//var tn : PlaceType := new PlaceType(self.name + "_tn");
-		//pl += tn;
-		
-		//var fp : PlaceType := new PlaceType(self.name + "_fp");
-		//pl += fp;
 		
 		// Generate all arcs
 		var execution_to_in_data : ArcType := new ArcType(self.name + "execution_to_in_data");
@@ -1794,48 +1768,6 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 		in_data_to_tn.toNode := cf_tn.id;
 		arcs+=in_data_to_tn;
 		
-		//var in_data_to_classTruth: ArcType := new ArcType(self.name + "in_data_truth");
-		//in_data_to_classTruth.fromNode := inData.id;
-		//in_data_to_classTruth.toNode := classTruth.id;
-		//arcs+=in_data_to_classTruth;
-		
-		//var in_data_to_classFalse : ArcType := new ArcType(self.name + "in_data_to_false");
-		//in_data_to_classFalse.fromNode := inData.id;
-		//in_data_to_classFalse.toNode := classOther.id;
-		//arcs+=in_data_to_classFalse;
-		
-		//var class_truth_to_ct : ArcType := new ArcType(self.name + "class_truth_to_ct");
-		//class_truth_to_ct.fromNode := classTruth.id;
-		//class_truth_to_ct.inscription.text := "x(tL=1)";
-		//class_truth_to_ct.toNode := ct.id;
-		//arcs+=class_truth_to_ct;
-		
-		//var class_other_to_cf : ArcType := new ArcType(self.name + "class_other_to_cf");
-		//class_other_to_cf.fromNode := classOther.id;
-		//class_other_to_cf.inscription.text := "x(tL=2)";
-		//class_other_to_cf.toNode := cf.id;
-		//arcs+=class_other_to_cf;
-		
-		
-		//var ct_to_ct_tp : ArcType := new ArcType(self.name + "ct_to_ct_tp");
-		//ct_to_ct_tp.fromNode := ct.id;
-		//ct_to_ct_tp.toNode := ct_tp.id;
-		//arcs+=ct_to_ct_tp;
-		
-		//var ct_to_ct_fn : ArcType := new ArcType(self.name + "ct_to_ct_fn");
-		//ct_to_ct_fn.fromNode := ct.id;
-		//ct_to_ct_fn.toNode := ct_fn.id;
-		//arcs+=ct_to_ct_fn;
-		
-		//var cf_to_cf_tn : ArcType := new ArcType(self.name + "cf_to_cf_tn");
-		//cf_to_cf_tn.fromNode := cf.id;
-		//cf_to_cf_tn.toNode := cf_tn.id;
-		//arcs+=cf_to_cf_tn;
-		
-		//var cd_to_cf_fp : ArcType := new ArcType(self.name + "cd_to_cf_fp");
-		//cd_to_cf_fp.fromNode := cf.id;
-		//cd_to_cf_fp.toNode := cf_fp.id;
-		//arcs+=cd_to_cf_fp;
 		
 		//arcs from decision results to placeExecuted
 		var aClass : e4sm::ClassificationClass := self.confusionMatrixes->positiveClass->first();
@@ -1865,28 +1797,7 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 		cf_fp_to_executed.inscription.text := "x(cl_" + cName + "=true)";
 		arcs+=cf_fp_to_executed;
 		
-		//var ct_tp_2_tp : ArcType := new ArcType(self.name + "ct_tp_2_tp");
-		//ct_tp_2_tp.fromNode := ct_tp.id;
-		//ct_tp_2_tp.toNode := tp.id;
-		//arcs+=ct_tp_2_tp;
-		
-		//var ct_fn_2_fn : ArcType := new ArcType(self.name + "ct_fn_2_fn");
-		//ct_fn_2_fn.fromNode := ct_fn.id;
-		//ct_fn_2_fn.toNode := fn.id;
-		//arcs+=ct_fn_2_fn;
-		
-		//var cf_tn_2_tn : ArcType := new ArcType(self.name + "cf_tn_2_tn");
-		//cf_tn_2_tn.fromNode := cf_tn.id;
-		//cf_tn_2_tn.toNode := tn.id;
-		//arcs+=cf_tn_2_tn;
-		
-		//var cf_fp_2_fp : ArcType := new ArcType(self.name + "cf_fp_2_fp");
-		//cf_fp_2_fp.fromNode := cf_fp.id;
-		//cf_fp_2_fp.toNode := fp.id;
-		//arcs+=cf_fp_2_fp;
-		
 		// Generate all the measures
-		
 		var tp : MeasureType := new MeasureType(self.name + "_tp");
 		tp.expression := getMeasureReference(ct_tp);
 		tp.eval := MeasureEvalType::Cumulative;
@@ -2445,12 +2356,7 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 			class_place_to_ct_fn.fromNode := classPlace.id;
 			class_place_to_ct_fn.toNode := ct_fn.id;
 			arcs+=class_place_to_ct_fn;
-			
-			//var fn_to_wrong_class: ArcType := new ArcType(cl.name + "fn_wrong_class");
-			//fn_to_wrong_class.fromNode := ct_fn.id;
-			//fn_to_wrong_class.toNode := wrongClass.id;
-			//arcs+=fn_to_wrong_class;
-			
+	
 			
 			// here ends the first block "Class Selection"
 			// -------------------------------
@@ -2554,12 +2460,6 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 			wrong_class_to_cl_wrong.toNode := cl_wrong.id;
 			arcs+=wrong_class_to_cl_wrong;
 			
-			//var cl_wrong_to_eval: ArcType := new ArcType(cl.name + "cl_wrong_to_eval");
-			//cl_wrong_to_eval.fromNode := cl_wrong.id;
-			//cl_wrong_to_eval.toNode := classEvalPlace.id;
-			//cl_wrong_to_eval.inscription.text := "x(cl_" +cl.name + "=false;cl_" + cl.name +"_" +self.name + "=true;r=false)";
-			//arcs+=cl_wrong_to_eval;
-			
 			var cl_wrong_iTr_to_wrong_place: ArcType := new ArcType(cl.name + "_wrong_to_wrong_place");
 			cl_wrong_iTr_to_wrong_place.fromNode := cl_wrong.id;
 			cl_wrong_iTr_to_wrong_place.toNode := wrongClassOut.id;
@@ -2582,12 +2482,6 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 			};
 			
 			j := j + 1;
-			
-			//var wrong_iTr_to_other_cl_eval: ArcType := new ArcType(cl.name + "wrong_iTr_to_eval");
-			//wrong_iTr_to_other_cl_eval.fromNode := iTrWrCl.id;
-			//wrong_iTr_to_other_cl_eval.toNode := classEvalPlace.id;
-			//wrong_iTr_to_other_cl_eval.inscription.text := "copy x(r=true)";
-			//arcs+=wrong_iTr_to_other_cl_eval;
 			
 			//here ends the third block
 			//
@@ -2658,11 +2552,6 @@ tt : List(TimedTransitionType), st : List (SubstitutionTransitionType), meas : L
 					other_iTr_to_wrong_class_out_place.inscription.text := "x(cl_" + differentCl.name + "_" + self.name + "=true)";
 					arcs += other_iTr_to_wrong_class_out_place;
 							
-					//var wrong_cl_to_other_cl_eval: ArcType := new ArcType(cl.name + "wrong_to_" + differentCl.name + "_eval");
-					//wrong_cl_to_other_cl_eval.fromNode := cl.name + "_wrong_imm_tran_id";
-					//wrong_cl_to_other_cl_eval.toNode := differentCl.name + "_Correct_place_id";
-					//wrong_cl_to_other_cl_eval.inscription.text := "copy x(r=true)";
-					//arcs+=wrong_cl_to_other_cl_eval;
 				};	
 			
 			};
