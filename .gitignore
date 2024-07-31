@@ -1,15 +1,10 @@
 bin
-target
-javaCompiler\.\.\.args
-**/.classpath
-
-plugins/e4sm.de.metamodel.to.scpn.qvto/docs/~$Transformation Definition.pptx
-
-scripts/timenet-xml-fix/node_modules/
-org.eclipse.buildship.core.prefs
 build.xml
+javaCompiler\.\.\.args
+org.eclipse.buildship.core.prefs
 plugins/e4sm.de.metamodel.acceleo.documentation/tasks/generate.xml
-
+plugins/e4sm.de.metamodel.to.scpn.qvto/docs/~$Transformation Definition.pptx
 plugins/e4sm.de.metamodel.xtext/e4sm.de.metamodel.xtext.parent/e4sm.de.metamodel.xtext/.launch/
-
 scripts/import-intermediate-language/debug.log
+scripts/timenet-xml-fix/node_modules/
+target
