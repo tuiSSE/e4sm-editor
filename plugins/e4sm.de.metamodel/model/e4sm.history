@@ -591,9 +591,9 @@
       </changes>
       <changes xsi:type="history:Create" xmi:id="_PjGZcM_IEe2VEtw2v-DCBg" referenceName="eAnnotations">
         <target href="core.ecore#/"/>
-        <element href="core.ecore#//%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FEcore%"/>
+        <element href="core.ecore#//NamedElement/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FEcore%"/>
         <changes xsi:type="history:Set" xmi:id="_PjGZcc_IEe2VEtw2v-DCBg" featureName="source" dataValue="http://www.eclipse.org/emf/2002/Ecore">
-          <element href="core.ecore#//%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FEcore%"/>
+          <element href="core.ecore#//NamedElement/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FEcore%"/>
         </changes>
       </changes>
       <changes xsi:type="history:Create" xmi:id="_PjGZcs_IEe2VEtw2v-DCBg" referenceName="eAnnotations">
@@ -998,13 +998,8 @@
       </changes>
       <changes xsi:type="history:Create" xmi:id="_PjG_-c_IEe2VEtw2v-DCBg" referenceName="details">
         <target href="e4sm.ecore#//BinaryConfusionMatrix/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FEcore%"/>
-        <element href="e4sm.ecore#//BinaryConfusionMatrix/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FEcore%/@details.0"/>
-        <changes xsi:type="history:Set" xmi:id="_PjG_-s_IEe2VEtw2v-DCBg" featureName="key" dataValue="constraints">
-          <element href="e4sm.ecore#//BinaryConfusionMatrix/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FEcore%/@details.0"/>
-        </changes>
-        <changes xsi:type="history:Set" xmi:id="_PjG_-8_IEe2VEtw2v-DCBg" featureName="value" dataValue="BinaryConfusionMatrixC1 BinaryConfusionMatrixC2">
-          <element href="e4sm.ecore#//BinaryConfusionMatrix/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FEcore%/@details.0"/>
-        </changes>
+        <changes xsi:type="history:Set" xmi:id="_PjG_-s_IEe2VEtw2v-DCBg" featureName="key" dataValue="constraints"/>
+        <changes xsi:type="history:Set" xmi:id="_PjG_-8_IEe2VEtw2v-DCBg" featureName="value" dataValue="BinaryConfusionMatrixC1 BinaryConfusionMatrixC2"/>
       </changes>
       <changes xsi:type="history:Create" xmi:id="_PjG__M_IEe2VEtw2v-DCBg" referenceName="eAnnotations">
         <target href="e4sm.ecore#//BinaryConfusionMatrix"/>
@@ -1036,12 +1031,8 @@
       </changes>
       <changes xsi:type="history:Create" xmi:id="_PjHABM_IEe2VEtw2v-DCBg" referenceName="eStructuralFeatures">
         <target href="e4sm.ecore#//BinaryConfusionMatrix"/>
-        <element href="e4sm.ecore#//BinaryConfusionMatrix/negativeClass"/>
-        <changes xsi:type="history:Set" xmi:id="_PjHABc_IEe2VEtw2v-DCBg" featureName="name" dataValue="negativeClass">
-          <element href="e4sm.ecore#//BinaryConfusionMatrix/negativeClass"/>
-        </changes>
+        <changes xsi:type="history:Set" xmi:id="_PjHABc_IEe2VEtw2v-DCBg" featureName="name" dataValue="negativeClass"/>
         <changes xsi:type="history:Set" xmi:id="_PjHABs_IEe2VEtw2v-DCBg" featureName="eType">
-          <element href="e4sm.ecore#//BinaryConfusionMatrix/negativeClass"/>
           <referenceValue href="e4sm.ecore#//ClassificationClass"/>
         </changes>
       </changes>
@@ -4864,12 +4855,8 @@
       </changes>
       <changes xsi:type="history:Create" xmi:id="_PjHETc_IEe2VEtw2v-DCBg" referenceName="eStructuralFeatures">
         <target href="e4sm.ecore#//ClassificationComponent"/>
-        <element href="e4sm.ecore#//ClassificationComponent/environment"/>
-        <changes xsi:type="history:Set" xmi:id="_PjHETs_IEe2VEtw2v-DCBg" featureName="name" dataValue="environment">
-          <element href="e4sm.ecore#//ClassificationComponent/environment"/>
-        </changes>
+        <changes xsi:type="history:Set" xmi:id="_PjHETs_IEe2VEtw2v-DCBg" featureName="name" dataValue="environment"/>
         <changes xsi:type="history:Set" xmi:id="_PjHET8_IEe2VEtw2v-DCBg" featureName="eType">
-          <element href="e4sm.ecore#//ClassificationComponent/environment"/>
           <referenceValue href="e4sm.ecore#//Environment"/>
         </changes>
       </changes>

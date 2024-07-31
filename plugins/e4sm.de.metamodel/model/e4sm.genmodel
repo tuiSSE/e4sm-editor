@@ -49,8 +49,11 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//Component/execution"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//Component/firingStrategy"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//Component/datastores"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference e4sm.ecore#//Component/outputPins"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference e4sm.ecore#//Component/inputPins"/>
       <genOperations ecoreOperation="e4sm.ecore#//Component/computeMainResponsible"
           body="&#x9;&#x9;Person resp = this.getMainResponsible();&#xD;&#xA;&#x9;&#x9;if (resp != null) {&#xD;&#xA;&#x9;&#x9;&#x9;return resp;&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;NamedElement c = (NamedElement) this.eContainer();&#xD;&#xA;&#x9;&#x9;if (!(c instanceof Component)) {&#xD;&#xA;&#x9;&#x9;&#x9;return null;&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;return ((Component)c).getMainResponsible();"/>
+      <genOperations ecoreOperation="e4sm.ecore#//Component/getModel"/>
     </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//MachineLearningComponent"/>
     <genClasses ecoreClass="e4sm.ecore#//Connector">
@@ -90,6 +93,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//Package/simulationDuration"/>
       <genOperations ecoreOperation="e4sm.ecore#//Package/getAllComponents" body="&#x9;&#x9;// Get all components which are contained directly in this package&#xD;&#xA;&#x9;&#x9;EList&lt;Component> res = ECollections.newBasicEList(this.getComponents());&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;// Look into sectors&#xD;&#xA;&#x9;&#x9;this.getSectors().forEach(s -> {&#xD;&#xA;&#x9;&#x9;&#x9;res.addAll(s.getAllComponents());&#xD;&#xA;&#x9;&#x9;});&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;return res;"/>
       <genOperations ecoreOperation="e4sm.ecore#//Package/getMaxFlow"/>
+      <genOperations ecoreOperation="e4sm.ecore#//Package/getModel"/>
+      <genOperations documentation="Returns all sensors directly contained by this package, including those inside sectors."
+          ecoreOperation="e4sm.ecore#//Package/getAllSensors"/>
+      <genOperations documentation="Returns all actuators directly contained by this package, including those inside sectors."
+          ecoreOperation="e4sm.ecore#//Package/getAllActuators"/>
     </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//Model">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//Model/packages"/>
@@ -118,7 +126,9 @@
       <genOperations documentation="Returns all components contained by this sector, even if wrapped by other sectors"
           ecoreOperation="e4sm.ecore#//Sector/getAllComponents" body="&#x9;&#x9;EList&lt;Component> res = ECollections.newBasicEList(this.getComponents());&#xD;&#xA;&#x9;&#x9;this.getSectors().forEach(s->{res.addAll(s.getAllComponents());});&#xD;&#xA;&#x9;&#x9;return res;"/>
     </genClasses>
-    <genClasses ecoreClass="e4sm.ecore#//Sensor"/>
+    <genClasses ecoreClass="e4sm.ecore#//Sensor">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//Sensor/classificationClasses"/>
+    </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//Actuator"/>
     <genClasses ecoreClass="e4sm.ecore#//Pin">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//Pin/gatewayPin"
@@ -173,16 +183,16 @@
       <genOperations ecoreOperation="e4sm.ecore#//DataNode/getOutgoingConnectors"/>
       <genOperations ecoreOperation="e4sm.ecore#//DataNode/getIncomingConnectors"/>
     </genClasses>
-    <genClasses ecoreClass="e4sm.ecore#//ClassificationComponent">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//ClassificationComponent/environment"/>
-    </genClasses>
+    <genClasses ecoreClass="e4sm.ecore#//ClassificationComponent"/>
     <genClasses ecoreClass="e4sm.ecore#//Environment">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//Environment/classificationClasses"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//Environment/oodProbability"/>
     </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//ClassificationClass"/>
     <genClasses ecoreClass="e4sm.ecore#//ClassificationClassDistribution">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//ClassificationClassDistribution/classificationClass"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//ClassificationClassDistribution/probability"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//ClassificationClassDistribution/not"/>
     </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//MulticlassConfusionMatrix">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference e4sm.ecore#//MulticlassConfusionMatrix/entries"/>
@@ -215,6 +225,13 @@
       <genOperations ecoreOperation="e4sm.ecore#//MulticlassConfusionMatrix/computeClassSpecificity">
         <genParameters ecoreParameter="e4sm.ecore#//MulticlassConfusionMatrix/computeClassSpecificity/class"/>
       </genOperations>
+      <genOperations ecoreOperation="e4sm.ecore#//MulticlassConfusionMatrix/computeProbabilityOfFirstWhenNotSecond">
+        <genParameters ecoreParameter="e4sm.ecore#//MulticlassConfusionMatrix/computeProbabilityOfFirstWhenNotSecond/first"/>
+        <genParameters ecoreParameter="e4sm.ecore#//MulticlassConfusionMatrix/computeProbabilityOfFirstWhenNotSecond/second"/>
+      </genOperations>
+      <genOperations ecoreOperation="e4sm.ecore#//MulticlassConfusionMatrix/computeClassFalsePositivity">
+        <genParameters ecoreParameter="e4sm.ecore#//MulticlassConfusionMatrix/computeClassFalsePositivity/class"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//ConfusionMatrixEntry">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//ConfusionMatrixEntry/value"/>
@@ -227,7 +244,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//BinaryConfusionMatrix/fp"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute e4sm.ecore#//BinaryConfusionMatrix/fn"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//BinaryConfusionMatrix/positiveClass"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//BinaryConfusionMatrix/negativeClass"/>
     </genClasses>
     <genClasses ecoreClass="e4sm.ecore#//BinaryClassificationComponent">
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference e4sm.ecore#//BinaryClassificationComponent/confusionMatrixes"/>

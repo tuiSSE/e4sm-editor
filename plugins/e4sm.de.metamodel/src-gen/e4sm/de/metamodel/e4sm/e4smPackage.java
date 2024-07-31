@@ -171,13 +171,31 @@ public interface e4smPackage extends EPackage {
 	int COMPONENT__DATASTORES = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 9;
 
 	/**
+	 * The feature id for the '<em><b>Output Pins</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT__OUTPUT_PINS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 10;
+
+	/**
+	 * The feature id for the '<em><b>Input Pins</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT__INPUT_PINS = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 11;
+
+	/**
 	 * The number of structural features of the '<em>Component</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 10;
+	int COMPONENT_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 12;
 
 	/**
 	 * The operation id for the '<em>Compute Main Responsible</em>' operation.
@@ -189,13 +207,22 @@ public interface e4smPackage extends EPackage {
 	int COMPONENT___COMPUTE_MAIN_RESPONSIBLE = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Get Model</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT___GET_MODEL = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Component</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_OPERATION_COUNT = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 1;
+	int COMPONENT_OPERATION_COUNT = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link e4sm.de.metamodel.e4sm.impl.SoftwareComponentImpl <em>Software Component</em>}' class.
@@ -307,6 +334,24 @@ public interface e4smPackage extends EPackage {
 	int SOFTWARE_COMPONENT__DATASTORES = COMPONENT__DATASTORES;
 
 	/**
+	 * The feature id for the '<em><b>Output Pins</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOFTWARE_COMPONENT__OUTPUT_PINS = COMPONENT__OUTPUT_PINS;
+
+	/**
+	 * The feature id for the '<em><b>Input Pins</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOFTWARE_COMPONENT__INPUT_PINS = COMPONENT__INPUT_PINS;
+
+	/**
 	 * The feature id for the '<em><b>Synchronous</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -341,6 +386,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOFTWARE_COMPONENT___COMPUTE_MAIN_RESPONSIBLE = COMPONENT___COMPUTE_MAIN_RESPONSIBLE;
+
+	/**
+	 * The operation id for the '<em>Get Model</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOFTWARE_COMPONENT___GET_MODEL = COMPONENT___GET_MODEL;
 
 	/**
 	 * The operation id for the '<em>Is Parallel</em>' operation.
@@ -470,6 +524,24 @@ public interface e4smPackage extends EPackage {
 	int MACHINE_LEARNING_COMPONENT__DATASTORES = SOFTWARE_COMPONENT__DATASTORES;
 
 	/**
+	 * The feature id for the '<em><b>Output Pins</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MACHINE_LEARNING_COMPONENT__OUTPUT_PINS = SOFTWARE_COMPONENT__OUTPUT_PINS;
+
+	/**
+	 * The feature id for the '<em><b>Input Pins</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MACHINE_LEARNING_COMPONENT__INPUT_PINS = SOFTWARE_COMPONENT__INPUT_PINS;
+
+	/**
 	 * The feature id for the '<em><b>Synchronous</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -504,6 +576,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int MACHINE_LEARNING_COMPONENT___COMPUTE_MAIN_RESPONSIBLE = SOFTWARE_COMPONENT___COMPUTE_MAIN_RESPONSIBLE;
+
+	/**
+	 * The operation id for the '<em>Get Model</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MACHINE_LEARNING_COMPONENT___GET_MODEL = SOFTWARE_COMPONENT___GET_MODEL;
 
 	/**
 	 * The operation id for the '<em>Is Parallel</em>' operation.
@@ -971,6 +1052,24 @@ public interface e4smPackage extends EPackage {
 	int PHYSICAL_COMPONENT__DATASTORES = COMPONENT__DATASTORES;
 
 	/**
+	 * The feature id for the '<em><b>Output Pins</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PHYSICAL_COMPONENT__OUTPUT_PINS = COMPONENT__OUTPUT_PINS;
+
+	/**
+	 * The feature id for the '<em><b>Input Pins</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PHYSICAL_COMPONENT__INPUT_PINS = COMPONENT__INPUT_PINS;
+
+	/**
 	 * The number of structural features of the '<em>Physical Component</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -987,6 +1086,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int PHYSICAL_COMPONENT___COMPUTE_MAIN_RESPONSIBLE = COMPONENT___COMPUTE_MAIN_RESPONSIBLE;
+
+	/**
+	 * The operation id for the '<em>Get Model</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PHYSICAL_COMPONENT___GET_MODEL = COMPONENT___GET_MODEL;
 
 	/**
 	 * The number of operations of the '<em>Physical Component</em>' class.
@@ -1187,6 +1295,24 @@ public interface e4smPackage extends EPackage {
 	int HEURISTIC__DATASTORES = SOFTWARE_COMPONENT__DATASTORES;
 
 	/**
+	 * The feature id for the '<em><b>Output Pins</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HEURISTIC__OUTPUT_PINS = SOFTWARE_COMPONENT__OUTPUT_PINS;
+
+	/**
+	 * The feature id for the '<em><b>Input Pins</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HEURISTIC__INPUT_PINS = SOFTWARE_COMPONENT__INPUT_PINS;
+
+	/**
 	 * The feature id for the '<em><b>Synchronous</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1221,6 +1347,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int HEURISTIC___COMPUTE_MAIN_RESPONSIBLE = SOFTWARE_COMPONENT___COMPUTE_MAIN_RESPONSIBLE;
+
+	/**
+	 * The operation id for the '<em>Get Model</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HEURISTIC___GET_MODEL = SOFTWARE_COMPONENT___GET_MODEL;
 
 	/**
 	 * The operation id for the '<em>Is Parallel</em>' operation.
@@ -1340,6 +1475,24 @@ public interface e4smPackage extends EPackage {
 	int FUNCTION__DATASTORES = SOFTWARE_COMPONENT__DATASTORES;
 
 	/**
+	 * The feature id for the '<em><b>Output Pins</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION__OUTPUT_PINS = SOFTWARE_COMPONENT__OUTPUT_PINS;
+
+	/**
+	 * The feature id for the '<em><b>Input Pins</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION__INPUT_PINS = SOFTWARE_COMPONENT__INPUT_PINS;
+
+	/**
 	 * The feature id for the '<em><b>Synchronous</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1374,6 +1527,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int FUNCTION___COMPUTE_MAIN_RESPONSIBLE = SOFTWARE_COMPONENT___COMPUTE_MAIN_RESPONSIBLE;
+
+	/**
+	 * The operation id for the '<em>Get Model</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION___GET_MODEL = SOFTWARE_COMPONENT___GET_MODEL;
 
 	/**
 	 * The operation id for the '<em>Is Parallel</em>' operation.
@@ -1493,6 +1655,24 @@ public interface e4smPackage extends EPackage {
 	int EXTERNAL_DEPENDENCY__DATASTORES = SOFTWARE_COMPONENT__DATASTORES;
 
 	/**
+	 * The feature id for the '<em><b>Output Pins</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_DEPENDENCY__OUTPUT_PINS = SOFTWARE_COMPONENT__OUTPUT_PINS;
+
+	/**
+	 * The feature id for the '<em><b>Input Pins</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_DEPENDENCY__INPUT_PINS = SOFTWARE_COMPONENT__INPUT_PINS;
+
+	/**
 	 * The feature id for the '<em><b>Synchronous</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1518,6 +1698,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXTERNAL_DEPENDENCY_FEATURE_COUNT = SOFTWARE_COMPONENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Model</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_DEPENDENCY___GET_MODEL = SOFTWARE_COMPONENT___GET_MODEL;
 
 	/**
 	 * The operation id for the '<em>Is Parallel</em>' operation.
@@ -1682,13 +1871,40 @@ public interface e4smPackage extends EPackage {
 	int PACKAGE___GET_MAX_FLOW = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Get Model</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE___GET_MODEL = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Get All Sensors</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE___GET_ALL_SENSORS = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Get All Actuators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE___GET_ALL_ACTUATORS = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 4;
+
+	/**
 	 * The number of operations of the '<em>Package</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE_OPERATION_COUNT = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 2;
+	int PACKAGE_OPERATION_COUNT = CorePackage.NAMED_ELEMENT_OPERATION_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2123,13 +2339,40 @@ public interface e4smPackage extends EPackage {
 	int SENSOR__DATASTORES = PHYSICAL_COMPONENT__DATASTORES;
 
 	/**
+	 * The feature id for the '<em><b>Output Pins</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENSOR__OUTPUT_PINS = PHYSICAL_COMPONENT__OUTPUT_PINS;
+
+	/**
+	 * The feature id for the '<em><b>Input Pins</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENSOR__INPUT_PINS = PHYSICAL_COMPONENT__INPUT_PINS;
+
+	/**
+	 * The feature id for the '<em><b>Classification Classes</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENSOR__CLASSIFICATION_CLASSES = PHYSICAL_COMPONENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Sensor</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SENSOR_FEATURE_COUNT = PHYSICAL_COMPONENT_FEATURE_COUNT + 0;
+	int SENSOR_FEATURE_COUNT = PHYSICAL_COMPONENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Compute Main Responsible</em>' operation.
@@ -2139,6 +2382,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int SENSOR___COMPUTE_MAIN_RESPONSIBLE = PHYSICAL_COMPONENT___COMPUTE_MAIN_RESPONSIBLE;
+
+	/**
+	 * The operation id for the '<em>Get Model</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENSOR___GET_MODEL = PHYSICAL_COMPONENT___GET_MODEL;
 
 	/**
 	 * The number of operations of the '<em>Sensor</em>' class.
@@ -2249,6 +2501,24 @@ public interface e4smPackage extends EPackage {
 	int ACTUATOR__DATASTORES = PHYSICAL_COMPONENT__DATASTORES;
 
 	/**
+	 * The feature id for the '<em><b>Output Pins</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTUATOR__OUTPUT_PINS = PHYSICAL_COMPONENT__OUTPUT_PINS;
+
+	/**
+	 * The feature id for the '<em><b>Input Pins</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTUATOR__INPUT_PINS = PHYSICAL_COMPONENT__INPUT_PINS;
+
+	/**
 	 * The number of structural features of the '<em>Actuator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2265,6 +2535,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTUATOR___COMPUTE_MAIN_RESPONSIBLE = PHYSICAL_COMPONENT___COMPUTE_MAIN_RESPONSIBLE;
+
+	/**
+	 * The operation id for the '<em>Get Model</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTUATOR___GET_MODEL = PHYSICAL_COMPONENT___GET_MODEL;
 
 	/**
 	 * The number of operations of the '<em>Actuator</em>' class.
@@ -3380,6 +3659,24 @@ public interface e4smPackage extends EPackage {
 	int CLASSIFICATION_COMPONENT__DATASTORES = MACHINE_LEARNING_COMPONENT__DATASTORES;
 
 	/**
+	 * The feature id for the '<em><b>Output Pins</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSIFICATION_COMPONENT__OUTPUT_PINS = MACHINE_LEARNING_COMPONENT__OUTPUT_PINS;
+
+	/**
+	 * The feature id for the '<em><b>Input Pins</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSIFICATION_COMPONENT__INPUT_PINS = MACHINE_LEARNING_COMPONENT__INPUT_PINS;
+
+	/**
 	 * The feature id for the '<em><b>Synchronous</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3398,22 +3695,13 @@ public interface e4smPackage extends EPackage {
 	int CLASSIFICATION_COMPONENT__NUMBER_OF_SERVERS = MACHINE_LEARNING_COMPONENT__NUMBER_OF_SERVERS;
 
 	/**
-	 * The feature id for the '<em><b>Environment</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLASSIFICATION_COMPONENT__ENVIRONMENT = MACHINE_LEARNING_COMPONENT_FEATURE_COUNT + 0;
-
-	/**
 	 * The number of structural features of the '<em>Classification Component</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLASSIFICATION_COMPONENT_FEATURE_COUNT = MACHINE_LEARNING_COMPONENT_FEATURE_COUNT + 1;
+	int CLASSIFICATION_COMPONENT_FEATURE_COUNT = MACHINE_LEARNING_COMPONENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Compute Main Responsible</em>' operation.
@@ -3423,6 +3711,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int CLASSIFICATION_COMPONENT___COMPUTE_MAIN_RESPONSIBLE = MACHINE_LEARNING_COMPONENT___COMPUTE_MAIN_RESPONSIBLE;
+
+	/**
+	 * The operation id for the '<em>Get Model</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSIFICATION_COMPONENT___GET_MODEL = MACHINE_LEARNING_COMPONENT___GET_MODEL;
 
 	/**
 	 * The operation id for the '<em>Is Parallel</em>' operation.
@@ -3471,13 +3768,22 @@ public interface e4smPackage extends EPackage {
 	int ENVIRONMENT__CLASSIFICATION_CLASSES = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Ood Probability</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENVIRONMENT__OOD_PROBABILITY = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Environment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENVIRONMENT_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int ENVIRONMENT_FEATURE_COUNT = CorePackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Environment</em>' class.
@@ -3554,13 +3860,22 @@ public interface e4smPackage extends EPackage {
 	int CLASSIFICATION_CLASS_DISTRIBUTION__PROBABILITY = 1;
 
 	/**
+	 * The feature id for the '<em><b>Not</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSIFICATION_CLASS_DISTRIBUTION__NOT = 2;
+
+	/**
 	 * The number of structural features of the '<em>Classification Class Distribution</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLASSIFICATION_CLASS_DISTRIBUTION_FEATURE_COUNT = 2;
+	int CLASSIFICATION_CLASS_DISTRIBUTION_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Classification Class Distribution</em>' class.
@@ -3897,13 +4212,33 @@ public interface e4smPackage extends EPackage {
 			+ 10;
 
 	/**
+	 * The operation id for the '<em>Compute Probability Of First When Not Second</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTICLASS_CONFUSION_MATRIX___COMPUTE_PROBABILITY_OF_FIRST_WHEN_NOT_SECOND__CLASSIFICATIONCLASS_CLASSIFICATIONCLASS = CONFUSION_MATRIX_OPERATION_COUNT
+			+ 11;
+
+	/**
+	 * The operation id for the '<em>Compute Class False Positivity</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTICLASS_CONFUSION_MATRIX___COMPUTE_CLASS_FALSE_POSITIVITY__CLASSIFICATIONCLASS = CONFUSION_MATRIX_OPERATION_COUNT
+			+ 12;
+
+	/**
 	 * The number of operations of the '<em>Multiclass Confusion Matrix</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MULTICLASS_CONFUSION_MATRIX_OPERATION_COUNT = CONFUSION_MATRIX_OPERATION_COUNT + 11;
+	int MULTICLASS_CONFUSION_MATRIX_OPERATION_COUNT = CONFUSION_MATRIX_OPERATION_COUNT + 13;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -4005,22 +4340,13 @@ public interface e4smPackage extends EPackage {
 	int BINARY_CONFUSION_MATRIX__POSITIVE_CLASS = CONFUSION_MATRIX_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Negative Class</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BINARY_CONFUSION_MATRIX__NEGATIVE_CLASS = CONFUSION_MATRIX_FEATURE_COUNT + 5;
-
-	/**
 	 * The number of structural features of the '<em>Binary Confusion Matrix</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BINARY_CONFUSION_MATRIX_FEATURE_COUNT = CONFUSION_MATRIX_FEATURE_COUNT + 6;
+	int BINARY_CONFUSION_MATRIX_FEATURE_COUNT = CONFUSION_MATRIX_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Compute Accuracy</em>' operation.
@@ -4185,6 +4511,24 @@ public interface e4smPackage extends EPackage {
 	int BINARY_CLASSIFICATION_COMPONENT__DATASTORES = CLASSIFICATION_COMPONENT__DATASTORES;
 
 	/**
+	 * The feature id for the '<em><b>Output Pins</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_CLASSIFICATION_COMPONENT__OUTPUT_PINS = CLASSIFICATION_COMPONENT__OUTPUT_PINS;
+
+	/**
+	 * The feature id for the '<em><b>Input Pins</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_CLASSIFICATION_COMPONENT__INPUT_PINS = CLASSIFICATION_COMPONENT__INPUT_PINS;
+
+	/**
 	 * The feature id for the '<em><b>Synchronous</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4201,15 +4545,6 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int BINARY_CLASSIFICATION_COMPONENT__NUMBER_OF_SERVERS = CLASSIFICATION_COMPONENT__NUMBER_OF_SERVERS;
-
-	/**
-	 * The feature id for the '<em><b>Environment</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BINARY_CLASSIFICATION_COMPONENT__ENVIRONMENT = CLASSIFICATION_COMPONENT__ENVIRONMENT;
 
 	/**
 	 * The feature id for the '<em><b>Confusion Matrixes</b></em>' containment reference list.
@@ -4237,6 +4572,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int BINARY_CLASSIFICATION_COMPONENT___COMPUTE_MAIN_RESPONSIBLE = CLASSIFICATION_COMPONENT___COMPUTE_MAIN_RESPONSIBLE;
+
+	/**
+	 * The operation id for the '<em>Get Model</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_CLASSIFICATION_COMPONENT___GET_MODEL = CLASSIFICATION_COMPONENT___GET_MODEL;
 
 	/**
 	 * The operation id for the '<em>Is Parallel</em>' operation.
@@ -4356,6 +4700,24 @@ public interface e4smPackage extends EPackage {
 	int MULTICLASS_CLASSIFICATION_COMPONENT__DATASTORES = CLASSIFICATION_COMPONENT__DATASTORES;
 
 	/**
+	 * The feature id for the '<em><b>Output Pins</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTICLASS_CLASSIFICATION_COMPONENT__OUTPUT_PINS = CLASSIFICATION_COMPONENT__OUTPUT_PINS;
+
+	/**
+	 * The feature id for the '<em><b>Input Pins</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTICLASS_CLASSIFICATION_COMPONENT__INPUT_PINS = CLASSIFICATION_COMPONENT__INPUT_PINS;
+
+	/**
 	 * The feature id for the '<em><b>Synchronous</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4372,15 +4734,6 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int MULTICLASS_CLASSIFICATION_COMPONENT__NUMBER_OF_SERVERS = CLASSIFICATION_COMPONENT__NUMBER_OF_SERVERS;
-
-	/**
-	 * The feature id for the '<em><b>Environment</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MULTICLASS_CLASSIFICATION_COMPONENT__ENVIRONMENT = CLASSIFICATION_COMPONENT__ENVIRONMENT;
 
 	/**
 	 * The feature id for the '<em><b>Confusion Matrixes</b></em>' containment reference list.
@@ -4408,6 +4761,15 @@ public interface e4smPackage extends EPackage {
 	 * @ordered
 	 */
 	int MULTICLASS_CLASSIFICATION_COMPONENT___COMPUTE_MAIN_RESPONSIBLE = CLASSIFICATION_COMPONENT___COMPUTE_MAIN_RESPONSIBLE;
+
+	/**
+	 * The operation id for the '<em>Get Model</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTICLASS_CLASSIFICATION_COMPONENT___GET_MODEL = CLASSIFICATION_COMPONENT___GET_MODEL;
 
 	/**
 	 * The operation id for the '<em>Is Parallel</em>' operation.
@@ -4960,6 +5322,28 @@ public interface e4smPackage extends EPackage {
 	EReference getComponent_Datastores();
 
 	/**
+	 * Returns the meta object for the reference list '{@link e4sm.de.metamodel.e4sm.Component#getOutputPins <em>Output Pins</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Output Pins</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Component#getOutputPins()
+	 * @see #getComponent()
+	 * @generated
+	 */
+	EReference getComponent_OutputPins();
+
+	/**
+	 * Returns the meta object for the reference list '{@link e4sm.de.metamodel.e4sm.Component#getInputPins <em>Input Pins</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Input Pins</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Component#getInputPins()
+	 * @see #getComponent()
+	 * @generated
+	 */
+	EReference getComponent_InputPins();
+
+	/**
 	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.Component#computeMainResponsible() <em>Compute Main Responsible</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4968,6 +5352,16 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getComponent__ComputeMainResponsible();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.Component#getModel() <em>Get Model</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Model</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.Component#getModel()
+	 * @generated
+	 */
+	EOperation getComponent__GetModel();
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.MachineLearningComponent <em>Machine Learning Component</em>}'.
@@ -5295,6 +5689,36 @@ public interface e4smPackage extends EPackage {
 	EOperation getPackage__GetMaxFlow();
 
 	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.Package#getModel() <em>Get Model</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Model</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.Package#getModel()
+	 * @generated
+	 */
+	EOperation getPackage__GetModel();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.Package#getAllSensors() <em>Get All Sensors</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Sensors</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.Package#getAllSensors()
+	 * @generated
+	 */
+	EOperation getPackage__GetAllSensors();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.Package#getAllActuators() <em>Get All Actuators</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Actuators</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.Package#getAllActuators()
+	 * @generated
+	 */
+	EOperation getPackage__GetAllActuators();
+
+	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.Model <em>Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5527,6 +5951,17 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getSensor();
+
+	/**
+	 * Returns the meta object for the reference list '{@link e4sm.de.metamodel.e4sm.Sensor#getClassificationClasses <em>Classification Classes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Classification Classes</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Sensor#getClassificationClasses()
+	 * @see #getSensor()
+	 * @generated
+	 */
+	EReference getSensor_ClassificationClasses();
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.Actuator <em>Actuator</em>}'.
@@ -5979,17 +6414,6 @@ public interface e4smPackage extends EPackage {
 	EClass getClassificationComponent();
 
 	/**
-	 * Returns the meta object for the reference '{@link e4sm.de.metamodel.e4sm.ClassificationComponent#getEnvironment <em>Environment</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Environment</em>'.
-	 * @see e4sm.de.metamodel.e4sm.ClassificationComponent#getEnvironment()
-	 * @see #getClassificationComponent()
-	 * @generated
-	 */
-	EReference getClassificationComponent_Environment();
-
-	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.Environment <em>Environment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6009,6 +6433,17 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getEnvironment_ClassificationClasses();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.Environment#getOodProbability <em>Ood Probability</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Ood Probability</em>'.
+	 * @see e4sm.de.metamodel.e4sm.Environment#getOodProbability()
+	 * @see #getEnvironment()
+	 * @generated
+	 */
+	EAttribute getEnvironment_OodProbability();
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.ClassificationClass <em>Classification Class</em>}'.
@@ -6051,6 +6486,17 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getClassificationClassDistribution_Probability();
+
+	/**
+	 * Returns the meta object for the attribute '{@link e4sm.de.metamodel.e4sm.ClassificationClassDistribution#isNot <em>Not</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Not</em>'.
+	 * @see e4sm.de.metamodel.e4sm.ClassificationClassDistribution#isNot()
+	 * @see #getClassificationClassDistribution()
+	 * @generated
+	 */
+	EAttribute getClassificationClassDistribution_Not();
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.MulticlassConfusionMatrix <em>Multiclass Confusion Matrix</em>}'.
@@ -6182,6 +6628,26 @@ public interface e4smPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getMulticlassConfusionMatrix__ComputeClassSpecificity__ClassificationClass();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.MulticlassConfusionMatrix#computeProbabilityOfFirstWhenNotSecond(e4sm.de.metamodel.e4sm.ClassificationClass, e4sm.de.metamodel.e4sm.ClassificationClass) <em>Compute Probability Of First When Not Second</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Compute Probability Of First When Not Second</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.MulticlassConfusionMatrix#computeProbabilityOfFirstWhenNotSecond(e4sm.de.metamodel.e4sm.ClassificationClass, e4sm.de.metamodel.e4sm.ClassificationClass)
+	 * @generated
+	 */
+	EOperation getMulticlassConfusionMatrix__ComputeProbabilityOfFirstWhenNotSecond__ClassificationClass_ClassificationClass();
+
+	/**
+	 * Returns the meta object for the '{@link e4sm.de.metamodel.e4sm.MulticlassConfusionMatrix#computeClassFalsePositivity(e4sm.de.metamodel.e4sm.ClassificationClass) <em>Compute Class False Positivity</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Compute Class False Positivity</em>' operation.
+	 * @see e4sm.de.metamodel.e4sm.MulticlassConfusionMatrix#computeClassFalsePositivity(e4sm.de.metamodel.e4sm.ClassificationClass)
+	 * @generated
+	 */
+	EOperation getMulticlassConfusionMatrix__ComputeClassFalsePositivity__ClassificationClass();
 
 	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.ConfusionMatrix <em>Confusion Matrix</em>}'.
@@ -6574,17 +7040,6 @@ public interface e4smPackage extends EPackage {
 	EReference getBinaryConfusionMatrix_PositiveClass();
 
 	/**
-	 * Returns the meta object for the reference '{@link e4sm.de.metamodel.e4sm.BinaryConfusionMatrix#getNegativeClass <em>Negative Class</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Negative Class</em>'.
-	 * @see e4sm.de.metamodel.e4sm.BinaryConfusionMatrix#getNegativeClass()
-	 * @see #getBinaryConfusionMatrix()
-	 * @generated
-	 */
-	EReference getBinaryConfusionMatrix_NegativeClass();
-
-	/**
 	 * Returns the meta object for class '{@link e4sm.de.metamodel.e4sm.BinaryClassificationComponent <em>Binary Classification Component</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6778,12 +7233,36 @@ public interface e4smPackage extends EPackage {
 		EReference COMPONENT__DATASTORES = eINSTANCE.getComponent_Datastores();
 
 		/**
+		 * The meta object literal for the '<em><b>Output Pins</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPONENT__OUTPUT_PINS = eINSTANCE.getComponent_OutputPins();
+
+		/**
+		 * The meta object literal for the '<em><b>Input Pins</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPONENT__INPUT_PINS = eINSTANCE.getComponent_InputPins();
+
+		/**
 		 * The meta object literal for the '<em><b>Compute Main Responsible</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EOperation COMPONENT___COMPUTE_MAIN_RESPONSIBLE = eINSTANCE.getComponent__ComputeMainResponsible();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Model</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COMPONENT___GET_MODEL = eINSTANCE.getComponent__GetModel();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.MachineLearningComponentImpl <em>Machine Learning Component</em>}' class.
@@ -7055,6 +7534,30 @@ public interface e4smPackage extends EPackage {
 		EOperation PACKAGE___GET_MAX_FLOW = eINSTANCE.getPackage__GetMaxFlow();
 
 		/**
+		 * The meta object literal for the '<em><b>Get Model</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PACKAGE___GET_MODEL = eINSTANCE.getPackage__GetModel();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Sensors</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PACKAGE___GET_ALL_SENSORS = eINSTANCE.getPackage__GetAllSensors();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Actuators</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PACKAGE___GET_ALL_ACTUATORS = eINSTANCE.getPackage__GetAllActuators();
+
+		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.ModelImpl <em>Model</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7242,6 +7745,14 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EClass SENSOR = eINSTANCE.getSensor();
+
+		/**
+		 * The meta object literal for the '<em><b>Classification Classes</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SENSOR__CLASSIFICATION_CLASSES = eINSTANCE.getSensor_ClassificationClasses();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.ActuatorImpl <em>Actuator</em>}' class.
@@ -7620,14 +8131,6 @@ public interface e4smPackage extends EPackage {
 		EClass CLASSIFICATION_COMPONENT = eINSTANCE.getClassificationComponent();
 
 		/**
-		 * The meta object literal for the '<em><b>Environment</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CLASSIFICATION_COMPONENT__ENVIRONMENT = eINSTANCE.getClassificationComponent_Environment();
-
-		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.EnvironmentImpl <em>Environment</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7644,6 +8147,14 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ENVIRONMENT__CLASSIFICATION_CLASSES = eINSTANCE.getEnvironment_ClassificationClasses();
+
+		/**
+		 * The meta object literal for the '<em><b>Ood Probability</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ENVIRONMENT__OOD_PROBABILITY = eINSTANCE.getEnvironment_OodProbability();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.ClassificationClassImpl <em>Classification Class</em>}' class.
@@ -7682,6 +8193,14 @@ public interface e4smPackage extends EPackage {
 		 */
 		EAttribute CLASSIFICATION_CLASS_DISTRIBUTION__PROBABILITY = eINSTANCE
 				.getClassificationClassDistribution_Probability();
+
+		/**
+		 * The meta object literal for the '<em><b>Not</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CLASSIFICATION_CLASS_DISTRIBUTION__NOT = eINSTANCE.getClassificationClassDistribution_Not();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.MulticlassConfusionMatrixImpl <em>Multiclass Confusion Matrix</em>}' class.
@@ -7798,6 +8317,24 @@ public interface e4smPackage extends EPackage {
 		 */
 		EOperation MULTICLASS_CONFUSION_MATRIX___COMPUTE_CLASS_SPECIFICITY__CLASSIFICATIONCLASS = eINSTANCE
 				.getMulticlassConfusionMatrix__ComputeClassSpecificity__ClassificationClass();
+
+		/**
+		 * The meta object literal for the '<em><b>Compute Probability Of First When Not Second</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation MULTICLASS_CONFUSION_MATRIX___COMPUTE_PROBABILITY_OF_FIRST_WHEN_NOT_SECOND__CLASSIFICATIONCLASS_CLASSIFICATIONCLASS = eINSTANCE
+				.getMulticlassConfusionMatrix__ComputeProbabilityOfFirstWhenNotSecond__ClassificationClass_ClassificationClass();
+
+		/**
+		 * The meta object literal for the '<em><b>Compute Class False Positivity</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation MULTICLASS_CONFUSION_MATRIX___COMPUTE_CLASS_FALSE_POSITIVITY__CLASSIFICATIONCLASS = eINSTANCE
+				.getMulticlassConfusionMatrix__ComputeClassFalsePositivity__ClassificationClass();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.ConfusionMatrixImpl <em>Confusion Matrix</em>}' class.
@@ -8114,14 +8651,6 @@ public interface e4smPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BINARY_CONFUSION_MATRIX__POSITIVE_CLASS = eINSTANCE.getBinaryConfusionMatrix_PositiveClass();
-
-		/**
-		 * The meta object literal for the '<em><b>Negative Class</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference BINARY_CONFUSION_MATRIX__NEGATIVE_CLASS = eINSTANCE.getBinaryConfusionMatrix_NegativeClass();
 
 		/**
 		 * The meta object literal for the '{@link e4sm.de.metamodel.e4sm.impl.BinaryClassificationComponentImpl <em>Binary Classification Component</em>}' class.

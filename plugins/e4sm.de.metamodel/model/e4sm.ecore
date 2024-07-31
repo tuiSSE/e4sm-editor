@@ -6,9 +6,10 @@
       <details key="documentation" value="Generic component, which should be used to temporally specify an element before deciding how it will be realised.&#xD;&#xA;&#xD;&#xA;Constraints:&#xD;&#xA;- C1: no loops allowed between the component container (Package) and component &quot;specifiedInPackage&quot;&#xD;&#xA;- C2: components->size()>0, then specifiedInPackage=null - If the component contains other components, it can't be specified in a package."/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="ComponentC1 ComponentC2 ComponentC3"/>
+      <details key="constraints" value="ComponentC1 ComponentC2 ComponentC3 ComponentC4"/>
     </eAnnotations>
     <eOperations name="computeMainResponsible" eType="#//Person"/>
+    <eOperations name="getModel" eType="#//Model"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
         eType="#//Component" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -38,6 +39,10 @@
         eType="#//ComponentFiringStrategy" defaultValueLiteral="AND"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="datastores" upperBound="-1"
         eType="#//DataStore" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputPins" upperBound="-1"
+        eType="#//OutputPin" changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inputPins" upperBound="-1"
+        eType="#//InputPin" changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MachineLearningComponent" eSuperTypes="#//SoftwareComponent">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -49,7 +54,7 @@
       <details key="documentation" value="A connector connects one source to one target component.&#xD;&#xA;Constraints:&#xD;&#xA;- C1: A connector shall not connect two pins of the same component directly (loop/short circuit)"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="ConnectorC1"/>
+      <details key="constraints" value="ConnectorC1 ConnectorC2 ConnectorC3"/>
     </eAnnotations>
     <eOperations name="computeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eOperations name="computeFlow" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
@@ -63,7 +68,7 @@
       <details key="documentation" value="A phyisical connector is a connector which links 2 physical components.&#xD;&#xA;Constraints:&#xD;&#xA;- C1: A Physical Connector shall only connect Physical Components.&#xD;&#xA;- C2: An output pin shall only be connected to an input pin.&#xD;&#xA;- C3: An input pin shall only be connected to an output pin."/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="PhysicalConnectorC1 PhysicalConnectorC2 PhysicalConnectorC3"/>
+      <details key="constraints" value="PhysicalConnectorC1 PhysicalConnectorC2 PhysicalConnectorC3 PhysicalConnectorC4"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="minSpeed" eType="#//Connectionspeed"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxSpeed" eType="#//Connectionspeed"/>
@@ -101,6 +106,9 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A logical connector connects 2 software components or 1 software and one physical component"/>
     </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="LogicalConnectorC1"/>
+    </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Heuristic" eSuperTypes="#//SoftwareComponent">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -131,6 +139,17 @@
       </eAnnotations>
     </eOperations>
     <eOperations name="getMaxFlow" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
+    <eOperations name="getModel" eType="#//Model"/>
+    <eOperations name="getAllSensors" upperBound="-1" eType="#//Sensor">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Returns all components directly contained by this package, including those inside sectors."/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="getAllActuators" upperBound="-1" eType="#//Actuator">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Returns all components directly contained by this package, including those inside sectors."/>
+      </eAnnotations>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
         eType="#//Component" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -271,15 +290,17 @@
       <details key="documentation" value="A physical component which transforms a physical signal into a digital one&#xD;&#xA;Constraints:&#xD;&#xA;- C1: A sensor shall not have input pins"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="SensorC1"/>
+      <details key="constraints" value="SensorC1 SensorC2"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="classificationClasses"
+        upperBound="-1" eType="#//ClassificationClass"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Actuator" eSuperTypes="#//PhysicalComponent">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A physical component which transforms a digital signal into a physical one&#xD;&#xA;Constraints:&#xD;&#xA;- C1: An actuator shall not have output pins"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="ActuatorC1"/>
+      <details key="constraints" value="ActuatorC1 ActuatorC2"/>
     </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Pin" abstract="true" eSuperTypes="#//DataNode">
@@ -446,15 +467,14 @@
     <eOperations name="getIncomingConnectors" upperBound="-1" eType="#//Connector"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ClassificationComponent" abstract="true"
-      eSuperTypes="#//MachineLearningComponent">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="environment" eType="#//Environment"/>
-  </eClassifiers>
+      eSuperTypes="#//MachineLearningComponent"/>
   <eClassifiers xsi:type="ecore:EClass" name="Environment" eSuperTypes="core.ecore#//NamedElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="EnvironmentC1"/>
+      <details key="constraints" value="EnvironmentC1 EnvironmentC2"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="classificationClasses"
         upperBound="-1" eType="#//ClassificationClassDistribution" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="oodProbability" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ClassificationClass" eSuperTypes="core.ecore#//NamedElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="ClassificationClassDistribution">
@@ -462,6 +482,8 @@
         eType="#//ClassificationClass"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="probability" lowerBound="1"
         eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="not" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"
+        defaultValueLiteral="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MulticlassConfusionMatrix" eSuperTypes="#//ConfusionMatrix">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
@@ -496,6 +518,13 @@
     <eOperations name="computeClassSpecificity" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble">
       <eParameters name="class" eType="#//ClassificationClass"/>
     </eOperations>
+    <eOperations name="computeProbabilityOfFirstWhenNotSecond" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble">
+      <eParameters name="first" eType="#//ClassificationClass"/>
+      <eParameters name="second" eType="#//ClassificationClass"/>
+    </eOperations>
+    <eOperations name="computeClassFalsePositivity" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble">
+      <eParameters name="class" eType="#//ClassificationClass"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="entries" upperBound="-1"
         eType="#//ConfusionMatrixEntry" containment="true"/>
   </eClassifiers>
@@ -507,9 +536,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="truth" lowerBound="1" eType="#//ClassificationClass"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BinaryConfusionMatrix" eSuperTypes="#//ConfusionMatrix">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="BinaryConfusionMatrixC1 BinaryConfusionMatrixC2"/>
-    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore"/>
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="If positive and negative classes are not provided: true | false is assumed.&#xD;&#xA;If only positive is provided, then positive | not positive is assumed.&#xD;&#xA;If both are provided, they must not be equal."/>
     </eAnnotations>
@@ -521,8 +548,8 @@
         defaultValueLiteral="0"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fn" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"
         defaultValueLiteral="0"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="positiveClass" eType="#//ClassificationClass"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="negativeClass" eType="#//ClassificationClass"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="positiveClass" lowerBound="1"
+        eType="#//ClassificationClass"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BinaryClassificationComponent" eSuperTypes="#//ClassificationComponent">
     <eStructuralFeatures xsi:type="ecore:EReference" name="confusionMatrixes" upperBound="-1"

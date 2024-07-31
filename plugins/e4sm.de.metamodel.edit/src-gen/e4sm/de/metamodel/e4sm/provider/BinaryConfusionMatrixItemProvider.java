@@ -49,7 +49,6 @@ public class BinaryConfusionMatrixItemProvider extends ConfusionMatrixItemProvid
 			addFpPropertyDescriptor(object);
 			addFnPropertyDescriptor(object);
 			addPositiveClassPropertyDescriptor(object);
-			addNegativeClassPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -131,21 +130,6 @@ public class BinaryConfusionMatrixItemProvider extends ConfusionMatrixItemProvid
 				getString("_UI_PropertyDescriptor_description", "_UI_BinaryConfusionMatrix_positiveClass_feature",
 						"_UI_BinaryConfusionMatrix_type"),
 				e4smPackage.Literals.BINARY_CONFUSION_MATRIX__POSITIVE_CLASS, true, false, true, null, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Negative Class feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNegativeClassPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_BinaryConfusionMatrix_negativeClass_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_BinaryConfusionMatrix_negativeClass_feature",
-						"_UI_BinaryConfusionMatrix_type"),
-				e4smPackage.Literals.BINARY_CONFUSION_MATRIX__NEGATIVE_CLASS, true, false, true, null, null, null));
 	}
 
 	/**

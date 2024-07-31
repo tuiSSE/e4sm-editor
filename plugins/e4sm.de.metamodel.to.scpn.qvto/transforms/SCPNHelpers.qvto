@@ -20,7 +20,7 @@ transformation SCPNHelpers() {
 	if(s.oclIsUndefined()){
 		return "placeholder";
 	}endif;
-		return s.replaceAll(" ", "_").replaceAll("\\.","_").replaceAll("\\(","").replaceAll("\\)","");
+		return s.replaceAll("[ \\-:;,.$?&§€=%]", "_").replaceAll("\\.","_").replaceAll("\\(","").replaceAll("\\)","").replaceAll("ß","ss").replaceAll("ä","ae").replaceAll("ü","ue").replaceAll("ö","oe");
 	}
 	
 	/***
@@ -36,6 +36,19 @@ transformation SCPNHelpers() {
 	    var ts : String := tf.getString();
 	    log(ts);
 	    return ts;
+	}
+	
+	helper sensorClassesInitialization(trueClass :e4sm::ClassificationClass,falseClasses :  OrderedSet(e4sm::ClassificationClass) ) : String {
+	    // x()
+	    
+	    var temp : String := "x(cl_" + trueClass.name + "=true";
+	    falseClasses->forEach(c){
+	    	var name : String := ";cl_" + c.name + "=false";
+	    	temp := temp.toString().concat(name);
+	    };
+	    var res : String := temp.toString().concat(")");
+	    return res;
+	    
 	}
 	
 	helper Component::hasNoInputs() : Boolean {

@@ -48,7 +48,6 @@ public class Documentation {
 			g = new Generate((EObject) m, targetDir, Collections.emptyList());
 			Utils.debug("\nobject created");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			Utils.debug("\nException: the module cannot be found, or it cannot be loaded");
 			e.printStackTrace();
 			return false;
@@ -61,7 +60,6 @@ public class Documentation {
 			g.doGenerate(monitor);
 			Utils.debug("\nGeneration completed");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return false;
 		}

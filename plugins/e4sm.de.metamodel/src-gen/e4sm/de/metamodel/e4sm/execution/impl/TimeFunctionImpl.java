@@ -229,7 +229,6 @@ public class TimeFunctionImpl extends MinimalEObjectImpl.Container implements Ti
 	@Override
 	public String getString() {
 		if (function != null) {
-			//TODO
 			var res = function.toString() + "(" + par1.toString();
 
 			if (par2 != null) {

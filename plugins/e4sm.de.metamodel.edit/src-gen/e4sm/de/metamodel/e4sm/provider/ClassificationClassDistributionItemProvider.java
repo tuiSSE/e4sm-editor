@@ -56,6 +56,7 @@ public class ClassificationClassDistributionItemProvider extends ItemProviderAda
 
 			addClassificationClassPropertyDescriptor(object);
 			addProbabilityPropertyDescriptor(object);
+			addNotPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -92,6 +93,22 @@ public class ClassificationClassDistributionItemProvider extends ItemProviderAda
 								"_UI_ClassificationClassDistribution_type"),
 						e4smPackage.Literals.CLASSIFICATION_CLASS_DISTRIBUTION__PROBABILITY, true, false, false,
 						ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Not feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNotPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_ClassificationClassDistribution_not_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_ClassificationClassDistribution_not_feature",
+						"_UI_ClassificationClassDistribution_type"),
+				e4smPackage.Literals.CLASSIFICATION_CLASS_DISTRIBUTION__NOT, true, false, false,
+				ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -141,6 +158,7 @@ public class ClassificationClassDistributionItemProvider extends ItemProviderAda
 
 		switch (notification.getFeatureID(ClassificationClassDistribution.class)) {
 		case e4smPackage.CLASSIFICATION_CLASS_DISTRIBUTION__PROBABILITY:
+		case e4smPackage.CLASSIFICATION_CLASS_DISTRIBUTION__NOT:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}

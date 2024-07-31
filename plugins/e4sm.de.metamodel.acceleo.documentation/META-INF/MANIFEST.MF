@@ -17,9 +17,9 @@ Import-Package: com.google.inject;version="1.4.0",
  java.io,
  java.lang,
  java.util,
- org.eclipse.acceleo.engine.event,
- org.eclipse.acceleo.engine.generation.strategy,
- org.eclipse.acceleo.engine.service,
+ org.eclipse.acceleo.engine.event;bundle-version="[3.7.0,4.0.0)",
+ org.eclipse.acceleo.engine.generation.strategy;bundle-version="[3.7.0,4.0.0)",
+ org.eclipse.acceleo.engine.service;bundle-version="[3.7.0,4.0.0)",
  org.eclipse.core.runtime;version="[3.7,4)",
  org.eclipse.emf.common.util;version="[2.28,3)",
  org.eclipse.emf.ecore;version="[2.34,3)",
@@ -29,6 +29,7 @@ Import-Package: com.google.inject;version="1.4.0",
  org.eclipse.emf.ecore.xmi.impl;version="2.18.0",
  org.eclipse.xtext.resource,
  org.osgi.framework;version="[1.10,2)"
+Require-Bundle: org.eclipse.acceleo.engine;bundle-version="[3.7.16,4.0.0)"
 Export-Package: e4sm.de.metamodel.acceleo.documentation.main,
  e4sm.de.metamodel.acceleo.documentation.services
 Bundle-ClassPath: bin/

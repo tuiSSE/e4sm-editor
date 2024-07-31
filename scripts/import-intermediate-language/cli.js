@@ -26,7 +26,8 @@ async function run() {
     if (!options.source) {
         console.error("Error: source option is required!");
         printHelp();
-        process.exit(1);
+        process.exitCode = 1;
+        return;
     }
 
     console.log(`Converting file ${options.source}`);
@@ -43,9 +44,9 @@ async function run() {
     // console.dir(input); // TODO remove
 
     let res = generateE4SM(input);
-
     // console.log(res); // TODO out to file
     writeStringToFile(res, options.target ?? "out.e4smcode");
+    return;
 
     // Run tests with runTests();
 }
@@ -102,14 +103,20 @@ async function loadJSONFile(path) {
 async function writeStringToFile(content, path) {
     console.debug(`Writing file to ${path} …`);
     try {
-      await writeFile(path, content);
-      return;
+        await writeFile(path, content);
+        return;
     } catch (err) {
-      console.log(err);
+        console.log(err);
     }
     process.exit(1);
-  }
+}
 
+/**
+ * 
+ * @param {*} instance 
+ * @param {*} schema 
+ * @returns 
+ */
 function isValid(instance, schema) {
     const res = v.validate(instance, schema);
     res.errors.forEach(element => {

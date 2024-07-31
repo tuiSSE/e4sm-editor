@@ -1,0 +1,277 @@
+{
+  "name": "StreamVizzard ILM",
+  "timestamp": 1687253938,
+  "duration": 300000,
+  "components": [
+    {
+      "id": "4",
+      "name": "LstmPrediction",
+      "settings": [
+        {
+           "key" : "collect",
+           "value" : 10
+        }
+     ],
+      "parameters": [
+        {
+          "name": "predictSteps",
+          "value": 50
+        },{
+          "name": "collect", 
+          "value": 10
+        }
+      ],
+      "executionFunction": {
+        "meanValue": "1",
+        "stdDev": 0,
+        "maxError": 0
+      },
+      "outputSize": "$IN_0 * @collect",
+      "inputPins": [
+        {
+          "id": "IN_0"
+        }
+      ],
+      "outputPins": [
+        {
+          "id": "OUT_0",
+          "dataFunction": "$IN_0"
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "name": "ExtractROI",
+      "parameters": [],
+      "executionFunction": {
+        "meanValue": "0.006032285017117705 + -6.781201941274815e-10 * $IN_0",
+        "stdDev": 0.001193392420076137,
+        "maxError": 0.004701250972144019
+      },
+      "outputSize": "482.8276400077157 + 0.9999999483629665 * $IN_0",
+      "inputPins": [
+        {
+          "id": "IN_0"
+        }
+      ],
+      "outputPins": [
+        {
+          "id": "OUT_0",
+          "dataFunction": "$IN_0"
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "name": "CnnPrediction",
+      "parameters": [],
+      "executionFunction": {
+        "meanValue": "27.87400063464002 + 0.0001 * $IN_0",
+        "stdDev": 0.16892351054531932,
+        "maxError": 1.7886113654073554
+      },
+      "outputSize": "24.0 + 0.0001 * $IN_0",
+      "inputPins": [
+        {
+          "id": "IN_0"
+        }
+      ],
+      "outputPins": [
+        {
+          "id": "OUT_0",
+          "dataFunction": "$IN_0"
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "name": "UDF",
+      "parameters": [],
+      "executionFunction": {
+        "meanValue": 1,
+        "stdDev": 0,
+        "maxError": 0
+      },
+      "outputSize": 0,
+      "inputPins": [
+        {
+          "id": "IN_0"
+        },
+        {
+          "id": "IN_1"
+        }
+      ],
+      "outputPins": []
+    },
+    {
+      "id": "38",
+      "name": "ValidateLstmPrediction",
+      "parameters": [],
+      "executionFunction": {
+        "meanValue": "0.0017123603773583813 + 0.0 * $IN_1",
+        "stdDev": 0.00005044317465720801,
+        "maxError": 0.00038363962264859985
+      },
+      "outputSize": "392.0 + 0.0 * $IN_1",
+      "inputPins": [
+        {
+          "id": "IN_1"
+        }
+      ],
+      "outputPins": [
+        {
+          "id": "OUT_0",
+          "dataFunction": "$IN_1"
+        }
+      ]
+    },
+    {
+      "id": "39",
+      "name": "ValidateCnnPrediction",
+      "parameters": [],
+      "executionFunction": {
+        "meanValue": "0.014221086357947995 + 0.0 * $IN_0",
+        "stdDev": 0.00038070837729095044,
+        "maxError": 0.0016629136420269232
+      },
+      "outputSize": "12656.0 + 0.0 * $IN_0",
+      "inputPins": [
+        {
+          "id": "IN_0"
+        }
+      ],
+      "outputPins": [
+        {
+          "id": "OUT_0",
+          "dataFunction": "$IN_0"
+        }
+      ]
+    },
+    {
+      "id": "42",
+      "name": "GaussianBlur",
+      "parameters": [
+        {
+          "name": "kernelX",
+          "value": 3
+        },
+        {
+          "name": "kernelY",
+          "value": 3
+        }
+      ],
+      "executionFunction": {
+        "meanValue": "1.1017621554670445 + 7.916466944501189e-07 * $IN_0 + -0.03116845294501236 * @kernelX + 0.002035822670046898 * @kernelY + -2.0334428585400133e-14 * $IN_0^2 + 1.1613192300186578e-08 * $IN_0 * @kernelX + 1.3440398426053636e-08 * $IN_0 * @kernelY + 0.0005753162245208584 * @kernelX^2 + 0.0008825892302221771 * @kernelX * @kernelY + -0.00017317477445640152 * @kernelY^2",
+        "stdDev": 0.5836206953538171,
+        "maxError": 3.2215028855029004
+      },
+      "outputSize": "370.5852496176958 + 3.0000000348754723 * $IN_0",
+      "inputPins": [
+        {
+          "id": "IN_0"
+        }
+      ],
+      "outputPins": [
+        {
+          "id": "OUT_0",
+          "dataFunction": "$IN_0"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "37",
+      "name": "UDS",
+      "parameters": [],
+      "executionFunction": {
+        "meanValue": 400,
+        "stdDev": 0,
+        "maxError": 0
+      },
+      "outputSize": 0,
+      "outputPins": [
+        {
+          "id": "OUT_0",
+          "results": [
+            {
+              "value": 0,
+              "outputSize": 0,
+              "probability": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "41",
+      "name": "UDS",
+      "parameters": [],
+      "executionFunction": {
+        "meanValue": 200,
+        "stdDev": 0,
+        "maxError": 0
+      },
+      "outputSize": 0,
+      "outputPins": [
+        {
+          "id": "OUT_0",
+          "results": [
+            {
+              "value": 700000,
+              "outputSize": 0,
+              "probability": 0.5
+            },
+            {
+              "value": 4000000,
+              "outputSize": 0,
+              "probability": 0.5
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "source": "LstmPrediction__4.OUT_0",
+      "target": "ValidateLstmPrediction__38.IN_1",
+      "transferTime": 1
+    },
+    {
+      "source": "ExtractROI__7.OUT_0",
+      "target": "GaussianBlur__42.IN_0",
+      "transferTime": 1
+    },
+    {
+      "source": "CnnPrediction__9.OUT_0",
+      "target": "ValidateCnnPrediction__39.IN_0",
+      "transferTime": 1
+    },
+    {
+      "source": "UDS__37.OUT_0",
+      "target": "LstmPrediction__4.IN_0",
+      "transferTime": 1
+    },
+    {
+      "source": "ValidateLstmPrediction__38.OUT_0",
+      "target": "UDF__11.IN_0",
+      "transferTime": 1
+    },
+    {
+      "source": "ValidateCnnPrediction__39.OUT_0",
+      "target": "UDF__11.IN_1",
+      "transferTime": 1
+    },
+    {
+      "source": "UDS__41.OUT_0",
+      "target": "ExtractROI__7.IN_0",
+      "transferTime": 1
+    },
+    {
+      "source": "GaussianBlur__42.OUT_0",
+      "target": "CnnPrediction__9.IN_0",
+      "transferTime": 1
+    }
+  ]
+}

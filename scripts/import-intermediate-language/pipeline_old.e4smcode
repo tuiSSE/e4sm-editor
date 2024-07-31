@@ -1,0 +1,132 @@
+// Generated on 27.6.2024, 07:15:57 from 'StreamVizzard ILM' '26.6.2024, 16:42:21'
+    model "StreamVizzard ILM_model"{
+        package "StreamVizzard ILM" {
+            simulationDuration :300000
+            // Sensors
+sensor "Sensor Socket__39" {
+        takes Det((66.66666666666667) * 1000)
+        // Output Pins
+out "OUT_0" {
+generates set {value: "0" prob: 1.000  size:0.000;}
+}
+
+        
+    }, sensor "Image Socket__351" {
+        takes Det((66.66666666666667) * 1000)
+        // Output Pins
+out "OUT_0" {
+generates set {value: "0" prob: 1.000  size:0.000;}
+}
+
+        
+    }, 
+            // Components
+softwareComponent "Window__3" {
+        takes Det((1) * 1000)
+        // Input Pins
+in "IN_0" {
+                    collects 10
+                },
+        // Output Pins
+out "OUT_0" = $IN_0 * 10.0
+        
+    },
+softwareComponent "Collect__187" {
+        takes Det((1) * 1000)
+        // Input Pins
+in "IN_0",
+        // Output Pins
+out "OUT_0"
+        
+    },
+softwareComponent "Parse Sensor Data__348" {
+        takes Det((1) * 1000)
+        // Input Pins
+in "IN_0",
+        // Output Pins
+out "OUT_0"
+        
+    },
+softwareComponent "Parse Image Data__350" {
+        takes Det((1) * 1000)
+        // Input Pins
+in "IN_0",
+        // Output Pins
+out "OUT_0"
+        
+    },
+actuator "Send__359" {
+        takes Det((1) * 1000)
+        // Input Pins
+in "IN_0",
+in "IN_1"
+        
+    },
+softwareComponent "RAFI Pred__414" {
+        takes Norm((68.79180492252982 + 0.0 * $IN_0) * 1000, (4.339733893995661)* 1000)
+        // Input Pins
+in "IN_0",
+        // Output Pins
+out "OUT_0" = 5016.0 + 0.0 * $IN_0
+        
+    },
+softwareComponent "Window__416" {
+        takes Det((1) * 1000)
+        // Input Pins
+in "IN_0" {
+                    collects 30
+                },
+        // Output Pins
+out "OUT_0" = $IN_0 * 30.0
+        
+    },
+softwareComponent "Collect__417" {
+        takes Det((1) * 1000)
+        // Input Pins
+in "IN_0",
+        // Output Pins
+out "OUT_0"
+        
+    },
+softwareComponent "LSTM_Pred__449" {
+        takes Norm((37.85013274133121 + 2.9585425838881028 * @predictSteps) * 1000, (2.9576011670394258)* 1000)
+        // Input Pins
+in "IN_0",
+        // Output Pins
+out "OUT_0" = 2615.0817321301874 + 96.22648573259397 * @predictSteps
+        // Parameters
+parameters {par "predictSteps" := 450 }
+    }
+            // Connectors
+connector "Window__3.OUT_0_to_Collect__187.IN_0" "Window__3.OUT_0" -> "Collect__187.IN_0" {
+                    takes Det((1)*1000)
+            } ,
+connector "Sensor Socket__39.OUT_0_to_Parse Sensor Data__348.IN_0" "Sensor Socket__39.OUT_0" -> "Parse Sensor Data__348.IN_0" {
+                    takes Det((1)*1000)
+            } ,
+connector "Collect__187.OUT_0_to_LSTM_Pred__449.IN_0" "Collect__187.OUT_0" -> "LSTM_Pred__449.IN_0" {
+                    takes Det((1)*1000)
+            } ,
+connector "Parse Sensor Data__348.OUT_0_to_Window__3.IN_0" "Parse Sensor Data__348.OUT_0" -> "Window__3.IN_0" {
+                    takes Det((1)*1000)
+            } ,
+connector "Parse Image Data__350.OUT_0_to_Window__416.IN_0" "Parse Image Data__350.OUT_0" -> "Window__416.IN_0" {
+                    takes Det((1)*1000)
+            } ,
+connector "Image Socket__351.OUT_0_to_Parse Image Data__350.IN_0" "Image Socket__351.OUT_0" -> "Parse Image Data__350.IN_0" {
+                    takes Det((1)*1000)
+            } ,
+connector "RAFI Pred__414.OUT_0_to_Send__359.IN_1" "RAFI Pred__414.OUT_0" -> "Send__359.IN_1" {
+                    takes Det((1)*1000)
+            } ,
+connector "Window__416.OUT_0_to_Collect__417.IN_0" "Window__416.OUT_0" -> "Collect__417.IN_0" {
+                    takes Det((1)*1000)
+            } ,
+connector "Collect__417.OUT_0_to_RAFI Pred__414.IN_0" "Collect__417.OUT_0" -> "RAFI Pred__414.IN_0" {
+                    takes Det((1)*1000)
+            } ,
+connector "LSTM_Pred__449.OUT_0_to_Send__359.IN_0" "LSTM_Pred__449.OUT_0" -> "Send__359.IN_0" {
+                    takes Det((1)*1000)
+            } 
+        }
+    }

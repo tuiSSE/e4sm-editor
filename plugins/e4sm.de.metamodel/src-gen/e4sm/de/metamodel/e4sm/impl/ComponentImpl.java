@@ -5,6 +5,9 @@ package e4sm.de.metamodel.e4sm.impl;
 import e4sm.de.metamodel.e4sm.Component;
 import e4sm.de.metamodel.e4sm.ComponentFiringStrategy;
 import e4sm.de.metamodel.e4sm.DataStore;
+import e4sm.de.metamodel.e4sm.InputPin;
+import e4sm.de.metamodel.e4sm.Model;
+import e4sm.de.metamodel.e4sm.OutputPin;
 import e4sm.de.metamodel.e4sm.core.NamedElement;
 import e4sm.de.metamodel.e4sm.Person;
 import e4sm.de.metamodel.e4sm.Pin;
@@ -24,10 +27,11 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
+import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -53,6 +57,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ComponentImpl#getExecution <em>Execution</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ComponentImpl#getFiringStrategy <em>Firing Strategy</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.ComponentImpl#getDatastores <em>Datastores</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.ComponentImpl#getOutputPins <em>Output Pins</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.impl.ComponentImpl#getInputPins <em>Input Pins</em>}</li>
  * </ul>
  *
  * @generated
@@ -520,6 +526,33 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<OutputPin> getOutputPins() {
+		EList<OutputPin> o = ECollections.newBasicEList();
+		o.addAll(
+				(Collection<? extends OutputPin>) this.getPins().stream().filter(p -> p instanceof OutputPin).toList());
+		return o;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<InputPin> getInputPins() {
+		EList<InputPin> i = ECollections.newBasicEList();
+		i.addAll((Collection<? extends InputPin>) this.getPins().stream().filter(p -> p instanceof InputPin).toList());
+		return i;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -538,9 +571,22 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public Model getModel() {
+		EObject parent = this.eContainer();
+		while (parent != null && !(parent instanceof Model)) {
+			parent = parent.eContainer();
+		}
+		return (Model) parent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -611,6 +657,10 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 			return getFiringStrategy();
 		case e4smPackage.COMPONENT__DATASTORES:
 			return getDatastores();
+		case e4smPackage.COMPONENT__OUTPUT_PINS:
+			return getOutputPins();
+		case e4smPackage.COMPONENT__INPUT_PINS:
+			return getInputPins();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -733,6 +783,10 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 			return firingStrategy != FIRING_STRATEGY_EDEFAULT;
 		case e4smPackage.COMPONENT__DATASTORES:
 			return datastores != null && !datastores.isEmpty();
+		case e4smPackage.COMPONENT__OUTPUT_PINS:
+			return !getOutputPins().isEmpty();
+		case e4smPackage.COMPONENT__INPUT_PINS:
+			return !getInputPins().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -815,6 +869,8 @@ public class ComponentImpl extends NamedElementImpl implements Component {
 		switch (operationID) {
 		case e4smPackage.COMPONENT___COMPUTE_MAIN_RESPONSIBLE:
 			return computeMainResponsible();
+		case e4smPackage.COMPONENT___GET_MODEL:
+			return getModel();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

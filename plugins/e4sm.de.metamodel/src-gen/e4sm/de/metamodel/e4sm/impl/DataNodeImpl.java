@@ -172,7 +172,7 @@ public abstract class DataNodeImpl extends TypedElementImpl implements DataNode 
 		}
 
 		container.getConnectors().stream().forEach(c -> {
-			if (c.getSource().equals(this))
+			if (c.getSource() != null && c.getSource().equals(this))
 				resultList.add(c);
 		});
 
@@ -180,7 +180,7 @@ public abstract class DataNodeImpl extends TypedElementImpl implements DataNode 
 		var superPackage = container.eContainer();
 		if (superPackage instanceof Package) {
 			((Package) superPackage).getConnectors().stream().forEach(c -> {
-				if (c.getSource().equals(this))
+				if (c.getSource() != null && c.getSource().equals(this))
 					resultList.add(c);
 			});
 		}
@@ -212,7 +212,7 @@ public abstract class DataNodeImpl extends TypedElementImpl implements DataNode 
 		}
 
 		container.getConnectors().stream().forEach(c -> {
-			if (c.getTarget().equals(this))
+			if (c.getTarget() != null && c.getTarget().equals(this))
 				resultList.add(c);
 		});
 
@@ -220,7 +220,7 @@ public abstract class DataNodeImpl extends TypedElementImpl implements DataNode 
 		var superPackage = container.eContainer();
 		if (superPackage instanceof Package) {
 			((Package) superPackage).getConnectors().stream().forEach(c -> {
-				if (c.getTarget().equals(this))
+				if (c.getTarget() != null && c.getTarget().equals(this))
 					resultList.add(c);
 			});
 		}

@@ -26,7 +26,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.BinaryConfusionMatrixImpl#getFp <em>Fp</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.BinaryConfusionMatrixImpl#getFn <em>Fn</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.impl.BinaryConfusionMatrixImpl#getPositiveClass <em>Positive Class</em>}</li>
- *   <li>{@link e4sm.de.metamodel.e4sm.impl.BinaryConfusionMatrixImpl#getNegativeClass <em>Negative Class</em>}</li>
  * </ul>
  *
  * @generated
@@ -121,16 +120,6 @@ public class BinaryConfusionMatrixImpl extends ConfusionMatrixImpl implements Bi
 	 * @ordered
 	 */
 	protected ClassificationClass positiveClass;
-
-	/**
-	 * The cached value of the '{@link #getNegativeClass() <em>Negative Class</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNegativeClass()
-	 * @generated
-	 * @ordered
-	 */
-	protected ClassificationClass negativeClass;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -291,48 +280,6 @@ public class BinaryConfusionMatrixImpl extends ConfusionMatrixImpl implements Bi
 	 * @generated
 	 */
 	@Override
-	public ClassificationClass getNegativeClass() {
-		if (negativeClass != null && negativeClass.eIsProxy()) {
-			InternalEObject oldNegativeClass = (InternalEObject) negativeClass;
-			negativeClass = (ClassificationClass) eResolveProxy(oldNegativeClass);
-			if (negativeClass != oldNegativeClass) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							e4smPackage.BINARY_CONFUSION_MATRIX__NEGATIVE_CLASS, oldNegativeClass, negativeClass));
-			}
-		}
-		return negativeClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ClassificationClass basicGetNegativeClass() {
-		return negativeClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setNegativeClass(ClassificationClass newNegativeClass) {
-		ClassificationClass oldNegativeClass = negativeClass;
-		negativeClass = newNegativeClass;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, e4smPackage.BINARY_CONFUSION_MATRIX__NEGATIVE_CLASS,
-					oldNegativeClass, negativeClass));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case e4smPackage.BINARY_CONFUSION_MATRIX__TP:
@@ -347,10 +294,6 @@ public class BinaryConfusionMatrixImpl extends ConfusionMatrixImpl implements Bi
 			if (resolve)
 				return getPositiveClass();
 			return basicGetPositiveClass();
-		case e4smPackage.BINARY_CONFUSION_MATRIX__NEGATIVE_CLASS:
-			if (resolve)
-				return getNegativeClass();
-			return basicGetNegativeClass();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -377,9 +320,6 @@ public class BinaryConfusionMatrixImpl extends ConfusionMatrixImpl implements Bi
 			return;
 		case e4smPackage.BINARY_CONFUSION_MATRIX__POSITIVE_CLASS:
 			setPositiveClass((ClassificationClass) newValue);
-			return;
-		case e4smPackage.BINARY_CONFUSION_MATRIX__NEGATIVE_CLASS:
-			setNegativeClass((ClassificationClass) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -499,9 +439,6 @@ public class BinaryConfusionMatrixImpl extends ConfusionMatrixImpl implements Bi
 		case e4smPackage.BINARY_CONFUSION_MATRIX__POSITIVE_CLASS:
 			setPositiveClass((ClassificationClass) null);
 			return;
-		case e4smPackage.BINARY_CONFUSION_MATRIX__NEGATIVE_CLASS:
-			setNegativeClass((ClassificationClass) null);
-			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -524,8 +461,6 @@ public class BinaryConfusionMatrixImpl extends ConfusionMatrixImpl implements Bi
 			return fn != FN_EDEFAULT;
 		case e4smPackage.BINARY_CONFUSION_MATRIX__POSITIVE_CLASS:
 			return positiveClass != null;
-		case e4smPackage.BINARY_CONFUSION_MATRIX__NEGATIVE_CLASS:
-			return negativeClass != null;
 		}
 		return super.eIsSet(featureID);
 	}

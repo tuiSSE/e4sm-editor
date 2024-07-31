@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link e4sm.de.metamodel.e4sm.ClassificationClassDistribution#getClassificationClass <em>Classification Class</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.ClassificationClassDistribution#getProbability <em>Probability</em>}</li>
+ *   <li>{@link e4sm.de.metamodel.e4sm.ClassificationClassDistribution#isNot <em>Not</em>}</li>
  * </ul>
  *
  * @see e4sm.de.metamodel.e4sm.e4smPackage#getClassificationClassDistribution()
@@ -65,5 +66,28 @@ public interface ClassificationClassDistribution extends EObject {
 	 * @generated
 	 */
 	void setProbability(double value);
+
+	/**
+	 * Returns the value of the '<em><b>Not</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Not</em>' attribute.
+	 * @see #setNot(boolean)
+	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getClassificationClassDistribution_Not()
+	 * @model default="false"
+	 * @generated
+	 */
+	boolean isNot();
+
+	/**
+	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.ClassificationClassDistribution#isNot <em>Not</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Not</em>' attribute.
+	 * @see #isNot()
+	 * @generated
+	 */
+	void setNot(boolean value);
 
 } // ClassificationClassDistribution

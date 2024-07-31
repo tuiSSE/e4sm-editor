@@ -673,8 +673,38 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getComponent_OutputPins() {
+		return (EReference) componentEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getComponent_InputPins() {
+		return (EReference) componentEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getComponent__ComputeMainResponsible() {
 		return componentEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getComponent__GetModel() {
+		return componentEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -993,6 +1023,36 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
+	public EOperation getPackage__GetModel() {
+		return packageEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getPackage__GetAllSensors() {
+		return packageEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getPackage__GetAllActuators() {
+		return packageEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getModel() {
 		return modelEClass;
 	}
@@ -1205,6 +1265,16 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	@Override
 	public EClass getSensor() {
 		return sensorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getSensor_ClassificationClasses() {
+		return (EReference) sensorEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1643,16 +1713,6 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getClassificationComponent_Environment() {
-		return (EReference) classificationComponentEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getEnvironment() {
 		return environmentEClass;
 	}
@@ -1665,6 +1725,16 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	@Override
 	public EReference getEnvironment_ClassificationClasses() {
 		return (EReference) environmentEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getEnvironment_OodProbability() {
+		return (EAttribute) environmentEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1705,6 +1775,16 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	@Override
 	public EAttribute getClassificationClassDistribution_Probability() {
 		return (EAttribute) classificationClassDistributionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getClassificationClassDistribution_Not() {
+		return (EAttribute) classificationClassDistributionEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1835,6 +1915,26 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	@Override
 	public EOperation getMulticlassConfusionMatrix__ComputeClassSpecificity__ClassificationClass() {
 		return multiclassConfusionMatrixEClass.getEOperations().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getMulticlassConfusionMatrix__ComputeProbabilityOfFirstWhenNotSecond__ClassificationClass_ClassificationClass() {
+		return multiclassConfusionMatrixEClass.getEOperations().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getMulticlassConfusionMatrix__ComputeClassFalsePositivity__ClassificationClass() {
+		return multiclassConfusionMatrixEClass.getEOperations().get(12);
 	}
 
 	/**
@@ -2213,16 +2313,6 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getBinaryConfusionMatrix_NegativeClass() {
-		return (EReference) binaryConfusionMatrixEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getBinaryClassificationComponent() {
 		return binaryClassificationComponentEClass;
 	}
@@ -2355,7 +2445,10 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		createEReference(componentEClass, COMPONENT__EXECUTION);
 		createEAttribute(componentEClass, COMPONENT__FIRING_STRATEGY);
 		createEReference(componentEClass, COMPONENT__DATASTORES);
+		createEReference(componentEClass, COMPONENT__OUTPUT_PINS);
+		createEReference(componentEClass, COMPONENT__INPUT_PINS);
 		createEOperation(componentEClass, COMPONENT___COMPUTE_MAIN_RESPONSIBLE);
+		createEOperation(componentEClass, COMPONENT___GET_MODEL);
 
 		machineLearningComponentEClass = createEClass(MACHINE_LEARNING_COMPONENT);
 
@@ -2397,6 +2490,9 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		createEAttribute(packageEClass, PACKAGE__SIMULATION_DURATION);
 		createEOperation(packageEClass, PACKAGE___GET_ALL_COMPONENTS);
 		createEOperation(packageEClass, PACKAGE___GET_MAX_FLOW);
+		createEOperation(packageEClass, PACKAGE___GET_MODEL);
+		createEOperation(packageEClass, PACKAGE___GET_ALL_SENSORS);
+		createEOperation(packageEClass, PACKAGE___GET_ALL_ACTUATORS);
 
 		modelEClass = createEClass(MODEL);
 		createEReference(modelEClass, MODEL__PACKAGES);
@@ -2425,6 +2521,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		createEOperation(sectorEClass, SECTOR___GET_ALL_COMPONENTS);
 
 		sensorEClass = createEClass(SENSOR);
+		createEReference(sensorEClass, SENSOR__CLASSIFICATION_CLASSES);
 
 		actuatorEClass = createEClass(ACTUATOR);
 
@@ -2484,10 +2581,10 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		createEOperation(dataNodeEClass, DATA_NODE___GET_INCOMING_CONNECTORS);
 
 		classificationComponentEClass = createEClass(CLASSIFICATION_COMPONENT);
-		createEReference(classificationComponentEClass, CLASSIFICATION_COMPONENT__ENVIRONMENT);
 
 		environmentEClass = createEClass(ENVIRONMENT);
 		createEReference(environmentEClass, ENVIRONMENT__CLASSIFICATION_CLASSES);
+		createEAttribute(environmentEClass, ENVIRONMENT__OOD_PROBABILITY);
 
 		classificationClassEClass = createEClass(CLASSIFICATION_CLASS);
 
@@ -2495,6 +2592,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		createEReference(classificationClassDistributionEClass,
 				CLASSIFICATION_CLASS_DISTRIBUTION__CLASSIFICATION_CLASS);
 		createEAttribute(classificationClassDistributionEClass, CLASSIFICATION_CLASS_DISTRIBUTION__PROBABILITY);
+		createEAttribute(classificationClassDistributionEClass, CLASSIFICATION_CLASS_DISTRIBUTION__NOT);
 
 		multiclassConfusionMatrixEClass = createEClass(MULTICLASS_CONFUSION_MATRIX);
 		createEReference(multiclassConfusionMatrixEClass, MULTICLASS_CONFUSION_MATRIX__ENTRIES);
@@ -2514,6 +2612,10 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 				MULTICLASS_CONFUSION_MATRIX___COMPUTE_CLASS_F1_SCORE__CLASSIFICATIONCLASS);
 		createEOperation(multiclassConfusionMatrixEClass,
 				MULTICLASS_CONFUSION_MATRIX___COMPUTE_CLASS_SPECIFICITY__CLASSIFICATIONCLASS);
+		createEOperation(multiclassConfusionMatrixEClass,
+				MULTICLASS_CONFUSION_MATRIX___COMPUTE_PROBABILITY_OF_FIRST_WHEN_NOT_SECOND__CLASSIFICATIONCLASS_CLASSIFICATIONCLASS);
+		createEOperation(multiclassConfusionMatrixEClass,
+				MULTICLASS_CONFUSION_MATRIX___COMPUTE_CLASS_FALSE_POSITIVITY__CLASSIFICATIONCLASS);
 
 		confusionMatrixEntryEClass = createEClass(CONFUSION_MATRIX_ENTRY);
 		createEAttribute(confusionMatrixEntryEClass, CONFUSION_MATRIX_ENTRY__VALUE);
@@ -2526,7 +2628,6 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		createEAttribute(binaryConfusionMatrixEClass, BINARY_CONFUSION_MATRIX__FP);
 		createEAttribute(binaryConfusionMatrixEClass, BINARY_CONFUSION_MATRIX__FN);
 		createEReference(binaryConfusionMatrixEClass, BINARY_CONFUSION_MATRIX__POSITIVE_CLASS);
-		createEReference(binaryConfusionMatrixEClass, BINARY_CONFUSION_MATRIX__NEGATIVE_CLASS);
 
 		binaryClassificationComponentEClass = createEClass(BINARY_CLASSIFICATION_COMPONENT);
 		createEReference(binaryClassificationComponentEClass, BINARY_CLASSIFICATION_COMPONENT__CONFUSION_MATRIXES);
@@ -2702,9 +2803,17 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		initEReference(getComponent_Datastores(), this.getDataStore(), null, "datastores", null, 0, -1, Component.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComponent_OutputPins(), this.getOutputPin(), null, "outputPins", null, 0, -1, Component.class,
+				IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+				IS_DERIVED, IS_ORDERED);
+		initEReference(getComponent_InputPins(), this.getInputPin(), null, "inputPins", null, 0, -1, Component.class,
+				IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+				IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getComponent__ComputeMainResponsible(), this.getPerson(), "computeMainResponsible", 0, 1,
 				IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getComponent__GetModel(), this.getModel(), "getModel", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(machineLearningComponentEClass, MachineLearningComponent.class, "MachineLearningComponent",
 				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2799,6 +2908,13 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		initEOperation(getPackage__GetMaxFlow(), theEcorePackage.getEDouble(), "getMaxFlow", 0, 1, IS_UNIQUE,
 				IS_ORDERED);
 
+		initEOperation(getPackage__GetModel(), this.getModel(), "getModel", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getPackage__GetAllSensors(), this.getSensor(), "getAllSensors", 0, -1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getPackage__GetAllActuators(), this.getActuator(), "getAllActuators", 0, -1, IS_UNIQUE,
+				IS_ORDERED);
+
 		initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getModel_Packages(), this.getPackage(), null, "packages", null, 0, -1, Model.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
@@ -2865,6 +2981,9 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 				IS_ORDERED);
 
 		initEClass(sensorEClass, Sensor.class, "Sensor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSensor_ClassificationClasses(), this.getClassificationClass(), null, "classificationClasses",
+				null, 0, -1, Sensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(actuatorEClass, Actuator.class, "Actuator", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -2980,15 +3099,15 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 
 		initEClass(classificationComponentEClass, ClassificationComponent.class, "ClassificationComponent", IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getClassificationComponent_Environment(), this.getEnvironment(), null, "environment", null, 0, 1,
-				ClassificationComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(environmentEClass, Environment.class, "Environment", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEnvironment_ClassificationClasses(), this.getClassificationClassDistribution(), null,
 				"classificationClasses", null, 0, -1, Environment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
 				IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEnvironment_OodProbability(), theEcorePackage.getEDouble(), "oodProbability", null, 0, 1,
+				Environment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
 		initEClass(classificationClassEClass, ClassificationClass.class, "ClassificationClass", !IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3001,6 +3120,9 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 		initEAttribute(getClassificationClassDistribution_Probability(), theEcorePackage.getEDouble(), "probability",
 				null, 1, 1, ClassificationClassDistribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
 				!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getClassificationClassDistribution_Not(), theEcorePackage.getEBoolean(), "not", "false", 0, 1,
+				ClassificationClassDistribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+				!IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(multiclassConfusionMatrixEClass, MulticlassConfusionMatrix.class, "MulticlassConfusionMatrix",
 				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3050,6 +3172,16 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 				theEcorePackage.getEDouble(), "computeClassSpecificity", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getClassificationClass(), "class_", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		op = initEOperation(
+				getMulticlassConfusionMatrix__ComputeProbabilityOfFirstWhenNotSecond__ClassificationClass_ClassificationClass(),
+				theEcorePackage.getEDouble(), "computeProbabilityOfFirstWhenNotSecond", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getClassificationClass(), "first", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getClassificationClass(), "second", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getMulticlassConfusionMatrix__ComputeClassFalsePositivity__ClassificationClass(),
+				theEcorePackage.getEDouble(), "computeClassFalsePositivity", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getClassificationClass(), "class_", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(confusionMatrixEntryEClass, ConfusionMatrixEntry.class, "ConfusionMatrixEntry", !IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getConfusionMatrixEntry_Value(), theCorePackage.getInteger(), "value", "0", 0, 1,
@@ -3077,10 +3209,7 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 				BinaryConfusionMatrix.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBinaryConfusionMatrix_PositiveClass(), this.getClassificationClass(), null, "positiveClass",
-				null, 0, 1, BinaryConfusionMatrix.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getBinaryConfusionMatrix_NegativeClass(), this.getClassificationClass(), null, "negativeClass",
-				null, 0, 1, BinaryConfusionMatrix.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				null, 1, 1, BinaryConfusionMatrix.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
 				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(binaryClassificationComponentEClass, BinaryClassificationComponent.class,
@@ -3214,20 +3343,21 @@ public class e4smPackageImpl extends EPackageImpl implements e4smPackage {
 	 */
 	protected void createEcoreAnnotations() {
 		String source = "http://www.eclipse.org/emf/2002/Ecore";
-		addAnnotation(componentEClass, source, new String[] { "constraints", "ComponentC1 ComponentC2 ComponentC3" });
-		addAnnotation(connectorEClass, source, new String[] { "constraints", "ConnectorC1" });
-		addAnnotation(physicalConnectorEClass, source,
-				new String[] { "constraints", "PhysicalConnectorC1 PhysicalConnectorC2 PhysicalConnectorC3" });
+		addAnnotation(componentEClass, source,
+				new String[] { "constraints", "ComponentC1 ComponentC2 ComponentC3 ComponentC4" });
+		addAnnotation(connectorEClass, source, new String[] { "constraints", "ConnectorC1 ConnectorC2 ConnectorC3" });
+		addAnnotation(physicalConnectorEClass, source, new String[] { "constraints",
+				"PhysicalConnectorC1 PhysicalConnectorC2 PhysicalConnectorC3 PhysicalConnectorC4" });
 		addAnnotation(softwareComponentEClass, source, new String[] { "constraints", "SoftwareComponentC1" });
+		addAnnotation(logicalConnectorEClass, source, new String[] { "constraints", "LogicalConnectorC1" });
 		addAnnotation(packageEClass, source, new String[] { "constraints", "PackageC1" });
-		addAnnotation(sensorEClass, source, new String[] { "constraints", "SensorC1" });
-		addAnnotation(actuatorEClass, source, new String[] { "constraints", "ActuatorC1" });
+		addAnnotation(sensorEClass, source, new String[] { "constraints", "SensorC1 SensorC2" });
+		addAnnotation(actuatorEClass, source, new String[] { "constraints", "ActuatorC1 ActuatorC2" });
 		addAnnotation(pinEClass, source, new String[] { "constraints", "PinC1" });
-		addAnnotation(environmentEClass, source, new String[] { "constraints", "EnvironmentC1" });
+		addAnnotation(environmentEClass, source, new String[] { "constraints", "EnvironmentC1 EnvironmentC2" });
 		addAnnotation(multiclassConfusionMatrixEClass, source,
 				new String[] { "constraints", "MulticlassConfusionMatrixC1" });
-		addAnnotation(binaryConfusionMatrixEClass, source,
-				new String[] { "constraints", "BinaryConfusionMatrixC1 BinaryConfusionMatrixC2" });
+		addAnnotation(binaryConfusionMatrixEClass, source, new String[] {});
 	}
 
 	/**

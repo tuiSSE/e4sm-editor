@@ -22,11 +22,10 @@ package e4sm.de.metamodel.e4sm;
  *   <li>{@link e4sm.de.metamodel.e4sm.BinaryConfusionMatrix#getFp <em>Fp</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.BinaryConfusionMatrix#getFn <em>Fn</em>}</li>
  *   <li>{@link e4sm.de.metamodel.e4sm.BinaryConfusionMatrix#getPositiveClass <em>Positive Class</em>}</li>
- *   <li>{@link e4sm.de.metamodel.e4sm.BinaryConfusionMatrix#getNegativeClass <em>Negative Class</em>}</li>
  * </ul>
  *
  * @see e4sm.de.metamodel.e4sm.e4smPackage#getBinaryConfusionMatrix()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='BinaryConfusionMatrixC1 BinaryConfusionMatrixC2'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore"
  * @generated
  */
 public interface BinaryConfusionMatrix extends ConfusionMatrix {
@@ -129,7 +128,7 @@ public interface BinaryConfusionMatrix extends ConfusionMatrix {
 	 * @return the value of the '<em>Positive Class</em>' reference.
 	 * @see #setPositiveClass(ClassificationClass)
 	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getBinaryConfusionMatrix_PositiveClass()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	ClassificationClass getPositiveClass();
@@ -143,27 +142,5 @@ public interface BinaryConfusionMatrix extends ConfusionMatrix {
 	 * @generated
 	 */
 	void setPositiveClass(ClassificationClass value);
-
-	/**
-	 * Returns the value of the '<em><b>Negative Class</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Negative Class</em>' reference.
-	 * @see #setNegativeClass(ClassificationClass)
-	 * @see e4sm.de.metamodel.e4sm.e4smPackage#getBinaryConfusionMatrix_NegativeClass()
-	 * @model
-	 * @generated
-	 */
-	ClassificationClass getNegativeClass();
-
-	/**
-	 * Sets the value of the '{@link e4sm.de.metamodel.e4sm.BinaryConfusionMatrix#getNegativeClass <em>Negative Class</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Negative Class</em>' reference.
-	 * @see #getNegativeClass()
-	 * @generated
-	 */
-	void setNegativeClass(ClassificationClass value);
 
 } // BinaryConfusionMatrix

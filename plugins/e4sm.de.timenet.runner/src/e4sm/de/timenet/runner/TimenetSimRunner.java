@@ -42,11 +42,11 @@ public class TimenetSimRunner {
 		
 		var parts = inputURI.toString().split("/");
 		var projectPath = "";
-		var modelFileName = "";
+		//var modelFileName = "";
 		for (int i = 0; i < parts.length; i++) {
 			if (parts[i].contains("#")) {
 				// example: "model.e4sm#"
-				modelFileName = parts[i].substring(0, parts[i].indexOf("."));
+				//	modelFileName = parts[i].substring(0, parts[i].indexOf("."));
 				break;
 			} else {
 				projectPath += (parts[i] + "/");
@@ -59,96 +59,47 @@ public class TimenetSimRunner {
 			absoluteInputPath = FileLocator.resolve(new URL(inputPath.toString())).getPath();
 			
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		var path = absoluteInputPath + "/" + p.getName() + "_optimized.xml";
 		System.out.println("DEBUG: Path is " + path);
-		//var outPath = absoluteInputPath + "/Codegen";
-		//String outputDir = projectPath + "SCPN/";
 		var inputFile = p.getName() + "_optimized.xml";
-		//String netname = p.getName();
-		//boolean verbose = true;
-		//boolean cluster = false;
-		
-		// this part used to be a manual start for the code generation, now automatically done by the server structure
-		/*System.out.println("DEBUG: Creating CodeGen");
-		CodeGen cg = null;
-		try  {
-		cg = new CodeGen(outPath, inputFile, netname, verbose, cluster, System.out, System.err);
-		}
-		catch(Exception ex) {
-			System.err.println(ex.getMessage());
-			return 20;
-		}
-		
-		System.out.println("DEBUG: Running CodeGen....");
-		cg.run();
-		System.out.println("DEBUG: Run complete!");*/
-		
+	
 		//setup and start the server which will await a client and then start the codegen, make and simulation process
 		
 		var serverPort = 4445;   					//designated port
 		File modelDirectory = new File(absoluteInputPath); 	//path to the model as a file
-		
-		/*Runnable serverCode = new Runnable() {
-			 @Override
-	          public void run() {
-
-				 Server server = null;
-					try {
-						server = new Server(serverPort, modelDirectory, System.out, System.err);
-					} catch (IOException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-					try {
-						server.activate(); 			
-					} catch (IOException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					} catch (ProtocolException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-					/*try {
-						server.deactivate();
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				 
-	          }
-	      };
-	      
-	      Thread serverThread = new Thread(serverCode);
-	      serverThread.start();*/
-	      
+		System.out.println("DEBUG: Server prepared");
 		
 		//already given ServerThread structure from the TimeNet project
-
 		ServerThread serverThread = null;
 		
 		try {
+			System.out.println("DEBUG: inside try");
 			serverThread = new ServerThread(serverPort, modelDirectory, System.out, System.err);
+			System.out.println("DEBUG: help");
 			
-		} catch (IOException e2) {
+		} catch (Exception e2) {
+			System.out.println("DEBUG: inside catch");
 			e2.printStackTrace();
 		}
-		
+		System.out.println("DEBUG: try start server");
 		serverThread.start();
-		
+		System.out.println("DEBUG: server started");
 		
 		
 		//setup and start the client
-		File netFile = new File(inputFile); 		//the File containing the Net which gets send to the server
+		File netFile = new File(path); 		//path to the File containing the Net which gets send to the server
+		if(!netFile.isFile()) {
+			System.err.println("netFile does not exist! " + netFile.getAbsolutePath());
+			return 2;
+		}
         InetAddress addr = null;
 		try {
 			addr = InetAddress.getLocalHost();
-		} catch (UnknownHostException e1) {
+		} catch (Exception e1) {
 			e1.printStackTrace();
 		}
 		System.out.println("Local HostAddress:  " + addr.getHostAddress());
@@ -172,10 +123,11 @@ public class TimenetSimRunner {
 		
 		//params.setResultPort();					//Result Server Port - only set
 													//if Result Server IP is set
-		
+		params.setSecMax("120");					//set max sim time in seconds
 		params.setStartTime(startTime);				//set the Start Time of the simulation
 		params.setEndTime(endTime);					//set the End Time of the simulation
 		params.setLogging(true);					//de- or activate logging
+		params.setSecMax("10");					//run for at most 2 minutes
 		
 		//setting up thread structure to run the client
 		//without blocking the active use of the whole eclipse product
@@ -209,15 +161,6 @@ public class TimenetSimRunner {
 			}
 			
 		}
-		
-		/*Client client = new Client(netFile, params, System.out, System.err);
-		try {
-			client.run();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		client=null;*/
 		
 		ClientParallel client = new ClientParallel(netFile, params, serverThread);
 		client.start();

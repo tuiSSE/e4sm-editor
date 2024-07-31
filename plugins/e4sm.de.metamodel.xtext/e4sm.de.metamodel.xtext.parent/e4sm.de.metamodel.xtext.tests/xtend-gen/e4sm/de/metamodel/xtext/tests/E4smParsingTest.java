@@ -20,30 +20,31 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.xtend2.lib.StringConcatenation;
-import org.eclipse.xtext.serializer.impl.Serializer;
+import org.eclipse.xtext.resource.SaveOptions;
+import org.eclipse.xtext.serializer.ISerializer;
 import org.eclipse.xtext.testing.InjectWith;
-import org.eclipse.xtext.testing.XtextRunner;
 import org.eclipse.xtext.testing.extensions.InjectionExtension;
 import org.eclipse.xtext.testing.util.ParseHelper;
 import org.eclipse.xtext.xbase.lib.Exceptions;
+import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Functions.Function0;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
-import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.runner.RunWith;
 
-@RunWith(XtextRunner.class)
 @ExtendWith(InjectionExtension.class)
 @InjectWith(E4smInjectorProvider.class)
 @SuppressWarnings("all")
 public class E4smParsingTest {
   @Inject
+  @Extension
   private ParseHelper<Model> parseHelper;
 
   @Inject
-  private Serializer serializer;
+  @Extension
+  private ISerializer _iSerializer;
 
   private static final String toBeParsed = new Function0<String>() {
     @Override
@@ -206,7 +207,18 @@ public class E4smParsingTest {
     String _plus = ("Model \'" + _name);
     String _plus_1 = (_plus + "\' loaded, serializing it...");
     InputOutput.<String>println(_plus_1);
-    InputOutput.<String>println(this.serializer.serialize(myModel));
+    InputOutput.<String>println(this._iSerializer.serialize(myModel));
+  }
+
+  @Test
+  public void testFormatter() {
+    try {
+      e4smPackage.eINSTANCE.eClass();
+      Assertions.assertEquals(E4smParsingTest.toBeParsed, 
+        this._iSerializer.serialize(this.parseHelper.parse(E4smParsingTest.toBeParsed), SaveOptions.newBuilder().format().getOptions()));
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
   }
 
   @Test

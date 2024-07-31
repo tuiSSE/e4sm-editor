@@ -16,14 +16,14 @@ final public class NodeTools {
 	 * @return true if available, false otherwise
 	 */
 	public static boolean checkNpm() {
+		var rt = Runtime.getRuntime();
 		try{
-			var rt = Runtime.getRuntime();
 			Process pr;
 			if(System.getProperty("os.name").toLowerCase().startsWith("windows")) {
 				pr = rt.exec(new String[] {"cmd.exe", "/c", "npm -version"});
 			}
 			else{
-				pr = rt.exec(new String[] {" /bin/sh", "-c", "npm -version"});
+				pr = rt.exec(new String[] {"npm", "-version"});
 			}
 			int exitVal = pr.waitFor();
 			if(exitVal == 0) {
@@ -40,7 +40,33 @@ final public class NodeTools {
 			System.err.println(e.toString());
 			e.printStackTrace();
 		}
-		System.err.println("npm not found, please check installation");
+		
+		System.err.println("npm not found, checking if nvm is available");
+		try{
+			Process pr;
+			if(System.getProperty("os.name").toLowerCase().startsWith("windows")) {
+				pr = rt.exec(new String[] {"cmd.exe", "/c", "nvm use node"});
+			}
+			else{
+				pr = rt.exec(new String[] {"nvm", "use", "node"});
+			}
+			int exitVal = pr.waitFor();
+			if(exitVal == 0) {
+				Utils.debug("nvm found and initialized");
+				return true;
+			}
+		}
+		catch(IOException e){
+			System.err.println("Execution error during nvm check");
+			System.out.println(e.toString());
+			e.printStackTrace();
+		}
+		catch(InterruptedException e) {
+			System.err.println(e.toString());
+			e.printStackTrace();
+		}
+		
+		System.err.println("npm & nvm not found.");
 		return false;
 	}
 	
@@ -56,7 +82,7 @@ final public class NodeTools {
 				pr = rt.exec(new String[] {"cmd.exe", "/c", "tn-fix-xml"});
 			}
 			else {
-				pr = rt.exec(new String[] {"/bin/sh", "-c", "tn-fix-xml"});
+				pr = rt.exec(new String[] {"tn-fix-xml"});
 			}
 			int exitVal = pr.waitFor();
 			if(exitVal == 0) {
@@ -115,7 +141,7 @@ final public class NodeTools {
 				pr = rt.exec(new String[] {"cmd.exe", "/c", usedCommand});
 			}
 			else {
-				pr = rt.exec(new String[] {"/bin/sh", "-c", usedCommand});
+				pr = rt.exec(new String[] {"bash", "-c", usedCommand});
 			}
 			
 			var in = new BufferedReader(new InputStreamReader(pr.getInputStream()));

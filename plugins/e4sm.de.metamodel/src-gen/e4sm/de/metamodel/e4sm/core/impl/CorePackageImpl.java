@@ -44,6 +44,7 @@ import e4sm.de.metamodel.e4sm.core.DoubleAttribute;
 import e4sm.de.metamodel.e4sm.core.UnitOfMeasurement;
 import e4sm.de.metamodel.e4sm.core.ValueSpecification;
 import e4sm.de.metamodel.e4sm.core.Variant;
+import e4sm.de.metamodel.e4sm.core.util.CoreValidator;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -55,6 +56,7 @@ import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
@@ -434,6 +436,14 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		theExecutionPackage.initializePackageContents();
 		theGuavaPackage.initializePackageContents();
 		theSecurityPackage.initializePackageContents();
+
+		// Register package validator
+		EValidator.Registry.INSTANCE.put(theCorePackage, new EValidator.Descriptor() {
+			@Override
+			public EValidator getEValidator() {
+				return CoreValidator.INSTANCE;
+			}
+		});
 
 		// Mark meta-data to indicate it can't be changed
 		theCorePackage.freeze();
@@ -1508,10 +1518,10 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		createResource(eNS_URI);
 
 		// Create annotations
-		// http://www.eclipse.org/emf/2002/Ecore
-		createEcoreAnnotations();
 		// http://www.eclipse.org/edapt
 		createEdaptAnnotations();
+		// http://www.eclipse.org/emf/2002/Ecore
+		createEcoreAnnotations();
 	}
 
 	/**
@@ -1522,7 +1532,8 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	protected void createEcoreAnnotations() {
 		String source = "http://www.eclipse.org/emf/2002/Ecore";
-		addAnnotation(this, source, new String[] {});
+		addAnnotation(namedElementEClass, source, new String[] { "constraints", "C1" });
+		addAnnotation(typeSpecificationEClass, source, new String[] { "constraints", "TypeSpecificationC1" });
 	}
 
 	/**

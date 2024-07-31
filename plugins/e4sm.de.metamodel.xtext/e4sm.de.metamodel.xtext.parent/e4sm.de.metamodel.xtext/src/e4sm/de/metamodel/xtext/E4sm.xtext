@@ -10,16 +10,16 @@ import "http://de.tu-ilmenau/e4sm/security/1.0.0" as security
 
 Model returns Model:
 	'model'
-	name=EString
+	Name
 	'{'
-	('doc' PROPERTY_ASSIGN documentation=EString)?
+	Documentation?
 	(imports+=Import ("," imports+=Import)*)?
 	(securityThreatsImport+=SecurityThreatsImport ("," securityThreatsImport+=SecurityThreatsImport)*)?
 	(securityThreatsDefinition=KnownSecurityThreats)?
 	(securitySpecification=SecuritySpecification)?
 	('picturesPath' PROPERTY_ASSIGN personsPicturesPath=EString)?
 	(types+=TypeSpecification ("," types+=TypeSpecification)*)?
-	(parameters+=Parameter ("," parameters+=Parameter)*)?
+	Parameters?
 	(packages+=Package ("," packages+=Package)*)?
 	(actors+=Actor ("," actors+=Actor)*)?
 	(variants+=Variant ("," variants+=Variant)*)?
@@ -27,20 +27,36 @@ Model returns Model:
 	(environments+=Environment ("," environments+=Environment)*)?
 	'}';
 
+fragment Documentation returns core::DocumentableElement:
+	'doc' PROPERTY_ASSIGN documentation=EString;
+	
+fragment Parameters returns analysis::ParameterizableElement:
+	'parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}'
+;
+
+fragment Name returns core::NamedElement:
+	name=EString
+;
+
+fragment EcoreName returns ecore::ENamedElement:
+	name=EString
+;
+
 ClassificationClass returns ClassificationClass:
 	{ClassificationClass}
-	'cl' name=EString;
+	'cl' Name;
 
 ClassificationClassDistribution returns ClassificationClassDistribution:
 	{ClassificationClassDistribution}
-	classificationClass=[ClassificationClass] probability=EDouble;
+	((not?='not')? classificationClass=[ClassificationClass|EString] probability=EDouble);
 
 Environment returns Environment:
 	{Environment}
-	'environment' name=EString
+	'environment' Name
 	'{'
 	(classificationClasses+=ClassificationClassDistribution ("," classificationClasses+=ClassificationClassDistribution)
 	*)?
+	(',' 'OOD' oodProbability=EDouble)?
 	'}';
 
 ConfusionMatrix returns ConfusionMatrix:
@@ -48,9 +64,8 @@ ConfusionMatrix returns ConfusionMatrix:
 
 BinaryConfusionMatrix returns BinaryConfusionMatrix:
 	{BinaryConfusionMatrix}
-	'confusion' 'matrix' name=EString
-	('with' 'positive' positiveClass=[ClassificationClass|EString] (',' 'negative'
-	negativeClass=[ClassificationClass|EString])?)?
+	'confusion' 'matrix' Name
+	'+' positiveClass=[ClassificationClass|EString]
 	'{'
 	'TP' PROPERTY_ASSIGN tp=EInt ',' 'FN' PROPERTY_ASSIGN fn=EInt
 	',' 'FP' PROPERTY_ASSIGN fp=EInt ',' 'TN' PROPERTY_ASSIGN tn=EInt
@@ -58,7 +73,7 @@ BinaryConfusionMatrix returns BinaryConfusionMatrix:
 
 MulticlassConfusionMatrix returns MulticlassConfusionMatrix:
 	{MulticlassConfusionMatrix}
-	'confusion' 'matrix' name=EString
+	'confusion' 'matrix' Name
 	'{'
 	(entries+=ConfusionMatrixEntry ("," entries+=ConfusionMatrixEntry)*)?
 	'}';
@@ -67,50 +82,45 @@ ConfusionMatrixEntry returns ConfusionMatrixEntry:
 	{ConfusionMatrixEntry}
 	truth=[ClassificationClass|EString] predicted=[ClassificationClass|EString] PROPERTY_ASSIGN value=EInt;
 
-
 // ~~~~~~~~    SECURITY   ~~~~~~~~ //
 SecurityThreatsImport returns SecurityThreatsImport:
 	{SecurityThreatsImport}
-	'import' 'security' securityThreat=[security::KnownSecurityThreats]';'
-;
+	'import' 'security' securityThreat=[security::KnownSecurityThreats] ';';
 
 KnownSecurityThreats returns security::KnownSecurityThreats:
 	{security::KnownSecurityThreats}
 	'knownSecurityThreats'
 	'{'
-		(cves+=CVE (cves+=CVE)*)?
-		// TODO CWE
-	'}'
-;
+	(cves+=CVE (cves+=CVE)*)?
+	// TODO CWE
+	'}';
 
-CVE returns security::CVE: 
+CVE returns security::CVE:
 	{security::CVE}
-	'cve' cveId=EString ('cvss' PROPERTY_ASSIGN cvss=EDouble)? (vectorString=EString)? ('descr' PROPERTY_ASSIGN description=EString)? ('affects''{'affectsComponents+=[Component|EString](','affectsComponents+=[Component|EString])*'}')?';'
-;
+	'cve' cveId=EString
+	('cvss' PROPERTY_ASSIGN cvss=EDouble)?
+	(vectorString=EString)?
+	('descr' PROPERTY_ASSIGN description=EString)?
+	('affects' '{'
+	affectsComponents+=[Component|EString] (',' affectsComponents+=[Component|EString])*
+	'}')?';';
 
-SecuritySpecification returns security::SecuritySpecification: 
+SecuritySpecification returns security::SecuritySpecification:
 	{security::SecuritySpecification}
 	'securitySpec' '{'
-	 	(assetDefinitions+=AssetDefinition (assetDefinitions+=AssetDefinition)*)?
-	 	(attackSurfaces+=AttackSurface (attackSurfaces+=AttackSurface)*)?
-	'}'
-;
+	(assetDefinitions+=AssetDefinition (assetDefinitions+=AssetDefinition)*)?
+	(attackSurfaces+=AttackSurface (attackSurfaces+=AttackSurface)*)?
+	'}';
 
 AssetDefinition returns security::AssetDefinition:
 	{security::AssetDefinition}
-	'asset' component=[Component|EString] ';'
-;
+	'asset' component=[Component|EString] ';';
 
 AttackSurface returns security::AttackSurface:
 	{security::AttackSurface}
-	'attack' 'surface' component=[Component|EString] ';'
-;
-
+	'attack' 'surface' component=[Component|EString] ';';
 
 // ^^^^^^^^^^  SECURITY   ^^^^^^^^^^ //
-
-
-
 Import returns Import:
 	{Import}
 	'import' referencedModel=[Model|STRING] ';';
@@ -146,10 +156,10 @@ DataStore returns DataStore:
 	{DataStore}
 	'datastore'
 	(type=[core::TypeSpecification])?
-	name=EString // (':' type=[ecore::EDataType|EString])?
+	Name // (':' type = [ecore::EDataType|EString])?
 	('{'
-	('doc' PROPERTY_ASSIGN documentation=EString)?
-	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
+	Documentation?
+	Parameters?
 	'}')?;
 
 DataNode returns DataNode:
@@ -163,9 +173,9 @@ EString returns ecore::EString:
 
 Parameter returns analysis::Parameter:
 	{analysis::Parameter}
-	'par' name=EString  (':=' initialValue=ValueSpecification)?
+	'par' Name (':=' initialValue=ValueSpecification)?
 	('{'
-	('doc' PROPERTY_ASSIGN documentation=EString)?
+	Documentation?
 	('parameterDefinition' PROPERTY_ASSIGN parameterDefinition=[analysis::ParameterDefinition|EString])?
 	('appliesOnlyOnVariants' '(' appliesOnlyOnVariants+=[core::Variant|EString] (","
 	appliesOnlyOnVariants+=[core::Variant|EString])* ')')?
@@ -176,14 +186,14 @@ Parameter returns analysis::Parameter:
 
 Package returns Package:
 	'package'
-	name=EString
+	Name
 	'{'
-	('doc' PROPERTY_ASSIGN documentation=EString)?
+	Documentation?
 	('simulationDuration' PROPERTY_ASSIGN simulationDuration=EInt)?
 	('mainResponsible' PROPERTY_ASSIGN mainResponsible=[Person|EString])?
 	('specifiesComponent' PROPERTY_ASSIGN specifiesComponent=[Component|EString])?
 	('processingUnits' PROPERTY_ASSIGN processingUnits=EInt)?
-	(parameters+=Parameter ("," parameters+=Parameter)*)?
+	Parameters?
 	(components+=Component ("," components+=Component)*)?
 	(connectors+=Connector ("," connectors+=Connector)*)?
 	(datastores+=DataStore ("," datastores+=DataStore)*)?
@@ -197,38 +207,38 @@ terminal PROPERTY_ASSIGN:
 Actor_Impl returns Actor:
 	{Actor}
 	'actor'
-	name=EString
+	Name
 	('{'
-	('doc' PROPERTY_ASSIGN documentation=EString)?
+	Documentation?
 	'}')?;
 
 Variant returns core::Variant:
 	{core::Variant}
 	'variant'
-	name=EString
+	Name
 	('{'
-	('doc' PROPERTY_ASSIGN documentation=EString)?
-	'}')?
-;
+	Documentation?
+	'}')?;
+
 ParameterDefinition returns analysis::ParameterDefinition:
 	{analysis::ParameterDefinition}
 	'ParameterDefinition'
-	name=EString
+	Name
 	'{'
-	('doc' PROPERTY_ASSIGN documentation=EString)?
+	Documentation?
 	('unit' unit=UnitOfMeasurement)?
-	// ('type' type=[ecore::EDataType|EString])?
+	// ('type' type = [ecore::EDataType|EString])?
 	('parameters' '(' parameters+=[analysis::Parameter|EString] ("," parameters+=[analysis::Parameter|EString])* ')')?
-	// ('mustBeDefinedOn' '(' mustBeDefinedOn+=[ecore::EClass|EString] ( "," mustBeDefinedOn+=[ecore::EClass|EString])* ')' )?
-	// ('canBeDefinedOn' '(' canBeDefinedOn+=[ecore::EClass|EString] ( "," canBeDefinedOn+=[ecore::EClass|EString])* ')' )?
-	// ('shallNotBeDefinedOn' '(' shallNotBeDefinedOn+=[ecore::EClass|EString] ( "," shallNotBeDefinedOn+=[ecore::EClass|EString])* ')' )?
+	// ('mustBeDefinedOn' '(' mustBeDefinedOn += [ecore::EClass|EString] ( "," mustBeDefinedOn += [ecore::EClass|EString])* ')' )?
+	// ('canBeDefinedOn' '(' canBeDefinedOn += [ecore::EClass|EString] ( "," canBeDefinedOn += [ecore::EClass|EString])* ')' )?
+	// ('shallNotBeDefinedOn' '(' shallNotBeDefinedOn += [ecore::EClass|EString] ( "," shallNotBeDefinedOn += [ecore::EClass|EString])* ')' )?
 	('defaultValue' defaultValue=ValueSpecification)?
 	'}';
 
 EDataType_Impl returns ecore::EDataType:
 	{ecore::EDataType}
 	'EDataType'
-	name=EString
+	EcoreName
 	'{'
 	('instanceClassName' instanceClassName=EString)?
 	('instanceTypeName' instanceTypeName=EString)?
@@ -246,7 +256,7 @@ EClass returns ecore::EClass:
 	(abstract?='abstract')?
 	(interface?='interface')?
 	'EClass'
-	name=EString
+	EcoreName
 	'{'
 	('instanceClassName' instanceClassName=EString)?
 	('instanceTypeName' instanceTypeName=EString)?
@@ -273,7 +283,7 @@ EAnnotation returns ecore::EAnnotation:
 ETypeParameter returns ecore::ETypeParameter:
 	{ecore::ETypeParameter}
 	'ETypeParameter'
-	name=EString
+	EcoreName
 	'{'
 	('eAnnotations' '{' eAnnotations+=EAnnotation ("," eAnnotations+=EAnnotation)* '}')?
 	('eBounds' '{' eBounds+=EGenericType ("," eBounds+=EGenericType)* '}')?
@@ -285,7 +295,7 @@ EBoolean returns ecore::EBoolean:
 EEnum returns ecore::EEnum:
 	{ecore::EEnum}
 	'EEnum'
-	name=EString
+	EcoreName
 	'{'
 	('instanceClassName' instanceClassName=EString)?
 	('instanceTypeName' instanceTypeName=EString)?
@@ -321,7 +331,7 @@ EGenericType returns ecore::EGenericType:
 EEnumLiteral returns ecore::EEnumLiteral:
 	{ecore::EEnumLiteral}
 	'EEnumLiteral'
-	name=EString
+	EcoreName
 	'{'
 	('value' value=EInt)?
 	('literal' literal=EString)?
@@ -331,7 +341,7 @@ EEnumLiteral returns ecore::EEnumLiteral:
 EOperation returns ecore::EOperation:
 	{ecore::EOperation}
 	'EOperation'
-	name=EString
+	EcoreName
 	'{'
 	('ordered' ordered=EBoolean)?
 	('unique' unique=EBoolean)?
@@ -349,7 +359,7 @@ EOperation returns ecore::EOperation:
 EParameter returns ecore::EParameter:
 	{ecore::EParameter}
 	'EParameter'
-	name=EString
+	EcoreName
 	'{'
 	('ordered' ordered=EBoolean)?
 	('unique' unique=EBoolean)?
@@ -368,7 +378,7 @@ EAttribute returns ecore::EAttribute:
 	(derived?='derived')?
 	(iD?='iD')?
 	'EAttribute'
-	name=EString
+	EcoreName
 	'{'
 	('ordered' ordered=EBoolean)?
 	('unique' unique=EBoolean)?
@@ -389,7 +399,7 @@ EReference returns ecore::EReference:
 	(derived?='derived')?
 	(containment?='containment')?
 	'EReference'
-	name=EString
+	EcoreName
 	'{'
 	('ordered' ordered=EBoolean)?
 	('unique' unique=EBoolean)?
@@ -432,37 +442,37 @@ LiteralLong returns core::LiteralLong:
 LiteralShort returns core::LiteralShort:
 	{core::LiteralShort}
 	'LiteralShort'
-	name=EString
+	Name
 	'{'
 	('value' value=Short)?
-	// ('type' type=[ecore::EDataType|EString])?
+	// ('type' type = [ecore::EDataType|EString])?
 	'}';
 
 LiteralByte returns core::LiteralByte:
 	{core::LiteralByte}
 	'LiteralByte'
-	name=EString
+	Name
 	'{'
 	('value' value=Byte)?
-	// ('type' type=[ecore::EDataType|EString])?
+	// ('type' type = [ecore::EDataType|EString])?
 	'}';
 
 LiteralCharacter returns core::LiteralCharacter:
 	{core::LiteralCharacter}
 	'LiteralCharacter'
-	name=EString
+	Name
 	'{'
 	('value' value=Character)?
-	// ('type' type=[ecore::EDataType|EString])?
+	// ('type' type = [ecore::EDataType|EString])?
 	'}';
 
 LiteralDate returns core::LiteralDate:
 	{core::LiteralDate}
 	'LiteralDate'
-	name=EString
+	Name
 	'{'
 	('value' value=Date)?
-	// ('type' type=[ecore::EDataType|EString])?
+	// ('type' type = [ecore::EDataType|EString])?
 	'}';
 
 Float returns core::Float:
@@ -487,15 +497,15 @@ Date returns core::Date:
 Component_Impl returns Component:
 	{Component}
 	'component'
-	name=EString
+	Name
 	'{'
-	('doc' PROPERTY_ASSIGN documentation=EString)?
+	Documentation?
 	('firingStrategy' firingStrategy=ComponentFiringStrategy)?
 	('takes' timeFunction=ComplexTimefunction)?
 	(pins+=Pin ("," pins+=Pin)*)?
 	('mainResponsible' mainResponsible=[Person|EString])?
 	('specifiedInPackage' specifiedInPackage=[Package|EString])?
-	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
+	Parameters?
 	('components' '{' components+=Component ("," components+=Component)* '}')?
 	('datastores' '{' datastores+=DataStore ("," datastores+=DataStore)* '}')?
 	('runs' '{' execution=Execution '}')?
@@ -503,20 +513,20 @@ Component_Impl returns Component:
 
 Connector_Impl returns Connector:
 	'connector'
-	name=EString
-	source=[Pin|EString] '->' target=[Pin|EString]
+	Name
+	(source=[Pin|EString])? '->' (target=[Pin|EString])?
 	('{'
-	('doc' PROPERTY_ASSIGN documentation=EString)?
+	Documentation?
 	('takes' timeFunction=ComplexTimefunction)?
-	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
+	Parameters?
 	'}')?;
 
 Sector returns Sector:
 	{Sector}
 	'sector'
-	name=EString
+	Name
 	'{'
-	('doc' PROPERTY_ASSIGN documentation=EString)?
+	Documentation?
 	('components' '{' components+=Component ("," components+=Component)* '}')?
 	('datastores' '{' datastores+=DataStore ("," datastores+=DataStore)* '}')?
 	('sectors' '{' sectors+=Sector ("," sectors+=Sector)* '}')?
@@ -524,21 +534,21 @@ Sector returns Sector:
 
 Person returns Person:
 	'person'
-	(name=EString | surname=EString ',' name=EString)
+	(Name | surname=EString ',' Name)
 	'{'
-	('doc' PROPERTY_ASSIGN documentation=EString)?
+	Documentation?
 	('department' department=EString)?
 	('pictureFileName' pictureFileName=EString)?
-	// ('responsibleForComponents' '(' responsibleForComponents+=[Component|EString] (","
-	// responsibleForComponents+=[Component|EString])* ')')?
+	// ('responsibleForComponents' '(' responsibleForComponents += [Component|EString] (","
+	// responsibleForComponents += [Component|EString])* ')')?
 	'}';
 
 MulticlassClassificationComponent returns MulticlassClassificationComponent:
 	{MulticlassClassificationComponent}
 	'multiclassClassificationComponent'
-	name=EString
+	Name
 	'{'
-	('doc' PROPERTY_ASSIGN documentation=EString)?
+	Documentation?
 	('firingStrategy' firingStrategy=ComponentFiringStrategy)?
 	('takes' timeFunction=ComplexTimefunction)?
 	(pins+=Pin ("," pins+=Pin)*)?
@@ -546,7 +556,7 @@ MulticlassClassificationComponent returns MulticlassClassificationComponent:
 	('numberOfServers' numberOfServers=EInt)?
 	('mainResponsible' mainResponsible=[Person|EString])?
 	('specifiedInPackage' specifiedInPackage=[Package|EString])?
-	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
+	Parameters?
 	('components' '{' components+=Component ("," components+=Component)* '}')?
 	('datastores' '{' datastores+=DataStore ("," datastores+=DataStore)* '}')?
 	('runs' '{' execution=Execution '}')?
@@ -557,9 +567,9 @@ MulticlassClassificationComponent returns MulticlassClassificationComponent:
 BinaryClassificationComponent returns BinaryClassificationComponent:
 	{BinaryClassificationComponent}
 	'binaryClassificationComponent'
-	name=EString
+	Name
 	'{'
-	('doc' PROPERTY_ASSIGN documentation=EString)?
+	Documentation?
 	('firingStrategy' firingStrategy=ComponentFiringStrategy)?
 	('takes' timeFunction=ComplexTimefunction)?
 	(pins+=Pin ("," pins+=Pin)*)?
@@ -567,7 +577,7 @@ BinaryClassificationComponent returns BinaryClassificationComponent:
 	('numberOfServers' numberOfServers=EInt)?
 	('mainResponsible' mainResponsible=[Person|EString])?
 	('specifiedInPackage' specifiedInPackage=[Package|EString])?
-	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
+	Parameters?
 	('components' '{' components+=Component ("," components+=Component)* '}')?
 	('datastores' '{' datastores+=DataStore ("," datastores+=DataStore)* '}')?
 	('runs' '{' execution=Execution '}')?
@@ -578,9 +588,9 @@ BinaryClassificationComponent returns BinaryClassificationComponent:
 MachineLearningComponent returns MachineLearningComponent:
 	{MachineLearningComponent}
 	'mlComponent'
-	name=EString
+	Name
 	'{'
-	('doc' PROPERTY_ASSIGN documentation=EString)?
+	Documentation?
 	('firingStrategy' firingStrategy=ComponentFiringStrategy)?
 	('takes' timeFunction=ComplexTimefunction)?
 	(pins+=Pin ("," pins+=Pin)*)?
@@ -588,7 +598,7 @@ MachineLearningComponent returns MachineLearningComponent:
 	('numberOfServers' numberOfServers=EInt)?
 	('mainResponsible' mainResponsible=[Person|EString])?
 	('specifiedInPackage' specifiedInPackage=[Package|EString])?
-	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
+	Parameters?
 	('components' '{' components+=Component ("," components+=Component)* '}')?
 	('datastores' '{' datastores+=DataStore ("," datastores+=DataStore)* '}')?
 	('runs' '{' execution=Execution '}')?
@@ -597,15 +607,15 @@ MachineLearningComponent returns MachineLearningComponent:
 PhysicalComponent_Impl returns PhysicalComponent:
 	{PhysicalComponent}
 	'physicalComponent'
-	name=EString
+	Name
 	'{'
-	('doc' PROPERTY_ASSIGN documentation=EString)?
+	Documentation?
 	('firingStrategy' firingStrategy=ComponentFiringStrategy)?
 	('takes' timeFunction=ComplexTimefunction)?
 	(pins+=Pin ("," pins+=Pin)*)?
 	('mainResponsible' mainResponsible=[Person|EString])?
 	('specifiedInPackage' specifiedInPackage=[Package|EString])?
-	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
+	Parameters?
 	('components' '{' components+=Component ("," components+=Component)* '}')?
 	('datastores' '{' datastores+=DataStore ("," datastores+=DataStore)* '}')?
 	('runs' '{' execution=Execution '}')?
@@ -614,9 +624,9 @@ PhysicalComponent_Impl returns PhysicalComponent:
 SoftwareComponent_Impl returns SoftwareComponent:
 	{SoftwareComponent}
 	'softwareComponent'
-	name=EString
+	Name
 	'{'
-	('doc' PROPERTY_ASSIGN documentation=EString)?
+	Documentation?
 	('firingStrategy' firingStrategy=ComponentFiringStrategy)?
 	('takes' timeFunction=ComplexTimefunction)?
 	(pins+=Pin ("," pins+=Pin)*)?
@@ -624,7 +634,7 @@ SoftwareComponent_Impl returns SoftwareComponent:
 	('numberOfServers' numberOfServers=EInt)?
 	('mainResponsible' mainResponsible=[Person|EString])?
 	('specifiedInPackage' specifiedInPackage=[Package|EString])?
-	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
+	Parameters?
 	('components' '{' components+=Component ("," components+=Component)* '}')?
 	('datastores' '{' datastores+=DataStore ("," datastores+=DataStore)* '}')?
 	('runs' '{' execution=Execution '}')?
@@ -633,9 +643,9 @@ SoftwareComponent_Impl returns SoftwareComponent:
 Heuristic returns Heuristic:
 	{Heuristic}
 	'heuristic'
-	name=EString
+	Name
 	'{'
-	('doc' PROPERTY_ASSIGN documentation=EString)?
+	Documentation?
 	('firingStrategy' firingStrategy=ComponentFiringStrategy)?
 	('takes' timeFunction=ComplexTimefunction)?
 	(pins+=Pin ("," pins+=Pin)*)?
@@ -643,7 +653,7 @@ Heuristic returns Heuristic:
 	('numberOfServers' numberOfServers=EInt)?
 	('mainResponsible' mainResponsible=[Person|EString])?
 	('specifiedInPackage' specifiedInPackage=[Package|EString])?
-	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
+	Parameters?
 	('components' '{' components+=Component ("," components+=Component)* '}')?
 	('datastores' '{' datastores+=DataStore ("," datastores+=DataStore)* '}')?
 	('runs' '{' execution=Execution '}')?
@@ -652,9 +662,9 @@ Heuristic returns Heuristic:
 Function returns Function:
 	{Function}
 	'function'
-	name=EString
+	Name
 	'{'
-	('doc' PROPERTY_ASSIGN documentation=EString)?
+	Documentation?
 	('firingStrategy' firingStrategy=ComponentFiringStrategy)?
 	('takes' timeFunction=ComplexTimefunction)?
 	(pins+=Pin ("," pins+=Pin)*)?
@@ -662,7 +672,7 @@ Function returns Function:
 	('numberOfServers' numberOfServers=EInt)?
 	('mainResponsible' mainResponsible=[Person|EString])?
 	('specifiedInPackage' specifiedInPackage=[Package|EString])?
-	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
+	Parameters?
 	('components' '{' components+=Component ("," components+=Component)* '}')?
 	('datastores' '{' datastores+=DataStore ("," datastores+=DataStore)* '}')?
 	('runs' '{' execution=Execution '}')?
@@ -671,9 +681,9 @@ Function returns Function:
 ExternalDependency returns ExternalDependency:
 	{ExternalDependency}
 	'externalDependency'
-	name=EString
+	Name
 	'{'
-	('doc' PROPERTY_ASSIGN documentation=EString)?
+	Documentation?
 	('firingStrategy' firingStrategy=ComponentFiringStrategy)?
 	('takes' timeFunction=ComplexTimefunction)?
 	(pins+=Pin ("," pins+=Pin)*)?
@@ -681,7 +691,7 @@ ExternalDependency returns ExternalDependency:
 	('numberOfServers' numberOfServers=EInt)?
 	('mainResponsible' mainResponsible=[Person|EString])?
 	('specifiedInPackage' specifiedInPackage=[Package|EString])?
-	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
+	Parameters?
 	('components' '{' components+=Component ("," components+=Component)* '}')?
 	('datastores' '{' datastores+=DataStore ("," datastores+=DataStore)* '}')?
 	('runs' '{' execution=Execution '}')?
@@ -689,16 +699,18 @@ ExternalDependency returns ExternalDependency:
 
 Sensor returns Sensor:
 	'sensor'
-	name=EString
+	Name
 	'{'
-	('doc' PROPERTY_ASSIGN documentation=EString)?
+	Documentation?
 	('firingStrategy' firingStrategy=ComponentFiringStrategy)?
 	('takes' timeFunction=ComplexTimefunction)?
 	(pins+=Pin ("," pins+=Pin)*)?
 	// 'timeFunction' timeFunction=TimeFunction
+	('generates' classificationClasses+=[ClassificationClass|EString] (','
+	classificationClasses+=[ClassificationClass|EString])*)?
 	('mainResponsible' mainResponsible=[Person|EString])?
 	('specifiedInPackage' specifiedInPackage=[Package|EString])?
-	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
+	Parameters?
 	('components' '{' components+=Component ("," components+=Component)* '}')?
 	('datastores' '{' datastores+=DataStore ("," datastores+=DataStore)* '}')?
 	('runs' '{' execution=Execution '}')?
@@ -707,15 +719,15 @@ Sensor returns Sensor:
 Actuator returns Actuator:
 	{Actuator}
 	'actuator'
-	name=EString
+	Name
 	'{'
-	('doc' PROPERTY_ASSIGN documentation=EString)?
+	Documentation?
 	('firingStrategy' firingStrategy=ComponentFiringStrategy)?
 	('takes' timeFunction=ComplexTimefunction)?
 	(pins+=Pin ("," pins+=Pin)*)?
 	('mainResponsible' mainResponsible=[Person|EString])?
 	('specifiedInPackage' specifiedInPackage=[Package|EString])?
-	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
+	Parameters?
 	('components' '{' components+=Component ("," components+=Component)* '}')?
 	('datastores' '{' datastores+=DataStore ("," datastores+=DataStore)* '}')?
 	('runs' '{' execution=Execution '}')?
@@ -731,31 +743,31 @@ InputPin returns InputPin:
 	{InputPin}
 	(optional?='optional')? 'in' (stream?='stream')?
 	(type=[core::TypeSpecification])?
-	name=EString // (':' type=[ecore::EDataType|EString])?
+	Name // (':' type = [ecore::EDataType|EString])?
 	('{'
-	('doc' PROPERTY_ASSIGN documentation=EString)?
+	Documentation?
 	('collects' collect=EInt)?
 	('raceSemantic' raceSemantic=RaceSemantic)?
 	('queueType' queueType=QueueType)?
-	// ('outgoingConnectors' '(' outgoingConnectors+=[Connector|EString] ( "," outgoingConnectors+=[Connector|EString])* ')' )?
-	// ('incomingConnectors' '(' incomingConnectors+=[Connector|EString] ( "," incomingConnectors+=[Connector|EString])* ')' )?
-	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
+	// ('outgoingConnectors' '(' outgoingConnectors += [Connector|EString] ( "," outgoingConnectors += [Connector|EString])* ')' )?
+	// ('incomingConnectors' '(' incomingConnectors += [Connector|EString] ( "," incomingConnectors += [Connector|EString])* ')' )?
+	Parameters?
 	'}')?;
 
 OutputPin returns OutputPin:
 	{OutputPin}
 	'out' (stream?='stream')?
 	(type=[core::TypeSpecification])?
-	name=EString // (':' type=[ecore::EDataType])?
+	Name // (':' type = [ecore::EDataType])?
 	('{'
-	('doc' PROPERTY_ASSIGN documentation=EString)?
+	Documentation?
 	('amplifies' amplify=EInt)?
 	('outputUncertainty' outputUncertainty=EDouble)?
 	('raceSemantic' raceSemantic=RaceSemantic)?
 	('generates' tokenSpecification=TokenSpecification)?
-	// ('outgoingConnectors' '(' outgoingConnectors+=[Connector|EString] ( "," outgoingConnectors+=[Connector|EString])* ')' )?
-	// ('incomingConnectors' '(' incomingConnectors+=[Connector|EString] ( "," incomingConnectors+=[Connector|EString])* ')' )?
-	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
+	// ('outgoingConnectors' '(' outgoingConnectors += [Connector|EString] ( "," outgoingConnectors += [Connector|EString])* ')' )?
+	// ('incomingConnectors' '(' incomingConnectors += [Connector|EString] ( "," incomingConnectors += [Connector|EString])* ')' )?
+	Parameters?
 	'}')? ('=' outputExpression=Expression)?;
 
 enum QueueType returns QueueType:
@@ -764,52 +776,48 @@ enum QueueType returns QueueType:
 EDouble returns ecore::EDouble:
 	DOUBLE;
 
-terminal DOUBLE returns ecore::EDouble :
-	'-'? INT? '.' INT (('E' | 'e') '-'? INT)?
-;
+terminal DOUBLE returns ecore::EDouble:
+	'-'? INT? '.' INT (('E' | 'e') '-'? INT)?;
 
 EInt returns ecore::EInt:
-	POSSIBLY_NEGATIVE_INT
-;
+	NEGATIVE_INT|INT;
 
-terminal POSSIBLY_NEGATIVE_INT returns ecore::EInt:
-	'-'? INT;
-	
+terminal NEGATIVE_INT returns ecore::EInt:
+	'-' INT;
+
 TokenSpecification returns TokenSpecification:
 	{TokenSpecification}
-	inputSize += Set 
-;
+	inputSize+=Set;
 
 Set returns Set:
 	{Set}
-	'set' '{'values+=SetValue (values+=SetValue)* '}'
-;
+	'set' '{' values+=SetValue (values+=SetValue)* '}';
 
 SetValue returns SetValue:
 	{SetValue}
-	'value' PROPERTY_ASSIGN value=EString ('prob' PROPERTY_ASSIGN probability=EDouble & ('size' PROPERTY_ASSIGN size=EDouble)?)';'
-;
+	'value' PROPERTY_ASSIGN value=EString ('prob' PROPERTY_ASSIGN probability=EDouble & ('size' PROPERTY_ASSIGN
+	size=EDouble)?) ';';
 
 PhysicalConnector returns PhysicalConnector:
 	'physicalConnector'
-	name=EString
-	source=[Pin|EString] '->' target=[Pin|EString]
+	Name
+	(source=[Pin|EString])? '->' (target=[Pin|EString])?
 	('{'
-	('doc' PROPERTY_ASSIGN documentation=EString)?
+	Documentation?
 	('minSpeed' minSpeed=Connectionspeed)?
 	('maxSpeed' maxSpeed=Connectionspeed)?
 	('takes' timeFunction=ComplexTimefunction)?
-	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
+	Parameters?
 	'}')?;
 
 LogicalConnector returns LogicalConnector:
 	'logicalConnector'
-	name=EString
-	source=[Pin|EString] '->' target=[Pin|EString]
+	Name
+	(source=[Pin|EString])? '->' (target=[Pin|EString])?
 	('{'
-	('doc' PROPERTY_ASSIGN documentation=EString)?
+	Documentation?
 	('takes' timeFunction=ComplexTimefunction)?
-	('parameters' '{' parameters+=Parameter ("," parameters+=Parameter)* '}')?
+	Parameters?
 	'}')?;
 
 Connectionspeed returns Connectionspeed:
@@ -817,16 +825,16 @@ Connectionspeed returns Connectionspeed:
 
 Human_Impl returns Human:
 	{Human}
-	'human' name=EString
+	'human' Name
 	('{'
-	('doc' PROPERTY_ASSIGN documentation=EString)?
+	Documentation?
 	'}')?;
 
 Robot returns Robot:
 	{Robot}
-	'robot' name=EString
+	'robot' Name
 	('{'
-	('doc' PROPERTY_ASSIGN documentation=EString)?
+	Documentation?
 	'}')?;
 
 /* EXECUTION */
@@ -880,23 +888,19 @@ Addition returns execution::Expression:
 	{execution::Addition}
 	left=Multiplication ({execution::Addition.left=current}
 	(addition?='+' | subtraction?='-')
-	right=Multiplication)*
-;
+	right=Multiplication)*;
 
 Multiplication returns execution::Expression:
 	{execution::Multiplication}
 	left=Exponentiation ({execution::Multiplication.left=current}
 	(multiplication?='*' | division?='/')
-	right=Exponentiation)*
-;
-	
-Exponentiation returns execution::Exponentiation: 
+	right=Exponentiation)*;
+
+Exponentiation returns execution::Exponentiation:
 	{execution::Exponentiation}
 	left=Primary ({execution::Exponentiation.left=current}
 	'^'
-	right = (LiteralInteger | LiteralBoolean | LiteralFloat | LiteralDouble | LiteralLong |	LiteralShort | LiteralByte))*
-;
-
+	right=(LiteralInteger | LiteralBoolean | LiteralFloat | LiteralDouble | LiteralLong | LiteralShort | LiteralByte))*;
 
 AssignableElement returns execution::AssignableElement:
 	Variable | OutputPin;
@@ -909,27 +913,19 @@ LiteralInteger returns core::LiteralInteger:
 	value=EInt;
 
 ReferenceableItem returns execution::ReferenceableItem:
-	Variable | Const
-;
+	Variable | Const;
 
-ParameterReference returns execution::ParameterReference: 
+ParameterReference returns execution::ParameterReference:
 	{execution::ParameterReference}
-	'@'parameter=[analysis::Parameter]
-;
-
-
+	'@' parameter=[analysis::Parameter];
 
 InputPinReference returns execution::InputPinReference:
 	{execution::InputPinReference}
-	'$'inputPin=[InputPin]
-;
+	'$' inputPin=[InputPin];
 
 InputPinAttributeReference returns execution::InputPinAttributeReference:
 	{execution::InputPinAttributeReference}
-	'$'inputPin=[InputPin]'.'attribute=[core::AttributeSpecification]
-;
-
-
+	'$' inputPin=[InputPin] '.' attribute=[core::AttributeSpecification];
 
 Variable returns execution::Variable:
 	'var' name=ID ('=' expression=Expression)? ';';
