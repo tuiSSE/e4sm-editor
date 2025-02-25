@@ -21,6 +21,7 @@ import org.eclipse.xtext.formatting2.regionaccess.ISemanticRegion;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
+import org.eclipse.xtext.xbase.lib.XbaseGenerated;
 
 @SuppressWarnings("all")
 public class E4smFormatter extends AbstractFormatter2 {
@@ -280,6 +281,7 @@ public class E4smFormatter extends AbstractFormatter2 {
     }
   }
 
+  @XbaseGenerated
   public void format(final Object _person, final IFormattableDocument doc) {
     if (_person instanceof Person) {
       _format((Person)_person, doc);

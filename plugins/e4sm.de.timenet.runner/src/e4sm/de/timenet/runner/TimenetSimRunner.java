@@ -6,11 +6,9 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.UnknownHostException;
 
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-
 import client.Client;
 import client.SimulationParameters;
 //import communication.ProtocolException;

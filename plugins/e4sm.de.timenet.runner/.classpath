@@ -7,13 +7,11 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="lib"/>
+	<classpathentry kind="lib" path="lib/antlr.jar"/>
+	<classpathentry kind="lib" path="lib/gpal.jar"/>
+	<classpathentry kind="lib" path="lib/gpsc.jar"/>
+	<classpathentry kind="lib" path="lib/jargs.jar"/>
+	<classpathentry kind="lib" path="lib/RemoteSystem.jar"/>
 	<classpathentry kind="output" path="bin"/>
-	<!-- 
-		TODO: uncomment and set accordingly to your TimeNET installation path
-	<classpathentry kind="lib" path="C:/git/TimeNET/TimeNET/GPAL/build/libs/GPAL.jar"/>
-	<classpathentry kind="lib" path="C:/git/TimeNET/TimeNET/GPSC/build/libs/GPSC.jar"/>
-	<classpathentry kind="lib" path="C:/git/TimeNET/TimeNET/lib/antlr.jar"/>
-	<classpathentry kind="lib" path="C:/git/TimeNET/TimeNET/lib/jargs.jar"/>
-	<classpathentry kind="lib" path="C:/git/TimeNET/TimeNET/RemoteSystem/build/libs/RemoteSystem.jar"/>
-	-->
 </classpath>
